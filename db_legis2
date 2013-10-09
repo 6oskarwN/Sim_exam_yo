@@ -1,0 +1,758 @@
+Legislatie, clasa II v.3.05  versiune actualizata pe http://examyo.scienceontheweb.net
+63
+##0#
+a
+01A3217~&Este permis radioamatorilor sa asculte traficul radio de pe alte frecvente decat cele alocate serviciului de amator?
+null
+ Nu, interceptarea intentionata a altor servicii de radiocomunicatie este interzisa, exceptie fac doar situatiile de dezastre naturale, situatii care primejduiesc vieti omenesti
+ Da, atat timp cat nu se emite se poate asculta orice frecventa
+ Nu, ascultarea frecventelor politiei si a armatei este strict interzisa in Romania
+ Da, daca echipamentul folosit permite acest lucru
+YO3HAF, Bucuresti, 2005 - rev.2010
+null
+Art. 23 din Regulament
+YO6OWN, 2010
+##1#
+a
+01B3201~&Cum se defineste termenul de radiocomunicatie?
+null
+ Orice emisie sau receptie de semne, semnale, scrieri, imagini, sunete sau informatii de orice alta natura realizata cu ajutorul undelor radioelectrice
+ Emisie si receptie TX/RX
+ Orice emisie sau receptie de semne si semnale luminoase
+ Orice emisie sau receptie de semne, semnale, scrieri, imagini, sunete sau informatii de orice alta natura realizata cu ajutorul semnalelor luminoase
+YO3HAF, Bucuresti, 2005 - rev.2007(rev 2010)
+null
+Chiar daca regulamentul din 2010 nu are o atare descriere, radiocomunicatia e comunicatia utilizand undele radio. Iar comunicatia este un transfer de informatii si/sau date pe canalul de comunicatie(radio in cazul nostru)
+YO6OWN, Brasov, 2010
+##2#
+a
+01A3219~&Care este unul din documentele cu care trebuie sa fie prevazuta orice statie de amator?
+null
+ Regulamentul de radiocomunicatii pentru serviciul de amator din Romania
+ Actele de provenienta a statiei
+ Buletinul operatorului
+ Certificatul de nastere si buletinul operatorului
+YO3HAF, Bucuresti, 2005 -rev.2010
+null
+Art. 25 - (1) Orice statie de radioamator trebuie sa fie prevazuta cu urmatoarele documente:<br>a) autorizatia de radioamator a titularului;<br><b>b) Regulamentul de radiocomunicatii pentru serviciul de amator din Romania;</b><br>c) jurnalul de trafic al statiei.<br>(2) Documentele enumerate mai sus se vor afla in permanenta la statie si vor fi prezentate la cererea ANCOM.
+YO6OWN, Brasov, 2010
+##3#
+a
+01A3212~&Este interzisa transmiterea mesajelor care:
+null
+ Contin expresii indecente sau insultatoare
+ Contin expresii matematice deoarece pot fi interpretate ca fiind coduri secrete
+ Contin indicative apartinand altor servicii de radiocomunicatie
+ Contin indicative ale unor statii de club fara ca acestea sa fie prezente pe frecventa
+YO3HAF, Bucuresti, 2005 -rev.2010
+null
+Art 18, b)
+YO6OWN, Brasov, 2010
+##4#
+a
+02A3212~&Este interzisa transmiterea mesajelor care:
+null
+ Contin expresii indecente sau insultatoare
+ Contin mutari de la partide de sah (ex. Na1vPb2) deoarece pot fi interpretate ca fiind coduri secrete
+ Contin indicative apartinand altor servicii de radiocomunicatie
+ Contin indicative ale unor statii de club fara ca acestea sa fie prezente pe frecventa
+YO6OWN, Sacele, 2005 (rev. 2010)
+null
+Art 18, b)
+YO6OWN, Brasov, 2010
+##5#
+a
+01A3206~&Este permisa folosirea emisiunilor cu modulatie vocala criptata?:
+null
+ Nu, nu se permite nici un fel de criptare, codare sau modulare, alta decat cele permise in Regulamentul serviciului de Amator
+ Da, cat timp cheia este fixa si publica, astfel incat ANCOM sa poata controla QSO-ul
+ Da, doar pentru experimente, si avand cheia de criptare publica
+ Da, doar pentru experimente, si folosind doar unica cheie publica data de ANCOM
+YO6OWN, Sacele, 2005(rev. 2010)
+null
+Gandind la sloganul 'radioamatorismul e pentru toti', nu se poate emite intr-un fel in care cineva sa nu poata receptiona. Este foarte important mai ales ca pentru trafic de urgenta sa se foloseasca un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Legal, in regulament este data lista de modulatii si moduri(A1A, J3E samd.) si niciunul din moduri nu e criptat. 
+YO6OWN, Brasov, 2009
+##6#
+a
+02A3206~&Cum poate testa un radioamator un nou tip de modulatie inca nepermis de Regulament, insa care va fi permis probabil in curand? Radioamatorul are doua echipamente ce folosesc acest nou mod.
+null
+Nu se emite in eter, ci intr-un ghid de unda/coax neradiant, ca capetele caruia se afla echipamentele respective
+Poate emite cu puteri de pana la 100 mW, pentru a fi receptionat dincolo de raza localitatii
+Poate emite, insa cu puteri mici de pana la 100 mW, cu pauza de minimum 10 min. intre emisiuni pentru a fi sigur ca nu interfereaza
+Poate emite, pentru ca pana vine cardul QSL, acest tip de modulatie va fi permis.
+YO6OWN, Sacele, 2005(rev. 2010)
+null
+Daca e neradiant, atunci nu e radio-emisie, si atunci nu perturba pe nimeni.
+YO6OWN, 2010
+##7#
+a
+02B3217~&Este permis altor servicii de radiocomunicatie sa foloseasca benzile destinate serviciului de amator?
+null
+ Da, anumite benzi de frecventa ale serviciului de amator pot fi folosite in caz de dezastre naturale si de alte servicii
+ Nu, fiecare serviciu de radiocomunicatie are alocata cate o banda de frecvente si depasirea ei este interzisa
+ Da, dar numai pentru banda de tip Citizen Band (C.B.)
+ Da, dar numai daca puterea folosita nu depaseste 1W pentru a nu perturba traficul intre radioamatori
+YO3HAF, Bucuresti, 2005 (rev.2010)
+null
+Benzile de radioamatori cu statut secundar se pot folosi de catre serviciile care au statutul primar. De asemenea in caz de dezastre naturale.
+YO6OWN, Brasov, 2010
+##8#
+a
+01A3224~&Este permis unui politist de la serviciul circulatie in timpul liber sa folosesca (sa emita) pe frecventele servicului de amator?
+null
+ Da, daca politistul este radioamator autorizat
+ Da, in cazul producerii unui accident rutier grav poate cere ajutor radioamatorilor pentru a anunta serviciile de ambulanta
+ Da, dar mai intai trebuie sa ceara voie dispeceratului
+ Da, dar numai QRP maxim 300mW
+YO3HAF, Bucuresti, 2005 (rev.2010)
+null
+Dupa cum se stie, radioamatorii au profesii care nu ii impiedica sa fie si radioamatori in timpul liber.
+YO6OWN, Brasov, 2010
+##9#
+a
+01A3237~&Cine are dreptul sa efectueze la domiciliu controlul statiei si a normelor tehnice de exploatare?
+null
+Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii(ANCOM)
+Inspectoratul General al Politiei (IGP)
+Serviciul Transmisiuni Speciale (STS)
+Serviciul Paza si Protectie (SPP)
+YO3HAF, Bucuresti, 2005 (rev. 2010)
+null
+Regulament, Art, 54, (1)
+YO6OWN, 2010
+##10#
+c
+01A3203~&In functie de modul de folosire statiile de amator se impart in:
+null
+statii de receptori, statii de emitatori.
+statii standard si statii modificate de operator
+statii fixe, mobile si portabile
+statii de club, statii individuale, statii de concurs
+YO6GZI, Sacele, 2004(rev.2010)
+null
+
+
+##11#
+b
+01A3204~&In functie de titularul autorizatiei statiile de amator se impart in:
+null
+Statii fixe si statii mobile.
+Statii de club si statii individuale.
+Statii de receptori si statii de emitatori.
+statii de putere mica si statii de putere mare.
+YO6GZI, Sacele, 2004(rev.2010)
+null
+Art. 5, Regulament
+YO6OWN, Brasov, 2010
+##12#
+d
+01A3220~&La concursurile de radiogoniometrie concurentii folosesc:
+null
+statii emisie-receptie SSB
+statii emisie de putere mica in 2m
+statii de receptie cu demodulare rapida de frecventa
+statii de receptie SSB sau CW
+YO6GZI, Sacele, 2004(rev.2010)
+null
+
+
+##13#
+c
+01A3207~&Statiile de radioclub din Romania au prima litera a sufixului:
+null
+Y
+C
+K
+R
+YO6GZI, Sacele, 2004(rev.2010)
+null
+Art. 12, b)
+YO6OWN, 2010
+##14#
+b
+01A3236~&Care este masura pe care o poate lua ANCOM in cazul in care titularul unei statii de radioamator refuza sa se supuna (se sustrage) somatiei emise de catre ANCOM, ca urmare a abaterilor de la Regulament?
+null
+sanctionarea cu amenda de la 500.000 lei la 500.000.000 lei
+retragerea autorizatiei de radioamator
+anularea certificatului si a autorizatiei de radioamator
+amenda penala
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+Art 52-58
+YO6OWN, 2010
+##15#
+a
+01A3240~&Banda de 50 - 52 MHz este alocata radioamatorilor din Romania?
+null
+da
+nu
+nu, fiindca nu este banda pentru radioamatori
+da, insa doar pentru modurile AM si FM, SSB nu e permis
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##16#
+b
+01A3241~&Care este statutul benzii de 50MHz si puterea aparent radiata maxima in aceasta banda pentru radioamatorii de clasa III?
+null
+primar-50W
+secundar- 100W
+secundar-20W
+primar - 400W
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+Rspunsul se obtine din Anexele 2 si 3 la Regulament
+yo6own
+##17#
+a
+02A3241~&Ce tipuri de semnale pot fi transmise in banda de 80m/3.5MHz?
+null
+morse,RTTY,SSB,SSTV
+doar date
+doar RTTY si SSTV
+doar morse si SSB - banda inferioara(LSB)
+YO6OWN, Sacele, 2005(rev.2010)
+null
+
+
+##18#
+b
+01A3230~&Ce clasa de autorizatie trebuie sa posede un responsabil de statie de club?
+null
+clasa a II-a
+clasa I
+clasa a II-a sau clasa a I
+clasa a III-a
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##19#
+a
+01A3235~&Dupa cate zile se poate elibera un duplicat pentru un certificat de radioamator?
+null
+15 zile
+30 zile
+60 zile
+90 zile
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+Art 50
+YO6OWN, 2010
+##20#
+b
+02A3235~&Ce obligatii are un radioamator la schimbarea numelui?
+null
+preda autorizatia la radioclubul de care apartine
+anunta ANCOM in scris, anexand xerocopia legalizata a actului legal cu care justifica schimbarea numelui
+nu are obligatii
+anunta in scris Asociatia Judeteana de Radioamatorism
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+Art. 51 - Pentru modificarea datelor inscrise in autorizatie titularul trebuie sa depuna la unitatea emitenta o cerere de modificare insotita de copii legalizate ale documentelor care atesta necesitatea modificarii solicitate.
+YO6OWN, 2010
+##21#
+d
+01A3221~&Cate clase au certificatele de radioamator in Romania?
+null
+Cl I, cl. II si Novice conform CEPT
+A,B (tip HAREC)
+I-a, avansat, incepator, restrans
+cl. I, II, III, III-R
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##22#
+c
+01A3213~&Semnalele de test emise in antena nu pot depasi:
+null
+10 secunde
+20 secunde
+nu se specifica durata, insa trebuie sa fie de o durata cat mai scurta posibil.
+30 secunde
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev. 2010)
+null
+Regulament, Art. 19
+yo6own
+##23#
+c
+01A3211~&In trafic se admit prescurtari la transmiterea indicativelor de apel?
+null
+da, cu aprobarea ANCOM
+da, numai in concursuri cu aprobarea FRR
+nu
+doar in traficul de primejdie
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##24#
+c
+01A3202~&Dupa natura activitatii, statiile de radioamator sunt:
+null
+Statii fixe, de receptie, individuale
+Statii individuale, de club, de emisie-receptie
+Statii de receptie, de emisie-receptie
+Statii de emisie-receptie si statii de goniometrie
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##25#
+c
+02A3203~&Dupa modul de folosire, statiile de radioamator sunt:
+null
+Statii individuale si de club
+Statii de receptie si de emisie-receptie
+Statii fixe, mobile si portabile
+Statii pe acumulatori si statii alimentate la retea
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##26#
+b
+02A3224~&Cine reglementeaza activitatea de radioamator din Romania?
+null
+Ministerul Postelor si Comunicatiilor
+Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii
+Ministerul Transporturilor si Telecomunicatiilor
+Ministerul Sportului
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##27#
+b
+01A3210~&Cine acorda si tine evidenta indicativelor de apel ale statiilor de amator?
+null
+Directia de Posta si Telecomunicatii
+Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii
+Federatia Romana de Radioamatorism
+Comisia Nationala Radio
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##28#
+b
+02A3236~&Cand anunta radioamatorul incetarea activitatii?
+null
+cu 15 de zile inainte de incetarea activitatii
+In momentul cand doreste incetarea activitatii, anexand la cerere si autorizatia in original.
+nu anunta incetarea activitatii
+dupa 30 de zile de la incetarea activitatii
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##29#
+a
+03A3241~&Posesorul unei autorizatii de clasa a III-a, poate opera o statie de radioamator in banda de 18 MHz?
+null
+da
+nu
+da, cu aprobarea ANCOM, in cazuri deosebite
+da, cu aprobarea Radiocluburilor Judetene      
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##30#
+a
+04A3241~&Cu ce putere (putere maxima de iesire) poate lucra un radioamator de clasa a III-a in banda de 1,8 MHz?
+null
+100 W
+25 W
+nu are dreptul sa lucreze in aceasta banda
+0.5 W
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##31#
+b
+05A3241~&Cu ce putere maxima de iesire poate lucra un radioamator de clasa a III-a in banda de 28 MHz?
+null
+5W
+100W
+nu are dreptul sa lucreze in aceasta banda
+25W
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##32#
+b
+06A3241~&Cu ce putere maxima de iesire poate lucra un radioamator de clasa a III-a in banda de 14 MHz?
+null
+5W
+100W
+nu are dreptul sa lucreze in aceasta banda
+25W
+YO6OWN, Brasov, 2010
+null
+Dupa regulamentul din 2010 radioamatorii clasa III nu mai au restrictie la niciuna din benzile permise claselor superioare, sunt limitate doar in putere.
+YO6OWN, Brasov, 2010
+##33#
+b
+07A3241~&Cu ce putere maxima de iesire poate lucra un radioamator de clasa a III-a in banda de 21 MHz?
+null
+5W
+100W
+nu are dreptul sa lucreze in aceasta banda
+25W
+YO6OWN, Brasov, 2010
+null
+Dupa regulamentul din 2010 radioamatorii clasa III nu mai au restrictie la niciuna din benzile permise claselor superioare, sunt limitate doar in putere.
+YO6OWN, Brasov, 2010
+##34#
+c
+02A3204~&De cate categorii pot fi statiile de club?
+null
+I sau II
+I, II, III
+I
+Clasa statiei de club este clasa operatorului
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##35#
+d
+01A3239~&Unde poate face plangere un radioamator care a primit sanctiune din partea unei Directii Teritoriale a ANCOM?
+null
+la Directia Teritoriala a ANCOM din zona de care apartine, in termen de 15 zile
+la Federafia Romana de Radioamatorism
+la Directia Teritoriala a ANCOM care a dispus sanctiunea, in termen de 15 zile
+la judecatoria in a carei circumscriptie a fost savarsita contraventia.
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##36#
+a
+02A3240~&Ce domeniu de frecvente corespunde benzii de 2m alocate radioamatorilor in Romania?
+null
+144 - 146 MHz
+143 - 144 MHz
+432 - 447 MHz
+430 - 432 MHz
+YO6GZI, Sacele, 2004(rev.2010)
+null
+
+
+##37#
+c
+03A3240~&Ce domeniu de frecvente corespunde benzii de 70cm alocate radioamatorilor in Romania?
+null
+144 - 146 MHz
+432 - 440 MHz
+430 - 440 MHz
+430 - 431 MHz
+YO6GZI, Sacele, 2004(rev.2010)
+null
+
+
+##38#
+d
+04A3240~&Ce domeniu de frecvente corespunde benzii de 160m?
+null
+144 - 146 MHz
+3,5 - 3,8 MHz
+432 - 438 MHz
+1,8 - 2,05 MHz
+YO6GZI, Sacele, 2004(rev.2010)
+null
+
+
+##39#
+d
+02A3201~&Care dintre cele enumerate sunt o parte a scopurilor serviciului de radioamator?
+null
+De a proteja datele istorice si a ajuta publicul la intelegerea istoriei radioului.
+De a ajuta tarile straine sa-si imbunatateasca tehnicile de comunicare radio si a incuraja radioamatorii straini sa viziteze Romania.
+De a imbunatati tehnicile de desenare a schemelor radio si a mari numarul specialistilor proiectanti.
+De a spori numarul celor instruiti in radiotehnica si electronica si a contribui la promovarea spiritului de pace si prietenie, asa-numitul 'HAM-spirit'.
+YO6GZI, Sacele, 2004(rev.2010)
+null
+Din regulament: serviciul de amator este serviciul de radiocomunicatii avand ca scop autoinstruirea, intercomunicatiile si investigatiile tehnice efectuate de radioamatori, in conditiile legii, interesate de tehnica radiocomunicatiilor, numai in scop personal si fara nici un interes pecuniar;<br>
+YO6OWN, Brasov, 2010
+##40#
+c
+03A3224~&Cine poate emite in benzile de radioamatori?
+null
+radioamatorii si serviciile de ambulanta, politie si salvamont
+radioamatorii autorizati  si salvamontul
+radioamatorii autorizati
+radioamatorii autorizati si personalul ANCOM
+YO6OWN, Sacele, 2005(rev.2007)
+null
+
+
+##41#
+a
+01A3205~&Radioamatorii receptori trebuie sa detina vreo autorizatie pentru a putea receptiona benzile de radioamatori?
+null
+nu, fiindca receptia benzilor de radioamatori este libera
+da, trebuie sa dea o declaratie pe proprie raspundere ca detin doar receptoare in benzile de radioamator, pe baza ei primind o autorizatie de receptie
+da, receptia benzilor fara autorizatie este interzisa
+da, autorizatia de receptor este necesara la inscrierea la examenul de radioamator
+YO6OWN, Sacele, 2005(rev.2010)
+null
+Art. 7 - Utilizarea statiilor de radioamator de receptie este libera;
+YO6OWN, 2010
+##42#
+d
+03A3201~&Ce urmareste activitatea de radioamator?
+null
+Transmiterea de radiograme, contra cost
+Difuzarea de muzica in FM
+Urmarire de posturi radio foarte indepartate
+instruire individuala sau in colectiv in domeniul radiotehnicii, participare la concursuri, experimentare
+YO6OWN, Sacele, 2005(rev.2010)
+null
+Din regulament: serviciul de amator - serviciul de radiocomunicatii avand ca scop autoinstruirea, intercomunicatiile si investigatiile tehnice efectuate de radioamatori, in conditiile legii, interesate de tehnica radiocomunicatiilor, numai in scop personal si fara nici un interes pecuniar;<br>
+YO6OWN, Brasov, 2010
+##43#
+b
+01A3218~&In ce document se consemneaza activitatea de emisie-receptie a unei statii de radioamator?
+null
+Foaie de activitate
+Logul statiei
+Formular de concurs
+Foaia de urmarire a activitatii statiei
+YO6OWN, Sacele, Brasov(rev.2010)
+null
+
+
+##44#
+d
+04A3201~&Care este definitia unei statii de amator?
+null
+Statie de emisie-receptie folosita de amatorii care asculta radiodifuziunea.
+Statie de emisie-receptie folosita in scopuri comerciale.
+Aparat radio folosit pentru ascultarea posturilor pe frecvente neconventionale.
+Statie de emisie-receptie folosita in serviciul de radioamator.
+YO6GZI, Sacele, 2004(rev.2010)
+null
+
+
+##45#
+a
+03A3235~&Cine emite un duplicat pentru un certificat sau autorizafie de radioamator?
+null
+Directia Teritoriala ANCOM care a emis documentul
+orice Directie Teritoriala
+Biroul central al ANCOM
+Federatia Romana de Radioamatorism
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##46#
+a
+03A3203~&Cum pot fi folosite statiile de emisie-receptie de catre titular?
+null
+din amplasament fix, mobil sau portabil, cu respectarea Regulamentului
+doar in regim portabil
+Se pot folosi din amplasament fix, mobil sau portabil, insa doar la adresa/adresele inscrisa in autorizatie, cu respectarea Regulamentului
+doar din amplasament fix, la adresa inscrisa in autorizatie
+YO6OWN, Sacele, 2005(rev.2010)
+null
+
+
+##47#
+a
+03A3236~&In ce cazuri pot fi retrase autorizatiile de radioamator?
+null
+pentru abateri de la prevederi ale regulamentului sau la cererea titularului
+pentru manipulare defectuoasa in Morse
+pentru inscrisuri nereale in LOG
+pentru inactivitate
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##48#
+a
+02A3237~&In ce cazuri un titular de autorizatie poate pierde definitiv dreptul de a mai activa vreodata ca radioamator?
+null
+are autorizatie de radioamator falsificata sau obtinuta in mod fraudulos
+autorizatie de radioamator neingrijita
+la folosirea unei benzi de radioamatori nepermise de nivelul de autorizare
+lucrul la o statie de radioamator a carei proprietar nu a platit tariful de folosinta pe anul in curs
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##49#
+c
+02A3218~&Pastrarea la o statie a jurnalului de trafic este obligatorie? Cat timp de la data efectuarii ultimei legaturi consemnate?
+null
+nu
+da, 12 luni
+da, 6 luni
+da, 2ani
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##50#
+a
+02A3207~&Grupele de litere YP, YQ, YR pot fi atribuite ca prefix unui indicativ din Romania?
+null
+da, cu aprobarea ANCOM
+nu
+da, cu aprobarea Asociatiei Judetene de Radioamatorism
+da, cu aprobarea Federatiei Romane de Radioamatorism
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##51#
+c
+02A3221~&Cate semne trebuie sa transmita in Morse un candidat pentru clasa III restrans?
+null
+30 semne
+50 semne
+nu se mai sustine proba de telegrafie
+12 semne pe minut, timp de 3 minute
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##52#
+b
+02A3230~&Cine raspunde de activitatea unei statii de club?
+null
+seful radioclubului
+responsabilul statiei de club
+operatorul principal al statiei de club
+operatorul de moment al statiei de club
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##53#
+c
+01A3238~&Ce obligatii are titularul sau responsabilul unei statii la care sunt autorizati radioamatori de clasa R?
+null
+nu au obligatii
+radioamatorii de clasa R au aceleasi drepturi ca si cei de clasa III, dar incepatori
+asigurarea functionarii statiei in stricta conformitate cu prevederile normelor tehnice in vigoare, permitand radioamatorului de clasa R lucrul la statie numai in prezenta sa
+Sa-i ajute sa devina buni radioamatori
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##54#
+b
+03A3221~&Ce este un certificat de radioamator?
+null
+un document emis de un radioclub care face dovada ca posesorul este membru al acelui club
+un document care face dovada ca posesorul are cunostinte si aptitudini necesare unui radioamator, este dobandit in urma unui examen
+un document emis de Federatia Romana de Radioamatorism care atesta apartenenta posesorului la un club
+un document care permite lucrul la o statie de radioamator
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##55#
+c
+02A3211~&Radioamatorii ce transmit de la o statie de club, transmit obligatoriu indicativul statiei sau cel propriu?
+null
+cel propriu
+cel al statiei de club
+cel al statiei de club si optional si pe cel propriu
+cel al responsabilului statiei de club si optional cel propriu
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##56#
+b
+03A3237~&Cine are dreptul sa controleze traficul de radioamatori?
+null
+Federatia Romana de Radioamatorism
+Organele abilitate ale Autoritatii Nationale pentru Administrare si Reglementare in Comunicatii
+Radiocluburile Judetene
+Radiocluburile, prin organizarea controlului practicarii radioamatorismului in zona lor de influenta
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##57#
+c
+01A341~&Intreaga activitate a unei statii de emisie-receptie este consemnata in jurnalul de trafic (LOG)? Daca da, ce trebuie sa avem in acest LOG?
+null
+da, indicativul statiei cu care s-a lucrat, data, ora Romaniei
+nu. indicativul statiei, data
+da, data, ora UTC, banda in care s-a efectuat legatura, clasa de emisie, indicativul statiei corespondente
+da, data, ora GMT, banda in care s-a efectuat legatura, controlul RST, indicativul statiei corespondente
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev. 2010)
+null
+Se trec toate datele care pot identifica unic un QSO: Indicativul corespondentului, Data si ora UTC, clasa de emisie si frecventa benzii de lucru. Acestea sunt datele minime, se pot adauga si alte amanunte interesante, daca exista.
+YO6OWN, Brasov, 2007
+##58#
+d
+03A3218~&Pot exista neconcordante intre traficul real si inscrierile din jurnalul de trafic?
+null
+da
+da, cand acestea se fac cunoscute la ANCOM in scris
+nu
+nu, cu exceptia legaturilor de concurs, care se trec pe foaia de concurs si a lucrului in portabil sau mobil care pot sa nu se treaca in jurnal.
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##59#
+a
+01A3232~&Radioamatorii straini care nu poseda licenta CEPT pot lucra in Romania?
+null
+da, dupa obtinerea unei autorizatii de la ANCOM, in cazurile prevazute de regulament
+nu
+da, cu aprobarea Federatiei Romane de Radioamatorism
+da, de la statia unui radioamator roman
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##60#
+c
+03A3211~&Indicativul statiei care emite trebuie mentionat cel tarziu la fiecare:
+null
+5 minute
+25 minute
+10 minute
+2 minute
+IGCTI Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+null
+
+
+##61#
+a
+01A3234~&Mutarea la un nou amplasament fix sau folosirea unui nou amplasament fix pentru statia de amator poate incepe:
+null
+numai dupa primirea autorizatiei de radioamator
+30 de zile dupa mutare
+30 de zile inainte de mutare
+20 de zile dupa mutare, anexand copia dupa buletinul de identitate
+YO6OWN, Brasov, 2007(rev.2010)
+null
+
+
+##62#
+d
+01A3223~&Care este varsta minima la care cineva se poate inscrie la examenul de radioamator?
+null
+6 ani
+7 ani
+18 ani
+nu exista limita de varsta
+YO6OWN, Sacele, 2005(rev. 2010)
+null
+
+

@@ -1,0 +1,221 @@
+programa CEPT NOVICE - radiotehnica, clasa III [v3.04]
+
+PROGRAMA ANALITICA DE EXAMINARE DETALIATA
+
+A) PROBLEME CU CONTINUT TEHNIC
+
+CAPITOLUL 1
+
+NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM sI RADIO
+
+1.1. Conductibilitatea
+111&-	Conductoare, semiconductoare si izolatoare
+112&-	Curentul, tensiunea si rezistenta
+113&-	Unitatile de masura Amper, Volt, Ohm 
+114&-	Legea lui Ohm   
+115&-	Puterea electrica    
+116&-	Wattul
+118&-	Energia electrica(nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte/hi/)
+
+1.2. Surse de electricitate
+121&-	Surse de tensiune si baterii
+119&-	Capacitatea unei baterii  [ A x h ](nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte)
+
+1.3. Campul electromagnetic
+131&-	Undele radio ca unde electromagnetice
+132&-	Viteza de propagare si relatia dintre frecventa si lungimea de unda   
+133&-	Polarizarea campului electromagnetic
+134&-	Frecventa
+135&-	Hertz-ul
+
+1.4. Semnale audio si digitale
+141&-	Semnale audio
+142&-	Semnale digitale
+143&-	Semnale dreptunghiulare, triunghiulare, dinte de ferastrau(nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte)
+
+l.5. Semnale modulate
+Avantajele si dezavantajele:
+151&-	Modulatiei de amplitudine (AM)
+152&-	Modulatiei de amplitudine cu banda laterala unica (SSB)
+153&-	Modulatiei de frecvent
+154&-	Purtatoare, benzi laterale si largime de banda
+
+1.6. Puterea 
+161&-	Puterea de intrare de curent continuu si puterea de iesire de radiofrecventa
+
+CAPITOLUL 2
+
+COMPONENTE
+
+2.1. Rezistorul 
+211&-	Rezistenta
+212&-	Unitatea de masura (Ohm)
+213&-	Disipatia de putere
+214&-	Codul culorilor
+215&-	Rezistoare in serie si paralel 
+
+
+2.2. Condensatorul
+221&-	Capacitatea
+222&-	Unitatea de masura a capacitatii (Faradul)
+223&-	Utilizarea condensatoarelor fixe si variabile cu aer, mica, plastic, ceramica si electrolitici
+224&-	Condensatoare in paralel
+
+2.3. Bobina
+231&-	Unitatea de masura a inductantei (Henry)
+
+2.4. Transformatoare - aplicatii si utilizare
+241&-	Transformatoare (aplicatii) 
+
+2.5. Diode
+251&-	Utilizare si aplicatii ale diodelor
+252&-	Dioda redresoare, dioda Zener
+
+2.6. Tranzistorul
+261&-	Utilizarea tranzistorului ca amplificator sau oscilator
+263&-	Tranzistorul cu efect de camp (canal N si canal P, TEC-j) (nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte) 
+
+2.7. Circuite acordate
+271&-	Functionarea circuitelor acordate serie sau paralel 
+
+2.8 Diverse
+283&-	Circuite integrate digitale simple (nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte)
+
+CAPITOLUL 3
+
+CIRCUITE
+
+3.1. Filtre
+311&-	Filtru trece-jos, trece-sus, trece-banda si opreste-banda; utilizare si aplicatii
+
+CAPITOLUL 4
+
+RECEPTOARE
+
+4.1. Tipuri
+411&-	Receptorul superheterodina cu simpla si dubla schimbare de frecventa
+412&-	Receptoare cu conversie directa
+
+4.2. Scheme bloc
+421&-	Receptorul CW (AlA)
+422&-	Receptorul AM (A3E)
+423&-	Receptorul SSB pentru telefonie cu purtatoare suprimata (J3E) 
+424&-	Receptorul FM (F3E)
+
+4.3. Modul de operare si functionare al urmatoarelor etaje (se trateaza numai schema bloc) 
+431&-	Amplificatorul RF (cu banda fixa sau acordabila)
+432&-	Oscilatorul (fix si variabil) 
+433&-	Mixerul
+434&-	Amplificatorul de frecventa intermediara
+435&-	Detectorul
+436&-	Oscilatorul de batai 
+437&-	Amplificatorul de joasa frecventa (audio)
+438&-	Alimentarea cu energie 
+439&-	Squelch-ul
+
+
+
+CAPITOLUL 5
+
+EMITATOARE
+
+5.1. Scheme bloc
+511&-	Emitatorul CW (A1A)
+512&-	Emitatorul SSB pentru telefonie cu purtatoare suprimata (J3E)
+513&-	Emitatorul FM (F3E)
+
+5.2. Modul de operare si functionare al urmatoarelor etaje (se trateaza numai schema bloc) 
+521&-	Mixerul
+522&-	Oscilatorul 
+523&-	Separatorul 
+524&-	Driver-ul
+525&-	Multiplicatorul de frecventa 
+526&-	Amplificatorul de putere
+527&-	Filtrul de iesire (filtrul pi) 
+528&-	Modulatorul de frecventa 
+529&-	Modulatorul SSB
+52a&-	Alimentarea cu energie 
+
+5.3. Caracteristicile emitatoarelor (descriere simpla) 
+531&-	Stabilitatea de frecventa
+532&-	Largimea benzii de RF 
+533&-	Benzile laterale
+534&-	Puterea de iesire
+535&-	Radiatii neesentiale, armonici
+
+CAPITOLUL 6
+
+ANTENE SI LINII DE TRANSMISIUNE
+
+6.1. Tipuri de antene (constructie fizica, proprietatile de directivitate si polarizare)
+611&-	Dipolul in jumatate de unda alimentat la centru 
+612&-	Dipolul in jumatate de unda alimentat la capat 
+613&-	Antena verticala in sfert de unda (cu plan de masa) 
+614&-	Antena cu elemente pasive (Yagi)
+615&-	Puterea radiata (E.R.P., E.R.P.I)
+
+6.2. Metode de alimentare a antenei
+621&-	Fidere cu cablu coaxial sau panglica 
+622&-	Avantaje si dezavantaje
+623&-	Constructie si utilizare 
+
+6.3. Adaptarea
+631&-	Elemente de adaptare a antenelor (numai scop) 
+
+CAPITOLUL 7
+
+PROPAGARE (numai o descriere simpla)
+
+711&-	Straturile ionosferei
+712&-	Efectul ionosferei asupra propagarii HF
+713&-	Fading 
+714&-	Troposfera
+715&-	Efectul conditiilor de vreme asupra propagarii VHF/UHF
+716&-	Ciclurile solare si influenta asupra comunicatiilor
+717&-	Domeniile HF, VHF, UHF 
+718&-	Relatia intre frecventa si lungime de unda
+
+CAPITOLUL 8
+
+MASURARI
+
+8.1. Efectuarea masurarilor
+Masurarea:
+811&-	Tensiunilor si curentilor in curent continuu si alternativ 
+812&-	Rezistentei
+813&-	Puterii continue si de RF
+814&-	Frecventei
+
+8.2. Instrumente de masura
+Efectuarea masurarilor folosind:
+821&-	Instrument cu mai multe game (digital sau analogic)
+822&-	Puntea reflectometru (dispozitiv de masurare a coeficientului de unda stationara)
+823&-	Frecventmetru cu absorbtie
+824&-	Sarcina artificiala
+
+CAPITOLUL 9
+
+INTERFERENTE SI IMUNITATE
+
+9.1. Interferente in echipamentele electronice
+911&-	Interferenta cu semnalul dorit TV, VHF sau de radiodifuziune
+912&-	Interferente cu sistemele audio
+
+9.2. Cauzele interferentelor in echipamentele electronice  
+921&-	Radiatiile neesentiale ale emitatorului (radiatii parazite, armonici)
+922&-	Influente nedorite in echipamente care patrund prin:
+923&-	intrarea de antena (tensiuni din antena, selectivitatea intrarii)
+924&-	alte linii variante (alimentare, difuzoare si conectori de legatura)
+925&-	radiatie directa
+
+9.3. Masuri impotriva interferentelor
+Masuri pentru prevenirea si eliminarea efectelor interferentelor:
+931&-	Filtrarea in domeniul statiilor de radioamator
+932&-	Filtrarea in aparatelor perturbate
+933&-	Decuplarea
+934&-	Ecranarea
+935&-	Separarea antenelor de emisie si TV
+936&-	Prevenirea utilizarii antenelor alimentate la un capat
+937&-	Puterea minima
+938&-	O buna impamantare RF
+939&-	Efecte sociale (relatii bune cu vecinii)
