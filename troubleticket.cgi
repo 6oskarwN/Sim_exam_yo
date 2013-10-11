@@ -2,8 +2,7 @@
 
 # Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,
 # instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat 
-# in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o 
-# versiune ulterioara. 
+# in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2.
 # Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,
 # sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
 # Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.
@@ -16,7 +15,7 @@
 
 # This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and
 # utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
-# as published by the Free Software Foundation; either version 2 of the License, or any later version.
+# as published by the Free Software Foundation in version 2 of the License.
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty. 
 # See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with this software distribution; if not, you can
@@ -26,7 +25,7 @@
 
 # YO6OWN Francisc TOTH, Nov 2012
 
-#  troubleticket.cgi v.3.0.9
+#  troubleticket.cgi v.3.0.a
 #  Status: under test
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
@@ -641,8 +640,9 @@ sub legal
 my @dictionary=(
               'regexp',  #regular expression allowed
               'sex',
-              'porn',    #denied by sotw proxy
-              'proxy',   #denied by sotw proxy
+              'porn',    #denied by awardspace.com
+              'proxy',   #denied by awardspace.com
+              'vand',    #denied by awardspace.com
               '<\s*[a|A]\s+(href|HREF)'  #good idea not to give link-spammers chances
 
             );
@@ -1037,8 +1037,7 @@ print qq!SimEx Radio was created for YO6KXP ham-club located in Sacele, ROMANIA\
 print qq!\n!;
 print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,!;
 print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat!; 
-print qq!in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o !;
-print qq!versiune ulterioara.\n!; 
+print qq!in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2.\n !;
 print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
 print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
 print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
@@ -1052,7 +1051,7 @@ print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
 print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
 print qq!utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
-print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version.\n!;
+print qq!as published by the Free Software Foundation in version 2.\n!;
 print qq!This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty.!; 
 print qq!See the GNU General Public License for more details.\n!;
 print qq!You should have received a copy of the GNU General Public License along with this software distribution; if not, you can!;
