@@ -16,17 +16,25 @@
 use strict;
 use warnings;
 
-my $filename;
-my $programa;
+my $filename;	#name like db_xxx, input parameter ARGV[]
+my $programa;   #name like prog_CEPT_radiotehnica, input parameter ARGV[]
 
 my $in_line;
 my $counter; #counts the overall questions
 my $q_counter; #counts the number of lines of a question
-my $overall_err;
-my $overall_warnings;
+my $overall_err; #overall errors, counter
+my $overall_warnings; #overall warnings, counter
+my $iter;    #for cycle iteration variable
+my @dictionary =(
+                 'regexp',
+                 'sex',
+                 'porn',
+                 'proxy',
+                 'ativan'  #new name for Lorazepam
+                );
 
-$overall_err=0;
-$overall_warnings=0;
+$overall_err=0;       #init
+$overall_warnings=0;  #init
 
 $filename= $ARGV[0];
 $programa= $ARGV[1];
@@ -34,7 +42,7 @@ $programa= $ARGV[1];
 if(!defined( $filename)) {print "please enter db_xxx filename"; exit();}
 if(!defined( $programa)) {print "please enter prog_xxx filename"; exit();}
 
-####open hamquest file
+####open db_xxx hamquest file
 open(INFILE,"<", "$filename") || print "can't open $filename!\n"; #open the question file
 open(OUTFILE,">", "$filename.out") || print "can't open $filename.out\n";
 open(HTFILE, ">", "$filename.html") || print "can't open $filename.html";
@@ -47,14 +55,28 @@ printf HTFILE qq!<body bgcolor="forestgreen" text="aquamarine" link="white" alin
 
 #init the counter
 $counter = 0;
-$q_counter = 24;#init 
+$q_counter = 24;   #init with big dummy value 
 #rewind prompter in infile
 seek(INFILE,0,0); #go to the beginning
-$in_line=<INFILE>;
+
+$in_line=<INFILE>; #citim nr de intrebari  
 
 if(defined($in_line)){
+
 do
 {
+
+#pentru fiecare linie non-vida, verificam cuvintele banned din awardspace.com list
+foreach $iter (@dictionary)
+       {
+        if(lc($in_line) =~ /$iter/) #forces lower-case
+          {
+           print qq!dictionary badword \"$iter\" in $filename, question $counter-1\n!;
+           $overall_err++;
+          }
+       }
+
+
 if($in_line =~ /##/)
       {
 			if($q_counter != 11) {
@@ -111,7 +133,7 @@ printf HTFILE "%s<br>\n",$in_line;
 $q_counter++;
 }
 
-$in_line=<INFILE>;
+$in_line=<INFILE>; #fetch a new line from db_xx at the end of do {} while()
 }
 while(defined($in_line));
 
@@ -127,7 +149,7 @@ print "Numar intrebari NUMARATE in db: $counter\n";
 printf HTFILE qq!Overall errors: $overall_err<br>\n!;
 print "db_numbering: Errors: $overall_err\n";
 printf HTFILE qq!Warning/fara V3 code: $overall_warnings<br>\n!;
-print "db_numberig: lipsa v3 code: $overall_warnings\n";
+print "db_numbering: lipsa v3 code: $overall_warnings\n";
 printf HTFILE qq!</body>\n</html>\n!;
 
 close(HTFILE);

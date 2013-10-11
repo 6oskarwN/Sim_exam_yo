@@ -183,7 +183,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v.3.0.9</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v.3.0.a</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -324,7 +324,7 @@ close(ttFILE);
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v.3.0.9</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v.3.0.a</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -421,7 +421,7 @@ elsif($get_type eq 2) #guestbook first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v.3.0.9</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v.3.0.a</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
  print qq!<center>\n<b>Adauga in cartea de oaspeti, toate campurile sunt obligatorii (ai 15 minute)</b>\n!;
@@ -642,7 +642,7 @@ my @dictionary=(
               'sex',
               'porn',    #denied by awardspace.com
               'proxy',   #denied by awardspace.com
-              'vand',    #denied by awardspace.com
+              'ativan',    #denied by awardspace.com
               '<\s*[a|A]\s+(href|HREF)'  #good idea not to give link-spammers chances
 
             );
@@ -991,7 +991,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>sistem colectie erori examYO</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v.3.0.9\n!; #version print for easy upload check
+print qq!v.3.0.a\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h2 align="center">Actiune ilegala.</h2>\n!;
 print qq!<h4 align="center">$message</h4>\n!;
@@ -1022,7 +1022,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v.3.0.9\n!; #version print for easy upload check
+print qq!v.3.0.a\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
