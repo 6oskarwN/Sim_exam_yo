@@ -26,12 +26,13 @@
 
 # YO6OWN Francisc TOTH, 2010-2013
 
-#  sim_ver2.cgi v.3.0.b
+#  sim_ver2.cgi v.3.0.c
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.0.c text change - nu ai intrunit baremul la toate capitolele
 # ch 3.0.b better fixing reportig of troubles with &specials; and "overline" quotes - only (incorect) branch now, (propun) branch still buggy
 # ch 3.0.a modify window button to method="link" button
 # ch 3.0.9 fixing tickets with <sub> <sup> <span> in trouble reporting; &radic; &Omega; and other spec char still corrupted. "overline" quotes still corrupted
@@ -277,7 +278,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.b\n!; #version print for easy upload check
+print qq!v.3.0.c\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h2 align="center">Formularul de examen a fost evaluat deja sau ai depasit timpul alocat examenului.</h2>\n!;
 print qq!<h2 align="center">In caz ca ai depasit timpul alocat pentru examen, ai picat examenul.</h2>\n!;
@@ -359,7 +360,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.b\n!; #version print for easy upload check
+print qq!v.3.0.c\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Actiune ilegala, inregistrata in log.</h1>\n!;
 print qq!<h2 align="center">In cazul in care considerati ca acest mesaj nu ar fi trebuit sa apara, fiindca ati
@@ -397,7 +398,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.b\n!; #version print for easy upload check
+print qq!v.3.0.c\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa II</h2>\n!;
@@ -787,7 +788,7 @@ close(HLRfile);
 print qq!<table width="99%" bgcolor="lightblue" border="2"><tr><td>!;
 print qq!<font color="black">\n<u>Rezultat final:</u><br>\n!;
 if ($f_failed) { #exam is failed
-    print qq!<b>Nu ai trecut examenul.</b><br>\n Nu ai intrunit baremul minim la cel putin un capitol.<br>\n!;
+    print qq!<b>Nu ai trecut examenul.</b><br>\n Nu ai intrunit baremul la toate capitolele.<br>\n!;
                }
 else {
     print qq!<b>Ai trecut examenul.</b><br>\n Ai facut un scor bun la toate capitolele.<br>\n!;
