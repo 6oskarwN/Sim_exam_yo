@@ -1,4 +1,4 @@
-Intrebari radiotehnica clasa III versiunea 3.0f versiunea actualizata pe http://examyo.scienceontheweb.net
+Intrebari radiotehnica clasa III versiunea 3.11 versiunea actualizata pe http://examyo.scienceontheweb.net
 459
 ##0#
 c
@@ -1978,7 +1978,7 @@ d
  D
 Subiect public ANRCTI, 2007
 null
-Amplificatorul operational ideal, AO, este un element de sinteza a circuitelor electronice(o cutie neagra), cu parametri ideali: Rd infinita, si pur rezistiva, Ro = 0, amplificarea A infinita, frecventa maxima de lucru infinita, nu introduce zgomot, etc.. <br>In realitate, AO este C.I. realizat din tranzistoare, etc, a carui schema implementeaza un AO cu parametri foarte apropiati de cei ai AO ideal.
+Amplificatorul operational ideal, AO, este un element de sinteza a circuitelor electronice(o cutie neagra), cu parametri ideali: Rd infinita, si pur rezistiva, Ro = 0, amplificarea A infinita, frecventa maxima de lucru infinita, nu introduce zgomot, etc.. <br>In realitate, AO este C.I. realizat din tranzistoare, etc, a carui schema implementeaza un AO cu parametri foarte apropiati de cei ai AO ideal.<br>Nota: la acest exercitiu nu urmam complet exercitiul ANCOM deoarece acesta are raspunsul incorect.
 YO6OWN, Brasov, 2008
 ##165#
 b
@@ -1990,7 +1990,7 @@ b
  D
 Subiect public ANRCTI, 2007
 null
-A, C si D sunt circuite digitale. <br>Simbolul pentru amplificator in general este triunghiul cu o intrare si o iesire, simbolul B din figura.
+A, C si D sunt circuite digitale. <br>Simbolul pentru amplificator in general este triunghiul cu o intrare si o iesire, simbolul B din figura.<br>Nota: Imaginea nu coincide cu cea data de ANCOM pentru acest exercitiu, pe motivul ca acea imagine nu contine niciun raspuns corect la intrebarea pusa. Varianta propusa  D nu e corecta pentru un amplificator in general deoarece un amplificator in general are o singura intrare, un AO fiind un caz particular.
 YO6OWN, Brasov, 2008
 ##166#
 a
@@ -3730,7 +3730,7 @@ null
  Norul de micro meteoriti concentrat de forta centrifuga in zona polara.
 Subiect public ANRCTI, 2007
 null
-Aurora apare atunci cand micro-particulele de foarte mare ejectate din Soare in directia Pamantului sunt captate de campurile magnetice foarte intense de la poli, traiectoria lor modificata, si aunci ele intra in atmosfera polara cu o viteza foarte mare, ionizeaza aerul, eliberand energie inclusiv in spectrul vizual(luminile aurorei). 
+Aurora apare atunci cand micro-particulele de foarte mare viteza ejectate din Soare in directia Pamantului sunt captate de campurile magnetice foarte intense de la poli, traiectoria lor modificata, si aunci ele intra in atmosfera polara cu o viteza foarte mare, ionizeaza aerul, eliberand energie inclusiv in spectrul vizual(luminile aurorei). 
 YO6OWN, Brasov, 2008
 ##311#
 b

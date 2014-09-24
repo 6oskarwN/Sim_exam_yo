@@ -26,13 +26,14 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2013
 
-#  sim_authent.cgi v.3.0.f 
+#  sim_authent.cgi v.3.1.0 
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.1.0 eliminata referinta la manual, nu era necesara.
 # ch 3.0.f inlocuit window-button cu method="link" button
 # ch 3.0.e am explicat la legenda acoperirea cu intrebari
 # ch 3.0.d @slash@ replaces / corect, acum
@@ -118,7 +119,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Date corupte, situatie inregistrata in log.</h1>\n!;
@@ -166,7 +167,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Date corupte, situatie inregistrata in log.</h1>\n!;
@@ -295,12 +296,12 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<br>\n!;
 print qq!<h3 align="center">Numele dumneavoastra de utilizator nu se gaseste in baza noastra de date.</h3> <br>\n!;
-print qq!<h3 align="center">ATENTIE: Daca ati avut cont si nu mai sunteti in baza de date, inseamna ca nu v-ati mai logat de peste 7 zile, contul se sterge automat. Va rugam consultati manualul.</h3>\n!;
+print qq!<h3 align="center">ATENTIE: Daca ati avut cont si nu mai sunteti in baza de date, inseamna ca nu v-ati mai logat de peste 7 zile, contul se sterge automat.</h3>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
@@ -340,12 +341,12 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<br>\n!;
 print qq!<h3 align="center">Numele dumneavoastra de utilizator nu se gaseste in baza noastra de date.</h3> <br>\n!;
-print qq!<h3 align="center">ATENTIE: Daca ati avut cont si nu mai sunteti in baza de date, inseamna ca nu v-ati mai logat de peste 7 zile, contul se sterge automat. Va rugam consultati manualul.</h3>\n!;
+print qq!<h3 align="center">ATENTIE: Daca ati avut cont si nu mai sunteti in baza de date, inseamna ca nu v-ati mai logat de peste 7 zile, contul se sterge automat.</h3>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
@@ -399,7 +400,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<br>\n!;
@@ -430,7 +431,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<br>\n!;
@@ -865,7 +866,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -905,7 +906,7 @@ else {# this else should never be executed
 	print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 	print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 		ins_gpl();
-	print qq!v.3.0.f\n!; #version print for easy upload check
+	print qq!v.3.1.0\n!; #version print for easy upload check
 	print qq!<br>\n!;
 	print qq!<br>\n!;
 	print qq!<h3 align="center">This branch should never occur</h3> <br>\n!;

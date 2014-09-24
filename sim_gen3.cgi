@@ -110,7 +110,7 @@ if($stdin_name eq 'transaction') {$get_trid=$stdin_value;}
 else #no transaction was received, but something else - wrong data
 {
 #ACTION: append cheat symptoms in cheat file
-dienice("ERR02",1);
+dienice("ERR02",1); #counter >0 means it will be logged
 } #.end 'transaction' check
 
 } #.end foreach
@@ -942,7 +942,7 @@ open(cheatFILE,"+< cheat_log"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "sim_gen3.cgi - %s: %s Time: %s,  Logged:%i\n",$error_code,$int_errors{$error_code},$timestring,$counter; #write error info in logfile
+printf cheatFILE "sim_gen3.cgi - %s: %s Time: %s,  Counted:%i\n",$error_code,$int_errors{$error_code},$timestring,$counter; #write error info in logfile
 close(cheatFILE);
 }
 
