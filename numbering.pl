@@ -10,8 +10,8 @@
 # in HTML sa dea warning daca linia intrebarii nu contine v3code(nu e obligatoriu, dar doar cele cu v3 fac history)
 
 
-#ch v.3.0.5 - nu detecteaza daca sunt doua v3-coduri - nu inteleg
-#ch v.3.0.5 - awardspace.com banned list check: "porn","proxy","vand" to be implemented
+#ch v.3.0.5 - nu detecteaza daca intr-un db_xxx sunt doua v3-coduri identice
+#ch v.3.0.4 - awardspace.com banned list check: "porn","proxy","vand" implemented
 
 use strict;
 use warnings;

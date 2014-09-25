@@ -1,98 +1,98 @@
-Intrebari operare clasa III v.3.03, versiune actualizata pe http://examyo.scienceontheweb.net
-76
+Intrebari operare clasa III v.3.04, versiune actualizata pe http://examyo.scienceontheweb.net
+73
 ##0#
 d
 01A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO2 ?
-hartayo.jpg 172
-albastru
-galben
-violet
-verde inchis
-YO6OWN, Sacele, 2005
+hartayo.jpg 248
+albastru, zona marcata cu H
+galben, zona marcata cu C
+violet, zona marcata cu B
+verde, zona marcata cu D
+YO6OWN, Brasov, 2013
 null
 Art. 12, (2), a)
 Regulamentul
 ##1#
 a
 02A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO3 ?
-hartayo.jpg 172
-rosu
-galben
-verde deschis
-verde inchis
-YO6OWN, Sacele, 2005
+hartayo.jpg 248
+rosu, zona marcata cu K 
+galben, zona marcata cu C
+verde, zona marcata cu D
+maro, zona marcata cu I
+YO6OWN, Brasov, 2013
 null
 Art. 12, (2), b)
 Regulamentul
 ##2#
 b
 03A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO4 ?
-hartayo.jpg 172
-galben
-albastru
-maro
-violet
-YO6OWN, Sacele, 2005
+hartayo.jpg 248
+galben, zona marcata cu C
+albastru, zona marcata cu H
+maro, zona marcata cu I
+violet, zona marcata cu B
+YO6OWN, Brasov, 2013
 null
 Art. 12, (2), c)
 Regulamentul
 ##3#
 c
 04A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO5 ?
-hartayo.jpg 172
-galben
-albastru
-roz
-maro
-YO6OWN, Sacele, 2005
+hartayo.jpg 248
+galben, zona marcata cu C
+albastru, zona marcata cu H
+portocaliu, zona marcata cu A
+maro, zona marcata cu I
+YO6OWN, Brasov, 2013
 null
 Art. 12, (2), d)
 Regulamentul
 ##4#
 d
 05A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO6 ?
-hartayo.jpg 172
-roz
-albastru
-verde deschis
-maro
-YO6OWN, Sacele, 2005
+hartayo.jpg 248
+portocaliu, zona marcata cu A
+albastru, zona marcata cu H
+verde, zona marcata cu D
+maro, zona marcata cu I
+YO6OWN, Brasov, 2013
 null
 Art. 12, (2), e)
 Regulamentul
 ##5#
 a
 06A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO7 ?
-hartayo.jpg 172
-violet
-albastru
-maro
-verde deshis
-YO6OWN, Sacele, 2005
+hartayo.jpg 248
+violet, zona marcata cu B
+albastru, zona marcata cu H
+maro, zona marcata cu I
+verde, zona marcata cu D
+YO6OWN, Brasov, 2013
 null
 Art. 12, (2), f)
 Regulamentul
 ##6#
 b
 07A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO8 ?
-hartayo.jpg 172
-albastru
-verde deschis
-verde inchis
-violet
-YO6OWN, Sacele, 2005
+hartayo.jpg 248
+albastru, zona marcata cu H
+kaki, zona marcata cu E
+verde, zona marcata cu D
+violet, zona marcata cu B
+YO6OWN, Brasov, 2013
 null
 Art. 12, (2), g)
 Regulamentul
 ##7#
 c
 08A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO9 ?
-hartayo.jpg 172
-verde inchis
-albastru
-galben
-violet
-YO6OWN, Sacele, 2005
+hartayo.jpg 248
+verde, zona marcata cu D
+albastru, zona marcata cu H
+galben, zona marcata cu C
+violet, zona marcata cu B
+YO6OWN, Brasov, 2013
 null
 Art. 12, (2), h)
 Regulamentul
@@ -122,7 +122,7 @@ null
 
 ##10#
 b
-De ce este o idee buna de a avea o modalitate sa operezi statia de radioamator fara a folosi curentul de la priza?
+01A551~&De ce este o idee buna de a avea o modalitate sa operezi statia de radioamator fara a folosi curentul de la priza?
 null
 Ca sa poti folosi statia si mobil
 Pentru ca ai mai multe sanse sa fii activ in caz de urgenta/catastrofa
@@ -875,40 +875,4 @@ Key
 YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://www.yo6kxp.org/infostudy/exam/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
-##73#
-c
-Ce este ora UTC?
-null
-ora Uniunii de Telecomunicatii si Comunicatii, care sincronizeaza toate centralele de telefonie din lume(ora plesiocrona)
-ora Uranium Time Clock - ora data de ceasul atomic de la Berna
-ora Universal  Time, Coordinated - acelasi cu GMT
-ora Uniform Time Clock - ora data de timpul de rotatie al planetei Terra
-YO6OWN, Sacele, 2005(rev.2007)
-null
-
-
-##74#
-c
-Ce semnifica prescurtarea SWL?
-null
-Se refera la categoria de radioamatori receptori (autorizati) din Romania.
-Este unitatea de masura a directivitatii antenelor.
-Este categoria de oameni carora le place sa asculte emisiuni radio pe undele scurte (Short Wave Listener)
-Este marca celui mai raspandit transceiver A412.
-YO6GZI, Sacele, 2004(rev.2007)
-null
-Short Wave Listener - sunt cei carora le place sa faca receptie de emisiuni de radioamatori sau de posturi radio in unde scurte(mai nou chiar si in UUS), care trec de stadiul de 'utilizator casnic' de radio, prin faptul ca isi modifica echipamentul, antenele, samd, pentru a face receptii DX, trimit QSL-uri sau eQSL-uri de SWL, sunt pasionati. 
-YO6OWN, Brasov, 2007
-##75#
-b
-Radioamatorii receptori autorizati pot participa in concursuri?
-null
-nu
-da
-numai cu acordul prealabil al ANC
-daca sunt supravegheati de un radioamator cu clasa de autorizare 2
-YO6GZI, Sacele, 2004(rev.2007)
-null
-Exista destule concursuri la care sunt invitati si receptorii autorizati
 YO6OWN, Brasov, 2007

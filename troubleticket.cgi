@@ -2,7 +2,8 @@
 
 # Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,
 # instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat 
-# in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2.
+# in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o 
+# versiune ulterioara. 
 # Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,
 # sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
 # Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.
@@ -15,7 +16,7 @@
 
 # This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and
 # utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
-# as published by the Free Software Foundation in version 2 of the License.
+# as published by the Free Software Foundation; either version 2 of the License, or any later version.
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty. 
 # See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with this software distribution; if not, you can
@@ -23,15 +24,17 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# YO6OWN Francisc TOTH, Nov 2012
+# YO6OWN Francisc TOTH, Nov 2014
 
 #  troubleticket.cgi v.3.0.a
-#  Status: under test
+#  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.0.a patch in a mailer when new complaints are registered; untested since no mail account possible; hashed.
+# ch 3.0.9 'ativan' added in the deny list, banned by awardspace.com
 # ch 3.0.8 fixed POST that comes from special link in sim_verx.cgi in order to preserve &specials; and "overline"
 # ch 3.0.7 <form> in <form> makes that blank record is saved if calculus is good but abandon is hit 
 # ch 3.0.6 change window button to method="link" button  
@@ -75,6 +78,16 @@ my $newtrid;
 #my $buffer;
 my @dbtt;   #this is the slurp variable
 
+#### mailer patch v.3.0.a #############
+#my $mailprog = '/usr/sbin/sendmail';
+## Change the location above to wherever sendmail is located on your server.
+#my $admin_email="curierul\@examyo_scienceontheweb.net";
+## Change the address above to your e-mail address. Make sure to KEEP the \
+#my $target_email="yo6own\@yahoo.com";
+## Change the address above to your e-mail address. Make sure to KEEP the \
+#### .end of mailer patch v.3.0.a #####
+
+
 #variabile interne intermediare
 my $get_aucpair;    #$question_auc:$answer_auc
 my $question_auc;
@@ -113,7 +126,7 @@ foreach $pair(@pairs) {
 ($stdin_name,$stdin_value) = split(/=/,$pair);
 
 $stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
-$stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #hex to char 
+$stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
 
 #temporarily out
 # DEBUG DEBUG
@@ -1009,6 +1022,18 @@ my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
+
+#### patch for mailer implementation from v.3.0.a ######
+#open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
+#print MAIL "From: $admin_email\n";
+#print MAIL "To: $target_email\n";
+#print MAIL "Subject: new complaint filed\n\n";
+#print MAIL <<to_the_end;
+#new complaint was filed in
+#to_the_end
+#close (MAIL);
+############ patch end #########
+
 open(recFILE,"+< db_tt");
 #goto end for append
 seek(recFILE,0,2); #should be end of file
@@ -1026,7 +1051,7 @@ print qq!v.3.0.a\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
-#---------it should continue here, but HTML code will continue after returning from function so that it prints different targets
+#---------html page should finish here, but HTML code will continue after returning from function so that it prints different targets
 }
 #--------------------------------------
 sub ins_gpl
@@ -1037,7 +1062,8 @@ print qq!SimEx Radio was created for YO6KXP ham-club located in Sacele, ROMANIA\
 print qq!\n!;
 print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,!;
 print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat!; 
-print qq!in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2.\n !;
+print qq!in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o !;
+print qq!versiune ulterioara.\n!; 
 print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
 print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
 print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
@@ -1051,7 +1077,7 @@ print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
 print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
 print qq!utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
-print qq!as published by the Free Software Foundation in version 2.\n!;
+print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version.\n!;
 print qq!This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty.!; 
 print qq!See the GNU General Public License for more details.\n!;
 print qq!You should have received a copy of the GNU General Public License along with this software distribution; if not, you can!;
