@@ -117,7 +117,7 @@ elsif (( $counter == 2) || ($counter == 8))
 	@linesplit=split(/ /,$fline);
         if(defined($linesplit[1])) 
 	 	{
-	 	print qq!<br><center><img src="http://localhost:8080/shelf/$linesplit[0]", width="$linesplit[1]"></center><br>\n!;
+	 	print qq!<br><center><img src="http://localhost/shelf/$linesplit[0]", width="$linesplit[1]"></center><br>\n!;
                 }                     
      	  if ($counter < 3) {$counter = 3;}
        	  else {$counter = 9;}
