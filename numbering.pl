@@ -1,16 +1,17 @@
 #!/usr/bin/perl
 
-# ver. 3.0.4
+# ver. 3.0.5
 # general syntax-checking and auto-numbering script for eXAM databases(except db_human)
-# (c) 2007 Francisc TOTH YO6OWN
+# (c) 2007-2014 Francisc TOTH YO6OWN
 # input at commandline:db_syntax.pl db_xxxxx prog_Programa
-# output db_xxxxx.out and db_xxxxx.html and strip_db_xxxx
+# output in ./hx_release db_xxx and strip_db_xxx and in . db_xxx.html
 # open with a text editor the db_xxxxx.out, and on line 2 put the number of questions(last+1, because first question is ##0#)
-# sa faca toata treaba, outputul sa fie corect, in UNIX format!!!!! sau sa fie error.
-# in HTML sa dea warning daca linia intrebarii nu contine v3code(nu e obligatoriu, dar doar cele cu v3 fac history)
+# DONE sa faca toata treaba, outputul sa fie corect, in UNIX format!!!!! sau sa fie error.
+# DONE in HTML da warning daca linia intrebarii nu contine v3code(nu e obligatoriu, dar doar cele cu v3 fac history)
 
+#ch request: nu detecteaza daca intr-un db_xxx sunt doua v3-coduri identice
 
-#ch v.3.0.5 - nu detecteaza daca intr-un db_xxx sunt doua v3-coduri identice
+#ch v.3.0.5 - warning daca raspunsurile lina 4-7 sa fie doar de formatul /^[a-d]$/
 #ch v.3.0.4 - awardspace.com banned list check: "porn","proxy","vand" implemented
 
 use strict;
@@ -80,7 +81,7 @@ foreach $iter (@dictionary)
 if($in_line =~ /##/)
       {
 			if($q_counter != 11) {
-								printf HTFILE qq!<font color="red"><b>Line counting error for $filename, question ##$counter-1#</b></font><br>\n!;
+            					printf HTFILE qq!<font color="red"><b>Line counting error for $filename, question ##$counter-1#</b></font><br>\n!;
 								$overall_err++;
 								}
             printf OUTFILE "##%i#\n",$counter;
@@ -97,12 +98,27 @@ if($q_counter == 0) #if it's the answer line
   $overall_err++;
  }
 }
+
 if($q_counter == 1) #if it's question
 {
 	unless($in_line =~ /^([0-9]{2,3}[A-Z]{1}[0-9]{2,}[a-z]{0,}~&)/) { printf HTFILE qq!<font color="blue"><b>Warning: W3code missing/extra</b></font><br>\n!;
 	  $overall_warnings++;
 	 }
+
+        if($in_line =~ /^[a-d]$/) 
+              {printf HTFILE qq!<font color="red">ERROR: [a-d] not for this line</font>!;
+	       $overall_err++;
+              }
 }
+
+if(($q_counter > 3) && ($q_counter < 8)) #if it's one of answers
+{
+        if($in_line =~ /^[a-d]$/) 
+              {printf HTFILE qq!<font color="blue">Warning: [a-d] seems unfinished business</font><br>\n!;
+	       $overall_warnings++;
+ 	      }
+}
+
 if($q_counter == 2) #if it's image of question
 {
 unless($in_line =~ /^null$/)  #if no picture present, there is a ^null$ (regexp)
@@ -148,10 +164,10 @@ print "Numar intrebari NUMARATE in db: $counter\n";
 
 printf HTFILE qq!Overall errors: $overall_err<br>\n!;
 print "db_numbering: Errors: $overall_err\n";
-printf HTFILE qq!Warning/fara V3 code: $overall_warnings<br>\n!;
-print "db_numbering: lipsa v3 code: $overall_warnings\n";
+printf HTFILE qq!Warnings: $overall_warnings<br>\n!;
+print "db_numbering: Warnings: $overall_warnings\n";
 printf HTFILE qq!</body>\n</html>\n!;
-
+print "See generated $filename\.html file for details\n";
 close(HTFILE);
 close(INFILE);
 close(OUTFILE);

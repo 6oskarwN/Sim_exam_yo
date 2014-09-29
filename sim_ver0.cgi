@@ -9,9 +9,9 @@
 # Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.
 # In distributia pe CD sau download pe www.yo6kxp.org trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea 
 # in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/
-# Textul intebarilor oficiale publicate de ANRCTI face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, 
+# Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, 
 # modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva 
-# din faptul ca ANRCTI este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.
+# din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.
 # Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://www.yo6kxp.org
 
 # This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and
@@ -21,17 +21,18 @@
 # See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with this software distribution; if not, you can
 # download it for free at http://www.fsf.org/ 
-# Questions marked with ANRCTI makes an exception of above-written, as ANRCTI is a romanian public authority(similar to FCC in USA)
+# Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
 # YO6OWN Francisc TOTH, February 2008
 
-#  sim_ver0.cgi v.0.0.6
+#  sim_ver0.cgi v.0.0.7
 #  Status: Released
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 0.0.7 ANRCTI replaced by ANCOM
 # ch 0.0.6 fixed rebel link from window type to method="link" button
 # ch 0.0.5 fixed trouble ticket 26
 # ch 0.0.4 forestgreen and aquamarine colors changed to hex value
@@ -219,7 +220,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.0.0.6\n!; #version print for easy upload check
+print qq!v.0.0.7\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h2 align="center">Formularul de examen a fost folosit deja sau a expirat</h2>\n!;
@@ -410,7 +411,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.0.0.6\n!; #version print for easy upload check
+print qq!v.0.0.7\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
@@ -518,7 +519,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.0.0.6\n!; #version print for easy upload check
+print qq!v.0.0.7\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;
@@ -547,9 +548,9 @@ print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe d
 print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
 print qq!In distributia pe CD sau download pe www.yo6kxp.org trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
 print qq!in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
-print qq!Textul intebarilor oficiale publicate de ANRCTI face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
+print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
 print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
-print qq!din faptul ca ANRCTI este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
+print qq!din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
 print qq!Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://www.yo6kxp.org\n!;
 print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
@@ -560,7 +561,7 @@ print qq!This program is distributed in the hope that it will be useful, but WIT
 print qq!See the GNU General Public License for more details.\n!;
 print qq!You should have received a copy of the GNU General Public License along with this software distribution; if not, you can!;
 print qq!download it for free at http://www.fsf.org/\n!; 
-print qq!Questions marked with ANRCTI makes an exception of above-written, as ANRCTI is a romanian public authority(similar to FCC in USA)!;
+print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
 print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
 print qq!YO6OWN Francisc TOTH, 2008\n!;
 print qq!\n!;

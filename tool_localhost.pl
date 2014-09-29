@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-#  tool_localhost v.0.0.2 (c)2010 Francisc TOTH
+#  tool_localhost v.0.0.3 (c)2010 Francisc TOTH
 #  status: devel
 #  customizing tool
 #  makes the automatic relocation of links
@@ -42,21 +42,21 @@ else {@filelist=(
 				); #numele fisierelor
 
 }
-my $pattern1="ANRCTI";
-my $replacement1="ANCOM";  #should be sourced
+#my $pattern1="ANRCTI";
+#my $replacement1="ANCOM";  #WAS sourced
 
 my $pattern2="localhost/";
 my $replacement2="localhost:8080/";
 
-my $pattern21="infostudy/exam/exam7_yo.html"; #this must be sourced
-my $replacement21="index.html";
+#my $pattern21="infostudy/exam/exam7_yo.html"; #WAS sourced
+#my $replacement21="index.html";
 
 
 my $pattern3="^print qq!SimEx Radio Release";
 my $replacement3="print qq!SimEx Radio Release 3; Author: Francisc TOTH YO6OWN\\n!;\n";
 
 
-my $pattern5="\#flock";
+my $pattern5="\#flock";   #nu incepe cu ^ ???
 my $replacement5="flock";
 
 my $pattern6='#!c:';
@@ -73,19 +73,18 @@ my $fetch_line; #line-buffer
 while($fetch_line=<INFILE>)
 {
 #line alterations
-$fetch_line=~s/$pattern1/$replacement1/; #local replacement
+#$fetch_line=~s/$pattern1/$replacement1/; #local replacement
 if($fetch_line=~/$pattern3/){$fetch_line=$replacement3;}#line replacement
 
 $fetch_line=~s/$pattern2/$replacement2/; #local replacement
 if($fetch_line=~/$pattern2/){$fetch_line=$replacement2;}#line replacement
 
-$fetch_line=~s/$pattern21/$replacement21/; #local replacement
-if($fetch_line=~/$pattern21/){$fetch_line=$replacement21;}#line replacement
+#$fetch_line=~s/$pattern21/$replacement21/; #local replacement
+#if($fetch_line=~/$pattern21/){$fetch_line=$replacement21;}#line replacement
 
 $fetch_line=~s/$pattern5/$replacement5/; #local replacement
 if($fetch_line=~/$pattern6/){$fetch_line=$replacement6;}#line replacement
 
-#if($fetch_line=~/$pattern5/){$fetch_line=$replacement5;}#line replacement
 
 #removes all remarks
 $fetch_line =~ s%(^|\s)(#)([^!])(.*)$%%;

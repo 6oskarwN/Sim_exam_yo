@@ -1,4 +1,4 @@
-acoperire programa HAREC radiotehnica, v3.06 clasa I, II [v.3.05] 
+acoperire programa HAREC radiotehnica, clasa I, II [v.3.06] 
 
 
 PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
@@ -102,7 +102,7 @@ COMPONENTE
 223&-	Relatia dintre capacitate, dimensiuni si dielectric (numai tratare calitativa)
 224&-	Reactanta   
 225&-	Defazajul dintre tensiune si curent
-226&-	Caracteristicile condensatoarelor fixe si variabile: cu dielectric aer, mica, pla¬stic, ceramica si a condensatoarelor electrolitice
+226&-	Caracteristicile condensatoarelor fixe si variabile: cu dielectric aer, mica, plastic, ceramica si a condensatoarelor electrolitice
 227&-	Coeficientul de temperatura 
 228&-	Curentul de fuga
 
@@ -337,7 +337,7 @@ ANTENE SI LINII DE TRANSMISIUNE
 636&-	Raportul de unde stationare 
 637&-	Pierderi
 638&-	Simetrizare
-639&-	Linia in sfert de unda ca transformator de impedanta  [ Z02 = Zin•Zout ]
+639&-	Linia in sfert de unda ca transformator de impedanta  [ Z<sub>02</sub> = Z<sub>in</sub>*Z<sub>out</sub> ]
 63a&-	Linia terminata in gol sau in scurtcircuit ca circuite acordate 
 63b&-	Unitati de adaptare a antenei (numai configuratii in PI sau T)
 

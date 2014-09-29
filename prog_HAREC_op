@@ -1,4 +1,4 @@
-program HAREC - cunostinte de trafic, clasa I, II [v3.02] 
+program HAREC - cunostinte de trafic, clasa I, II [v3.04] 
 
 PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
 PROGRAMA ANALITICA DE EXAMINARE DETALIATA
@@ -63,9 +63,9 @@ Codul	Intrebare	Raspuns
 21b&QSL	Puteti confirma receptia ?	Va confirm receptia
 21c&QSO	Puteti comunica cu ... direct ?	Pot comunica cu ... direct.
 21d&QSY	Sa schimb transmisia pe o alta frecventa ?	Schimb transmisia pe o alta frecventa.
-21e&QRX	Cand ma veti chema din nou ?	Va voi chema din nou la ora … pe ... kHz 
+21e&QRX	Cand ma veti chema din nou ?	Va voi chema din nou la ora ... pe ... kHz 
 (sau MHz)
-21f&QTH	Care este pozitia dvs. In latitudine si longitudine  (sau dupa orice alta indicatie) ?	Pozitia mea In grade este … latitudine ... longitudine ... (sau dupa orice alta indicatie).
+21f&QTH	Care este pozitia dvs. In latitudine si longitudine  (sau dupa orice alta indicatie) ?	Pozitia mea In grade este ... latitudine ... longitudine ... (sau dupa orice alta indicatie).
 
 Nota: In afara acestor coduri, se pot folosi si celelalte din Apendicele 14 din Regulamentul Radiocomunicatiilor.
 
