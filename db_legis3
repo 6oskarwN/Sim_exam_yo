@@ -1,4 +1,4 @@
-Legislatie, clasa III v.3.07  versiune actualizata pe http://examyo.scienceontheweb.net
+Legislatie, clasa III v.3.08  versiune actualizata pe http://examyo.scienceontheweb.net
 129
 ##0#
 a
@@ -1096,7 +1096,7 @@ null
 a
 06A3101~&Ce inseamna abrevierea ANCOM?
 null
-Autoritatea Nationala pentru Administrare si Reglementare in Comunicaţii
+Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii
 Agentia Nationala de Comunicatii
 Asociatia Nationala de Administrare in Comunicatii
 Agentia Nationala a Comunicatiilor si Operatiunilor Mobile
@@ -1180,10 +1180,10 @@ null
 a
 05B3102~&Conform definitiei din Regulament, ce este largimea de banda ocupata?
 null
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99&percent; din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5&percent; din puterea medie radiata;
+largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
 banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
 valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75&percent; din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5&percent; din puterea medie radiata;
+largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
 YO6OWN, Brasov, 2014
 null
 
@@ -1194,8 +1194,8 @@ a
 null
 valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
 banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99&percent; din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5&percent; din puterea medie radiata;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75&percent; din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5&percent; din puterea medie radiata;
+largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
+largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
 YO6OWN, Brasov, 2014
 null
 
@@ -1206,8 +1206,8 @@ a
 null
 banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
 valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99&percent; din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5&percent; din puterea medie radiata;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75&percent; din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5&percent; din puterea medie radiata;
+largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
+largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
 YO6OWN, Brasov, 2014
 null
 
@@ -1354,19 +1354,19 @@ pentru ca emisiile radioamatorilor sa nu se suprapuna
 pentru ca sa se poata calcula si stabili numarul canalelor in functie de tipul modulatiei si a frecventei medii
 YO6OWN 2014
 null
-Art. 8 – Radioamatorii sunt obligaţi să respecte limitele benzilor de frecvenţe autorizate în conformitate cu prezentul Regulament.
+Art. 8 - Radioamatorii sunt obligati sa respecte limitele benzilor de frecvente autorizate in conformitate cu prezentul Regulament.
 Regulamentul
 ##113#
 a
 02A3221~&Cat de exact trebuie etalonata scala de frecventa a emitatoarelor?
 null
-incat sa permita acordul pe frecventa dorita cu o precizie de minimum 0,05&percent;
-incat sa permita acordul pe frecventa dorita cu o precizie de minimum 0,5&percent;
-incat sa permita acordul pe frecventa dorita cu o precizie de minimum 0,1&percent;
-incat sa permita acordul pe frecventa dorita cu o precizie de minimum 1&percent;
+incat sa permita acordul pe frecventa dorita cu o precizie de minimum 0,05%
+incat sa permita acordul pe frecventa dorita cu o precizie de minimum 0,5%
+incat sa permita acordul pe frecventa dorita cu o precizie de minimum 0,1%
+incat sa permita acordul pe frecventa dorita cu o precizie de minimum 1%
 YO6OWN 2014
 null
-Art. 9 – Scala emiţătoarelor trebuie astfel concepută şi etalonată încât să permită acordul pe frecvenţa dorită cu o precizie de minimum 0,05 &percent;
+Art. 9 - Scala emitatoarelor trebuie astfel conceputa si etalonata incat sa permita acordul pe frecventa dorita cu o precizie de minimum 0,05 %
 Regulamentul
 ##114#
 b
@@ -1378,7 +1378,7 @@ pe un tub cu neon
 pe un receptor performant
 YO6OWN, 2014
 null
-Art. 11 – În cazul efectuării de reglaje la emiţătoarele staţiilor de amatori este obligatorie utilizarea de antene artificiale neradiante.
+Art. 11 - In cazul efectuarii de reglaje la emitatoarele statiilor de amatori este obligatorie utilizarea de antene artificiale neradiante.
 Regulamentul
 ##115#
 b

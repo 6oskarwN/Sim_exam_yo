@@ -1,6 +1,6 @@
 #!c:\Perl\bin\perl
 
-#  tool_checker2.cgi v.3.0.3 (c)2007-2014 Francisc TOTH
+#  tool_checker2.cgi v.3.0.4 (c)2007-2014 Francisc TOTH
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  All rights reserved by YO6OWN Francisc TOTH
@@ -67,8 +67,7 @@ $fline=<INFILE>;
 chomp($fline);
 print qq!<font color="blue">$fline</font>\n<br>\n!; #print file version
 
-
-
+#$fline=<INFILE>;       #we DO NOT read the number of records, don't fit to patterns, so it's not displayed
 $counter = 15;
 print qq!<hr>\n!;
 

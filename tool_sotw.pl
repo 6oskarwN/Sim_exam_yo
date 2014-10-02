@@ -58,7 +58,7 @@ my $replacement4="examyo.scienceontheweb.net";
 my $pattern41="\'kpage\'";
 my $replacement41="'_top\'";
 
-my $pattern5="\#flock";  #nu ar trebui ^\#flock  ???
+my $pattern5="\#flock";  #file lock, only for Linux servers
 my $replacement5="flock";
 
 my $pattern6='#!c:';      #preventiv, ca trecem la Linux/UNIX
