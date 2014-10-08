@@ -1,5 +1,5 @@
-Intrebari operare clasa III-R v.3.05, versiune actualizata pe http://examyo.scienceontheweb.net
-73
+Intrebari operare clasa III-R v.3.06, versiune actualizata pe http://examyo.scienceontheweb.net
+67
 ##0#
 d
 01A414~&Cu ce culoare sunt colorate pe harta judetele ale caror radioamatori poarta un indicativ ce incepe cu YO2 ?
@@ -96,42 +96,6 @@ YO6OWN, Brasov, 2013
 null
 Art. 12, (2), h)
 Regulamentul
-##8#
-a
-01A513~&Care este intelesul semnalului procedural 'DE'?
-null
-'de la' sau 'acesta este' ca in 'YO2ABC DE YO3BCD'
-'Directional Emissions' - emisiune directionata din antena
-Receptionat in totalitate
-Apel catre toate statiile
-YO6OWN - adaptare dupa eham.net, 2007
-null
-
-
-##9#
-b
-01A517~&Cum chemi alta statie pe un repetor, daca stii dinainte indicativul corespondentului?
-null
-Spui 'break, break 73,' pe urma spui indicativul statiei apelate
-Spui indicativul statiei chemate, apoi indicativul propriu
-Spui 'CQ' sau 'Apel' de trei ori, apoi indicativul statiei apelate
-Astepti pana cand statia dorita cheama cu 'Apel' sau 'CQ', ca sa-i poti raspunde
-YO6OWN - adaptare dupa eham.net, 2007
-null
-
-
-##10#
-b
-01A551~&De ce este o idee buna de a avea o modalitate sa operezi statia de radioamator fara a folosi curentul de la priza?
-null
-Ca sa poti folosi statia si mobil
-Pentru ca ai mai multe sanse sa fii activ in caz de urgenta/catastrofa
-Pentru a putea participa in concursuri in care nu este permisa folosirea curentului de la priza
-Ca sa fii in conformitate cu cerintele IGCTI
-YO6OWN - adaptare dupa eham.net, 2007
-null
-
-
 ##11#
 b
 01A411~&La chemarea ta, iti raspund patru radioamatori: YO3AAC, LZ5JZ, HA5KXX, 3W1SSB. Cui raspunzi prima data, in cazul in care vrei sa lucrezi cu toti?
@@ -368,30 +332,6 @@ codul de prescurtari
 cod pentru raportarea calitatii receptiei
 cod pentru raportarea intermodulatilor
 cod pentru raportarea puterii de emisie in telegrafie
-YO6GZI, Sacele, 2004
-null
-Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://examyo.scienceontheweb.net/x5_2_rst.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
-##31#
-a
-01A601~&In cazul codului RST, ce semnificatie au literele?
-null
-R-inteligibilitate, S-taria semnalului, T-calitatea tonului
-R-taria semnalului, S-inteligibilitate, T-calitatea tonului
-R-taria semnalului, S-calitatea tonului, T-inteligibilitate
-R-receptivitatea, S-sunetul morse, T-taria semnalului
-YO6GZI, Sacele, 2004
-null
-Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://examyo.scienceontheweb.net/x5_2_rst.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
-##32#
-b
-01A603~&Intensitatea semnalului se apreciaza intre:
-null
-1 - 5
-1 - 9
-0 - 10
-0 - 5
 YO6GZI, Sacele, 2004
 null
 Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://examyo.scienceontheweb.net/x5_2_rst.html" target="kpage">[link]</a>
@@ -731,18 +671,6 @@ Zulu
 YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
-##61#
-b
-02A601~&Cum ai fost receptionat atunci cand corespondentul tau iti da controlul 3-3?
-null
-la limita inteligibilului, semnal foarte slab
-copiat cu dificultate, semnal slab
-copiat cu dificultate, semnal foarte slab
-perfect inteligibil, semnal destul de bun
-YO6OWN, Sacele, 2005(rev.2007)
-null
-Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://examyo.scienceontheweb.net/x5_2_rst.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
 ##62#
 a
