@@ -1,4 +1,4 @@
-program HAREC - cunostinte de trafic, clasa I, II [v3.04] 
+program HAREC - cunostinte de trafic, clasa I, II [v3.05] 
 
 PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
 PROGRAMA ANALITICA DE EXAMINARE DETALIATA
@@ -76,7 +76,7 @@ PRESCURTARILE CELE MAI UZUALE FOLOSITE IN SERVICIUL DE AMATOR
 311&AR = Sfarsit de transmisiune 
 312&ASK = A Intreba
 313&BK = Semnal folosit la Intreruperea unei transmisiuni In curs 
-COND = Conditii (de propagare)
+31s&COND = Conditii (de propagare)
 314&CQ = Apel general catre toate statiile 
 315&CUAGN = Pe curand
 316&CW = Unda continua

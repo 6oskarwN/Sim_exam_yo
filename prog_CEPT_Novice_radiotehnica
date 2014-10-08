@@ -1,4 +1,4 @@
-programa CEPT NOVICE - radiotehnica, clasa III [v3.05]
+programa CEPT NOVICE - radiotehnica, clasa III [v3.06]
 
 PROGRAMA ANALITICA DE EXAMINARE DETALIATA
 
@@ -6,7 +6,7 @@ A) PROBLEME CU CONTINUT TEHNIC
 
 CAPITOLUL 1
 
-NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM sI RADIO
+NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
 
 1.1. Conductibilitatea
 111&-	Conductoare, semiconductoare si izolatoare
@@ -15,11 +15,11 @@ NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM sI RADIO
 114&-	Legea lui Ohm   
 115&-	Puterea electrica    
 116&-	Wattul
-118&-	Energia electrica(nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte/hi/)
+118&-	Energia electrica(nu apartine de programa CEPT NOVICE dar ANCOM are subiecte)
 
 1.2. Surse de electricitate
 121&-	Surse de tensiune si baterii
-119&-	Capacitatea unei baterii  [ A x h ](nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte)
+119&-	Capacitatea unei baterii  [ A x h ](nu apartine de programa CEPT NOVICE dar ANCOM are subiecte)
 
 1.3. Campul electromagnetic
 131&-	Undele radio ca unde electromagnetice
@@ -31,7 +31,7 @@ NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM sI RADIO
 1.4. Semnale audio si digitale
 141&-	Semnale audio
 142&-	Semnale digitale
-143&-	Semnale dreptunghiulare, triunghiulare, dinte de ferastrau(nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte)
+143&-	Semnale dreptunghiulare, triunghiulare, dinte de ferastrau(nu apartine de programa CEPT NOVICE dar ANCOM are subiecte)
 
 l.5. Semnale modulate
 Avantajele si dezavantajele:
@@ -79,7 +79,7 @@ COMPONENTE
 271&-	Functionarea circuitelor acordate serie sau paralel 
 
 2.8 Diverse
-283&-	Circuite integrate digitale simple (nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte)
+283&-	Circuite integrate digitale simple (nu apartine de programa CEPT NOVICE dar ANCOM are subiecte)
 
 CAPITOLUL 3
 

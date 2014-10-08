@@ -1,4 +1,4 @@
-acoperire programa HAREC radiotehnica, clasa I, II [v.3.06] 
+acoperire programa HAREC radiotehnica, clasa I, II [v.3.07] 
 
 
 PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
@@ -79,11 +79,11 @@ l.8. Semnale modulate
 196&-	Puterea la varf de modulatie (PEP)
 
 1.10. Procesarea digitala de semnal (DSP)
-1a1&-	Esantionarea si cuantizarea
-1a2&-	Rata minima de esantionare (frecventa Nyquist)
-1a3&-	Convolutia (in domeniul timp / in domeniul frecventa, reprezentare grafica)
-1a4&-	Filtre contra zgomotului de cuantizare, filtre de refacere a semnalului
-1a5&-	Conversia digital / analogica, analogic / digitala
+19a&-	Esantionarea si cuantizarea
+19b&-	Rata minima de esantionare (frecventa Nyquist)
+19c&-	Convolutia (in domeniul timp / in domeniul frecventa, reprezentare grafica)
+19d&-	Filtre contra zgomotului de cuantizare, filtre de refacere a semnalului
+19f&-	Conversia digital / analogica, analogic / digitala
 
 CAPITOLUL 2
 
