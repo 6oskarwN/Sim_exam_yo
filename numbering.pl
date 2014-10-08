@@ -9,7 +9,6 @@
 # DONE sa faca toata treaba, outputul sa fie corect, in UNIX format!!!!! sau sa fie error.
 # DONE in HTML da warning daca linia intrebarii nu contine v3code(nu e obligatoriu, dar doar cele cu v3 fac history)
 
-#ch request: nu detecteaza daca intr-un db_xxx sunt doua v3-coduri identice
 
 #ch v.3.0.5 - warning daca raspunsurile lina 4-7 sa fie doar de formatul /^[a-d]$/
 #ch v.3.0.4 - awardspace.com banned list check: "porn","proxy","vand" implemented
