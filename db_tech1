@@ -1,4 +1,4 @@
-Intrebari cu dificultate sporita propuse pentru pregatirea la proba radiotehnica clasa I  - versiunea 3.0b versiune actualizata pe http://examyo.scienceontheweb.net
+Intrebari cu dificultate sporita propuse pentru pregatirea la proba radiotehnica clasa I  - versiunea 3.0c versiune actualizata pe http://examyo.scienceontheweb.net
 278
 ##0#
 b
@@ -3074,7 +3074,7 @@ null
 
 ##256#
 d
-01A812~&11D81J/ Un calibrator cu cuart cu frecventa fundamentala de 1MHz este garantat la 50ppm. Daca se face abstractie de alte erori (sistematice sau de operator), pe ce eroare absoluta puteti conta cand este folosit pe armonica a 20-a?
+01A813~&11D81J/ Un calibrator cu cuart cu frecventa fundamentala de 1MHz este garantat la 50ppm. Daca se face abstractie de alte erori (sistematice sau de operator), pe ce eroare absoluta puteti conta cand este folosit pe armonica a 20-a?
 null
   +-50Hz.	
   +-100Hz.
@@ -3086,7 +3086,7 @@ eroarea de 50 ppm = 50 parti-pe-milion, adica 1MHz * 50 / 10<sup>6</sup> = 10<su
 YO6OWN, Brasov, 2007
 ##257#
 b
-02A812~&12D81J/ Un calibrator cu cuart cu frecventa fundamentala de 100kHz este garantat la 50ppm. Daca se face abstractie de alte erori (sistematice sau de operator), pe ce eroare absoluta puteti conta cand este folosit pe armonica a 20-a?
+02A813~&12D81J/ Un calibrator cu cuart cu frecventa fundamentala de 100kHz este garantat la 50ppm. Daca se face abstractie de alte erori (sistematice sau de operator), pe ce eroare absoluta puteti conta cand este folosit pe armonica a 20-a?
 null
 +-50Hz.	
 +-100Hz.
@@ -3242,7 +3242,7 @@ Lantul de multiplicare Q -&gt; x2 -&gt; x2 -&gt; x3, unde iesirea unui multiplic
 YO6OWN, Brasov, 2008
 ##270#
 c
-01B923~&03C92J/ Oscilatiile parazite pe frecvente mai mici decat cea de lucru pot apare:
+01B925~&03C92J/ Oscilatiile parazite pe frecvente mai mici decat cea de lucru pot apare:
 null
  Pe frecventa de rezonanta proprie a condensatoarelor de decuplare.
  Pe frecventa de rezonanta proprie a conexiunilor montajului.
@@ -3254,7 +3254,7 @@ null
 
 ##271#
 b
-02B923~&04C92J/ Oscilatiile parazite pe frecvente mai mari decat cea de lucru pot apare:
+02B925~&04C92J/ Oscilatiile parazite pe frecvente mai mari decat cea de lucru pot apare:
 null
  Pe frecventa de rezonanta proprie a condensatoarelor de decuplare.
  Pe frecventa de rezonanta proprie a conexiunilor montajului.

@@ -1,5 +1,5 @@
-Intrebari operare cl. I versiunea 3.03, versiune actualizata pe http://examyo.scienceontheweb.net
-84
+Intrebari operare cl. I  v.3.04, versiune actualizata pe http://examyo.scienceontheweb.net
+67
 ##0#
 d
 01A514~&Care este prefixul desemnat pentru Romania, in traficul de radioamatori?
@@ -122,7 +122,7 @@ Art. 12, (2)
 Regulamentul
 ##10#
 b
-01A21g~&Ce semnifica urmatorul cod Q: QRL?
+01A211~&Ce semnifica urmatorul cod Q: QRL?
 null
 sunteti interferat?
 sunteti ocupat?
@@ -134,7 +134,7 @@ Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpa
 YO6OWN, Brasov, 2007
 ##11#
 d
-01A218~&Ce semnifica urmatorul cod Q: QRZ?
+01A213~&Ce semnifica urmatorul cod Q: QRZ?
 null
 sunteti interferat?
 sunteti ocupat?
@@ -146,7 +146,7 @@ Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpa
 YO6OWN, Brasov, 2007
 ##12#
 c
-01A216~&Ce semnifica urmatorul cod Q: QRS?
+01A212~&Ce semnifica urmatorul cod Q: QRS?
 null
 sunteti interferat?
 Sa micsorez puterea?
@@ -158,7 +158,7 @@ Ca mnemonica: Q R 'Slower' - mai lent<br>Codul Q: <a href="http://examyo.science
 owene, 2007
 ##13#
 b
-01A217~&Ce semnifica urmatorul cod Q: QRT?
+02A212~&Ce semnifica urmatorul cod Q: QRT?
 null
 sunteti interferat?
 Sa incetez transmisia?
@@ -170,7 +170,7 @@ Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpa
 YO6OWN, Brasov, 2007
 ##14#
 a
-01A21a~&Ce semnifica urmatorul cod Q: QSB?
+02A213~&Ce semnifica urmatorul cod Q: QSB?
 null
 Taria semnalelor mele variaza?
 Sa incetez transmisia?
@@ -182,7 +182,7 @@ Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpa
 YO6OWN, Brasov, 2007
 ##15#
 c
-01A21d~&Ce semnifica urmatorul cod Q: QSY?
+01A214~&Ce semnifica urmatorul cod Q: QSY?
 null
 Taria semnalelor mele variaza?
 Sa incetez transmisia?
@@ -194,7 +194,7 @@ Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpa
 YO6OWN, Brasov, 2007
 ##16#
 d
-02A21b~&Ce semnifica urmatorul cod Q: QSL?
+03A213~&Ce semnifica urmatorul cod Q: QSL?
 null
 Taria semnalelor mele variaza?
 Sa incetez transmisia?
@@ -206,7 +206,7 @@ Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpa
 YO6OWN, Brasov, 2007
 ##17#
 b
-01A31h~&Ce este codul RST?
+01A314~&Ce este codul RST?
 null
 codul de prescurtari
 cod pentru raportarea calitatii receptiei
@@ -218,7 +218,7 @@ Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://exam
 YO6OWN, Brasov, 2007
 ##18#
 a
-02A31h~&In cazul codului RST, ce semnificatie au literele?
+01A320~&In cazul codului RST, ce semnificatie au literele?
 null
 R-inteligibilitate, S-taria semnalului, T-calitatea tonului
 R-taria semnalului, S-inteligibilitate, T-calitatea tonului
@@ -230,7 +230,7 @@ Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://exam
 YO6OWN, Brasov, 2007
 ##19#
 b
-03A31h~&Intensitatea semnalului se apreciaza intre:
+02A320~&Intensitatea semnalului se apreciaza intre:
 null
 1 - 5
 1 - 9
@@ -241,90 +241,6 @@ null
 Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://examyo.scienceontheweb.net/x5_2_rst.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
 ##20#
-a
-Ce mod de lucru semnifica codul A1A?
-null
-CW
-SSB 
-AM
-FM
-YO6GZI, Sacele, 2004(rev. 2006)
-null
-Anexa 3 la regulament, Art. 3
-Regulamentul
-##21#
-a
-Ce mod de lucru semnifica codul A2A?
-null
-telegrafie modulata cu sunet
-SSB 
-AM
-FM
-YO6GZI, Sacele, 2004(rev. 2006)
-null
-Anexa 3 la regulament, Art. 3
-Regulamentul
-##22#
-c
-Ce mod de lucru semnifica codul A3E?
-null
-SSTV
-SSB 
-AM
-FM
-YO6GZI, Sacele, 2004(rev. 2006)
-null
-Anexa 3 la regulament, Art. 3
-Regulamentul
-##23#
-d
-Ce mod de lucru semnifica codul F3E?
-null
-RTTY
-SSB 
-AM
-FM
-YO6GZI, Sacele, 2004(rev. 2006)
-null
-Anexa 3 la regulament, Art. 3
-Regulamentul
-##24#
-a
-01A611~&Ce domeniu de frecvente corespunde benzii de 2m alocate radioamatorilor in Romania?
-null
-144 - 146 MHz
-143 - 144 MHz
-432 - 437 MHz
-430 - 432 MHz
-YO6GZI, Sacele, 2004(rev.2006)
-null
-Anexa 3 la regulament, Art. 1
-Regulamentul
-##25#
-c
-02A611~&Ce domeniu de frecvente corespunde benzii de 70cm alocate radioamatorilor in Romania?
-null
-144 - 146 MHz
-432 - 440 MHz
-430 - 440 MHz
-430 - 432 MHz
-YO6GZI, Sacele, 2004(rev. 2006)
-null
-Anexa 3 la regulament, Art. 1
-Regulamentul
-##26#
-d
-03A611~&Ce domeniu de frecvente corespunde benzii de 160m?
-null
-144 - 146 MHz
-3,5 - 3,8 MHz
-432 - 438 MHz
-1,8 - 2,0 MHz
-YO6GZI, Sacele, 2004(rev. 2006)
-null
-Anexa 3 la regulament, Art. 1
-Regulamentul
-##27#
 c
 02A512~&Cum se interpreteaza urmatorul indicativ: YO6GZI/P?
 null
@@ -336,7 +252,7 @@ YO6GZI, Sacele, 2004
 null
 Art.13 din regulament
 Regulamentul
-##28#
+##21#
 b
 03A512~&Cum se interpreteaza urmatorul indicativ: YO6GZI/M?
 null
@@ -348,7 +264,7 @@ YO6GZI, Sacele, 2004
 null
 Art.13 din regulament
 Regulamentul
-##29#
+##22#
 d
 04A512~&Cum se interpreteaza urmatorul indicativ: YO6GZI/MM?
 null
@@ -360,7 +276,7 @@ YO6GZI, Sacele, 2004
 null
 Art.13 din regulament
 Regulamentul
-##30#
+##23#
 b
 05A512~&Cum se interpreteaza urmatorul indicativ: YO6GZI/AM?
 null
@@ -372,7 +288,7 @@ YO5OWN, Sacele, 2004
 null
 Art.13 din regulament
 Regulamentul
-##31#
+##24#
 b
 02A514~&Ce tara reprezinta prefixul F?
 null
@@ -384,7 +300,7 @@ YO6GZI, Sacele, 2004
 null
 Prefix de o litera au doar tarile 'care au fondat radioamatorismul' adica acolo au activat primii radioamatori - USA(W), Franta(F), Anglia(G) 
 YO6OWN, Brasov, 2007
-##32#
+##25#
 c
 03A514~&Ce tara reprezinta prefixul OE?
 null
@@ -396,7 +312,7 @@ YO6GZI, Sacele, 2004
 null
 Mnemonica: Austria in germana este &Ouml;sterreich, si se mai scrie si Oesterreich. OE
 YO6OWN, Brasov, 2007
-##33#
+##26#
 c
 04A514~&Ce tara reprezinta prefixul G?
 null
@@ -408,7 +324,7 @@ YO6GZI, Sacele, 2004
 null
 Prefix de o litera au doar tarile 'care au fondat radioamatorismul' adica acolo au activat primii radioamatori - USA(W), Franta(F), Anglia(G)<br>Mnemonica: Great Britain - G 
 YO6OWN, Brasov, 2007
-##34#
+##27#
 d
 05A514~&Ce tara reprezinta prefixul HA?
 null
@@ -420,7 +336,7 @@ YO6GZI, Sacele, 2004
 null
 Ai gresit? Inseamna ca nu ai facut nici macar receptie destula, macar codul tarilor vecine trebuie stiut. ER - Moldova, LZ - Bulgaria, HA - Ungaria
 YO6OWN, Brasov, 2007
-##35#
+##28#
 b
 06A514~&Ce tara reprezinta prefixul EA?
 null
@@ -432,7 +348,7 @@ YO6GZI, Sacele, 2004
 null
 ESP.
 YO6OWN, Brasov, 2007
-##36#
+##29#
 c
 07A514~&Ce tara reprezinta prefixul LZ?
 null
@@ -444,9 +360,9 @@ YO5OWN, Sacele, 2004
 null
 Ai gresit? Inseamna ca nu ai facut nici macar receptie destula, macar codul tarilor vecine trebuie stiut. ER - Moldova, LZ - Bulgaria, HA - Ungaria
 YO6OWN, Brasov, 2007
-##37#
+##30#
 a
-01A31p~&Ce semnifica codul 73?
+01A316~&Ce semnifica codul 73?
 null
 salutari
 sarutari
@@ -456,9 +372,9 @@ YO6GZI, Sacele, 2004
 null
 Vezi mai multe la prescurtari uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##38#
+##31#
 b
-01A31q~&Ce semnifica codul 88?
+02A316~&Ce semnifica codul 88?
 null
 salutari
 sarutari
@@ -468,9 +384,9 @@ YO6GZI, Sacele, 2004
 null
 Vezi mai multe la prescurtari uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##39#
+##32#
 a
-01A31r~&Ce semnifica codul yl?
+03A316~&Ce semnifica codul yl?
 null
 young lady - radioamatoare
 sarutari
@@ -480,33 +396,9 @@ YO6GZI, Sacele, 2004
 null
 Vezi mai multe la prescurtari uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##40#
-b
-04A611~&Ce domeniu de frecvente corespunde benzii de 80m alocat radioamatorilor din Romania?
-null
-7,0-7,100 MHz
-3,5 - 3,8 MHz
-430 - 440 MHz
-1,8 - 2,05 MHz
-YO6OWN, Sacele, 2005(rev. 2006)
-null
-Anexa 3 la regulament, Art. 1
-Regulamentul
-##41#
-a
-05A611~&Ce domeniu de frecvente corespunde benzii de 40m alocat radioamatorilor din Romania?
-null
-7,0-7,100 MHz
-3,5 - 3,8 MHz
-430 - 440 MHz
-1,8 - 2,05 MHz
-YO6OWN, Sacele, 2005(rev. 2006)
-null
-Anexa 3 la regulament, Art. 1
-Regulamentul
-##42#
+##33#
 d
-01A11l~&Cum se pronunta in alfabetul fonetic international, litera 'L'?
+01A113~&Cum se pronunta in alfabetul fonetic international, litera 'L'?
 null
 London
 Luis
@@ -516,9 +408,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##43#
+##34#
 a
-01A11m~&Cum se pronunta in alfabetul fonetic international, litera 'M'?
+02A113~&Cum se pronunta in alfabetul fonetic international, litera 'M'?
 null
 Mike
 Mexico
@@ -528,9 +420,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##44#
+##35#
 b
-01A11n~&Cum se pronunta in alfabetul fonetic international, litera 'N'?
+03A113~&Cum se pronunta in alfabetul fonetic international, litera 'N'?
 null
 Norway
 November
@@ -540,9 +432,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##45#
+##36#
 d
-02A11o~&Cum se pronunta in alfabetul fonetic international, litera 'O'?
+04A113~&Cum se pronunta in alfabetul fonetic international, litera 'O'?
 null
 Ontario
 Oregon
@@ -552,9 +444,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##46#
+##37#
 d
-01A11p~&Cum se pronunta in alfabetul fonetic international, litera 'P'?
+01A114~&Cum se pronunta in alfabetul fonetic international, litera 'P'?
 null
 Popeye
 Pakistan
@@ -564,9 +456,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##47#
+##38#
 a
-01A11q~&Cum se pronunta in alfabetul fonetic international, litera 'Q'?
+02A114~&Cum se pronunta in alfabetul fonetic international, litera 'Q'?
 null
 Quebeq
 Queen
@@ -576,9 +468,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##48#
+##39#
 b
-01A11r~&Cum se pronunta in alfabetul fonetic international, litera 'R'?
+03A114~&Cum se pronunta in alfabetul fonetic international, litera 'R'?
 null
 Radio
 Romeo
@@ -588,9 +480,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##49#
+##40#
 c
-01A11s~&Cum se pronunta in alfabetul fonetic international, litera 'S'?
+04A114~&Cum se pronunta in alfabetul fonetic international, litera 'S'?
 null
 Sugar
 Santiago
@@ -600,9 +492,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##50#
+##41#
 c
-01A11t~&Cum se pronunta in alfabetul fonetic international, litera 'T'?
+05A114~&Cum se pronunta in alfabetul fonetic international, litera 'T'?
 null
 Toto
 Turkey
@@ -612,9 +504,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##51#
+##42#
 d
-01A11u~&Cum se pronunta in alfabetul fonetic international, litera 'U'?
+01A115~&Cum se pronunta in alfabetul fonetic international, litera 'U'?
 null
 Utah
 Ubul
@@ -624,9 +516,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##52#
+##43#
 a
-01A11v~&Cum se pronunta in alfabetul fonetic international, litera 'V'?
+02A115~&Cum se pronunta in alfabetul fonetic international, litera 'V'?
 null
 Victor
 Victoria
@@ -636,9 +528,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##53#
+##44#
 b
-01A11w~&Cum se pronunta in alfabetul fonetic international, litera 'W'?
+03A115~&Cum se pronunta in alfabetul fonetic international, litera 'W'?
 null
 double V
 Whiskey
@@ -648,9 +540,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##54#
+##45#
 b
-01A11x~&Cum se pronunta in alfabetul fonetic international, litera 'X'?
+04A115~&Cum se pronunta in alfabetul fonetic international, litera 'X'?
 null
 Xilophone
 X-ray
@@ -660,9 +552,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##55#
+##46#
 c
-01A11y~&Cum se pronunta in alfabetul fonetic international, litera 'Y'?
+05A115~&Cum se pronunta in alfabetul fonetic international, litera 'Y'?
 null
 Yoko
 Yokohama
@@ -672,9 +564,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##56#
+##47#
 d
-01A11z~&Cum se pronunta in alfabetul fonetic international, litera 'Z'?
+06A115~&Cum se pronunta in alfabetul fonetic international, litera 'Z'?
 null
 Zanzibar
 Zero
@@ -684,9 +576,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##57#
+##48#
 b
-Cum ai fost receptionat atunci cand corespondentul tau iti da controlul 3-3?
+03A320~&Cum ai fost receptionat atunci cand corespondentul tau iti da controlul 3-3?
 null
 la limita inteligibilului, semnal foarte slab
 copiat cu dificultate, semnal slab
@@ -696,33 +588,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://examyo.scienceontheweb.net/x5_2_rst.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##58#
-c
-Care sunt datele minime care se inscriu pe cardul QSL dupa un QSO?
-null
-numele operatorului, ora UTC, controlul, frecventa, QTH locatorul propriu
-indicativul corespondentului, controlul RST, ora UTC, frecventa de emisie
-indicativul corespondentului, banda, clasa de emisie, data si ora UTC
-numele operatorului, frecventa, tip modulatie, controlul RST, Data si timpul UTC, QRA-locatorul propriu
-YO6OWN, Sacele, 2005(rev.2007)
-null
-Art. 24 (2) din regulament
-Regulamentul
-##59#
-b
-Cum se transmite cuvantul OSCAR in limbajul fonetic international?
-null
-oregon - senegal - canada - america - roma
-oscar - sierra - charlie - alpha - romeo
-onofrei - sarbu -  constantin - ana - radu
-nu se poate, OSCAR este deja codul fonetic pentru litera O, se face recursivitate.
-YO6GZI, Sacele, 2004(rev.2007)
-null
-Oscar - Sierra ... tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
-##60#
+##49#
 a
-01A11a~&Cum se pronunta in alfabetul fonetic international, litera 'A'?
+01A111~&Cum se pronunta in alfabetul fonetic international, litera 'A'?
 null
 Alpha
 America
@@ -732,9 +600,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##61#
+##50#
 b
-01A11b~&Cum se pronunta in alfabetul fonetic international, litera 'B'?
+02A111~&Cum se pronunta in alfabetul fonetic international, litera 'B'?
 null
 Brasil
 Bravo
@@ -744,9 +612,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##62#
+##51#
 c
-01A11c~&Cum se pronunta in alfabetul fonetic international, litera 'C'?
+03A111~&Cum se pronunta in alfabetul fonetic international, litera 'C'?
 null
 Colorado
 Colombo
@@ -756,9 +624,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##63#
+##52#
 d
-01A11d~&Cum se pronunta in alfabetul fonetic international, litera 'D'?
+04A111~&Cum se pronunta in alfabetul fonetic international, litera 'D'?
 null
 Dog
 Darwin
@@ -768,9 +636,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##64#
+##53#
 a
-01A11e~&Cum se pronunta in alfabetul fonetic international, litera 'E'?
+05A111~&Cum se pronunta in alfabetul fonetic international, litera 'E'?
 null
 Echo
 Europa
@@ -780,9 +648,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##65#
+##54#
 b
-01A11f~&Cum se pronunta in alfabetul fonetic international, litera 'F'?
+01A112~&Cum se pronunta in alfabetul fonetic international, litera 'F'?
 null
 Fox
 Foxtrot
@@ -792,9 +660,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##66#
+##55#
 b
-01A11g~&Cum se pronunta in alfabetul fonetic international, litera 'G'?
+02A112~&Cum se pronunta in alfabetul fonetic international, litera 'G'?
 null
 Germany
 Golf
@@ -804,9 +672,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##67#
+##56#
 d
-01A11h~&Cum se pronunta in alfabetul fonetic international, litera 'H'?
+03A112~&Cum se pronunta in alfabetul fonetic international, litera 'H'?
 null
 Honolulu
 Honduras
@@ -816,9 +684,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##68#
+##57#
 a
-01A11i~&Cum se pronunta in alfabetul fonetic international, litera 'I'?
+04A112~&Cum se pronunta in alfabetul fonetic international, litera 'I'?
 null
 India
 Italy
@@ -828,9 +696,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##69#
+##58#
 b
-01A11j~&Cum se pronunta in alfabetul fonetic international, litera 'J'?
+05A112~&Cum se pronunta in alfabetul fonetic international, litera 'J'?
 null
 Japan
 Juliett
@@ -840,9 +708,9 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##70#
+##59#
 c
-01A11k~&Cum se pronunta in alfabetul fonetic international, litera 'K'?
+05A113~&Cum se pronunta in alfabetul fonetic international, litera 'K'?
 null
 Kenya
 Kilowatt
@@ -852,55 +720,7 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
 YO6OWN, Brasov, 2007
-##71#
-c
-Ce este ora UTC?
-null
-ora Uniunii de Telecomunicatii si Comunicatii, care sincronizeaza toate centralele de telefonie din lume(ora plesiocrona)
-ora Uranium Time Clock - ora data de ceasul atomic de la Berna
-ora Universal  Time, Coordinated - acelasi cu GMT
-ora Uniform Time Clock - ora data de timpul de rotatie al planetei Terra
-YO6OWN, Sacele, 2005(rev.2007)
-null
-
-
-##72#
-c
-Ce semnifica prescurtarea SWL?
-null
-Se refera la categoria de radioamatori receptori (autorizati) din Romania.
-Este unitatea de masura a directivitatii antenelor.
-Este categoria de oameni carora le place sa asculte emisiuni radio pe undele scurte (Short Wave Listener)
-Este marca celui mai raspandit transceiver A412.
-YO6GZI, Sacele, 2004(rev.2007)
-null
-Short Wave Listener - sunt cei carora le place sa faca receptie de emisiuni de radioamatori sau de posturi radio in unde scurte(mai nou chiar si in UUS), care trec de stadiul de 'utilizator casnic' de radio, prin faptul ca isi modifica echipamentul, antenele, samd, pentru a face receptii DX, trimit QSL-uri sau eQSL-uri de SWL, sunt pasionati. 
-YO6OWN, Brasov, 2007
-##73#
-b
-03A21b~&Ce inseamna 'SQL'
-null
-QSL de retur
-Codul acesta nu este folosit de radioamatori
-Este codul pentru Send QSL Please, sau SND QSL PSE
-Este codul S prin se comunica faptul ca frecventa corespondentului nu e stabila
-YO6OWN, Sacele, 2005(rev.2007)
-null
-SQL este un sistem de interogare a bazelor de date, nu are legatura cu radioamatorismul :-)
-YO6OWN, Brasov, 2007
-##74#
-b
-Radioamatorii receptori autorizati pot participa in concursuri?
-null
-nu
-da
-numai cu acordul prealabil al ANC
-daca sunt supravegheati de un radioamator cu clasa de autorizare 2
-YO6GZI, Sacele, 2004(rev.2007)
-null
-Exista destule concursuri la care sunt invitati si receptorii autorizati
-YO6OWN, Brasov, 2007
-##75#
+##60#
 b
 01B411~&Care sunt semnalele internationale de primejdie, trafic de urgenta si de comunicatie in caz de calamitati naturale?
 null
@@ -912,9 +732,9 @@ YO6OWN, Brasov, 2010
 null
 copy-paste din "PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)" -  B. REGULI SI PROCEDURI DE OPERARE INTERNE SI INTERNATIONALE - capitolul 4
 YO6OWN, Brasov, 2010
-##76#
+##61#
 b
-01A11o~&Cum se transmite cuvantul OSCAR in limbajul fonetic international?
+06A113~&Cum se transmite cuvantul OSCAR in limbajul fonetic international?
 null
 oregon - senegal - canada - america - roma
 oscar - sierra - charlie - alpha - romeo
@@ -922,11 +742,11 @@ onofrei - sarbu -  constantin - ana - radu
 nu se poate, OSCAR este deja codul fonetic pentru litera O, se face recursivitate.
 YO6GZI, Sacele, 2004
 null
-
-
-##77#
+Oscar - Sierra ... tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
+YO6OWN, Brasov, 2007
+##62#
 c
-In cazul unei urgente, care este cel mai important accesoriu pentru o statie portabila?
+01B711~&In cazul unei urgente, care este cel mai important accesoriu pentru o statie portabila?
 null
 o antena suplimentara
 un amplificator portabil
@@ -936,19 +756,7 @@ YO6OWN - adaptare dupa eham.net, 2007
 null
 In cazul unei urgente tipice, sau cand o urgenta este iminenta, distribuitorii intrerup furnizarea energiei electrice si a gazului metan pentru a nu se agrava situatia calamitatii prin aparitia incendiilor. Din acest caz, o statie portabila  are autonomia determinata de capacitatea acumulatorului si starea de incarcare. Mai multi acumulatori incarcati = mai bine.<br>O antena suplimentara nu ajuta, ar fi buna o antena mai buna decat antena cremwurst, fiindca se poate reduce puterea(observati ca si aici de fapt tot la acumulatori ajungem)<br>Un amplificator portabil e contraindicat, va consuma rapid bateriile si apoi suntem fara comunicatii.<br>Microfon hands-free e deja gadget, fara el putem lucra mult si bine.<br>Panouri solare ar fi utile intr-o calamitate prelungita, si daca exista, generator pe combustibil fosil.  
 YO6OWN, Basov, 2007
-##78#
-b
-Care din urmatoarele echipamente ar putea folosi la echiparea unei statii de radioamator care doreste sa faca radiocomunicatii VHF cu puteri foarte scazute de emisie(QRP), la distante mari si cu cat mai multi corespondenti? 
-null
-Un transceiver VHF FM portabil, de consum mic
-Un transceiver VHF multi-mod
-O antena omnidirectionala
-Un transceiver FM mobil
-YO6OWN - adaptare dupa eham.net, 2007, review yo3hjv aprilie 2010
-null
-Pentru VHF QRP(radiocomunicatii cu puteri la emisie foarte scazute - 5W in general) - trebuie antene foarte eficiente si directive, daca vrem sa realizam legaturi la mare distanta, antenele omnidirectionale se folosesc in general doar pentru legaturi locale. Transceiverul cel mai util este VHF multi-mod, deoarece unele moduri de lucru(FM de exemplu) sunt destul de ineficiente ca putere/largime de banda si pe de alta parte un transceiver multi-mod permite compatibilitatea la nivel de modulatie cu mai multi parteneri de trafic. O statie 'numai FM' cum sunt majoritatea statiilor VHF nu este adecvata pentru trafic de distanta mare folosind QRP.
-YO6OWN, Brasov, 2007, review iunie 2010
-##79#
+##63#
 b
 01A512~&Cum chemi alta statie pe un repetor, daca stii dinainte indicativul corespondentului?
 null
@@ -960,9 +768,9 @@ YO6OWN - adaptare dupa eham.net, 2007
 null
 Pentru a face apel directiv - vrei sa chemi direct un radioamator al carui indicativ il stii deja - apelul se face folosind protocolul obisnuit: Indicativul statiei chemate DE Indicativul propriu, bineinteles fara sa perturbi un posibil QSO de pe repetor.<br>'break, break, 73' inseamna de fapt - intrerupe legatura in curs, ca sa iti spun la re-auzire si sa-ti transmit salutarile mele - Nu este o procedura folosita, nu faceti niciodata asa ceva<br>Nu se foloseste CQ decat la limita, iar CQ CQ CQ nu se foloseste niciodata - este o procedura din unde scurte, fiindca pe repetor nu exista 'conditii grele de propagare'  - ori deschizi repetorul, ori nu-l deschizi.<br>Daca astepti pana statia dorita cheama ea, atunci nu mai este un apel directiv asa cum se cere la inceput.
 YO6OWN, Brasov, 2007
-##80#
+##64#
 b
-01A414~&De ce este o idee buna de a avea o modalitate sa operezi statia de radioamator fara a folosi curentul de la priza?
+02A711~&De ce este o idee buna de a avea o modalitate sa operezi statia de radioamator fara a folosi curentul de la priza?
 null
 Ca sa poti folosi statia si mobil
 Pentru ca ai mai multe sanse sa fii activ in caz de urgenta/catastrofa
@@ -970,33 +778,9 @@ Pentru a putea participa in concursuri in care nu este permisa folosirea curentu
 Ca sa fii in conformitate cu cerintele ANC
 YO6OWN - adaptare dupa eham.net, 2007
 null
-ANC nu are cerinte despre sursa de energie folosita; Nu exista concursuri YO care sa conditioneze participarea de folosirea unui tip de sursa.<br>Statia mobila de obicei merge si de la priza(alimentator extern)<br>O statie care are in ea echipamente care pot opera de pe surse alternative de energie sau cel putin au acumulatori mari incarcati tot timpul, va ramane activa in cazul unei calamitati cand alimentarea cu energie electrica si gaz metan este intrerupta. Inca un avantaj este ca aceste statii fiind alimentate independent de retea, nu au brum. 
+ANCOM nu are cerinte despre sursa de energie folosita; Nu exista concursuri YO care sa conditioneze participarea de folosirea unui tip de sursa.<br>Statia mobila de obicei merge si de la priza(alimentator extern)<br>O statie care are in ea echipamente care pot opera de pe surse alternative de energie sau cel putin au acumulatori mari incarcati tot timpul, va ramane activa in cazul unei calamitati cand alimentarea cu energie electrica si gaz metan este intrerupta. Inca un avantaj este ca aceste statii fiind alimentate independent de retea, nu au brum. 
 YO6OWN, Brasov, 2007
-##81#
-d
-Care strat al ionosferei este responsabil de absorbtia undelor medii si scurte in timpul zilei?
-null
-Stratul F2
-Stratul F2
-stratul E
-stratul D
-YO6OWN, Brasov, 2005
-null
-
-
-##82#
-a
-Care este relatia dintre numarul petelor solare si gradul de ionizare al ionosferei?
-null
-Gradul de ionizare creste cu cresterea numarului de pete solare.
-Creste numarul de pete solare, scade gradul de ionizare
-Daca nu sunt pete solare, ionizarea este zero.
-Ionizarea nu are legatura cu petele solare.
-YO6OWN, Brasov, 2005
-null
-Petele solare sunt manifestarile pe scoarta solara a fluctuatiilor de camp magnetic solar si a eruptiilor solare. Eruptiile antreneaza in spatiu cantitati enorme de electroni, protoni si alte particule, din care unele produc o ionizare a stratului superior al atmosferei Pamantului - ionosfera.<br>Acest strat ionizat se comporta in anumite circumstante ca o oglinda pentru undele radio
-YO6OWN, Brasov, 2007
-##83#
+##65#
 b
 01A511~&La chemarea ta, iti raspund patru radioamatori: YO3AAC, LZ5JZ, HA5KXX, 3W1SSB. Cui raspunzi prima data, in cazul in care vrei sa lucrezi cu toti?
 null
@@ -1008,3 +792,15 @@ YO6OWN, Brasov, 2005
 null
 Un bun operator incearca sa lucreze toate statiile: statia mai slaba prima, fiindca este QRP(putere f. mica la emisie, sub 5W in US) sau foarte indepartata. In cazul unei fluctuatii de propagare, statia slaba se pierde prima.<br>Dupa aceea statia DX e mai apetisanta - asta depinde de operator, daca are sau nu confirmata deja entitatea 3W<br>O statie care cheama foarte, foarte insistent de obicei sfarseste prin a irita operatorul si probabil va fi rejectata.<br>Statia YO - hai sa fim si noi patrioti(tine de ham-spirit), ca si altii sunt! Nu trebuie sa lasam statiile YO sa ne strige si sa nu raspundem.
 YO6OWN, Brasov, 2007
+##66#
+a
+01A841~&De ce trimit si colectioneaza radioamatorii cardurile QSL?
+null
+In cultura radioamatorilor, cardul QSL este "curtoazia finala a unei radiolegaturi" si multi le trimit si le colectioneaza.
+Fiindca asa prevede Regulamentul pentru serviciul de amator
+Fiindca au o valoare pentru ei, din diferite puncte de vedere.
+Daca trimiti inapoi un card QSL, primesti un cupon IRC in valoare de 1 USD
+YO6OWN, Sacele, 2005(rev.2007)
+null
+QSL-ul este o curtoazie a QSO-ului pe care il confirma, e cam sacrilegiu sa arunci un QSL. Exista si diplome emise in baza dovedirii cu QSL-uri a legaturilor efectuate, ... si alte motive de a colectiona QSL-uri.
+YO6OWN, Brasov, 2010

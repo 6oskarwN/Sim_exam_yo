@@ -1,5 +1,5 @@
-Legislatie, clasa III v.3.0c  versiune actualizata pe http://examyo.scienceontheweb.net
-152
+Legislatie, clasa III v.3.0d  versiune actualizata pe http://examyo.scienceontheweb.net
+156
 ##0#
 a
 01A3501~&Este adevarat ca ANCOM poate determina cu precizie locatia geografica a statiilor radio ilegale si clandestine?
@@ -80,10 +80,10 @@ null
  Da, atat timp cat nu se emite se poate asculta orice frecventa
  Nu, ascultarea frecventelor politiei si a armatei este strict interzisa in Romania
  Da, daca echipamentul folosit permite acest lucru
-YO3HAF, Bucuresti, 2005 (rev.2010)
+YO3HAF, Bucuresti, 2005 - rev.2010
 null
 Chiar daca ascultarea frecventelor politiei si a armatei este strict interzisa in Romania, nu acesta este raspunsul complet, nu sunt singurele 'alte frecvente' din enuntul intrebarii.
-YO6OWN, Brasov, 2010
+YO6OWN, 2010
 ##7#
 a
 01B3101~&Cum se defineste termenul de radiocomunicatie?
@@ -607,7 +607,7 @@ null
 clasa I
 clasa I sau clasa II
 I, II, sau III
-Categoria statiei este egala cu clasa operatorului
+clasa a III-a
 YO6OWN, Brasov, 2014
 null
 Art. 6, b) in Regulament
@@ -938,7 +938,7 @@ null
 
 ##78#
 c
-01A3543~&Intreaga activitate a unei statii de emisie-receptie este consemnata in jurnalul de trafic (LOG)? Daca da, ce trebuie sa avem in acest LOG?
+02A3542~&Intreaga activitate a unei statii de emisie-receptie este consemnata in jurnalul de trafic (LOG)? Daca da, ce trebuie sa avem in acest LOG?
 null
 da, indicativul statiei cu care s-a lucrat, data, ora Romaniei
 nu. indicativul statiei, data
@@ -950,7 +950,7 @@ Se trec toate datele care pot identifica unic un QSO: Indicativul corespondentul
 YO6OWN, Brasov, 2007
 ##79#
 d
-01A3545~&Pot exista neconcordante intre traficul real si inscrierile din jurnalul de trafic?
+03A3542~&Pot exista neconcordante intre traficul real si inscrierile din jurnalul de trafic?
 null
 da
 da, cand acestea se fac cunoscute la ANCOM in scris
@@ -1817,10 +1817,58 @@ b
 01A3502~&Cum se sanctioneaza abaterile de la Regulament?
 null
 conform legii penale
-conform legislatiei privind regimul contraventiilor sin domeniul operarii statiilor de radioacomunicatii precum si a oricarui act normativ in vigoare
+conform legislatiei privind regimul contraventiilor din domeniul operarii statiilor de radioacomunicatii precum si a oricarui act normativ in vigoare
 cu mustrare scrisa si retragerea autorizatiei
 prin plata unei amenzi contraventionale
 YO6OWN 2014
 null
 
 
+##152#
+b
+11A3521~&Ce domeniu de frecvente corespunde benzii de 80m alocat radioamatorilor din Romania?
+null
+7,0-7,100 MHz
+3,5 - 3,8 MHz
+430 - 440 MHz
+1,8 - 2,05 MHz
+YO6OWN, Sacele, 2005(rev. 2006)
+null
+Anexa 3 la regulament, Art. 1
+Regulamentul
+##153#
+a
+12A3521~&Ce domeniu de frecvente corespunde benzii de 40m alocat radioamatorilor din Romania?
+null
+7,0-7,100 MHz
+3,5 - 3,8 MHz
+430 - 440 MHz
+1,8 - 2,05 MHz
+YO6OWN, Sacele, 2005(rev. 2006)
+null
+Anexa 3 la regulament, Art. 1
+Regulamentul
+##154#
+c
+04A3542~&Ce este ora UTC, folosita la notarea radiolegaturii in log?
+null
+ora Uniunii de Telecomunicatii si Comunicatii, care sincronizeaza toate centralele de telefonie din lume(ora plesiocrona)
+ora Uranium Time Clock - ora data de ceasul atomic de la Berna
+ora Universal  Time, Coordinated - ceasul atomic, aproximativ acelasi cu GMT in utilizare curenta
+ora Uniform Time Clock - ora data de timpul de rotatie al planetei Terra
+YO6OWN, Sacele, 2005(rev.2007)
+null
+
+
+##155#
+b
+03A3215~&Radioamatorii receptori autorizati pot participa in concursuri?
+null
+nu
+da
+numai cu acordul prealabil al ANCOM
+daca sunt supravegheati de un radioamator cu clasa de autorizare 2
+YO6GZI, Sacele, 2004(rev.2007)
+null
+Exista destule concursuri la care sunt invitati si receptorii autorizati
+YO6OWN, Brasov, 2007

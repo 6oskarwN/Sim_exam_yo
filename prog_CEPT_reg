@@ -1,4 +1,4 @@
-programa regulamente, CEPT NOVICE clasa III, III-R [v3.05]
+ programa regulamente, CEPT NOVICE clasa III, III-R [v3.06]
 
 C. REGLEMENTARI INTERNE SI INTERNATIONALE PRIVIND SERVICIILE DE AMATOR SI AMATOR PRIN SATELIT
 
@@ -72,7 +72,7 @@ SECTIUNEA 1 EMITEREA AUTORIZATIILOR INDIVIDUALE
 3411&  Art. 34 - Activitatea de radioamator autorizata.
 3412&  Autorizatia de radioamator individuala
 3413&  Art. 35 - Drepturi derivate din  autorizatia de radioamator
-3414&  Art. 36- Clasele autorizatiilor de radioamator
+3414&  Art. 36 - Clasele autorizatiilor de radioamator
 3415&  Echivalentele autorizatiilor romanesti cu CEPT.
 3416&  Sufixele de indicativ
 
@@ -123,12 +123,12 @@ CAPITOLUL V
 3539&  (5) Al treilea simbol indica tipul informatiei transmise
 
 
-3541&  Art. 1 Conditii tehnice speciale permise statiilor de cat. I
+3541&  Anexa 3, Art. 1 Conditii tehnice speciale permise statiilor de cat. I
 
 3542&  3.3 Demonstrarea cunoasterii si completarii jurnalului statiei (log) 
 
-3543&  3.4 completarea logului
+ - completarea logului
 
-3544&  3.5	scopul
+ - scopul
 
-3545&  3.6	datele inscrise
+ - datele inscrise

@@ -1,4 +1,4 @@
-acoperire programa HAREC radiotehnica, clasa I, II [v.3.07] 
+acoperire programa HAREC radiotehnica, clasa I, II [v.3.08] 
 
 
 PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
@@ -19,12 +19,12 @@ NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
 116&-	Puterea electrica    
 117&-	Wattul
 118&-	Energia electrica    
-
+119&-	Capacitatea unei baterii  [ A x h ]
 
 1.2. Surse de electricitate
 121&	Surse de tensiune, surse de tensiune electromotoare, curentul de scurtcircuit, rezistenta interna, tensiunea la borne
 122&	Conectarea serie si paralel a surselor de tensiune
-119&-	Capacitatea unei baterii  [ A x h ]
+
 
 1.3. Campul electric
 131&-	Nivelul campului electric
@@ -50,7 +50,7 @@ NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
 
 1.7. Semnale nesinusoidale, zgomot
 171&-	Semnale audio
-172&-	Semnale dreptunghiulare, triunghiulare, dinte de ferastrau
+172&-	Semnale dreptunghiulare (extra: triunghiulare, dinte de ferastrau)
 173&-	Reprezentarea grafica in domeniul timp
 174&-	Componenta continua, unda fundamentala si armonicile superioare 
 175&-	Zgomot   (zgomotul termic al receptorului, banda de zgomot, densitatea de zgomot, puterea zgomotului in banda receptorului)
@@ -142,11 +142,11 @@ COMPONENTE
 269&-	Impedantele de intrare si iesire in conexiunilor de mai sus 
 26a&-	Metode de polarizare in conexiunilor de mai sus
 
-2.7	Disipatia de caldura
-271&- 	Transfer termic semiconductor-capsula, capsula-radiator, coeficienti termici
-272&-	Materiale speciale: Ceramica cu oxid de Be
+ 	Disipatia de caldura (s-a scos din programa)
+271&- 	Transfer termic semiconductor-capsula, capsula-radiator, coeficienti termici(s-a scos din programa)
+272&-	Materiale speciale: Ceramica cu oxid de Be(s-a scos din programa)
 
-2.8. Diverse
+2.7. Diverse
 281&-	Dispozitive simple termoionice (tuburi electronice) 
 282&-	Tensiuni si impedante pentru etaje de inalta tensiune, transformari de impedanta
 283&-	Circuite integrate digitale simple
@@ -379,7 +379,7 @@ MASURARI
 8.1. Efectuarea masurarilor
 Masurarea:
 811&-	Tensiunilor si curentilor in curent continue si alternative 
-812&-	Erorilor:
+- Erorilor:
 813&-	influenta frecventei
 814&-	influenta formei de unda
 815&-	influenta rezistentei interne a instrumentelor
@@ -416,7 +416,7 @@ INTERFERENTE SI IMUNITATE
 9.2. Cauzele interferentelor in echipamentele electronice  
 921&-	Nivelul de camp al emitatorului
 922&-	Radiatiile neesentiale ale emitatorului (radiatii parazite, armonici)
-923&-	Influente nedorite in echipamente care patrund prin:
+-	Influente nedorite in echipamente care patrund prin:
 924&-	intrarea de antena (tensiuni din antena, selectivitatea intrarii)
 925&-	alte linii conectate
 926&-	radiatie directa

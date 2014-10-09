@@ -1,4 +1,4 @@
-programa CEPT NOVICE - cunostinte de trafic, clasa III, III-R [v3.06]
+programa CEPT NOVICE - cunostinte de trafic, clasa III, III-R [v3.07]
 
 PROGRAMA DE EXAMINARE
 conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator incepator (CEPT NOVICE RADIO AMATEUR)
@@ -12,35 +12,50 @@ CAPITOLUL 1
 ALFABETUL FONETIC
 recomandat pentru traficul radiotelefonic
 
+111&
+<pre>
 Litera	Cuvantul de cod	Pronuntia		
-111&A	Alfa		Al-fa		
+A	Alfa		Al-fa		
 B	Bravo		Bra-vo		
 C	Charlie		Ciar-li		
 D	Delta		Del-ta		
 E	Echo		E-co		
-112&F	Foxtrot		Fox-trot		
+</pre>
+112&
+<pre>
+F	Foxtrot		Fox-trot		
 G	Golf		Golf		
 H	Hotel		Ho-tel		
 I	India		In-dia		
 J	Juliett		Giu-li-et		
-113&K	Kilo		Ki-lo		
+</pre>
+113&
+<pre>
+K	Kilo		Ki-lo		
 L	Lima		Li-ma		
 M	Mike		Maik	
 
 Litera	Cuvantul de cod	Pronuntia	
 N	November	No-vem-ber
 O	Oscar		Oss-kar
-114&P	Papa		Pa-pa
+</pre>
+114&
+<pre>
+P	Papa		Pa-pa
 Q	Quebec		Khe-bec
 R	Romeo		Ro-mi-o
 S	Sierra		Si-era
 T	Tango		Tan-go
-115&U	Uniform		Iu-ni-form
+</pre>
+115&
+<pre>
+U	Uniform		Iu-ni-form
 V	Victor		Vik-tor
 W	Whiskey		Uis-ki
 X	X-ray		EX-rei
 Y	Yankee		Yan-ki
 Z	Zulu		Zu-lu
+</pre>
 Nota: Pentru cifre, radioamatorii pot folosi denumirea lor corespunzatoare In limba In care se desfasoara legatura radio sau, pentru o mai buna Intelegere, In oricare alta limba.
 
  
@@ -51,19 +66,23 @@ CODUL Q
 
 Codul	Intrebare	Raspuns
 
-211&QRK	Care este inteligibilitatea semnalelor mele ?	Inteligibilitatea semnalelor d-tale este....
+211&
+QRK	Care este inteligibilitatea semnalelor mele ?	Inteligibilitatea semnalelor d-tale este....
 QRL Sunteti ocupat?
 QRM	Sunteti interferat ?	Sant interferat de....
 QRN	Sunteti deranjat de paraziti atmosferici ?	Sant deranjat de paraziti atmosferici.
-212&QRO	Sa maresc puterea emitatorului?	Mareste puterea emitatorului.
+212&
+QRO	Sa maresc puterea emitatorului?	Mareste puterea emitatorului.
 QRP	Sa micsorez puterea emitatorului ?	Micsorez puterea emitatorului.
 QRS	Sa transmit mai rar ?	Transmiteti mai rar.
 QRT	Sa Incetez transmisia ?	Incetez transmisia.
-213&QRZ	De cine sunt chemat ?	Sunteti chemat de....
+213&
+QRZ	De cine sunt chemat ?	Sunteti chemat de....
 QRV	Sunteti gata ?	Sant gata.
 QSB	Semnalele mele au fading ?	Semnalele dvs. au fading .
 QSL	Puteti confirma receptia ?	Va confirm receptia
-214&QSO	Puteti comunica cu ... direct ?	Pot comunica cu ... direct.
+214&
+QSO	Puteti comunica cu ... direct ?	Pot comunica cu ... direct.
 QSY	Sa schimb transmisia pe o alta frecventa ?	Schimb transmisia pe o alta frecventa.
 QRX	Cand ma veti chema din nou ?	Va voi chema din nou la ora ... pe ... kHz 
 (sau MHz)
@@ -75,27 +94,33 @@ CAPITOLUL 3
 
 PRESCURTARILE CELE MAI UZUALE FOLOSITE IN SERVICIUL DE AMATOR
 
-311&AR = Sfarsit de transmisiune 
+311&
+AR = Sfarsit de transmisiune 
 ASK = A Intreba
 BK = Semnal folosit la Intreruperea unei transmisiuni In curs 
 CQ = Apel general catre toate statiile 
-312&CUAGN = Pe curand
+312&
+CUAGN = Pe curand
 CW = Unda continua
 DX = Distanta mare (de obicei de pe alt continent) 
 GA = Buna ziua
-313&GB = La revedere 
+313&
+GB = La revedere 
 GM = Buna dimineata 
 HP, HPE = Sper, speranta
 K = Invitatie la transmitere 
-314&MSG = Mesaj
+314&
+MSG = Mesaj
 OM = Prieten 
 PSE = Va rog
 RST = Raport pentru inteligibilitatea, taria si tonul semnalului 
-315&R = Receptionat
+315&
+R = Receptionat
 RX = Receptor
 SK = Sfarsitul transmiterii 
 TKS, TNX = Multumesc 
-316&UR = Al  dumneavoastra
+316&
+UR = Al  dumneavoastra
 VA = SK = Sfarsitul transmiterii
 VY = Foarte
 73 = Salutari 

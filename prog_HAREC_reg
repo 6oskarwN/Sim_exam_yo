@@ -1,4 +1,4 @@
-programa regulamente, HAREC clasa I, II [v3.04]
+programa regulamente, HAREC clasa I, II [v3.05]
 
 PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
 PROGRAMA ANALITICA DE EXAMINARE DETALIATA
@@ -35,7 +35,7 @@ LEGI NATIONALE, REGLEMENTARI SI CONDITII DE LICENTIERE
 CAPITOLUL I, DISPOZITII GENERALE, (Art. 1 - 2)
 
 3101&  Art. 2 - (1) Abrevierile din cuprinsul Regulamentului
-
+3102&  Art. 2 - (2) Termeni si definitii din cuprinsul Regulamentului { Art2-(2) nu e prevazut in programa dar pot fi intrebari }
 
 CAPITOLUL II, STATII DE RADIOAMATORI, SECTIUNEA 1, CATEGORII DE STATII(Art. 3 - 7)
 
@@ -77,7 +77,7 @@ SECTIUNEA 1 EMITEREA AUTORIZATIILOR INDIVIDUALE
 3411&  Art. 34 - Activitatea de radioamator autorizata.
 3412&  Autorizatia de radioamator individuala
 3413&  Art. 35 - Drepturi derivate din  autorizatia de radioamator
-3414&  Art. 36- Clasele autorizatiilor de radioamator
+3414&  Art. 36 - Clasele autorizatiilor de radioamator
 3415&  Echivalentele autorizatiilor romanesti cu CEPT.
 3416&  Sufixele de indicativ
 
@@ -128,12 +128,12 @@ CAPITOLUL V
 3539&  (5) Al treilea simbol indica tipul informatiei transmise
 
 
-3541&  Art. 1 Conditii tehnice speciale permise statiilor de cat. I
+3541&  Anexa 3, Art. 1 Conditii tehnice speciale permise statiilor de cat. I
 
 3542&  3.3 Demonstrarea cunoasterii si completarii jurnalului statiei (log) 
 
-3543&  3.4 completarea logului
+ - completarea logului
 
-3544&  3.5	scopul
+ - scopul
 
-3545&  3.6	datele inscrise
+ - datele inscrise
