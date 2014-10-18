@@ -24,14 +24,15 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# (c) YO6OWN Francisc TOTH, 2011-2013
+# (c) YO6OWN Francisc TOTH, 2011-2014
 
-#  sim_gen3r.cgi v.3.0.f
+#  sim_gen3r.cgi v.3.1.0
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  Made in Romania
 
 
+# ch 3.1.0 logging more error info in cheat_log
 # ch 3.0.f html button window-based changed to <form method="link" action="http:///
 # ch 3.0.e infostudy/exam/exam7_yo.html sourced to index.html
 # ch 3.0.d allow filename with funky chars /- at beginning
@@ -69,12 +70,12 @@ my $trid_pagecode;		#pagecode from transaction file
 my $tipcont;			#tipcont extracted from user file
 my $ultimaclasa;                #ultima clasa obtinuta: 0=init, 1/2/3/4=clase 5=failed
 
-my @tridfile;					          #slurped transaction file
-my $trid;						            #the Transaction-ID of the generated page
+my @tridfile;		        #slurped transaction file
+my $trid;	                #the Transaction-ID of the generated page
 my @utc_time=gmtime(time);     	#the 'present' time, generated only once
 my @slurp_userfile;            	#RAM-userfile
 
-my $attempt_counter;			      #attempts in opening or closing files; 5 attempts allowed
+my $attempt_counter;	        #attempts in opening or closing files; 5 attempts allowed
 my $server_ok;			#flag; 1-server free; 0-server congested
 
 my $hlrclass="blabla123";	#clasa1,2,3,clasa4(=3r) defined by first line in hlrfile  
@@ -97,7 +98,8 @@ my $stdin_value;
 unless($#pairs == 0)                 #exact 1 pereche
 {
 #ACTION: append cheat symptoms in cheat file
-dienice("ERR01","1");
+my $err_harvester = $ENV{'QUERY_STRING'};
+dienice("ERR01",1,\$err_harvester);
 }
 #end number consistency check
 
@@ -110,7 +112,8 @@ if($stdin_name eq 'transaction') {$get_trid=$stdin_value;}
 else #no transaction was received, but something else - wrong data
 {
 #ACTION: append cheat symptoms in cheat file
-dienice("ERR02",1);
+my $err_harvester = $ENV{'QUERY_STRING'};
+dienice("ERR02",1,\$err_harvester);
 } #.end 'transaction' check
 
 } #.end foreach
@@ -119,7 +122,7 @@ dienice("ERR02",1);
 
 #ACTION: open transaction ID file
 
-open(transactionFILE,"+< sim_transaction") || dienice("ERR03",1); 
+open(transactionFILE,"+< sim_transaction") || dienice("ERR03",1,\"null");
 #flock(transactionFILE,2);
 
 #ACTION: refresh transaction file
@@ -220,9 +223,9 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close(transactionFILE) || dienice("ERR04",1);
+close(transactionFILE) || dienice("ERR04",1,\"null");
 
-dienice("ERR17",0); #0 means it will not be logged, as it's normal to happen when page expires
+dienice("ERR17",0,\"null"); #0 means it will not be logged, as it's normal to happen when page expires
 
 			} #.end expired
 
@@ -233,7 +236,7 @@ dienice("ERR17",0); #0 means it will not be logged, as it's normal to happen whe
 #-----------------------------------------------------
 #ACTION: open user account file
 
-open(userFILE,"< sim_users") || dienice("ERR05",1);                               
+open(userFILE,"< sim_users") || dienice("ERR05",1,\"null");
 #flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 seek(userFILE,0,0);		#go to the beginning
@@ -263,7 +266,7 @@ $trid_login_hlrname =~ s/\//\@slash\@/; #replace /
 #first, if exists, we check the class of hlrfile
 if(-e "hlr/$trid_login_hlrname")
  {
-open(HLRread,"< hlr/$trid_login_hlrname") || dienice("ERR06",1); #open for reading only
+open(HLRread,"< hlr/$trid_login_hlrname") || dienice("ERR06",1,\"null"); #open for reading only
 #flock(HLRread,1); #LOCK_SH
 seek(HLRread,0,0);
 $hlrclass = <HLRread>;
@@ -275,7 +278,7 @@ unless((-e "hlr/$trid_login_hlrname") && ($hlrclass eq "clasa4" )) #if does not 
 {
 if($tipcont == 0) #se genereaza doar pt cont de antrenament
   {
-open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("ERR07",1);
+open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("ERR07",1,\"null");
 
 #flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
@@ -295,7 +298,7 @@ close(HLRfile);
 } #.END BLOCK: search user record
 
 #ACTION: data was extracted, close user database
-close(userFILE) || dienice("ERR08",1);
+close(userFILE) || dienice("ERR08",1,\"null");
 
 
 #ACTION: check the trid_pagecode, so exam is invoked using valid page and it's corresponding transaction
@@ -303,16 +306,17 @@ unless($trid_pagecode == 2) #invoked from central panel
 {
 #ACTION: close all resources
 truncate(transactionFILE,0);
-seek(transactionFILE,0,0);				#go to beginning of transactionfile
+seek(transactionFILE,0,0);		#go to beginning of transactionfile
 
 for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close(transactionFILE) || dienice("ERR09",1);
+close(transactionFILE) || dienice("ERR09",1,\"null");
 
 #ACTION: append cheat symptoms in cheat file
-dienice("ERR10",1);
+my $err_harvester="pagecode\: $trid_pagecode login\: $trid_login";
+dienice("ERR10",1,\$err_harvester);
 }
 
 #ACTION: check the clearance level: (tipcont==TRAINING && clasa==any)||(tipcont==III-R && ultima_clasa_promovata==0)
@@ -327,11 +331,12 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close(transactionFILE) || dienice("ERR11",1);
+close(transactionFILE) || dienice("ERR11",1,\"null");
 
 
 #ACTION: append cheat symptoms in cheat file
-dienice("ERR12",1);
+my $err_harvester="\$trid_login\: $trid_login \$tipcont\: $tipcont";
+dienice("ERR12",1,\$err_harvester);
 }
 
 ##BLOCK: Generate new transaction: EXAM III-R and close transaction file
@@ -466,7 +471,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 #CUSTOM
 print qq!<center><font size="+2">Examen clasa III-R</font></center>\n!;
 #print qq!<center><font size="+1">17 raspunsuri corecte din 20 aduc promovarea</font></center><br>\n!;
@@ -478,7 +483,7 @@ print qq!<form action="http://localhost/cgi-bin/sim_ver3r.cgi" method="get">\n!;
 # if hlrfile (-e) usertype==0(antrenament) and hlr class='clasa1') openfile and skip first line
 if($tipcont == 0) #aici ai hlr, s-a creat mai sus
 {
-open(HLRread,"<hlr/$trid_login_hlrname") || dienice("ERR13",1); #open for reading only
+open(HLRread,"<hlr/$trid_login_hlrname") || dienice("ERR13",1,\"null"); #open for reading only
 #flock(HLRread,1); #LOCK_SH
 seek(HLRread,0,0);
 
@@ -493,20 +498,9 @@ $hlrclass = <HLRread>;#il mai aveam dar trebuie sa scapam de linia asta
 for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions from each database
 {
 #tbd: open database
-open(INFILE,"< $database[$iter]") || dienice("ERR14",1);   
+open(INFILE,"< $database[$iter]") || dienice("ERR14",1,\"null");   
 #flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 
-#$attempt_counter=1;
-#while ($server_ok and $attempt_counter > 0)
-#{ 
-#  if(open(INFILE,"< $database[$iter]")) {
-#          #flock(INFILE,1);		#LOCK_SH the file from other CGI instances
-#		  $attempt_counter=-1; #file was opened, no more attempt needed
-#			                                 } 
-#  else{ $server_ok = dienice("OP006",$attempt_counter);
-#        $attempt_counter++;
-#	    }
-#} #end unless server congested
 
 #unless($server_ok) #if server is congested, exit;
 #{ exit();} 
@@ -535,7 +529,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++)
 #open,load and close the appropriate stripfile
 #stripfiles are used by all user types
 #stripfiles REALLY needed.
-open(stripFILE, "<$strips[$iter]") || dienice("ERR015",1);
+open(stripFILE, "<$strips[$iter]") || dienice("ERR015",1,\"null");
 #flock(stripFILE,1);
 seek(stripFILE,0,0);
 @slurp_strip=<stripFILE>;
@@ -792,7 +786,7 @@ open(cheatFILE,"+< cheat_log"); #or die("can't open cheat_log file: $!\n");					
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE "===========================================\n";
-printf cheatFILE "sim_gen3.cgi v.3.0.f : watchdog situation detected\n";
+printf cheatFILE "sim_gen3.cgi v.3.1.0 : watchdog situation detected\n";
 printf cheatFILE "file %s under work\n",$database[$iter];
 printf cheatFILE "pool was: ";
 foreach(@pool) { printf cheatFILE "%s ",$_; }
@@ -808,20 +802,7 @@ last DIRTY;
 #------------------------------
 #tbd: close database
 #sure - logged close
-close(INFILE) || dienice("ERR16",1);
-#$attempt_counter=1;
-#while ($server_ok and $attempt_counter > 0)
-#{ 
-#  if(close(INFILE)) {
- #          $attempt_counter=-1; #file was closed, no more attempt needed
-#			              } 
-#  else{ $server_ok = dienice("CL005",$attempt_counter);
-#        $attempt_counter++;
-#	  }
-#} #end unless server ok
-
-#unless($server_ok)
-#{ exit();} #here it's possible to run, no responsibility yet.
+close(INFILE) || dienice("ERR16",1,\"null");
 
 } #.end foreach database
 
@@ -883,7 +864,8 @@ sub random_int($)
 #---development---- treat the "or die" case
 sub dienice
 {
-my ($error_code,$counter)=@_; #in vers. urmatoare o a treia variabila string, sa vina date particulare pt a fi logate
+my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
+
 my $timestring=localtime(time);
 
 #textul pentru public
@@ -912,14 +894,14 @@ my %pub_errors= (
 #textul de turnat in logfile, interne
 my %int_errors= (
               "ERR01" => "not exactly one pair received",            #tested
-              "ERR02" => "transaction code not received",            #tested
-              "ERR03" => "fail open sim_transaction",                #tested
-              "ERR04" => "fail close sim_transaction",
-              "ERR05" => "fail open sim_users",                      #tested
+              "ERR02" => "no transaction pair received",            #tested
+              "ERR03" => "fail open sim_transaction file",           #tested
+              "ERR04" => "fail close sim_transaction file",
+              "ERR05" => "fail open sim_users file",                 #tested
               "ERR06" => "fail open existing user's hlrfile",        #tested
               "ERR07" => "fail create new hlrfile",                  #tested
               "ERR08" => "fail close sim_users",
-              "ERR09" => "fail close sim_transaction",
+              "ERR09" => "fail close sim_transaction file",
               "ERR10" => "from wrong pagecode invoked generation of exam",
               "ERR11" => "fail close transaction file",
               "ERR12" => "wrong clearance level to request this exam",
@@ -937,12 +919,13 @@ my %int_errors= (
 #if commanded, write errorcode in cheat_file
 if($counter > 0)
 {
+# write errorcode in cheat_file
 #ACTION: append cheat symptoms in cheat file
 open(cheatFILE,"+< cheat_log"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "sim_gen3r.cgi - %s: %s Time: %s,  Logged:%i\n",$error_code,$int_errors{$error_code},$timestring,$counter; #write error info in logfile
+printf cheatFILE "sim_gen3r.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 
@@ -953,7 +936,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v.3.0.f\n!; #version print for easy upload check
+print qq!v.3.1.0\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Situatie: $pub_errors{$error_code}</h1>\n!;
 print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
@@ -985,7 +968,7 @@ print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele
 print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
 print qq!din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
 print qq!Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://examyo.scienceontheweb.net\n!;
-print qq!YO6OWN Francisc TOTH, 2008-2011\n!;
+print qq!YO6OWN Francisc TOTH, 2008-2014\n!;
 print qq!\n!;
 print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
 print qq!utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
@@ -996,7 +979,7 @@ print qq!You should have received a copy of the GNU General Public License along
 print qq!download it for free at http://www.fsf.org/\n!; 
 print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
 print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
-print qq!YO6OWN Francisc TOTH, 2008-2011\n!;
+print qq!YO6OWN Francisc TOTH, 2008-2014\n!;
 print qq!\n!;
 
 print qq!Made in Romania\n!;

@@ -24,15 +24,17 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2013
+# (c) YO6OWN Francisc TOTH, 2008 - 2014
 
-#  sim_authent.cgi v.3.1.0 
+#  sim_authent.cgi v.3.1.1 
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.1.1 make it slim: all error calls, logged ot not in cheat_log are made as call to sub dienice{}
+#          +dienice made with 2 explanation list for errorcodes, internal and for public 
 # ch 3.1.0 eliminata referinta la manual, nu era necesara.
 # ch 3.0.f inlocuit window-button cu method="link" button
 # ch 3.0.e am explicat la legenda acoperirea cu intrebari
@@ -102,37 +104,8 @@ my $stdin_value;
 #verificare ca sa existe exact 2 perechi: login si passwd
 unless($#pairs == 1) #exact 2 perechi: p0 si p1
 {
-#ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log") or die("can't open cheat_log file: $!\n");					#open transaction file for writing
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
-
-#ACTION: write in logfile
-seek(cheatFILE,0,2);		#go to the end
-#CUSTOM
-printf cheatFILE "sim_authent.cgi:instead of 2 pairs, %i pair(s) received. Received: [%s]\n",$#pairs+1,$ENV{'QUERY_STRING'};
-close(cheatFILE);
-
-#ACTION: display a defeat page
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.3.1.0\n!; #version print for easy upload check
-#print qq![$debug_buffer]\n!; #debug
-print qq!<br>\n!;
-print qq!<h1 align="center">Date corupte, situatie inregistrata in log.</h1>\n!;
-print qq!<h2 align="center">In cazul in care considerati ca acest mesaj nu ar fi trebuit sa apara, fiindca ati
- respectat pasii corecti, va rog sa-mi trimiteti pe e-mail o descriere cat mai exacta a 
-actiunilor care au dus la aparitia acestei pagini de eroare, pentru investigare. TNX de YO6OWN</h2>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-
-#ACTION: exit page since an error was detected
-exit();
+my $err_harvester = $ENV{'QUERY_STRING'};
+dienice("ERR01",1,\$err_harvester); #insert reason and data in cheat log 
 }
 #end number consistency check
 
@@ -143,48 +116,15 @@ $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 $stdin_value=~ s/<*>*<*>//g;
 
 if($stdin_name eq 'login') { $get_login=$stdin_value;}
-elsif($stdin_name eq 'passwd'){$get_passwd=$stdin_value;}
-
-#daca nu au fost cum trebuie, cel putin una din ele a ramas undefined
-#patch: consistency check, not tested
-
-unless((defined $get_login) or (defined $get_passwd))
-{
-#ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log") or die("can't open cheat_log file: $!\n");					#open transaction file for writing
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
-
-#ACTION: write in logfile
-seek(cheatFILE,0,2);		#go to the end
-#CUSTOM
-print cheatFILE "sim_authent.cgi: one of login&password remained undefined\n";
-close(cheatFILE);
-
-#ACTION: display a defeat page
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.3.1.0\n!; #version print for easy upload check
-#print qq![$debug_buffer]\n!; #debug
-print qq!<br>\n!;
-print qq!<h1 align="center">Date corupte, situatie inregistrata in log.</h1>\n!;
-print qq!<h2 align="center">In cazul in care considerati ca acest mesaj nu ar fi trebuit sa apara, fiindca ati
- respectat pasii corecti, va rog sa-mi trimiteti pe e-mail o descriere cat mai exacta a 
-actiunilor care au dus la aparitia acestei pagini de eroare, pentru investigare. TNX de YO6OWN</h2>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-
-#ACTION: exit page since an error was detected
-exit();
-}
+ elsif($stdin_name eq 'passwd'){$get_passwd=$stdin_value;}
+  else {
+         my $err_harvester = "$pairs[0] $pairs[1]";
+         dienice("ERR02",1,\$err_harvester);
+        }
  
 
 } #.end foreach
+
 } #.end block
 #.END BLOCK
 
@@ -268,15 +208,11 @@ foreach $accnt (@livelist)
 						$slurp_userfile[$accnt*7+4],
 						$slurp_userfile[$accnt*7+5],
 						$slurp_userfile[$accnt*7+6]
-					#	$slurp_userfile[$accnt*11+7],
-					#	$slurp_userfile[$accnt*11+8],
-					#	$slurp_userfile[$accnt*11+9],
-					#	$slurp_userfile[$accnt*11+10],
+					
                  );
          }
-#print "@extra[0..10]\n";
+#print "@extra[0..10]\n"; #debug
 @slurp_userfile=@extra;
-#@extra=(); #obsolete
 
 #ACTION: re-write the userdata file
 truncate(userFILE,0);			#
@@ -290,26 +226,9 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 } #.end unless
 else #the case when user database is empty
 {
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.3.1.0\n!; #version print for easy upload check
-#print qq![$debug_buffer]\n!; #debug
-print qq!<br>\n!;
-print qq!<br>\n!;
-print qq!<h3 align="center">Numele dumneavoastra de utilizator nu se gaseste in baza noastra de date.</h3> <br>\n!;
-print qq!<h3 align="center">ATENTIE: Daca ati avut cont si nu mai sunteti in baza de date, inseamna ca nu v-ati mai logat de peste 7 zile, contul se sterge automat.</h3>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-
 close(userFILE) or die("cant close user file\n"); 
-exit(); #user database empty, no reason to continue. Exit after ERR page
-}
+dienice("ERR03",0,\"null"); #normally not logged
+}#database empty
 
 } #.end block
 #.END BLOCK
@@ -335,25 +254,8 @@ my @linesplit;
 #if login was not found, print error page, close resources and exit
 if($rec_pos == -1) 
 {
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.3.1.0\n!; #version print for easy upload check
-#print qq![$debug_buffer]\n!; #debug
-print qq!<br>\n!;
-print qq!<br>\n!;
-print qq!<h3 align="center">Numele dumneavoastra de utilizator nu se gaseste in baza noastra de date.</h3> <br>\n!;
-print qq!<h3 align="center">ATENTIE: Daca ati avut cont si nu mai sunteti in baza de date, inseamna ca nu v-ati mai logat de peste 7 zile, contul se sterge automat.</h3>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-
 close(userFILE) or die("cant close user file\n"); 
-exit(); #login was not found in database, no reason to continue
+dienice("ERR03",0,\"null"); #normally not logged
 } #.end if
 } #.end BLOCK
 
@@ -394,24 +296,8 @@ my $truth=1;
 
 unless($truth)         #if login is to be delayed
 {
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.3.1.0\n!; #version print for easy upload check
-#print qq![$debug_buffer]\n!; #debug
-print qq!<br>\n!;
-print qq!<br>\n!;
-print qq!<h3 align="center">Contul <font color="white">$slurp_userfile[$rec_pos*7]</font> este blocat pentru o perioada de 5 minute pentru incercari repetate cu parola falsa. Mai asteptati.</h3>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-
 close(userFILE) or die("cant close user file\n"); 
-exit(); #login must be delayed, no reason to continue
+dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
 } #.end unless
 
 } #.end BLOCK
@@ -424,17 +310,6 @@ my @linesplit;
 unless($linesplit[0] eq $get_passwd)
 {
 my $wrong;
-
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.3.1.0\n!; #version print for easy upload check
-#print qq![$debug_buffer]\n!; #debug
-print qq!<br>\n!;
-print qq!<br>\n!;
 
 $wrong=$slurp_userfile[$rec_pos*7+3];
 chomp $wrong;
@@ -452,14 +327,12 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 {
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
-print qq!<h3 align="center">Parola incorecta pentru $slurp_userfile[$rec_pos*7]</h3>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
 
-close(userFILE) or die("cant close user file\n"); 
-exit(); #password is wrong, no reason to continue
+close(userFILE) or die("cant close user file\n");
+chomp($wrong);
+my $err_harvester="<font color=\"white\">$slurp_userfile[$rec_pos*7]</font> ai gresit deja de <font color=\"red\">$wrong</font> ori"; 
+dienice("ERR05",0,\$err_harvester);
+
 } #.end if
 else
 {
@@ -545,14 +418,8 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-print qq!<h3 align="center">Contul $slurp_userfile[$rec_pos*7] este blocat 5 minute din cauza incercarilor repetate de login cu parola falsa.</h3>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-
 close(userFILE) or die("cant close user file\n"); 
-exit(); #password is wrong, no reason to continue
+dienice("ERR06",0,\$slurp_userfile[$rec_pos*7]);
 
 } #.end else
 } #.end unless
@@ -866,7 +733,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!v.3.1.1\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -891,34 +758,20 @@ seek(HLRfile,0,0); #rewind
 $hlrclass=<HLRfile>; #citeste clasa
 chomp($hlrclass);
 #print qq!are clasa $hlrclass<br>\n!; #debug
-if($hlrclass eq 'clasa1') {@materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
+if($hlrclass eq 'clasa1') 
+  {
+ @materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
  @strips=("strip_db_tech1","strip_db_ntsm","strip_db_op1","strip_db_legis1");}
-elsif($hlrclass eq 'clasa2'){@materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
-@strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2");}
-elsif($hlrclass eq 'clasa3'){@materii=("prog_CEPT_Novice_radiotehnica","prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
-@strips=("strip_db_tech3","strip_db_ntsm","strip_db_op3","strip_db_legis3");}
-elsif($hlrclass eq 'clasa4'){@materii=("prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
-@strips=("strip_db_ntsm","strip_db_op3r","strip_db_legis3r");}
-else {# this else should never be executed
-	print qq!Content-type: text/html\n\n!;
-	print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-	print qq!<html>\n!;
-	print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-	print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-		ins_gpl();
-	print qq!v.3.1.0\n!; #version print for easy upload check
-	print qq!<br>\n!;
-	print qq!<br>\n!;
-	print qq!<h3 align="center">This branch should never occur</h3> <br>\n!;
-	print qq!<form method="link" action="http://localhost/index.html">\n!;
-	print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-	print qq!</form>\n!; 
-	print qq!</body>\n</html>\n!;
-	#please close  whatever is open at the moment
-	#tbd
-	#close(userFILE) or die("cant close user file\n"); 
-	exit(); #hlr database defective, no reason to continue. Exit after ERR page
-      }# this else should never be executed
+ elsif($hlrclass eq 'clasa2'){@materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
+ @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2");}
+ elsif($hlrclass eq 'clasa3'){@materii=("prog_CEPT_Novice_radiotehnica","prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
+ @strips=("strip_db_tech3","strip_db_ntsm","strip_db_op3","strip_db_legis3");}
+ elsif($hlrclass eq 'clasa4'){@materii=("prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
+ @strips=("strip_db_ntsm","strip_db_op3r","strip_db_legis3r");
+  }
+  else {# this else should never be executed
+	dienice("ERR07",1,\$hlrclass);
+       }# this else should never be executed
 
 } #.end if -e
 
@@ -1267,6 +1120,93 @@ $slurp_userfile[$user_account*7+6]=$failures;
 } #end unless user exists
 } #end 'punishment' sub
 #--------------------------------------
+#---development---- treat the "or die" case
+sub dienice
+{
+my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
+
+my $timestring=localtime(time);
+
+#textul pentru public
+my %pub_errors= (
+              "ERR01" => "primire de  date corupte, inregistrata in log.",
+              "ERR02" => "primire de date corupte",
+              "ERR03" => "Numele tau de utilizator nu se gaseste in baza de date.<br><br>ATENTIE: Daca ai avut un cont dar nu mai esti in baza de date inseamna ca nu te-ai mai logat de peste 7 zile, contul se sterge automat",
+              "ERR04" => "Contul <font color=\"white\">$$err_reference</font> este inca blocat pentru o perioada de 5 minute pentru incercari repetate cu parola incorecta. Mai asteptati.",
+              "ERR05" => "Parola incorecta pentru $$err_reference",
+              "ERR06" => "Contul <font color=\"white\">$$err_reference</font> este blocat pentru o perioada de 5 minute pentru incercari repetate cu parola incorecta. Incercati din nou dupa expirarea periodei de penalizare.",
+              "ERR07" => "examyo system error, logged for admin",
+              "ERR08" => "reserved",
+              "ERR09" => "reserved",
+              "ERR10" => "reserved",
+              "ERR11" => "reserved",
+              "ERR12" => "reserved",
+              "ERR13" => "reserved",
+              "ERR14" => "reserved",
+              "ERR15" => "reserved",
+              "ERR16" => "reserved",
+              "ERR17" => "reserved",
+              "ERR18" => "reserved",
+              "ERR19" => "reserved",
+              "ERR20" => "reserved"
+                );
+#textul de turnat in logfile, interne
+my %int_errors= (
+              "ERR01" => "not exactly 2 pairs received",            #test ok
+              "ERR02" => "2 pairs but not login and passwd",        #test ok
+              "ERR03" => "cont inexistent sau expirat",             #test ok
+              "ERR04" => "delay, normally not logged",
+              "ERR05" => "delay, normally not logged",
+              "ERR06" => "delay, normally not logged",
+              "ERR07" => "examyo system error, should never occur, weird hlr_class:",
+              "ERR08" => "reserved",
+              "ERR09" => "reserved",
+              "ERR10" => "reserved",
+              "ERR11" => "reserved",
+              "ERR12" => "reserved",
+              "ERR13" => "reserved",
+              "ERR14" => "reserved",
+              "ERR15" => "reserved",
+              "ERR16" => "reserved",
+              "ERR17" => "reserved",
+              "ERR18" => "reserved",
+              "ERR19" => "reserved",
+              "ERR20" => "reserved"
+                );
+
+
+#if commanded, write errorcode in cheat_file
+if($counter > 0)
+{
+# write errorcode in cheat_file
+#ACTION: append cheat symptoms in cheat file
+open(cheatFILE,"+< cheat_log"); #open logfile for appending;
+#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
+seek(cheatFILE,0,2);		#go to the end
+#CUSTOM
+printf cheatFILE "sim_authent.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+close(cheatFILE);
+}
+
+print qq!Content-type: text/html\n\n!;
+print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
+print qq!<html>\n!;
+print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
+print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
+ins_gpl(); #this must exist
+print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!<br>\n!;
+print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
+print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
+print qq!<form method="link" action="http://localhost/index.html">\n!;
+print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
+print qq!</form>\n!; 
+print qq!</body>\n</html>\n!;
+
+exit();
+
+} #end sub
+#--------------------------------------
 sub ins_gpl
 {
 print qq+<!--\n+;
@@ -1280,13 +1220,13 @@ print qq!versiune ulterioara.\n!;
 print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
 print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
 print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia pe CD sau download pe www.yo6kxp.org trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
+print qq!In distributia pe CD sau download pe http://examyo.scienceontheweb.net trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
 print qq!in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
 print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
 print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
 print qq!din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
-print qq!Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://www.yo6kxp.org\n!;
-print qq!YO6OWN Francisc TOTH\n!;
+print qq!Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://examyo.scienceontheweb.net\n!;
+print qq!YO6OWN Francisc TOTH, 2008-2014\n!;
 print qq!\n!;
 print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
 print qq!utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
@@ -1297,10 +1237,10 @@ print qq!You should have received a copy of the GNU General Public License along
 print qq!download it for free at http://www.fsf.org/\n!; 
 print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
 print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
-print qq!YO6OWN Francisc TOTH, 2008\n!;
+print qq!YO6OWN Francisc TOTH, 2008-2014\n!;
 print qq!\n!;
 
 print qq!Made in Romania\n!;
 print qq+-->\n+;
+} #.end sub ins_gpl
 
-}
