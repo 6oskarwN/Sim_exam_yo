@@ -24,14 +24,15 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# YO6OWN Francisc TOTH, February 2010
+# YO6OWN Francisc TOTH, February 2014
 
-#  sim_register.cgi v.3.0.4
+#  sim_register.cgi v.3.0.5
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.0.5 table sync dupa sim_ver0 v 0.0.8
 # ch 3.0.4 ANRCTI replaced by ANCOM
 # ch 3.0.3 inlocuit buton "window" cu form method="link"
 # ch 3.0.2 - slash permitted again, for development purpose
@@ -211,7 +212,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.4\n!; #version print for easy upload check
+print qq!v.3.0.5\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Formularul de examen a fost folosit deja sau a expirat</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -379,26 +380,27 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.4\n!; #version print for easy upload check
+print qq!v.3.0.5\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
-#Action: Error descriptions
+#Action: Error descriptions in table
 #print qq!<font color="yellow">Erori:</font><br>\n!;
+print qq!<table border="0" width="80%" align="center"><tr><td>!;
 if($f_valid_login) {print qq!<font color="yellow">-nume utilizator formatat incorect(vezi mai jos)</font><br>\n!;}
 if($f_xuser){print qq!<font color="yellow">-numele de utilizator ales exista deja. Alege-ti un alt login.</font><br>\n!;}
 if($f_valid_tipcont) {print qq!<font color="red">-$post_tipcont nu este o valoare acceptata</font><br>\n!;} #should be written in cheat_log, but it's an anonymous
-#if($f_xemail){print qq!<font color="yellow">-adresa de e-mail exista deja in baza noastra de date.</font><br>\n!;}
 if($f_pass_eq){print qq!<font color="yellow">-cele doua parole nu sunt identice sau parola nu respecta normele de securitate(vezi mai jos)</font><br>\n!;}
+print qq!</td></tr></table>!;
 
 print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="get">\n!;
-print qq!<center><b>Formular de inregistrare (valabil 15 minute)</b></center>\n!;
+print qq!<p><center><b>Formular de inregistrare (valabil 15 minute)</b></center></p>\n!;
 
-print qq!<table width="60%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
+print qq!<table width="80%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
 
 
 
 print qq!<tr>\n!;
-print qq!<td width="30%">!;
+print qq!<td width="20%">!;
 if($f_xuser or $f_valid_login) { print qq!<font color="yellow">Login:</font>!;}
 else {print 'Login:';}
 print qq!</td>\n!;
@@ -407,10 +409,13 @@ print qq!<td>!;
 unless($f_xuser or $f_valid_login) {print qq!<input type="text" name="login"  value="$post_login" size="25">!;}
 else {print qq!<input type="text" name="login" size="25">!;}
 print qq!</td>\n!;
+print qq!<td>!;
+print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
+print qq!</td>!;
 print qq!</tr>\n!;
 	 
 print qq!<tr>\n!;
-print qq!<td width="30%">!;
+print qq!<td>!;
 if($f_pass_eq) { print qq!<font color="yellow">Parola:</font>!;}
 else {print 'Parola:';}
 print qq!</td>\n!;
@@ -418,10 +423,13 @@ print qq!<td>!;
 if($f_pass_eq) {print qq!<input type="password" name="passwd1" size="25">!;}
 else {print qq!<input type="password" name="passwd1" value="$post_passwd1" size="25">!;}
 print qq!</td>\n!;
+print qq!<td>!;
+print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere; nu poate contine caracterele %, space</font>!; 
+print qq!</td>!;
 print qq!</tr>\n!;
 
 print qq!<tr>\n!;
-print qq!<td width="30%">!;
+print qq!<td>!;
 if($f_pass_eq) { print qq!<font color="yellow">Parola, din nou:</font>!;}
 else {print 'Parola, din nou:';}
 print qq!</td>\n!;
@@ -429,10 +437,13 @@ print qq!<td>!;
 if($f_pass_eq) {print qq!<input type="password" name="passwd2" size="25">!;}
 else {print qq!<input type="password" name="passwd2" value="$post_passwd2" size="25">!;}
 print qq!</td>\n!;
+print qq!<td>!;
+print qq!<font size="-1">Trebuie sa fie identica cu parola introdusa mai sus</font>!; 
+print qq!</td>!;
 print qq!</tr>\n!;
 
 print qq!<tr>\n!;
-print qq!<td width="30%">Tipul contului:</td>\n!;
+print qq!<td>Tipul contului:</td>\n!;
 print qq!<td><select size="1" name="tipcont">\n!;
 
 print qq!<option value="0" !;
@@ -457,17 +468,20 @@ print qq!>Examen simulat clasa III-R</option>\n!;
 
 print qq!</select>\n!;
 print qq!</td>\n!;
+print qq!<td>!;
+print qq!<font size="-1">Contul de antrenament permite sa dai oricate examene, examenul simulat este unic.</font>!;
+print qq!</td>!;
 print qq!</tr>\n!;
 
 
 
 
 print qq!<tr>\n!;
-print qq!<td width="33%">!;
+print qq!<td>!;
 print qq!<center><INPUT type="submit"  value="Inregistreaza"> </center>!;
 print qq!</td>\n!;
 
-print qq!<td>!;
+print qq!<td colspan="2">!;
 print qq!<center><INPUT type="reset"  value="Reset"> </center>!;
 print qq!</td>\n!;
 
@@ -483,15 +497,12 @@ my $extra=sprintf("%+06X",$trid);
 print qq!<input type="hidden" name="transaction" value="$extra">\n!;
 }
 
-print qq!</form>\n!;
+print qq!</form><br>\n!;
 
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="Abandon Inregistrare"></center>\n!; 
 print qq!</form>\n!; 
 
-print qq!<p>\n!;
-print qq!Login trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space; login-ul trebuie sa fie unic si sa nu fie folosit deja. <br>\n!;
-print qq!Parola si noua introducere a parolei trebuie sa aiba intre 8 si 25 caractere; trebuie sa fie congruente; nu pot contine caracterele %, space;<br>\n!; 
 
 print qq!</body>\n</html>\n!;
 #ACTION: exit this process since it was an error
@@ -613,7 +624,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.4\n!; #version print for easy upload check
+print qq!v.3.0.5\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 
