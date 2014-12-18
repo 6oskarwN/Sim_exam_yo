@@ -2,10 +2,12 @@
 
 # db stripping tool. only v3 codes remain, one per line
 # (c) 2014 Francisc TOTH YO6OWN
-# ver. 3.0.4
+# ver. 3.0.6
 # input at commandline:strip.pl db_xxxx prog_XXXX
 # output strip_xxxxx 
 
+#ch 3.0.6 - resolved bug, ch 3.0.5 was appending after </html>
+#ch 3.0.5 - numaratoarea e cu bold-galben
 #ch 3.0.4 - face numaratoarea acoperirii cu subiecte a curriculei
 #ch 3.0.3 - implementat verificarea daca un v3-code are capitolul existent in curricula
 
@@ -96,7 +98,17 @@ close(OUTFILE);
 #now we must display the curricula coverage
 
 #open HTML output file, append style
-open(HTFILE, ">>", "$filename.html") || print "can't open $filename.html\n";
+#error, it appends after </body>
+open(HTFILE, "+<", "$filename.html") || print "can't open $filename.html\n";
+seek(HTFILE,0,0); #start with the beginning
+#$in_line=<HTFILE>;#read first line for variable init
+do{
+   if($in_line=<HTFILE>) {} #we must check for EOF also
+     else {$in_line = "Warnings: 99<br>";} #if EOF we give this value                  
+  # print $in_line;   #debug
+  }
+until ($in_line =~ /^Warnings\:.*<br>$/);
+
 
 #rewind prompter in infile
 seek(PRFILE,0,0); #go to the beginning
@@ -108,7 +120,7 @@ while($in_line=<PRFILE>)
          $array_size= @{$progcodes{$splitter[0]}};
 
 #printf HTFILE qq!<b>$array_size</b> $in_line \{@{$progcodes{$splitter[0]}}\} <br>!; #print coverage, line by line
-    printf HTFILE qq!<b>$array_size</b> $in_line<br>!; #only counting
+    printf HTFILE qq!<b><font color="yellow">$array_size</font></b> $in_line<br>!; #only counting
 #    print "$array_size $in_line"; #print to stdout
 
 	}
@@ -121,4 +133,7 @@ while($in_line=<PRFILE>)
 }
 
 close(PRFILE); #finally we close programa
+
+print HTFILE qq!\n</body>\n!;
+print HTFILE qq!</html>\n!;
 close(HTFILE);

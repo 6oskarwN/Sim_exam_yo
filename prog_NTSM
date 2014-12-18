@@ -1,12 +1,10 @@
-programa NTSM pentru toate clasele [v3.02]
+programa NTSM pentru toate clasele [v3.03]
 
 PROTECTIA MUNCII
 
 1.1. Corpul uman
 111&-	Consecintele socului electric
 112&-	Precautii impotriva socului electric
-113&-	Efectele radiatiei RF neionizante asupra corpului uman(extra-curricular)
-114&-	Arsura cu energie RF(extra-curricular)
 
 1.2. Reteaua de alimentare
 121&-	Diferenta dintre linia de faza, nul si impamantare (codul culorilor)
@@ -16,9 +14,9 @@ PROTECTIA MUNCII
 1.3. Pericole
 131&-	Tensiuni inalte
 132&-	Condensatoare incarcate
-133&-	Radiatii neionizante(extra-curricular)
-134&-	Raza LASER(extra-curricular)
-135&-	Lipirea cu letcon, fludor, flux(extra-curricular)
+133&-	Raza LASER(extra-curricular)
+134&-	Lipirea cu letcon, fludor, flux(extra-curricular)
+135&-	Efectele radiatiei RF neionizante asupra corpului uman(extra-curricular)
 
 1.4. Traznete
 141&-	Pericole
