@@ -1,10 +1,10 @@
-fisierele in care se si scrie: rw-r--r-- (744)
+fisierele in care se si scrie: rw-r--r-- (644)
 cheat_log
 db_tt
 tt_transaction
 sim_transaction
 sim_users
-fisierele din care doar se citeste: rw-r--r-- (644) 
+fisierele din care doar se citeste: r--r--r-- (444) 
 db_xxx
 prog_CEPT/HAREC
 
