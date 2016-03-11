@@ -40,11 +40,12 @@
 
 # (c)YO6OWN Francisc TOTH, 2008 - 2013
 
-#  sim_gen0.cgi v.0.0.9
-#  Status: stable
+#  sim_gen0.cgi v 3.2.0
+#  Status: devel
 #  This is a module of the online radioamateur examination program
 #  Made in Romania
 
+# ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3 
 # ch 0.0.9 window button "OK" changed to method="link" button
 # ch 0.0.8 infostudy/exam/exam7_yo.html sourced to index.html
 # ch 0.0.7 hamxam/ eliminated
@@ -63,7 +64,8 @@ sub ins_gpl;                 #inserts a HTML preformatted text with the GPL lice
 
 #- for refreshing transaction list
 my @tridfile;
-my $trid;		#the Transaction-ID of the generated page
+my $trid;		#the Transaction-ID counter of the generated page
+my $hexi;   #the trid+timestamp_MD5
 my $entry;		#it's a bit of TRID
 
 my $attempt_counter;			#attempts in opening or closing files; 5 attempts allowed
@@ -111,7 +113,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.0.0.9\n!; #version print for easy upload check
+print qq!v 3.2.0\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolva 3 din 4 intrebari si poti sa te inregistrezi in examen</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">Pagina expira peste 3 minute.</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">O singura varianta de raspuns este corecta. Dupa alegerea raspunsurilor, apasa butonul "Evaluare".</font></center><br><br>\n!;
@@ -272,11 +274,16 @@ $exp_year += $carry2;
 
 
 #print to screen the entry in the transaction list
-my $hexi= sprintf("%+06X",$trid);
+
+my $heximac = compute_mac($trid); #compute MD5 MessageAuthentication Code
+
+$hexi= sprintf("%+06X",$trid); #the transaction counter
+$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_$heximac"; #adds the expiry timestamp and MD5
+
 $entry = "$hexi anonymous 0 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n";
 #print qq!mio entry: $entry <br>\n!; #debug
 }
-#.end of generation of new transaction
+#.end of generating & writing of new transaction
 
 ###########################
 ###  Generate 4 questions ###
@@ -406,8 +413,8 @@ close( INFILE ) ||die("cannot close, $!\n");
 
 #ACTION: inserare transaction ID in pagina HTML
 {
-my $extra=sprintf("%+06X",$trid);
-print qq!<input type="hidden" name="transaction" value="$extra">\n!;
+#my $extra=sprintf("%+06X",$trid);
+print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 
 print qq!<input type="submit" value="EVALUARE" name="answer">\n!;
@@ -439,6 +446,23 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 #closing transaction file, opens flock by default
 close (transactionFILE) or die("cant close transaction file\n");
 
+sub compute_mac {
+# Given a message and key, returns a message authentication code
+# with the following properties relevant to our example:
+# - a 22-character string that may contain + / 0-9 a-z A-Z
+# - any given message and key will always produce the same MAC
+# - if you don't know the key, it's very hard to guess it
+#   even if you have a message, its MAC, and this source code
+# - if you have a message, its MAC, and even the key, it's 
+#   very hard to find a different message with the same MAC
+# - even a tiny change to a message, including adding on to
+#   the end of it, will produce a very different MAC
+use lib '/home/umsso/perl5/lib/perl5/x86_64_linux_thread_multi/Digest/MD5.pm';
+use Digest::MD5;
+  my ($message) = @_;
+  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
+    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+} #end of compute_mac
 
 
 
@@ -467,7 +491,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.0.0.9\n!; #version print for easy upload check
+print qq!v 3.2.0\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Serverul este congestionat, incearca din nou.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
