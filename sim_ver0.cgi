@@ -592,13 +592,9 @@ if($x_year > $act_year) {return(0);}  #valid until year increment
  if($x_sec > $act_sec) {return(0);}  #it's alive one more sec
   
  } #.end elsif min
-#else {return(1);}
  } #.end elsif hour
-#else {return(2);}
  } #.end elsif day
-#else {return(3);}
  } #.end elsif month
-#else {return(4);}
  } #.end elsif year
 return(1);  #here is the general else
  

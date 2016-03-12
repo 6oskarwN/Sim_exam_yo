@@ -24,14 +24,15 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# YO6OWN Francisc TOTH, February 2014
+# YO6OWN Francisc TOTH, March 2016
 
-#  sim_register.cgi v.3.0.5
+#  sim_register.cgi v.3.2.0
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 3.0.5 table sync dupa sim_ver0 v 0.0.8
 # ch 3.0.4 ANRCTI replaced by ANCOM
 # ch 3.0.3 inlocuit buton "window" cu form method="link"
@@ -56,7 +57,7 @@ sub ins_gpl;                 #inserts a HTML preformatted text with the GPL lice
 my $post_login;
 my $post_passwd1;
 my $post_passwd2;
-my $post_tipcont;			#tip cont: 0-1,2,3,4
+my $post_tipcont;	#tip cont: 0-training, 1,2,3,4=cl 1,2,3,3r
 
 my $post_trid;
 
@@ -169,7 +170,8 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 {
 my @livelist=();
 my @linesplit;
-my $expired=1;  #flag which checks if transaction has expired
+my $expired=1;  #flag which checks if posted transaction id is found in transaction file
+                #flag init to 'not found'
 
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
 {  
@@ -177,10 +179,10 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   {
    @linesplit=split(/ /,$tridfile[$i]);
    if($linesplit[0] eq $post_trid) {
-   									$expired=0;
-									$trid_login=$linesplit[1]; #extract trid_login
-									#nu se adauga inregistrarea asta in @livelist
-   									}
+   				    $expired=0;
+				    $trid_login=$linesplit[1]; #extract trid_login
+				    #nu se adauga inregistrarea asta in @livelist
+   				   }
 	else {@livelist=(@livelist, $i);} #se adauga celelalte inregistrari in livelist
   } #.end for
 
@@ -194,10 +196,11 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
   
 } #.end unless
 
+#if received transaction id was not found in the transaction file
 if($expired) {
 #Action: rewrite transaction file
 truncate(transactionFILE,0);
-seek(transactionFILE,0,0);				#go to beginning of transactionfile
+seek(transactionFILE,0,0);		#go to beginning of transactionfile
 
 for(my $i=0;$i <= $#tridfile;$i++)
 {
@@ -206,14 +209,23 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 
 close (transactionFILE) or die("cant close transaction file\n");
 
+#now we should check why received transaction was not found in sim_transaction file
+#case 0: it's an illegal transaction if md5 check fails
+#        must be recorded in cheat_file
+#case 1: md5 correct but transaction timestamp expired, file was refreshed and lost this transaction
+#        must be announced to user
+#case 2: md5 ok, timestamp ok, it must have been used up already
+#        must be announced to user
+
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.5\n!; #version print for easy upload check
+print qq!v.3.2.0\n!; #version print for easy upload check
 print qq!<br>\n!;
+print qq!<h3 align="center">post_trid = $post_trid </h3>\n!; #debug
 print qq!<h1 align="center">Formularul de examen a fost folosit deja sau a expirat</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
@@ -380,7 +392,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.5\n!; #version print for easy upload check
+print qq!v.3.2.0\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -624,7 +636,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.0.5\n!; #version print for easy upload check
+print qq!v.3.2.0\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 
@@ -639,6 +651,15 @@ print qq!</center>\n!;
 print "</body>\n</html>\n";
 
 } #.END BLOCK (OK)
+#-------------------------------------
+sub compute_mac {
+
+use Digest::MD5;
+  my ($message) = @_;
+  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
+    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+} #end of compute_mac
+
 #--------------------------------------
 sub ins_gpl
 {
