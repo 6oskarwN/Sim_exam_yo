@@ -137,7 +137,7 @@ print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="black" link="white" alink="white" vlink="white">\n!;
 
 print qq!<center>\n!;
-print qq![ex-Guestbook & ]Troubleticket administration v.3.2.0 for examYO &copy; YO6OWN, 2007-2013<br>\n!;
+print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v.3.2.0 for examYO &copy; YO6OWN, 2007-2016</font><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/tool_admintt.cgi" method="post">\n!;
 
 print qq!<table border="1" width="90%">\n!;
@@ -395,7 +395,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 #ins_gpl(); #this must exist
-print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!v.3.2.0\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

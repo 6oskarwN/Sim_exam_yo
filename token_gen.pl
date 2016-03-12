@@ -55,7 +55,7 @@ my %month_bis_days=(
 );
 
 #CHANGE THIS for customizing
-my $expire=60;		#60 minutes lifetime
+my $expire=30;		#30 minutes lifetime
 
 #increment expiry time
 
