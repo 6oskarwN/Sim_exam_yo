@@ -56,19 +56,16 @@ my $value;
 
 foreach $pair(@pairs) 
 		{
-
 ($name,$value) = split(/=/,$pair);
 
 #transformarea asta e pentru textele reflow, dar trateaza si + si / al token-ului
-#unless ($name eq 'token')
-#{
+
 $value=~ s/\+/ /g; 
 $value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 $value=~ s/\r\l\n$//g;
 $value=~ s/\r\l\n/<br>/g;
-#}
 
- %answer = (%answer,$name,$value);        #hash filled in
+ %answer = (%answer,$name,$value); #hash filled in with key+value
 
 		} #end foreach
 
@@ -94,8 +91,10 @@ $post_token= $answer{'token'}; #extract token from input data
 my $string_token; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
+unless(defined($post_token)) {dienice ("ERR01",1,\"undef token"); } # no token or with void value
 @pairs=split(/_/,$post_token); #reusing @pairs variable for spliting results
 # $pairs[7] is the mac
+unless(defined($pairs[7])) {dienice ("ERR01",1,\$post_token); } # unstructured token
 $string_token="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_token);
 

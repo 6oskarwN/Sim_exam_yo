@@ -42,8 +42,8 @@ foreach $pair(@pairs)
 		{
 
 ($name,$value) = split(/=/,$pair);
-
-%answer = (%answer,$name,$value);	#add answers in hash
+if(defined($name) and defined($value)){
+%answer = (%answer,$name,$value); }	#add defined pairs answers in hash
 			  
 		} #.end foreach
 
@@ -51,9 +51,10 @@ foreach $pair(@pairs)
 
 $post_token= $answer{'token'}; #extract token from input data
 #md MAC has + = %2B and / = %2F characters, must be reconverted
-$post_token =~ s/%2B/\+/g;
-$post_token =~ s/%2F/\//g;
-
+if(defined($post_token)) {
+			$post_token =~ s/%2B/\+/g;
+			$post_token =~ s/%2F/\//g;
+                         }
 #print qq!token received: $post_token<br>\n!; #debug
 #transaction pattern: 
 # admin_33_19_0_12_2_116_Trl5zxcXkaO5YcsWr4UYfg
@@ -68,8 +69,11 @@ $post_token =~ s/%2F/\//g;
 my $string_token; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
+unless(defined($post_token)) {dienice ("ERR01",1,\"undef token"); } # no token or with void value
+
 @pairs=split(/_/,$post_token); #reusing @pairs variable for spliting results
 # $pairs[7] is the mac
+unless(defined($pairs[7])) {dienice ("ERR01",1,\$post_token); } # unstructured token
 $string_token="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_token);
 
