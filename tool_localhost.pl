@@ -53,7 +53,7 @@ my $replacement2="localhost:8080/";
 
 
 my $pattern3="^print qq!SimEx Radio Release";
-my $replacement3="print qq!SimEx Radio Release 3; Author: Francisc TOTH YO6OWN\\n!;\n";
+my $replacement3="print qq!SimEx Radio Release 3.2; Author: Francisc TOTH YO6OWN\\n!;\n";
 
 
 my $pattern5="\#flock";   #nu incepe cu ^ ???
