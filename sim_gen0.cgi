@@ -196,7 +196,7 @@ chomp $trid;						#eliminate \n
 $trid=hex($trid);		#convert string to numeric
 
 if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
-else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
+else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}  #cyclical increment 000000 to 0xFFFFFF then convert back to string with sprintf()
 
 #print qq!generate new transaction<br>\n!;
 my @utc_time=gmtime(time);   
@@ -273,12 +273,14 @@ $exp_month=($exp_month+$carry1)%12;
 $exp_year += $carry2;
 
 
-#print to screen the entry in the transaction list
-
-my $heximac = compute_mac($trid); #compute MD5 MessageAuthentication Code
+#generate transaction id and its md5 MAC
 
 $hexi= sprintf("%+06X",$trid); #the transaction counter
-$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_$heximac"; #adds the expiry timestamp and MD5
+#assemble the trid+timestamp
+$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and MD5
+#compute mac for trid+timestamp
+my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
+$hexi= "$hexi$heximac"; #the full transaction id
 
 $entry = "$hexi anonymous 0 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n";
 #print qq!mio entry: $entry <br>\n!; #debug
@@ -413,7 +415,6 @@ close( INFILE ) ||die("cannot close, $!\n");
 
 #ACTION: inserare transaction ID in pagina HTML
 {
-#my $extra=sprintf("%+06X",$trid);
 print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 
@@ -457,7 +458,6 @@ sub compute_mac {
 #   very hard to find a different message with the same MAC
 # - even a tiny change to a message, including adding on to
 #   the end of it, will produce a very different MAC
-use lib '/home/umsso/perl5/lib/perl5/x86_64_linux_thread_multi/Digest/MD5.pm';
 use Digest::MD5;
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';

@@ -24,14 +24,15 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# YO6OWN Francisc TOTH, February 2008
+# YO6OWN Francisc TOTH, March 2016
 
-#  sim_ver0.cgi v.0.0.8
-#  Status: Released
+#  sim_ver0.cgi v.3.2.0
+#  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 0.0.8 explanations moved to table
 # ch 0.0.7 ANRCTI replaced by ANCOM
 # ch 0.0.6 fixed rebel link from window type to method="link" button
@@ -54,7 +55,8 @@ my $post_trid;                  #transaction ID from POST data
 #- for refreshing transaction list
 my @tridfile;
 my $trid;		#the Transaction-ID of the generated page
-
+my $hexi;   #the trid+timestamp_MD5
+my $entry;              #it's a bit of TRID
 # - for search transaction in transaction list
 my $expired;		#0 - expired/nonexisting transaction, n - existing transaction, n=pos. in the transaction list
 my $correct;		#how many correct answers you gave
@@ -100,6 +102,9 @@ unless($name eq 'answer') {
 } #.end process inputs
 
 $post_trid= $answer{'transaction'}; #extract POST_trid from POST data
+#md MAC has + = %2B and / = %2F characters, must be reconverted
+$post_trid =~ s/%2B/\+/g;
+$post_trid =~ s/%2F/\//g;
 
 #now we have the hash table, debug
 #my @temp1 = keys %answer;				#debug
@@ -122,19 +127,13 @@ seek(transactionFILE,0,0);		#go to the beginning
 
 #-----------------------------------
 #-----------------------------------
-my @utc_time=gmtime(time);
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
 my @livelist=();
 my @linesplit;
 
 
 #print 'combo-refreh&search in transactionlist <br>',"\n"; #debug
-
+#transaction pattern: 
+# B00058_33_19_0_12_2_116_Trl5zxcXkaO5YcsWr4UYfg anonymous 0 33 19 0 12 2 116
 
 unless($#tridfile == 0) 		#unless transaction list is empty
  {
@@ -143,26 +142,13 @@ unless($#tridfile == 0) 		#unless transaction list is empty
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted
 
-if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);}#if this is an exam transaction, don't touch it
+#extra paranoid measure, normally if the timestamp it's expired, should be wiped out
+if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);} #if this is an exam transaction, don't touch it
+
 # next 'if' is changed into 'elsif'
-elsif($linesplit[8] > $act_year) {@livelist=(@livelist, $i);}  #it's alive one more year, keep it in the list
- elsif($linesplit[8] == $act_year){
- if($linesplit[7] > $act_month) {@livelist=(@livelist, $i);}  #it's alive one more month, keep it in the list
- elsif($linesplit[7] == $act_month){
- if($linesplit[6] > $act_day) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[6] == $act_day){
- if($linesplit[5] > $act_hour) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[5] == $act_hour){
- if($linesplit[4] > $act_min) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[4] == $act_min){
- if($linesplit[3] > $act_sec) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- 
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
-    
+elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])) {} #if timestamp expired do nothing = transaction will not refresh
+else {@livelist=(@livelist, $i);} #not expired, refresh it
+
  } #.end for
 #we have now the list of the live transactions
 
@@ -215,23 +201,39 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 }
 close (transactionFILE) or die("cant close transaction file\n");
 
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.0.0.8\n!; #version print for easy upload check
-#print qq![$debug_buffer]\n!; #debug
-print qq!<br>\n!;
-print qq!<h2 align="center">Formularul de examen a fost folosit deja sau a expirat</h2>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
+#now we should check why received transaction was not found in sim_transaction file
+#case 0: it's an illegal transaction if md5 check fails
+#        must be recorded in cheat_file
+#case 1: md5 correct but transaction timestamp expired, file was refreshed and wiped this transaction
+#        must be announced to user
+#case 2: md5 ok, timestamp ok, it must have been used up already
+#        must be announced to user
+#check case 0
+#incoming is like 'B00053_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ'
+{ #local block start
+my @pairs; #local
+my $string_trid; # we compose the incoming transaction to recalculate mac
+my $heximac;
 
-exit();
-				} #.end expired
+@pairs=split(/_/,$post_trid); #reusing @pairs variable for spliting results
+# $pairs[7] is the mac
+$string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
+$heximac=compute_mac($string_trid);
+
+unless($heximac eq $pairs[7]) { dienice("ERR01",1,\$post_trid);}
+
+#check case 1
+elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) { 
+                                             dienice("ERR02",0,\"null"); }
+
+#else is really case 2
+else { dienice("ERR03",0,\"null");  }
+
+} #end of local block
+
+#exit();
+
+} #.end expired
 				
 } #.END extraction BLOCK
 
@@ -382,9 +384,18 @@ $exp_month=($exp_month+$carry1)%12;
 $exp_year += $carry2;
 
 
-#print to screen the entry in the transaction list
-my $hexi= sprintf("%+06X",$trid);
-my $entry = "$hexi anonymous 1 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #anonymous 1 for 1st LUP
+#generate transaction id and its md5 MAC
+
+$hexi= sprintf("%+06X",$trid); #the transaction counter
+#assemble the trid+timestamp
+$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and MD5
+#compute mac for trid+timestamp 
+my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
+$hexi= "$hexi$heximac"; #the full transaction id
+
+$entry = "$hexi anonymous 1 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #anonymous 1 for 1st LUP
+
+
 #print qq!mio entry: $entry <br>\n!; #debug
 @tridfile=(@tridfile,$entry); 				#se adauga tranzactia in array
 #print "Trid-array after adding new-trid: @tridfile[0..$#tridfile]<br>\n"; #debug
@@ -412,7 +423,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.0.0.8\n!; #version print for easy upload check
+print qq!v.3.2.0\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
@@ -495,8 +506,7 @@ print qq!</table>\n!;
 
 #ACTION: inserare transaction ID in pagina HTML
 {
-my $extra=sprintf("%+06X",$trid);
-print qq!<input type="hidden" name="transaction" value="$extra">\n!;
+print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 
 print qq!</form>\n<br>\n!;
@@ -529,7 +539,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.0.0.8\n!; #version print for easy upload check
+print qq!v.3.2.0\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;
@@ -542,6 +552,147 @@ exit();
      }
 
 } #.end transaction evaluation
+
+#-------------------------------------
+sub compute_mac {
+
+use Digest::MD5;
+  my ($message) = @_;
+  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
+    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+} #end of compute_mac
+
+
+#--------------------------------------
+#primeste timestamp de forma sec_min_hour_day_month_year
+#out 1-expired 0-still valid
+sub timestamp_expired
+{
+my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
+
+my @utc_time=gmtime(time);
+my $act_sec=$utc_time[0];
+my $act_min=$utc_time[1];
+my $act_hour=$utc_time[2];
+my $act_day=$utc_time[3];
+my $act_month=$utc_time[4];
+my $act_year=$utc_time[5];
+#my $debug="$x_year\? $act_year \| $x_month\?$act_month";
+#dienice("ERR04",0,\$debug);
+if($x_year > $act_year) {return(0);}  #valid until year increment
+ elsif($x_year == $act_year){ 
+ if($x_month > $act_month) {return(0);}  #valid
+ elsif($x_month == $act_month){ 
+ if($x_day > $act_day) {return(0);}  #it's alive one more day
+ elsif($x_day == $act_day){
+ if($x_hour > $act_hour) {return(0);}  #it's alive one more hour
+ elsif($x_hour == $act_hour){ 
+ if($x_min > $act_min) {return(0);}  #it's alive one more min
+ elsif($x_min == $act_min){ 
+ if($x_sec > $act_sec) {return(0);}  #it's alive one more sec
+  
+ } #.end elsif min
+#else {return(1);}
+ } #.end elsif hour
+#else {return(2);}
+ } #.end elsif day
+#else {return(3);}
+ } #.end elsif month
+#else {return(4);}
+ } #.end elsif year
+return(1);  #here is the general else
+ 
+
+}
+#--------------------------------------
+#---development---- treat the "or die" case
+sub dienice
+{
+my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
+
+#my $timestring=localtime(time);
+my $timestring=gmtime(time);
+
+#textul pentru public
+my %pub_errors= (
+              "ERR01" => "primire de  date corupte, inregistrata in log.",
+              "ERR02" => "pagina pe care ai trimis-o a expirat",
+              "ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
+              "ERR04" => "reserved $$err_reference",
+              "ERR05" => "reserved",
+              "ERR06" => "reserved",
+              "ERR07" => "reserved",
+              "ERR08" => "reserved",
+              "ERR09" => "reserved",
+              "ERR10" => "reserved",
+              "ERR11" => "reserved",
+              "ERR12" => "reserved",
+              "ERR13" => "reserved",
+              "ERR14" => "reserved",
+              "ERR15" => "reserved",
+              "ERR16" => "reserved",
+              "ERR17" => "reserved",
+              "ERR18" => "reserved",
+              "ERR19" => "reserved",
+              "ERR20" => "reserved"
+                );
+#textul de turnat in logfile, interne
+my %int_errors= (
+              "ERR01" => "transaction id has been tampered with, md5 mismatch",    #test ok
+              "ERR02" => "timestamp was already expired",           #test ok
+              "ERR03" => "good transaction but already used",             #test ok
+              "ERR04" => "reserved",
+              "ERR05" => "reserved",
+              "ERR06" => "reserved",
+              "ERR07" => "reserved",
+              "ERR08" => "reserved",
+              "ERR09" => "reserved",
+              "ERR10" => "reserved",
+              "ERR11" => "reserved",
+              "ERR12" => "reserved",
+              "ERR13" => "reserved",
+              "ERR14" => "reserved",
+              "ERR15" => "reserved",
+              "ERR16" => "reserved",
+              "ERR17" => "reserved",
+              "ERR18" => "reserved",
+              "ERR19" => "reserved",
+              "ERR20" => "reserved"
+                );
+
+
+#if commanded, write errorcode in cheat_file
+if($counter > 0)
+{
+# write errorcode in cheat_file
+#ACTION: append cheat symptoms in cheat file
+open(cheatFILE,"+< cheat_log"); #open logfile for appending;
+#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
+seek(cheatFILE,0,2);		#go to the end
+#CUSTOM
+printf cheatFILE "sim_ver0.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+close(cheatFILE);
+}
+
+print qq!Content-type: text/html\n\n!;
+print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
+print qq!<html>\n!;
+print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
+print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
+ins_gpl(); #this must exist
+print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!<br>\n!;
+print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
+print qq!<form method="link" action="http://localhost/index.html">\n!;
+print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
+print qq!</form>\n!; 
+#print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
+print qq!</body>\n</html>\n!;
+
+exit();
+
+} #end sub
+
 #--------------------------------------
 sub ins_gpl
 {
