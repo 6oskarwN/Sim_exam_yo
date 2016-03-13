@@ -26,14 +26,15 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2014
 
-#  sim_authent.cgi v.3.1.1 
+#  sim_authent.cgi v.3.2.0 
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
-# ch 3.1.1 make it slim: all error calls, logged ot not in cheat_log are made as call to sub dienice{}
+# ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
+# ch 3.1.1 make it slim: all error calls, logged or not in cheat_log are made as call to sub dienice{}
 #          +dienice made with 2 explanation list for errorcodes, internal and for public 
 # ch 3.1.0 eliminata referinta la manual, nu era necesara.
 # ch 3.0.f inlocuit window-button cu method="link" button
@@ -78,6 +79,7 @@ my $rec_pos=-1;			#user record position, init is 'not found'
 
 my @tridfile;			#slurped transaction file
 my $trid;			#the Transaction-ID of the generated page
+my $hexi;       #the trid+timestamp_MD5
 
 my $hlr_filename; #numele fisierului hlr (V3 stuff)
 my $hlrclass;	  #stringul "clasa1" "clasa2" "clasa3" "clasa4"
@@ -104,7 +106,7 @@ my $stdin_value;
 #verificare ca sa existe exact 2 perechi: login si passwd
 unless($#pairs == 1) #exact 2 perechi: p0 si p1
 {
-my $err_harvester = $ENV{'QUERY_STRING'};
+my $err_harvester = $ENV{'QUERY_STRING'}; #se poate citi query string de oricate ori?
 dienice("ERR01",1,\$err_harvester); #insert reason and data in cheat log 
 }
 #end number consistency check
@@ -532,7 +534,8 @@ else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increm
 
 
 #ACTION: refresh transaction NON-STANDARD: 
-#this will be changed in next version: it will increase the faults instead of dying
+#this will be changed in next version: it will increase the faults instead of dying. don't understand...
+
 my $act_sec=$utc_time[0];
 my $act_min=$utc_time[1];
 my $act_hour=$utc_time[2];
@@ -675,7 +678,7 @@ my %month_bis_days=(
 
 
 #CHANGE THIS for customizing
-my $expire=15;		#15 minutes in this situation
+my $expire=15;		#15 minutes the validity of root page
 
 #increment expiry time
 
@@ -704,7 +707,15 @@ $exp_month=($exp_month+$carry1)%12;
 #year increment
 $exp_year += $carry2;
 
-my $hexi=sprintf("%+06X",$trid);			#$trid e inca numar
+#generate transaction id and its md5 MAC
+
+$hexi= sprintf("%+06X",$trid); #the transaction counter
+#assemble the trid+timestamp
+$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and MD5
+#compute mac for trid+timestamp 
+my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
+$hexi= "$hexi$heximac"; #the full transaction id
+
 my $entry = "$hexi $get_login 2 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n";
 
 #printf "new entry: $entry<br>\n";
@@ -733,7 +744,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v.3.1.1\n!; #version print for easy upload check
+print qq!v.3.2.0\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -844,8 +855,8 @@ unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5]
   print qq!></center>\n!;
 #ACTION: inserare transaction ID in pagina HTML
 {
-my $extra=sprintf("%+06X",$trid);
-print qq!<input type="hidden" name="transaction" value="$extra">\n!;
+#my $extra=sprintf("%+06X",$trid);
+print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 print qq!</form>\n!;
 print qq!</td>\n!;
@@ -865,8 +876,8 @@ unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5]
   print qq!></center>\n!;
 #ACTION: inserare transaction ID in pagina HTML
 {
-my $extra=sprintf("%+06X",$trid);
-print qq!<input type="hidden" name="transaction" value="$extra">\n!;
+#my $extra=sprintf("%+06X",$trid);
+print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 print qq!</form>\n!;
 print qq!</td>\n!;
@@ -886,8 +897,8 @@ unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5]
   print qq!></center>\n!;
 #ACTION: inserare transaction ID in pagina HTML
 {
-my $extra=sprintf("%+06X",$trid);
-print qq!<input type="hidden" name="transaction" value="$extra">\n!;
+#my $extra=sprintf("%+06X",$trid);
+print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 print qq!</form>\n!;
 print qq!</td>\n!;
@@ -906,8 +917,8 @@ unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5]
   print qq!></center>\n!;
 #ACTION: inserare transaction ID in pagina HTML
 {
-my $extra=sprintf("%+06X",$trid);
-print qq!<input type="hidden" name="transaction" value="$extra">\n!;
+#my $extra=sprintf("%+06X",$trid);
+print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 print qq!</form>\n!;
 print qq!</td>\n!;
@@ -1119,7 +1130,19 @@ $failures="$failures\n";
 $slurp_userfile[$user_account*7+6]=$failures; 
 } #end unless user exists
 } #end 'punishment' sub
+
 #--------------------------------------
+sub compute_mac {
+
+use Digest::MD5;
+  my ($message) = @_;
+  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
+    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+} #end of compute_mac
+#-------------------------------------
+
+
+
 #---development---- treat the "or die" case
 sub dienice
 {

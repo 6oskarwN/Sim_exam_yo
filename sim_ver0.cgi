@@ -7,7 +7,7 @@
 # Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,
 # sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
 # Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.
-# In distributia pe CD sau download pe www.yo6kxp.org trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea 
+# In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea 
 # in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/
 # Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, 
 # modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva 
@@ -15,7 +15,7 @@
 # Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://www.yo6kxp.org
 
 # This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and
-# utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
+# utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
 # as published by the Free Software Foundation; either version 2 of the License, or any later version.
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty. 
 # See the GNU General Public License for more details.
@@ -63,10 +63,6 @@ my $correct;		#how many correct answers you gave
 
 
 
-#### open transaction ID file ####
-open(transactionFILE,"+< sim_transaction") or die("can't open transaction file: $!\n");					#open transaction file for writing
-#flock(transactionFILE,2);		#lock the file from other CGI instances
-
 
 ###########################################
 ### Process inputs, generate hash table ###
@@ -94,27 +90,32 @@ $value =~ tr/2/c/;
 $value =~ tr/3/d/;
 $value=~ s/<*>*<*>//g;
 }
-unless($name eq 'answer') { 
-                 %answer = (%answer,$name,$value);		#add answers, except the submit button
-			  } 
+
+if(defined($name) and defined($value)){
+                 %answer = (%answer,$name,$value); #add defined answers
+                                      }
 		} #.end foreach
 
 } #.end process inputs
 
-$post_trid= $answer{'transaction'}; #extract POST_trid from POST data
+$post_trid= $answer{'transaction'}; #if exists, extract POST_trid from POST data
 #md MAC has + = %2B and / = %2F characters, must be reconverted
+
+unless(defined($post_trid)) {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
+
 $post_trid =~ s/%2B/\+/g;
 $post_trid =~ s/%2F/\//g;
 
-#now we have the hash table, debug
-#my @temp1 = keys %answer;				#debug
-#foreach (@temp1) {					#debug
-#		print qq!K: $_  A: $answer{$_}<br>\n!;	#debug	
-#                 }					#debug
 
 ###############################
 ### combined refresh-search ###    
 ###############################
+
+#### open transaction ID file ####
+open(transactionFILE,"+< sim_transaction") or die("can't open transaction file: $!\n");					#open transaction file for writing
+#flock(transactionFILE,2);		#lock the file from other CGI instances
+
+
 {
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
@@ -124,15 +125,13 @@ seek(transactionFILE,0,0);		#go to the beginning
 #chomp($tridfile[0]);			#eliminate \n
 #$tridfile[0]=hex($tridfile[0]);		#transform in numeral
 
-
 #-----------------------------------
 #-----------------------------------
 my @livelist=();
 my @linesplit;
 
 
-#print 'combo-refreh&search in transactionlist <br>',"\n"; #debug
-#transaction pattern: 
+# transaction pattern in file: 
 # B00058_33_19_0_12_2_116_Trl5zxcXkaO5YcsWr4UYfg anonymous 0 33 19 0 12 2 116
 
 unless($#tridfile == 0) 		#unless transaction list is empty
@@ -189,7 +188,9 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
   
 } #.end unless
 
-##**********************************************************************************
+#**********************************************************************************
+#if received transaction id was not found in the transaction file
+
 if($expired) {
 #Action: rewrite transaction file
 truncate(transactionFILE,0);
@@ -208,6 +209,7 @@ close (transactionFILE) or die("cant close transaction file\n");
 #        must be announced to user
 #case 2: md5 ok, timestamp ok, it must have been used up already
 #        must be announced to user
+
 #check case 0
 #incoming is like 'B00053_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ'
 { #local block start
@@ -215,8 +217,13 @@ my @pairs; #local
 my $string_trid; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
+unless(defined($post_trid)) {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
+
 @pairs=split(/_/,$post_trid); #reusing @pairs variable for spliting results
+
 # $pairs[7] is the mac
+unless(defined($pairs[7])) {dienice ("ERR05",1,\$post_trid); } # unstructured trid
+
 $string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_trid);
 
@@ -393,8 +400,7 @@ $hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"
 my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
 $hexi= "$hexi$heximac"; #the full transaction id
 
-$entry = "$hexi anonymous 1 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #anonymous 1 for 1st LUP
-
+$entry = "$hexi anonymous 1 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; 
 
 #print qq!mio entry: $entry <br>\n!; #debug
 @tridfile=(@tridfile,$entry); 				#se adauga tranzactia in array
@@ -614,8 +620,8 @@ my %pub_errors= (
               "ERR01" => "primire de  date corupte, inregistrata in log.",
               "ERR02" => "pagina pe care ai trimis-o a expirat",
               "ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
-              "ERR04" => "reserved $$err_reference",
-              "ERR05" => "reserved",
+              "ERR04" => "primire de  date corupte, inregistrata in log.",
+              "ERR05" => "primire de  date corupte, inregistrata in log.",
               "ERR06" => "reserved",
               "ERR07" => "reserved",
               "ERR08" => "reserved",
@@ -637,8 +643,8 @@ my %int_errors= (
               "ERR01" => "transaction id has been tampered with, md5 mismatch",    #test ok
               "ERR02" => "timestamp was already expired",           #test ok
               "ERR03" => "good transaction but already used",             #test ok
-              "ERR04" => "reserved",
-              "ERR05" => "reserved",
+              "ERR04" => "undef transaction id",
+              "ERR05" => "unstructured transaction id",
               "ERR06" => "reserved",
               "ERR07" => "reserved",
               "ERR08" => "reserved",
@@ -703,7 +709,7 @@ print qq!versiune ulterioara.\n!;
 print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
 print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
 print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia pe CD sau download pe www.yo6kxp.org trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
+print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
 print qq!in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
 print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
 print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
@@ -712,7 +718,7 @@ print qq!Site-ul de unde se poate descarca distributia oficiala a simulatorului 
 print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
 print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
-print qq!utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
+print qq!utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
 print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version.\n!;
 print qq!This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty.!; 
 print qq!See the GNU General Public License for more details.\n!;
@@ -720,7 +726,7 @@ print qq!You should have received a copy of the GNU General Public License along
 print qq!download it for free at http://www.fsf.org/\n!; 
 print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
 print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
-print qq!YO6OWN Francisc TOTH, 2008\n!;
+print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
 
 print qq!Made in Romania\n!;
