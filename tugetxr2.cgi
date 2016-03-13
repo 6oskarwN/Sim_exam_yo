@@ -55,6 +55,8 @@ if(defined($post_token)) {
 			$post_token =~ s/%2B/\+/g;
 			$post_token =~ s/%2F/\//g;
                          }
+else {dienice ("ERR01",1,\"undef token"); } # no token or with void value
+
 #print qq!token received: $post_token<br>\n!; #debug
 #transaction pattern: 
 # admin_33_19_0_12_2_116_Trl5zxcXkaO5YcsWr4UYfg
@@ -69,7 +71,6 @@ if(defined($post_token)) {
 my $string_token; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
-unless(defined($post_token)) {dienice ("ERR01",1,\"undef token"); } # no token or with void value
 
 @pairs=split(/_/,$post_token); #reusing @pairs variable for spliting results
 # $pairs[7] is the mac

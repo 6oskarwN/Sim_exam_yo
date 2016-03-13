@@ -108,8 +108,11 @@ elsif($stdin_name eq 'transaction') {$post_trid=$stdin_value;}
 #.END BLOCK
 
 #md MAC has + = %2B and / = %2F characters, must be reconverted
-$post_trid =~ s/%2B/\+/g;
-$post_trid =~ s/%2F/\//g;
+if(defined($post_trid)){
+	$post_trid =~ s/%2B/\+/g;
+	$post_trid =~ s/%2F/\//g;
+			}
+   else {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
 
 ###############################
 ### combined refresh-search ###    
@@ -220,7 +223,6 @@ my @pairs; #local
 my $string_trid; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
-unless(defined($post_trid)) {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
 
 @pairs=split(/_/,$post_trid); #reusing @pairs variable for spliting results
 
@@ -242,7 +244,7 @@ else { dienice("ERR03",0,\"null");  }
 } #end of local block
 
 
-exit();
+#exit(); #still needed? is this exit() ever active?
 
 } #.end expired
 				
