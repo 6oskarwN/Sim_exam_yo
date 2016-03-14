@@ -24,7 +24,7 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# (c) YO6OWN Francisc TOTH, 2011-2014
+# (c) YO6OWN Francisc TOTH, 2011-2016
 
 #  sim_gen1.cgi v.3.2.0
 #  Status: devel
@@ -63,7 +63,7 @@ use warnings;
 
 sub ins_gpl;                    #inserts a HTML preformatted text with the GPL license text
 
-my $get_trid;                   #transaction ID from GET data; init to avoid error_log
+my $get_trid;                   #transaction ID from GET data
 my $trid_login;			#login extracted from transaction file
 my $trid_login_hlrname;         #$trid_login with escape chars where needed
 my $trid_pagecode;		#pagecode from transaction file
@@ -146,7 +146,7 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted
 
-if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);}#if this is an exam transaction, don't touch it, sim_authent.cgi has special punihment of abandoned exams
+if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
 
 # next 'if' is changed into 'elsif'
 elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])) {} #if timestamp expired do nothing = transaction will not refresh
@@ -839,7 +839,6 @@ $entry = "$entry K \n"; #the proposed questions are entered, K \n is terminator
 
 #ACTION: inserare transaction ID in pagina HTML
 {
-#my $extra=sprintf("%+06X",$trid);
 print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 
