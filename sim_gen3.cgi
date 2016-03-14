@@ -7,15 +7,14 @@
 # Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,
 # sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
 # Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.
-# In distributia pe CD sau download pe examyo.scienceontheweb.net trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea 
+# In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea 
 # in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/
 # Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, 
 # modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva 
 # din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.
-# Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://examyo.scienceontheweb.net
 
-# This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and
-# utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
+# This program together with question database formatting, solutions to problems, manuals, documentation, source code and
+# utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
 # as published by the Free Software Foundation; either version 2 of the License, or any later version.
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty. 
 # See the GNU General Public License for more details.
@@ -24,7 +23,7 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# (c) YO6OWN Francisc TOTH, 2011-2016
+# (c) YO6OWN Francisc TOTH, 2008 - 2016
 
 #  sim_gen3.cgi v.3.2.0
 #  Status: devel
@@ -1033,13 +1032,12 @@ print qq!versiune ulterioara.\n!;
 print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
 print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
 print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia pe CD sau download pe examyo.scienceontheweb.net trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
+print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
 print qq!in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
 print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
 print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
 print qq!din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
-print qq!Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://examyo.scienceontheweb.net\n!;
-print qq!YO6OWN Francisc TOTH, 2008-2014\n!;
+print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
 print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
 print qq!utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
@@ -1050,7 +1048,7 @@ print qq!You should have received a copy of the GNU General Public License along
 print qq!download it for free at http://www.fsf.org/\n!; 
 print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
 print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
-print qq!YO6OWN Francisc TOTH, 2008-2014\n!;
+print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
 
 print qq!Made in Romania\n!;

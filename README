@@ -8,4 +8,9 @@ exista System Requirement specifications (SRS) si document de arhitectura in ZIP
 
 Manual de instalare, de utilizator - pending review
 
+In branch-ul examyo_r3.2 se gaseste rezultatul lucrului la bugfix pentru 
+https://github.com/6oskarwN/Sim_exam_yo/issues/3
+
+Indata ce bugfixul trece toate testele, va fi facut un merge cu branch-ul master.
+
 Francisc Toth, YO6OWN
