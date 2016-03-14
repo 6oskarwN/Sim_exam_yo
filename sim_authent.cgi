@@ -44,7 +44,7 @@
 # ch 3.0.b radio butonul nu se mai afiseaza deloc
 # ch 3.0.a rezolvat tichetul cu astfel, astfel, astfel
 # ch 3.0.9 nu se vede diferit checkbox=off fata de on, cel off schimbat cu buton radio disable
-# ch 3.0.8 functionalitatea secreta denumita Lupa Convergenta(TM)
+# ch 3.0.8 functionalitatea secreta denumita Convergenta(TM)
 # ch 3.0.7 corrected custom bug
 # ch 3.0.6 explicatii pentru super-incepatori
 # ch 3.0.5 evidentiat subcapitolele cu erori
@@ -944,7 +944,7 @@ print qq!</table>\n!;
 if(-e "hlr/$hlr_filename") {
 #afisam legenda
 print qq!<br>\n!;
-print qq!<font color="yellow">Lupa Convergenta&trade; activata.</font> Daca ramaneti pe aceeasi clasa de autorizare, cu contul de antrenament, programul va monitorizeaza si dirijeaza prin programa. Tine cont de problemele rezolvate, chiar daca examenul ca intreg nu a fost promovat. <br>Astfel la fiecare examinare nu veti mai primi intrebari la care ati raspuns deja corect, va gaseste punctele slabe si insista pe rezolvarea lor.<br>\n!;
+print qq!<font color="yellow">Convergenta&trade; activata.</font> Daca ramaneti pe aceeasi clasa de autorizare, cu contul de antrenament, programul va monitorizeaza si dirijeaza prin programa. Tine cont de problemele rezolvate, chiar daca examenul ca intreg nu a fost promovat. <br>Astfel la fiecare examinare nu veti mai primi intrebari la care ati raspuns deja corect, va gaseste punctele slabe si insista pe rezolvarea lor.<br>\n!;
 print qq!Schimbarea clasei de autorizare sterge acoperirea programei. Daca vrei sa o iei de la inceput cu aceeasi clasa, treci la alta clasa si apoi revii la cea initiala.<br>\n!;
 print qq!<br>LEGENDA:<br>\n!;
 print qq!<font size="-2">!; 

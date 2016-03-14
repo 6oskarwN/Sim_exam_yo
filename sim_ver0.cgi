@@ -101,10 +101,11 @@ if(defined($name) and defined($value)){
 $post_trid= $answer{'transaction'}; #if exists, extract POST_trid from POST data
 #md MAC has + = %2B and / = %2F characters, must be reconverted
 
-unless(defined($post_trid)) {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
-
-$post_trid =~ s/%2B/\+/g;
-$post_trid =~ s/%2F/\//g;
+if(defined($post_trid)) {
+			$post_trid =~ s/%2B/\+/g;
+			$post_trid =~ s/%2F/\//g;
+                         }
+else {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
 
 
 ###############################
@@ -141,8 +142,10 @@ unless($#tridfile == 0) 		#unless transaction list is empty
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted
 
-#extra paranoid measure, normally if the timestamp it's expired, should be wiped out
-if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);} #if this is an exam transaction, don't touch it
+#if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
+#this is nicer
+if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
+
 
 # next 'if' is changed into 'elsif'
 elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])) {} #if timestamp expired do nothing = transaction will not refresh
@@ -160,7 +163,7 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 @tridfile=@extra;
 
  } #.end unless
-} #.end refresh
+} #.end refresh block
 
 
 #BLOCK: extract data from actual transaction and then delete it
@@ -217,7 +220,7 @@ my @pairs; #local
 my $string_trid; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
-unless(defined($post_trid)) {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
+#unless(defined($post_trid)) {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
 
 @pairs=split(/_/,$post_trid); #reusing @pairs variable for spliting results
 
