@@ -55,7 +55,7 @@ if(defined($post_token)) {
 			$post_token =~ s/%2B/\+/g;
 			$post_token =~ s/%2F/\//g;
                          }
-else {dienice ("ERR01",1,\"undef token"); } # no token or with void value
+else {dienice ("ERR01",2,\"undef token"); } # no token or with void value
 
 #print qq!token received: $post_token<br>\n!; #debug
 #transaction pattern: 
@@ -74,18 +74,18 @@ my $heximac;
 
 @pairs=split(/_/,$post_token); #reusing @pairs variable for spliting results
 # $pairs[7] is the mac
-unless(defined($pairs[7])) {dienice ("ERR01",1,\$post_token); } # unstructured token
+unless(defined($pairs[7])) {dienice ("ERR01",2,\$post_token); } # unstructured token
 $string_token="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_token);
 
-unless($heximac eq $pairs[7]) { dienice("ERR01",1,\$post_token);} #case of tampering
+unless($heximac eq $pairs[7]) { dienice("ERR01",3,\$post_token);} #case of tampering
 
 #check case 1
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) { 
                                              dienice("ERR02",0,\"null"); }
 
 #check case 2
- elsif ($pairs[0] ne 'admin') {dienice("ERR03",1,\$post_token);}
+ elsif ($pairs[0] ne 'admin') {dienice("ERR03",3,\$post_token);}
 
 #ACTION: open sim_transaction ID file
 open(transactionFILE,"< sim_transaction") or die("can't open simtrans file: $!\n");					#open transaction file for writing
@@ -208,6 +208,11 @@ return(1);  #here is the general else
 }
 #--------------------------------------
 #---development---- treat the "or die" case
+#how to use it
+#$error_code is a string, you see it, this is the text selector
+#$counter: if it is 0, error is not logged. If 1..5 = threat factor
+#reference is the reference to string that is passed to be logged.
+
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
@@ -268,11 +273,13 @@ if($counter > 0)
 {
 # write errorcode in cheat_file
 #ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log"); #open logfile for appending;
+open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
+
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 #CUSTOM
-printf cheatFILE "tugetxr2.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: tugetxr2.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 

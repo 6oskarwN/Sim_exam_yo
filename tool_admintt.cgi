@@ -98,14 +98,14 @@ unless(defined($pairs[7])) {dienice ("ERR01",1,\$post_token); } # unstructured t
 $string_token="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_token);
 
-unless($heximac eq $pairs[7]) { dienice("ERR01",1,\$post_token);} #case of tampering
+unless($heximac eq $pairs[7]) { dienice("ERR01",5,\$post_token);} #case of tampering
 
 #check case 1
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) { 
                                              dienice("ERR02",0,\"null"); }
 
 #check case 2
- elsif ($pairs[0] ne 'admin') {dienice("ERR03",1,\$post_token);}
+ elsif ($pairs[0] ne 'admin') {dienice("ERR03",2,\$post_token);}
 
 #we determine here if is display order (=1) or writing order(=2)
 
@@ -158,7 +158,7 @@ print qq!<font color="black"><b>$dbtt[$i*4]</b></font>&nbsp;!;  #print nick
 if($dbtt[$i*4+1] < 6)     #if it's a guestbook record
                     {
 for (my $istar=0; $istar < $dbtt[$i*4+1]; $istar++)
-{print qq!<IMG src="http://localhost/img/star.gif" WIDTH="15">\n!;
+{print qq!<IMG src="http://localhost/star.gif" WIDTH="15">\n!;
 }
                      } #.end it's a guestbook record
 else {   #else it is a trouble ticket
@@ -268,7 +268,7 @@ close(INFILE);
 
 else #bogus calls, do no offer them any chance to guess the right form of calling
 {
-dienice("ERR04",1,\"bogus");
+dienice("ERR04",5,\"bogus");
 }
 #-------------------------------------
 sub compute_mac {
@@ -295,7 +295,7 @@ my $act_day=$utc_time[3];
 my $act_month=$utc_time[4];
 my $act_year=$utc_time[5];
 #my $debug="$x_year\? $act_year \| $x_month\?$act_month";
-#dienice("ERR04",0,\$debug);
+
 if($x_year > $act_year) {return(0);}  #valid until year increment
  elsif($x_year == $act_year){ 
  if($x_month > $act_month) {return(0);}  #valid
@@ -320,10 +320,14 @@ return(1);  #here is the general else
 
 #--------------------------------------
 #---development---- treat the "or die" case
+#how to use it
+#$error_code is a string, you see it, this is the text selector
+#$counter: if it is 0, error is not logged. If 1..5 = threat factor
+#reference is the reference to string that is passed to be logged.
+
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
-
 #my $timestring=localtime(time);
 my $timestring=gmtime(time);
 
@@ -380,11 +384,12 @@ if($counter > 0)
 {
 # write errorcode in cheat_file
 #ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log"); #open logfile for appending;
+open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "tool_admintt.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
+printf cheatFILE "\<br\>reported by: tool_admintt.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 
