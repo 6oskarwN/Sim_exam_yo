@@ -1,37 +1,43 @@
 #!c:\Perl\bin\perl
 
-# Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,
-# instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat 
-# in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o 
-# versiune ulterioara. 
-# Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,
-# sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
-# Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.
-# In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea 
-# in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/
-# Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, 
-# modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva 
-# din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.
+#Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
+#constituie un pachet software gratuit care poate fi distribuit/modificat in termenii 
+#licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in 
+#versiunea 2 sau intr-o versiune ulterioara. Programul, intrebarile si raspunsurile sunt #distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, 
+#sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
+#Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile
+#descrise in licenta publica GPL.
+#In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a #licentei GNU GPL, de asemenea si versiunea in limba romana, iar daca nu, ea poate fi
+#descarcata gratuit de pe pagina http://www.fsf.org/
+#Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, 
+#nefacand obiectul licentierii GNU GPL, copyrightul fiind al statului roman, dar 
+#fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile 
+#de interes public precum al legii 109/2007 privind reutilizarea informatiilor din
+#institutiile publice.
 
-# This program together with question database formatting, solutions to problems, manuals, documentation, source code and
-# utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
-# as published by the Free Software Foundation; either version 2 of the License, or any later version.
-# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty. 
-# See the GNU General Public License for more details.
-# You should have received a copy of the GNU General Public License along with this software distribution; if not, you can
-# download it for free at http://www.fsf.org/ 
-# Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
-# so any use of the official questions, other than in Read-Only way, is prohibited. 
+#This program together with question database formatting, solutions to problems, manuals, #documentation, sourcecode and utilities is a  free software; you can redistribute it 
+#and/or modify it under the terms of the GNU General Public License as published by the 
+#Free Software Foundation; either version 2 of the License, or any later version. This 
+#program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY or
+#without any implied warranty. See the GNU General Public License for more details. 
+#You should have received a copy of the GNU General Public License along with this software
+#distribution; if not, you can download it for free at http://www.fsf.org/ 
+#Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian
+#public authority(similar to FCC in USA) so any use of the official questions, other than
+#in Read-Only way, is prohibited. 
+
+#Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_authent.cgi v.3.2.0 
+#  sim_authent.cgi v 3.2.1 
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 3.1.1 make it slim: all error calls, logged or not in cheat_log are made as call to sub dienice{}
 #          +dienice made with 2 explanation list for errorcodes, internal and for public 
@@ -132,7 +138,7 @@ if($stdin_name eq 'login') { $get_login=$stdin_value;}
 #BLOCK: open userfile; Refresh userfile with criteria expiry time.
 {
 #ACTION: open user account file
-open(userFILE,"+< sim_users") or die("can't open user file: $!\n");					#open user file for writing
+open(userFILE,"+< sim_users") or dienice("ERR08",1,\"can't open sim_users");					#open user file for writing
 #flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: refresh user accounts, delete expired accounts
@@ -227,7 +233,7 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 } #.end unless
 else #the case when user database is empty
 {
-close(userFILE) or die("cant close user file\n"); 
+close(userFILE) or dienice("ERR09",1,\"cant close user file"); 
 dienice("ERR03",0,\"null"); #normally not logged
 }#database empty
 
@@ -255,7 +261,7 @@ my @linesplit;
 #if login was not found, print error page, close resources and exit
 if($rec_pos == -1) 
 {
-close(userFILE) or die("cant close user file\n"); 
+close(userFILE) or dienice("ERR09",1,\"cant close user file"); 
 dienice("ERR03",0,\"null"); #normally not logged
 } #.end if
 } #.end BLOCK
@@ -297,7 +303,7 @@ my $truth=1;
 
 unless($truth)         #if login is to be delayed
 {
-close(userFILE) or die("cant close user file\n"); 
+close(userFILE) or dienice("ERR09",1,"cant close user file"); 
 dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
 } #.end unless
 
@@ -329,7 +335,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or die("cant close user file\n");
+close(userFILE) or dienice("ERR09",1,\"cant close user file");
 chomp($wrong);
 my $err_harvester="<font color=\"white\">$slurp_userfile[$rec_pos*7]</font> ai gresit deja de <font color=\"red\">$wrong</font> ori"; 
 dienice("ERR05",0,\$err_harvester);
@@ -419,7 +425,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or die("cant close user file\n"); 
+close(userFILE) or dienice("ERR09",1,\"cant close user file"); 
 dienice("ERR06",0,\$slurp_userfile[$rec_pos*7]);
 
 } #.end else
@@ -506,14 +512,12 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 } #.end BLOCK
 
 
-#close ar putea sa dispara din necesitatea de a mai scrie penalizari in userfile
-#close(userFILE) or die("cant close user file\n");
 
 
 #BLOCK: refresh transaction file and Generate new transaction id
 {
 #ACTION: open transaction ID file
-open(transactionFILE,"+< sim_transaction") or die("can't open transaction file: $!\n");					#open transaction file for writing
+open(transactionFILE,"+< sim_transaction") or dienice("ERR08",1,\"can't open transaction file");					#open transaction file for writing
 #flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: generate next transaction
@@ -620,7 +624,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or die("cant close user file\n");
+close(userFILE) or dienice("ERR09",1,\"cant close user file");
 
 my @extra=();
 @extra=(@extra,$tridfile[0]);		#transactionID it's always alive
@@ -731,7 +735,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or die("cant close transaction file\n");
+close (transactionFILE) or dienice("ERR09",1,\"cant close transaction file");
 
 } #.end BLOCK
 
@@ -743,7 +747,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v.3.2.0\n!; #version print for easy upload check
+print qq!v 3.2.1\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -762,7 +766,7 @@ if(-e "hlr/$hlr_filename")
 {
 #print qq!exista si deschidem hlr/$hlr_filename<br>\n!; #debug
 #deschide hlrfile readonly
-open(HLRfile,"<hlr/$hlr_filename") || die("nu se deschideeeee"); #open readonly
+open(HLRfile,"<hlr/$hlr_filename") || dienice("ERR10",2,\"cant open hlr file"); #open readonly
 #flock(HLRfile,1); #lock shared
 seek(HLRfile,0,0); #rewind
 $hlrclass=<HLRfile>; #citeste clasa
@@ -1158,9 +1162,9 @@ my %pub_errors= (
               "ERR05" => "Parola incorecta pentru $$err_reference",
               "ERR06" => "Contul <font color=\"white\">$$err_reference</font> este blocat pentru o perioada de 5 minute pentru incercari repetate cu parola incorecta. Incercati din nou dupa expirarea periodei de penalizare.",
               "ERR07" => "examyo system error, logged for admin",
-              "ERR08" => "reserved",
-              "ERR09" => "reserved",
-              "ERR10" => "reserved",
+              "ERR08" => "congestie server, incearca in cateva momente",
+              "ERR09" => "congestie server, incearca in cateva momente",
+              "ERR10" => "congestie server, incearca in cateva momente",
               "ERR11" => "reserved",
               "ERR12" => "reserved",
               "ERR13" => "reserved",
@@ -1181,9 +1185,9 @@ my %int_errors= (
               "ERR05" => "delay, normally not logged",
               "ERR06" => "delay, normally not logged",
               "ERR07" => "examyo system error, should never occur, weird hlr_class:",
-              "ERR08" => "reserved",
-              "ERR09" => "reserved",
-              "ERR10" => "reserved",
+              "ERR08" => "cannot open file",
+              "ERR09" => "cannot close file",
+              "ERR10" => "cannot open hlr file",
               "ERR11" => "reserved",
               "ERR12" => "reserved",
               "ERR13" => "reserved",
@@ -1216,7 +1220,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!v 3.2.1\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
@@ -1233,35 +1237,36 @@ sub ins_gpl
 {
 print qq+<!--\n+;
 print qq!SimEx Radio Release \n!;
-print qq!SimEx Radio was created for YO6KXP ham-club located in Sacele, ROMANIA\n!;
+print qq!SimEx Radio was created originally for YO6KXP radio amateur club located in\n!; 
+print qq!Sacele, ROMANIA (YO) then released to the whole radio amateur community.\n!;
 print qq!\n!;
-print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,!;
-print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat!; 
-print qq!in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o !;
-print qq!versiune ulterioara.\n!; 
-print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
-print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
-print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
-print qq!in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
-print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
-print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
-print qq!din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
+print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,\n!; 
+print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat in \n!;
+print qq!termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o versiune \n!;
+print qq!ulterioara. Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio \n!;
+print qq!garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
+print qq!manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
+print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea \n!;
+print qq!si versiunea in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
+print qq!Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, \n!;
+print qq!copyrightul fiind al statului roman, dar fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile \n!;
+print qq!de interes public precum al legii 109/2007 privind reutilizarea informatiilor din institutiile publice.\n!;
+print qq!\n!;
 print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
-print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
-print qq!utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
-print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version.\n!;
-print qq!This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty.!; 
-print qq!See the GNU General Public License for more details.\n!;
-print qq!You should have received a copy of the GNU General Public License along with this software distribution; if not, you can!;
-print qq!download it for free at http://www.fsf.org/\n!; 
-print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
-print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
+print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode \n!;
+print qq!and utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \n!;
+print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version. This program is distributed \n!;
+print qq!in the hope that it will be useful, but WITHOUT ANY WARRANTY or without any implied warranty. See the GNU General Public \n!;
+print qq!License for more details. You should have received a copy of the GNU General Public License along with this software distribution; \n!;
+print qq!if not, you can download it for free at http://www.fsf.org/ \n!;
+print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC \n!;
+print qq!in USA) so any use of the official questions, other than in Read-Only way, is prohibited. \n!;
+print qq!\n!;
 print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
-
 print qq!Made in Romania\n!;
 print qq+-->\n+;
-} #.end sub ins_gpl
+
+}
 

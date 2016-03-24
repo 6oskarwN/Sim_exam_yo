@@ -319,7 +319,7 @@ return(1);  #here is the general else
 }
 
 #--------------------------------------
-#---development---- treat the "or die" case
+# treat the "or die" and all error cases
 #how to use it
 #$error_code is a string, you see it, this is the text selector
 #$counter: if it is 0, error is not logged. If 1..5 = threat factor
