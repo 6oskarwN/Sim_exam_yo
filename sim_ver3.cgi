@@ -1,36 +1,42 @@
 #!c:\Perl\bin\perl
 
-# Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,
-# instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat 
-# in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o 
-# versiune ulterioara. 
-# Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,
-# sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
-# Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.
-# In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea 
-# in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/
-# Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, 
-# modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva 
-# din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.
+#Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
+#constituie un pachet software gratuit care poate fi distribuit/modificat in termenii 
+#licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in 
+#versiunea 2 sau intr-o versiune ulterioara. Programul, intrebarile si raspunsurile sunt #distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, 
+#sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
+#Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile
+#descrise in licenta publica GPL.
+#In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a #licentei GNU GPL, de asemenea si versiunea in limba romana, iar daca nu, ea poate fi
+#descarcata gratuit de pe pagina http://www.fsf.org/
+#Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, 
+#nefacand obiectul licentierii GNU GPL, copyrightul fiind al statului roman, dar 
+#fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile 
+#de interes public precum al legii 109/2007 privind reutilizarea informatiilor din
+#institutiile publice.
 
-# This program together with question database formatting, solutions to problems, manuals, documentation, source code and
-# utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
-# as published by the Free Software Foundation; either version 2 of the License, or any later version.
-# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty. 
-# See the GNU General Public License for more details.
-# You should have received a copy of the GNU General Public License along with this software distribution; if not, you can
-# download it for free at http://www.fsf.org/ 
-# Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
-# so any use of the official questions, other than in Read-Only way, is prohibited. 
+#This program together with question database formatting, solutions to problems, manuals, #documentation, sourcecode and utilities is a  free software; you can redistribute it 
+#and/or modify it under the terms of the GNU General Public License as published by the 
+#Free Software Foundation; either version 2 of the License, or any later version. This 
+#program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY or
+#without any implied warranty. See the GNU General Public License for more details. 
+#You should have received a copy of the GNU General Public License along with this software
+#distribution; if not, you can download it for free at http://www.fsf.org/ 
+#Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian
+#public authority(similar to FCC in USA) so any use of the official questions, other than
+#in Read-Only way, is prohibited. 
+
+#Made in Romania 
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_ver3.cgi v.3.2.0
+#  sim_ver3.cgi v 3.2.1
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 3.0.d ANRCTI replaced by ANCOM
 # ch 3.0.c text change - nu ai intrunit baremul la toate capitolele
@@ -93,11 +99,11 @@ my $pair;
 my $name;
 my $value;
 
-#read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology
+read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology
 
-#@pairs=split(/&/, $buffer); #POST-technology
+@pairs=split(/&/, $buffer); #POST-technology
 
-@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
 
 foreach $pair(@pairs) 
 		{
@@ -134,7 +140,7 @@ else {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
 
 
 #ACTION: open transaction ID file
-open(transactionFILE,"+< sim_transaction") or die("can't open transaction file: $!\n");					#open transaction file for writing
+open(transactionFILE,"+< sim_transaction") or dienice("ERR06",1,\"can't open transaction file");		#open transaction file for writing
 #flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
@@ -222,7 +228,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close (transactionFILE) or die("cant close transaction file\n");
+close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 
 
 #now we should check why received transaction was not found in sim_transaction file
@@ -267,7 +273,7 @@ else { dienice("ERR03",0,\"null");  }
 
 #ACTION: extract account type and last achievement of user from user database
 #open user account file
-open(userFILE,"< sim_users") or die("can't open user file: $!\n");	#open user file for writing
+open(userFILE,"< sim_users") or dienice("ERR06",1,\"can't open user file");	#open user file for writing
 #flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
@@ -298,7 +304,7 @@ if($slurp_userfile[$account*7+0] eq "$trid_login\n") #this is the user record we
 } #.END BLOCK: search user record
 
 #close user file; will reopen it if needed
-close(userFILE) or die("can't close user database\n"); 
+close(userFILE) or dienice("ERR07",1,\"can't close user database"); 
 
 #ACTION: check request clearances pagecode == 6 and tip cont == 0/3&&notused)
 unless($trid_pagecode == 6 && ($user_tipcont == 0 || $user_tipcont == 3 && $user_lastresult == 0)) #CUSTOM: invoked from examIIIR page
@@ -312,38 +318,12 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or die("can't close transaction file\n");
-#close(userFILE) or die("can't close user database\n");
+close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 
 #ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log") or die("can't open cheat_log file: $!\n");					#open transaction file for writing
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
-
-#ACTION: write in logfile
-seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "CHEAT ATTEMPT: %s (study level: %s) from pagecode %s invoked evaluation of exam III\n",$trid_login,$user_tipcont,$trid_pagecode;
-close(cheatFILE);
-
-#ACTION: display a defeat page
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.3.2.0\n!; #version print for easy upload check
-print qq!<br>\n!;
-print qq!<h1 align="center">Actiune ilegala, inregistrata in log.</h1>\n!;
-print qq!<h2 align="center">In cazul in care considerati ca acest mesaj nu ar fi trebuit sa apara, fiindca ati
- respectat pasii corecti, va rog sa-mi trimiteti pe e-mail o descriere cat mai exacta a 
-actiunilor care au dus la aparitia acestei pagini de eroare, pentru investigare. TNX de YO6OWN</h2>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-#ACTION: exit page since an error was detected
-exit();
+my $cheatmsg="$trid_login (study level: $user_tipcont) from pagecode $trid_pagecode invoked evaluation of exam III";
+dienice("ERR08",3,\$cheatmsg);
 }
 
 #All clearances ok, prep to evaluate results
@@ -370,7 +350,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.2.0\n!; #version print for easy upload check
+print qq!v 3.2.1\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa III</h2>\n!;
@@ -381,7 +361,7 @@ $trid_login_hlrname = $trid_login;
 $trid_login_hlrname =~ s/\//\@slash\@/; #substitute /
 if(-e "hlr/$trid_login_hlrname"){ #doar userii de antrenament  au hlrfile, one-shooters nu.
 
-open(HLRfile,"+< hlr/$trid_login_hlrname") || die("cant oppen haelerfile"); #open
+open(HLRfile,"+< hlr/$trid_login_hlrname") or dienice("ERR07",1,\"cant oppen hlr file"); #open
 #flock(HLRfile,2); #flock exclusive
 seek(HLRfile,0,0);		# rewind
 @slurp_hlrfile = <HLRfile>;	# slurp into a @variable
@@ -803,7 +783,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close (transactionFILE) or die("cant close transaction file\n");
+close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 
 #update user record with the result of test
 if ($f_failed)
@@ -812,7 +792,7 @@ else
 { $slurp_userfile[$user_account*7+6]="3\n";} #custom
 
 #open userfile for write
-open(userFILE,"+< sim_users") or die("can't open user file: $!\n");	#open user file for writing
+open(userFILE,"+< sim_users") or dienice("ERR06",1,\"can't open user file");	#open user file for writing
 #flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #rewrite userfile
@@ -823,7 +803,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 #close userfile
-close(userFILE) or die("can't close user database\n"); 
+close(userFILE) or dienice("ERR07",1,\"can't close user database"); 
 
 
 }#end finishing block
@@ -876,7 +856,12 @@ return(1);  #here is the general else
 
 }
 #--------------------------------------
-#---development---- treat the "or die" case
+# treat the "or die" and all error cases
+#how to use it
+#$error_code is a string, you see it, this is the text selector
+#$counter: if it is 0, error is not logged. If 1..5 = threat factor
+#reference is the reference to string that is passed to be logged.
+
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
@@ -891,9 +876,9 @@ my %pub_errors= (
               "ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
               "ERR04" => "primire de  date corupte, inregistrata in log.",
               "ERR05" => "primire de  date corupte, inregistrata in log.",
-              "ERR06" => "reserved",
-              "ERR07" => "reserved",
-              "ERR08" => "reserved",
+              "ERR06" => "server congestionat, incearca in cateva momente",
+              "ERR07" => "server congestion",
+              "ERR08" => "tentativa de frauda, inregistrata in log",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
               "ERR11" => "reserved",
@@ -914,9 +899,9 @@ my %int_errors= (
               "ERR03" => "good transaction but already used",             #test ok
               "ERR04" => "undef transaction id",
               "ERR05" => "unstructured transaction id",
-              "ERR06" => "reserved",
-              "ERR07" => "reserved",
-              "ERR08" => "reserved",
+              "ERR06" => "cannot open file",
+              "ERR07" => "cannot close file",
+              "ERR08" => "cheating attempt",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
               "ERR11" => "reserved",
@@ -937,11 +922,11 @@ if($counter > 0)
 {
 # write errorcode in cheat_file
 #ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log"); #open logfile for appending;
+open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "sim_ver1.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_ver3.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 
@@ -951,7 +936,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!v 3.2.1\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -969,34 +954,34 @@ sub ins_gpl
 {
 print qq+<!--\n+;
 print qq!SimEx Radio Release \n!;
-print qq!SimEx Radio was created for YO6KXP ham-club located in Sacele, ROMANIA\n!;
+print qq!SimEx Radio was created originally for YO6KXP radio amateur club located in\n!; 
+print qq!Sacele, ROMANIA (YO) then released to the whole radio amateur community.\n!;
 print qq!\n!;
-print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,!;
-print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat!; 
-print qq!in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o !;
-print qq!versiune ulterioara.\n!; 
-print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
-print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
-print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
-print qq!in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
-print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
-print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
-print qq!din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
+print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,\n!; 
+print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat in \n!;
+print qq!termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o versiune \n!;
+print qq!ulterioara. Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio \n!;
+print qq!garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
+print qq!manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
+print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea \n!;
+print qq!si versiunea in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
+print qq!Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, \n!;
+print qq!copyrightul fiind al statului roman, dar fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile \n!;
+print qq!de interes public precum al legii 109/2007 privind reutilizarea informatiilor din institutiile publice.\n!;
+print qq!\n!;
 print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
-print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
-print qq!utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
-print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version.\n!;
-print qq!This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty.!; 
-print qq!See the GNU General Public License for more details.\n!;
-print qq!You should have received a copy of the GNU General Public License along with this software distribution; if not, you can!;
-print qq!download it for free at http://www.fsf.org/\n!; 
-print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
-print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
+print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode \n!;
+print qq!and utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \n!;
+print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version. This program is distributed \n!;
+print qq!in the hope that it will be useful, but WITHOUT ANY WARRANTY or without any implied warranty. See the GNU General Public \n!;
+print qq!License for more details. You should have received a copy of the GNU General Public License along with this software distribution; \n!;
+print qq!if not, you can download it for free at http://www.fsf.org/ \n!;
+print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC \n!;
+print qq!in USA) so any use of the official questions, other than in Read-Only way, is prohibited. \n!;
+print qq!\n!;
 print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
-
 print qq!Made in Romania\n!;
 print qq+-->\n+;
 
