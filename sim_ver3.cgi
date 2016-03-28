@@ -926,6 +926,7 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: sim_ver3.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
