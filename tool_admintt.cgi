@@ -196,9 +196,15 @@ print qq!</tr>\n!;
 
 print qq!</table>\n!;
 
-print qq!<center><INPUT type="text" name="token" size="40" value="$post_token">\n!;
+#print qq!<center><INPUT type="text" name="token" size="40" value="$post_token">\n!;
+print qq!<center><INPUT type="hidden" name="token" value="$post_token">\n!;
 print qq!<center><INPUT type="submit"  value="Modify">\n!;
 print qq!<INPUT type="reset"  value="Reset"> </center>\n!;
+print qq!</form>\n!;
+print qq!<form>\n!;
+#print qq!<center><INPUT type="text" name="token" size="40" value="$post_token">\n!;
+print qq!<center><INPUT type="hidden" name="token" value="$post_token">\n!;
+print qq!<center><INPUT type="submit"  value="Refresh"> </center>\n!;
 print qq!</form>\n!;
 print qq!</center>!;
 #}

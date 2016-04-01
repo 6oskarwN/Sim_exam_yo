@@ -1,13 +1,16 @@
 #!c:\Perl\bin\perl
 
-#Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
+#Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
+#problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
 #constituie un pachet software gratuit care poate fi distribuit/modificat in termenii 
 #licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in 
-#versiunea 2 sau intr-o versiune ulterioara. Programul, intrebarile si raspunsurile sunt #distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, 
+#versiunea 2 sau intr-o versiune ulterioara. Programul, intrebarile si raspunsurile sunt 
+#distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, 
 #sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
 #Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile
 #descrise in licenta publica GPL.
-#In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a #licentei GNU GPL, de asemenea si versiunea in limba romana, iar daca nu, ea poate fi
+#In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a 
+#licentei GNU GPL, de asemenea si versiunea in limba romana, iar daca nu, ea poate fi
 #descarcata gratuit de pe pagina http://www.fsf.org/
 #Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, 
 #nefacand obiectul licentierii GNU GPL, copyrightul fiind al statului roman, dar 
@@ -15,7 +18,8 @@
 #de interes public precum al legii 109/2007 privind reutilizarea informatiilor din
 #institutiile publice.
 
-#This program together with question database formatting, solutions to problems, manuals, #documentation, sourcecode and utilities is a  free software; you can redistribute it 
+#This program together with question database formatting, solutions to problems, manuals, 
+#documentation, sourcecode and utilities is a  free software; you can redistribute it 
 #and/or modify it under the terms of the GNU General Public License as published by the 
 #Free Software Foundation; either version 2 of the License, or any later version. This 
 #program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY or
@@ -251,7 +255,7 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
                                              dienice("ERR02",0,\"null"); }
 
 #else is really case 2 so transaction already used
-else { dienice("ERR15",0,\"null");  }
+else { dienice("ERR15",1,\$get_trid);  }
 
 } #end of local block
 
