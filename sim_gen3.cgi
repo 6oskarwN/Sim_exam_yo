@@ -195,11 +195,13 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   {
    @linesplit=split(/ /,$tridfile[$i]);
    if($linesplit[0] eq $get_trid) {
-   									$expired=0; #found
-									$trid_login=$linesplit[1];     #extract data
-   								$trid_pagecode=$linesplit[2];  #extract data
-									}
-	else {@livelist=(@livelist, $i);}
+					$expired=0; #found
+					$trid_login=$linesplit[1];     #extract data
+					$trid_pagecode=$linesplit[2];  #extract data
+				  }
+	else {
+		@livelist=(@livelist, $i);
+             }
   } #.end for
 
 my @extra=();

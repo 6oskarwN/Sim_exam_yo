@@ -179,13 +179,12 @@ my $toprint=$dbtt[$i*4+2];
 $toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 
 print qq!<font color="black" size="-1">$toprint</font><br>\n!;
-#print qq!<font color="black" size="-1">$dbtt[$i*4+2]</font><br>\n!;
 
 unless ($dbtt[$i*4+3] eq "\n") {
-print qq!<textarea name="admintxt$i" rows="3" cols="60" wrap="soft">$dbtt[$i*4+3]</textarea>\n!;
+print qq!<textarea name="admintxt$i" rows="3" cols="120" wrap="soft">$dbtt[$i*4+3]</textarea>\n!;
                                }
                                else {
-                               print qq!<textarea name="admintxt$i" rows="2" cols="60" wrap="soft"></textarea>\n!;
+                               print qq!<textarea name="admintxt$i" rows="2" cols="120" wrap="soft"></textarea>\n!;
                                     }
                    print qq!>>> Delete record: <input type="checkbox" value="on" name="delete$i">!;
 print qq!</td>\n!;

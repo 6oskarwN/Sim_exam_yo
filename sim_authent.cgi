@@ -876,7 +876,7 @@ else {print qq!<td align="center" width="23%">\n!;}
 
 #examenul III apare doar pentru cont training si oneshot nefolosit
 
-  print qq!<form action="http://localhost/cgi-bin/sim_gen3.cgi" method="get">\n!;
+  print qq!<form action="http://localhost/cgi-bin/sim_gen3.cgi" method="post">\n!;
   print qq!<center><input type="submit" value="EXAM cl.III"!;
 unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5] eq "3\n")&&($slurp_userfile[$rec_pos*7+6] eq "0\n")))  
  { print qq! disabled="y"!;}  
@@ -1147,10 +1147,12 @@ use Digest::MD5;
     Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
 } #end of compute_mac
 #-------------------------------------
+# treat the "or die" and all error cases
+#how to use it
+#$error_code is a string, you see it, this is the text selector
+#$counter: if it is 0, error is not logged. If 1..5 = threat factor
+#reference is the reference to string that is passed to be logged.
 
-
-
-#---development---- treat the "or die" case
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
@@ -1210,11 +1212,12 @@ if($counter > 0)
 {
 # write errorcode in cheat_file
 #ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log"); #open logfile for appending;
+open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "sim_authent.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
+printf cheatFILE "\<br\>reported by: sim_authent.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 
