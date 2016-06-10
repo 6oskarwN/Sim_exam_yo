@@ -1,12 +1,13 @@
 #!c:\Perl\bin\perl
 
-#  tool_admintt.cgi v.3.2.0 (c)2007 - 2016 Francisc TOTH
+#  tool_admintt.cgi v 3.2.1 (c)2007 - 2016 Francisc TOTH
 #  status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  All rights reserved by YO6OWN Francisc TOTH
 #  Made in Romania
 
+# ch 3.2.1 implemented silent discard Status 204, logged
 # ch 3.2.0 implement admin authentication using an md5 token, guestbook should be alliminated
 # ch 0.0.6 displaying db_tt data better after sim_ver1 and troubleticket solved &specials; "overline" problems
 # ch 0.0.5 using POST 
@@ -45,11 +46,41 @@ my $value;
 
 # Read input text, POST or GET
   $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
-  if($ENV{'REQUEST_METHOD'} eq "POST") 
-    { read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
-    }
-  else { $buffer = $ENV{'QUERY_STRING'}; #GET data
+  if($ENV{'REQUEST_METHOD'} eq "GET") 
+  { 
+
+$buffer = $ENV{'QUERY_STRING'}; #GET data
+
+#ACTION: append cheat symptoms in cheat file
+open(meatFILE,"+< cheat_log"); #open logfile for appending;
+#flock(meatFILE,2);		#LOCK_EX the file from other CGI instances
+seek(meatFILE,0,2);		#go to the end
+#CUSTOM
+unless(!defined $ENV{'HTTP_USER_AGENT'}) 
+           {$buffer = "$buffer $ENV{'HTTP_USER_AGENT'}";}
+unless(!defined $ENV{'HTTP_HOST'})
+           {$buffer = "$buffer $ENV{'HTTP_HOST'}";}
+unless (!defined $ENV{'REMOTE_HOST'})
+           {$buffer = "$buffer $ENV{'REMOTE_HOST'}";}
+unless (!defined $ENV{'HTTP_REFERER'})
+           {$buffer = "$buffer $ENV{'HTTP_REFERER'}";}
+unless (!defined $ENV{'REQUEST_METHOD'})
+           {$buffer = "$buffer $ENV{'REQUEST_METHOD'}";}
+
+my $buffer_time = gmtime(time);
+
+printf meatFILE qq!<font color="yellow">$buffer_time :</font> $buffer\n!;
+
+close(meatFILE);
+####
+dienice ("ERR20",1,\"null");  #silently discard
        }
+## end of GET
+
+else    { 
+read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+        }
+
 @pairs=split(/&/, $buffer); #split into name - value pairs
                       
 #print qq!input: $buffer <br><br>\n!; #debug
@@ -76,6 +107,13 @@ $post_token= $answer{'token'}; #extract token from input data
 #already converted in foreach
 #$post_token =~ s/%2B/\+/g;
 #$post_token =~ s/%2F/\//g;
+
+
+## double POST debug
+
+
+
+
 
 #print qq!token received: $post_token<br>\n!; #debug
 #transaction pattern: 
@@ -131,12 +169,12 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v.3.2.0</title>\n!;
+print qq!<title>ticket listing v 3.2.1</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="black" link="white" alink="white" vlink="white">\n!;
 
 print qq!<center>\n!;
-print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v.3.2.0 for examYO &copy; YO6OWN, 2007-2016</font><br>\n!;
+print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v 3.2.1 for examYO &copy; YO6OWN, 2007-2016</font><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/tool_admintt.cgi" method="post">\n!;
 
 print qq!<table border="1" width="90%">\n!;
@@ -229,7 +267,7 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v.3.2.0</title>\n!;
+print qq!<title>ticket listing v 3.2.1</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="gray" text="black" link="white" alink="white" vlink="white">\n!;
 
@@ -357,7 +395,7 @@ my %pub_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not displayed"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -380,7 +418,7 @@ my %int_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard"
                 );
 
 
@@ -398,13 +436,20 @@ printf cheatFILE "\<br\>reported by: tool_admintt.cgi\<br\>  %s: %s \<br\> Time:
 close(cheatFILE);
 }
 
+if($error_code eq 'ERR20') #must be silently discarded
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 #ins_gpl(); #this must exist
-print qq!v.3.2.0\n!; #version print for easy upload check
+print qq!v 3.2.1\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -412,6 +457,7 @@ print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 #print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
 print qq!</body>\n</html>\n!;
+}
 
 exit();
 

@@ -34,13 +34,14 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_authent.cgi v 3.2.1 
+#  sim_authent.cgi v 3.2.2 
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.2.2 3x login failure block is logged for probing if DoS on existing accounts are made.
 # ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 3.1.1 make it slim: all error calls, logged or not in cheat_log are made as call to sub dienice{}
@@ -124,7 +125,7 @@ foreach $pair(@pairs) {
 ($stdin_name,$stdin_value) = split(/=/,$pair);
 $stdin_value=~ tr/+/ /;
 $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-$stdin_value=~ s/<*>*<*>//g;
+$stdin_value=~ s/<*>*<*>//g; #do not allow html header injection
 
 if($stdin_name eq 'login') { $get_login=$stdin_value;}
  elsif($stdin_name eq 'passwd'){$get_passwd=$stdin_value;}
@@ -430,7 +431,8 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
 close(userFILE) or dienice("ERR09",1,\"cant close user file"); 
-dienice("ERR06",0,\$slurp_userfile[$rec_pos*7]);
+#penetration probe: log when condition of triple failure is met.
+dienice("ERR06",1,\"null");
 
 } #.end else
 } #.end unless
@@ -751,7 +753,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -1156,17 +1158,17 @@ use Digest::MD5;
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
-
+chomp $err_reference;
 my $timestring=localtime(time);
 
 #textul pentru public
 my %pub_errors= (
               "ERR01" => "primire de  date corupte, inregistrata in log.",
               "ERR02" => "primire de date corupte",
-              "ERR03" => "Numele tau de utilizator nu se gaseste in baza de date.<br><br>ATENTIE: Daca ai avut un cont dar nu mai esti in baza de date inseamna ca nu te-ai mai logat de peste 7 zile, contul se sterge automat",
-              "ERR04" => "Contul <font color=\"white\">$$err_reference</font> este inca blocat pentru o perioada de 5 minute pentru incercari repetate cu parola incorecta. Mai asteptati.",
-              "ERR05" => "Parola incorecta pentru $$err_reference",
-              "ERR06" => "Contul <font color=\"white\">$$err_reference</font> este blocat pentru o perioada de 5 minute pentru incercari repetate cu parola incorecta. Incercati din nou dupa expirarea periodei de penalizare.",
+              "ERR03" => "Credentiale incorecte.<br><br>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 7 zile, contul tau s-a sters automat",
+              "ERR04" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
+              "ERR05" => "Autentificare imposibila cu credentialele furnizate",
+              "ERR06" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
               "ERR07" => "examyo system error, logged for admin",
               "ERR08" => "congestie server, incearca in cateva momente",
               "ERR09" => "congestie server, incearca in cateva momente",
@@ -1187,9 +1189,9 @@ my %int_errors= (
               "ERR01" => "not exactly 2 pairs received",            #test ok
               "ERR02" => "2 pairs but not login and passwd",        #test ok
               "ERR03" => "cont inexistent sau expirat",             #test ok
-              "ERR04" => "delay, normally not logged",
-              "ERR05" => "delay, normally not logged",
-              "ERR06" => "delay, normally not logged",
+              "ERR04" => "normally not logged",
+              "ERR05" => "normally not logged, we should just count them somewhere",
+              "ERR06" => "3xfailed authentication for existing user",
               "ERR07" => "examyo system error, should never occur, weird hlr_class:",
               "ERR08" => "cannot open file",
               "ERR09" => "cannot close file",
@@ -1227,10 +1229,10 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
-print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
+print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne notificati prin sistemul de raportare.</center>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
