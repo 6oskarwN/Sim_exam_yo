@@ -78,9 +78,9 @@ my $newtrid;
 my @dbtt;   #this is the slurp variable
 
 #### mailer patch v.3.0.a #############
-#my $mailprog = '/usr/sbin/sendmail';
+#my $mailprog = '/usr/local/bin/sendmail'; #this is specific to my hoster
 ## Change the location above to wherever sendmail is located on your server.
-#my $admin_email="curierul\@examyo_scienceontheweb.net";
+#my $admin_email="curierul\@examyo.scienceontheweb.net";
 ## Change the address above to your e-mail address. Make sure to KEEP the \
 #my $target_email="yo6own\@yahoo.com";
 ## Change the address above to your e-mail address. Make sure to KEEP the \

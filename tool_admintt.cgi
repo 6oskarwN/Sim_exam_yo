@@ -7,7 +7,7 @@
 #  All rights reserved by YO6OWN Francisc TOTH
 #  Made in Romania
 
-# ch 3.2.1 implemented silent discard Status 204, logged
+# ch 3.2.1 implemented silent discard Status 204
 # ch 3.2.0 implement admin authentication using an md5 token, guestbook should be alliminated
 # ch 0.0.6 displaying db_tt data better after sim_ver1 and troubleticket solved &specials; "overline" problems
 # ch 0.0.5 using POST 
@@ -49,31 +49,31 @@ my $value;
   if($ENV{'REQUEST_METHOD'} eq "GET") 
   { 
 
-$buffer = $ENV{'QUERY_STRING'}; #GET data
-
-#ACTION: append cheat symptoms in cheat file
-open(meatFILE,"+< cheat_log"); #open logfile for appending;
-#flock(meatFILE,2);		#LOCK_EX the file from other CGI instances
-seek(meatFILE,0,2);		#go to the end
-#CUSTOM
-unless(!defined $ENV{'HTTP_USER_AGENT'}) 
-           {$buffer = "$buffer $ENV{'HTTP_USER_AGENT'}";}
-unless(!defined $ENV{'HTTP_HOST'})
-           {$buffer = "$buffer $ENV{'HTTP_HOST'}";}
-unless (!defined $ENV{'REMOTE_HOST'})
-           {$buffer = "$buffer $ENV{'REMOTE_HOST'}";}
-unless (!defined $ENV{'HTTP_REFERER'})
-           {$buffer = "$buffer $ENV{'HTTP_REFERER'}";}
-unless (!defined $ENV{'REQUEST_METHOD'})
-           {$buffer = "$buffer $ENV{'REQUEST_METHOD'}";}
-
-my $buffer_time = gmtime(time);
-
-printf meatFILE qq!<font color="yellow">$buffer_time :</font> $buffer\n!;
-
-close(meatFILE);
+#$buffer = $ENV{'QUERY_STRING'}; #GET data
+$buffer = ""; #init
+##ACTION: append cheat symptoms in cheat file
+#open(meatFILE,"+< cheat_log"); #open logfile for appending;
+##flock(meatFILE,2);		#LOCK_EX the file from other CGI instances
+#seek(meatFILE,0,2);		#go to the end
+##CUSTOM
+#unless(!defined $ENV{'HTTP_USER_AGENT'}) 
+#           {$buffer = "$buffer $ENV{'HTTP_USER_AGENT'}";}
+#unless(!defined $ENV{'HTTP_HOST'})
+#           {$buffer = "$buffer $ENV{'HTTP_HOST'}";}
+#unless (!defined $ENV{'REMOTE_HOST'})
+#           {$buffer = "$buffer $ENV{'REMOTE_HOST'}";}
+#unless (!defined $ENV{'HTTP_REFERER'})
+#           {$buffer = "$buffer $ENV{'HTTP_REFERER'}";}
+#unless (!defined $ENV{'REQUEST_METHOD'})
+#           {$buffer = "$buffer $ENV{'REQUEST_METHOD'}";}
+#
+#my $buffer_time = gmtime(time);
+#
+#printf meatFILE qq!<font color="yellow">$buffer_time :</font> $buffer\n!;
+#
+#close(meatFILE);
 ####
-dienice ("ERR20",1,\"null");  #silently discard
+dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
        }
 ## end of GET
 
@@ -436,7 +436,7 @@ printf cheatFILE "\<br\>reported by: tool_admintt.cgi\<br\>  %s: %s \<br\> Time:
 close(cheatFILE);
 }
 
-if($error_code eq 'ERR20') #must be silently discarded
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
 print qq!Content-type: text/html\n\n!;
