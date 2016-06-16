@@ -38,7 +38,7 @@ my @newdbtt; #for writeback
 #BLOCK: Process inputs ###
 ###########################################
 {
-my $buffer;
+my $buffer=();
 my $pair;
 my $kee;
 my $name;
@@ -50,7 +50,7 @@ my $value;
   { 
 
 #$buffer = $ENV{'QUERY_STRING'}; #GET data
-$buffer = ""; #init
+#$buffer = ""; #init
 ##ACTION: append cheat symptoms in cheat file
 #open(meatFILE,"+< cheat_log"); #open logfile for appending;
 ##flock(meatFILE,2);		#LOCK_EX the file from other CGI instances
@@ -110,7 +110,9 @@ $post_token= $answer{'token'}; #extract token from input data
 
 
 ## double POST debug
-
+#not implemented
+#@ Occam check
+#not implemented
 
 
 
@@ -418,7 +420,7 @@ my %int_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "silent discard"
+              "ERR20" => "silent discard, not logged"
                 );
 
 
@@ -448,7 +450,7 @@ print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-#ins_gpl(); #this must exist
+#ins_gpl(); #this must exist, but not for tool_admintt.cgi
 print qq!v 3.2.1\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
