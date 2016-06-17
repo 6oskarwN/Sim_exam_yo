@@ -136,7 +136,7 @@ my $stdin_value;
 
 #close(meatFILE);
 ####
-dienice ("ERR20",1,\"unexpected GET");  #silently discard
+dienice ("ERR20",0,\"unexpected GET");  #silently discard
        }
 ## end of GET
 
