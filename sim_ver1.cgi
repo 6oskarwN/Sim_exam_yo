@@ -34,12 +34,14 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_ver1.cgi v.3.2.0
+#  sim_ver1.cgi v 3.2.2
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.2 implemented silent discard Status 204
+# ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 3.0.d ANRCTI replaced by ANCOM
 # ch 3.0.c text change - nu ai intrunit baremul la toate capitolele
@@ -102,11 +104,22 @@ my $pair;
 my $name;
 my $value;
 
-#read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology
+# Read input text, POST or GET
+  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
+  if($ENV{'REQUEST_METHOD'} eq "GET") 
+      {
+      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
+      }
+## end of GET
 
-#@pairs=split(/&/, $buffer); #POST-technology
+else    { 
+        read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+        }
+#this else is not really nice but it's correct for the moment.
 
-@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+@pairs=split(/&/, $buffer); #POST-technology
+
+#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
 
 foreach $pair(@pairs) 
 		{
@@ -131,6 +144,11 @@ if(defined($name) and defined($value)){
 } #.end process inputs
 
 #now we have the hash table with answers. error: they can be less answers than needed
+#or they can be less answers than all, but this is not error. answers for questions are not
+#Mandatory, but Optional parameters. User can answer all or less questions.
+#Occam check  -not implemented yet
+#this should silently discard if not all mandatory parameters are received
+
 
 $get_trid= $answer{'transaction'}; #if exists, extract GET_trid from GET data
 #md MAC has + = %2B and / = %2F characters, must be reconverted
@@ -139,11 +157,11 @@ if(defined($get_trid)) {
 			$get_trid =~ s/%2B/\+/g;
 			$get_trid =~ s/%2F/\//g;
                          }
-else {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
+else {dienice ("ERR20",0,\"undef trid"); } # no transaction or with void value - silent discard
 
 
 #ACTION: open transaction ID file
-open(transactionFILE,"+< sim_transaction") or die("can't open transaction file: $!\n");					#open transaction file for writing
+open(transactionFILE,"+< sim_transaction") or dienice("ERR06",1,\"can't open transaction file");		#open transaction file for writing
 #flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
@@ -231,7 +249,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close (transactionFILE) or die("cant close transaction file\n");
+close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 
 
 #now we should check why received transaction was not found in sim_transaction file
@@ -249,7 +267,6 @@ my @pairs; #local
 my $string_trid; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
-#unless(defined($get_trid)) {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
 
 @pairs=split(/_/,$get_trid); #reusing @pairs variable for spliting results
 
@@ -266,7 +283,7 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
                                              dienice("ERR02",0,\"null"); }
 
 #else is really case 2
-else { dienice("ERR03",0,\"null");  }
+else { dienice("ERR03",1,\$get_trid);  }
 
 } #end of local block
 } #.end expired
@@ -276,7 +293,7 @@ else { dienice("ERR03",0,\"null");  }
 
 #ACTION: extract account type and last achievement of user from user database
 #open user account file
-open(userFILE,"< sim_users") or die("can't open user file: $!\n");	#open user file for writing
+open(userFILE,"< sim_users") or dienice("ERR06",1,\"can't open user file");	#open user file for writing
 #flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
@@ -307,7 +324,7 @@ if($slurp_userfile[$account*7+0] eq "$trid_login\n") #this is the user record we
 } #.END BLOCK: search user record
 
 #close user file; will reopen it if needed
-close(userFILE) or die("can't close user database\n"); 
+close(userFILE) or dienice("ERR07",1,\"can't close user database"); 
 
 #ACTION: check request clearances pagecode == 4 and tip cont == 0/1&&notused)
 unless($trid_pagecode == 4 && ($user_tipcont == 0 || $user_tipcont == 1 && $user_lastresult == 0)) #CUSTOM: invoked from examIIIR page
@@ -321,38 +338,12 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or die("can't close transaction file\n");
-#close(userFILE) or die("can't close user database\n");
+close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 
 #ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log") or die("can't open cheat_log file: $!\n");					#open transaction file for writing
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
-
-#ACTION: write in logfile
-seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "CHEAT ATTEMPT: %s (study level: %s) from pagecode %s invoked evaluation of exam I\n",$trid_login,$user_tipcont,$trid_pagecode;
-close(cheatFILE);
-
-#ACTION: display a defeat page
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.3.2.0\n!; #version print for easy upload check
-print qq!<br>\n!;
-print qq!<h1 align="center">Actiune ilegala, inregistrata in log.</h1>\n!;
-print qq!<h2 align="center">In cazul in care considerati ca acest mesaj nu ar fi trebuit sa apara, fiindca ati
- respectat pasii corecti, va rog sa-mi trimiteti pe e-mail o descriere cat mai exacta a 
-actiunilor care au dus la aparitia acestei pagini de eroare, pentru investigare. TNX de YO6OWN</h2>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-#ACTION: exit page since an error was detected
-exit();
+my $cheatmsg="$trid_login (study level: $user_tipcont) from pagecode $trid_pagecode invoked evaluation of exam I";
+dienice("ERR08",3,\$cheatmsg);
 }
 
 #All clearances ok, prep to evaluate results
@@ -379,7 +370,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.2.0\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa I</h2>\n!;
@@ -390,7 +381,7 @@ $trid_login_hlrname = $trid_login;
 $trid_login_hlrname =~ s/\//\@slash\@/; #substitute /
 if(-e "hlr/$trid_login_hlrname"){ #doar userii de antrenament  au hlrfile, one-shooters nu.
 
-open(HLRfile,"+< hlr/$trid_login_hlrname") || die("cant oppen haelerfile"); #open
+open(HLRfile,"+< hlr/$trid_login_hlrname") or dienice("ERR07",1,\"cant open hlr file"); #open
 #flock(HLRfile,2); #flock exclusive
 seek(HLRfile,0,0);		# rewind
 @slurp_hlrfile = <HLRfile>;	# slurp into a @variable
@@ -812,7 +803,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close (transactionFILE) or die("cant close transaction file\n");
+close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 
 #update user record with the result of test
 if ($f_failed)
@@ -821,7 +812,7 @@ else
 { $slurp_userfile[$user_account*7+6]="1\n";} #custom
 
 #open userfile for write
-open(userFILE,"+< sim_users") or die("can't open user file: $!\n");	#open user file for writing
+open(userFILE,"+< sim_users") or dienice("ERR06",1,\"can't open user file");	#open user file for writing
 #flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #rewrite userfile
@@ -832,7 +823,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 #close userfile
-close(userFILE) or die("can't close user database\n"); 
+close(userFILE) or dienice("ERR07",1,\"can't close user database"); 
 
 
 }#end finishing block
@@ -885,7 +876,12 @@ return(1);  #here is the general else
 
 }
 #--------------------------------------
-#---development---- treat the "or die" case
+# treat the "or die" and all error cases
+#how to use it
+#$error_code is a string, you see it, this is the text selector
+#$counter: if it is 0, error is not logged. If 1..5 = threat factor
+#reference is the reference to string that is passed to be logged.
+
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
@@ -900,9 +896,9 @@ my %pub_errors= (
               "ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
               "ERR04" => "primire de  date corupte, inregistrata in log.",
               "ERR05" => "primire de  date corupte, inregistrata in log.",
-              "ERR06" => "reserved",
-              "ERR07" => "reserved",
-              "ERR08" => "reserved",
+              "ERR06" => "server congestionat, incearca in cateva momente",
+              "ERR07" => "server congestion",
+              "ERR08" => "tentativa de frauda, inregistrata in log",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
               "ERR11" => "reserved",
@@ -914,7 +910,7 @@ my %pub_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not displayed"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -923,9 +919,9 @@ my %int_errors= (
               "ERR03" => "good transaction but already used",             #test ok
               "ERR04" => "undef transaction id",
               "ERR05" => "unstructured transaction id",
-              "ERR06" => "reserved",
-              "ERR07" => "reserved",
-              "ERR08" => "reserved",
+              "ERR06" => "cannot open file",
+              "ERR07" => "cannot close file",
+              "ERR08" => "cheating attempt",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
               "ERR11" => "reserved",
@@ -937,7 +933,7 @@ my %int_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not logged"
                 );
 
 
@@ -946,21 +942,28 @@ if($counter > 0)
 {
 # write errorcode in cheat_file
 #ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log"); #open logfile for appending;
+open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "sim_ver1.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
+printf cheatFILE "\<br\>reported by: sim_ver1.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -968,7 +971,7 @@ print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 #print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
 print qq!</body>\n</html>\n!;
-
+}
 exit();
 
 } #end sub
@@ -1010,3 +1013,4 @@ print qq!Made in Romania\n!;
 print qq+-->\n+;
 
 }
+

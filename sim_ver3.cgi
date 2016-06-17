@@ -381,7 +381,7 @@ $trid_login_hlrname = $trid_login;
 $trid_login_hlrname =~ s/\//\@slash\@/; #substitute /
 if(-e "hlr/$trid_login_hlrname"){ #doar userii de antrenament  au hlrfile, one-shooters nu.
 
-open(HLRfile,"+< hlr/$trid_login_hlrname") or dienice("ERR07",1,\"cant oppen hlr file"); #open
+open(HLRfile,"+< hlr/$trid_login_hlrname") or dienice("ERR07",1,\"cant open hlr file"); #open
 #flock(HLRfile,2); #flock exclusive
 seek(HLRfile,0,0);		# rewind
 @slurp_hlrfile = <HLRfile>;	# slurp into a @variable

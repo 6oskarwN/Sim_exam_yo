@@ -857,7 +857,7 @@ else {print qq!<td align="center" width="23%">\n!;}
 #===== .V3 code =====
 
 #examenul III-R apare doar pentru cont training si oneshot nefolosit
-  print qq!<form action="http://localhost/cgi-bin/sim_gen3r.cgi" method="get">\n!;
+  print qq!<form action="http://localhost/cgi-bin/sim_gen3r.cgi" method="post">\n!;
   print qq!<center><input type="submit" value="EXAM cl.III-R"!;
 unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5] eq "4\n")&&($slurp_userfile[$rec_pos*7+6] eq "0\n")))  
  { print qq! disabled="y"!;}  
@@ -899,7 +899,7 @@ else {print qq!<td align="center" width="23%">\n!;}
 
 #examenul II apare doar pentru cont training si oneshot nefolosit
 
-  print qq!<form action="http://localhost/cgi-bin/sim_gen2.cgi" method="get">\n!;
+  print qq!<form action="http://localhost/cgi-bin/sim_gen2.cgi" method="post">\n!;
   print qq!<center><input type="submit" value="EXAM cl.II"!;
 unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5] eq "2\n")&&($slurp_userfile[$rec_pos*7+6] eq "0\n")))  
  { print qq! disabled="y"!;}  
@@ -918,7 +918,7 @@ else {print qq!<td align="center" width="23%">\n!;}
 #===== .V3 code =====
 
 #examenul cl. I apare doar pentru cont training si oneshot nefolosit
-print qq!<form action="http://localhost/cgi-bin/sim_gen1.cgi" method="get">\n!;
+print qq!<form action="http://localhost/cgi-bin/sim_gen1.cgi" method="post">\n!;
 print qq!<center><input type="submit" value="EXAM cl.I"!;
 
 unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5] eq "1\n")&&($slurp_userfile[$rec_pos*7+6] eq "0\n")))  
