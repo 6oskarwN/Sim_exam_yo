@@ -43,8 +43,8 @@ else {@filelist=(
 				); #numele fisierelor
 
 }
-#my $pattern1="ANRCTI";
-#my $replacement1="ANCOM";  #WAS sourced
+my $pattern1="80b3581f9e43242f96a6309e5432ce8b"; #development secret
+my $replacement1="80b3581f9e43242f96a6309e5432ce8b";  #production
 
 #my $pattern2="infostudy/exam/exam7_yo.html";  #WAS sourced
 #my $replacement2="index.html";
@@ -75,7 +75,7 @@ my $fetch_line; #line-buffer
 while($fetch_line=<INFILE>)
 {
 #line alterations
-#$fetch_line=~s/$pattern1/$replacement1/; #local replacement
+$fetch_line=~s/$pattern1/$replacement1/; #local replacement
 #$fetch_line=~s/$pattern2/$replacement2/; #local replacement
 if($fetch_line=~/$pattern3/){$fetch_line=$replacement3;}#line replacement
 $fetch_line=~s/$pattern4/$replacement4/; #local replacement

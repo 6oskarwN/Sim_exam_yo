@@ -1,37 +1,48 @@
 #!c:\Perl\bin\perl
 
-# Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,
-# instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat 
-# in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o 
-# versiune ulterioara. 
-# Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,
-# sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
-# Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.
-# In distributia pe CD sau download pe examyo.scienceontheweb.net trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea 
-# in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/
-# Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, 
-# modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva 
-# din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.
-# Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://examyo.scienceontheweb.net
+#Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
+#problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
+#constituie un pachet software gratuit care poate fi distribuit/modificat in termenii 
+#licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in 
+#versiunea 2 sau intr-o versiune ulterioara. Programul, intrebarile si raspunsurile sunt 
+#distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, 
+#sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
+#Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile
+#descrise in licenta publica GPL.
+#In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a 
+#licentei GNU GPL, de asemenea si versiunea in limba romana, iar daca nu, ea poate fi
+#descarcata gratuit de pe pagina http://www.fsf.org/
+#Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, 
+#nefacand obiectul licentierii GNU GPL, copyrightul fiind al statului roman, dar 
+#fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile 
+#de interes public precum al legii 109/2007 privind reutilizarea informatiilor din
+#institutiile publice.
 
-# This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and
-# utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
-# as published by the Free Software Foundation; either version 2 of the License, or any later version.
-# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty. 
-# See the GNU General Public License for more details.
-# You should have received a copy of the GNU General Public License along with this software distribution; if not, you can
-# download it for free at http://www.fsf.org/ 
-# Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
-# so any use of the official questions, other than in Read-Only way, is prohibited. 
+#This program together with question database formatting, solutions to problems, manuals, 
+#documentation, sourcecode and utilities is a  free software; you can redistribute it 
+#and/or modify it under the terms of the GNU General Public License as published by the 
+#Free Software Foundation; either version 2 of the License, or any later version. This 
+#program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY or
+#without any implied warranty. See the GNU General Public License for more details. 
+#You should have received a copy of the GNU General Public License along with this software
+#distribution; if not, you can download it for free at http://www.fsf.org/ 
+#Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian
+#public authority(similar to FCC in USA) so any use of the official questions, other than
+#in Read-Only way, is prohibited. 
 
-# (c) YO6OWN Francisc TOTH, 2011-2014
+#Made in Romania 
 
-#  sim_gen2.cgi v.3.1.0
+# (c) YO6OWN Francisc TOTH, 2008 - 2016
+
+#  sim_gen2.cgi v 3.2.2
 #  Status: devel
 #  This is a module of the online radioamateur examination program
+#  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-
+# ch 3.2.2 implemented silent discard Status 204
+# ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
+# ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 3.1.0 logging more error info in cheat_log
 # ch 3.0.f html button window-based changed to <form method="link" action="http:///
 # ch 3.0.e infostudy/exam/exam7_yo.html sourced to index.html
@@ -72,6 +83,7 @@ my $ultimaclasa;                #ultima clasa obtinuta: 0=init, 1/2/3/4=clase 5=
 
 my @tridfile;		        #slurped transaction file
 my $trid;	                #the Transaction-ID of the generated page
+my $hexi;                       #the trid+timestamp_MD5
 my @utc_time=gmtime(time);     	#the 'present' time, generated only once
 my @slurp_userfile;            	#RAM-userfile
 
@@ -86,41 +98,92 @@ $server_ok=1;                   #we suppose at the beginning a free server
 
 #BLOCK: Input:transaction ID
 {
-my $buffer;
+my $buffer=();
 my @pairs;
 my $pair;
 my $stdin_name;
 my $stdin_value;
 
-@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+# Read input text, POST or GET
+# GET-technology for us not ok, permits multiple requests made by browser.
 
-#verificare ca sa existe exact 1 pereche: transactioncode
-unless($#pairs == 0)                 #exact 1 pereche
-{
+  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
+  if($ENV{'REQUEST_METHOD'} eq "GET") 
+  { 
+# do the GET silent discard
+#$buffer = $ENV{'QUERY_STRING'}; #GET data
+#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology not to be used
+
 #ACTION: append cheat symptoms in cheat file
-my $err_harvester = $ENV{'QUERY_STRING'};
-dienice("ERR01",1,\$err_harvester);
-}
-#end number consistency check
+#open(meatFILE,"+< cheat_log"); #open logfile for appending;
+##flock(meatFILE,2);		#LOCK_EX the file from other CGI instances
+#seek(meatFILE,0,2);		#go to the end
+#CUSTOM
+#unless(!defined $ENV{'HTTP_USER_AGENT'}) 
+#           {$buffer = "$buffer $ENV{'HTTP_USER_AGENT'}";}
+#unless(!defined $ENV{'HTTP_HOST'})
+#           {$buffer = "$buffer $ENV{'HTTP_HOST'}";}
+#unless (!defined $ENV{'REMOTE_HOST'})
+#           {$buffer = "$buffer $ENV{'REMOTE_HOST'}";}
+#unless (!defined $ENV{'HTTP_REFERER'})
+#           {$buffer = "$buffer $ENV{'HTTP_REFERER'}";}
+#unless (!defined $ENV{'REQUEST_METHOD'})
+#           {$buffer = "$buffer $ENV{'REQUEST_METHOD'}";}
+
+#my $buffer_time = gmtime(time);
+
+#printf meatFILE qq!<font color="yellow">$buffer_time :</font> $buffer\n!;
+
+#close(meatFILE);
+####
+dienice ("ERR20",0,\"unexpected GET");  #silently discard
+       }
+## end of GET
+
+ 
+else {
+read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology
+     }
+
+#inainte de split, $buffer citit ar trebui confruntat cu un regexp pt sintaxa
+
+@pairs=split(/&/, $buffer); #POST-technology
+
 
 foreach $pair(@pairs) {
-($stdin_name,$stdin_value) = split(/=/,$pair);
-$stdin_value=~ tr/+/ /;
+($stdin_name,$stdin_value) = split(/=/,$pair); #se presupune cateodata gresit ca avem abele parti ale perechii
+
+if(defined($stdin_value)){
+#transformarea asta e pentru textele reflow, dar trateaza si + si / al token-ului
+$stdin_value=~ s/\+/ /g;  #GET an POST send + but + is also character of transaction. Check for possible bug from this
 $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-$stdin_value=~ s/<*>*<*>//g;
-if($stdin_name eq 'transaction') {$get_trid=$stdin_value;}
-else #no transaction was received, but something else - wrong data
-{
-#ACTION: append cheat symptoms in cheat file
-my $err_harvester = $ENV{'QUERY_STRING'};
-dienice("ERR02",1,\$err_harvester);
-} #.end 'transaction' check
+$stdin_value=~ s/<*>*<*>//g; #clears html,xml tag injection
+                        }
+
+if($stdin_name eq 'transaction') {if(defined($stdin_value)){$get_trid=$stdin_value;}
+                                    else{$get_trid=undef;}
+
+#am presupus ca daca cheia e 'transaction' atunci 'value' e neaparat transaction. S-ar putea sa nu fie adevarat 
+
+}
 
 } #.end foreach
-} #.end block
-#.END BLOCK
+} #.end process inputs
 
-#ACTION: open transaction ID file
+#now we have the hash table with answers. error: they can be less answers than needed
+#or they can be less answers than all, but this is not error. answers for questions are not
+#Mandatory, but Optional parameters. User can answer all or less questions.
+#Occam check  -not implemented yet
+#this should silently discard if not all mandatory parameters are received
+
+
+
+
+#md MAC has + = %2B and / = %2F characters, must be reconverted - already done
+if(!defined($get_trid)) {dienice ("ERR20",0,\"undef trid"); } # no transaction or with void value
+
+
+#ACTION: open transaction ID file and clear expired transactions
 
 open(transactionFILE,"+< sim_transaction") || dienice("ERR03",1,\"null");
 #flock(transactionFILE,2);
@@ -131,14 +194,11 @@ seek(transactionFILE,0,0);		#go to the beginning
 
 #BLOCK: Refresh transaction file
 {
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
 my @livelist=();
 my @linesplit;
+
+#if correct and complete, transaction pattern in file: 
+#B000B1_14_6_18_13_2_116_OaexlS%2FtUwS%2BKKJMA3x1Gw owene 4 7 52 19 13 2 116 12 32 33 40 74 82 85 86 96 113 118 151 164 180 190 220 234 255 257 263 3 10 18 20 28 30 33 40 44 52 3 4 9 13 30 47 48 52 2 13 17 23 32 33 34 44 53 67 68 73 75 76 77 87 88 92 108 120 122 132 142 150 153 K 
 
 #TIME-EXPIRY based refresh
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
@@ -148,27 +208,13 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted
 
-if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);}#if this is an exam transaction, don't touch it
+if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
+
 # next 'if' is changed into 'elsif'
-elsif($linesplit[8] > $act_year) {@livelist=(@livelist, $i);}  #it's alive one more year, keep it in the list
- elsif($linesplit[8] == $act_year){
- if($linesplit[7] > $act_month) {@livelist=(@livelist, $i);}  #it's alive one more month, keep it in the list
- elsif($linesplit[7] == $act_month){
- if($linesplit[6] > $act_day) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[6] == $act_day){
- if($linesplit[5] > $act_hour) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[5] == $act_hour){
- if($linesplit[4] > $act_min) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[4] == $act_min){
- if($linesplit[3] > $act_sec) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- 
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
-    
+elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])) {} #if timestamp expired do nothing = transaction will not refresh
+else {@livelist=(@livelist, $i);} #not expired, refresh it
   } #.end for
+#we have now the list of the live transactions + exams
 
 
 my @extra=();
@@ -185,6 +231,7 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 
 
 #BLOCK: extract data from actual transaction and then delete it
+# change request: do transaction delete only if everything is ok and answer will be processed
 {
 my @livelist=();
 my @linesplit;
@@ -200,7 +247,9 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
 									$trid_login=$linesplit[1];     #extract data
    								$trid_pagecode=$linesplit[2];  #extract data
 									}
-	else {@livelist=(@livelist, $i);}
+	else {
+		@livelist=(@livelist, $i);
+             }
   } #.end for
 
 my @extra=();
@@ -225,7 +274,40 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 
 close(transactionFILE) || dienice("ERR04",1,\"null");
 
-dienice("ERR17",0,\"null"); #0 means it will not be logged, as it's normal to happen when page expires
+#now we should check why received transaction was not found in sim_transaction file
+#case 0: it's an illegal transaction if md5 check fails
+#        must be recorded in cheat_file
+#case 1: md5 correct but transaction timestamp expired, file was refreshed and wiped this transaction
+#        must be announced to user
+#case 2: md5 ok, timestamp ok, it must have been used up already
+#        must be announced to user
+
+#check case 0
+#incoming is like 'B00053_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ'
+{ #local block start
+my @pairs; #local
+my $string_trid; # we compose the incoming transaction to recalculate mac
+my $heximac;
+
+
+@pairs=split(/_/,$get_trid); #reusing @pairs variable for spliting results
+
+# $pairs[7] is the mac
+unless(defined($pairs[7])) {dienice ("ERR18",1,\$get_trid); } # unstructured trid
+
+$string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
+$heximac=compute_mac($string_trid);
+
+unless($heximac eq $pairs[7]) { dienice("ERR01",1,\$get_trid);}
+
+#check case 1, timestamp
+elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) { 
+                                             dienice("ERR02",0,\"null"); }
+
+#else is really case 2 so transaction already used
+else { dienice("ERR15",1,\$get_trid);  }
+
+} #end of local block
 
 			} #.end expired
 
@@ -339,7 +421,7 @@ my $err_harvester="\$trid_login\: $trid_login \$tipcont\: $tipcont";
 dienice("ERR12",1,\$err_harvester);
 }
 
-##BLOCK: Generate new transaction: EXAM III-R and close transaction file
+##BLOCK: Generate new transaction: EXAM II and close transaction file
 #{
 #Action: generate new transaction
 $trid=$tridfile[0];
@@ -421,7 +503,15 @@ $exp_month=($exp_month+$carry1)%12;
 #year increment
 $exp_year += $carry2;
 
-my $hexi=sprintf("%+06X",$trid);			#$trid e inca numar
+#generate transaction id and its md5 MAC
+
+$hexi= sprintf("%+06X",$trid); #the transaction counter
+#assemble the trid+timestamp
+$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and MD5
+#compute mac for trid+timestamp 
+my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
+$hexi= "$hexi$heximac"; #the full transaction id
+
 #CUSTOM: pagecode=5 pentru exam cl II
 my $entry = "$hexi $trid_login 5 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year";
 
@@ -471,13 +561,13 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 #CUSTOM
 print qq!<center><font size="+2">Examen clasa II</font></center>\n!;
 #print qq!<center><font size="+1">17 raspunsuri corecte din 20 aduc promovarea</font></center><br>\n!;
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
 print qq!<center><font size="+1">Timpul alocat examenului este de 2 ore.</font></center><br>\n!;
-print qq!<form action="http://localhost/cgi-bin/sim_ver2.cgi" method="get">\n!; #CUSTOM
+print qq!<form action="http://localhost/cgi-bin/sim_ver2.cgi" method="post">\n!; #CUSTOM
 
 #==========================v3==
 # if hlrfile (-e) usertype==0(antrenament) and hlr class='clasa1') openfile and skip first line
@@ -786,7 +876,7 @@ open(cheatFILE,"+< cheat_log"); #or die("can't open cheat_log file: $!\n");					
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE "===========================================\n";
-printf cheatFILE "sim_gen3.cgi v.3.1.0 : watchdog situation detected\n";
+printf cheatFILE "sim_gen2.cgi v 3.2.2 : watchdog situation detected\n";
 printf cheatFILE "file %s under work\n",$database[$iter];
 printf cheatFILE "pool was: ";
 foreach(@pool) { printf cheatFILE "%s ",$_; }
@@ -814,8 +904,7 @@ $entry = "$entry K \n"; #the proposed questions are entered, K \n is terminator
 
 #ACTION: inserare transaction ID in pagina HTML
 {
-my $extra=sprintf("%+06X",$trid);
-print qq!<input type="hidden" name="transaction" value="$extra">\n!;
+print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 
 print qq!<input type="submit" value="EVALUARE" name="answer">\n!;
@@ -840,7 +929,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close(transactionFILE) or die("cant close transaction file\n");
+close(transactionFILE) or dienice("ERR04",1,\"cant close transaction file");
 
 } #.END BLOCK
 
@@ -860,8 +949,60 @@ sub random_int($)
          
        return $generated;
 	}
+#-------------------------------------
+sub compute_mac {
 
-#---development---- treat the "or die" case
+use Digest::MD5;
+  my ($message) = @_;
+  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
+    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+} #end of compute_mac
+
+
+#--------------------------------------
+#primeste timestamp de forma sec_min_hour_day_month_year
+#out 1-expired 0-still valid
+sub timestamp_expired
+{
+my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
+
+my @utc_time=gmtime(time);
+my $act_sec=$utc_time[0];
+my $act_min=$utc_time[1];
+my $act_hour=$utc_time[2];
+my $act_day=$utc_time[3];
+my $act_month=$utc_time[4];
+my $act_year=$utc_time[5];
+#my $debug="$x_year\? $act_year \| $x_month\?$act_month";
+#dienice("ERR04",0,\$debug);
+if($x_year > $act_year) {return(0);}  #valid until year increment
+ elsif($x_year == $act_year){ 
+ if($x_month > $act_month) {return(0);}  #valid
+ elsif($x_month == $act_month){ 
+ if($x_day > $act_day) {return(0);}  #it's alive one more day
+ elsif($x_day == $act_day){
+ if($x_hour > $act_hour) {return(0);}  #it's alive one more hour
+ elsif($x_hour == $act_hour){ 
+ if($x_min > $act_min) {return(0);}  #it's alive one more min
+ elsif($x_min == $act_min){ 
+ if($x_sec > $act_sec) {return(0);}  #it's alive one more sec
+  
+ } #.end elsif min
+ } #.end elsif hour
+ } #.end elsif day
+ } #.end elsif month
+ } #.end elsif year
+return(1);  #here is the general else
+ 
+}
+
+#--------------------------------------
+# treat the "or die" and all error cases
+#how to use it
+#$error_code is a string, you see it, this is the text selector
+#$counter: if it is 0, error is not logged. If 1..5 = threat factor
+#reference is the reference to string that is passed to be logged.
+
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
@@ -870,8 +1011,8 @@ my $timestring=localtime(time);
 
 #textul pentru public
 my %pub_errors= (
-              "ERR01" => "primire de  date corupte, inregistrata in log.",
-              "ERR02" => "primire de date corupte",
+              "ERR01" => "actiune ilegala, inregistrata in log",
+              "ERR02" => "timpul alocat formularului a expirat",
               "ERR03" => "server congestionat",
               "ERR04" => "server congestionat",
               "ERR05" => "server congestionat",
@@ -884,17 +1025,17 @@ my %pub_errors= (
               "ERR12" => "actiune ilegala, inregistrata in log",
               "ERR13" => "server congestionat",
               "ERR14" => "server congestionat",
-              "ERR15" => "tbd",
+              "ERR15" => "formularul a fost deja folosit odata",
               "ERR16" => "congestie server",
-              "ERR17" => "formularul a fost folosit deja sau a expirat",
-              "ERR18" => "tbd",
+              "ERR17" => "actiune ilegala, inregistrata in log",
+              "ERR18" => "actiune ilegala, inregistrata in log",
               "ERR19" => "tbd",
-              "ERR20" => "tbd"
+              "ERR20" => "silent discard, not printed"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
-              "ERR01" => "not exactly one pair received",            #tested
-              "ERR02" => "no transaction pair received",            #tested
+              "ERR01" => "transaction md5 authenticity failed",   #untested
+              "ERR02" => "transaction timestamp expired, normally not logged",            
               "ERR03" => "fail open sim_transaction file",           #tested
               "ERR04" => "fail close sim_transaction file",
               "ERR05" => "fail open sim_users file",                 #tested
@@ -907,12 +1048,12 @@ my %int_errors= (
               "ERR12" => "wrong clearance level to request this exam",
               "ERR13" => "fail open user's hlrfile",
               "ERR14" => "fail open one of db_ file",
-              "ERR15" => "tbd",
+              "ERR15" => "transaction id already used, normally not logged",
               "ERR16" => "fail close one of db_file",
-              "ERR17" => "transaction not found/expired, normally not logged",
-              "ERR18" => "tbd",
+              "ERR17" => "received trid is undef",
+              "ERR18" => "received trid is destruct",
               "ERR19" => "tbd",
-              "ERR20" => "tbd"
+              "ERR20" => "silent discard"
                 );
 
 
@@ -921,29 +1062,35 @@ if($counter > 0)
 {
 # write errorcode in cheat_file
 #ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< cheat_log"); #open logfile for appending;
+open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "sim_gen2.cgi - %s: %s Time: %s,  Logged:%s\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
+printf cheatFILE "\<br\>reported by: sim_gen2.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-
-
+if($error_code eq 'ERR20') #must be silently discarded
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v.3.1.0\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
-print qq!<h1 align="center">Situatie: $pub_errors{$error_code}</h1>\n!;
-print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
+print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 print qq!</body>\n</html>\n!;
+}
 
 exit();
 
@@ -953,35 +1100,34 @@ sub ins_gpl
 {
 print qq+<!--\n+;
 print qq!SimEx Radio Release \n!;
-print qq!SimEx Radio was created for YO6KXP ham-club located in Sacele, ROMANIA\n!;
+print qq!SimEx Radio was created originally for YO6KXP radio amateur club located in\n!; 
+print qq!Sacele, ROMANIA (YO) then released to the whole radio amateur community.\n!;
 print qq!\n!;
-print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,!;
-print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat!; 
-print qq!in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o !;
-print qq!versiune ulterioara.\n!; 
-print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
-print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
-print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia pe CD sau download pe examyo.scienceontheweb.net trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
-print qq!in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
-print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
-print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
-print qq!din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
-print qq!Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://examyo.scienceontheweb.net\n!;
-print qq!YO6OWN Francisc TOTH, 2008-2014\n!;
+print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,\n!; 
+print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat in \n!;
+print qq!termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o versiune \n!;
+print qq!ulterioara. Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio \n!;
+print qq!garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
+print qq!manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
+print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea \n!;
+print qq!si versiunea in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
+print qq!Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, \n!;
+print qq!copyrightul fiind al statului roman, dar fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile \n!;
+print qq!de interes public precum al legii 109/2007 privind reutilizarea informatiilor din institutiile publice.\n!;
 print qq!\n!;
-print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
-print qq!utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
-print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version.\n!;
-print qq!This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty.!; 
-print qq!See the GNU General Public License for more details.\n!;
-print qq!You should have received a copy of the GNU General Public License along with this software distribution; if not, you can!;
-print qq!download it for free at http://www.fsf.org/\n!; 
-print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
-print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
-print qq!YO6OWN Francisc TOTH, 2008-2014\n!;
+print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
-
+print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode \n!;
+print qq!and utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \n!;
+print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version. This program is distributed \n!;
+print qq!in the hope that it will be useful, but WITHOUT ANY WARRANTY or without any implied warranty. See the GNU General Public \n!;
+print qq!License for more details. You should have received a copy of the GNU General Public License along with this software distribution; \n!;
+print qq!if not, you can download it for free at http://www.fsf.org/ \n!;
+print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC \n!;
+print qq!in USA) so any use of the official questions, other than in Read-Only way, is prohibited. \n!;
+print qq!\n!;
+print qq!YO6OWN Francisc TOTH\n!;
+print qq!\n!;
 print qq!Made in Romania\n!;
 print qq+-->\n+;
 

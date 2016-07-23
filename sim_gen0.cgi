@@ -1,50 +1,47 @@
 #!c:\Perl\bin\perl
 
-# Prezentul simulator de examen impreuna cu formatul bazelor de 
-# intrebari, rezolvarile problemelor, manual de utilizare, instalare, 
-# SRS, cod sursa si utilitarele aferente constituie un pachet software 
-# gratuit care poate fi distribuit/modificat in termenii licentei libere 
-# GNU GPL, asa cum este ea publicata de Free Software Foundation in 
-# versiunea 2 sau intr-o versiune ulterioara. Programul, intrebarile si 
-# raspunsurile sunt distribuite gratuit, in speranta ca vor fi 
-# folositoare, dar fara nicio garantie, sau garantie implicita, vezi 
-# textul licentei GNU GPL pentru mai multe detalii. Utilizatorul 
-# programului, manualelor, codului sursa si utilitarelor are toate 
-# drepturile descrise in licenta publica GPL. In distributia care se 
-# gaseste la cerere de la autor sau eventual download pe examyo. 
-# scienceontheweb.net trebuie sa gasiti o copie a licentei GNU GPL, de 
-# asemenea si versiunea in limba romana, iar daca nu, ea poate fi 
-# descarcata gratuit de pe pagina http://www.fsf.org/ Textul intebarilor 
-# oficiale publicate de ANCOM face exceptie de la cele de mai sus, 
-# nefacand obiectul licentierii GNU GPL, modificarea lor si/sau 
-# folosirea lor in afara Romaniei in alt mod decat read-only nefiind 
-# este permisa. Acest lucru deriva din faptul ca ANCOM este o 
-# institutie publica romana, iar intrebarile publicate au caracter de 
-# document oficial. Site-ul de unde se poate descarca distributia 
-# oficiala a simulatorului este http://examyo.scienceontheweb.net
+#Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
+#problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
+#constituie un pachet software gratuit care poate fi distribuit/modificat in termenii 
+#licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in 
+#versiunea 2 sau intr-o versiune ulterioara. Programul, intrebarile si raspunsurile sunt 
+#distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, 
+#sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
+#Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile
+#descrise in licenta publica GPL.
+#In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a 
+#licentei GNU GPL, de asemenea si versiunea in limba romana, iar daca nu, ea poate fi
+#descarcata gratuit de pe pagina http://www.fsf.org/
+#Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, 
+#nefacand obiectul licentierii GNU GPL, copyrightul fiind al statului roman, dar 
+#fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile 
+#de interes public precum al legii 109/2007 privind reutilizarea informatiilor din
+#institutiile publice.
 
-# This program together with question database formatting, solutions to 
-# problems, manuals, documentation, sourcecode and utilitiesis is a free 
-# software; you can redistribute it and/or modify it under the terms of 
-# the GNU General Public License as published by the Free Software 
-# Foundation; either version 2 of the License, or any later version. 
-# This program is distributed in the hope that it will be useful, but 
-# WITHOUT ANY WARRANTY; without any implied warranty. See the GNU 
-# General Public License for more details. You should have received a 
-# copy of the GNU General Public License along with this software 
-# distribution; if not, you can download it for free at 
-# http://www.fsf.org/ Questions marked with ANCOM makes an exception of 
-# above-written, as ANCOM is a romanian public authority(similar to FCC 
-# in USA) so any use of the official questions, other than in Read-Only 
-# way, is prohibited.
+#This program together with question database formatting, solutions to problems, manuals, 
+#documentation, sourcecode and utilities is a  free software; you can redistribute it 
+#and/or modify it under the terms of the GNU General Public License as published by the 
+#Free Software Foundation; either version 2 of the License, or any later version. This 
+#program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY or
+#without any implied warranty. See the GNU General Public License for more details. 
+#You should have received a copy of the GNU General Public License along with this software
+#distribution; if not, you can download it for free at http://www.fsf.org/ 
+#Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian
+#public authority(similar to FCC in USA) so any use of the official questions, other than
+#in Read-Only way, is prohibited. 
 
-# (c)YO6OWN Francisc TOTH, 2008 - 2013
+#Made in Romania
 
-#  sim_gen0.cgi v.0.0.9
-#  Status: stable
+# (c) YO6OWN Francisc TOTH, 2008 - 2016
+
+#  sim_gen0.cgi v 3.2.2
+#  Status: devel
 #  This is a module of the online radioamateur examination program
 #  Made in Romania
 
+# ch 3.2.2 implemented silent discard Status 204
+# ch 3.2.1 deploy latest dienice()
+# ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3 
 # ch 0.0.9 window button "OK" changed to method="link" button
 # ch 0.0.8 infostudy/exam/exam7_yo.html sourced to index.html
 # ch 0.0.7 hamxam/ eliminated
@@ -61,48 +58,65 @@ use warnings;
 
 sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
 
-#- for refreshing transaction list
+# for refreshing transaction list
 my @tridfile;
-my $trid;		#the Transaction-ID of the generated page
+my $trid;		#the Transaction-ID counter of the generated page
+my $hexi;   		#the trid+timestamp_MD5
 my $entry;		#it's a bit of TRID
 
 my $attempt_counter;			#attempts in opening or closing files; 5 attempts allowed
-my $server_ok;					#flag; 1-server free; 0-server congested
+my $server_ok;		#flag; 1-server free; 0-server congested
 $server_ok=1; #we suppose at the beginning a free server
+#### process inputs
+#BLOCK: Input:transaction ID
+{
+# Read input text, POST or GET
+# GET-technology for us not ok, permits multiple requests made by browser.
+
+  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
+  if($ENV{'REQUEST_METHOD'} eq "GET") 
+  { 
+dienice ("ERR20",0,\"unexpected GET");  #silently discard
+       }
+## end of GET method
+ 
+} #.end process inputs
 
 
-#### open transaction file ####
-$attempt_counter=1;
-while ($server_ok and $attempt_counter > 0)
+
+#### open transaction file, try 3 times ####
+$attempt_counter=0;
+while ($attempt_counter < 3)
 { 
   if(open(transactionFILE,"+< sim_transaction")) {
           #flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
-		  $attempt_counter=-1; #file was opened, no more attempt needed
-			                                 } 
-  else{ $server_ok = dienice("$!",$attempt_counter);
+		  $attempt_counter=3; #file was opened, no more attempt needed
+                  $server_ok=1;       #file was opened so server is ok
+			                          } 
+  else{ $server_ok = 0; #server still not ok
         $attempt_counter++;
 	  }
-} #end unless server congested
+} #end while
 
-unless($server_ok) #if server is congested, exit;
-{ exit();} 
+unless($server_ok) #if server is congested, die with error code;
+{ dienice("ERR01",1,\$!) }
 
 ####open db_human file
 $attempt_counter=1;
-while ($server_ok and $attempt_counter > 0)
+while ($attempt_counter < 3)
 { 
   if(open(INFILE,"<","db_human")) {
           #flock(INFILE,1);		#LOCK_EX the file from other CGI instances
-		  $attempt_counter=-1; #file was opened, no more attempt needed
+		  $attempt_counter=3; #file was opened, no more attempt needed
+                  $server_ok=1;       #file was opened so server is ok
 			                                 } 
-  else{ $server_ok = dienice("$!",$attempt_counter);
+  else{ $server_ok = 0; #server still not ok
         $attempt_counter++;
 	  }
-} #end unless server congested
+} #end while
 
-unless($server_ok) #if server is congested, exit;
-{ exit();} 
-
+unless($server_ok) #if server is congested, die with error code;
+{ dienice("ERR02",1,\$!) }
 
 
 print qq!Content-type: text/html\n\n!;
@@ -111,11 +125,11 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v.0.0.9\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolva 3 din 4 intrebari si poti sa te inregistrezi in examen</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">Pagina expira peste 3 minute.</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">O singura varianta de raspuns este corecta. Dupa alegerea raspunsurilor, apasa butonul "Evaluare".</font></center><br><br>\n!;
-print qq!<form action="http://localhost/cgi-bin/sim_ver0.cgi" method="get">\n!;
+print qq!<form action="http://localhost/cgi-bin/sim_ver0.cgi" method="post">\n!;
 
 
 ############################
@@ -194,7 +208,7 @@ chomp $trid;						#eliminate \n
 $trid=hex($trid);		#convert string to numeric
 
 if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
-else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
+else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}  #cyclical increment 000000 to 0xFFFFFF then convert back to string with sprintf()
 
 #print qq!generate new transaction<br>\n!;
 my @utc_time=gmtime(time);   
@@ -271,12 +285,19 @@ $exp_month=($exp_month+$carry1)%12;
 $exp_year += $carry2;
 
 
-#print to screen the entry in the transaction list
-my $hexi= sprintf("%+06X",$trid);
+#generate transaction id and its md5 MAC
+
+$hexi= sprintf("%+06X",$trid); #the transaction counter
+#assemble the trid+timestamp
+$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and MD5
+#compute mac for trid+timestamp
+my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
+$hexi= "$hexi$heximac"; #the full transaction id
+
 $entry = "$hexi anonymous 0 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n";
 #print qq!mio entry: $entry <br>\n!; #debug
 }
-#.end of generation of new transaction
+#.end of generating & writing of new transaction
 
 ###########################
 ###  Generate 4 questions ###
@@ -406,8 +427,7 @@ close( INFILE ) ||die("cannot close, $!\n");
 
 #ACTION: inserare transaction ID in pagina HTML
 {
-my $extra=sprintf("%+06X",$trid);
-print qq!<input type="hidden" name="transaction" value="$extra">\n!;
+print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 }
 
 print qq!<input type="submit" value="EVALUARE" name="answer">\n!;
@@ -439,6 +459,22 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 #closing transaction file, opens flock by default
 close (transactionFILE) or die("cant close transaction file\n");
 
+sub compute_mac {
+# Given a message and key, returns a message authentication code
+# with the following properties relevant to our example:
+# - a 22-character string that may contain + / 0-9 a-z A-Z
+# - any given message and key will always produce the same MAC
+# - if you don't know the key, it's very hard to guess it
+#   even if you have a message, its MAC, and this source code
+# - if you have a message, its MAC, and even the key, it's 
+#   very hard to find a different message with the same MAC
+# - even a tiny change to a message, including adding on to
+#   the end of it, will produce a very different MAC
+use Digest::MD5;
+  my ($message) = @_;
+  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
+    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+} #end of compute_mac
 
 
 
@@ -451,68 +487,139 @@ sub random_int($)
        return int rand($max);
 	}
 
-#------------------------------------------
+#--------------------------------------
+# treat the "or die" and all error cases
+#how to use it
+#$error_code is a string, you see it, this is the text selector
+#$counter: if it is 0, error is not logged. If 1..5 = threat factor
+#reference is the reference to string that is passed to be logged.
+
 sub dienice
 {
-my ($error_code,$counter)=@_;
+my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
+#my $timestring=localtime(time);
+my $timestring=gmtime(time);
 
-#write errorcode in cheat_file
+#textul pentru public
+my %pub_errors= (
+              "ERR01" => "Server congestionat, incearca in cateva momente",
+              "ERR02" => "Server congestionat, incearca in cateva momente",
+              "ERR03" => "reserved",
+              "ERR04" => "reserved",
+              "ERR05" => "reserved",
+              "ERR06" => "reserved",
+              "ERR07" => "reserved",
+              "ERR08" => "reserved",
+              "ERR09" => "reserved",
+              "ERR10" => "reserved",
+              "ERR11" => "reserved",
+              "ERR12" => "reserved",
+              "ERR13" => "reserved",
+              "ERR14" => "reserved",
+              "ERR15" => "reserved",
+              "ERR16" => "reserved",
+              "ERR17" => "reserved",
+              "ERR18" => "reserved",
+              "ERR19" => "reserved",
+              "ERR20" => "silent discard, not printed"
+                );
+#textul de turnat in logfile, interne
+my %int_errors= (
+              "ERR01" => "server cannot open sim_transaction file",    #test
+              "ERR02" => "server cannot open db_human file",           #test 
+              "ERR03" => "reserved",
+              "ERR04" => "reserved",
+              "ERR05" => "reserved",
+              "ERR06" => "reserved",
+              "ERR07" => "reserved",
+              "ERR08" => "reserved",
+              "ERR09" => "reserved",
+              "ERR10" => "reserved",
+              "ERR11" => "reserved",
+              "ERR12" => "reserved",
+              "ERR13" => "reserved",
+              "ERR14" => "reserved",
+              "ERR15" => "reserved",
+              "ERR16" => "reserved",
+              "ERR17" => "reserved",
+              "ERR18" => "reserved",
+              "ERR19" => "reserved",
+              "ERR20" => "silent discard"
+                );
 
-#if number of errors is > 4, print a defeat page
-if($counter > 4)
- {
+
+#if commanded, write errorcode in cheat_file
+if($counter > 0)
+{
+# write errorcode in cheat_file
+#ACTION: append cheat symptoms in cheat file
+open(cheatFILE,"+< db_tt"); #open logfile for appending;
+#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
+seek(cheatFILE,0,2);		#go to the end
+#CUSTOM
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
+printf cheatFILE "\<br\>reported by: sim_gen0.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+close(cheatFILE);
+}
+if($error_code eq 'ERR20') #must be silently discarded
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl();
-print qq!v.0.0.9\n!; #version print for easy upload check
+ins_gpl(); #this must exist
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
-print qq!<h1 align="center">Serverul este congestionat, incearca din nou.</h1>\n!;
+print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 print qq!</body>\n</html>\n!;
-return (0); #return server congested
- }
-else {return (1); #server not yet congested
-     }
+}
+
+exit();
+
 } #end sub
+
 #--------------------------------------
 sub ins_gpl
 {
 print qq+<!--\n+;
 print qq!SimEx Radio Release \n!;
-print qq!SimEx Radio was created for YO6KXP ham-club located in Sacele, ROMANIA\n!;
+print qq!SimEx Radio was created originally for YO6KXP radio amateur club located in\n!; 
+print qq!Sacele, ROMANIA (YO) then released to the whole radio amateur community.\n!;
 print qq!\n!;
-print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,!;
-print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat!; 
-print qq!in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o !;
-print qq!versiune ulterioara.\n!; 
-print qq!Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie,!;
-print qq!sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.\n!;
-print qq!Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia pe CD sau download pe examyo.scienceontheweb.net trebuie sa gasiti o copie a licentei GNU GPL, de asemenea si versiunea !;
-print qq!in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
-print qq!Textul intebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL,!; 
-print qq!modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind este permisa. Acest lucru deriva !;
-print qq!din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.\n!;
-print qq!Site-ul de unde se poate descarca distributia oficiala a simulatorului este http://examyo.scienceontheweb.net\n!;
+print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,\n!; 
+print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat in \n!;
+print qq!termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o versiune \n!;
+print qq!ulterioara. Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio \n!;
+print qq!garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
+print qq!manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
+print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea \n!;
+print qq!si versiunea in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
+print qq!Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, \n!;
+print qq!copyrightul fiind al statului roman, dar fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile \n!;
+print qq!de interes public precum al legii 109/2007 privind reutilizarea informatiilor din institutiile publice.\n!;
+print qq!\n!;
 print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
-print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode and!;
-print qq!utilitiesis is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License !;
-print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version.\n!;
-print qq!This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without any implied warranty.!; 
-print qq!See the GNU General Public License for more details.\n!;
-print qq!You should have received a copy of the GNU General Public License along with this software distribution; if not, you can!;
-print qq!download it for free at http://www.fsf.org/\n!; 
-print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)!;
-print qq!so any use of the official questions, other than in Read-Only way, is prohibited.\n!; 
-print qq!YO6OWN Francisc TOTH, 2008\n!;
+print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode \n!;
+print qq!and utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \n!;
+print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version. This program is distributed \n!;
+print qq!in the hope that it will be useful, but WITHOUT ANY WARRANTY or without any implied warranty. See the GNU General Public \n!;
+print qq!License for more details. You should have received a copy of the GNU General Public License along with this software distribution; \n!;
+print qq!if not, you can download it for free at http://www.fsf.org/ \n!;
+print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC \n!;
+print qq!in USA) so any use of the official questions, other than in Read-Only way, is prohibited. \n!;
 print qq!\n!;
-
+print qq!YO6OWN Francisc TOTH\n!;
+print qq!\n!;
 print qq!Made in Romania\n!;
 print qq+-->\n+;
 

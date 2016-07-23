@@ -1,0 +1,4 @@
+#project's gitignore
+hx_release/	#ignore this directory
+sim_transaction #ignore this for the moment
+cheat_log	#ignore this
