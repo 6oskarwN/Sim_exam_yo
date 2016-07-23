@@ -119,11 +119,9 @@ foreach $pair(@pairs)
 		{
 ($name,$value) = split(/=/,$pair);
 
-#transformarea asta e pentru textele reflow, dar trateaza si + si / al token-ului
-$value=~ s/\+/ /g;
+#needed transform for text reflow, dar trateaza si + si / al token-ului
+
 $value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-#$value=~ s/\r\l\n$//g;
-#$value=~ s/\r\l\n/<br>/g;
 $value=~ s/<*>*<*>/\//g; #inlocuiesc cu slash, sa dea eroare la check
 
 if(defined($name) and defined($value)){
@@ -467,10 +465,10 @@ print "<br>\n";
 #Action: Error descriptions in table
 #print qq!<font color="yellow">Erori:</font><br>\n!;
 print qq!<table border="0" width="80%" align="center"><tr><td>!;
-if($f_valid_login) {print qq!<font color="yellow">-nume utilizator formatat incorect(vezi mai jos)</font><br>\n!;}
-if($f_xuser){print qq!<font color="yellow">-numele de utilizator ales exista deja. Alege-ti un alt login.</font><br>\n!;}
-if($f_valid_tipcont) {print qq!<font color="red">-$post_tipcont nu este o valoare acceptata</font><br>\n!;} #should be written in cheat_log, but it's an anonymous
-if($f_pass_eq){print qq!<font color="yellow">-cele doua parole nu sunt identice sau parola nu respecta normele de securitate(vezi mai jos)</font><br>\n!;}
+if($f_valid_login) {print qq!<font color="yellow">- nume utilizator formatat incorect(vezi descrierea din dreptul parametrului)</font><br>\n!;}
+if($f_xuser){print qq!<font color="yellow">- numele de utilizator ales exista deja. Alege-ti un alt login.</font><br>\n!;}
+if($f_valid_tipcont) {print qq!<font color="red">- $post_tipcont nu este o valoare acceptata</font><br>\n!;} #should be written in cheat_log, but it's an anonymous
+if($f_pass_eq){print qq!<font color="yellow">- cele doua parole nu sunt identice sau parola nu respecta normele de securitate(vezi descrierea din dreptul parametrului)</font><br>\n!;}
 print qq!</td></tr></table>!;
 
 print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">\n!;
@@ -491,7 +489,7 @@ unless($f_xuser or $f_valid_login) {print qq!<input type="text" name="login"  va
 else {print qq!<input type="text" name="login" size="25">!;}
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space, punct, / ; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
+print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space, punct, /, sau tag-uri HTML <*> ; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
 print qq!</td>!;
 print qq!</tr>\n!;
 	 

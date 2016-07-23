@@ -108,10 +108,12 @@ foreach $pair(@pairs)
 
 unless($name eq 'transaction')
 {
+#next 4 transforms are specific to sim_verX
 $value =~ tr/0/a/;
 $value =~ tr/1/b/;
 $value =~ tr/2/c/;
 $value =~ tr/3/d/;
+
 $value=~ s/<*>*<*>//g;
 }
 
