@@ -34,11 +34,12 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_gen0.cgi v 3.2.1
+#  sim_gen0.cgi v 3.2.2
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  Made in Romania
 
+# ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3 
 # ch 0.0.9 window button "OK" changed to method="link" button
@@ -57,15 +58,30 @@ use warnings;
 
 sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
 
-#- for refreshing transaction list
+# for refreshing transaction list
 my @tridfile;
 my $trid;		#the Transaction-ID counter of the generated page
-my $hexi;   #the trid+timestamp_MD5
+my $hexi;   		#the trid+timestamp_MD5
 my $entry;		#it's a bit of TRID
 
 my $attempt_counter;			#attempts in opening or closing files; 5 attempts allowed
 my $server_ok;		#flag; 1-server free; 0-server congested
 $server_ok=1; #we suppose at the beginning a free server
+#### process inputs
+#BLOCK: Input:transaction ID
+{
+# Read input text, POST or GET
+# GET-technology for us not ok, permits multiple requests made by browser.
+
+  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
+  if($ENV{'REQUEST_METHOD'} eq "GET") 
+  { 
+dienice ("ERR20",0,\"unexpected GET");  #silently discard
+       }
+## end of GET method
+ 
+} #.end process inputs
+
 
 
 #### open transaction file, try 3 times ####
@@ -109,11 +125,11 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolva 3 din 4 intrebari si poti sa te inregistrezi in examen</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">Pagina expira peste 3 minute.</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">O singura varianta de raspuns este corecta. Dupa alegerea raspunsurilor, apasa butonul "Evaluare".</font></center><br><br>\n!;
-print qq!<form action="http://localhost/cgi-bin/sim_ver0.cgi" method="get">\n!;
+print qq!<form action="http://localhost/cgi-bin/sim_ver0.cgi" method="post">\n!;
 
 
 ############################
@@ -505,7 +521,7 @@ my %pub_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not printed"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -528,7 +544,7 @@ my %int_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard"
                 );
 
 
@@ -545,20 +561,27 @@ printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: sim_gen0.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-
+if($error_code eq 'ERR20') #must be silently discarded
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 print qq!</body>\n</html>\n!;
+}
 
 exit();
 

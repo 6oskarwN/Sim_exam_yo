@@ -30,7 +30,7 @@
 #public authority(similar to FCC in USA) so any use of the official questions, other than
 #in Read-Only way, is prohibited. 
 
-#Made in Romania
+#  Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 

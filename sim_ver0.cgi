@@ -30,16 +30,17 @@
 #public authority(similar to FCC in USA) so any use of the official questions, other than
 #in Read-Only way, is prohibited. 
 
-#Made in Romania
+#  Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_ver0.cgi v 3.2.1
+#  sim_ver0.cgi v 3.2.2
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 0.0.8 explanations moved to table
@@ -74,7 +75,7 @@ my $correct;		#how many correct answers you gave
 
 
 ###########################################
-### Process inputs, generate hash table ###
+#BLOCK: Process inputs ###
 ###########################################
 {
 my $buffer=();
@@ -83,16 +84,30 @@ my $pair;
 my $name;
 my $value;
 
-#read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology
-$debug_buffer=$ENV{'QUERY_STRING'};
-#@pairs=split(/&/, $buffer); #POST-technology
-@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+# Read input text, POST or GET
+  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
+  if($ENV{'REQUEST_METHOD'} eq "GET") 
+      {
+      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
+      }
+## end of GET
+
+else    { 
+        read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+        }
+#this else is not really nice but it's correct for the moment.
+
+@pairs=split(/&/, $buffer); #POST-technology
+
+#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+
 foreach $pair(@pairs) 
 		{
 
 ($name,$value) = split(/=/,$pair);
 
-unless($name eq 'transaction'){
+unless($name eq 'transaction')
+{
 $value =~ tr/0/a/;
 $value =~ tr/1/b/;
 $value =~ tr/2/c/;
@@ -101,11 +116,21 @@ $value=~ s/<*>*<*>//g;
 }
 
 if(defined($name) and defined($value)){
-                 %answer = (%answer,$name,$value); #add defined answers
-                                      }
+                 %answer = (%answer,$name,$value);        #hash filled in
+					}
+
 		} #.end foreach
 
 } #.end process inputs
+
+#now we have the hash table with answers. error: they can be less answers than needed
+#or they can be less answers than all, but this is not error. answers for questions are not
+#Mandatory, but Optional parameters. User can answer all or less questions.
+#Occam check  -not implemented yet
+#this should silently discard if not all mandatory parameters are received
+
+
+
 
 $post_trid= $answer{'transaction'}; #if exists, extract POST_trid from POST data
 #md MAC has + = %2B and / = %2F characters, must be reconverted
@@ -441,14 +466,14 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
 
 #tiparire formular
 
-print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="get">\n!;
+print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">\n!;
 
 print qq!<p><center><b>Formular de inregistrare (valabil 15 minute)</b></center></p>\n!;
 
@@ -557,7 +582,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;
@@ -653,7 +678,7 @@ my %pub_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not displayed"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -676,7 +701,7 @@ my %int_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not logged"
                 );
 
 
@@ -693,14 +718,20 @@ printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: sim_ver0.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -708,6 +739,7 @@ print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 #print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
 print qq!</body>\n</html>\n!;
+}
 
 exit();
 

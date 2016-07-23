@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_register.cgi v 3.2.1
+#  sim_register.cgi v 3.2.2
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 3.0.5 table sync dupa sim_ver0 v 0.0.8
@@ -63,11 +64,11 @@ sub ins_gpl;                 #inserts a HTML preformatted text with the GPL lice
 
 #GLOBAL VARIABLES
 #variables extracted from POST data
+my %answer=();		#hash used for depositing the answers
 my $post_login;
 my $post_passwd1;
 my $post_passwd2;
 my $post_tipcont;	#tip cont: 0-training, 1,2,3,4=cl 1,2,3,3r
-
 my $post_trid;
 
 my $trid_login; #the username from the transactionfile, corresponding to the active transaction
@@ -87,39 +88,72 @@ my @utc_time=gmtime(time);     	#the 'present' time, generated only once
 
 my @slurp_userfile;            	#RAM-userfile
 
-#BLOCK: Input: acquire input data
+###########################################
+#BLOCK: Process inputs ###
+###########################################
 {
-my $buffer;
+my $buffer=();
 my @pairs;
 my $pair;
-my $stdin_name;
-my $stdin_value;
+my $name;
+my $value;
+
+# Read input text, POST or GET
+  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
+  if($ENV{'REQUEST_METHOD'} eq "GET") 
+      {
+      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
+      }
+## end of GET
+
+else    { 
+        read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+        }
+#this else is not really nice but it's correct for the moment.
+
+@pairs=split(/&/, $buffer); #POST-technology
+
+#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+
+foreach $pair(@pairs) 
+		{
+($name,$value) = split(/=/,$pair);
+
+#transformarea asta e pentru textele reflow, dar trateaza si + si / al token-ului
+$value=~ s/\+/ /g;
+$value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+#$value=~ s/\r\l\n$//g;
+#$value=~ s/\r\l\n/<br>/g;
+$value=~ s/<*>*<*>/\//g; #inlocuiesc cu slash, sa dea eroare la check
+
+if(defined($name) and defined($value)){
+
+                 %answer = (%answer,$name,$value);        #hash filled in
+					}
+
+		} #.end foreach
+
+} #.end process inputs
+
+#now we have the hash table with answers. error: they can be less answers than needed
+#or they can be less answers than all, but this is not error. answers for questions are not
+#Mandatory, but Optional parameters. User can answer all or less questions.
+#Occam check  -not implemented yet
+#this should silently discard if not all mandatory parameters are received
+
+$post_trid = $answer{'transaction'};
+$post_login = $answer{'login'};
+$post_passwd1 = $answer{'passwd1'};
+$post_passwd2 = $answer{'passwd2'};
+$post_tipcont = $answer{'tipcont'};
 
 
-@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
 
-foreach $pair(@pairs) {
-($stdin_name,$stdin_value) = split(/=/,$pair);
-
-$stdin_value=~ s/\+/ /g;
-$stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-$stdin_value=~ s/<*>*<*>//g;
-
-#nu e tratat cazul in care ceva este undefined.
-
-if($stdin_name eq 'login') {$post_login=$stdin_value;}
-elsif($stdin_name eq 'passwd1') {$post_passwd1=$stdin_value;}
-elsif($stdin_name eq 'passwd2') {$post_passwd2=$stdin_value;}
-elsif($stdin_name eq 'tipcont') {$post_tipcont=$stdin_value;}
-elsif($stdin_name eq 'transaction') {$post_trid=$stdin_value;}
-} #.end foreach
-} #.end block
-#.END BLOCK
 
 #md MAC has + = %2B and / = %2F characters, must be reconverted
 if(defined($post_trid)){
-	$post_trid =~ s/%2B/\+/g;
-	$post_trid =~ s/%2F/\//g;
+#	$post_trid =~ s/%2B/\+/g;
+#	$post_trid =~ s/%2F/\//g;
 			}
    else {dienice ("ERR04",1,\"undef trid"); } # no transaction or with void value
 
@@ -267,6 +301,8 @@ else { dienice("ERR03",0,\"null");  }
 if($post_login =~ / /) { $f_valid_login=1; } #login has multiple words!
 elsif($post_login =~ /\+/) { $f_valid_login=1; } #login has nasty character!
 elsif($post_login =~ /%/) { $f_valid_login=1; } #login has nasty character!
+elsif($post_login =~ /\./) { $f_valid_login=1; } #login has nasty character!
+elsif($post_login =~ /\//) { $f_valid_login=1; } #login has nasty character!
 elsif((length $post_login < 4) or (length $post_login > 25)) {$f_valid_login=1}
 else { $f_valid_login=0;}
 
@@ -425,7 +461,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -437,7 +473,7 @@ if($f_valid_tipcont) {print qq!<font color="red">-$post_tipcont nu este o valoar
 if($f_pass_eq){print qq!<font color="yellow">-cele doua parole nu sunt identice sau parola nu respecta normele de securitate(vezi mai jos)</font><br>\n!;}
 print qq!</td></tr></table>!;
 
-print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="get">\n!;
+print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">\n!;
 print qq!<p><center><b>Formular de inregistrare (valabil 15 minute)</b></center></p>\n!;
 
 print qq!<table width="80%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
@@ -455,7 +491,7 @@ unless($f_xuser or $f_valid_login) {print qq!<input type="text" name="login"  va
 else {print qq!<input type="text" name="login" size="25">!;}
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
+print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space, punct, / ; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
 print qq!</td>!;
 print qq!</tr>\n!;
 	 
@@ -667,7 +703,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 
@@ -765,7 +801,7 @@ my %pub_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not displayed"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -788,7 +824,7 @@ my %int_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not displayed"
                 );
 
 
@@ -806,14 +842,20 @@ printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: sim_register.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -821,7 +863,7 @@ print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 #print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
 print qq!</body>\n</html>\n!;
-
+}
 exit();
 
 } #end sub

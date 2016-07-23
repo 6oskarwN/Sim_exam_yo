@@ -48,31 +48,6 @@ my $value;
   $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
   if($ENV{'REQUEST_METHOD'} eq "GET") 
   { 
-
-#$buffer = $ENV{'QUERY_STRING'}; #GET data
-#$buffer = ""; #init
-##ACTION: append cheat symptoms in cheat file
-#open(meatFILE,"+< cheat_log"); #open logfile for appending;
-##flock(meatFILE,2);		#LOCK_EX the file from other CGI instances
-#seek(meatFILE,0,2);		#go to the end
-##CUSTOM
-#unless(!defined $ENV{'HTTP_USER_AGENT'}) 
-#           {$buffer = "$buffer $ENV{'HTTP_USER_AGENT'}";}
-#unless(!defined $ENV{'HTTP_HOST'})
-#           {$buffer = "$buffer $ENV{'HTTP_HOST'}";}
-#unless (!defined $ENV{'REMOTE_HOST'})
-#           {$buffer = "$buffer $ENV{'REMOTE_HOST'}";}
-#unless (!defined $ENV{'HTTP_REFERER'})
-#           {$buffer = "$buffer $ENV{'HTTP_REFERER'}";}
-#unless (!defined $ENV{'REQUEST_METHOD'})
-#           {$buffer = "$buffer $ENV{'REQUEST_METHOD'}";}
-#
-#my $buffer_time = gmtime(time);
-#
-#printf meatFILE qq!<font color="yellow">$buffer_time :</font> $buffer\n!;
-#
-#close(meatFILE);
-####
 dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
        }
 ## end of GET
@@ -90,7 +65,6 @@ foreach $pair(@pairs)
 ($name,$value) = split(/=/,$pair);
 
 #transformarea asta e pentru textele reflow, dar trateaza si + si / al token-ului
-
 $value=~ s/\+/ /g; 
 $value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 $value=~ s/\r\l\n$//g;
@@ -103,11 +77,6 @@ $value=~ s/\r\l\n/<br>/g;
 #hash it is filled in now
 
 $post_token= $answer{'token'}; #extract token from input data
-#md MAC has + = %2B and / = %2F characters, must be reconverted
-#already converted in foreach
-#$post_token =~ s/%2B/\+/g;
-#$post_token =~ s/%2F/\//g;
-
 
 ## double POST debug
 #not implemented
