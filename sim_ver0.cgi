@@ -490,7 +490,7 @@ print qq!<td>!;
 print qq!<input type="text" name="login" size="25">!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
+print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space, punct, / sau tag-uri HTML <*> ; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
 print qq!</td>!;
 print qq!</tr>\n!;
 
