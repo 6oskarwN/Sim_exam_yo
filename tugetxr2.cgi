@@ -144,7 +144,7 @@ print qq!file closed.<br>\n!;
 print qq!----------------------------------------------<br><br>\n!;
 
 
-print qq!<b><big>CHEATER-LOG:</big></b><br>\n!;
+print qq!<b><big>CHEATER-LOG(entering obsolete):</big></b><br>\n!;
 #ACTION: open transaction ID file
 open(xfile_handler,"< cheat_log") or die("can't open transaction file: $!\n");					#open transaction file for writing
 #flock(xfile_handler,1);		#just a read-lock

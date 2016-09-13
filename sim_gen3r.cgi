@@ -109,34 +109,8 @@ my $stdin_value;
 
   $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
   if($ENV{'REQUEST_METHOD'} eq "GET") 
-  { 
-# do the GET silent discard
-#$buffer = $ENV{'QUERY_STRING'}; #GET data
-#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology not to be used
-
-#ACTION: append cheat symptoms in cheat file
-#open(meatFILE,"+< cheat_log"); #open logfile for appending;
-##flock(meatFILE,2);		#LOCK_EX the file from other CGI instances
-#seek(meatFILE,0,2);		#go to the end
-#CUSTOM
-#unless(!defined $ENV{'HTTP_USER_AGENT'}) 
-#           {$buffer = "$buffer $ENV{'HTTP_USER_AGENT'}";}
-#unless(!defined $ENV{'HTTP_HOST'})
-#           {$buffer = "$buffer $ENV{'HTTP_HOST'}";}
-#unless (!defined $ENV{'REMOTE_HOST'})
-#           {$buffer = "$buffer $ENV{'REMOTE_HOST'}";}
-#unless (!defined $ENV{'HTTP_REFERER'})
-#           {$buffer = "$buffer $ENV{'HTTP_REFERER'}";}
-#unless (!defined $ENV{'REQUEST_METHOD'})
-#           {$buffer = "$buffer $ENV{'REQUEST_METHOD'}";}
-
-#my $buffer_time = gmtime(time);
-
-#printf meatFILE qq!<font color="yellow">$buffer_time :</font> $buffer\n!;
-
-#close(meatFILE);
-####
-dienice ("ERR20",0,\"unexpected GET");  #silently discard
+       { 
+	dienice ("ERR20",0,\"unexpected GET");  #silently discard
        }
 ## end of GET
 
@@ -869,20 +843,20 @@ else #watchdog situation detected
 #ACTION: append watchdog symptoms in cheat file
 ##asta se poate inlocui cu dienice() daca reusesti sa faci ceva cu bucla DIRTY;
 ##dienice("WATCHDOG",1);
-open(cheatFILE,"+< cheat_log"); #or die("can't open cheat_log file: $!\n");					#open transaction file for writing
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
+#open(cheatFILE,"+< cheat_log"); #or die("can't open cheat_log file: $!\n");					#open transaction file for writing
+##flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: write in logfile
-seek(cheatFILE,0,2);		#go to the end
+#seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
-printf cheatFILE "===========================================\n";
-printf cheatFILE "sim_gen3r.cgi v 3.2.2 : watchdog situation detected\n";
-printf cheatFILE "file %s under work\n",$database[$iter];
-printf cheatFILE "pool was: ";
-foreach(@pool) { printf cheatFILE "%s ",$_; }
-printf cheatFILE "crashed at question index: %i\n",$index;
+#printf cheatFILE "===========================================\n";
+#printf cheatFILE "sim_gen3r.cgi v 3.2.2 : watchdog situation detected\n";
+#printf cheatFILE "file %s under work\n",$database[$iter];
+#printf cheatFILE "pool was: ";
+#foreach(@pool) { printf cheatFILE "%s ",$_; }
+#printf cheatFILE "crashed at question index: %i\n",$index;
 
-close(cheatFILE);
+#close(cheatFILE);
 print qq!<font color="red">Formular corupt si incomplet, va rog generati altul</font><br>\n!;
 
 last DIRTY;

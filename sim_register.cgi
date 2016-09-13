@@ -467,7 +467,7 @@ print "<br>\n";
 print qq!<table border="0" width="80%" align="center"><tr><td>!;
 if($f_valid_login) {print qq!<font color="yellow">- nume utilizator formatat incorect(vezi descrierea din dreptul parametrului)</font><br>\n!;}
 if($f_xuser){print qq!<font color="yellow">- numele de utilizator ales exista deja. Alege-ti un alt login.</font><br>\n!;}
-if($f_valid_tipcont) {print qq!<font color="red">- $post_tipcont nu este o valoare acceptata</font><br>\n!;} #should be written in cheat_log, but it's an anonymous
+if($f_valid_tipcont) {print qq!<font color="red">- $post_tipcont nu este o valoare acceptata</font><br>\n!;} #should be logged as cheat attempt maybe
 if($f_pass_eq){print qq!<font color="yellow">- cele doua parole nu sunt identice sau parola nu respecta normele de securitate(vezi descrierea din dreptul parametrului)</font><br>\n!;}
 print qq!</td></tr></table>!;
 
