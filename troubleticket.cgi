@@ -256,7 +256,6 @@ print qq!</td>\n!;
 
 print qq!</tr>\n!;
 
-
 print qq!</table>\n!;
 
  #se deschide fisierul cu inregistrari, read-only 
@@ -395,6 +394,7 @@ print qq!<center><INPUT type="submit"  value="Trimite"> </center>\n!;
 print qq!</td>\n!;
 print qq!<td valign="top">\n!;
 print qq!<center><INPUT type="reset"  value="Reset"> </center>\n!;
+print qq!</form>\n!;
 print qq!</td>\n!;
 
 print qq!<td valign="top">\n!;
@@ -406,7 +406,6 @@ print qq!</td>\n!;
 print qq!</tr>\n!;
 
 print qq!</table>\n!;
-print qq!</form>\n!;
 
 print qq!</center>\n!;
  #se inchide html
@@ -498,6 +497,7 @@ print qq!<center><INPUT type="submit"  value="Trimite"> </center>\n!;
 print qq!</td>\n!;
 print qq!<td valign="top">\n!;
 print qq!<center><INPUT type="reset"  value="Reset"> </center>\n!;
+print qq!</form>\n!;
 print qq!</td>\n!;
 
 print qq!<td valign="top">\n!;
@@ -507,9 +507,7 @@ print qq!</form>\n!;
 print qq!</td>\n!;
 
 print qq!</tr>\n!;
-
 print qq!</table>\n!;
-print qq!</form>\n!;
 
 
  #se deschide fisierul cu inregistrari, read-only 
