@@ -40,6 +40,7 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.3 implementing use_time in recorded transaction_id
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
@@ -75,7 +76,7 @@ sub ins_gpl;                 #inserts a HTML preformatted text with the GPL lice
 my %answer=();		#hash used for depositing the answers
 my %hlrline=();		#hash used for rewriting test results in hlr
 
-my $get_trid;                   #transaction ID from GET data
+my $get_trid;                   #transaction ID from GET data; it has never a "used" timestamp
 
 my $trid_login;       		#login extracted from transaction file
 my $trid_pagecode;		#pagecode extracted from transaction file 
@@ -168,26 +169,25 @@ seek(transactionFILE,0,0);		#go to the beginning
 
 my $expired=0;  #flag which checks if posted transaction has expired. Set to 'not expired'
 
-#BLOCK: Refresh transaction file - remains unchanged in sim_ver3r.cgi
+#BLOCK: Refresh transaction file to eliminate expired transactions (ch 3.2.3 check OK)
 {
 my @livelist=();
 my @linesplit;
 
 # transaction pattern in file: 
-# B000C1_59_49_10_14_2_116_Ljxx+XY1v+S2QR0GHT/3ng owene 4 59 49 10 14 2 116 0 6 7 11 22 52 69 92 119 128 134 150 155 160 194 215 223 228 239 277 1 3 5 9 17 34 39 45 47 50 24 25 27 39 43 47 57 66 8 31 33 43 53 65 66 74 82 86 87 89 95 104 105 109 112 121 126 127 135 138 139 142 147 K 
+#unused: B000C1_59_49_10_14_2_116_Ljxx+XY1v+S2QR0GHT/3ng owene 4 59 49 10 14 2 116 0 6 7 11 22 52 69 92 119 128 134 150 155 160 194 215 223 228 239 277 1 3 5 9 17 34 39 45 47 50 24 25 27 39 43 47 57 66 8 31 33 43 53 65 66 74 82 86 87 89 95 104 105 109 112 121 126 127 135 138 139 142 147 K 
+#used:   B000C1_59_49_10_14_2_116_Ljxx+XY1v+S2QR0GHT/3ng_00_00_10_14_2_116 owene 4 59 49 10 14 2 116 0 6 7 11 22 52 69 92 119 128 134 150 155 160 194 215 223 228 239 277 1 3 5 9 17 34 39 45 47 50 24 25 27 39 43 47 57 66 8 31 33 43 53 65 66 74 82 86 87 89 95 104 105 109 112 121 126 127 135 138 139 142 147 K 
 
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
 { #.begin unless
   for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
-   @linesplit=split(/ /,$tridfile[$i]);
+   @linesplit=split(/ /,$tridfile[$i]); #space is the splitter
    chomp $linesplit[8]; #\n is deleted
 
 if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
-
-# next 'if' is changed into 'elsif'
-elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])) {} #if timestamp expired do nothing = transaction will not refresh
-else {@livelist=(@livelist, $i);} #not expired, refresh it
+elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]))  {  } # expired, do not keep it in livelist
+  else { @livelist=(@livelist, $i); } # not expired, keep it
 
  
   } #.end for
@@ -205,12 +205,13 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 
 } #.END BLOCK
 
-#BLOCK: extract data from actual transaction and do not delete it
+#BLOCK: extract data from actual transaction but read-only
+#ch 3.2.3 - modified
 {
-my @livelist=();
+#my @livelist=(); #version before ch 3.2.3
 my @linesplit;
 
-#my $expired=1;  #flag which checks if transaction has expired
+#my $expired=1;  #DEBUG  #flag which checks if transaction has expired 1=expired
   my $branch=1; #verifies if branch was taken
 unless(($#tridfile == 0) || ($expired)) 		#unless transaction list is empty (but transaction exists on first line) or posted transaction has expired
 {  
@@ -218,24 +219,30 @@ unless(($#tridfile == 0) || ($expired)) 		#unless transaction list is empty (but
   for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
    @linesplit=split(/ /,$tridfile[$i]);
-   if($linesplit[0] eq $get_trid) {
-				$trid_login=$linesplit[1]; #extract data
-				$trid_pagecode=$linesplit[2]; #extract data
-				$branch=0;
+
+#ch 3.2.3 aici linesplit[0] poate sa aiba sau nu bucata de "used_timestamp" si atunci eq nu mai e eq
+#ch 3.2.3 eq sa fie transformat in match de inceput
+#  if($linesplit[0] eq $get_trid) {  #version before ch 3.2.3
+  if($linesplit[0] =~ /\Q$get_trid\E/) { #it can be made stronger, now does not check if it is at the beginning , please add /^\Q...
+			$trid_login=$linesplit[1]; #extract login
+			$trid_pagecode=$linesplit[2]; #extract pagecode
+			$branch=0;
 				  }
-   @livelist=(@livelist, $i); #all  transactions remain, including actual(elim. else)
+# version before ch 3.2.3 -  make tidy
+#   @livelist=(@livelist, $i); #all  transactions remain, including actual(elim. else)
   } #.end for
 
-my @extra=();
-@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
-
-my $j;
-
-foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
-@tridfile=@extra;
- 
-
-
+#ch 3.2.3 make tidy: since no manipulation is done on the transactions and no transactions are eliminated, no need for trid rewirte
+#my @extra=();
+#@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
+#
+#my $j;
+#
+#foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
+#@tridfile=@extra;
+# 
+#
+#
 } #.end unless
 if($branch) {$expired=1;} #the case of unknown transaction id
 #$expired=1;
@@ -257,8 +264,8 @@ close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 #        must be recorded in cheat_file
 #case 1: md5 correct but transaction timestamp expired, file was refreshed and wiped this transaction
 #        must be announced to user
-#case 2: md5 ok, timestamp ok, it must have been used up already
-#        must be announced to user
+#case 2: md5 ok, timestamp ok, it must (ch 3.2.3) be some sort of weird error that must be logged
+#        unexpired transactions that are used or not should be in sim_transaction
 
 #check case 0
 #incoming is like 'B00053_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ'
@@ -279,14 +286,24 @@ $heximac=compute_mac($string_trid);
 unless($heximac eq $pairs[7]) { dienice("ERR01",1,\$get_trid);}
 
 #check case 1
+
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) { 
                                              dienice("ERR02",0,\"null"); }
 
 #else is really case 2
-else { dienice("ERR03",1,\$get_trid);  }
+else { dienice("ERR03",3,\$get_trid);  }
 
 } #end of local block
 } #.end expired
+
+#ch 3.2.3 - if transaction exists and is time-valid, it does not mean it was not used
+#if transaction was used more than 10s ago: Warning error, maybe logged
+#if transaction was used less than 10s aco: return Status 204
+#if transaction is unused - proceed further
+#use timestamp_expired() (intoarce nr de secunde de cand a expirat)
+#===============.begin ch 3.2.3======================
+
+#===============.end ch 3.2.3========================
 
 } #.END extraction BLOCK
 #we have here the "logins" and the pagecode of the guy
@@ -393,9 +410,11 @@ seek(HLRfile,0,0);		# rewind
   {
 
    @linesplit=split(/ /,$tridfile[$i]);
-   if($linesplit[0] eq $get_trid) 
+#ch 3.2.3
+#   if($linesplit[0] eq $get_trid) #version before ch 3.2.3
+   if($linesplit[0] =~ /\Q$get_trid\E/)  #it can be made stronger, now does not check if it is at the beginning , please add /^\Q...
    { #our transaction, which exists and is ok
-     #will be eliminated by evaluation, doesn't enter in livelist
+     #ch 3.2.3 will NOT be eliminated by evaluation, just marked as used ///doesn't enter in livelist
    
 #foreach database
 for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions from each database
@@ -692,16 +711,10 @@ print qq!<input type="hidden" name="subtxt" value=\"(incorect) $buffertext\">\n!
 print qq!<font color="black" size="-2">In cazul in care considerati ca ceva este incorect - raspunsul,rezolvarea, sau enuntul problemei este gresit, poti sa ne notifici </font> !;
 print qq!<input type="submit" value="aici">\n!;
 
-#### Link special de transmis la troubleticket(deprecated)
-#print qq!<a href="http://localhost/cgi-bin/troubleticket.cgi?type=1&nick=$trid_login&subtxt=(incorect)$buffertext" target="kpage">\n!;
-#print qq!<b>aici</b><br>\n!;
-#print qq!</a>!;
-
 print qq!</form>\n!;
 
 }  #.end show solution 
 }  #.end wrong solution
-#print qq!</dl>\n!;  
 
 
   }#.end for $m, all questions in a chapter were seen
@@ -767,12 +780,33 @@ else {
      }
 print qq!</font></td></tr></table>\n<br>\n!;
 
-}#.end activities done with our exam trensaction
+#ch 3.2.3 - we must add to our transaction the "used" timestamp
+#========ch 3.2.3========
+my @linesplit;
+@linesplit=split(/ /,$tridfile[$i]);
+# print qq!$linesplit[0]<br>!; #debug
 
-#daca tranzactia nu e a noastra, ramane live 
-else {
-   @livelist=(@livelist, $i); #all  transactions remain, including actual
-     } 
+my @utc_time=gmtime(time);
+my $act_sec=$utc_time[0];
+my $act_min=$utc_time[1];
+my $act_hour=$utc_time[2];
+my $act_day=$utc_time[3];
+my $act_month=$utc_time[4];
+my $act_year=$utc_time[5];
+
+my $usedTimestamp = $linesplit[0].'_'.'*_'."$act_sec\_$act_min\_$act_hour\_$act_day\_$act_month\_$act_year"; #adds the used timestamp
+
+#print qq!$usedTimestamp<br>!; #debug
+$tridfile[$i] =~ s/\Q$linesplit[0]\E/$usedTimestamp/g;
+#print qq!$tridfile[$i]!; #debug
+#=========.ch 3.2.3==========
+}#.end activities done with our exam transaction
+
+#ch 3.2.3 - tranzactia e marcata ca used sau nu, ramane in tridfile
+##daca tranzactia nu e a noastra, ramane live 
+#else {
+#   @livelist=(@livelist, $i); #all  transactions remain, including actual
+#     } 
      
 } #.end for
 
@@ -786,16 +820,16 @@ print qq!</body>\n</html>\n!;
 #finishing block
 { #start block
 
-#rewrite and close transaction file
-my @extra=();
-@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
-
-my $j;
-
-foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
-@tridfile=@extra;
+#ch 3.2.3 not needed this part anymore
+#my @extra=();
+#@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
+#
+#my $j;
+#
+#foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
+#@tridfile=@extra;
   
-#write in the file;
+#rewrite and close transaction file
 truncate(transactionFILE,0);
 seek(transactionFILE,0,0);				#go to beginning of transactionfile
 
@@ -839,8 +873,9 @@ use Digest::MD5;
 
 
 #--------------------------------------
-#primeste timestamp de forma sec_min_hour_day_month_year
-#out 1-expired 0-still valid
+#primeste timestamp de forma sec_min_hour_day_month_year UTC
+#ch 3.2.3: out: seconds since expired MAX 99999, 0 = not expired.
+#ch 3.2.3: in development, not yet correct
 sub timestamp_expired
 {
 my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
@@ -852,28 +887,65 @@ my $act_hour=$utc_time[2];
 my $act_day=$utc_time[3];
 my $act_month=$utc_time[4];
 my $act_year=$utc_time[5];
-#my $debug="$x_year\? $act_year \| $x_month\?$act_month";
-#dienice("ERR04",0,\$debug);
+my $timediff;
+my $tmdff;
+
+#still unused
+my %month_days=(
+    0 => 31,	#january
+    1 => 28,	#february
+    2 => 31,	#march
+    3 => 30,	#april
+    4 => 31,	#may
+    5 => 30,    #june
+    6 => 31,	#july
+    7 => 31,	#august
+    8 => 30,	#september
+    9 => 31,	#october
+   10 => 30, 	#november
+   11 => 31     #december
+);
+my %month_bis_days=(
+    0 => 31,	#january
+    1 => 29,	#february, bisect
+    2 => 31,	#march
+    3 => 30,	#april
+    4 => 31,	#may
+    5 => 30,    #june
+    6 => 31,	#july
+    7 => 31,	#august
+    8 => 30,	#september
+    9 => 31,	#october
+   10 => 30, 	#november
+   11 => 31     #december
+);
+
+
+
 if($x_year > $act_year) {return(0);}  #valid until year increment
- elsif($x_year == $act_year){ 
- if($x_month > $act_month) {return(0);}  #valid
- elsif($x_month == $act_month){ 
- if($x_day > $act_day) {return(0);}  #it's alive one more day
- elsif($x_day == $act_day){
- if($x_hour > $act_hour) {return(0);}  #it's alive one more hour
- elsif($x_hour == $act_hour){ 
- if($x_min > $act_min) {return(0);}  #it's alive one more min
- elsif($x_min == $act_min){ 
- if($x_sec > $act_sec) {return(0);}  #it's alive one more sec
-  
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
-return(1);  #here is the general else
+else { 
+ $timediff=$act_year-$x_year; 
+ $timediff=$timediff*12+$act_month-$x_month; #in months
+ $timediff=$timediff*30+$act_day-$x_day; #in days
+ $timediff=$timediff*24+$act_hour-$x_hour; #in hours
+ $timediff=$timediff*60+$act_min-$x_min; #in minutes
+ $timediff=$timediff*60+$act_sec-$x_sec; #in seconds
+#my $debug="$x_year\? $act_year \| $x_month\?$act_month";
+
+
+ } #.end else
+return($timediff);  #here is the general return
  
 
+}
+#-------------------------------------
+#primeste un string de formatul unui transaction ID
+#intoarce 0  daca nu exista cod de used
+#intoarce nr de secunde de la secunda la care a fost folosit
+
+sub usedtrid
+{
+my ($x_trid)=@_;
 }
 #--------------------------------------
 # treat the "or die" and all error cases
@@ -893,7 +965,7 @@ my $timestring=gmtime(time);
 my %pub_errors= (
               "ERR01" => "primire de  date corupte, inregistrata in log.",
               "ERR02" => "pagina pe care ai trimis-o a expirat",
-              "ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
+              "ERR03" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
               "ERR04" => "primire de  date corupte, inregistrata in log.",
               "ERR05" => "primire de  date corupte, inregistrata in log.",
               "ERR06" => "server congestionat, incearca in cateva momente",
@@ -916,7 +988,7 @@ my %pub_errors= (
 my %int_errors= (
               "ERR01" => "transaction id has been tampered with, md5 mismatch",    #test ok
               "ERR02" => "timestamp was already expired",           #test ok
-              "ERR03" => "good transaction but already used",             #test ok
+              "ERR03" => "good and unexpired received trid but not in tridfile. Weird, under attack? Check if you can.",             
               "ERR04" => "undef transaction id",
               "ERR05" => "unstructured transaction id",
               "ERR06" => "cannot open file",
