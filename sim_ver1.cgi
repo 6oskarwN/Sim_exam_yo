@@ -184,8 +184,8 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
    @linesplit=split(/ /,$tridfile[$i]); #space is the splitter
-##BUG to be solved
-   chomp $linesplit[8]; #\n is deleted BUG! $linesplit[8] is not the last portion if the transaction is an exam transaction!
+
+   chomp $linesplit[8]; #\n is deleted $linesplit[8] is eventually the last portion if the transaction is a short one
 
 if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
 elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]))  
@@ -226,7 +226,7 @@ unless(($#tridfile == 0) || ($expired)) 		#unless transaction list is empty (but
 #ch 3.2.3 aici linesplit[0] poate sa aiba sau nu bucata de "used_timestamp" si atunci eq nu mai e eq
 #ch 3.2.3 eq sa fie transformat in match de inceput
 #  if($linesplit[0] eq $get_trid) {  #version before ch 3.2.3
-  if($linesplit[0] =~ /\Q$get_trid\E/) { #it can be made stronger, now does not check if it is at the beginning , please add /^\Q...
+  if($linesplit[0] =~ /^\Q$get_trid\E/) { #it can be made stronger, now does not check if it is at the beginning , please add /^\Q...
 			$trid_id   =$linesplit[0]; #extract transaction
 			$trid_login=$linesplit[1]; #extract login
 			$trid_pagecode=$linesplit[2]; #extract pagecode
@@ -419,7 +419,7 @@ seek(HLRfile,0,0);		# rewind
    @linesplit=split(/ /,$tridfile[$i]);
 #ch 3.2.3
 #   if($linesplit[0] eq $get_trid) #version before ch 3.2.3
-   if($linesplit[0] =~ /\Q$get_trid\E/)  #it can be made stronger, now does not check if it is at the beginning , please add /^\Q...
+   if($linesplit[0] =~ /^\Q$get_trid\E/)  #it can be made stronger, now does not check if it is at the beginning , please add /^\Q...
    { #our transaction, which exists and is ok
      #ch 3.2.3 will NOT be eliminated by evaluation, just marked as used ///doesn't enter in livelist
    
