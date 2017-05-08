@@ -894,34 +894,11 @@ my $actualTime = time();
 my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
 $timediff=$actualTime-$dateTime;
 
-#my @utc_time=gmtime(time);
-#my $act_sec=$utc_time[0];
-#my $act_min=$utc_time[1];
-#my $act_hour=$utc_time[2];
-#my $act_day=$utc_time[3];
-#my $act_month=$utc_time[4];
-#my $act_year=$utc_time[5];
-
-
-
-#if($x_year > $act_year) {return(0);}  #valid until year increment
-#else { 
-# $timediff=$act_year-$x_year; 
-# $timediff=$timediff*12+$act_month-$x_month; #in months
-# $timediff=$timediff*30+$act_day-$x_day; #in days
-# $timediff=$timediff*24+$act_hour-$x_hour; #in hours
-# $timediff=$timediff*60+$act_min-$x_min; #in minutes
-# $timediff=$timediff*60+$act_sec-$x_sec; #in seconds
-#my $debug="$x_year\? $act_year \| $x_month\?$act_month";
-
-
-# } #.end else
-
 if ($timediff < 0 ) {return (0);}
 else {return($timediff);}  #here is the general return
- 
 
-}
+} #.end sub timestamp
+
 #-------------------------------------
 #primeste un string de formatul unui transaction ID
 #intoarce 0  daca nu exista cod de used
