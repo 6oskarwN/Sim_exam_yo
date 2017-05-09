@@ -30,7 +30,7 @@
 #public authority(similar to FCC in USA) so any use of the official questions, other than
 #in Read-Only way, is prohibited. 
 
-#Made in Romania
+# Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
@@ -40,6 +40,7 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.3 implementing
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
@@ -216,9 +217,10 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions.  
   {
    @linesplit=split(/ /,$tridfile[$i]);
-   if($linesplit[0] eq $get_trid) {
+   if($linesplit[0] =~ /^\Q$get_trid\E/) {
    				   $expired=0; #found
 				   $trid_login=$linesplit[1];     #extract data
+                                   #$trid_id   =$linesplit[0];    #extract transaction
    				   $trid_pagecode=$linesplit[2];  #extract data
 				  }
 	else {

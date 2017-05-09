@@ -30,7 +30,7 @@
 #public authority(similar to FCC in USA) so any use of the official questions, other than
 #in Read-Only way, is prohibited. 
 
-#Made in Romania
+# Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
@@ -1097,9 +1097,6 @@ print qq!<li>I - avansat; Nivel maxim de putere aprobat, drept de a fi responsab
 print qq!</ul>\n!;
 }
 #=====.V3 code========
-#===== V3 =====
-#mai sus trebuie bagata  explicatia ce inseamna fiecare clasa
-#=====.V3 =====
 
 print qq!</body>\n</html>\n!;
 

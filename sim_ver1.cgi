@@ -34,13 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_ver1.cgi v 3.2.2
+#  sim_ver1.cgi v 3.2.3
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-# ch 3.2.3 implementing use_time in recorded transaction_id; timestamp_expired() changed
+# ch 3.2.3 implemented use_time in recorded transaction_id; timestamp_expired() changed
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
@@ -76,7 +76,7 @@ sub ins_gpl;                 #inserts a HTML preformatted text with the GPL lice
 my %answer=();		#hash used for depositing the answers
 my %hlrline=();		#hash used for rewriting test results in hlr
 
-my $get_trid;                   #transaction ID from GET data; it has never a "used" timestamp
+my $get_trid;                   #transaction ID from GET data; it never has an "used" timestamp
 
 my $trid_id;                    #transaction ID extracted from transaction file
 my $trid_login;       		#login extracted from transaction file
@@ -170,7 +170,7 @@ seek(transactionFILE,0,0);		#go to the beginning
 
 my $expired=0;  #flag which checks if posted transaction has expired. Set to 'not expired'
 
-#BLOCK: Refresh transaction file to eliminate expired transactions (ch 3.2.3 check OK)
+#BLOCK: Refresh transaction file to cancel expired transactions (ch 3.2.3 check OK)
 {
 my @livelist=();
 my @linesplit;
@@ -184,7 +184,6 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
    @linesplit=split(/ /,$tridfile[$i]); #space is the splitter
-
    chomp $linesplit[8]; #\n is deleted $linesplit[8] is eventually the last portion if the transaction is a short one
 
 if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
@@ -211,10 +210,9 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 #BLOCK: extract data from actual transaction but read-only
 #ch 3.2.3 - modified
 {
-#my @livelist=(); #version before ch 3.2.3
 my @linesplit;
 
-#my $expired=1;  #DEBUG  #flag which checks if transaction has expired 1=expired
+#my $expired=1;  #DEBUG  - flag which checks if transaction has expired 1=expired
   my $branch=1; #verifies if branch was taken
 unless(($#tridfile == 0) || ($expired)) 		#unless transaction list is empty (but transaction exists on first line) or posted transaction has expired
 {  
@@ -224,16 +222,12 @@ unless(($#tridfile == 0) || ($expired)) 		#unless transaction list is empty (but
    @linesplit=split(/ /,$tridfile[$i]);
 
 #ch 3.2.3 aici linesplit[0] poate sa aiba sau nu bucata de "used_timestamp" si atunci eq nu mai e eq
-#ch 3.2.3 eq sa fie transformat in match de inceput
-#  if($linesplit[0] eq $get_trid) {  #version before ch 3.2.3
-  if($linesplit[0] =~ /^\Q$get_trid\E/) { #it can be made stronger, now does not check if it is at the beginning , please add /^\Q...
-			$trid_id   =$linesplit[0]; #extract transaction
+  if($linesplit[0] =~ /^\Q$get_trid\E/) { 
 			$trid_login=$linesplit[1]; #extract login
+			$trid_id   =$linesplit[0]; #extract transaction
 			$trid_pagecode=$linesplit[2]; #extract pagecode
 			$branch=0;
 				  }
-# version before ch 3.2.3 -  make tidy
-#   @livelist=(@livelist, $i); #all  transactions remain, including actual(elim. else)
   } #.end for
 
 } #.end unless
@@ -286,7 +280,7 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
                                  }
 
 #else is really case 2
-else { dienice("ERR03",5,\$get_trid);  }
+else { dienice("ERR09",5,\$get_trid);  }
 
 } #end of local block
 } #.end expired
@@ -306,8 +300,8 @@ if ($trid_id =~ m/\*/) { #if it has the used mark
                            # dienice ("ERR20",0,\null);  #silent discard, Status 204 No Content
                         }
    else { 
-         dienice ("ERR09",1,\$trid_id); #debug - symptom catch 
-         #dienice ("ERR09",0,\null); 
+         dienice ("ERR03",1,\$trid_id); #debug - symptom catch 
+         #dienice ("ERR03",0,\null); 
         }                          
                        }
 #===============.end ch 3.2.3========================
@@ -394,7 +388,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa I</h2>\n!;
@@ -419,7 +413,7 @@ seek(HLRfile,0,0);		# rewind
    @linesplit=split(/ /,$tridfile[$i]);
 #ch 3.2.3
 #   if($linesplit[0] eq $get_trid) #version before ch 3.2.3
-   if($linesplit[0] =~ /^\Q$get_trid\E/)  #it can be made stronger, now does not check if it is at the beginning , please add /^\Q...
+   if($linesplit[0] =~ /^\Q$get_trid\E/)  
    { #our transaction, which exists and is ok
      #ch 3.2.3 will NOT be eliminated by evaluation, just marked as used ///doesn't enter in livelist
    
@@ -713,11 +707,8 @@ print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post"
 print qq!<input type="hidden" name="type" value="1">\n!;
 print qq!<input type="hidden" name="nick" value="$trid_login">\n!;
 print qq!<input type="hidden" name="subtxt" value=\"(incorect) $buffertext\">\n!;
-
-#print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi?type=1&nick=$trid_login&subtxt=(incorect)$buffertext" method="get">\n!;
 print qq!<font color="black" size="-2">In cazul in care considerati ca ceva este incorect - raspunsul,rezolvarea, sau enuntul problemei este gresit, poti sa ne notifici </font> !;
 print qq!<input type="submit" value="aici">\n!;
-
 print qq!</form>\n!;
 
 }  #.end show solution 
@@ -810,10 +801,6 @@ $tridfile[$i] =~ s/\Q$linesplit[0]\E/$usedTimestamp/g;
 }#.end activities done with our exam transaction
 
 #ch 3.2.3 - tranzactia e marcata ca used sau nu, ramane in tridfile
-##daca tranzactia nu e a noastra, ramane live 
-#else {
-#   @livelist=(@livelist, $i); #all  transactions remain, including actual
-#     } 
      
 } #.end for
 
@@ -827,14 +814,6 @@ print qq!</body>\n</html>\n!;
 #finishing block
 { #start block
 
-#ch 3.2.3 not needed this part anymore
-#my @extra=();
-#@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
-#
-#my $j;
-#
-#foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
-#@tridfile=@extra;
   
 #rewrite and close transaction file
 truncate(transactionFILE,0);
@@ -881,8 +860,8 @@ use Digest::MD5;
 
 #--------------------------------------
 #primeste timestamp de forma sec_min_hour_day_month_year UTC
-#ch 3.2.3: out: seconds since expired MAX 99999, 0 = not expired.
-#ch 3.2.3: in development, not yet correct
+#out: seconds since expired MAX 99999, 0 = not expired.
+
 sub timestamp_expired
 {
 use Time::Local;
@@ -926,13 +905,13 @@ my $timestring=gmtime(time);
 my %pub_errors= (
               "ERR01" => "primire de  date corupte, inregistrata in log.",
               "ERR02" => "pagina pe care ai trimis-o a expirat",
-              "ERR03" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
+              "ERR03" => "Acest formular de examen a fost deja evaluat",
               "ERR04" => "primire de  date corupte, inregistrata in log.",
               "ERR05" => "primire de  date corupte, inregistrata in log.",
               "ERR06" => "server congestionat, incearca in cateva momente",
               "ERR07" => "server congestion",
               "ERR08" => "tentativa de frauda, inregistrata in log",
-              "ERR09" => "Acest formular de examen a fost deja evaluat",
+              "ERR09" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
               "ERR10" => "reserved",
               "ERR11" => "reserved",
               "ERR12" => "reserved",
@@ -949,13 +928,13 @@ my %pub_errors= (
 my %int_errors= (
               "ERR01" => "transaction id has been tampered with, md5 mismatch",    #test ok
               "ERR02" => "timestamp was already expired",           #test ok
-              "ERR03" => "good and unexpired received trid but not in tridfile. Under attack?",             
+              "ERR03" => "exam already used",    #normally not logged
               "ERR04" => "undef transaction id",
               "ERR05" => "unstructured transaction id",
               "ERR06" => "cannot open file",
               "ERR07" => "cannot close file",
               "ERR08" => "cheating attempt",
-              "ERR09" => "exam already used",    #normally not logged
+              "ERR09" => "good and unexpired received trid but not in tridfile. Under attack?",             
               "ERR10" => "reserved",
               "ERR11" => "reserved",
               "ERR12" => "reserved",
@@ -996,7 +975,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
