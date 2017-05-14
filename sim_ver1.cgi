@@ -879,15 +879,6 @@ else {return($timediff);}  #here is the general return
 } #.end sub timestamp
 
 #-------------------------------------
-#primeste un string de formatul unui transaction ID
-#intoarce 0  daca nu exista cod de used
-#intoarce nr de secunde de la secunda la care a fost folosit
-
-sub usedtrid
-{
-my ($x_trid)=@_;
-}
-#--------------------------------------
 # treat the "or die" and all error cases
 #how to use it
 #$error_code is a string, you see it, this is the text selector
