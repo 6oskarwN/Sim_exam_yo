@@ -32,7 +32,7 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2016
+# (c) YO6OWN Francisc TOTH, 2008 - 2017
 
 #  sim_authent.cgi v 3.2.3 
 #  Status: devel

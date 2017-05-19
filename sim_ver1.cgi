@@ -32,7 +32,7 @@
 
 #  Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2016
+# (c) YO6OWN Francisc TOTH, 2008 - 2017
 
 #  sim_ver1.cgi v 3.2.3
 #  Status: devel
@@ -187,7 +187,7 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
    chomp $linesplit[8]; #\n is deleted $linesplit[8] is eventually the last portion if the transaction is a short one
 
 if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
-elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]))  
+elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])>0)  
                        { } # expired, do not keep it in livelist
   else { @livelist=(@livelist, $i); } # not expired, keep it
 
@@ -274,7 +274,7 @@ unless($heximac eq $pairs[7]) { dienice("ERR01",1,\$get_trid);}
 
 #check case 1
 
-elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) 
+elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])>0) 
                                  { 
                                   dienice("ERR02",0,\"null"); 
                                  }
@@ -293,7 +293,7 @@ else { dienice("ERR09",5,\$get_trid);  }
 #use timestamp_expired() (returns seconds since evaluated time)
 #===============.begin ch 3.2.3======================
 my @pairs=split(/_/,$trid_id); #reusing @pairs variable for spliting results
-if ($trid_id =~ m/\*/) { #if it has the used mark 
+if ($trid_id =~ m/\*/) { #if it has the used mark then $used_time >= 0 
   my $usedTime = timestamp_expired($pairs[9],$pairs[10],$pairs[11],$pairs[12],$pairs[13],$pairs[14]);
   if ($usedTime < 5) { #if request comes faster than 5s, might be some browser parallel request
                             dienice ("ERR20",1,\"debug fast request $usedTime seconds \, $trid_id");  #debug symptom catch
@@ -873,8 +873,7 @@ my $actualTime = time();
 my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
 $timediff=$actualTime-$dateTime;
 
-if ($timediff < 0 ) {return (0);}
-else {return($timediff);}  #here is the general return
+return($timediff);  #here is the general return
 
 } #.end sub timestamp
 
