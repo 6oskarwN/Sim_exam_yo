@@ -255,11 +255,20 @@ chomp $linesplit[5];		#otherwise $linesplit[5]='ab\n'
 
 #ACTION: if(actual_time < next_allowed_login_time) {ERR: wait 5 minutes}
 
+my $gigel= timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5]);#debug
+$gigel="$gigel timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])"; #debug
+
 if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])<0)
    {
    close(userFILE) or dienice("ERR09",1,"cant close user file"); 
-   dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
+   dienice("ERR04",3,\$gigel); #ati bagat parola gresit de multe ori, asteptati
+#   dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
    } #.end delay check
+ else {}
+ # else #debug
+ #   {
+ #  dienice("ERR04",4,\$gigel); #ati bagat parola gresit de multe ori, asteptati
+ #   }
 
 } #.end BLOCK
 
@@ -282,7 +291,7 @@ $wrong++;
 $wrong="$wrong\n";
 $slurp_userfile[$rec_pos*7+3]=$wrong;
 #ACTION: rewrite userfile
-truncate(userFILE,0);			#
+truncate(userFILE,0);			
 seek(userFILE,0,0);				#go to beginning of transactionfile
 for(my $i=0;$i <= $#slurp_userfile;$i++)
 {
@@ -387,6 +396,8 @@ dienice("ERR06",1,\"null");
 } #.end unless
 } #.end BLOCK
 
+
+
 #BLOCK:Reset expiry
 {
 #ACTION: generate account expiry time = +7 days from now
@@ -468,7 +479,6 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 
 
 
-
 #BLOCK: refresh transaction file and Generate new transaction id
 {
 #ACTION: open transaction ID file
@@ -498,18 +508,20 @@ my @linesplit;
 
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
 { #.begin unless
-  for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
+ 
+ for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
-
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted 
+
 #abandoned own exam transactions are deleted even if not expired and user is punished
  if($linesplit[1] eq  $get_login) { #for all transactions of the owner...
+
   if ($linesplit[2] =~ /[4-7]/) #...abandoned(expired or not)exam-transaction
    {   &punishment($linesplit[1]); } # the user will be punished for this
                                   }  
 
-elsif(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5]) > 0) 
+elsif(timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0) 
                 {
          #All users are punished for their _expired_ exams 
             if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
@@ -520,6 +532,8 @@ else {
      }
 
   } #.end for
+
+
 
 #dupa eventualele penalizari, se actualizeaza si inchide si userFILE
 #ACTION: rewrite userfile
@@ -542,6 +556,7 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 
 } #.end unless
 
+#=============================== end of debug zone
 
 #print qq!tridfile after refresh: @tridfile[0..$#tridfile]<br>\n!;
 
