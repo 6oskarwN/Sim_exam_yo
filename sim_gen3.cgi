@@ -34,13 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2017
 
-#  sim_gen3.cgi v 3.2.2
+#  sim_gen3.cgi v 3.2.3
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-# ch 3.2.3 implementing use_time in recorded transaction_id;timestamp_expired()
+# ch 3.2.3 implemented use_time in recorded transaction_id;timestamp_expired()
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
@@ -548,7 +548,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 #CUSTOM
 print qq!<center><font size="+2">Examen clasa III</font></center>\n!;
 #print qq!<center><font size="+1">17 raspunsuri corecte din 20 aduc promovarea</font></center><br>\n!;
@@ -1074,7 +1074,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

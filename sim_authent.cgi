@@ -261,14 +261,10 @@ $gigel="$gigel timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$line
 if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])<0)
    {
    close(userFILE) or dienice("ERR09",1,"cant close user file"); 
-   dienice("ERR04",3,\$gigel); #ati bagat parola gresit de multe ori, asteptati
+   dienice("ERR04",3,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
 #   dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
    } #.end delay check
  else {}
- # else #debug
- #   {
- #  dienice("ERR04",4,\$gigel); #ati bagat parola gresit de multe ori, asteptati
- #   }
 
 } #.end BLOCK
 
@@ -515,21 +511,27 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
    chomp $linesplit[8]; #\n is deleted 
 
 #abandoned own exam transactions are deleted even if not expired and user is punished
- if($linesplit[1] eq  $get_login) { #for all transactions of the owner...
+ if($linesplit[1] eq  $get_login)  #for all transactions of the owner...
+   {
+     if ($linesplit[2] =~ /[4-7]/) #...abandoned(expired or not)exam-transaction
+       { &punishment($linesplit[1]); } # the user will be punished for this
+     else {  #maybe its expired maybe not
+           unless(timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])>0) 
+             {@livelist=(@livelist, $i);}  #it's alive, keep it
+          }
+   }  
 
-  if ($linesplit[2] =~ /[4-7]/) #...abandoned(expired or not)exam-transaction
-   {   &punishment($linesplit[1]); } # the user will be punished for this
-                                  }  
-
-elsif(timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0) 
+ else 
+   {
+       if(timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0) 
                 {
          #All users are punished for their _expired_ exams 
             if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
             { &punishment($linesplit[1]);} # the user will be punished for this
+            #else {}
                 }
-else {
-     @livelist=(@livelist, $i);  #it's alive, keep it
-     }
+       else     { @livelist=(@livelist, $i);}  #it's alive, keep it
+   }     
 
   } #.end for
 
