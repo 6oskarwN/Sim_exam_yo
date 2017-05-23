@@ -81,7 +81,7 @@ $heximac=compute_mac($string_token);
 unless($heximac eq $pairs[7]) { dienice("ERR01",3,\$post_token);} #case of tampering
 
 #check case 1
-elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) { 
+elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])>0) { 
                                              dienice("ERR02",0,\"null"); }
 
 #check case 2
@@ -110,10 +110,20 @@ elsif ($splitline[2] eq 4){ print qq!<small><font color="white">ex. I:</font></s
 elsif ($splitline[2] eq 5){ print qq!<small><font color="white">ex. II:</font></small><br>\n!; }
 elsif ($splitline[2] eq 6){ print qq!<small><font color="white">ex. III:</font></small><br>\n!; }
 elsif ($splitline[2] eq 7){ print qq!<small><font color="white">ex. III-R:</font></small><br>\n!; }
-                         }
-                         
-print qq!<small>$fline</small><br>\n!;
-}
+
+if ($splitline[0] =~ m/\*/) {print qq!<strike>!;}
+
+if(timestamp_expired($splitline[3],$splitline[4],$splitline[5],$splitline[6],$splitline[7],$splitline[8])>0)
+  { print qq!<font color="lightgray">!;}
+ else { print qq!<font color="#7fffd4">!; }
+                         }                         
+print qq!<small>$fline</small>!;
+if (defined $splitline[2]){print qq!</font>!; }
+if ($splitline[0] =~ m/\*/) {print qq!</strike>!;}
+
+print qq!<br>\n!;
+
+} #.end while
 close (transactionFILE) or die("cant close transaction file\n");
 print qq!file closed.<br>\n!;
 print qq!----------------------------------------------<br><br>\n!;
@@ -168,44 +178,25 @@ use Digest::MD5;
     Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
 } #end of compute_mac
 
-
 #--------------------------------------
-#primeste timestamp de forma sec_min_hour_day_month_year
-#out 1-expired 0-still valid
+#primeste timestamp de forma sec_min_hour_day_month_year UTC
+#out: seconds since expired MAX 99999, 0 = not expired.
+
 sub timestamp_expired
 {
+use Time::Local;
+
 my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
 
-my @utc_time=gmtime(time);
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
-#my $debug="$x_year\? $act_year \| $x_month\?$act_month";
-#dienice("ERR04",0,\$debug);
-if($x_year > $act_year) {return(0);}  #valid until year increment
- elsif($x_year == $act_year){ 
- if($x_month > $act_month) {return(0);}  #valid
- elsif($x_month == $act_month){ 
- if($x_day > $act_day) {return(0);}  #it's alive one more day
- elsif($x_day == $act_day){
- if($x_hour > $act_hour) {return(0);}  #it's alive one more hour
- elsif($x_hour == $act_hour){ 
- if($x_min > $act_min) {return(0);}  #it's alive one more min
- elsif($x_min == $act_min){ 
- if($x_sec > $act_sec) {return(0);}  #it's alive one more sec
-  
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
-return(1);  #here is the general else
- 
+my $timediff;
+my $actualTime = time();
+my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
+$timediff=$actualTime-$dateTime;
 
-}
+return($timediff);  #here is the general return
+
+} #.end sub timestamp
+
 #--------------------------------------
 #---development---- treat the "or die" case
 #how to use it

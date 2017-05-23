@@ -30,7 +30,7 @@
 #public authority(similar to FCC in USA) so any use of the official questions, other than
 #in Read-Only way, is prohibited. 
 
-# Made in Romania 
+# Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2017
 
@@ -72,7 +72,7 @@
 use strict;
 use warnings;
 
-sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
+sub ins_gpl;                    #inserts a HTML preformatted text with the GPL license text
 
 my $get_trid;                   #transaction ID from GET data
 my $trid_id;                    #transaction ID extracted from transaction file
@@ -134,7 +134,7 @@ if(defined($stdin_value)){
 $stdin_value=~ s/\+/ /g;  #GET an POST send + but + is also character of transaction. Check for possible bug from this
 $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 $stdin_value=~ s/<*>*<*>//g; #clears html,xml tag injection
-            }
+                         }
 
 if($stdin_name eq 'transaction') {if(defined($stdin_value)){$get_trid=$stdin_value;}
                                     else{$get_trid=undef;}
@@ -882,8 +882,7 @@ print qq!<input type="hidden" name="transaction" value="$hexi">\n!;
 print qq!<input type="submit" value="EVALUARE" name="answer">\n!;
 
 print qq!</form>\n!;
-#print qq!</body>\n</html>\n!; #aici a fost loul normal
-
+#print qq!</body>\n</html>\n!; #aici a fost locul normal
 
 
 #$entry="$entry\n"; #adaugam fortat un \n
@@ -915,10 +914,6 @@ for(my $i=0;$i <= $#tridfile;$i++)
 
 #ch 3.2.3 - we must add to our transaction the "used" timestamp
 #========ch 3.2.3========
-#untested!
-#bug: nu se stie cine este $i fiindca nu suntem calare pe tranzactia consumata
-#tranzactia trebuie consumata undeva, si poate mai in fata, unde se consuma ea, dar dupa ce trece toate check-urile
-
 @linesplit=split(/ /,$tridfile[$i]);
 
   if($linesplit[0] =~ /^\Q$trid_id\E/)  

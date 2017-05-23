@@ -510,31 +510,50 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted 
 
-#abandoned own exam transactions are deleted even if not expired and user is punished
+
+#abandoned own exam transactions are revoked even if not expired and user is punished
+#other own transactions are revoked to ensure a single user session
  if($linesplit[1] eq  $get_login)  #for all transactions of the owner...
    {
+   unless($linesplit[0] =~ m/\*/) { #if not already revoked
+
      if ($linesplit[2] =~ /[4-7]/) #...abandoned(expired or not)exam-transaction
        { &punishment($linesplit[1]); } # the user will be punished for this
-     else {  #maybe its expired maybe not
-           unless(timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])>0) 
-             {@livelist=(@livelist, $i);}  #it's alive, keep it
-          }
-   }  
+        #ch 3.2.3 - we must add to our transaction the "used" timestamp
+#========ch 3.2.3========
+        my @utc_time=gmtime(time);
+        my $act_sec=$utc_time[0];
+        my $act_min=$utc_time[1];
+        my $act_hour=$utc_time[2];
+        my $act_day=$utc_time[3];
+        my $act_month=$utc_time[4];
+        my $act_year=$utc_time[5];
+        my $usedTimestamp = $linesplit[0].'_'.'*_'."$act_sec\_$act_min\_$act_hour\_$act_day\_$act_month\_$act_year"; #adds the used timestamp
 
- else 
-   {
-       if(timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0) 
-                {
-         #All users are punished for their _expired_ exams 
+        $tridfile[$i] =~ s/\Q$linesplit[0]\E/$usedTimestamp/g;
+       }#.end unless
+#=========.ch 3.2.3==========
+ 
+   }  #.end if it's own transaction
+
+#for all transactions: keep only unexpired
+#punish all expired and unrevoked exams
+
+if(timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0) 
+  {
+   #All users are punished for their _expired_unrevoked_ exams, then forgotten 
+   unless($linesplit[0] =~ m/\*/)  #if not already used and punished
+         {
             if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
             { &punishment($linesplit[1]);} # the user will be punished for this
-            #else {}
-                }
+            
+         } #.end unless
+          #expired non-exam transactions are forgotten
+          #else {}
+  } #.end if expired
        else     { @livelist=(@livelist, $i);}  #it's alive, keep it
-   }     
 
   } #.end for
-
 
 
 #dupa eventualele penalizari, se actualizeaza si inchide si userFILE
