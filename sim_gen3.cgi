@@ -97,10 +97,10 @@ my $hlrclass="blabla123";	#clasa1,2,3,clasa4(=3r) defined by first line in hlrfi
 
 $server_ok=1;                   #we suppose at the beginning a free server
 
+my $buffer=();
 
 #BLOCK: Input:transaction ID
 {
-my $buffer=();
 my @pairs;
 my $pair;
 my $stdin_name;
@@ -122,6 +122,7 @@ read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology
      }
 
 #inainte de split, $buffer citit ar trebui confruntat cu un regexp pt sintaxa
+#aici
 
 @pairs=split(/&/, $buffer); #POST-technology
 
@@ -287,13 +288,13 @@ else { dienice("ERR09",5,\$get_trid);  }
 my @pairs=split(/_/,$trid_id); #reusing @pairs variable for spliting results
 if ($trid_id =~ m/\*/) { #if it has the used mark 
   my $usedTime = timestamp_expired($pairs[9],$pairs[10],$pairs[11],$pairs[12],$pairs[13],$pairs[14]);
-  if ($usedTime < 5) { #if request comes faster than 5s, might be some browser parallel request
-                            dienice ("ERR20",1,\"debug fast request $usedTime seconds \, $trid_id");  #debug symptom catch
-                           # dienice ("ERR20",0,\null);  #silent discard, Status 204 No Content
+  if ($usedTime < 10) { #if request comes faster than 10s, might be some browser parallel request
+                           # dienice ("ERR20",1,\"debug fast request $usedTime seconds \, $trid_id postdata: $buffer");  #debug symptom catch
+                            dienice ("ERR20",0,\"null");  #silent discard, Status 204 No Content
                         }
    else { 
-         dienice ("ERR15",1,\$trid_id); #debug - symptom catch 
-         #dienice ("ERR15",0,\null); 
+         #dienice ("ERR15",1,\$trid_id); #debug - symptom catch 
+         dienice ("ERR15",0,\"null"); 
         }                          
                        }
 #===============.end ch 3.2.3========================
