@@ -30,17 +30,18 @@
 #public authority(similar to FCC in USA) so any use of the official questions, other than
 #in Read-Only way, is prohibited. 
 
-#Made in Romania
+# Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2016
+# (c) YO6OWN Francisc TOTH, 2008 - 2017
 
-#  sim_authent.cgi v 3.2.2 
+#  sim_authent.cgi v 3.2.3 
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.2.3 integrated sub timestamp_expired() 
 # ch 3.2.2 3x login failure block is logged for probing if DoS on existing accounts are made.
 # ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
@@ -150,13 +151,6 @@ open(userFILE,"+< sim_users") or dienice("ERR08",1,\"can't open sim_users");				
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
-
 my @livelist=();
 my @linesplit;
 
@@ -165,48 +159,28 @@ unless($#slurp_userfile < 0) 		#unless  userlist is empty
   for(my $account=0; $account < (($#slurp_userfile+1)/7); $account++)	#check userlist, account by account
   {
    @linesplit=split(/ /,$slurp_userfile[$account*7+4]); #extract time line
-#===========V3==============================
+
 # aici trebuie extras numele userilor pe rand pentru faza de unlink hlr files pentru expirati 
  $hlr_filename=$slurp_userfile[$account*7+0];
  chomp $hlr_filename;
  $hlr_filename =~ s/\//\@slash\@/; # spec char / is replaced
-#===========================================
+
    chomp $linesplit[5];		#otherwise $linesplit[5]='ab\n'
+
+#if user valability expired, delete user and its eventual HLR record
+#if user not expired, keep it.
     
-if($linesplit[5] > $act_year) {@livelist=(@livelist, $account);}  #it's alive one more year, keep it in the list
-elsif($linesplit[5] == $act_year){
-if($linesplit[4] > $act_month) {@livelist=(@livelist, $account);}  #it's alive one more month, keep it in the list
-elsif($linesplit[4] == $act_month){
-if($linesplit[3] > $act_day) {@livelist=(@livelist, $account);}  #it's alive one more day, keep it in the list
-elsif($linesplit[3] == $act_day){
-if($linesplit[2] > $act_hour) {@livelist=(@livelist, $account);}  #it's alive one more hour, keep it in the list
-elsif($linesplit[2] == $act_hour){
-if($linesplit[1] > $act_min) {@livelist=(@livelist, $account);}  #it's alive one more minute, keep it in the list
-elsif($linesplit[1] == $act_min){
-if($linesplit[0] > $act_sec) {@livelist=(@livelist, $account);}  #it's alive one more second, keep it in the list
-else {if(-e "hlr/$hlr_filename") {unlink("hlr/$hlr_filename");}} #V3 mod
+if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5]) > 0) 
+         {
+           if(-e "hlr/$hlr_filename") {unlink("hlr/$hlr_filename");}
+         } 
+else     {
+         @livelist=(@livelist,$account);
+         }
 
- } #.end elsif min
-else {if(-e "hlr/$hlr_filename") {unlink("hlr/$hlr_filename");}}#V3 mod
-
- } #.end elsif hour
-else {if(-e "hlr/$hlr_filename") {unlink("hlr/$hlr_filename");}}#V3 mod
-
- } #.end elsif day
-else {if(-e "hlr/$hlr_filename") {unlink("hlr/$hlr_filename");}}#V3 mod
-
- } #.end elsif month
-else {if(-e "hlr/$hlr_filename") {unlink("hlr/$hlr_filename");}}#V3 mod
-
- } #.end elsif year
-else {if(-e "hlr/$hlr_filename") {unlink("hlr/$hlr_filename");}}#V3 mod
    
   } #.end for
 
-#===========V3==============================
-# un else {} general 'it's not alive' - aici se face unlink(); 
-# functioneaza, dar trebuie verificata corectitudinea pentru toate cazurile
-#===========================================
 
 ##we have now the list of the live user accounts
 #print "@livelist[0..$#livelist]\n";   #debug only
@@ -273,12 +247,6 @@ dienice("ERR03",0,\"null"); #normally not logged
 
 #BLOCK: time > next_login_time? Login delayed or not?
 {
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
 
 my @linesplit;
 
@@ -287,30 +255,16 @@ chomp $linesplit[5];		#otherwise $linesplit[5]='ab\n'
 
 #ACTION: if(actual_time < next_allowed_login_time) {ERR: wait 5 minutes}
 
-my $truth=1; 
- if($linesplit[5] > $act_year) {$truth=0;}  
- elsif($linesplit[5] == $act_year){
- if($linesplit[4] > $act_month) {$truth=0;} 
- elsif($linesplit[4] == $act_month){
- if($linesplit[3] > $act_day) {$truth=0;}  
- elsif($linesplit[3] == $act_day){
- if($linesplit[2] > $act_hour) {$truth=0;} 
- elsif($linesplit[2] == $act_hour){
- if($linesplit[1] > $act_min) {$truth=0;}  
- elsif($linesplit[1] == $act_min){
- if($linesplit[0] > $act_sec) {$truth=0;}  
- 
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
+my $gigel= timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5]);#debug
+$gigel="$gigel timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])"; #debug
 
-unless($truth)         #if login is to be delayed
-{
-close(userFILE) or dienice("ERR09",1,"cant close user file"); 
-dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
-} #.end unless
+if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])<0)
+   {
+   close(userFILE) or dienice("ERR09",1,"cant close user file"); 
+   dienice("ERR04",3,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
+#   dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
+   } #.end delay check
+ else {}
 
 } #.end BLOCK
 
@@ -333,7 +287,7 @@ $wrong++;
 $wrong="$wrong\n";
 $slurp_userfile[$rec_pos*7+3]=$wrong;
 #ACTION: rewrite userfile
-truncate(userFILE,0);			#
+truncate(userFILE,0);			
 seek(userFILE,0,0);				#go to beginning of transactionfile
 for(my $i=0;$i <= $#slurp_userfile;$i++)
 {
@@ -438,6 +392,8 @@ dienice("ERR06",1,\"null");
 } #.end unless
 } #.end BLOCK
 
+
+
 #BLOCK:Reset expiry
 {
 #ACTION: generate account expiry time = +7 days from now
@@ -519,7 +475,6 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 
 
 
-
 #BLOCK: refresh transaction file and Generate new transaction id
 {
 #ACTION: open transaction ID file
@@ -542,84 +497,64 @@ if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
 else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
 
 
-#ACTION: refresh transaction NON-STANDARD: 
-#this will be changed in next version: it will increase the faults instead of dying. don't understand...
+#ACTION: refresh transactions
 
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
 my @livelist=();
 my @linesplit;
 
-#UNSTABLE FROM HERE
-
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
 { #.begin unless
-  for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
+ 
+ for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
-
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted 
-#abandoned own transactions are deleted even if expired or not - abandoned exams are punished
- if($linesplit[1] eq  $get_login) { #for all transactions of the owner...
-  if ($linesplit[2] =~ /[4-7]/) #...abandoned(expired or not)exam-transaction
-   {   &punishment($linesplit[1]); } # the user will be punished for this
-                                  } #
- elsif($linesplit[8] > $act_year) {@livelist=(@livelist, $i);}  #it's alive one more year, keep it in the list
- elsif($linesplit[8] == $act_year){
- if($linesplit[7] > $act_month) {@livelist=(@livelist, $i);}  #it's alive one more month, keep it in the list
- elsif($linesplit[7] == $act_month){
- if($linesplit[6] > $act_day) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[6] == $act_day){
- if($linesplit[5] > $act_hour) {@livelist=(@livelist, $i);}  #it's alive one more hour, keep it in the list
- elsif($linesplit[5] == $act_hour){
- if($linesplit[4] > $act_min) {@livelist=(@livelist, $i);}  #it's alive one more minute, keep it in the list
- elsif($linesplit[4] == $act_min){
- if($linesplit[3] > $act_sec) {@livelist=(@livelist, $i);}  #it's alive one more second, keep it in the list
-else {
-#it's time-expired... 
-if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
-   {   &punishment($linesplit[1]); } # the user will be punished for this
-     } #transaction is expired
- } #.end elsif min
-else {
-#it's time-expired... 
-if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
-   {   &punishment($linesplit[1]); } # the user will be punished for this
-     } #transaction is expired
- } #.end elsif hour
-else {
-#it's time-expired... 
-if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
-   {   &punishment($linesplit[1]); } # the user will be punished for this
-     } #transaction is expired
- } #.end elsif day
-else {
-#it's time-expired... 
-if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
-   {   &punishment($linesplit[1]); } # the user will be punished for this
-     } #transaction is expired
- } #.end elsif month
-else {
-#it's time-expired... 
-if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
-   {   &punishment($linesplit[1]); } # the user will be punished for this
-     } #transaction is expired
-
- } #.end elsif year
-
-else {
-#it's time-expired... 
-if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
-   {   &punishment($linesplit[1]); } # the user will be punished for this
-     } #transaction is expired
 
 
-  
+#abandoned own exam transactions are revoked even if not expired and user is punished
+#other own transactions are revoked to ensure a single user session
+ if($linesplit[1] eq  $get_login)  #for all transactions of the owner...
+   {
+   unless($linesplit[0] =~ m/\*/) { #if not already revoked
+
+     if ($linesplit[2] =~ /[4-7]/) #...abandoned(expired or not)exam-transaction
+       { &punishment($linesplit[1]); } # the user will be punished for this
+        #ch 3.2.3 - we must add to our transaction the "used" timestamp
+#========ch 3.2.3========
+        my @utc_time=gmtime(time);
+        my $act_sec=$utc_time[0];
+        my $act_min=$utc_time[1];
+        my $act_hour=$utc_time[2];
+        my $act_day=$utc_time[3];
+        my $act_month=$utc_time[4];
+        my $act_year=$utc_time[5];
+        my $usedTimestamp = $linesplit[0].'_'.'*_'."$act_sec\_$act_min\_$act_hour\_$act_day\_$act_month\_$act_year"; #adds the used timestamp
+
+        $tridfile[$i] =~ s/\Q$linesplit[0]\E/$usedTimestamp/g;
+       }#.end unless
+#=========.ch 3.2.3==========
+ 
+   }  #.end if it's own transaction
+
+#for all transactions: keep only unexpired
+#punish all expired and unrevoked exams
+
+if(timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0) 
+  {
+   #All users are punished for their _expired_unrevoked_ exams, then forgotten 
+   unless($linesplit[0] =~ m/\*/)  #if not already used and punished
+         {
+            if ($linesplit[2] =~ /[4-7]/) #...exam-transaction
+            { &punishment($linesplit[1]);} # the user will be punished for this
+            
+         } #.end unless
+          #expired non-exam transactions are forgotten
+          #else {}
+  } #.end if expired
+       else     { @livelist=(@livelist, $i);}  #it's alive, keep it
+
   } #.end for
+
 
 #dupa eventualele penalizari, se actualizeaza si inchide si userFILE
 #ACTION: rewrite userfile
@@ -642,10 +577,12 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 
 } #.end unless
 
+#=============================== end of debug zone
 
 #print qq!tridfile after refresh: @tridfile[0..$#tridfile]<br>\n!;
 
 #ACTION: generate a new transaction for anonymous
+#for anonymous? or for the known user
 
 #print qq!generate new transaction<br>\n!;
 my $exp_sec=$utc_time[0];
@@ -753,7 +690,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -1097,9 +1034,6 @@ print qq!<li>I - avansat; Nivel maxim de putere aprobat, drept de a fi responsab
 print qq!</ul>\n!;
 }
 #=====.V3 code========
-#===== V3 =====
-#mai sus trebuie bagata  explicatia ce inseamna fiecare clasa
-#=====.V3 =====
 
 print qq!</body>\n</html>\n!;
 
@@ -1148,6 +1082,29 @@ use Digest::MD5;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
     Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
 } #end of compute_mac
+
+#--------------------------------------
+#primeste timestamp de forma sec_min_hour_day_month_year UTC
+#out: seconds since expired MAX 99999, 0 = not expired.
+
+sub timestamp_expired
+{
+use Time::Local;
+
+my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
+
+my $timediff;
+my $actualTime = time();
+my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
+$timediff=$actualTime-$dateTime;
+
+#if ($timediff < 0 ) {return (0);}
+#else {return($timediff);}  #here is the general return
+
+return($timediff);  #here is the general return
+
+} #.end sub timestamp
+
 #-------------------------------------
 # treat the "or die" and all error cases
 #how to use it
@@ -1229,7 +1186,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne notificati prin sistemul de raportare.</center>\n!;
