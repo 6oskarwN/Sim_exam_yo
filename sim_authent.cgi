@@ -117,8 +117,8 @@ my $stdin_value;
 #verificare ca sa existe exact 2 perechi: login si passwd
 unless($#pairs == 1) #exact 2 perechi: p0 si p1
 {
-my $err_harvester = $ENV{'QUERY_STRING'}; #se poate citi query string de oricate ori?
-dienice("ERR01",1,\$err_harvester); #insert reason and data in cheat log 
+#my $err_harvester = $ENV{'QUERY_STRING'}; #se poate citi query string de oricate ori?
+dienice("ERR01",0,\"null"); #insert reason and data in cheat log 
 }
 #end number consistency check
 
@@ -261,7 +261,7 @@ $gigel="$gigel timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$line
 if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])<0)
    {
    close(userFILE) or dienice("ERR09",1,"cant close user file"); 
-   dienice("ERR04",3,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
+   dienice("ERR04",0,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
 #   dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
    } #.end delay check
  else {}
@@ -1120,7 +1120,7 @@ my $timestring=localtime(time);
 
 #textul pentru public
 my %pub_errors= (
-              "ERR01" => "primire de  date corupte, inregistrata in log.",
+              "ERR01" => "primire de  date corupte.",
               "ERR02" => "primire de date corupte",
               "ERR03" => "Credentiale incorecte.<br><br>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 7 zile, contul tau s-a sters automat",
               "ERR04" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
