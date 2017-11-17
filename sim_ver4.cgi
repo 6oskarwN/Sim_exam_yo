@@ -34,7 +34,7 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2017
 
-#  sim_ver2.cgi v 3.2.3
+#  sim_ver3r.cgi v 3.2.3
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
@@ -207,8 +207,7 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 
 } #.END BLOCK
 
-#BLOCK: extract data from actual transaction but read-only
-#ch 3.2.3 - modified
+#BLOCK: extract data from actual transaction and do not delete it
 {
 my @linesplit;
 
@@ -343,8 +342,8 @@ if($slurp_userfile[$account*7+0] eq "$trid_login\n") #this is the user record we
 #close user file; will reopen it if needed
 close(userFILE) or dienice("ERR07",1,\"can't close user database"); 
 
-#ACTION: check request clearances pagecode == 5 and tip cont == 0/2&&notused)
-unless($trid_pagecode == 5 && ($user_tipcont == 0 || $user_tipcont == 2 && $user_lastresult == 0)) #CUSTOM: invoked from examIIIR page
+#ACTION: check request clearances pagecode == 7 and tip cont == 0/4&&notused)
+unless($trid_pagecode == 7 && ($user_tipcont == 0 || $user_tipcont == 4 && $user_lastresult == 0)) #CUSTOM: invoked from examIIIR page
 {
 #ACTION: close all resources
 truncate(transactionFILE,0);
@@ -359,17 +358,17 @@ close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 
 #ACTION: append cheat symptoms in cheat file
 #CUSTOM
-my $cheatmsg="$trid_login (study level: $user_tipcont) from pagecode $trid_pagecode invoked evaluation of exam II";
+my $cheatmsg="$trid_login (study level: $user_tipcont) from pagecode $trid_pagecode invoked evaluation of exam III-R";
 dienice("ERR08",3,\$cheatmsg);
 }
 
 #All clearances ok, prep to evaluate results
 
 #CUSTOM 
-my @database=("db_tech2","db_ntsm","db_op2","db_legis2");       #set the name of used databases and their order
-my @qcount=(20,10,8,25); #number of questions generated on each chapter
-my @mincount=(15,7,6,20); #minimum number of good answers per chapter
-my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #chapter names
+my @database=("db_ntsm","db_op3r","db_legis3r");       #set the name of used databases and their order
+my @qcount=(10,8,20); #number of questions generated on each chapter
+my @mincount=(7,6,15); #minimum number of good answers per chapter
+my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #chapter names
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 my $f_failed=0;         #flag, start assuming that exam is taken
 my @linesplit;
@@ -390,7 +389,7 @@ ins_gpl();
 print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
-print qq!<h2 align="center">Rezultate Examen clasa II</h2>\n!;
+print qq!<h2 align="center">Rezultate Examen clasa III-R</h2>\n!;
 #print qq!<h2 align="center">evaluare</font></h2>\n!;
 print qq!<h4 align="center">rezultatul final se afla in partea de jos a a paginii.</h4>\n!;
 #===================V3============
@@ -828,7 +827,7 @@ close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 if ($f_failed)
 {unless($user_tipcont == 0) {$slurp_userfile[$user_account*7+6]="5\n";}}
 else 
-{ $slurp_userfile[$user_account*7+6]="2\n";} #custom
+{ $slurp_userfile[$user_account*7+6]="4\n";} #custom
 
 #open userfile for write
 open(userFILE,"+< sim_users") or dienice("ERR06",1,\"can't open user file");	#open user file for writing
@@ -948,7 +947,7 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_ver2.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_ver3r.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state

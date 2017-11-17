@@ -296,7 +296,6 @@ my @pairs=split(/_/,$trid_id); #reusing @pairs variable for spliting results
 if ($trid_id =~ m/\*/) { #if it has the used mark then $used_time >= 0 
   my $usedTime = timestamp_expired($pairs[9],$pairs[10],$pairs[11],$pairs[12],$pairs[13],$pairs[14]);
   if ($usedTime < 10) { #if request comes faster than 10s, might be some browser parallel request
-                           #dienice ("ERR20",1,\"debug fast request $usedTime seconds \, $trid_id");  #debug symptom catch
                            dienice ("ERR20",0,\"null");  #silent discard, Status 204 No Content
                         }
    else { 
