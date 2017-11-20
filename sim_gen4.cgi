@@ -92,7 +92,7 @@ my @slurp_userfile;            	#RAM-userfile
 my $attempt_counter;	        #attempts in opening or closing files; 5 attempts allowed
 my $server_ok;			#flag; 1-server free; 0-server congested
 
-my $hlrclass="blabla123";	#clasa1,2,3,clasa4(=3r) defined by first line in hlrfile  
+my $hlrclass="blabla123";	#clasa1,2,3,clasa4 defined by first line in hlrfile  
 				#hlrclass init=7 is just not to have undefined
 
 $server_ok=1;                   #we suppose at the beginning a free server
@@ -351,7 +351,7 @@ open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("ERR07",1,\"null");
 
 #flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
-printf HLRfile "clasa4\n"; #se inscrie examenul de clasa3r #CUSTOM  
+printf HLRfile "clasa4\n"; #se inscrie examenul de clasa4 #CUSTOM  
 printf HLRfile "\n\n\n"; #bagat linii pt 3 probe #CUSTOM
 close(HLRfile);
   }
@@ -518,7 +518,7 @@ my $masked_index=0;   #index of the question in <form>; init with 0 if appropria
 my $watchdog=0;
 #CUSTOM for class III-R
 #protectia muncii 10, operare 8, legislatie 20 #CUSTOM
-my @database=("db_ntsm","db_op3r","db_legis3r");       #CUSTOM set the name of used databases and their order
+my @database=("db_ntsm","db_op4","db_legis4");       #CUSTOM set the name of used databases and their order
 my @qcount=(10,8,20); #CUSTOM number of questions generated on each chapter
 my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #CUSTOM chapter names
 
@@ -533,7 +533,7 @@ my $rindex;	#rucksack index
 my %hlrline;    #hlr-hash for the corresponding line of hlr
 my @splitter;	#cu el manipulam v3code din linia intrebarii
 #contains list with files containing only v3-codes
-my @strips=("strip_db_ntsm","strip_db_op3r","strip_db_legis3r");#CUSTOM
+my @strips=("strip_db_ntsm","strip_db_op4","strip_db_legis4");#CUSTOM
 my @slurp_strip;  #slurped content of such a file
 my $fallback;	#flag for generating exam for training users, when db is exhausted
 my $found;
@@ -554,7 +554,7 @@ print qq!<center><font size="+2">Examen clasa III-R</font></center>\n!;
 #print qq!<center><font size="+1">17 raspunsuri corecte din 20 aduc promovarea</font></center><br>\n!;
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
 print qq!<center><font size="+1">Timpul alocat examenului este de 2 ore.</font></center><br>\n!;
-print qq!<form action="http://localhost/cgi-bin/sim_ver3r.cgi" method="post">\n!; #CUSTOM
+print qq!<form action="http://localhost/cgi-bin/sim_ver4.cgi" method="post">\n!; #CUSTOM
 
 #==========================v3==
 # if hlrfile (-e) usertype==0(antrenament) and hlr class='clasa1') openfile and skip first line
@@ -1053,7 +1053,7 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_gen3r.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_gen4.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 if($error_code eq 'ERR20') #must be silently discarded

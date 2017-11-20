@@ -92,7 +92,7 @@ my @slurp_userfile;            	#RAM-userfile
 my $attempt_counter;	        #attempts in opening or closing files; 5 attempts allowed
 my $server_ok;			#flag; 1-server free; 0-server congested
 
-my $hlrclass="blabla123";	#clasa1,2,3,clasa4(=3r) defined by first line in hlrfile  
+my $hlrclass="blabla123";	#clasa1,2,3,clasa4 defined by first line in hlrfile  
 				#hlrclass init=7 is just not to have undefined
 
 $server_ok=1;                   #we suppose at the beginning a free server

@@ -719,14 +719,20 @@ if($hlrclass eq 'clasa1')
   {
  @materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
  @strips=("strip_db_tech1","strip_db_ntsm","strip_db_op1","strip_db_legis1");}
- elsif($hlrclass eq 'clasa2'){@materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
- @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2");}
- elsif($hlrclass eq 'clasa3'){@materii=("prog_CEPT_Novice_radiotehnica","prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
- @strips=("strip_db_tech3","strip_db_ntsm","strip_db_op3","strip_db_legis3");}
- elsif($hlrclass eq 'clasa4'){@materii=("prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
- @strips=("strip_db_ntsm","strip_db_op3r","strip_db_legis3r");
-  }
-  else {# this else should never be executed
+
+ elsif($hlrclass eq 'clasa2')
+       {@materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
+        @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2");}
+
+ elsif($hlrclass eq 'clasa3')
+       {@materii=("prog_CEPT_Novice_radiotehnica","prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
+        @strips=("strip_db_tech3","strip_db_ntsm","strip_db_op3","strip_db_legis3");}
+
+ elsif($hlrclass eq 'clasa4')
+       {@materii=("prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
+       @strips=("strip_db_ntsm","strip_db_op4","strip_db_legis4");}
+
+ else {# this else should never be executed
 	dienice("ERR07",1,\$hlrclass);
        }# this else should never be executed
 
@@ -756,7 +762,7 @@ print qq!<td align="center">!;
 elsif($slurp_userfile[$rec_pos*7+5] eq "1\n") {print qq!Examen clasa I!;} 
 elsif($slurp_userfile[$rec_pos*7+5] eq "2\n") {print qq!Examen clasa II!;} 
 elsif($slurp_userfile[$rec_pos*7+5] eq "3\n") {print qq!Examen clasa III!;} 
-elsif($slurp_userfile[$rec_pos*7+5] eq "4\n") {print qq!Examen clasa III-R!;} 
+elsif($slurp_userfile[$rec_pos*7+5] eq "4\n") {print qq!Examen clasa IV!;} 
 else{ print qq!cod eronat!;}
 print qq!</td>\n!;
 
@@ -770,7 +776,7 @@ if($slurp_userfile[$rec_pos*7+6] eq "0\n") {print qq!Niciun examen promovat inca
 elsif($slurp_userfile[$rec_pos*7+6] eq "1\n") {print qq!clasa I!;} 
 elsif($slurp_userfile[$rec_pos*7+6] eq "2\n") {print qq!clasa II!;} 
 elsif($slurp_userfile[$rec_pos*7+6] eq "3\n") {print qq!clasa III!;} 
-elsif($slurp_userfile[$rec_pos*7+6] eq "4\n") {print qq!clasa III-R!;} 
+elsif($slurp_userfile[$rec_pos*7+6] eq "4\n") {print qq!clasa IV!;} 
 elsif($slurp_userfile[$rec_pos*7+6] eq "5\n") {print qq!NEPROMOVAT!;} 
 else{ print qq!cod eronat!;}
 if($slurp_userfile[$rec_pos*7+5] ne "0\n" && $slurp_userfile[$rec_pos*7+6] ne "0\n" ){
@@ -793,9 +799,9 @@ print qq!<td align="center" width="23%" bgcolor="red">\n!;}
 else {print qq!<td align="center" width="23%">\n!;}
 #===== .V3 code =====
 
-#examenul III-R apare doar pentru cont training si oneshot nefolosit
-  print qq!<form action="http://localhost/cgi-bin/sim_gen3r.cgi" method="post">\n!;
-  print qq!<center><input type="submit" value="EXAM cl.III-R"!;
+#examenul IV apare doar pentru cont training si oneshot nefolosit
+  print qq!<form action="http://localhost/cgi-bin/sim_gen4.cgi" method="post">\n!;
+  print qq!<center><input type="submit" value="EXAM cl.IV"!;
 unless(($slurp_userfile[$rec_pos*7+5] eq "0\n")||(($slurp_userfile[$rec_pos*7+5] eq "4\n")&&($slurp_userfile[$rec_pos*7+6] eq "0\n")))  
  { print qq! disabled="y"!;}  
   print qq!></center>\n!;
@@ -1027,7 +1033,7 @@ close(HLRfile);
 else #daca nu are history, afisam ce insemna clasele de autorizare 
 {
 print qq!<ul>\n!;
-print qq!<li>III-R - incepator Restrans; Drept de a opera doar sub supravegherea unui radioamator de clasa III, II sau I.\n!;
+print qq!<li>IV - incepator; Drept de a opera doar sub supravegherea unui radioamator de clasa III, II sau I.\n!;
 print qq!<li>III - incepator; Drept de a lucra in toate benzile.\n!;
 print qq!<li>II - avansat; Drept de a opera in toate benzile cu putere sporita.\n!;
 print qq!<li>I - avansat; Nivel maxim de putere aprobat, drept de a fi responsabil de statie colectiva.\n!;

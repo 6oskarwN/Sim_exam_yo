@@ -34,7 +34,7 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2017
 
-#  sim_ver3r.cgi v 3.2.3
+#  sim_ver4.cgi v 3.2.3
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
@@ -365,7 +365,7 @@ dienice("ERR08",3,\$cheatmsg);
 #All clearances ok, prep to evaluate results
 
 #CUSTOM 
-my @database=("db_ntsm","db_op3r","db_legis3r");       #set the name of used databases and their order
+my @database=("db_ntsm","db_op4","db_legis4");       #set the name of used databases and their order
 my @qcount=(10,8,20); #number of questions generated on each chapter
 my @mincount=(7,6,15); #minimum number of good answers per chapter
 my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #chapter names
@@ -947,7 +947,7 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_ver3r.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_ver4.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
