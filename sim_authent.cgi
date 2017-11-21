@@ -112,7 +112,23 @@ my $pair;
 my $stdin_name;
 my $stdin_value;
 
-@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+# Read input text, POST or GET
+  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case
+  if($ENV{'REQUEST_METHOD'} eq "GET")
+      {
+      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
+      }
+## end of GET
+
+else    {
+	read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+        }
+#this else is not really nice but it's correct for the moment.
+
+
+
+@pairs=split(/&/, $buffer); #POST-technology
+#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
 
 #verificare ca sa existe exact 2 perechi: login si passwd
 unless($#pairs == 1) #exact 2 perechi: p0 si p1
@@ -1145,7 +1161,7 @@ my %pub_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR20" => "silent discard, not displayed"	
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -1168,7 +1184,7 @@ my %int_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "reserved",
-              "ERR20" => "reserved"
+	      "ERR20" => "silent discard, not logged"
                 );
 
 
@@ -1185,7 +1201,13 @@ printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: sim_authent.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which fo$
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
@@ -1200,7 +1222,7 @@ print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 print qq!</body>\n</html>\n!;
-
+}
 exit();
 
 } #end sub

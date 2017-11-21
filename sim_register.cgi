@@ -708,7 +708,7 @@ print "<br>\n";
 
 print "<center>Acum puteti sa va autentificati cu noile date.</center>\n";
 print qq!<center>\n!;
-print qq!<form action="http://localhost/cgi-bin/sim_authent.cgi" method="get">\n!;
+print qq!<form action="http://localhost/cgi-bin/sim_authent.cgi" method="post">\n!;
 print qq!<input type="hidden" name="login"  value="$post_login">!;
 print qq!<input type="hidden" name="passwd" value="$post_passwd1">!;
 print qq!<center><INPUT type="submit"  value="OK"> </center>!;
