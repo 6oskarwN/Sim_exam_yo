@@ -1,18 +1,17 @@
-programa CEPT Entry-Class - cunostinte de trafic, clasa IV [v3.00]
+programa CEPT Entry-Class - Norme Tehnice de Siguranta, clasa IV [v3.00]
 
-PROGRAMA DE EXAMINARE
-pentru obtinerea certificatului armonizat de radioamator 
+PROGRAMA DE EXAMINARE pentru obtinerea certificatului armonizat de radioamator 
 CEPT ENTRY-CLASS
 
 Implementare a Raportului CEPT ERC 89, elaborat in 2006
 
-Descarca Raportul CEPT ERC 89 (Ctrl + Click)
 
 1.	ASPECTE PRACTICE DE OPERARE
 
 a)	Familiarizarea cu reglajele unui receptor, emitator sau a unei statii de emisie-receptie
-i.	Alimentarea si oprirea alimentarii, selectarea de banda, acordul si afisarea frecventei, volumul, nivelul si afisarea puterii, castigul microfonului etc.
+111&i.	Alimentarea si oprirea alimentarii, selectarea de banda, acordul si afisarea frecventei, volumul, nivelul si afisarea puterii, castigul microfonului etc.
 
+<small><i>
 b)	Operarea in HF
 i.	Acordul in USB si LSB
 ii.	Efectuarea apelurilor initiale, apelarea CQ
@@ -76,15 +75,15 @@ iv.	Tipuri de putere si emisii
 v.	Imunitatea
 vi.	Aspecte sociale
 vii.	Surse de asistenta
-
+</i></small>
 g)	Considerente de siguranta
-i.	Tensiuni si curenti inalti
-ii.	Mufe de alimentare si de legare la pamant
-iii.	Accidente
-iv.	Localizarea antenei
-v.	Baterii
-vi.	Generalitati privind pericolul de electrocutare
-
+271&i.	Tensiuni si curenti inalti
+272&ii.	Mufe de alimentare si de legare la pamant
+273&iii.	Accidente
+274&iv.	Localizarea antenei
+275&v.	Baterii
+276&vi.	Generalitati privind pericolul de electrocutare
+<small></i>
 h)	Conditii de autorizare si utilizarea spectrului
 i.	Caracterul necomercial si auto-instruire privind comunicatiile radio
 ii.	Clasele de autorizare
@@ -95,5 +94,6 @@ vi.	Fara utilizarea codurilor secrete pentru a ascunde intelesul comunicarii
 vii.	Interdictia privind radiodifuzarea si transmiterea de muzica
 viii.	Autorizatia este personala
 ix.	Cerintele privind schimbarea de adresa
-x.	Obligatia de a permite controlul
 
+x.	Obligatia de a permite controlul
+</i></small>

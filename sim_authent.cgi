@@ -745,8 +745,8 @@ if($hlrclass eq 'clasa1')
         @strips=("strip_db_tech3","strip_db_ntsm","strip_db_op3","strip_db_legis3");}
 
  elsif($hlrclass eq 'clasa4')
-       {@materii=("prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
-       @strips=("strip_db_ntsm","strip_db_op4","strip_db_legis4");}
+       {@materii=("prog_NTSM_Entry","prog_CEPT_Entry_op","prog_CEPT_Entry_reg");
+       @strips=("strip_db_ntsm4","strip_db_op4","strip_db_legis4");}
 
  else {# this else should never be executed
 	dienice("ERR07",1,\$hlrclass);
@@ -943,6 +943,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++)
 
 
 print qq!<hr>\n!; #debug
+#trateaza cazul cu ERRxx
 open(stripFILE, "<$strips[$iter]") || die ("cannot open stripfile");
 #flock(stripFILE,1);
 seek(stripFILE,0,0);

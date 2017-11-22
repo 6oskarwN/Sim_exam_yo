@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2017
 
-#  sim_gen3.cgi v 3.2.3
+#  sim_gen3.cgi v 3.3.0
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.0 implemented the mods given by law update Decizia 245/2017
 # ch 3.2.3 implemented use_time in recorded transaction_id;timestamp_expired()
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
@@ -388,7 +389,7 @@ my $err_harvester="pagecode\: $trid_pagecode login\: $trid_login";
 dienice("ERR10",1,\$err_harvester);
 } #.end unless $trid_pagecode
 
-#ACTION: check the clearance level: (tipcont==TRAINING && clasa==any)||(tipcont==III-R && ultima_clasa_promovata==0)
+#ACTION: check the clearance level: (tipcont==TRAINING && clasa==any)||(tipcont==IV && ultima_clasa_promovata==0)
 unless($tipcont == 0 || $tipcont == 4 && $ultimaclasa == 0) #CUSTOM
 {
 #ACTION: close all resources
@@ -408,7 +409,7 @@ my $err_harvester="\$trid_login\: $trid_login \$tipcont\: $tipcont";
 dienice("ERR12",1,\$err_harvester);
 }
 
-##BLOCK: Generate new transaction: EXAM III-R and close transaction file
+##BLOCK: Generate new transaction: EXAM IV and close transaction file
 #{
 #Action: generate new transaction
 $trid=$tridfile[0];
@@ -460,7 +461,7 @@ my %month_bis_days=(
 
 #CHANGE THIS for customizing; $timeframe is the allocated time for exam, in minutes
 #my $timeframe=59;		#59 minutes for an full-exam in HAM-eXAM
-my $timeframe=120;		#120 minutes=2 hours for a class III-R full-exam
+my $timeframe=120;		#120 minutes=2 hours for a class IV full-exam
 
 
 #increment expiry time
@@ -499,7 +500,7 @@ $hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"
 my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
 $hexi= "$hexi$heximac"; #the full transaction id
 
-#CUSTOM: pagecode=7 pentru exam cl III-R
+#CUSTOM: pagecode=7 pentru exam cl IV
 my $entry = "$hexi $trid_login 7 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year";
 
 #} #.END BLOCK
@@ -516,7 +517,7 @@ sub random_int($);
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 #my $index; #seen index in the form
 my $watchdog=0;
-#CUSTOM for class III-R
+#CUSTOM for class IV
 #protectia muncii 10, operare 8, legislatie 20 #CUSTOM
 my @database=("db_ntsm","db_op4","db_legis4");       #CUSTOM set the name of used databases and their order
 my @qcount=(10,8,20); #CUSTOM number of questions generated on each chapter
@@ -548,9 +549,9 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.3.0\n!; #version print for easy upload check
 #CUSTOM
-print qq!<center><font size="+2">Examen clasa III-R</font></center>\n!;
+print qq!<center><font size="+2">Examen clasa IV</font></center>\n!;
 #print qq!<center><font size="+1">17 raspunsuri corecte din 20 aduc promovarea</font></center><br>\n!;
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
 print qq!<center><font size="+1">Timpul alocat examenului este de 2 ore.</font></center><br>\n!;
@@ -862,8 +863,7 @@ last DIRTY;
 
 } #.end foreach $item
 #------------------------------
-#tbd: close database
-#sure - logged close
+#close database
 close(INFILE) || dienice("ERR16",1,\"null");
 
 } #.end foreach database
@@ -1069,7 +1069,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.3.0\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
