@@ -1,4 +1,4 @@
-programa CEPT Entry-Class - cunostinte de legislatie, clasa IV [v3.00]
+programa CEPT Entry-Class - cunostinte de legislatie, clasa IV [v3.30]
 
 PROGRAMA DE EXAMINARE pentru obtinerea certificatului armonizat de radioamator 
 CEPT ENTRY-CLASS
@@ -6,93 +6,29 @@ CEPT ENTRY-CLASS
 Implementare a Raportului CEPT ERC 89, elaborat in 2006
 
 
-1.	ASPECTE PRACTICE DE OPERARE
-
-a)	Familiarizarea cu reglajele unui receptor, emitator sau a unei statii de emisie-receptie
-i.	Alimentarea si oprirea alimentarii, selectarea de banda, acordul si afisarea frecventei, volumul, nivelul si afisarea puterii, castigul microfonului etc.
-
-b)	Operarea in HF
-i.	Acordul in USB si LSB
-ii.	Efectuarea apelurilor initiale, apelarea CQ
-iii.	Capacitatea de a realiza contacte in formatul acceptat, rapoarte de semnal, numele si informatii legate de statie etc., demonstrand astfel cum este utilizat echipamentul
-
-c)	Operarea in VHF 
-i.	Capacitatea de a realiza contacte, similar cu HF
-ii.	Operarea FM
-iii.	Operarea printr-un repetor
+...
 
 141&d)	Necesitatea pentru un jurnal si informatiile inregistrate in acesta
 
-e)	Demonstrarea intelegerii privind acordul antenelor si utilizarea SWR-metrului
-i.	Intelegerea importantei unui acord corect
-ii.	Capacitatea de a utiliza un SWR-metru si a unui dispozitiv de acord al antenei la un emitator
-iii.	Montarea unui conector de cablu coaxial
- 
-f)	Utilizarea alfabetului fonetic si vocabularului comun al radioamatorilor, conform cu b) si c)
+...
 
 g)	Planurile benzilor de frecvente la nivel IARU si national pentru radioamatori
-171&i.	Nevoia de cooperare internationala in utilizarea spectrului radio
-172&ii.	Interpretarea tabelelor cu planurile benzilor de frecvente la nivel IARU si national
-173&iii.	Alti utilizatori ai spectrului radio
+171& i.	Nevoia de cooperare internationala in utilizarea spectrului radio
+172& ii.	Interpretarea tabelelor cu planurile benzilor de frecvente la nivel IARU si national
+173& iii.	Alti utilizatori ai spectrului radio
 
-2.	CONTINUT TEHNIC
-
-a)	Elemente de baza
-i.	Unitati si simboluri
-ii.	Circuite electrice
-iii.	Puterea si rezistenta
-iv.	Legea lui Ohm
-v.	Curenti si tensiuni alternative
-vi.	Frecventa si lungimea de unda
-
-b)	Emitatoare
-i.	Schema bloc a unui emitator simplu
-ii.	Tipuri de modulatie
-
-c)	Receptoare
-i.	Receptorul simplu si detectorul
-
-d)	Fidere si antene
-i.	Fider, cablu coaxial si mufe adecvate
-ii.	Tipuri de antena, dipol, plan de masa si cablu de alimentare
-iii.	Acordul antenei
-iv.	Unitatea de acord in frecventa al antenei
-v.	Unde stationare si SWR-metru, puterea radiata si si e.i.r.p.
-vi.	Sarcina artificiala
-
-e)	Propagarea
-i.	Propagarea undelor
-ii.	Gama
-iii.	Ionosfera
-iv.	Schimbari zilnice in propagare
-
-f)	Compatibilitate electromagnetica
-i.	Cauzele interferentelor
-ii.	Minimizarea problemelor
-iii.	impamantare, tipuri de antena
-iv.	Tipuri de putere si emisii
-v.	Imunitatea
-vi.	Aspecte sociale
-vii.	Surse de asistenta
-
-g)	Considerente de siguranta
-i.	Tensiuni si curenti inalti
-ii.	Mufe de alimentare si de legare la pamant
-iii.	Accidente
-iv.	Localizarea antenei
-v.	Baterii
-vi.	Generalitati privind pericolul de electrocutare
+...
 
 h)	Conditii de autorizare si utilizarea spectrului
-281&i.	Caracterul necomercial si auto-instruire privind comunicatiile radio
-282&ii.	Clasele de autorizare
-283&iii.	Formatul indicativelor de apel
-284&iv.	Cerintele privind identificarea statiei
-285&v.	Exclusivitate privind comunicarea numai cu alti radioamatori
-286&vi.	Fara utilizarea codurilor secrete pentru a ascunde intelesul comunicarii
-287&vii.	Interdictia privind radiodifuzarea si transmiterea de muzica
+281& i.	Caracterul necomercial si auto-instruire privind comunicatiile radio
+282& ii.	Clasele de autorizare
+283& iii.	Formatul indicativelor de apel
+284& iv.	Cerintele privind identificarea statiei
+285& v.	Exclusivitate privind comunicarea numai cu alti radioamatori
+286& vi.	Fara utilizarea codurilor secrete pentru a ascunde intelesul comunicarii
+287& vii.	Interdictia privind radiodifuzarea si transmiterea de muzica
 288&viii.	Autorizatia este personala
 298&ix.	Cerintele privind schimbarea de adresa
 
-29a&x.	Obligatia de a permite controlul
+29a& x.	Obligatia de a permite controlul
 
