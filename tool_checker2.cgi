@@ -1,12 +1,12 @@
 #!/usr/bin/perl
 
-#  tool_checker2.cgi v.3.0.6 (c)2007-2017 Francisc TOTH
+#  tool_checker2.cgi v.3.3.0 (c)2007-2017 Francisc TOTH
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  All rights reserved by YO6OWN Francisc TOTH
 #  Made in Romania
 
-#ch 3.0.6 junk input whitelist reviewed
+#ch 3.3.0 junk input whitelist updated
 #ch 3.0.5 curricula coverage sourced from strip.pl
 #ch 3.0.4 minor comments changed
 #ch 3.0.3 minor hardening for deregulated db
@@ -44,7 +44,7 @@ $get_buffer=$ENV{'QUERY_STRING'};
 
 if (defined($get_buffer)) {   #eliminate possibility of void input
 
-if($get_buffer =~ m/((db_{1}(op|legis){1}(1|2|3|4){1}){1}|(db_{1}ntsm{1}){0,1}(4)|(db_{1}tech{1}(1|2|3){1}){1})/)
+if($get_buffer =~ m/((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/)
        {$get_filename = $1;}
        else {$get_filename = "";}
 
@@ -66,7 +66,7 @@ print qq!<title>Probleme si Rezolvari: $get_filename</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#E6E6FA" text="black" link="blue" alink="blue" vlink="blue">\n!;
 
-print qq!<font color="blue">v.3.0.6</font>\n<br>\n!;
+print qq!<font color="blue">v.3.3.0</font>\n<br>\n!;
 
 print qq!<i>Aceasta este o afisare a bazelor de date folosite de programul SimEx, un simulator de examen de radioamatori<br>Acest program este un software gratuit, poate fi distribuit/modificat in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o veriune ulterioara.<br>Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.<br>In distributia programului SimEx trebuie sa gasiti o copie a licentei GNU GPL, iar daca nu, ea poate fi descarcata gratuit de pe pagina <a href="http://www.fsf.org" target="_new">http://www.fsf.org</a><br>Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind permisa. Acest lucru deriva din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.</i><br>\n!;
 

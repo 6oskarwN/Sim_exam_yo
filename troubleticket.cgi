@@ -23,15 +23,16 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2016
+# (c) YO6OWN Francisc TOTH, 2008 - 2017
 
-#  troubleticket.cgi v 3.0.b
+#  troubleticket.cgi v 3.0.c
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.0.c Admin: changed to YO6OWN
 # ch 3.0.b the three stage of a ticket are clearly displayed [Nou][Vazut ...][Rezolvat]
 # ch 3.0.a patch in a mailer when new complaints are registered; untested since no mail account possible; hashed.
 # ch 3.0.9 'ativan' added in the deny list, banned by awardspace.com
@@ -85,7 +86,7 @@ my @dbtt;   #this is the slurp variable
 ## Change the address above to your e-mail address. Make sure to KEEP the \
 #my $target_email="yo6own\@yahoo.com";
 ## Change the address above to your e-mail address. Make sure to KEEP the \
-#### .end of mailer patch v 3.0.b #####
+#### .end of mailer patch v 3.0.c #####
 
 
 #variabile interne intermediare
@@ -196,7 +197,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.b</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.c</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -298,7 +299,7 @@ $toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in
 print qq!<font color="black" size="-1">$toprint</font><br>\n!; #debug: black is orange
 
 unless ($dbtt[$i*4-1] eq "\n") {
-print qq!<font color="blue" size="-1">Admin: $dbtt[$i*4-1]</font><br>!;
+print qq!<font color="blue" size="-1">YO6OWN: $dbtt[$i*4-1]</font><br>!;
                                }
 print qq!</td>\n!;
 print qq!</tr>\n!;                              
@@ -335,7 +336,7 @@ close(ttFILE);
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.b</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.c</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -432,7 +433,7 @@ elsif($get_type eq 2) #guestbook first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.b</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.c</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
  print qq!<center>\n<b>Adauga in cartea de oaspeti, toate campurile sunt obligatorii (ai 15 minute)</b>\n!;
@@ -541,7 +542,7 @@ for (my $istar=0; $istar < $dbtt[$i*4-3]; $istar++)
 
 print qq!<font color="black" size="-1">$dbtt[$i*4-2]</font><br>\n!;
 unless ($dbtt[$i*4-1] eq "\n") {
-print qq!<font color="blue" size="-1">Admin: $dbtt[$i*4-1]</font><br>!;
+print qq!<font color="blue" size="-1">YO6OWN: $dbtt[$i*4-1]</font><br>!;
                                }
 print qq!</td>\n!;
 print qq!</tr>\n!;                              
@@ -1001,7 +1002,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>sistem colectie erori examYO</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.0.b\n!; #version print for easy upload check
+print qq!v 3.0.c\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h2 align="center">Actiune ilegala.</h2>\n!;
 print qq!<h4 align="center">$message</h4>\n!;
@@ -1020,7 +1021,7 @@ my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
 
-#### patch for mailer implementation from v 3.0.b ######
+#### patch for mailer implementation from v 3.0.c ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
 #print MAIL "From: $admin_email\n";
 #print MAIL "To: $target_email\n";
@@ -1044,7 +1045,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.0.b\n!; #version print for easy upload check
+print qq!v 3.0.c\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
