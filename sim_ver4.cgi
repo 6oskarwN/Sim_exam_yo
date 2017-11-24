@@ -358,7 +358,7 @@ close (transactionFILE) or dienice("ERR07",1,\"cant close transaction file");
 
 #ACTION: append cheat symptoms in cheat file
 #CUSTOM
-my $cheatmsg="$trid_login (study level: $user_tipcont) from pagecode $trid_pagecode invoked evaluation of exam III-R";
+my $cheatmsg="$trid_login (study level: $user_tipcont) from pagecode $trid_pagecode invoked evaluation of exam IV";
 dienice("ERR08",3,\$cheatmsg);
 }
 
@@ -389,7 +389,7 @@ ins_gpl();
 print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
-print qq!<h2 align="center">Rezultate Examen clasa III-R</h2>\n!;
+print qq!<h2 align="center">Rezultate Examen clasa IV</h2>\n!;
 #print qq!<h2 align="center">evaluare</font></h2>\n!;
 print qq!<h4 align="center">rezultatul final se afla in partea de jos a a paginii.</h4>\n!;
 #===================V3============

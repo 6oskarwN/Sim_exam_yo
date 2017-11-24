@@ -1,4 +1,4 @@
-programa CEPT Entry-Class - cunostinte de trafic, clasa IV [v3.00]
+programa CEPT Entry-Class - cunostinte de legislatie, clasa IV [v3.00]
 
 PROGRAMA DE EXAMINARE pentru obtinerea certificatului armonizat de radioamator 
 CEPT ENTRY-CLASS
@@ -9,26 +9,26 @@ Implementare a Raportului CEPT ERC 89, elaborat in 2006
 1.	ASPECTE PRACTICE DE OPERARE
 
 a)	Familiarizarea cu reglajele unui receptor, emitator sau a unei statii de emisie-receptie
-111&i.	Alimentarea si oprirea alimentarii, selectarea de banda, acordul si afisarea frecventei, volumul, nivelul si afisarea puterii, castigul microfonului etc.
+i.	Alimentarea si oprirea alimentarii, selectarea de banda, acordul si afisarea frecventei, volumul, nivelul si afisarea puterii, castigul microfonului etc.
 
 b)	Operarea in HF
-121&i.	Acordul in USB si LSB
-122&ii.	Efectuarea apelurilor initiale, apelarea CQ
-123&iii.	Capacitatea de a realiza contacte in formatul acceptat, rapoarte de semnal, numele si informatii legate de statie etc., demonstrand astfel cum este utilizat echipamentul
+i.	Acordul in USB si LSB
+ii.	Efectuarea apelurilor initiale, apelarea CQ
+iii.	Capacitatea de a realiza contacte in formatul acceptat, rapoarte de semnal, numele si informatii legate de statie etc., demonstrand astfel cum este utilizat echipamentul
 
 c)	Operarea in VHF 
-131&i.	Capacitatea de a realiza contacte, similar cu HF
-132&ii.	Operarea FM
-133&iii.	Operarea printr-un repetor
+i.	Capacitatea de a realiza contacte, similar cu HF
+ii.	Operarea FM
+iii.	Operarea printr-un repetor
 
 141&d)	Necesitatea pentru un jurnal si informatiile inregistrate in acesta
 
 e)	Demonstrarea intelegerii privind acordul antenelor si utilizarea SWR-metrului
-151&i.	Intelegerea importantei unui acord corect
-152&ii.	Capacitatea de a utiliza un SWR-metru si a unui dispozitiv de acord al antenei la un emitator
-153&iii.	Montarea unui conector de cablu coaxial
+i.	Intelegerea importantei unui acord corect
+ii.	Capacitatea de a utiliza un SWR-metru si a unui dispozitiv de acord al antenei la un emitator
+iii.	Montarea unui conector de cablu coaxial
  
-161&f)	Utilizarea alfabetului fonetic si vocabularului comun al radioamatorilor, conform cu b) si c)
+f)	Utilizarea alfabetului fonetic si vocabularului comun al radioamatorilor, conform cu b) si c)
 
 g)	Planurile benzilor de frecvente la nivel IARU si national pentru radioamatori
 171&i.	Nevoia de cooperare internationala in utilizarea spectrului radio
@@ -38,50 +38,50 @@ g)	Planurile benzilor de frecvente la nivel IARU si national pentru radioamatori
 2.	CONTINUT TEHNIC
 
 a)	Elemente de baza
-211&i.	Unitati si simboluri
-212&ii.	Circuite electrice
-213&iii.	Puterea si rezistenta
-214&iv.	Legea lui Ohm
-215&v.	Curenti si tensiuni alternative
-216&vi.	Frecventa si lungimea de unda
+i.	Unitati si simboluri
+ii.	Circuite electrice
+iii.	Puterea si rezistenta
+iv.	Legea lui Ohm
+v.	Curenti si tensiuni alternative
+vi.	Frecventa si lungimea de unda
 
 b)	Emitatoare
-221&i.	Schema bloc a unui emitator simplu
-222&ii.	Tipuri de modulatie
+i.	Schema bloc a unui emitator simplu
+ii.	Tipuri de modulatie
 
 c)	Receptoare
-231&i.	Receptorul simplu si detectorul
+i.	Receptorul simplu si detectorul
 
 d)	Fidere si antene
-241&i.	Fider, cablu coaxial si mufe adecvate
-242&ii.	Tipuri de antena, dipol, plan de masa si cablu de alimentare
-243&iii.	Acordul antenei
-244&iv.	Unitatea de acord in frecventa al antenei
-245&v.	Unde stationare si SWR-metru, puterea radiata si si e.i.r.p.
-246&vi.	Sarcina artificiala
+i.	Fider, cablu coaxial si mufe adecvate
+ii.	Tipuri de antena, dipol, plan de masa si cablu de alimentare
+iii.	Acordul antenei
+iv.	Unitatea de acord in frecventa al antenei
+v.	Unde stationare si SWR-metru, puterea radiata si si e.i.r.p.
+vi.	Sarcina artificiala
 
 e)	Propagarea
-251&i.	Propagarea undelor
-252&ii.	Gama
-253&iii.	Ionosfera
-254&iv.	Schimbari zilnice in propagare
+i.	Propagarea undelor
+ii.	Gama
+iii.	Ionosfera
+iv.	Schimbari zilnice in propagare
 
 f)	Compatibilitate electromagnetica
-261&i.	Cauzele interferentelor
-262&ii.	Minimizarea problemelor
-263&iii.	impamantare, tipuri de antena
-264&iv.	Tipuri de putere si emisii
-265&v.	Imunitatea
-266&vi.	Aspecte sociale
-267&vii.	Surse de asistenta
+i.	Cauzele interferentelor
+ii.	Minimizarea problemelor
+iii.	impamantare, tipuri de antena
+iv.	Tipuri de putere si emisii
+v.	Imunitatea
+vi.	Aspecte sociale
+vii.	Surse de asistenta
 
 g)	Considerente de siguranta
-271&i.	Tensiuni si curenti inalti
-272&ii.	Mufe de alimentare si de legare la pamant
-273&iii.	Accidente
-274&iv.	Localizarea antenei
-275&v.	Baterii
-276&vi.	Generalitati privind pericolul de electrocutare
+i.	Tensiuni si curenti inalti
+ii.	Mufe de alimentare si de legare la pamant
+iii.	Accidente
+iv.	Localizarea antenei
+v.	Baterii
+vi.	Generalitati privind pericolul de electrocutare
 
 h)	Conditii de autorizare si utilizarea spectrului
 281&i.	Caracterul necomercial si auto-instruire privind comunicatiile radio
@@ -94,5 +94,5 @@ h)	Conditii de autorizare si utilizarea spectrului
 288&viii.	Autorizatia este personala
 298&ix.	Cerintele privind schimbarea de adresa
 
-2a0&x.	Obligatia de a permite controlul
+29a&x.	Obligatia de a permite controlul
 
