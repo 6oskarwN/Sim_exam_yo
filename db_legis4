@@ -420,30 +420,6 @@ ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
 null
 
 
-##35#
-c
-01A3211~&Dupa natura activitatii, statiile de radioamator sunt:
-null
-Statii fixe, de receptie, individuale
-Statii individuale, de club, de emisie-receptie
-Statii de receptie, de emisie-receptie
-Statii de emisie-receptie si statii de goniometrie
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
-null
-
-
-##36#
-c
-02A3211~&Dupa natura activitatii si dotarea tehnica, statiile de radioamator sunt:
-null
-Statii fixe, mobile si portabile 
-Statii individuale sau de club
-Statii de receptie, de emisie-receptie
-Statii de emisie-receptie si statii de goniometrie (ARDF)
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2014)
-null
-
-
 ##37#
 c
 02A3212~&Dupa modul de folosire, statiile de radioamator sunt:
@@ -1518,7 +1494,7 @@ a
 null
 certificatele de clasa I si a II-a
 certificatele de clasa a II-a si a III-a
-certificatele de clasa a III-a si III-R
+certificatele de clasa a III-a si a IV-a
 certificatul de clasa I
 YO6OWN, 2014
 null
@@ -1530,7 +1506,7 @@ d
 null
 certificatele de clasa I si a II-a
 certificatele de clasa a II-a si a III-a
-certificatele de clasa a III-a si III-R
+certificatele de clasa a III-a si a IV-a
 certificatul de clasa III
 YO6OWN, 2014
 null

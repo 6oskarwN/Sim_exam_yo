@@ -1,4 +1,4 @@
-Legislatie, clasa II v.3.0f versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_HAREC_reg</curricula></font>
+Legislatie, clasa II v.3.10 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_HAREC_reg</curricula></font>
 159
 ##0#
 a
@@ -379,8 +379,8 @@ null
 Cl I, cl. II si Novice conform CEPT
 A,B (tip HAREC)
 I-a, avansat, incepator, restrans
-cl. I, II, III, III-R
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+cl. I, II, III, IV
+ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2017)
 null
 
 
@@ -417,30 +417,6 @@ da, numai in concursuri cu aprobarea FRR
 nu
 doar in traficul de primejdie
 ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
-null
-
-
-##35#
-c
-01A3211~&Dupa natura activitatii, statiile de radioamator sunt:
-null
-Statii fixe, de receptie, individuale
-Statii individuale, de club, de emisie-receptie
-Statii de receptie, de emisie-receptie
-Statii de emisie-receptie si statii de goniometrie
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
-null
-
-
-##36#
-c
-02A3211~&Dupa natura activitatii si dotarea tehnica, statiile de radioamator sunt:
-null
-Statii fixe, mobile si portabile 
-Statii individuale sau de club
-Statii de receptie, de emisie-receptie
-Statii de emisie-receptie si statii de goniometrie (ARDF)
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2014)
 null
 
 
@@ -1554,7 +1530,7 @@ a
 null
 certificatele de clasa I si a II-a
 certificatele de clasa a II-a si a III-a
-certificatele de clasa a III-a si III-R
+certificatele de clasa a III-a si IV
 certificatul de clasa I
 YO6OWN, 2014
 null
@@ -1566,7 +1542,7 @@ d
 null
 certificatele de clasa I si a II-a
 certificatele de clasa a II-a si a III-a
-certificatele de clasa a III-a si III-R
+certificatele de clasa a III-a si a IV-a
 certificatul de clasa III
 YO6OWN, 2014
 null

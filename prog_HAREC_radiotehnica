@@ -1,5 +1,4 @@
-acoperire programa HAREC radiotehnica, clasa I, II [v.3.08] 
-
+acoperire programa HAREC radiotehnica, clasa I, II [rev. nov. 2017] 
 
 PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
 PROGRAMA ANALITICA DE EXAMINARE DETALIATA
@@ -58,17 +57,17 @@ NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
 l.8. Semnale modulate
 181&-	Modulatia telegrafica (CW)
 182&-	Modulatia de amplitudine (AM)
-183&-	Forma de unda
-184&-	Purtatoarea, benzile laterale si largimea de banda
-185&-	Modulatia de amplitudine cu banda laterala unica (SSB)
 186&-	Modulatia de faza , modulatia de frecventa (FM) si modulatia cu banda laterala unica (BLU)
-187&-	Deviatia de frecventa si indicele de modulatie   
-188&-	Purtatoare, benzi laterale si largime de banda
+18e&-	Deviatia de frecventa si indicele de modulatie
+184&-	Purtatoarea, benzile laterale si largimea de banda
+185&-	<strike>Modulatia de amplitudine cu banda laterala unica (SSB)</strike>(s-a scos din programa)
+188&-	<strike>Purtatoare, benzi laterale si largime de banda</strike>(s-a scos din programa)
 189&-	Forme de unda pentru semnale CW, AM, BLU si FM (prezentare grafica)
 18a&-	Spectrul pentru semnale CW, AM si BLU (prezentare grafica)
 18b&-	Modulatii digitale: FSK, 2-PSK, 4-PSK, QAM
 18c&-	Modulatia digitala: debit binar, debit per simbol (debitul Baud) si largime de banda
 18d&-	Corectia CRC si retransmisii (de exemplu packet radio), corectia FEC (de exemplu Amtor FEC)
+
 
 1.9. Puterea si energia
 191&-	Puterea semnalelor sinusoidale   
@@ -90,11 +89,11 @@ CAPITOLUL 2
 COMPONENTE
 
 2.1. Rezistorul 
-211&-	Rezistenta
 212&-	Unitatea de masura (Ohm)
+211&-	Rezistenta
 213&-	Caracteristica curent/tensiune 
 214&-	Disipatia de putere
-215&-	Coeficienti pozitivi si negativi de temperatura (CPT si CNT) 
+215&-	<strike>Coeficienti pozitivi si negativi de temperatura (CPT si CNT)</strike>(s-a scos din programa)
 
 2.2. Condensatorul
 221&-	Capacitatea
@@ -102,19 +101,19 @@ COMPONENTE
 223&-	Relatia dintre capacitate, dimensiuni si dielectric (numai tratare calitativa)
 224&-	Reactanta   
 225&-	Defazajul dintre tensiune si curent
-226&-	Caracteristicile condensatoarelor fixe si variabile: cu dielectric aer, mica, plastic, ceramica si a condensatoarelor electrolitice
-227&-	Coeficientul de temperatura 
-228&-	Curentul de fuga
+226&-	<strike>Caracteristicile condensatoarelor fixe si variabile: cu dielectric aer, mica, plastic, ceramica si a condensatoarelor electrolitice</strike>(s-a scos din programa)
+227&-	<strike>Coeficientul de temperatura </strike>(s-a scos din programa)
+228&-	<strike>Curentul de fuga</strike>(s-a scos din programa)
 
 2.3. Bobina
-231&-	Inductia, autoinductia
+231&-	<strike>Inductia</strike>(s-a scos din programa) Autoinductia
 232&-	Unitatea de masura a inductantei (Henry)
 233&-	Efectul asupra inductantei al numarului de spire, al diametrului, al lungimii si al materialului din care este facut miezul (numai tratare calitativa)
 234&-	Reactanta   
 235&-	Defazajul dintre tensiune si curent 
 236&-	Factorul Q
-237&-	Efectul pelicular
-238&-	Pierderi in miezul bobinei 
+237&-	<strike>Efectul pelicular</strike>(s-a scos din programa)
+238&-	<strike>Pierderi in miezul bobinei</strike>(s-a scos din programa) 
 
 2.4. Transformatoare - aplicatii si utilizare
 241&-	Transformatorul ideal   
@@ -132,25 +131,24 @@ COMPONENTE
 2.6. Tranzistorul
 261&-	Tranzistoare PNP si NPN 
 262&-	Factorul de amplificare
-263&-	Tranzistorul cu efect de camp (canal N si canal P, TEC-j) 
-264&-	Rezistenta dintre poarta si sursa
+263&-	Tranzistorul cu efect de camp versus tranzistorul bipolar (controlul in tensiune versus in curent) 
+264&-	<strike>Rezistenta dintre poarta si sursa</strike>(s-a scos din programa>
 -	Tranzistorul in:
 266&-	Conexiune cu emitorul comun (sursa comuna)
 267&-	Conexiune cu baza (poarta) comuna 
 268&-	Conexiune cu colectorul comun (drena comuna)
-26b&-	Conexiune Darlington (extra-curricular)
-269&-	Impedantele de intrare si iesire in conexiunilor de mai sus 
-26a&-	Metode de polarizare in conexiunilor de mai sus
-
- 	Disipatia de caldura (s-a scos din programa)
-271&- 	Transfer termic semiconductor-capsula, capsula-radiator, coeficienti termici(s-a scos din programa)
-272&-	Materiale speciale: Ceramica cu oxid de Be(s-a scos din programa)
+26b&-	<strike>Conexiune Darlington (extra-curricular)</strike>
+269&-	<strike>Impedantele de intrare si iesire in conexiunilor de mai sus</strike>(s-a scos din programa) 
+26a&-	<strike>Metode de polarizare in conexiunilor de mai sus</strike>(s-a scos din programa)
+ 	<strike>Disipatia de caldura</strike> (s-a scos din programa)
+271&- 	<strike>Transfer termic semiconductor-capsula, capsula-radiator, coeficienti termici</strike>(s-a scos din programa)
+272&-	<strike>Materiale speciale: Ceramica cu oxid de Be</strike>(s-a scos din programa)
 
 2.7. Diverse
 281&-	Dispozitive simple termoionice (tuburi electronice) 
 282&-	Tensiuni si impedante pentru etaje de inalta tensiune, transformari de impedanta
-283&-	Circuite integrate digitale simple
-284&-	Circuite integrate liniare
+283&-	Circuite integrate digitale simple, inclusiv amplificatoare operationale
+284&-	<strike>Circuite integrate liniare</strike>(s-a comasat cu subiectul anterior)
 
  
 
@@ -162,7 +160,7 @@ CIRCUITE
 3.1. Combinatii de componente
 311&-	Circuite serie si paralel cu rezistoare, bobine, condensatoare, transformatoare si diode 
 312&-	Curentii si tensiunile in aceste circuite
-313&-	Impedanta acestor circuite 
+313&-	<strike>Impedanta acestor circuite</strike>(s-a scos din programa) 
 314&-	Comportamentul real (nu ideal) al rezistorului, condensatorului si bobinei la frecvente inalte
 
 3.2. Filtre
@@ -200,9 +198,9 @@ CIRCUITE
 352&-	Detectorul cu dioda
 353&-	Detectorul de produs si oscilatoare de "batai"
 354&-	Detectoare pentru FM 
-355&-	Detectorul pe panta
-356&-	Discriminatorul Foster-Seeley 
-357&-	Detectoare pentru CW/SSB 
+355&-	<strike>Detectorul pe panta</strike>(s-a scos din programa)
+356&-	<strike>Discriminatorul Foster-Seeley</strike>(s-a scos din programa)
+357&-	<strike>Detectoare pentru CW/SSB</strike>(s-a scos din programa)
 
 3.6. Oscilatoare
 361&-	Reactie (oscilatii produse intentionat sau nu)
@@ -242,8 +240,8 @@ RECEPTOARE
 434&-	Amplificatorul de frecventa intermediara
 435&-	Limitatorul
 436&-	Detectorul, inclusiv detectorul de produs
-437&-	Oscilatorul de batai 
-438&-	Calibratorul cu cristal
+437&-	<strike>Oscilatorul de batai</strike>(scos din programa)
+438&-	<strike>Calibratorul cu cristal</strike>(scos din programa)
 439&-	Amplificatorul de joasa frecventa (audio)
 43a&-	Controlul automat al amplificarii 
 43b&-	S-metrul
@@ -332,13 +330,13 @@ ANTENE SI LINII DE TRANSMISIUNE
 631&-	Linia cu conductori paraleli 
 632&-	Cablul coaxial
 633&-	Ghidul de unda
-634&-	Impedanta caracteristica (Z0) 
+634&-	Impedanta caracteristica (Z<sub>0</sub>) 
 635&-	Viteza de propagare
 636&-	Raportul de unde stationare 
 637&-	Pierderi
-638&-	Simetrizare
-639&-	Linia in sfert de unda ca transformator de impedanta  [ Z<sub>02</sub> = Z<sub>in</sub>*Z<sub>out</sub> ]
-63a&-	Linia terminata in gol sau in scurtcircuit ca circuite acordate 
+638&-	Simetrizare(balun)
+639&-	<strike>Linia in sfert de unda ca transformator de impedanta  [ Z<sub>02</sub> = Z<sub>in</sub>*Z<sub>out</sub> ]</strike>(scos din programa)
+63a&-	<strike>Linia terminata in gol sau in scurtcircuit ca circuite acordate </strike>(scos din programa)
 63b&-	Unitati de adaptare a antenei (numai configuratii in PI sau T)
 
 CAPITOLUL 7
@@ -392,14 +390,14 @@ Masurarea:
 
 8.2. Instrumente de masura
 Efectuarea masurarilor folosind:
-821&-	Instrument cu bobina mobila
+821&-	<strike>Instrument cu bobina mobila</strike>(scos din programa)
 822&-	Instrument cu mai multe game (digital sau analogic)
 823&-	Dispozitiv de masurare a puterii de radiofrecventa
 824&-	Puntea reflectometru (dispozitiv de masurare a coeficientului de unda stationara)
 825&-	Generatoare de semnal
 826&-	Frecventmetru numeric
-827&-	Frecventmetru cu absorbtie
-828&-	Grid-dip metru
+827&-	<strike>Frecventmetru cu absorbtie</strike>(scos din programa)
+828&-	<strike>Grid-dip metru</strike>(scos din programa)
 829&-	Osciloscop
 82a&-	Analizor de spectru
 
