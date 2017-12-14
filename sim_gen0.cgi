@@ -34,11 +34,12 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2016
 
-#  sim_gen0.cgi v 3.2.2
+#  sim_gen0.cgi v 3.2.3
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  Made in Romania
 
+# ch 3.2.3 integrated sub timestamp_expired(); introduce epoch timestamping
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3 
@@ -125,7 +126,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolva 3 din 4 intrebari si poti sa te inregistrezi in examen</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">Pagina expira peste 3 minute.</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">O singura varianta de raspuns este corecta. Dupa alegerea raspunsurilor, apasa butonul "Evaluare".</font></center><br><br>\n!;
@@ -142,14 +143,6 @@ seek(transactionFILE,0,0);		#go to the beginning
 #ACTION: refresh transaction list, delete expired transactions,
 # except exam transactions(code: 4,5,6,7)
 {
-my @utc_time=gmtime(time);
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
-
 my @livelist=();
 my @linesplit;
 
@@ -159,27 +152,12 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   {
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted
-if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);}#if this is an exam transaction, don't touch it
-# next 'if' is changed into 'elsif'
-elsif($linesplit[8] > $act_year) {@livelist=(@livelist, $i);}  #it's alive one more year, keep it in the list
- elsif($linesplit[8] == $act_year){
- if($linesplit[7] > $act_month) {@livelist=(@livelist, $i);}  #it's alive one more month, keep it in the list
- elsif($linesplit[7] == $act_month){
- if($linesplit[6] > $act_day) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[6] == $act_day){
- if($linesplit[5] > $act_hour) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[5] == $act_hour){
- if($linesplit[4] > $act_min) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[4] == $act_min){
- if($linesplit[3] > $act_sec) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- 
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
-    
+if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
+elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])>0) {} #if timestamp expired do nothing = transaction will not refresh
+      else {@livelist=(@livelist, $i);} #not expired, keep it
   } #.end for
+#we have now the list of the live transactions + exams
+
 #else {print qq!file has only $#tridfile lines!;}
 #we have now the list of the live transactions
 #print "@livelist[0..$#livelist]\n";   
@@ -211,79 +189,10 @@ if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
 else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}  #cyclical increment 000000 to 0xFFFFFF then convert back to string with sprintf()
 
 #print qq!generate new transaction<br>\n!;
-my @utc_time=gmtime(time);   
-my $exp_sec=$utc_time[0];
-my $exp_min=$utc_time[1];
-my $exp_hour=$utc_time[2];
-my $exp_day=$utc_time[3];
-my $exp_month=$utc_time[4];
-my $exp_year=$utc_time[5];
-my $carry1=0;
-my $carry2=0;
-my %month_days=(
-    0 => 31,	#january
-    1 => 28,	#february
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-my %month_bis_days=(
-    0 => 31,	#january
-    1 => 29,	#february, bisect
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-
-
+my $epochTime = time();
 #CHANGE THIS for customizing
-my $expire=3;   #3 minutes in this situation
-
-#increment expiry time
-#for this "sim_gen0.cgi" which generates the dummy exam,
-#the expiry time increments with max. 5 minutes
-
-#minute increment
-$carry1= int(($exp_min+$expire)/60);		#check if minutes overflow
-$exp_min=($exp_min+$expire)%60;			#increase minutes
-
-
-#hour increment
-$carry2= int(($exp_hour+$carry1)/24);		#check if hours overflow
-$exp_hour=($exp_hour+$carry1)%24;		#increase hours
-
-#day increment
-if($exp_year%4) {
-$carry1=int(($exp_day+$carry2)/($month_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_days{$exp_month}+1); #increase day if so
-	        }
-else		{
-$carry1=int(($exp_day+$carry2)/($month_bis_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_bis_days{$exp_month}+1); #increase day if so
-		}
-if($carry1) {$exp_day=1;}	#day starts with 1-anomaly solution
-
-#month increment
-$carry2=int(($exp_month+$carry1)/12);
-
-$exp_month=($exp_month+$carry1)%12;
-#year increment
-$exp_year += $carry2;
-
+my $epochExpire = $epochTime + 180;		#3 min = 3 * 60 sec = 180 sec 
+my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
 #generate transaction id and its md5 MAC
 
@@ -574,7 +483,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -586,6 +495,29 @@ print qq!</body>\n</html>\n!;
 exit();
 
 } #end sub
+
+#--------------------------------------
+#primeste timestamp de forma sec_min_hour_day_month_year UTC
+#out: seconds since expired MAX 99999, 0 = not expired.
+#UTC time and epoch are used
+
+sub timestamp_expired
+{
+use Time::Local;
+
+my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
+
+my $timediff;
+my $actualTime = time(); #epoch since UTC0000
+my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
+$timediff=$actualTime-$dateTime;
+
+#if ($timediff < 0 ) {return (0);}
+#else {return($timediff);}  #here is the general return
+
+return($timediff);  #here is the general return
+
+} #.end sub timestamp
 
 #--------------------------------------
 sub ins_gpl

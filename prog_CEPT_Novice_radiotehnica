@@ -1,4 +1,4 @@
-programa CEPT NOVICE - radiotehnica, clasa III [v3.06]
+programa CEPT NOVICE - radiotehnica, clasa III [rev. Nov. 2017]
 
 PROGRAMA ANALITICA DE EXAMINARE DETALIATA
 
@@ -15,11 +15,11 @@ NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
 114&-	Legea lui Ohm   
 115&-	Puterea electrica    
 116&-	Wattul
-118&-	Energia electrica(nu apartine de programa CEPT NOVICE dar ANCOM are subiecte)
+118&-	<strike>Energia electrica</strike>(scos din programa)
 
 1.2. Surse de electricitate
 121&-	Surse de tensiune si baterii
-119&-	Capacitatea unei baterii  [ A x h ](nu apartine de programa CEPT NOVICE dar ANCOM are subiecte)
+119&-	<strike>Capacitatea unei baterii  [ A x h ]</strike>(scos din programa)
 
 1.3. Campul electromagnetic
 131&-	Undele radio ca unde electromagnetice
@@ -31,7 +31,7 @@ NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
 1.4. Semnale audio si digitale
 141&-	Semnale audio
 142&-	Semnale digitale
-143&-	Semnale dreptunghiulare, triunghiulare, dinte de ferastrau(nu apartine de programa CEPT NOVICE dar ANCOM are subiecte)
+143&-	<strike>Semnale dreptunghiulare, triunghiulare, dinte de ferastrau</strike>(scos din programa)
 
 l.5. Semnale modulate
 Avantajele si dezavantajele:
@@ -73,13 +73,13 @@ COMPONENTE
 
 2.6. Tranzistorul
 261&-	Utilizarea tranzistorului ca amplificator sau oscilator
-263&-	Tranzistorul cu efect de camp (canal N si canal P, TEC-j) (nu apartine de programa CEPT NOVICE dar sunt prevazute subiecte) 
+263&-	<strike>Tranzistorul cu efect de camp (canal N si canal P, TEC-j)</strike>(scos din programa) 
 
-2.7. Circuite acordate
-271&-	Functionarea circuitelor acordate serie sau paralel 
+<strike>2.7. Circuite acordate</strike>(scos din programa)
+271&-	<strike>Functionarea circuitelor acordate serie sau paralel</strike>(scos din programa) 
 
-2.8 Diverse
-283&-	Circuite integrate digitale simple (nu apartine de programa CEPT NOVICE dar ANCOM are subiecte)
+2.8 <strike>Diverse</strike>(scos din programa)
+283&-	<strike>Circuite integrate digitale simple</strike>(scos din programa)
 
 CAPITOLUL 3
 
@@ -87,6 +87,7 @@ CIRCUITE
 
 3.1. Filtre
 311&-	Filtru trece-jos, trece-sus, trece-banda si opreste-banda; utilizare si aplicatii
+312&-	Functionarea circuitelor acordate serie sau acordate paralel
 
 CAPITOLUL 4
 
@@ -164,7 +165,7 @@ ANTENE SI LINII DE TRANSMISIUNE
 
 CAPITOLUL 7
 
-PROPAGARE (numai o descriere simpla)
+SPECTRU RADIO SI PROPAGARE (numai o descriere simpla)
 
 711&-	Straturile ionosferei
 712&-	Efectul ionosferei asupra propagarii HF
@@ -173,7 +174,7 @@ PROPAGARE (numai o descriere simpla)
 715&-	Efectul conditiilor de vreme asupra propagarii VHF/UHF
 716&-	Ciclurile solare si influenta asupra comunicatiilor
 717&-	Domeniile HF, VHF, UHF 
-718&-	Relatia intre frecventa si lungime de unda
+718&-	<strike>Relatia intre frecventa si lungime de unda</strike>(scos din programa)
 
 CAPITOLUL 8
 
