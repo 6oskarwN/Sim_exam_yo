@@ -41,7 +41,7 @@
 #  Made in Romania
 
 
-# ch 3.2.4 modifying cumbersome timestamp calculus with epoch calculation
+# ch 3.2.4 simplify by replacing timestamp calculation with epoch
 # ch 3.2.3 integrated sub timestamp_expired()
 # ch 3.2.2 3x login failure block is logged for probing if DoS on existing accounts are made.
 # ch 3.2.1 deploy latest dienice()
@@ -54,9 +54,9 @@
 # ch 3.0.d @slash@ replaces / corect, acum
 # ch 3.0.c @slash@ replaces /
 # ch 3.0.b radio butonul nu se mai afiseaza deloc
-# ch 3.0.a rezolvat tichetul cu astfel, astfel, astfel
+# ch 3.0.a solved a minor trouble
 # ch 3.0.9 nu se vede diferit checkbox=off fata de on, cel off schimbat cu buton radio disable
-# ch 3.0.8 functionalitatea secreta denumita Convergenta(TM)
+# ch 3.0.8 implemented a converging functionality Convergenta(TM)
 # ch 3.0.7 corrected custom bug
 # ch 3.0.6 explicatii pentru super-incepatori
 # ch 3.0.5 evidentiat subcapitolele cu erori
@@ -64,7 +64,7 @@
 # ch 3.0.3 la fiecare sf. de capitol de programa link UP la o ancora #begin.
 # ch 3.0.2 afisarea programei, cu "acoperiri", customizat pt clasa 1 doar
 # ch 3.0.1 avem o afisare a programei(din 4 sau 3 bucati, dupa clasa)
-# ch 3.0.0 se sterge fisierul tip hlr cand userul expira
+# ch 3.0.0 delete hlr-file when user expires
 # ch 0.0.9 fixed trouble ticket 26
 # ch 0.0.8 fixed trouble ticket 28
 # ch 0.0.7 fixed trouble ticket 9
@@ -78,29 +78,22 @@
 use strict;
 use warnings;
 
-sub punishment($);           #where user gets kicked for abandoned exams
-sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
-
-my $get_login;                 	#submitted login
-my $get_passwd;                	#submitted password
-
-my @slurp_userfile;            	#RAM-userfile
-my $epochTime=time();		#Counted since UTC 00000
-
-my $rec_pos=-1;			#user record position, init is 'not found'
-
-my @tridfile;			#slurped transaction file
-my $trid;			#the Transaction-ID of the generated page
-my $hexi;       #the trid+timestamp_MD5
-
-my $hlr_filename; #numele fisierului hlr (V3 stuff)
-my $hlrclass;	  #stringul "clasa1" "clasa2" "clasa3" "clasa4"
-my @materii;	  #sirul cu materii-programa
-my @strips;	  #contains list with files containing only v3-codes
-my @slurp_strip;  #slurped content of such a file
-
-my $fileline;	  #fetches line by line
-
+sub punishment($);      #where user gets kicked for abandoned exams
+sub ins_gpl;            #inserts a HTML preformatted text with the GPL license text
+my $get_login;          #submitted login
+my $get_passwd;		#submitted password
+my @slurp_userfile;	#RAM-userfile
+my $epochTime=time();	#Counted since UTC 00000
+my $rec_pos=-1;		#user record position, init is 'not found'
+my @tridfile;		#slurped transaction file
+my $trid;		#the Transaction-ID of the generated page
+my $hexi;       	#the trid+timestamp_MD5
+my $hlr_filename; 	#numele fisierului hlr (V3 stuff)
+my $hlrclass;	  	#stringul "clasa1" "clasa2" "clasa3" "clasa4"
+my @materii;	  	#sirul cu materii-programa
+my @strips;	  	#contains list with files containing only v3-codes
+my @slurp_strip;  	#slurped content of such a file
+my $fileline;	  	#fetches line by line
 my %hlrline;
 my @splitter;
 my $found;
@@ -157,7 +150,7 @@ if($stdin_name eq 'login') { $get_login=$stdin_value;}
 
 } #.end block
 #.END BLOCK
-
+#-------------------------------------------------------------
 #BLOCK: open userfile; Refresh userfile with criteria expiry time.
 {
 #ACTION: open user account file
@@ -235,13 +228,11 @@ dienice("ERR03",0,\"null"); #normally not logged
 
 } #.end block
 #.END BLOCK
-
+#--------------------------------------------------------------
 #BLOCK: $get_login found in userfile?
 {
 my $account;
 my @linesplit;
-
-
 
   for(my $account=0; $account < (($#slurp_userfile+1)/7); $account++)	#check userlist, account by account
   {
@@ -261,7 +252,7 @@ close(userFILE) or dienice("ERR09",1,\"cant close user file");
 dienice("ERR03",0,\"null"); #normally not logged
 } #.end if
 } #.end BLOCK
-
+#--------------------------------------------------------------------
 #BLOCK: time > next_login_time? Login delayed or not?
 {
 
@@ -284,7 +275,7 @@ if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$li
  else {}
 
 } #.end BLOCK
-
+#------------------------------------------------------------------------
 #BLOCK: password is correct?
 {
 my @linesplit;
@@ -351,7 +342,7 @@ dienice("ERR06",1,\"null");
 } #.end unless
 } #.end BLOCK
 
-
+#--------------------------------------------------------------------
 
 #BLOCK:Reset expiry
 {
