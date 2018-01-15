@@ -92,7 +92,7 @@ my $hexi= "admin_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\
 my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
 $hexi= "$hexi$heximac"; #the full transaction id
 
-print "Admin token:\n$hexi\n";
+print "Admin token, 30 min:\n$hexi\n";
 
 
 #-------------------------------------

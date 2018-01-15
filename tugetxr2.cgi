@@ -109,7 +109,7 @@ if($splitline[2] eq 2) { print qq!<small><font color="white">root-page:</font></
 elsif ($splitline[2] eq 4){ print qq!<small><font color="white">ex. I:</font></small><br>\n!; }
 elsif ($splitline[2] eq 5){ print qq!<small><font color="white">ex. II:</font></small><br>\n!; }
 elsif ($splitline[2] eq 6){ print qq!<small><font color="white">ex. III:</font></small><br>\n!; }
-elsif ($splitline[2] eq 7){ print qq!<small><font color="white">ex. III-R:</font></small><br>\n!; }
+elsif ($splitline[2] eq 7){ print qq!<small><font color="white">ex. IV:</font></small><br>\n!; }
 
 if ($splitline[0] =~ m/\*/) {print qq!<strike>!;}
 
