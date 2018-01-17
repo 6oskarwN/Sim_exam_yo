@@ -389,9 +389,9 @@ ins_gpl();
 print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
-print qq!<h2 align="center">Rezultate Examen clasa IV</h2>\n!;
+print qq!<h2 align="center">Rezultate Examen clasa a IV-a</h2>\n!;
 #print qq!<h2 align="center">evaluare</font></h2>\n!;
-print qq!<h4 align="center">rezultatul final se afla in partea de jos a a paginii.</h4>\n!;
+print qq!<h4 align="center">rezultatul final se afla in <a href="#endof">partea de jos a a paginii</a>.</h4>\n!;
 #===================V3============
 $trid_login_hlrname = $trid_login;
 $trid_login_hlrname =~ s/\//\@slash\@/; #substitute /
@@ -740,7 +740,6 @@ $slurp_hlrfile[$iter+1]="$slurp_hlrfile[$iter+1]\n";
 
 #evaluare pe capitol a nr de raspunsuri corecte
 #tbd
-
 print qq!<table width="99%" bgcolor="lightblue" border="2"><tr><td>!;
 print qq!<font color="black">La acest capitol ai realizat $correct raspunsuri corecte din $qcount[$iter] intrebari, necesarul minim este de $mincount[$iter] raspunsuri corecte.</font>\n!; 
 print qq!</td></tr></table>\n<br>\n!;
@@ -766,6 +765,7 @@ close(HLRfile);
 #===========.V3===
 
 #just print the final result if the exam is taken or not
+print qq!<a name="endof"></a>\n!;
 print qq!<table width="99%" bgcolor="lightblue" border="2"><tr><td>!;
 print qq!<font color="black">\n<u>Rezultat final:</u><br>\n!;
 if ($f_failed) { #exam is failed

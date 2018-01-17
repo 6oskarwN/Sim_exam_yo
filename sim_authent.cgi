@@ -478,11 +478,9 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 #print qq!generate new transaction<br>\n!;
 
 #CHANGE THIS for customizing
-#my $expire=15;		#15 minutes the validity of root page
 my $epochExpire = $epochTime + 900;		#15 min * 60 sec = 900 sec 
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
-#increment expiry time
 
 
 #generate transaction id and its md5 MAC

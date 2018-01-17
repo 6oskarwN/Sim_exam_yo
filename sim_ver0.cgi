@@ -32,14 +32,15 @@
 
 #  Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2016
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_ver0.cgi v 3.2.2
+#  sim_ver0.cgi v 3.2.3
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.3 implement epoch time and expired_timestamp with epoch
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
@@ -55,7 +56,7 @@
 use strict;
 use warnings;
 
-sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
+sub ins_gpl;                 	#inserts a HTML preformatted text with the GPL license text
 
 my $debug_buffer; #debugging I/O
 
@@ -64,12 +65,12 @@ my %answer=();
 my $post_trid;                  #transaction ID from POST data
 #- for refreshing transaction list
 my @tridfile;
-my $trid;		#the Transaction-ID of the generated page
-my $hexi;   #the trid+timestamp_MD5
-my $entry;              #it's a bit of TRID
+my $trid;			#the Transaction-ID of the generated page
+my $hexi;   			#the trid+timestamp_MD5
+my $entry;              	#it's a bit of TRID
 # - for search transaction in transaction list
-my $expired;		#0 - expired/nonexisting transaction, n - existing transaction, n=pos. in the transaction list
-my $correct;		#how many correct answers you gave
+my $expired;			#0 - expired/nonexisting transaction, n - existing transaction, n=pos. in the transaction list
+my $correct;			#how many correct answers you gave
 
 
 
@@ -184,7 +185,7 @@ if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam t
 
 
 # next 'if' is changed into 'elsif'
-elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])) {} #if timestamp expired do nothing = transaction will not refresh
+elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0 ) {} #if timestamp expired do nothing = transaction will not refresh
 else {@livelist=(@livelist, $i);} #not expired, refresh it
 
  } #.end for
@@ -269,7 +270,7 @@ $heximac=compute_mac($string_trid);
 unless($heximac eq $pairs[7]) { dienice("ERR01",5,\$post_trid);} #threat level 5
 
 #check case 1
-elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) { 
+elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6]) > 0) { 
                                              dienice("ERR02",0,\"null"); }
 
 #else is really case 2
@@ -359,75 +360,12 @@ $trid=hex($trid);		#convert string to numeric
 if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
 else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
 
-
-my @utc_time=gmtime(time);
-my $exp_sec=$utc_time[0];
-my $exp_min=$utc_time[1];
-my $exp_hour=$utc_time[2];
-my $exp_day=$utc_time[3];
-my $exp_month=$utc_time[4];
-my $exp_year=$utc_time[5];
-my $carry1=0;
-my $carry2=0;
-my %month_days=(
-    0 => 31,	#january
-    1 => 28,	#february
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-my %month_bis_days=(
-    0 => 31,	#january
-    1 => 29,	#february, bisect
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
+my $epochTime=time();	#Counted since UTC 00000
+#$epochTime is the "now"
 
 #CHANGE THIS for customizing
-my $expire=15;		#15 minutes in this situation
-
-#increment expiry time
-#for this "sim_ver0.cgi" which generate the registration form
-#the expiry time increments with max. 30minutes
-
-#minute increment
-$carry1= int(($exp_min+$expire)/60);		#check if minutes overflow
-$exp_min=($exp_min+$expire)%60;			#increase minutes
-#hour increment
-$carry2= int(($exp_hour+$carry1)/24);		#check if hours overflow
-$exp_hour=($exp_hour+$carry1)%24;		#increase hours
-
-#day increment
-if($exp_year%4) {
-$carry1=int(($exp_day+$carry2)/($month_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_days{$exp_month}+1); #increase day if so
-	        }
-else		{
-$carry1=int(($exp_day+$carry2)/($month_bis_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_bis_days{$exp_month}+1); #increase day if so
-		}
-if($carry1) {$exp_day=1;}	#day starts with 1-anomaly solution
-
-#month increment
-$carry2=int(($exp_month+$carry1)/12);
-$exp_month=($exp_month+$carry1)%12;
-#year increment
-$exp_year += $carry2;
+my $epochExpire = $epochTime + 300;		#5 min * 60 sec = 300 sec 
+my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
 
 #generate transaction id and its md5 MAC
@@ -468,7 +406,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
@@ -584,7 +522,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;
@@ -609,42 +547,28 @@ use Digest::MD5;
 
 
 #--------------------------------------
-#primeste timestamp de forma sec_min_hour_day_month_year
-#out 1-expired 0-still valid
+#primeste timestamp de forma sec_min_hour_day_month_year UTC
+#out: seconds since expired MAX 99999, 0 = not expired.
+#UTC time and epoch are used
+
 sub timestamp_expired
 {
+use Time::Local;
+
 my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
 
-my @utc_time=gmtime(time);
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
-#my $debug="$x_year\? $act_year \| $x_month\?$act_month";
-#dienice("ERR04",0,\$debug);
-if($x_year > $act_year) {return(0);}  #valid until year increment
- elsif($x_year == $act_year){ 
- if($x_month > $act_month) {return(0);}  #valid
- elsif($x_month == $act_month){ 
- if($x_day > $act_day) {return(0);}  #it's alive one more day
- elsif($x_day == $act_day){
- if($x_hour > $act_hour) {return(0);}  #it's alive one more hour
- elsif($x_hour == $act_hour){ 
- if($x_min > $act_min) {return(0);}  #it's alive one more min
- elsif($x_min == $act_min){ 
- if($x_sec > $act_sec) {return(0);}  #it's alive one more sec
-  
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
-return(1);  #here is the general else
- 
+my $timediff;
+my $actualTime = time(); #epoch since UTC0000
+my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
+$timediff=$actualTime-$dateTime;
 
-}
+#if ($timediff < 0 ) {return (0);}
+#else {return($timediff);}  #here is the general return
+
+return($timediff);  #here is the general return
+
+} #.end sub timestamp
+
 #--------------------------------------
 # treat the "or die" and all error cases
 #how to use it
@@ -733,7 +657,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

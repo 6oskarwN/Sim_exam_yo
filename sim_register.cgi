@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2017
 
-#  sim_register.cgi v 3.2.3
+#  sim_register.cgi v 3.2.4
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.4 integrated sub timestamp_expired(); epoch replacing utc_time
 # ch 3.2.3 changed next_login_time from 0 0 0 0 0 0 to 0 0 0 1 0 0
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice()
@@ -85,7 +86,7 @@ my $trid;	#the Transaction-ID of the generated page
 my $hexi;	#the trid+timestamp_MD5
 my $entry;	#it's a bit of TRID
 
-my @utc_time=gmtime(time);     	#the 'present' time, generated only once
+my $epochTime=time();	#Counted since UTC 00000
 
 my @slurp_userfile;            	#RAM-userfile
 
@@ -188,7 +189,7 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
 if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);}#if this is an exam transaction, don't touch it
 
 # next 'if' is changed into 'elsif'
-elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8])) {} #if timestamp expired do nothing = transaction will not refresh
+elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0 ) {} #if timestamp expired do nothing = transaction will not refresh
 else {@livelist=(@livelist, $i);} #not expired, refresh it
   } #.end for
 #we have now the list of the live transactions
@@ -277,7 +278,7 @@ $heximac=compute_mac($string_trid);
 unless($heximac eq $pairs[7]) { dienice("ERR01",1,\$post_trid);}
 
 #check case 1
-elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])) { 
+elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6]) > 0) { 
                                              dienice("ERR02",0,\"null"); }
 
 #else is really case 2
@@ -359,73 +360,9 @@ else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increm
 
 #ACTION: generate a new transaction for anonymous
 
-my $exp_sec=$utc_time[0];
-my $exp_min=$utc_time[1];
-my $exp_hour=$utc_time[2];
-my $exp_day=$utc_time[3];
-my $exp_month=$utc_time[4];
-my $exp_year=$utc_time[5];
-my $carry1=0;
-my $carry2=0;
-my %month_days=(
-    0 => 31,	#january
-    1 => 28,	#february
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-my %month_bis_days=(
-    0 => 31,	#january
-    1 => 29,	#february, bisect
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
+my $epochExpire = $epochTime + 900;		#15 min * 60 sec = 900 sec 
+my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
-
-#CHANGE THIS for customizing
-my $expire=15;		#15 minutes in this situation
-
-#increment expiry time
-
-#minute increment
-$carry1= int(($exp_min+$expire)/60);		#check if minutes overflow
-$exp_min=($exp_min+$expire)%60;			#increase minutes
-
-#hour increment
-$carry2= int(($exp_hour+$carry1)/24);		#check if hours overflow
-$exp_hour=($exp_hour+$carry1)%24;		#increase hours
-
-#day increment
-if($exp_year%4) {
-$carry1=int(($exp_day+$carry2)/($month_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_days{$exp_month}+1); #increase day if so
-	        }
-else		{
-$carry1=int(($exp_day+$carry2)/($month_bis_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_bis_days{$exp_month}+1); #increase day if so
-		}
-if($carry1) {$exp_day=1;}	#day starts with 1-anomaly solution
-
-#month increment
-$carry2=int(($exp_month+$carry1)/12);
-$exp_month=($exp_month+$carry1)%12;
-#year increment
-$exp_year += $carry2;
 
 #generate transaction id and its md5 MAC
 
@@ -460,7 +397,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -612,66 +549,9 @@ seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 
 #ACTION: generate account expiry time = +7 days from now
-my $exp_sec=$utc_time[0];
-my $exp_min=$utc_time[1];
-my $exp_hour=$utc_time[2];
-my $exp_day=$utc_time[3];
-my $exp_month=$utc_time[4];
-my $exp_year=$utc_time[5];
-my $carry1=0;
-my $carry2=0;
-my %month_days=(
-    0 => 31,	#january
-    1 => 28,	#february
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-my %month_bis_days=(
-    0 => 31,	#january
-    1 => 29,	#february, bisect
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
+my $epochExpire = $epochTime + 604800;		#7 * 24* 60*60  
+my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
-#CHANGE THIS if you want to customize
-#$carry1=1; #1 month from now until the account expires
-
-#CHANGE THIS if you want to customize
-$carry2=7;  #account lives 7 days
-
-
-#day increment
-if($exp_year%4) {
-$carry1=int(($exp_day+$carry2)/($month_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_days{$exp_month}+1); #increase day if so
-	        }
-else		{
-$carry1=int(($exp_day+$carry2)/($month_bis_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_bis_days{$exp_month}+1); #increase day if so
-		}
-if($carry1) {$exp_day=1;}	#day starts with 1-anomaly solution
-
-#month increment
-$carry2=int(($exp_month+$carry1)/12);
-$exp_month=($exp_month+$carry1)%12;
-#year increment
-$exp_year += $carry2;
 
 $new_expiry = "$exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #\n is important
 
@@ -702,7 +582,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 
@@ -729,42 +609,28 @@ use Digest::MD5;
 
 
 #--------------------------------------
-#primeste timestamp de forma sec_min_hour_day_month_year
-#out 1-expired 0-still valid
+#primeste timestamp de forma sec_min_hour_day_month_year UTC
+#out: seconds since expired MAX 99999, 0 = not expired.
+#UTC time and epoch are used
+
 sub timestamp_expired
 {
+use Time::Local;
+
 my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
 
-my @utc_time=gmtime(time);
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
-#my $debug="$x_year\? $act_year \| $x_month\?$act_month";
-#dienice("ERR04",0,\$debug);
-if($x_year > $act_year) {return(0);}  #valid until year increment
- elsif($x_year == $act_year){ 
- if($x_month > $act_month) {return(0);}  #valid
- elsif($x_month == $act_month){ 
- if($x_day > $act_day) {return(0);}  #it's alive one more day
- elsif($x_day == $act_day){
- if($x_hour > $act_hour) {return(0);}  #it's alive one more hour
- elsif($x_hour == $act_hour){ 
- if($x_min > $act_min) {return(0);}  #it's alive one more min
- elsif($x_min == $act_min){ 
- if($x_sec > $act_sec) {return(0);}  #it's alive one more sec
-  
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
-return(1);  #here is the general else
- 
+my $timediff;
+my $actualTime = time(); #epoch since UTC0000
+my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
+$timediff=$actualTime-$dateTime;
 
-}
+#if ($timediff < 0 ) {return (0);}
+#else {return($timediff);}  #here is the general return
+
+return($timediff);  #here is the general return
+
+} #.end sub timestamp
+
 #--------------------------------------
 # treat the "or die" and all error cases
 #how to use it
@@ -854,7 +720,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
