@@ -1,4 +1,4 @@
-programa regulamente, HAREC clasa I, II [rev. Nov. 2017]
+programa regulamente, HAREC clasa I, II [ver. 3.30]
 
 PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
 PROGRAMA ANALITICA DE EXAMINARE DETALIATA
@@ -21,7 +21,6 @@ CAPITOLUL 2
 REGLEMENTARI CEPT
 
 211&-	Recomandarea T/R 61-01
-212&-	<strike>Recomandarea T/R 61-02</strike>(scos din programa)
 213&-	Utilizarea temporara a statiilor de radioamator in tarile membre CEPT
 214&-	Utilizarea temporara a statiilor de radioamator in tarile nemembre CEPT care participa la sistemul T/R 61-01
 
@@ -30,195 +29,119 @@ CAPITOLUL 3
 LEGI NATIONALE, REGLEMENTARI SI CONDITII DE LICENTIERE
 
 301&    3.1	Reglementari nationale(altele decat Regulamentul)
-=======================================
-Art. 2. – (1) Termeni:
-Art. 3. – (1) În funcție de titularul autorizației:
-
-Art. 4. – (1) Titularul autorizației de radioamator este identificat, în cadrul oricărei transmisii radio, printr-un indicativ de apel permanent, format din următoarele elemente:
-Art. 6. – (1) Atribuirea de indicative speciale se realizează în baza unui formular-tip.
-Art. 7. – Indicativele de apel ale radioamatorilor se atribuie și se țin în evidență de către ANCOM.
-Art. 8. – Condițiile de utilizare a benzilor de frecvențe radio în serviciul de amator sunt prevăzute în anexa la prezenta decizie.
-CAPITOLUL II – Certificarea radioamatorilor
-Art. 9. – (1) Certificatul de radioamator se obține pe baza unui examen care constă în probe scrise și practice.
-(2) Programele de examinare pentru obținerea certificatului de radioamator sunt disponibile pe pagina de internet a ANCOM, prin referință către documentele Conferinței Administrațiilor Europene de Poștă și Telecomunicații, denumită în continuare CEPT.
-Art. 10. – (1) Certificatele de radioamator sunt de 4 clase: clasa I-a, a II-a, a III-a și a IV-a.
-Art. 11. – (1) Examenele se organizează semestrial.
-(2) În afara sesiunilor semestriale, după analizarea solicitărilor primite, ANCOM poate organiza și sesiuni suplimentare de examinare, inclusiv la domiciliu, în cazul persoanelor cu dizabilități.
-CAPITOLUL III – Autorizarea în serviciul de amator
-(2) Responsabilul și ajutorul acestuia, indicați de persoana prevăzută la art. 21 alin. (1), sunt menționați în autorizația emisă pentru stația de radioclub.
-Art. 23. – (1) În vederea eliberării autorizației de radioclub, solicitantul depune un formular-tip.
-(2) La formularul-tip, disponibil pe pagina de internet a ANCOM, se atașează următoarele:
-a) copia certificatului de înregistrare, în cazul persoanelor juridice care au calitatea de comerciant, sau copia certificatului de înscriere în Registrul asociațiilor și fundațiilor sau în Registrul federațiilor, după caz, în situația persoanelor juridice care nu au calitatea de comerciant, sau copia certificatului de înregistrare a persoanei juridice în subordinea căreia își desfășoară radioclubul activitatea, însoțită de decizia de organizare a respectivului radioclub în cadrul unității în cauză;
-b) declarație-angajament, în original, din partea responsabilului stației că este de acord să fie numit responsabil; responsabilul trebuie să fie posesor al unei autorizații de radioamator de clasa I-a sau a II-a;
-c) declarație-angajament, în original, din partea ajutorului responsabilului de stație că este de acord să fie numit în calitate de ajutor al responsabilului stației; ajutorul responsabilului trebuie să fie posesor al unei autorizații de radioamator de clasa I-a, a II-a sau a III-a.
-(3) ANCOM eliberează autorizația de radioclub în termen de cel mult 30 zile de la depunerea într-o formă corectă și completă a documentelor solicitate la alin. (1) și (2).
-Art. 24. – (1) Autorizația pentru o stație repetoare, respectiv de radiobaliză, se eliberează la solicitarea unui radioamator sau a unui radioclub, care se angajează să asigure toate condițiile tehnice, organizatorice și administrative pentru ca activitatea stației repetoare, respectiv de radiobaliză, să se desfășoare conform prevederilor prezentei decizii.
-(2) Durata de valabilitate a autorizației pentru stația repetoare, respectiv de radiobaliză, este de 5 ani.
-Art. 25. - (1) În vederea eliberării autorizației pentru stația repetoare, respectiv de radiobaliză, solicitantul depune un formular-tip.
-(2) La formularul-tip, disponibil pe pagina de internet a ANCOM, se atașează următoarele:
-a) copia certificatului de înregistrare, în cazul persoanelor juridice care au calitatea de comerciant, sau copia certificatul de înscriere în Registrul asociațiilor și fundațiilor sau în Registrul federațiilor, după caz, în situația persoanelor juridice care nu au calitatea de comerciant; copia cărții de identitate sau a documentului care atestă șederea sau rezidența pe teritoriul României în cazul cetățenilor străini, după caz, pentru persoanele fizice;
-b) un memoriu tehnic care să prezinte descrierea și utilitatea sistemului, modul de operare și funcționare, precum și schema tehnică pentru rețelele de stații repetoare, respectiv de radiobaliză.
-(3) ANCOM eliberează autorizația în termen de cel mult 30 zile lucrătoare de la depunerea într-o formă corectă și completă a documentelor solicitate la alin. (1) și (2).
-(4) Autorizația emisă pentru stația repetoare, respectiv de radiobaliză, este de aceeași clasă cu a radioamatorului sau responsabilului radioclubului solicitant, după caz.
-Art. 26. – (1) Radioamatorul cetățean străin ce deține o autorizație echivalentă CEPT, CEPT Novice sau CEPT Entry-Class poate să opereze o stație de radioamator pe teritoriul României în baza autorizației emise în țara de origine.
-(2) Certificatele echivalente HAREC emise de către administrații străine se consideră a fi de clasa a II-a.
-Art. 27. – (1) Radioamatorii din țările cu ale căror administrații s-au semnat convenții de reciprocitate pot să opereze stații de radioamator pe teritoriul României în baza autorizației emise în țara de origine și în condițiile de echivalare din respectiva convenție. În absența unei astfel de echivalări, autorizațiile se consideră a fi de clasa a III-a.
-7/15
-(2) Operarea stației de radioamator în condițiile alin. (1) este condiționată de notificarea ANCOM. Notificarea se transmite înainte de operarea efectivă a stației.
-(3) Notificarea se realizează în conformitate cu modelul disponibil pe pagina de internet a ANCOM, la care se anexează copia autorizației de radioamator din țara de origine.
-Art. 28. – Radioamatorul cetățean străin poate opera o stație de radioamator pe teritoriul României folosind următorul indicativ de apel: YO, bară de fracție („/”) și indicativul propriu.
-Art. 29. – (1) Prelungirea valabilității autorizației de radioamator se realizează în baza formularului-tip disponibil pe pagina de internet a ANCOM.
-(2) Solicitarea prevăzută la alin. (1) se înaintează cu cel puțin 30 de zile calendaristice înainte de expirarea valabilității autorizației, dar nu mai devreme de 6 luni până la această dată, și este însoțită de:
-a) copia cărții de identitate sau a documentului care atestă șederea sau rezidența pe teritoriul României în cazul cetățenilor străini, după caz, în care să fie menționat codul numeric personal;
-b) în cazul persoanei minore, copia cărții de identitate, după caz, a certificatului de naștere, copia cărții de identitate sau a documentului care atestă șederea sau rezidența pe teritoriul României a părintelui, tutorelui sau întreținătorului legal împreună cu declarația sa pe propria răspundere privind acordul desfășurării și asumarea răspunderii pentru activitatea de radioamator a solicitantului minor;
-c) o fotografie color recentă tip pașaport 3x4 cm sau o fotografie color transmisă în format electronic cu o rezoluție de minim 300 dpi și raport 9:7.
-(3) Indicativul radioamatorului care nu a solicitat prelungirea autorizației în termenul prevăzut la alin. (2) îi este rezervat acestuia pentru o perioadă de 5 ani.
-Art. 30. – (1) Prelungirea valabilității autorizației de radioclub se realizează în baza formularului-tip disponibil pe pagina de internet a ANCOM.
-(2) Solicitarea prevăzută la alin. (1) se înaintează cu cel puțin 30 de zile calendaristice înainte de expirarea valabilității autorizației, dar nu mai devreme de 6 luni până la această dată, și este însoțită de copia certificatului de înregistrare, în cazul persoanelor juridice care au calitatea de comerciant, sau copia certificatului de înscriere în Registrul asociațiilor și fundațiilor sau în Registrul federațiilor, după caz, în situația persoanelor juridice care nu au calitatea de comerciant, sau copia certificatului de înregistrare a persoanei juridice în subordinea căreia își desfășoară radioclubul activitatea, însoțită de decizia de organizare a respectivului radioclub în cadrul unității în cauză.
-(3) În cazul prelungirii valabilității autorizației de radioclub, titularul are obligația de a transmite către ANCOM informații privind responsabilul stației și ajutorul acestuia.
-Art. 31. – (1) Prelungirea valabilității autorizației pentru stații repetoare, respectiv de radiobaliză, se realizează în baza formularului-tip disponibil pe pagina de internet a ANCOM.
-(2) Solicitarea prevăzută la alin. (1) se înaintează cu cel puțin 30 de zile calendaristice înainte de expirarea valabilității autorizației, dar nu mai devreme de 6 luni până la această dată, și este însoțită de:
-a) copia certificatului de înregistrare, în cazul persoanelor juridice care au calitatea de comerciant, sau copia certificatului de înscriere în Registrul asociațiilor și fundațiilor sau în Registrul federațiilor, după caz, în situația persoanelor juridice care nu au calitatea de comerciant;
-b) copia cărții de identitate sau a documentului care atestă șederea sau rezidența pe teritoriul României, în cazul cetățenilor străini, după caz, pentru persoanele fizice.
-Art. 32. – (1) Modificarea datelor înscrise în autorizație se realizează în baza formularului-tip disponibil pe pagina de internet a ANCOM.
-(2) Solicitarea prevăzută la alin. (1) este însoțită de următoarele documente:
-8/15
-a) în cazul autorizațiilor de radioamator, copia actului de identitate în care sunt menționate noile datele de identificare și o fotografie color recentă tip pașaport 3x4 cm sau o fotografie color transmisă în format electronic cu o rezoluție de minim 300 dpi și raport 9:7;
-b) în cazul autorizațiilor de radioclub, informații privind responsabilul stației și ajutorul acestuia;
-c) documente care atestă necesitatea modificării solicitate;
-d) autorizația anterioară în original.
-Art. 33. – (1) Autorizația de radioamator poate fi retrasă la cererea titularului.
-(2) În cazul depunerii cererii de renunțare titularul atașează și autorizația de radioamator în original.
-(3) Cererea de renunțare produce efecte de la data înscrierii acesteia în registrul de intrare-ieșire sau de la data confirmării primirii înscrisului în formă electronică.
-(4) Ulterior primirii documentelor prevăzute la alin. (2), ANCOM confirmă în scris radioamatorului încetarea valabilității autorizației de radioamator.
-(5) Indicativele radioamatorilor cu autorizații retrase nu pot fi atribuite pentru o perioadă de 5 ani.
-Art. 34. – (1) În cazul în care autorizația sau certificatul de radioamator este deteriorat, distrus sau pierdut, ANCOM poate elibera un duplicat.
-(2) ANCOM poate elibera duplicatul documentului numai la solicitarea expresă a titularului.
-CAPITOLUL IV – Moduri de transmitere a documentelor
-Art. 35. – (1) Transmiterea documentelor prevăzute la art. 5 alin. (1)-(2), art. 6 alin. (1)-(2), art. 12 alin. (1)-(2), art. 18 alin. (1)-(2), art. 23 alin. (1)-(2), art. 25 alin. (1)-(2), art. 29 alin. (1)-(2), art. 30 alin. (1)-(2), art. 31 alin. (1)-(2) şi art. 32 alin. (1)-(2) se poate realiza în unul dintre următoarele moduri:
-a) ca înscris în formă electronică, căruia i s-a încorporat, atașat sau i s-a asociat logic o semnătură electronică extinsă, bazată pe un certificat calificat, nesuspendat sau nerevocat la momentul respectiv și generată cu ajutorul unui dispozitiv securizat de creare a semnăturii electronice;
-b) prin depunere la unul dintre sediile ANCOM;
-c) prin serviciu poștal.
-(2) Copia după cartea sau buletinul de identitate, acolo unde este cazul, poate fi transmisă la adresa de e-mail pentru primirea în format electronic a copiei după cartea de identitate, menționată pe pagina de internet a ANCOM.
-CAPITOLUL V – Dispoziții tranzitorii și finale
-Art. 36. – (1) La data intrării în vigoare a prezentei decizii, clasele de radioamatori acordate în baza Deciziei președintelui Inspectoratului General pentru Comunicații și Tehnologia Informației nr. 660/2005 privind aprobarea Regulamentului de radiocomunicații pentru serviciul de amator din România, cu modificările și completările ulterioare, se echivalează cu cele prevăzute în prezenta decizie, după cum urmează:
-a) certificatul de radioamator de clasa a III-a restrâns se echivalează cu clasa a IV-a din prezenta decizie;
-b) autorizația de radioamator de clasa a III-a restrâns se echivalează cu clasa a IV-a din prezenta decizie.
-(2) Clasele de radioamatori echivalate în condițiile alin. (1) rămân valabile până la data menționată în cuprinsul acestora.
-Art. 37. – (1) Datele de identificare ale radiocluburilor: denumire, indicativ, clasa de autorizare, localitate, județ și adresă reprezintă informații cu un caracter public și se publică pe pagina de internet a ANCOM în cadrul callbook-ului serviciului de amator.
-(2) În funcție de dorința liber exprimată a radioamatorilor, comunicată cu ocazia depunerii formularului-tip pentru obținerea autorizației, ANCOM publică, după caz, pe pagina de internet în
-9/15
-cadrul callbook-ului serviciului de amator următoarele date: nume și prenume, indicativ, clasa de autorizare, localitatea și județul de domiciliu, precum și indicativul radioclubului de care acesta aparține pentru corespondență, dacă este cazul.
-(3) Toate indicativele atribuite se publică în cadrul callbook-ului serviciului de amator.
-(4) Datele de identificare ale stațiilor repetoare, respectiv de radiobaliză, se publică pe pagina de internet a ANCOM.
-Art. 38. – (1) În cazul decesului unui radioamator, prin excepție de la art. 29 alin. (3), la solicitarea expresă a radioclubului în care a activat sau a unui grup de radioamatori, acolo unde este cazul, ce trebuie depusă în termen de 1 an de zile de la data decesului, indicativul respectivei persoane nu se atribuie pe o durată de 10 ani de la data decesului.
-(2) În cazul decesului unui radioamator, indicativul persoanei decedate poate fi atribuit, la cerere, unei persoane aflate în clasa I-a de moștenitori sau soțului supraviețuitor. Cererea poate fi depusă în termen de 1 an de zile de la constatarea decesului.
-Art. 39. – Anexa face parte integrantă din prezenta decizie.
-Art. 40. – Prezenta decizie se publică în Monitorul Oficial al României, Partea I.
-Art. 41. – La data intrării în vigoare a prezentei decizii se abrogă Decizia președintelui Inspectoratului General pentru Comunicații și Tehnologia Informației nr. 660/2005 privind aprobarea Regulamentului de radiocomunicații pentru serviciul de amator din România, publicată în Monitorul Oficial al României, Partea I, nr. 1137 și 1137 bis din data de 15 decembrie 2005, cu modificările și completările ulterioare.
-
-
-========================================
 302&    3.2	Regulamentul serviciului de amator
 
-CAPITOLUL I, DISPOZITII GENERALE, (Art. 1 - 2)
+3101& Art. 2. - Termeni
 
-3101&  Art. 2 - (1) Abrevierile din cuprinsul Regulamentului
-3102&  Art. 2 - (2) Termeni si definitii din cuprinsul Regulamentului { Art2-(2) nu e prevazut in programa dar pot fi intrebari }
+3213& Art. 3. - Statiile de radioamator in functie de titularul autorizatiei
+Art. 4. - Titularul autorizatiei de radioamator, identificare
+3230&  <i>Indicative de apel in Romania, sintaxa indicativului.</i>
+3231&  <i>Zonele indicativelor de apel din Romania</i>
+3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
+3416&  <i>Sufixele de indicativ</i>
+Art. 5. - Atribuirea indicativelor de doua litere
+3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
+Art. 6. - Atribuirea indicativelor speciale
+#3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
+3233& Art. 7. - Atribuirea si evidenta indicativelor de apel ale radioamatorilor
+Art. 8. - Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
+     Anexa: Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
+3102&	I. Definitii
+	II. Nivelurile de putere de emisie, benzi de frecvente
+3214&  <i>Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, [IV] club</i>
+3530&  <i>Moduri de transmisie si Puterea maxima la purtatoare pentru statiile cat. I, II, III pentru benzile de radioamatori.</i>
+	III. Conditii privind utilizarea unor niveluri de putere marite
+3541&  Anexa 3, Art. 1 Conditii tehnice speciale permise statiilor de cat. I
+#3214&  <i>Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, [IV] club</i>
+	IV. Norme de utilizare a statiilor radio
+	1) statiile de radioamator in functie de modul de folosire
+3212&  <i>Categorii de statii in functie de modul de folosire: fixe/mobile/portabile</i>
+	2) statiile de radioamator in functie de modul de control
+3234&	3) transmiterea indicativul de apel in cursul desfasurarii legaturilor radio
+3237&	4) utilizarea antenelor artificiale neradiante
+3232&	5) Indicativele de apel ale radioamatorilor care lucreaza pe statii mobile sau portabile
+	6) transmiterea QTH-locatorului sau localitatii
+	7) transmiterea de indicative de apel neidentificabile sau neautorizate
+	8) Identificarea radioamatorului care opereaza o statie de radioclub
+	9) Identificarea radioamatorului care opereaza o alta statie
+	10) Parametrii de emisie radio
+	11) transmiterea completa si corecta a indicativelor de apel
+	12) Responsabilitatea radioamatorului asupra continutului si parametrilor de emisie
+	13) Responsabilitatea responsabilul de radioclub asupra continutului si parametrilor de emisie, jurnalizarea legaturilor
+3505&	14-16) Responsabilitatile detinatorului de statie radio in cazul permiterii lucrului unui alt radioamator, in mod direct sau de la distanta 
+3235&	17) Continut nepermis in cadrul legaturilor radio din serviciul de amator
+3236&	18) Conditii pentru transmiterea semnalelor de test
+	19) Obligatii la stabilirea legaturi radio(doar cu radioamatori, doar pe frecventele de radioamatori)
+	20-21) Legaturi radio permise, permise exceptional si interzise in receptie sau emisie
+3239&  <i>Art. 22 - Legaturi radio permise, permise exceptional si interzise</i>
+323a&  <i>Art. 23 - Interceptarea mesajelor transmise de statii apartinand altor servicii decat cel de radioamator</i>
+	22) Exceptii la activitatile interzise
 
-CAPITOLUL II, STATII DE RADIOAMATORI, SECTIUNEA 1, CATEGORII DE STATII(Art. 3 - 7)
+	23-24) Consemnarea traficului, jurnalul de trafic, date inscrise
+3501&  <i>CONTROLUL STATIILOR DE RADIOAMATORI(Art. 53-55, 57)</i>
+3503&  <i>Art. 54,55 - Dreptul de control al ANCOM</i>
+323b&  <i>Art. 24 - Jurnalul de trafic.</i>
 
-3211&  Art. 3 - Categorii de statii in functie de natura activitatii: receptie/ emisie-receptie
-3212&  Art. 4 - Categorii de statii in functie de modul de folosire: fixe/mobile/portabile
-3213&  Art. 5 - Categorii de statii in functie de titular: individuale, de radioclub
-3214&  Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, club
-3215&  Art. 7 - Utilizarea statiilor de radioamator de receptie
+323c&  <i>Art. 25 - Documente obligatorii la statia de radioamator, controlul lor.[S-A SCOS partea cu documente obligatorii] </i>
+	25) Asigurarea functionarii statiilor cu respectarea nivelurilor de camp electromagnetic
+	26) Respectarea regimului emisiilor neesentiale din Regulamentul UIT
+3238&	27) Evitarea producerii de interferente si masuri ce se impun pentru eliminarea acestora
 
 
-3221&  CAPITOLUL II, STATII DE RADIOAMATORI, SECTIUNEA 2, NORME TEHNICE(Art. 8 - 11)
-
-SECTIUNEA 3 NORME DE EXPLOATARE(Art. 12-26)
-
-3230&  Indicative de apel in Romania, sintaxa indicativului.
-3231&  Zonele indicativelor de apel din Romania 
-3232&  Art. 13 - (1) sufixele marin si portabil
-3233&  Art. 14 Atribuirea si evidenta indicativelor
-3234&  Art. 15-17 Obligativitatea, frecventa si conditiile transmiterii indicativului de apel.
-3235&  Art. 18 - Categorii de mesaje interzise la transmitere
-3236&  Art. 19 - Transmiterea semnalelor de test, conditii.
-3237&  Art. 20 - Reglarea emitatoarelor, antena artificiala neradianta ("dummy load"); 
-3238&  Art. 21 - Rezolvarea cazurilor de interferenta sau alte genuri de perturbatii.
-3239&  Art. 22 - Legaturi radio permise, permise exceptional si interzise.
-323a&  Art. 23 - Interceptarea mesajelor transmise de statii apartinand altor servicii decat cel de radioamator
-323b&  Art. 24 - Jurnalul de trafic.
-323c&  Art. 25 - Documente obligatorii la statia de radioamator, controlul lor.
-323d&  Art. 26 - Conditii de organizare a aplicatiilor de radiogoniometrie de amator, indicative atipice.
-
-CAPITOLUL III EMITEREA CERTIFICATELOR DE RADIOAMATOR(Art. 27 - 33) 
-
-3301&  Art. 27 Clase de certificare.
-3302&  Art. 27,28 Echivalenta cu CEPT
-3303&  Examene ordinare si extraordinare(Art 29-33)
-
-CAPITOLUL IV AUTORIZAREA STATIILOR DE RADIOAMATOR
-SECTIUNEA 1 EMITEREA AUTORIZATIILOR INDIVIDUALE
-
-3411&  Art. 34 - Activitatea de radioamator autorizata.
-3412&  Autorizatia de radioamator individuala
-3413&  Art. 35 - Drepturi derivate din  autorizatia de radioamator
+CAPITOLUL II - Certificarea radioamatorilor
+3301& Art. 9. - Obtinerea certificatului de radioamator
+3302& Art. 10. - Clase de certificate de radioamator
+Art. 11-16. - Examinarea
+3303&  
+CAPITOLUL III - Autorizarea in serviciul de amator
+ Art. 17-18. - Autorizarea
+3411&  <i>Art. 34 - Activitatea de radioamator autorizata.</i>
+3124&  <i>Autorizatia de radioamator individuala</i>
+3413&  <i>Art. 35 - Drepturi derivate din  autorizatia de radioamator</i>
+ Art. 19-20. - Clase de autorizare
 3414&  Art. 36 - Clasele autorizatiilor de radioamator
 3415&  Echivalentele autorizatiilor romanesti cu CEPT.
-3416&  Sufixele de indicativ
+3421& Art. 21-23. - Autorizatia de radioclub
+3431& Art. 24-25. - Autorizatia pentru statie repetoare sau radiobaliza
+3441& Art. 26-28. - Autorizarea radioamatorilor cetateni ai altor state
+3461& Art. 29-31. - Prelungirea valabilitatii autorizatiilor de radioamator
+3463& Art. 32. - Modificarea datelor inscrise in autorizatie
+3464& Art. 33. - Retragerea autorizatiei radioamator
+3462& Art. 34. - Eliberare de duplicat pentru autorizatia sau certificatul deteriorat, distrus sau pierdut
 
-SECTIUNEA 2
-EMITEREA AUTORIZATIILOR PENTRU RADIOCLUBURI
+CAPITOLUL IV - Moduri de transmitere a documentelor
+Art. 35. - Transmiterea documentelor prevazute la art. 5 alin. (1)-(2), art. 6 alin. (1)-(2), art. 12 alin. (1)-(2), art. 18 alin. (1)-(2), art. 23 alin. (1)-(2), art. 25 alin. (1)-(2), art. 29 alin. (1)-(2), art. 30 alin. (1)-(2), art. 31 alin. (1)-(2) şi art. 32 alin. (1)-(2), a copiei dupa cartea sau buletinul de identitate
 
-3421&  Art. 38 - 40 Autorizatiile pentru radiocluburi
+CAPITOLUL V - Dispozitii tranzitorii si finale
+Art. 36. - echivalarea clasei III-R cu clasa IV
+Art. 37. - Callbook, adrese radiobalize
+Art. 38. - Exceptii de tratare a indicativelor
+Art. 39-41. - Abrogarea regulamentului anterior
+========================================
 
-SECTIUNEA 3
-EMITEREA AUTORIZATIILOR PENTRU STATIILE REPETOARE SI BALIZE RADIO
+Articole din regulamentul ver. 2005 care s-au abrogat/scos
 
-3431&  Art. 41 - (1) Autorizatiile pentru statiile repetoare/balize radio
-
-SECTIUNEA 4
-3441&  RECUNOASTEREA AUTORIZATIILOR EMISE DE CATRE ALTE ADMINISTRATII
-3442&  ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE
-
-SECTIUNEA 6
-PRELUNGIREA, MODIFICAREA SI RETRAGEREA AUTORIZATIEI
-3461&  Art. 48,49 - (1) Prelungirea valabilitatii autorizatiei de radioamator 
-3462&  Art. 50 - (1) Deteriorarea, distrugerea sau pierderea certificatului sau autorizatiei de radioamator, 
-3463&  Art.51 - modificarea datelor inscrise in autorizatie, 
-3464&  Art. 52 - Retragerea autorizatiei
-
-CAPITOLUL V
-3501&  CONTROLUL STATIILOR DE RADIOAMATORI(Art. 53-55, 57)
+3211&  Art. 3 - Categorii de statii in functie de natura activitatii: receptie/ emisie-receptie 
+3215&  Art. 7 - Utilizarea statiilor de radioamator de receptie
+3221&  CAPITOLUL II, STATII DE RADIOAMATORI, SECTIUNEA 2, NORME TEHNICE(Art. 8 - 11)
+323d&  Art. 26 - Conditii de organizare a aplicatiilor de radiogoniometrie de amator, indicative atipice.
 3502&  Art. 53 - Abaterile de la prevederile regulamentului.
-3503&  Art. 54,55 - Dreptul de control al ANCOM
 3504&  Art. 57 - Autorizatiile de radioamator falsificate sau obtinute in mod fraudulos 
-
-3505&  Art. 56 - Obligatiile titularilor, respectiv responsabililor statiilor la care sunt autorizati alti radioamatori
 3506&  Art. 58 - (1) Masurile sanctionatorii si metode de apel.
 3521&  Anexa nr. 2 BENZI DE FRECVENTE RADIO exceptate de la licentiere in serviciile de amator si amator prin satelit
-3530&  Anexa nr. 3 Art1. Moduri de transmisie si Puterea maxima la purtatoare pentru statiile cat. I, II, III pentru benzile de radioamatori.
+
+
 
  Modurile de transmisie: 
 3531&  a) TELEGRAFIE(A1A; A2A; F1A; F2A; J2A);
 3532&  b) TELEFONIE (A3E; J3E; R3E; F3E);
-3533&  c) RTTY (A1B; A2B; F1B; F2B);
-3534&  d) DATE (F1D; F2D; J2D);
-3535&  e) FACSIMIL SI SSTV (A1C; A2C; A3C; J2C; J3C; F1C; F2C; F3C);
-3536&  f) TELEVIZIUNE (A3F; C3F; F3F).
+
 
  Codificarea claselor de emisie:
 
 3537&  (3) Primul simbol indica tipul modulatiei purtatoarei principale
 3538&  (4) Al doilea simbol indica natura semnalelor care moduleaza purtatoarea principala
 3539&  (5) Al treilea simbol indica tipul informatiei transmise
-
-
-3541&  Anexa 3, Art. 1 Conditii tehnice speciale permise statiilor de cat. I
-
 
 =======================
 

@@ -1,4 +1,4 @@
-Legislatie, clasa I v.3.10 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_HAREC_reg</curricula></font>
+Legislatie, clasa I v.3.30 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_HAREC_reg</curricula></font>
 158
 ##0#
 a
@@ -22,8 +22,8 @@ Radioamatorii pot transmite in acea banda doar daca au o autorizatie secundara s
 Radioamatorii folosesc in mod curent aceste benzi, insa in anumite conditii speciale, alte servicii au prioritate in folosirea acestor benzi
 YO6OWN, Brasov, 2007(rev. 2010)
 null
-Din regulament: STATUT SECUNDAR. Statiile de radioamator din aceasta banda nu vor cauza perturbatii statiilor din celelalte servicii de radiocomunicatii si nici nu beneficiaza de protectie.
-YO6OWN, Brasov, 2010
+Conform Deciziei 245/2017, acest concept nu e definit. Regulamentul vechi definea: STATUT SECUNDAR. Statiile de radioamator din aceasta banda nu vor cauza perturbatii statiilor din celelalte servicii de radiocomunicatii si nici nu beneficiaza de protectie.
+YO6OWN, Brasov, 2018
 ##2#
 c
 02A3521~&Ce inseamna 'statut primar' al unei benzi de frecvente alocata serviciului de amator?
@@ -32,10 +32,10 @@ Radioamatorii pot transmite tot timpul in acea banda, insa atunci cand e liniste
 Radioamatorii pot rejecta apeluri ale altor servicii
 Radioamatorii sunt singurii care pot transmite in acea banda
 In cazul unor calamitati, radioamatorii preiau controlul de trafic intre celelalte servicii pe aceste benzi
-YO6OWN, Brasov, 2007(rev. 2010)
+YO6OWN, Brasov, 2007(rev. 2018)
 null
-Statut primar al benzii inseamna ca acea banda este alocata doar radioamatorilor.
-YO6OWN, Brasov, 2010
+Conform Deciziei 245/2017, acest concept nu e definit. Regulamentul vechi definea: Statut primar al benzii inseamna ca acea banda este alocata doar radioamatorilor.
+YO6OWN, Brasov, 2018
 ##3#
 d
 01A3235~&De ce limbajul indecent sau obscen este interzis in serviciul de radioamator?
@@ -44,10 +44,10 @@ Pentru ca pot insulta sau jigni radioamatori
 Fiindca exista copii care asculta comunicatiile de radioamatori cu diverse tipuri de radioreceptoare, sau difuzorul se aude si in casa de catre familie.
 Fiindca acest tip de limbaj este interzis de regulament
 Toate celelalte trei raspunsuri sunt corecte
-YO6OWN - adaptare dupa eham.net, 2007(rev. 2010)
+YO6OWN - adaptare dupa eham.net, 2007(rev. 2018)
 null
-In Regulament este specificat:<br>Art. 18  Sunt interzise urmatoarele:<br>b) transmiterea mesajelor care contin cuvinte sau expresii indecente sau insultatoare;
-YO6OWN, Brasov, 2010
+19) Radioamatorii pot stabili legaturi radio numai cu alti radioamatori si numai in cadrul benzilor de frecvente radio atribuite, conform TNABF, serviciului de amator.<br>In cadrul legaturilor radio din serviciul de amator nu sunt permise: a) transmiterea mesajelor care contin cuvinte sau expresii indecente sau insultatoare;
+YO6OWN, Brasov, 2018
 ##4#
 b
 02A3235~&De ce transmiterea pe frecventa politiei ca o 'gluma', este de fapt o contraventie?  
@@ -56,21 +56,21 @@ Deranjeaza pe toti cei care asculta
 Poate intrerupe comunicatii ale politiei care ar putea fi trafic de urgenta
 Este lipsit de bun-simt sa comunici cu ne-amatori, chiar si sub forma de gluma
 Este un obicei nelalocul lui sa transmiti in afara benzilor de radioamatori
-YO6OWN - adaptare dupa eham.net, 2007
+YO6OWN - adaptare dupa eham.net, 2007, rev. 2018
 null
-Este interzis prin Normele de utilizare, 17)  Sunt interzise urmatoarele:b) perturbarea in mod voit si cu rea intentie a altor emisiuni;<br>19) Statiile de radioamator pot stabili legaturi radio numai cu alte statii de radioamator.
-YO6OWN, Brasov, 2017
+Sunt interzise urmatoarele: b) perturbarea in mod voit si cu rea intentie a altor transmisii radio;<br>19) Radioamatorii pot stabili legaturi radio numai cu alti radioamatori si numai in cadrul benzilor de frecvente radio atribuite, conform TNABF, serviciului de amator.<br>(2) Legaturile cu statiile apartinand altor servicii, precum si cu cele care nu isi semnaleaza identitatea prin transmiterea indicativului de apel sunt interzise.
+YO6OWN, Brasov, 2018
 ##5#
 b
 01A3530~&Unde vei gasi o lista detaliata cu permisiunile de operare?
 null
 In Anexa 25 
-In Regulament
+In Anexele de la Decizia ANCOM 245/2017
 In instructiunile de operare ale statiei
 In legea telecomunicatiilor
 YO6OWN - adaptare dupa eham.net, 2007(rev. 2010)
 null
-Prin permisiuni de operare intelegem benzile de frecvente, modurile de lucru, puterile alocate fiecarei clase. Aceste lucruri se gasesc in Regulamentt, mai precis in Anexele 2 si 3;  Anxa 25 nu exista.
+Prin permisiuni de operare intelegem benzile de frecvente, modurile de lucru, puterile alocate fiecarei clase.
 YO6OWN, Brasov, 2011
 ##6#
 a
@@ -86,16 +86,16 @@ Chiar daca ascultarea frecventelor politiei si a armatei este strict interzisa i
 YO6OWN, 2010
 ##7#
 a
-01B3101~&Cum se defineste termenul de radiocomunicatie?
+Cum se defineste termenul de radiocomunicatie?
 null
  Orice emisie sau receptie de semne, semnale, scrieri, imagini, sunete sau informatii de orice alta natura realizata cu ajutorul undelor radioelectrice
  Emisie si receptie TX/RX
  Orice emisie sau receptie de semne si semnale luminoase
  Orice emisie sau receptie de semne, semnale, scrieri, imagini, sunete sau informatii de orice alta natura realizata cu ajutorul semnalelor luminoase
-YO3HAF, Bucuresti, 2005 - rev.2007(rev 2010)
+YO3HAF, Bucuresti, 2005 - rev.2007(rev 2018)
 null
-Chiar daca regulamentul din 2010 nu are o atare descriere, radiocomunicatia e comunicatia utilizand undele radio. Iar comunicatia este un transfer de informatii si/sau date pe canalul de comunicatie(radio in cazul nostru)
-YO6OWN, Brasov, 2010
+Chiar daca Decizia din 2017 nu are o atare descriere, radiocomunicatia e comunicatia utilizand undele radio. Iar comunicatia este un transfer de informatii si/sau date pe canalul de comunicatie(radio in cazul nostru)
+YO6OWN, Brasov, 2018
 ##8#
 a
 01A323c~&Care este unul din documentele cu care trebuie sa fie prevazuta orice statie de amator?
@@ -114,12 +114,12 @@ a
 null
  Contin expresii indecente sau insultatoare
  Contin mutari de la partide de sah (ex. Na1vPb2) deoarece pot fi interpretate ca fiind coduri secrete
- Contin indicative apartinand altor servicii de radiocomunicatie
+ Contin clasamente din concursuri de radioamator
  Contin indicative ale unor statii de club fara ca acestea sa fie prezente pe frecventa
-YO6OWN, Sacele, 2005 (rev. 2010)
+YO6OWN, Sacele, 2005 (rev. 2018)
 null
-Art 18, b)
-YO6OWN, Brasov, 2010
+nu sunt permise: a) transmiterea mesajelor care contin cuvinte sau expresii indecente sau insultatoare;
+YO6OWN, Brasov, 2018
 ##10#
 a
 02A3530~&Este permisa folosirea emisiunilor cu modulatie vocala criptata?:
@@ -128,9 +128,9 @@ null
  Da, cat timp cheia este fixa si publica, astfel incat ANCOM sa poata controla QSO-ul
  Da, doar pentru experimente, si avand cheia de criptare publica
  Da, doar pentru experimente, si folosind doar unica cheie publica data de ANCOM
-YO6OWN, Sacele, 2005(rev. 2010)
+YO6OWN, Sacele, 2005(rev. 2018)
 null
-Gandind la sloganul 'radioamatorismul e pentru toti', nu se poate emite intr-un fel in care cineva sa nu poata receptiona. Este foarte important mai ales ca pentru trafic de urgenta sa se foloseasca un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Legal, in regulament este data lista de modulatii si moduri(A1A, J3E samd.) si niciunul din moduri nu e criptat. 
+Radioamatorismul fiind un serviciu deschis experimentarii, nu se poate emite intr-un fel in care cineva sa nu poata receptiona. Este foarte important mai ales ca pentru trafic de urgenta sa se foloseasca un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Legal, in anexele la Decizie este data lista de modulatii si moduri(A1A, J3E samd.) si niciunul din moduri nu e criptat. 
 YO6OWN, Brasov, 2009
 ##11#
 a
@@ -365,10 +365,10 @@ b
 02A3462~&Ce obligatii are un radioamator la schimbarea numelui?
 null
 preda autorizatia la radioclubul de care apartine
-anunta ANCOM in scris, anexand xerocopia legalizata a actului legal cu care justifica schimbarea numelui
+anunta ANCOM in scris, anexand xerocopia legalizata a actului legal cu care justifica schimbarea numelui, precum si autorizatia in original
 nu are obligatii
 anunta in scris Asociatia Judeteana de Radioamatorism
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
 null
 Art. 51 - Pentru modificarea datelor inscrise in autorizatie titularul trebuie sa depuna la unitatea emitenta o cerere de modificare insotita de copii legalizate ale documentelor care atesta necesitatea modificarii solicitate.
 YO6OWN, 2010
@@ -866,11 +866,11 @@ null
 
 ##72#
 c
-01A3505~&Ce obligatii are titularul sau responsabilul unei statii la care sunt autorizati radioamatori de clasa R?
+01A3505~&Ce obligatii are titularul sau responsabilul unei statii la care sunt autorizati radioamatori de clasa IV?
 null
 nu au obligatii
-radioamatorii de clasa R au aceleasi drepturi ca si cei de clasa III, dar incepatori
-asigurarea functionarii statiei in stricta conformitate cu prevederile normelor tehnice in vigoare, permitand radioamatorului de clasa R lucrul la statie numai in prezenta sa
+radioamatorii de clasa IV au aceleasi drepturi ca si cei de clasa III, dar incepatori
+asigurarea functionarii statiei in stricta conformitate cu prevederile normelor tehnice in vigoare, permitand radioamatorului de clasa IV lucrul la statie numai in prezenta sa
 Sa-i ajute sa devina buni radioamatori
 ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
 null
@@ -1610,7 +1610,7 @@ null
 
 ##134#
 c
-05A3303~&Cate semne trebuie sa transmita in Morse un candidat pentru clasa III restrans?
+05A3303~&Cate semne trebuie sa transmita in Morse un candidat pentru clasa IV?
 null
 30 semne
 50 semne
@@ -1645,14 +1645,14 @@ null
 
 
 ##137#
-d
+c
 01A3414~&De cate clase sunt autorizatiile de radioamator?
 null
 2 clase: Novice si Avansat
 3 clase: clasa I, clasa a II-a, si clasa a III-a
-4 clase: Expert, Avansat, Novice si Restrans
 4 clase: clasa I, clasa a II-a, clasa a III-a si clasa a IV-a
-YO6OWN 2017
+4 clase: clasa I, clasa a II-a, clasa a III-a si clasa a III-a restrans
+YO6OWN 2014,rev..2018
 null
 
 
@@ -1676,19 +1676,19 @@ clasa I si clasa a II-a
 clasa a III-a
 clasa I
 Toate clasele I,II,III,IV sunt echivalente cu autorizatia CEPT
-YO6OWN 2014
+YO6OWN 2014, rev. 2018
 null
 
 
 ##140#
-b
-03A3415~&Cu ce nivel de autorizatie CEPT este echivalenta autorizatia romaneasca de clasa a III-a Restrans?
+a
+03A3415~&Cu ce nivel de autorizatie CEPT este echivalenta autorizatia romaneasca de clasa a IV-a?
 null
-echivalenta cu autorizatia CEPT
+echivalenta cu autorizatia CEPT Entry-Class
 nu este echivalenta cu nici o clasa CEPT
 echivalenta cu autorizatia CEPT Novice
 echivalenta cu autorizatia HAREC
-YO6OWN 2014
+YO6OWN 2014, rev. 2018
 null
 
 
