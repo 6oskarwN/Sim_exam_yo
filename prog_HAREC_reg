@@ -35,27 +35,22 @@ LEGI NATIONALE, REGLEMENTARI SI CONDITII DE LICENTIERE
 
 3213& Art. 3. - Statiile de radioamator in functie de titularul autorizatiei
 Art. 4. - Titularul autorizatiei de radioamator, identificare
-3230&  <i>Indicative de apel in Romania, sintaxa indicativului.</i>
-3231&  <i>Zonele indicativelor de apel din Romania</i>
-3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
-3416&  <i>Sufixele de indicativ</i>
-Art. 5. - Atribuirea indicativelor de doua litere
-3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
-Art. 6. - Atribuirea indicativelor speciale
-#3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
+3230&  (1),(2),(4),(5) Indicative de apel in Romania, sintaxa indicativului.
+3231&  (3) Zonele indicativelor de apel din Romania
+3442& Art. 5-6. - Atribuirea indicativelor de doua litere si a indicativelor speciale
 3233& Art. 7. - Atribuirea si evidenta indicativelor de apel ale radioamatorilor
 Art. 8. - Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
      Anexa: Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
-3102&	I. Definitii
+3102&	I. Definitii: banda de frecventa asignata, largime de banda necesara, largime de banda ocupata, putere la purtatoare, putere la varf de modulatie[db_legis1 verificat pana aici]
 	II. Nivelurile de putere de emisie, benzi de frecvente
 3214&  <i>Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, [IV] club</i>
 3530&  <i>Moduri de transmisie si Puterea maxima la purtatoare pentru statiile cat. I, II, III pentru benzile de radioamatori.</i>
 	III. Conditii privind utilizarea unor niveluri de putere marite
 3541&  Anexa 3, Art. 1 Conditii tehnice speciale permise statiilor de cat. I
+
 #3214&  <i>Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, [IV] club</i>
 	IV. Norme de utilizare a statiilor radio
-	1) statiile de radioamator in functie de modul de folosire
-3212&  <i>Categorii de statii in functie de modul de folosire: fixe/mobile/portabile</i>
+3212&	1) statiile de radioamator in functie de modul de folosire
 	2) statiile de radioamator in functie de modul de control
 3234&	3) transmiterea indicativul de apel in cursul desfasurarii legaturilor radio
 3237&	4) utilizarea antenelor artificiale neradiante
@@ -121,7 +116,7 @@ Art. 39-41. - Abrogarea regulamentului anterior
 
 Articole din regulamentul ver. 2005 care s-au abrogat/scos
 
-3211&  Art. 3 - Categorii de statii in functie de natura activitatii: receptie/ emisie-receptie 
+
 3215&  Art. 7 - Utilizarea statiilor de radioamator de receptie
 3221&  CAPITOLUL II, STATII DE RADIOAMATORI, SECTIUNEA 2, NORME TEHNICE(Art. 8 - 11)
 323d&  Art. 26 - Conditii de organizare a aplicatiilor de radiogoniometrie de amator, indicative atipice.

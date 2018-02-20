@@ -1,4 +1,4 @@
-Legislatie, clasa I v.3.30 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_HAREC_reg</curricula></font>
+Legislatie, clasa I v.3.31 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_HAREC_reg</curricula></font>
 158
 ##0#
 a
@@ -212,10 +212,10 @@ Statii fixe si statii mobile.
 Statii de club si statii individuale.
 Statii de receptori si statii de emitatori.
 statii de putere mica si statii de putere mare.
-YO6GZI, Sacele, 2004(rev.2010)
+YO6GZI, Sacele, 2004(rev.2018)
 null
-Art. 5, (1) Regulament
-YO6OWN, Brasov, 2010
+Art. 4, Decizia
+YO6OWN, Brasov, 2018
 ##18#
 b
 02B3213~&Statiile de radioamator pot apartine persoanelor fizice sau persoanelor juridice(firme, ONG, organizatii)?
@@ -224,10 +224,10 @@ Doar persoanele juridice pot detine statii de radioamatori
 Statiile individuale apartin persoanelor fizice iar statiile de radioclub apartin doar persoanelor juridice.
 Doar persoanele fizice pot avea statie de radioamatori
 Organizatiile detin statiile de radioamator ale membrilor
-YO6OWN, Brasov 2014
+YO6OWN, Brasov 2018
 null
-Art. 5, (2, 3) Regulament
-YO6OWN, Brasov, 2014
+Art. 4, Decizia
+YO6OWN, Brasov, 2018
 ##19#
 d
 01A323d~&La concursurile de radiogoniometrie concurentii folosesc:
@@ -830,7 +830,7 @@ null
 
 ##69#
 a
-01A3231~&Ce este o zona de indicative de apel, denumit in mod uzual "district"?
+01C3231~&Ce este o zona de indicative de apel, denumit in mod uzual "district"?
 null
 Este o zona geografica ce cuprinde mai multe judete adiacente carora ii este atribuita prin regulament o anumita cifra de zona.
 Este o zona geografica de acoperire radio, adica zona celor care receptioneaza un apel.
@@ -1166,121 +1166,61 @@ null
 
 ##97#
 a
-01B3102~&Conform definitiei din Regulament, ce este puterea la varf de modulatie a unui emitator radio?
+01B3102~&Conform definitiei din Decizie, ce este puterea la varf de modulatie a unui emitator radio?
 null
 puterea medie furnizata liniei de alimentare a antenei de catre un emitator in timpul unui ciclu de radiofrecventa, corespunzatoare amplitudinii maxime a anvelopei de modulatie in conditii normale de lucru;
 puterea maxima furnizata liniei de alimentare a antenei de catre un emitator in timpul unui ciclu de radiofrecventa, corespunzatoare amplitudinii maxime a anvelopei de modulatie in conditii normale de lucru;
 puterea maxima furnizata liniei de alimentare a antenei de catre un emitator atunci cand gradul de modulatie este maxim;
 puterea maxima furnizata liniei de alimentare a antenei de catre un emitator atunci cand se ajunge la supramodulatie;
-YO6OWN, Brasov, 2014
-null
-
-
-##98#
-a
-02B3102~&Conform definitiei din Regulament, ce este puterea medie a unui emitator radio?
-null
-puterea medie furnizata liniei de alimentare a antenei de catre emitator in timpul unui interval de timp suficient de lung in comparatie cu componenta de frecventa de modulatie cea mai joasa, luata in conditii normale de lucru;
-puterea medie furnizata liniei de alimentare a antenei de catre un emitator in timpul unui ciclu de radiofrecventa, corespunzatoare amplitudinii maxime a anvelopei de modulatie in conditii normale de lucru;
-puterea medie furnizata liniei de transmisie a antenei de catre un emitator radio in timpul unui ciclu de radiofrecventa luata in conditii de nemodulare;
-puterea medie furnizata liniei de alimentare a antenei de catre un emitator atunci cand gradul de modulatie este mediu;
-YO6OWN, Brasov, 2014
+YO6OWN, Brasov, 2018
 null
 
 
 ##99#
 a
-03B3102~&Conform definitiei din Regulament, ce este puterea la purtatoare a unui emitator radio?
+03B3102~&Conform definitiei din Decizie, ce este puterea la purtatoare a unui emitator radio?
 null
 puterea medie furnizata liniei de transmisie a antenei de catre un emitator radio in timpul unui ciclu de radiofrecventa luata in conditii de nemodulare;
 puterea medie furnizata liniei de alimentare a antenei de catre emitator in timpul unui interval de timp suficient de lung in comparatie cu componenta de frecventa de modulatie cea mai joasa, luata in conditii normale de lucru;
 puterea medie furnizata liniei de alimentare a antenei de catre un emitator in timpul unui ciclu de radiofrecventa, corespunzatoare amplitudinii maxime a anvelopei de modulatie in conditii normale de lucru;
 puterea maxima furnizata liniei de alimentare a antenei de catre un emitator atunci cand gradul de modulatie este maxim;
-YO6OWN, Brasov, 2014
-null
-
-
-##100#
-a
-04B3102~&Conform definitiei din Regulament, ce este toleranta de frecventa?
-null
-diferenta maxima admisibila intre frecventa alocata sau frecventa pe care se doreste a se emite si frecventa situata in mijlocul benzii ocupate in realitate de catre emisia respectiva;
-abaterea medie admisibila intre frecventa alocata sau frecventa pe care se doreste a se emite si frecventa situata in mijlocul benzii ocupate in realitate de catre emisia respectiva;
-diferenta maxim admisibila intre frecventa emitatorului si frecventa antenei;
-diferenta maxima admisibila intre frecventa alocata sau frecventa pe care se doreste a se emite si frecventa situata in mijlocul benzii de rezonanta a antenei folosite;
-YO6OWN, Brasov, 2014
+YO6OWN, Brasov, 2018
 null
 
 
 ##101#
 a
-05B3102~&Conform definitiei din Regulament, ce este largimea de banda ocupata?
+05B3102~&Conform definitiei din Decizie, ce este largimea de banda ocupata?
 null
 largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
 banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
 valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
 largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
-YO6OWN, Brasov, 2014
+YO6OWN, Brasov, 2018
 null
 
 
 ##102#
 a
-06B3102~&Conform definitiei din Regulament, ce este largimea de banda necesara?
+06B3102~&Conform definitiei din Decizie, ce este largimea de banda necesara?
 null
 valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
 banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
 largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
 largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
-YO6OWN, Brasov, 2014
+YO6OWN, Brasov, 2018
 null
 
 
 ##103#
 a
-07A3102~&Conform definitiei din Regulament, ce este banda de frecventa asignata?
+07A3102~&Conform definitiei din Decizie, ce este banda de frecventa asignata?
 null
 banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
 valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
 largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
-YO6OWN, Brasov, 2014
-null
-
-
-##104#
-b
-08B3102~&Conform definitiei din Regulament, ce inseamna radiatie in afara benzii?
-null
-emisia pe o frecventa sau pe frecventele situate in afara latimii de banda necesara si al carui nivel poate fi redus fara sa afecteze transmiterea informatiei corespunzatoare; radiatiile neesentiale includ emisiile pe frecventele armonice, emisii parazite, produsele de intermodulatie si produsele frecventelor de mixare, dar exclud emisiile in afara benzii;
-emisiile pe o frecventa sau pe frecventele situate in imediata apropiere si in afara latimii de banda necesara care rezulta din procesul de modulatie, dar excluzand emisiile neesentiale;
-emisia pe o frecventa sau pe frecventele situate in afara latimii de banda alocate si al carui nivel poate fi ignorat;
-emisia pe o frecventa din afara benzii de rezonanta a antenei.
-YO6OWN, Brasov 2014
-null
-
-
-##105#
-a
-09B3102~&Conform definitiei din Regulament, ce inseamna 'radiatie neesentiala'?
-null
-emisia pe o frecventa sau pe frecventele situate in afara latimii de banda necesara si al carui nivel poate fi redus fara sa afecteze transmiterea informatiei corespunzatoare; radiatiile neesentiale includ emisiile pe frecventele armonice, emisii parazite, produsele de intermodulatie si produsele frecventelor de mixare, dar exclud emisiile in afara benzii;
-radiatie care se poate ignora
-emisia pe o frecventa sau pe frecventele situate in afara latimii de banda alocate si al carui nivel poate fi ignorat;
-Sunt emisiile cu 80dB mai mici decat cele la capat de banda, care nu se pot atenua mai mult din punct de vedere tehnic.
-YO6OWN, Brasov, 2014
-null
-
-
-##106#
-a
-10B3102~&Conform definitiei din Regulament, ce este radiatia nedorita?
-null
-cuprinde radiatiile neesentiale si radiatiile in afara benzii.
-emisia pe o frecventa sau pe frecventele situate in afara latimii de banda necesara si al carui nivel trebuie redus pentru a nu afecta transmiterea corespunzatoare a informatiei;
-emisiile pe o frecventa sau pe frecventele situate in imediata apropiere si in afara latimii de banda necesara care rezulta din procesul de modulatie, dar excluzand emisiile neesentiale;
-emisia pe o frecventa din afara benzii de rezonanta a antenei.
-YO6OWN, Brasov, 2014
+largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata
+YO6OWN, Brasov, 2018
 null
 
 
@@ -1308,54 +1248,6 @@ YO6OWN 2014
 null
 Recommendation T/R 61-01 (Nice 1985, Paris 1992, August 1992, Nicosia 2003)
 YO6OWN 2014
-##109#
-a
-01C212~&Ce recomanda CEPT in Recomandarea T/R 61 - 02?
-null
-Recomanda ca tarile membre CEPT sa isi recunoasca reciproc certificatele de radioamator HAREC, pentru a putea emite autorizatii CEPT radioamatorilor rezidenti o perioada mai lunga.
-Recomanda ca tarile membre CEPT sa permita radioamatorilor din tarile non-CEPT care au certificat HAREC sa opereze de pe teritoriul lor
-Recomanda ca tarile membre CEPT sa recunoasca autorizatiile de radioamator echivalente CEPT Novice
-Recomanda ca tarile membre CEPT sa isi recunoasca reciproc autorizatiile de radioamator echivalente CEPT.
-YO6OWN 2014
-null
-Recommendation T/R 61-02 (Chester 1990, revised in Nicosia 1994, The Hague 01, Vilnius 04)
-YO6OWN 2014
-##110#
-a
-02C212~&Poate un radioamator roman care a trecut un examen CEPT HAREC in Germania, la intoarcerea ib tara sa ceara ANCOM eliberarea unei autorizatii in baza certificatului HAREC?
-null
-Da, tarile membre CEPT isi recunosc reciproc certificatele de radioamator HAREC si emit autorizatii CEPT radioamatorilor titulari de certificare HAREC.
-xRecomanda ca tarile membre CEPT sa permita radioamatorilor din tarile non-CEPT care au certificat HAREC sa opereze de pe teritoriul lor
-xRecomanda ca tarile membre CEPT sa recunoasca autorizatiile de radioamator echivalente CEPT Novice
-xRecomanda ca tarile membre CEPT sa isi recunoasca reciproc autorizatiile de radioamator echivalente CEPT.
-YO6OWN 2014
-null
-Recommendation T/R 61-02 (Chester 1990, revised in Nicosia 1994, The Hague 01, Vilnius 04)
-YO6OWN 2014
-##111#
-a
-03C212~&Ce categorie de autorizatie de radioamator emite ANCOM la cererea unui radioamator roman in baza certificatului CEPT HAREC obtinut in Germania, la intoarcerea in tara?
-null
-autorizatie de clasa I
-autorizatie de clasa I sau clasa II in functie de ce autorizatie avea la plecarea din tara
-clasa III
-nu primeste autorizatie fara examen in Romania
-YO6OWN 2014
-null
-Anexa 2 la Recomandarea T/R 61-02
-YO6OWN 2014
-##112#
-a
-01C214~&Ce stipuleaza Recomandarea CEPT T/R 61 - 01 cu privire la utilizarea temporara a statiilor de radioamator in tarile nemembre CEPT care participa la sistemul T/R 61-01 ?
-null
-Acele tari trebuie sa indice prefixul care trebuie folosit de radioamatorii CEPT ce viziteaza tara precum si detaliile si restrictiile referitoare la implementarea T/R 61 - 01 in acea tara. Conditiile speciale si restrictiile trebuie reduse la minumum si aplicate doar daca este cu adevarat necesar.
-Acele tari nemembre CEPT dau voie la utilizarea temporara a statiilor de radioamator cu licenta CEPT ca si tarile membre CEPT
-Acele tari nemembre CEPT nu dau voie la utilizarea temporara a statiilor de radioamator cu licenta CEPT ca si tarile membre CEPT inainte ca radioamatorul sa depuna o notificare scrisa
-Acele tari nemembre CEPT dau voie la utilizarea temporara a statiilor de radioamator doar dupa aprobarea unei cereri si prin alocarea unui indicativ special al tarii respective.
-YO6OWN 2014
-null
-1.3.	The applying Administration shall provide the call sign prefix to be used by visiting radio amateurs and details of any special conditions relating to the implementation of this Recommendation in the country concerned. Special conditions or restrictions should be confined to a minimum, and should not be imposed unless absolutely necessary, and shall be included in a footnote in appendix IV.
-Recommendation T/R 61-01
 ##113#
 b
 01B113~&Este permisa efectuarea de radiolegaturi(QSO) cu radioamatori ale unei tari in conditiile in care autoritatile acelei tari se opun activitatii de radioamator?
@@ -1692,30 +1584,6 @@ YO6OWN 2014, rev. 2018
 null
 
 
-##141#
-a
-01A3416~&Ce se intampla cu sufixele de indicativ(cele 2 sau 3 litere) in cazul schimbarii domiciliului
-null
-se pastreaza
-se realoca
-se atribuie altele si sufixul vechi nu se poate aloca o perioada de 5 ani
-se schimba
-YO6OWN 2014
-null
-
-
-##142#
-a
-02A3416~&Ce se intampla cu sufixele de indicativ(cele 2 sau 3 litere) in cazul schimbarii domiciliului in zona altei Directii Teritoriale ANCOM?
-null
-se pastreaza
-se realoca
-se atribuie altele si sufixul vechi nu se poate aloca o perioada de 5 ani
-se schimba
-YO6OWN 2014
-null
-
-
 ##143#
 b
 03A3421~&Care este durata de valabilitate a autorizatiei pentru radioclub?
@@ -1742,28 +1610,28 @@ null
 
 ##145#
 a
-01A3442~&Cum se atribuie indicativele cu 2 litere?
+01A3442~&Cum se atribuie indicativele YO cu 2 litere?
 null
+la cerere, daca indicativul e disponibil si daca solicitantul e autorizat clasa I sau II.
 la cerere, cu conditia de a nu fi avut abateri de la regulament in ultimii 2 ani
-la cerere, se atribuie pentru merite deosebite
 la cerere, se atribuie doar maestrilor sportului
 se atribuie la propunerea Federatiei Romane de Radioamatorism (FRR)
-YO6OWN 2014
+YO6OWN 2018
 null
-Desi indicativele de radioamatori care au doar 2 litere semnifica in lumea radioamatorilor un indicativ al unui "venerabil si veritabil radioamator", fiindca in trecut radioamtorii aveau sufixul din 2 litere doar, fiind putini, se pare ca Art. 46 din regulament se impune doar conditia de a nu fi avut abateri de la regulament, deci orice radioamator deja posesor de indicativ poate cere preschimbarea indicativului propriu intr-unul cu 2 litere.
-YO6OWN 2014
+Indicativele de radioamatori care au doar 2 litere semnifica in lumea radioamatorilor un indicativ al unui "venerabil si veritabil radioamator", fiindca in trecut radioamatorii aveau sufixul din 2 litere doar, fiind putini. Decizia dispune alocarea indicativelor cu 2 litere in acelasi spirit.
+YO6OWN 2018
 ##146#
 d
 02A3442~&Care este durata de valabilitate a autorizatiei pentru un indicativ special?
 null
-30 zile calendaristice
 90 zile calendaristice
 180 zile calendaristice
 365 zile calendaristice
-YO6OWN 2014
+Indicativul special are valabilitate doar pe perioada evenimentului pentru care a fost aprobat 
+YO6OWN 2018
 null
-
-
+Art. 6 (5)
+YO6OWN, 2018
 ##147#
 a
 01A3537~&In codul clasei de emisie, primul simbol indica...
