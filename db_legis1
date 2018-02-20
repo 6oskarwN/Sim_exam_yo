@@ -1,5 +1,5 @@
 Legislatie, clasa I v.3.31 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_HAREC_reg</curricula></font>
-158
+147
 ##0#
 a
 01A3501~&Este adevarat ca ANCOM poate determina cu precizie locatia geografica a statiilor radio ilegale si clandestine?
@@ -68,10 +68,10 @@ In Anexa 25
 In Anexele de la Decizia ANCOM 245/2017
 In instructiunile de operare ale statiei
 In legea telecomunicatiilor
-YO6OWN - adaptare dupa eham.net, 2007(rev. 2010)
+YO6OWN - adaptare dupa eham.net, 2007(rev. 2018)
 null
 Prin permisiuni de operare intelegem benzile de frecvente, modurile de lucru, puterile alocate fiecarei clase.
-YO6OWN, Brasov, 2011
+YO6OWN, 2018
 ##6#
 a
 01A323a~&Este permis radioamatorilor sa asculte traficul radio de pe alte frecvente decat cele alocate serviciului de amator?
@@ -122,16 +122,16 @@ nu sunt permise: a) transmiterea mesajelor care contin cuvinte sau expresii inde
 YO6OWN, Brasov, 2018
 ##10#
 a
-02A3530~&Este permisa folosirea emisiunilor cu modulatie vocala criptata?:
+04A3235~&Este permisa folosirea emisiunilor cu modulatie vocala criptata?:
 null
- Nu, nu se permite nici un fel de criptare, codare sau modulare, alta decat cele permise in Regulamentul serviciului de Amator
+ Nu, nu se permite nici un fel de criptare, codare sau modulare, alta decat cele permise in Reglementarea serviciului de Amator
  Da, cat timp cheia este fixa si publica, astfel incat ANCOM sa poata controla QSO-ul
  Da, doar pentru experimente, si avand cheia de criptare publica
  Da, doar pentru experimente, si folosind doar unica cheie publica data de ANCOM
-YO6OWN, Sacele, 2005(rev. 2018)
+YO6OWN,2018
 null
-Radioamatorismul fiind un serviciu deschis experimentarii, nu se poate emite intr-un fel in care cineva sa nu poata receptiona. Este foarte important mai ales ca pentru trafic de urgenta sa se foloseasca un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Legal, in anexele la Decizie este data lista de modulatii si moduri(A1A, J3E samd.) si niciunul din moduri nu e criptat. 
-YO6OWN, Brasov, 2009
+Radioamatorismul fiind un serviciu deschis experimentarii, nu se poate emite intr-un fel in care cineva sa nu poata receptiona. Este foarte important mai ales ca pentru trafic de urgenta sa se foloseasca un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Cap IV, 17) c) din Anexa la Decizie.
+YO6OWN, Brasov, 2018
 ##11#
 a
 01A3237~&Cum poate testa un radioamator un nou tip de modulatie inca nepermis de Regulament, insa care va fi permis probabil in curand? Radioamatorul are doua echipamente ce folosesc acest nou mod.
@@ -200,10 +200,10 @@ statii de receptori, statii de emitatori.
 statii standard si statii modificate de operator
 statii fixe, mobile si portabile
 statii de club, statii individuale, statii de concurs
-YO6GZI, Sacele, 2004(rev.2010)
+YO6GZI, Sacele, 2004(rev.2018)
 null
-Regulament, Art. 4.
-yo6own
+
+
 ##17#
 b
 01A3213~&In functie de titularul autorizatiei statiile de amator se impart in:
@@ -314,28 +314,16 @@ null
 
 ##26#
 b
-03A3530~&Care este statutul benzii de 50MHz si puterea aparent radiata maxima in aceasta banda pentru radioamatorii de clasa III?
+03A3530~&Care este puterea maxima la varf demodulatie in banda de 50-52MHz pentru radioamatorii de clasa III?
 null
-primar-50W
-secundar- 100W
-secundar-20W
-primar - 400W
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+50W
+100W
+20W
+400W
+ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
 null
-Rspunsul se obtine din Anexele 2 si 3 la Regulament
-yo6own
-##27#
-a
-04A3530~&Ce tipuri de semnale pot fi transmise in banda de 80m/3.5MHz?
-null
-morse,RTTY,SSB,SSTV
-doar date
-doar RTTY si SSTV
-doar morse si SSB - banda inferioara(LSB)
-YO6OWN, Sacele, 2005(rev.2010)
-null
-
-
+Raspunsul se obtine din Anexa la Decizie, cap.II, 1)
+YO6OWN, 2018
 ##28#
 b
 01A3421~&Ce clasa de autorizatie trebuie sa posede un responsabil de statie de club?
@@ -428,7 +416,7 @@ Statii individuale si de club
 Statii de receptie si de emisie-receptie
 Statii fixe, mobile si portabile
 Statii pe acumulatori si statii alimentate la retea
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
 null
 
 
@@ -482,7 +470,7 @@ null
 
 ##40#
 a
-05A3530~&Cu ce putere (putere maxima de iesire) poate lucra un radioamator de clasa a III-a in banda de 1,8 MHz?
+05A3530~&Cu ce putere (putere maxima la varf de modulatie) poate lucra un radioamator de clasa a III-a in banda de 1,8 MHz?
 null
 100 W
 25 W
@@ -494,7 +482,7 @@ null
 
 ##41#
 b
-06A3530~&Cu ce putere maxima de iesire poate lucra un radioamator de clasa a III-a in banda de 28 MHz?
+06A3530~&Cu ce putere (putere maxima la varf de modulatie) poate lucra un radioamator de clasa a III-a in banda de 28 MHz?
 null
 5W
 100W
@@ -529,61 +517,73 @@ null
 Dupa regulamentul din 2010 radioamatorii clasa III nu mai au restrictie la niciuna din benzile permise claselor superioare, sunt limitate doar in putere.
 YO6OWN, Brasov, 2010
 ##44#
-c
-01A3214~&De cate categorii pot fi statiile de club?
+a
+01A3214~&Cu ce parametri de  emisie functioneaza statia de club atunci cand se foloseste indicativul de club?
 null
-I sau II
-I, II, III
-I
-Clasa statiei de club este clasa operatorului
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+Corespunzatori clasei I sau II, clasa de autorizare este dedusa din clasa de autorizare a responsabilului de radioclub
+Corespunzatori clasei I, II, III sau IV, clasa de autorizare este dedusa din clasa de autorizare a operatorului statiei
+Corespunzatori clasei I pentru putere maxima
+Corespunzatori clasei speciale aprobate de ANCOM
+YO6OWN, 2018
 null
-Art. 6, d) in Regulament
-YO6OWN, 2014
+Anexa la Decizie, Cap. IV, 10) 
+YO6OWN, 2018
+##44#
+b
+02A3214~&Cu ce parametri de  emisie functioneaza statia de club atunci cand se foloseste indicativul operatorului?
+null
+Corespunzatori clasei I sau II, clasa de autorizare este dedusa din clasa de autorizare a responsabilului de radioclub
+Corespunzatori clasei I, II, III sau IV, clasa de autorizare este dedusa din clasa de autorizare a operatorului statiei
+Corespunzatori clasei I pentru putere maxima
+Corespunzatori clasei speciale aprobate de ANCOM
+YO6OWN, 2018
+null
+Anexa la Decizie, Cap. IV, 10) 
+YO6OWN, 2018
 ##45#
 b
-02A3214~&De cate categorii sunt statiile de radioamator, in functie de puterea emitatoarelor si in functie de benzile de frecvente pe care le pot folosi?
+03A3214~&De cate categorii sunt statiile de radioamator, in functie de puterea emitatoarelor si in functie de benzile de frecvente pe care le pot folosi?
 null
 categoria I sau II
-categoria I, II, sau III
+categoria I, II, III sau IV
 categoria I
 Clasa statiei este clasa operatorului
-YO6OWN, Brasov, 2014
+YO6OWN, Brasov, 2018
 null
-Art. 6, a)-d) in Regulament
-YO6OWN, 2014
+Cap.II, 1) in Anexa la Decizie
+YO6OWN, 2018
 ##46#
 a
-03A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria I ?	
+04A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria I ?	
 null
 clasa I
 clasa I sau clasa II
-I, II, sau III
-Categoria statiei este egala cu clasa operatorului
-YO6OWN, Brasov, 2014
+I, II, III sau IV
+Toate clasele
+YO6OWN, Brasov, 2018
 null
-Art. 6, a) in Regulament
-YO6OWN, 2014
+Cap.IV, 10) in Anexa la Decizie
+YO6OWN, 2018
 ##47#
 b
-04A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria a II-a ?	
+05A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria a II-a ?	
 null
 clasa I
 clasa I sau clasa II
-I, II, sau III
-Categoria statiei este egala cu clasa operatorului
-YO6OWN, Brasov, 2014
+I, II, III sau IV
+Toate clasele
+YO6OWN, Brasov, 2018
 null
-Art. 6, b) in Regulament
-YO6OWN, 2014
+Cap.IV, 10) in Anexa la Decizie
+YO6OWN, 2018
 ##48#
 c
-05A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria a III-a ?	
+06A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria a III-a ?	
 null
 clasa I
 clasa I sau clasa II
 I, II, sau III
-clasa a III-a
+clasa a IV-a
 YO6OWN, Brasov, 2014
 null
 Art. 6, b) in Regulament
@@ -748,11 +748,11 @@ null
 a
 03A3212~&Cum pot fi folosite statiile de emisie-receptie de catre titular?
 null
-din amplasament fix, mobil sau portabil, cu respectarea Regulamentului
+din amplasament fix, mobil sau portabil, cu respectarea reglementarilor serviciului de radioamator
 doar in regim portabil
 Se pot folosi din amplasament fix, mobil sau portabil, insa doar la adresa/adresele inscrisa in autorizatie, cu respectarea Regulamentului
 doar din amplasament fix, la adresa inscrisa in autorizatie
-YO6OWN, Sacele, 2005(rev.2010)
+YO6OWN, Sacele, 2005(rev.2018)
 null
 
 
@@ -1394,7 +1394,7 @@ null
 
 ##125#
 c
-04B3235~&Cand sunt permise, ca exceptie, transmiterea mesajelor de la, sau catre terti neradioamatori? 
+05B3235~&Cand sunt permise, ca exceptie, transmiterea mesajelor de la, sau catre terti neradioamatori? 
 null
 Cand e vorba de o zona fara acces la internet, telefonie sau alte servicii comerciale
 Atunci cand nu exista semnal la telefonul mobil

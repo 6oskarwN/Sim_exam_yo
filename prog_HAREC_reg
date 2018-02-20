@@ -41,16 +41,12 @@ Art. 4. - Titularul autorizatiei de radioamator, identificare
 3233& Art. 7. - Atribuirea si evidenta indicativelor de apel ale radioamatorilor
 Art. 8. - Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
      Anexa: Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
-3102&	I. Definitii: banda de frecventa asignata, largime de banda necesara, largime de banda ocupata, putere la purtatoare, putere la varf de modulatie[db_legis1 verificat pana aici]
-	II. Nivelurile de putere de emisie, benzi de frecvente
-3214&  <i>Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, [IV] club</i>
-3530&  <i>Moduri de transmisie si Puterea maxima la purtatoare pentru statiile cat. I, II, III pentru benzile de radioamatori.</i>
+3102&	I. Definitii: banda de frecventa asignata, largime de banda necesara, largime de banda ocupata, putere la purtatoare, putere la varf de modulatie
+3530&	II. Nivelurile de putere de emisie, benzi de frecvente 
 	III. Conditii privind utilizarea unor niveluri de putere marite
 3541&  Anexa 3, Art. 1 Conditii tehnice speciale permise statiilor de cat. I
-
-#3214&  <i>Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, [IV] club</i>
 	IV. Norme de utilizare a statiilor radio
-3212&	1) statiile de radioamator in functie de modul de folosire
+3212&	1) statiile de radioamator in functie de modul de folosire[db_legis1 verificat pana aici]
 	2) statiile de radioamator in functie de modul de control
 3234&	3) transmiterea indicativul de apel in cursul desfasurarii legaturilor radio
 3237&	4) utilizarea antenelor artificiale neradiante
@@ -59,7 +55,7 @@ Art. 8. - Conditiile de utilizare a benzilor de frecvente radio in serviciul de 
 	7) transmiterea de indicative de apel neidentificabile sau neautorizate
 	8) Identificarea radioamatorului care opereaza o statie de radioclub
 	9) Identificarea radioamatorului care opereaza o alta statie
-	10) Parametrii de emisie radio
+3214&	10) Parametrii de emisie radio [verificat 2018]
 	11) transmiterea completa si corecta a indicativelor de apel
 	12) Responsabilitatea radioamatorului asupra continutului si parametrilor de emisie
 	13) Responsabilitatea responsabilul de radioclub asupra continutului si parametrilor de emisie, jurnalizarea legaturilor
