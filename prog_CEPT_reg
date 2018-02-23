@@ -1,5 +1,8 @@
  programa regulamente, CEPT NOVICE clasa III [v3.30]
 
+PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului CEPT Novice
+PROGRAMA ANALITICA DE EXAMINARE DETALIATA
+
 C. REGLEMENTARI INTERNE SI INTERNATIONALE PRIVIND SERVICIILE DE AMATOR SI AMATOR PRIN SATELIT
 
 CAPITOLUL 1
@@ -27,103 +30,91 @@ LEGI NATIONALE, REGLEMENTARI SI CONDITII DE LICENTIERE
 301&    3.1	Reglementari nationale(altele decat Regulamentul)
 302&    3.2	Regulamentul serviciului de amator
 
-3101& Art. 2. - Termeni
+3101& Art. 2.  Termeni
 
-3213& Art. 3. - Statiile de radioamator in functie de titularul autorizatiei
-Art. 4. - Titularul autorizatiei de radioamator, identificare
-3230&  <i>Indicative de apel in Romania, sintaxa indicativului.</i>
-3231&  <i>Zonele indicativelor de apel din Romania</i>
-3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
-3416&  <i>Sufixele de indicativ</i>
-Art. 5. - Atribuirea indicativelor de doua litere
-3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
-Art. 6. - Atribuirea indicativelor speciale
-#3442&  <i>ATRIBUIREA INDICATIVELOR DE DOUA LITERE SI A INDICATIVELOR SPECIALE</i>
-3233& Art. 7. - Atribuirea si evidenta indicativelor de apel ale radioamatorilor
-Art. 8. - Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
+3213& Art. 3.  Statiile de radioamator in functie de titularul autorizatiei
+Art. 4.  Titularul autorizatiei de radioamator, identificare
+3230&  (1),(2),(4),(5) Indicative de apel in Romania, sintaxa indicativului.
+3231&  (3) Zonele indicativelor de apel din Romania
+3442& Art. 5-6.  Atribuirea indicativelor de doua litere si a indicativelor speciale
+3233& Art. 7.  Atribuirea si evidenta indicativelor de apel ale radioamatorilor
+Art. 8.  Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
      Anexa: Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
-3102&	I. Definitii
-	II. Nivelurile de putere de emisie, benzi de frecvente
-3214&  <i>Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, [IV] club</i>
-3530&  <i>Moduri de transmisie si Puterea maxima la purtatoare pentru statiile cat. I, II, III pentru benzile de radioamatori.</i>
+3102&	I. Definitii: banda de frecventa asignata, largime de banda necesara, largime de banda ocupata, putere la purtatoare, putere la varf de modulatie
+3530&	II. Nivelurile de putere de emisie, benzi de frecvente 
 	III. Conditii privind utilizarea unor niveluri de putere marite
 3541&  Anexa 3, Art. 1 Conditii tehnice speciale permise statiilor de cat. I
-#3214&  <i>Art. 6 - Categorii de statii in functie de putere si benzi autorizate: de cat. I,II, III, [IV] club</i>
 	IV. Norme de utilizare a statiilor radio
-	1) statiile de radioamator in functie de modul de folosire
-3212&  <i>Categorii de statii in functie de modul de folosire: fixe/mobile/portabile</i>
+3212&	1) statiile de radioamator in functie de modul de folosire
 	2) statiile de radioamator in functie de modul de control
 3234&	3) transmiterea indicativul de apel in cursul desfasurarii legaturilor radio
 3237&	4) utilizarea antenelor artificiale neradiante
 3232&	5) Indicativele de apel ale radioamatorilor care lucreaza pe statii mobile sau portabile
 	6) transmiterea QTH-locatorului sau localitatii
 	7) transmiterea de indicative de apel neidentificabile sau neautorizate
-	8) Identificarea radioamatorului care opereaza o statie de radioclub
+3408&	8) Identificarea radioamatorului care opereaza o statie de radioclub
 	9) Identificarea radioamatorului care opereaza o alta statie
-	10) Parametrii de emisie radio
-	11) transmiterea completa si corecta a indicativelor de apel
+3214&	10) Parametrii de emisie radio 
+3411&	11) transmiterea completa si corecta a indicativelor de apel
 	12) Responsabilitatea radioamatorului asupra continutului si parametrilor de emisie
 	13) Responsabilitatea responsabilul de radioclub asupra continutului si parametrilor de emisie, jurnalizarea legaturilor
 3505&	14-16) Responsabilitatile detinatorului de statie radio in cazul permiterii lucrului unui alt radioamator, in mod direct sau de la distanta 
 3235&	17) Continut nepermis in cadrul legaturilor radio din serviciul de amator
 3236&	18) Conditii pentru transmiterea semnalelor de test
 	19) Obligatii la stabilirea legaturi radio(doar cu radioamatori, doar pe frecventele de radioamatori)
-	20-21) Legaturi radio permise, permise exceptional si interzise in receptie sau emisie
-3239&  <i>Art. 22 - Legaturi radio permise, permise exceptional si interzise</i>
-323a&  <i>Art. 23 - Interceptarea mesajelor transmise de statii apartinand altor servicii decat cel de radioamator</i>
-	22) Exceptii la activitatile interzise
-
+3239&	20-22) Legaturi radio permise, permise exceptional si interzise in receptie sau emisie, exceptii la activitatile interzise
+=================[db_legis1 verificat pana aici]
 	23-24) Consemnarea traficului, jurnalul de trafic, date inscrise
 3501&  <i>CONTROLUL STATIILOR DE RADIOAMATORI(Art. 53-55, 57)</i>
-3503&  <i>Art. 54,55 - Dreptul de control al ANCOM</i>
-323b&  <i>Art. 24 - Jurnalul de trafic.</i>
+3503&  <i>Art. 54,55  Dreptul de control al ANCOM</i>
+323b&  <i>Art. 24  Jurnalul de trafic.</i>
 
-323c&  <i>Art. 25 - Documente obligatorii la statia de radioamator, controlul lor.[S-A SCOS partea cu documente obligatorii] </i>
+323c&  <i>Art. 25  Documente obligatorii la statia de radioamator, controlul lor.[S-A SCOS partea cu documente obligatorii] </i>
 	25) Asigurarea functionarii statiilor cu respectarea nivelurilor de camp electromagnetic
 	26) Respectarea regimului emisiilor neesentiale din Regulamentul UIT
 3238&	27) Evitarea producerii de interferente si masuri ce se impun pentru eliminarea acestora
 
 
-CAPITOLUL II - Certificarea radioamatorilor
-3301& Art. 9. - Obtinerea certificatului de radioamator
-3302& Art. 10. - Clase de certificate de radioamator
-Art. 11-16. - Examinarea
+CAPITOLUL II  Certificarea radioamatorilor
+3301& Art. 9.  Obtinerea certificatului de radioamator
+3302& Art. 10.  Clase de certificate de radioamator
+Art. 11-16.  Examinarea
 3303&  
-CAPITOLUL III - Autorizarea in serviciul de amator
- Art. 17-18. - Autorizarea
-3411&  <i>Art. 34 - Activitatea de radioamator autorizata.</i>
+CAPITOLUL III  Autorizarea in serviciul de amator
+ Art. 17-18.  Autorizarea
+3411&  <i>Art. 34  Activitatea de radioamator autorizata.</i>
 3124&  <i>Autorizatia de radioamator individuala</i>
-3413&  <i>Art. 35 - Drepturi derivate din  autorizatia de radioamator</i>
- Art. 19-20. - Clase de autorizare
-3414&  Art. 36 - Clasele autorizatiilor de radioamator
+3413&  <i>Art. 35  Drepturi derivate din  autorizatia de radioamator</i>
+ Art. 19-20.  Clase de autorizare
+3414&  Art. 36  Clasele autorizatiilor de radioamator
 3415&  Echivalentele autorizatiilor romanesti cu CEPT.
-3421& Art. 21-23. - Autorizatia de radioclub
-3431& Art. 24-25. - Autorizatia pentru statie repetoare sau radiobaliza
-3441& Art. 26-28. - Autorizarea radioamatorilor cetateni ai altor state
-3461& Art. 29-31. - Prelungirea valabilitatii autorizatiilor de radioamator
-3463& Art. 32. - Modificarea datelor inscrise in autorizatie
-3464& Art. 33. - Retragerea autorizatiei radioamator
-3462& Art. 34. - Eliberare de duplicat pentru autorizatia sau certificatul deteriorat, distrus sau pierdut
+3421& Art. 21-23.  Autorizatia de radioclub
+3431& Art. 24-25.  Autorizatia pentru statie repetoare sau radiobaliza
+3441& Art. 26-28.  Autorizarea radioamatorilor cetateni ai altor state
+3461& Art. 29-31.  Prelungirea valabilitatii autorizatiilor de radioamator
+3463& Art. 32.  Modificarea datelor inscrise in autorizatie
+3464& Art. 33.  Retragerea autorizatiei radioamator
+3462& Art. 34.  Eliberare de duplicat pentru autorizatia sau certificatul deteriorat, distrus sau pierdut
 
-CAPITOLUL IV - Moduri de transmitere a documentelor
-Art. 35. - Transmiterea documentelor prevazute la art. 5 alin. (1)-(2), art. 6 alin. (1)-(2), art. 12 alin. (1)-(2), art. 18 alin. (1)-(2), art. 23 alin. (1)-(2), art. 25 alin. (1)-(2), art. 29 alin. (1)-(2), art. 30 alin. (1)-(2), art. 31 alin. (1)-(2) şi art. 32 alin. (1)-(2), a copiei dupa cartea sau buletinul de identitate
+CAPITOLUL IV  Moduri de transmitere a documentelor
+Art. 35.  Transmiterea documentelor prevazute la art. 5 alin. (1)-(2), art. 6 alin. (1)-(2), art. 12 alin. (1)-(2), art. 18 alin. (1)-(2), art. 23 alin. (1)-(2), art. 25 alin. (1)-(2), art. 29 alin. (1)-(2), art. 30 alin. (1)-(2), art. 31 alin. (1)-(2) şi art. 32 alin. (1)-(2), a copiei dupa cartea sau buletinul de identitate
 
-CAPITOLUL V - Dispozitii tranzitorii si finale
-Art. 36. - echivalarea clasei III-R cu clasa IV
-Art. 37. - Callbook, adrese radiobalize
-Art. 38. - Exceptii de tratare a indicativelor
-Art. 39-41. - Abrogarea regulamentului anterior
+CAPITOLUL V  Dispozitii tranzitorii si finale
+Art. 36.  echivalarea clasei III-R cu clasa IV
+Art. 37.  Callbook, adrese radiobalize
+Art. 38.  Exceptii de tratare a indicativelor
+Art. 39-41.  Abrogarea regulamentului anterior
 ========================================
 
 Articole din regulamentul ver. 2005 care s-au abrogat/scos
 
-3211&  Art. 3 - Categorii de statii in functie de natura activitatii: receptie/ emisie-receptie 
-3215&  Art. 7 - Utilizarea statiilor de radioamator de receptie
+
+3215&  Art. 7  Utilizarea statiilor de radioamator de receptie
 3221&  CAPITOLUL II, STATII DE RADIOAMATORI, SECTIUNEA 2, NORME TEHNICE(Art. 8 - 11)
-323d&  Art. 26 - Conditii de organizare a aplicatiilor de radiogoniometrie de amator, indicative atipice.
-3502&  Art. 53 - Abaterile de la prevederile regulamentului.
-3504&  Art. 57 - Autorizatiile de radioamator falsificate sau obtinute in mod fraudulos 
-3506&  Art. 58 - (1) Masurile sanctionatorii si metode de apel.
+323d&  Art. 26  Conditii de organizare a aplicatiilor de radiogoniometrie de amator, indicative atipice.
+3502&  Art. 53  Abaterile de la prevederile regulamentului.
+3504&  Art. 57  Autorizatiile de radioamator falsificate sau obtinute in mod fraudulos 
+3506&  Art. 58  (1) Masurile sanctionatorii si metode de apel.
 3521&  Anexa nr. 2 BENZI DE FRECVENTE RADIO exceptate de la licentiere in serviciile de amator si amator prin satelit
 
 
@@ -145,8 +136,8 @@ Articole din regulamentul ver. 2005 care s-au abrogat/scos
 
 3542&  3.3 Demonstrarea cunoasterii si completarii jurnalului statiei (log) 
 
- - completarea logului
+  completarea logului
 
- - scopul
+  scopul
 
- - datele inscrise
+  datele inscrise
