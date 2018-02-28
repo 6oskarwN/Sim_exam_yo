@@ -180,6 +180,8 @@ YO3HAF, Bucuresti, 2005 (rev. 2010)
 null
 Regulament, Art, 54, (1)
 YO6OWN, 2010
+
+
 ##15#
 c
 01A3212~&In functie de modul de folosire statiile de amator se impart in:
@@ -674,13 +676,13 @@ Din regulament: serviciul de amator - serviciul de radiocomunicatii avand ca sco
 YO6OWN, Brasov, 2010
 ##56#
 b
-01A323b~&In ce document se consemneaza activitatea de emisie-receptie a unei statii de radioamator?
+01A323b~&In ce document se consemneaza activitatea de emisie-receptie la o statie radioamator?
 null
 Foaie de activitate
-Logul statiei
+Jurnalul de trafic
 Formular de concurs
 Foaia de urmarire a activitatii statiei
-YO6OWN, Sacele, Brasov(rev.2010)
+YO6OWN, Sacele, Brasov(rev.2018)
 null
 
 
@@ -745,17 +747,17 @@ null
 
 
 ##62#
-c
-02A323b~&Pastrarea la o statie a jurnalului de trafic este obligatorie? Cat timp de la data efectuarii ultimei legaturi consemnate?
+a
+02A323b~&Pastrarea jurnalului de trafic la statia proprie este obligatorie? Cat timp de la data efectuarii ultimei legaturi consemnate?
 null
 nu
 da, 12 luni
 da, 6 luni
 da, 2ani
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
 null
-
-
+jurnalul este obligatoriu pentru legaturi efectuate la statii alta decat cea proprie si la statia de radioclub. Anexa la reglementari, cap IV, 23)
+YO6OWN, 2018
 ##63#
 a
 02A3230~&Grupele de litere YP, YQ, YR pot fi atribuite ca prefix unui indicativ din Romania?

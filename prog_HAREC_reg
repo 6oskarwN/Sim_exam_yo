@@ -63,15 +63,11 @@ Art. 8.  Conditiile de utilizare a benzilor de frecvente radio in serviciul de a
 3236&	18) Conditii pentru transmiterea semnalelor de test
 	19) Obligatii la stabilirea legaturi radio(doar cu radioamatori, doar pe frecventele de radioamatori)
 3239&	20-22) Legaturi radio permise, permise exceptional si interzise in receptie sau emisie, exceptii la activitatile interzise
-=================[db_legis1 verificat pana aici]
-	23-24) Consemnarea traficului, jurnalul de trafic, date inscrise
-3501&  <i>CONTROLUL STATIILOR DE RADIOAMATORI(Art. 53-55, 57)</i>
-3503&  <i>Art. 54,55  Dreptul de control al ANCOM</i>
-323b&  <i>Art. 24  Jurnalul de trafic.</i>
 
-323c&  <i>Art. 25  Documente obligatorii la statia de radioamator, controlul lor.[S-A SCOS partea cu documente obligatorii] </i>
+323b&	23-24) Consemnarea traficului, jurnalul de trafic, date inscrise
 	25) Asigurarea functionarii statiilor cu respectarea nivelurilor de camp electromagnetic
 	26) Respectarea regimului emisiilor neesentiale din Regulamentul UIT
+=================[db_legis1 verificat pana aici]
 3238&	27) Evitarea producerii de interferente si masuri ce se impun pentru eliminarea acestora
 
 
@@ -112,7 +108,10 @@ Articole din regulamentul ver. 2005 care s-au abrogat/scos
 3215&  Art. 7  Utilizarea statiilor de radioamator de receptie
 3221&  CAPITOLUL II, STATII DE RADIOAMATORI, SECTIUNEA 2, NORME TEHNICE(Art. 8 - 11)
 323d&  Art. 26  Conditii de organizare a aplicatiilor de radiogoniometrie de amator, indicative atipice.
+3501&  <i>CONTROLUL STATIILOR DE RADIOAMATORI(Art. 53-55, 57)</i>
 3502&  Art. 53  Abaterile de la prevederile regulamentului.
+3503&  <i>Art. 54,55  Dreptul de control al ANCOM</i>
+323c&  <i>Art. 25  Documente obligatorii la statia de radioamator, controlul lor.[S-A SCOS partea cu documente obligatorii] </i>
 3504&  Art. 57  Autorizatiile de radioamator falsificate sau obtinute in mod fraudulos 
 3506&  Art. 58  (1) Masurile sanctionatorii si metode de apel.
 3521&  Anexa nr. 2 BENZI DE FRECVENTE RADIO exceptate de la licentiere in serviciile de amator si amator prin satelit
