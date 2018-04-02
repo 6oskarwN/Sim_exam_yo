@@ -42,8 +42,7 @@ Art. 8.  Conditiile de utilizare a benzilor de frecvente radio in serviciul de a
      Anexa: Conditiile de utilizare a benzilor de frecvente radio in serviciul de amator
 3102&	I. Definitii: banda de frecventa asignata, largime de banda necesara, largime de banda ocupata, putere la purtatoare, putere la varf de modulatie
 3530&	II. Nivelurile de putere de emisie, benzi de frecvente 
-	III. Conditii privind utilizarea unor niveluri de putere marite
-3541&  Anexa 3, Art. 1 Conditii tehnice speciale permise statiilor de cat. I
+3541&	III. Conditii privind utilizarea unor niveluri de putere marite
 	IV. Norme de utilizare a statiilor radio
 3212&	1) statiile de radioamator in functie de modul de folosire
 	2) statiile de radioamator in functie de modul de control
@@ -63,13 +62,8 @@ Art. 8.  Conditiile de utilizare a benzilor de frecvente radio in serviciul de a
 3236&	18) Conditii pentru transmiterea semnalelor de test
 	19) Obligatii la stabilirea legaturi radio(doar cu radioamatori, doar pe frecventele de radioamatori)
 3239&	20-22) Legaturi radio permise, permise exceptional si interzise in receptie sau emisie, exceptii la activitatile interzise
-=================[db_legis1 verificat pana aici]
-	23-24) Consemnarea traficului, jurnalul de trafic, date inscrise
-3501&  <i>CONTROLUL STATIILOR DE RADIOAMATORI(Art. 53-55, 57)</i>
-3503&  <i>Art. 54,55  Dreptul de control al ANCOM</i>
-323b&  <i>Art. 24  Jurnalul de trafic.</i>
 
-323c&  <i>Art. 25  Documente obligatorii la statia de radioamator, controlul lor.[S-A SCOS partea cu documente obligatorii] </i>
+323b&	23-24) Consemnarea traficului, jurnalul de trafic, date inscrise
 	25) Asigurarea functionarii statiilor cu respectarea nivelurilor de camp electromagnetic
 	26) Respectarea regimului emisiilor neesentiale din Regulamentul UIT
 3238&	27) Evitarea producerii de interferente si masuri ce se impun pentru eliminarea acestora
@@ -78,16 +72,16 @@ Art. 8.  Conditiile de utilizare a benzilor de frecvente radio in serviciul de a
 CAPITOLUL II  Certificarea radioamatorilor
 3301& Art. 9.  Obtinerea certificatului de radioamator
 3302& Art. 10.  Clase de certificate de radioamator
-Art. 11-16.  Examinarea
-3303&  
+3303&	Art. 11-16.  Examinarea 
+  
 CAPITOLUL III  Autorizarea in serviciul de amator
- Art. 17-18.  Autorizarea
-3411&  <i>Art. 34  Activitatea de radioamator autorizata.</i>
-3124&  <i>Autorizatia de radioamator individuala</i>
-3413&  <i>Art. 35  Drepturi derivate din  autorizatia de radioamator</i>
+3413& Art. 17-18.  Autorizarea 
+
  Art. 19-20.  Clase de autorizare
-3414&  Art. 36  Clasele autorizatiilor de radioamator
-3415&  Echivalentele autorizatiilor romanesti cu CEPT.
+3414&  - Clasele autorizatiilor de radioamator
+3415&  - Echivalentele autorizatiilor romanesti cu CEPT.
+       - Succesiunea autorizarii claselor
+
 3421& Art. 21-23.  Autorizatia de radioclub
 3431& Art. 24-25.  Autorizatia pentru statie repetoare sau radiobaliza
 3441& Art. 26-28.  Autorizarea radioamatorilor cetateni ai altor state
@@ -104,40 +98,5 @@ Art. 36.  echivalarea clasei III-R cu clasa IV
 Art. 37.  Callbook, adrese radiobalize
 Art. 38.  Exceptii de tratare a indicativelor
 Art. 39-41.  Abrogarea regulamentului anterior
-========================================
-
-Articole din regulamentul ver. 2005 care s-au abrogat/scos
 
 
-3215&  Art. 7  Utilizarea statiilor de radioamator de receptie
-3221&  CAPITOLUL II, STATII DE RADIOAMATORI, SECTIUNEA 2, NORME TEHNICE(Art. 8 - 11)
-323d&  Art. 26  Conditii de organizare a aplicatiilor de radiogoniometrie de amator, indicative atipice.
-3502&  Art. 53  Abaterile de la prevederile regulamentului.
-3504&  Art. 57  Autorizatiile de radioamator falsificate sau obtinute in mod fraudulos 
-3506&  Art. 58  (1) Masurile sanctionatorii si metode de apel.
-3521&  Anexa nr. 2 BENZI DE FRECVENTE RADIO exceptate de la licentiere in serviciile de amator si amator prin satelit
-
-
-
- Modurile de transmisie: 
-3531&  a) TELEGRAFIE(A1A; A2A; F1A; F2A; J2A);
-3532&  b) TELEFONIE (A3E; J3E; R3E; F3E);
-
-
- Codificarea claselor de emisie:
-
-3537&  (3) Primul simbol indica tipul modulatiei purtatoarei principale
-3538&  (4) Al doilea simbol indica natura semnalelor care moduleaza purtatoarea principala
-3539&  (5) Al treilea simbol indica tipul informatiei transmise
-
-=======================
-
-
-
-3542&  3.3 Demonstrarea cunoasterii si completarii jurnalului statiei (log) 
-
-  completarea logului
-
-  scopul
-
-  datele inscrise
