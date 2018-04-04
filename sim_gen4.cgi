@@ -56,7 +56,7 @@
 #          + localtime written in cheat_log
 # ch 3.0.9 rucksack method(pocket) pentru scrambling-ul a)-d)
 # ch 3.0.8 algoritmul RND se schimba in "decreasing rucksack" - devel;
-#          + rezolvata problema de blocarem la afisarea formularului cu date corupte 
+#          + rezolvata problema de blocare la afisarea formularului cu date corupte 
 #          + daca se detecteaza greseala la afisare, nu se mai genereaza transaction = protectie
 # ch 3.0.7 la fallback se da purge doar la reject list,  se imbunatateste acoperirea ultimelor intrebari din programa.
 # ch 3.0.6 schimbat modul de afisare al imaginii de intrebare
@@ -65,14 +65,14 @@
 # ch 3.0.3 partially debugged
 # ch 3.0.2 attempts to generate the new-style exam
 # ch 3.0.1 creates hlr record as in 3.0.0 but overwrites the other classes, implementing selfdelete
-# ch 3.0.0 creates /hlr file if user is type0 and has no /hlr record
+# ch 3.0.0 creates /hlr file if user is training user and has no /hlr record
 # ch 2.0.2 fixed trouble ticket 26
 # ch 2.0.1 implemented Feature Request 2
 # ch 2.0.0 coding Feature Change trouble ticket 12
 
 use strict;
 use warnings;
-
+use Data::Dumper;		#for debug only
 sub ins_gpl;                    #inserts a HTML preformatted text with the GPL license text
 
 my $get_trid;                   #transaction ID from GET data
@@ -506,7 +506,7 @@ my $entry = "$hexi $trid_login 7 $exp_sec $exp_min $exp_hour $exp_day $exp_month
 #} #.END BLOCK
 
 #BLOCK: generate the questions of the exam
-#ar merge implementat cu 3 liste: lista fisierelor , lista cu nr de intrebari/fisier, lista capitolelor
+#e implementat cu 3 liste: lista fisierelor , lista cu nr de intrebari/fisier, lista capitolelor
 #bagat intr-o bucla for sau foreach
 #
 
@@ -516,17 +516,17 @@ sub random_int($);
 
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 #my $index; #seen index in the form
-my $watchdog=0;
+my $watchdog=0;  #should be described what the watchdog does
 #CUSTOM for class IV
 #protectia muncii 10, operare 8, legislatie 20 #CUSTOM
-my @database=("db_ntsm","db_op4","db_legis4");       #CUSTOM set the name of used databases and their order
+my @database=("db_ntsm4","db_op4","db_legis4");       #CUSTOM set the name of used databases and their order
 my @qcount=(10,8,20); #CUSTOM number of questions generated on each chapter
 my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #CUSTOM chapter names
 
 my $fline;	#line read from file
 my $rndom;	#used to store random integers
 my @pool;	#pool of chosen questions
-my $truth;
+my $chosenOne;	#the extracted question is chosen = 1, or not = 0
 #======V3 variables======
 
 my @rucksack;	#we extract the questions from here
@@ -534,15 +534,14 @@ my $rindex;	#rucksack index
 my %hlrline;    #hlr-hash for the corresponding line of hlr
 my @splitter;	#cu el manipulam v3code din linia intrebarii
 #contains list with files containing only v3-codes
-my @strips=("strip_db_ntsm","strip_db_op4","strip_db_legis4");#CUSTOM
+my @strips=("strip_db_ntsm4","strip_db_op4","strip_db_legis4");#CUSTOM
 my @slurp_strip;  #slurped content of such a file
 my $fallback;	#flag for generating exam for training users, when db is exhausted
 my $found;
 my $v3code;	#temporary var so chomp() can be made
 #========================
 
-#tbd: print HTML exam header
-#ACTION: Generate header of the exam
+#ACTION: Generate HTML header of the exam
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
@@ -550,16 +549,14 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!v 3.3.0\n!; #version print for easy upload check
-#CUSTOM
-print qq!<center><font size="+2">Examen clasa IV</font></center>\n!;
-#print qq!<center><font size="+1">17 raspunsuri corecte din 20 aduc promovarea</font></center><br>\n!;
+print qq!<center><font size="+2">Examen clasa IV</font></center>\n!;   #CUSTOM
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
 print qq!<center><font size="+1">Timpul alocat examenului este de 2 ore.</font></center><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/sim_ver4.cgi" method="post">\n!; #CUSTOM
 
 #==========================v3==
-# if hlrfile (-e) usertype==0(antrenament) and hlr class='clasa1') openfile and skip first line
-if($tipcont == 0) #aici ai hlr, s-a creat mai sus
+# if hlrfile (-e) usertype==0(antrenament) and hlr class='clasa4') openfile and skip first line #CUSTOM
+if($tipcont == 0) #for sure hlr file exists, was created just lines above
 {
 open(HLRread,"<hlr/$trid_login_hlrname") || dienice("ERR13",1,\"null"); #open for reading only
 #flock(HLRread,1); #LOCK_SH
@@ -571,6 +568,8 @@ $hlrclass = <HLRread>;#il mai aveam dar trebuie sa scapam de linia asta
 #print qq!DEBUG: just read hlr-clasa=$hlrclass<br>\n!; #debug only
 
 }
+
+
 #================.V3===
 #tbd: foreach database
 for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions from each database
@@ -580,15 +579,14 @@ open(INFILE,"< $database[$iter]") || dienice("ERR14",1,\"null");
 #flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 
 
-#unless($server_ok) #if server is congested, exit;
-#{ exit();} 
+
 #====== V3 ======
 #for each database the hash is loaded
 %hlrline=(); #init
 # if hlrfile (-e) and  usertype==0(antrenament))
-if($tipcont == 0) #desi hlr exista, ca nu ajungi aici fara sa fie creat
+if($tipcont == 0) #but hlr file exists for taining account
 {
-#fetch hlr line
+#fetch hlr line corresponding to $database[$iter]
 $hlrclass = <HLRread>; #variable reused to fetch the corresponding line from HLR
 chomp $hlrclass;
 
@@ -596,10 +594,13 @@ chomp $hlrclass;
 
 #load the hash TBD
 @splitter= split(/,/,$hlrclass);
-for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++)
+
+for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++) #or ($#splitter+1)/2 - same effect
  {
  %hlrline = (%hlrline,$splitter[$split_iter*2],$splitter[$split_iter*2+1]); #daca linia e stocata direct sub forma de string de hash; 
   } #.end for split iter
+
+#print Dumper(\%hlrline);  #debug only
 #print qq!DEBUG: hash  line is: %hlrline<br>\n!; #debug only
 
 } # .end if(-e, antrenament)
@@ -622,146 +623,131 @@ print qq!<font color="black"><big>$chapter[$iter]</big></font>\n!;
 print qq!</td></tr></table>\n<br>\n!;
 
 #------------------------
-seek(INFILE,0,0);			#goto begin of file
+seek(INFILE,0,0);			#goto begin of questions database file
 $fline = <INFILE>;			#read away dummy version string from first line
 $fline = <INFILE>;			#read nr of questions
 chomp($fline);				#cut <CR> from end
+
+#QUESTION POOL GENERATION
+
+
 #init the rucksack(fill it in)
 #print qq!db_counter: $fline<br>\n!; #debug 
 @rucksack=(0..($fline-1)); 
-#print qq!rucksack content: @rucksack<br>\n!; #debug 
+print qq!rucksack content: @rucksack<br>\n!; #debug 
+#print Dumper(\@rucksack); #same debug
 
 
 @pool=();       #init pool of chosen questions
-$fallback=0;    #for type0 users generate with all conditions(fallback=1 is exam-like conditions)
+$fallback=0;    #for training users generate with all conditions(fallback=1 is one-shot exam-like conditions)
+
 #conditia de while trebuie imbunatatita si   cu conditia V3 de iesire
-while($#pool < (($qcount[$iter])-1))	#do until number of questions is reached; 
+while($#pool < (($qcount[$iter])-1))	#do until number of questions is reached; - asta nu da voie la never reached or fallback condition?
 {
+
+#tache out a $rndom out of rucksack
 $rindex= random_int($#rucksack+1); #intoarce intre 0 .. $#rucksack 
 #print qq!rindex = $rindex !; #debug
-$rndom=$rucksack[$rindex];
-#print qq!debug: question \#$rndom generated<br>\n!; #debug 
-#trebuie eliminat elementul din rucksack
-if($rindex == 0) {@rucksack = @rucksack[1..$#rucksack];}
-elsif ($rindex == $#rucksack) {@rucksack = @rucksack[0..($rindex-1)];}
-else {@rucksack=(@rucksack[0..($rindex-1)],@rucksack[($rindex+1)..$#rucksack]);}
-#print qq!rucksack content: @rucksack<br>\n!; #debug 
+$rndom=$rucksack[$rindex]; #rndom extracted from what remains in rucksack
+print qq!debug: new question $rndom<br>\n!; #debug 
 
-$truth=1;
+
+$chosenOne=0;   #$rndom is not chosen yet, that we shall see
 #===== V3 =====
 #conditions applicable in all modes, both non-hlr or 'training'
 
 
-#==cond 4
-#cond 4:daca subcapitolul exista deja in lista, skip
+#conditie eliminatoare din rucksack: pentru training daca intrebarea e in hlr cu 'y'
+#cond 3:daca intrebarea exista in hlr cu y, skip.
 
-#cond 4 folosita doar daca e fallback sau contul nu e de antrenament 
-if(($fallback==1) || ($tipcont != 0)) 
- {
-unless($truth==0) #implementam un elsif ca sa mai scutim processing power 
-  {  
-#cod capitol este partea a 2-a din : $slurp_strip[$rndom](daca are v3 code)
-$v3code=$slurp_strip[$rndom];
-
-unless($v3code =~ m/^$/) #are sens doar pentru intrebarile cu cod v3
- {
-chomp($v3code); 
-@splitter = split(/[A-Z]{1}/,$v3code); #aici crapa 
-#chomp($splitter[1]);
-#==Cod v3 Intrebarea: $slurp_strip[$_]
-foreach my $elem (@pool) {
-if (!($slurp_strip[$elem] =~ m/^$/)) #aici e undefined 
- {
-	if($slurp_strip[$elem] =~ m/[A-Z]{1}$splitter[1]/)  #la linia asta mai da o  eroare barosana
-	{
- 	$truth=0;
-#print qq!COND4: \#$rndom cu cod v3=$v3code e chapter cu $slurp_strip[$elem], are acelasi cod $splitter[1]<br>\n!; #debug 
-	}
- } #if not ^$
-} #end foreach
-} #.if defined
-		} #.unless truth de la cond.  4
-}#.end conditia4
-
-#conditiile 3,5 functionale doar pentru training users
-if(($tipcont == 0) && ($fallback == 0)) #applicable only for usertype=0 when no fallback is ordered
+if(($tipcont == 0) && ($fallback == 0) && ($chosenOne == 0)) #applicable only for usertype=0 when no fallback is ordered
 {
 
-#cond 3:daca intrebarea exista in hlr cu y, skip.
-unless($truth==0){  #implementam un elsif ca sa mai scutim processing power 
 #Intrebarea: $slurp_strip[$rndom]
 #print qq!COND 3: daca nu vezi variabila, o sa vezi in error_log: $slurp_strip[$rndom]<br>\n!; #debug 
 unless($slurp_strip[$rndom] =~ m/^$/) #conditia are sens doar pentru intrebarile cu cod v3
  {
-my $stripper=$slurp_strip[$rndom]; chomp $stripper;
-#print qq!pentru \#$rndom cod v3 e \;$slurp_strip[$rndom]\; cu $hlrline{$stripper}<br>\n!; #debug 
-if(defined($hlrline{$stripper})) #nu stii daca exista cheia!!!
+  my $stripper=$slurp_strip[$rndom]; chomp $stripper;
+  #print qq!pentru \#$rndom cod v3 e \;$slurp_strip[$rndom]\; cu $hlrline{$stripper}<br>\n!; #debug 
+  if(defined($hlrline{$stripper})) #nu stii daca exista cheia!!!
       {
-if($hlrline{$stripper} eq 'y') 
- {
- $truth=0;
-#print qq!COND 3: \#$rndom e cu y in hlr, $slurp_strip[$rndom]; <br>\n!; #debug 
- }
+  if($hlrline{$stripper} eq 'y') 
+    {
+     $chosenOne=1; #chosen for removal from rucksack without adding in pool
+     print qq!COND 3: \#$rndom e cu y in hlr, $slurp_strip[$rndom]; <br>\n!; #debug 
+    }
       }#.if defined
-  }#.if defined
 
-		} #.unless de la cond.  3
+ }#.if unless v3 code exists
 
-
-#==cond. 5:daca exista in hlr intrebari din acelasi subcapitol,TOATE cu y, skip
-unless($truth==0)  #implementam un elsif ca sa mai scutim processing power 
-{
-#if(defined($slurp_strip[$rndom])) #conditia are sens doar pentru intrebarile cu cod v3
-unless($slurp_strip[$rndom] =~ m/^$/) #conditia are sens doar pentru intrebarile cu cod v3
-
- {
-chomp $slurp_strip[$rndom];
-#==cod capitol este partea a 2-a din : $slurp_strip[$rndom]
-@splitter = split(/[A-Z]{1}/,$slurp_strip[$rndom]); #aici crapa daca intrebarile din db_nu au V3code
-
-#verificam daca programa e rezolvata
-$found='kz';
-foreach my $k (keys %hlrline)
-{
-
-if($k =~ m/[A-Z]{1}$splitter[1]/) {
-if(($hlrline{$k} eq 'y') && ($found eq 'kz')) {$found='y'; }
-elsif($hlrline{$k} eq 'n'){
-				$found='n';
-#                   print qq!INSIST $k = $hlrline{$k}.. $splitter[0]<br>!; #debug
-			  }
- } #all must be correct for chapter checked
-} #.foreach key
-if( $found eq 'y') #exista {1,} intrebari si toate rezolvate
- {$truth = 0; 
-# print qq!COND 5: capitol inchis <br>\n!; #debug 
-}
-}
-} #.end cond 5(truth).
-
-#---
 
 } #.end if tipcont(disabled with 0==1)
 
-if($truth){ @pool = (@pool,$rndom); } #valoarea valida se baga in pool
+#---------------------------------------
+#conditie de test, bagatoare in pool
+if($chosenOne == 0) #fallback or not, exam or training, if not elliminated yet
+{
+@pool = (@pool,$rndom); #insert to pool
+$chosenOne =1; #mark it as chosen for pool
+print qq!new pool: @pool<br>\n!; #debug 
+
+}
+
+#--------------------------------------
+     	#we extract it from din rucksack
+
+if($chosenOne)
+   { 	
+	if($rindex == 0) {@rucksack = @rucksack[1..$#rucksack];}
+	elsif ($rindex == $#rucksack) {@rucksack = @rucksack[0..($rindex-1)];}
+	else {@rucksack=(@rucksack[0..($rindex-1)],@rucksack[($rindex+1)..$#rucksack]);}
+	print qq!$rndom removed <br>new rucksack: @rucksack<br>\n!; #debug 
+  
+   } #removed from rucksack
 
 
 
 #==indiferent de tipul de cont, daca fallback=0, dupa fiecare generare random se verifica
 #==  conditia de fallback, adica rucksack gol;
 
-if(($fallback == 0) && ($#rucksack < 1)) #mai e un singur elem in rucsac
+#se poate inlocui cu conditia rapida #rucksack + #pool < desired size
+if(($fallback == 0) && ($#rucksack + $#pool < $qcount[$iter])) #sunt pre putine ramase in rucsac
 	{
 
-$fallback=1; 
-@rucksack=(0..($fline-1));	#se reumple rucksacul
-@pool=();			#se initializeaza lista de alese 
+	$fallback=1;
+	@rucksack=(0..($fline-1));	#se reumple rucksacul
+	@pool=();			#se initializeaza lista de alese 
 
 #print qq!FALLBACK to normal exam generating for this chapter<br>\n!; #debug 
+dienice("ERR19",5,\"null");     #debug only
+
 	}
-#== adaugarea intrebarii in @pool
+
 #=======================.V3====
+
+
+
 }#.end while random generator
+# all the proposed questions are in the question pool now
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @pool=sort{$a <=> $b} @pool;
 #print qq!DEBUG final pool is @pool<br>\n!; #debug 
@@ -946,10 +932,8 @@ sub random_int($)
 	
 	my ($max)=@_;
         my $generated;
-#     do {
-         $generated = int rand($max);
-#        }
-#     while($generated >= $max);      
+
+         $generated = int(rand($max));
          
        return $generated;
 	}
@@ -1015,7 +999,7 @@ my %pub_errors= (
               "ERR16" => "congestie server",
               "ERR17" => "actiune ilegala, inregistrata in log",
               "ERR18" => "actiune ilegala, inregistrata in log",
-              "ERR19" => "tbd",
+              "ERR19" => "rucksack fallback",
               "ERR20" => "silent discard, not printed"
                 );
 #textul de turnat in logfile, interne
@@ -1038,7 +1022,7 @@ my %int_errors= (
               "ERR16" => "fail close one of db_file",
               "ERR17" => "received trid is undef",
               "ERR18" => "received trid is destruct",
-              "ERR19" => "tbd",
+              "ERR19" => "rucksack fallback reached!",
               "ERR20" => "silent discard"
                 );
 
