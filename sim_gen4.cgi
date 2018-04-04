@@ -713,14 +713,11 @@ if($chosenOne)
 #se poate inlocui cu conditia rapida #rucksack + #pool < desired size
 if(($fallback == 0) && ($#rucksack + $#pool < $qcount[$iter])) #sunt pre putine ramase in rucsac
 	{
-
 	$fallback=1;
 	@rucksack=(0..($fline-1));	#se reumple rucksacul
 	@pool=();			#se initializeaza lista de alese 
-
-#print qq!FALLBACK to normal exam generating for this chapter<br>\n!; #debug 
-dienice("ERR19",5,\"null");     #debug only
-
+	print qq!FALLBACK to normal exam generating for this chapter<br>\n!; #debug 
+	#dienice("ERR19",5,\"null");     #debug only
 	}
 
 #=======================.V3====
