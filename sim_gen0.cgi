@@ -388,6 +388,7 @@ use Digest::MD5;
 
 
 #----100%------subrutina generare random number
+# intoarce numar intre 0 si $max-1
 sub random_int($)
 	{
 	

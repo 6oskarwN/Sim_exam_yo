@@ -32,14 +32,15 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2017
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_gen3.cgi v 3.3.0
+#  sim_gen4.cgi v 3.3.1
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.1 bug fix at rucksack algorithm, introduced epoch()
 # ch 3.3.0 implemented the mods given by law update Decizia 245/2017
 # ch 3.2.3 implemented use_time in recorded transaction_id;timestamp_expired()
 # ch 3.2.2 implemented silent discard Status 204
@@ -72,7 +73,7 @@
 
 use strict;
 use warnings;
-use Data::Dumper;		#for debug only
+#use Data::Dumper;		#for debug only
 sub ins_gpl;                    #inserts a HTML preformatted text with the GPL license text
 
 my $get_trid;                   #transaction ID from GET data
@@ -352,7 +353,7 @@ open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("ERR07",1,\"null");
 
 #flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
-printf HLRfile "clasa4\n"; #se inscrie examenul de clasa4 #CUSTOM  
+printf HLRfile "clasa4\n"; #se inscrie examenul de clasa4 #CUSTOM
 printf HLRfile "\n\n\n"; #bagat linii pt 3 probe #CUSTOM
 close(HLRfile);
   }
@@ -421,82 +422,18 @@ if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
 else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
 #ACTION: generate a new transaction
 
-my $exp_sec=$utc_time[0];
-my $exp_min=$utc_time[1];
-my $exp_hour=$utc_time[2];
-my $exp_day=$utc_time[3];
-my $exp_month=$utc_time[4];
-my $exp_year=$utc_time[5];
-my $carry1=0;
-my $carry2=0;
-my %month_days=(
-    0 => 31,	#january
-    1 => 28,	#february
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-my %month_bis_days=(
-    0 => 31,	#january
-    1 => 29,	#february, bisect
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-
-
-#CHANGE THIS for customizing; $timeframe is the allocated time for exam, in minutes
-#my $timeframe=59;		#59 minutes for an full-exam in HAM-eXAM
-my $timeframe=120;		#120 minutes=2 hours for a class IV full-exam
-
-
-#increment expiry time
-
-#minute increment
-$carry1= int(($exp_min+$timeframe)/60);		#check if minutes overflow 
-$exp_min=($exp_min+$timeframe)%60;			#increase minutes
-
-#hour increment
-$carry2= int(($exp_hour+$carry1)/24);		#check if hours overflow
-$exp_hour=($exp_hour+$carry1)%24;		#increase hours
-
-#day increment
-if($exp_year%4) {
-$carry1=int(($exp_day+$carry2)/($month_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_days{$exp_month}+1); #increase day if so
-	        }
-else		{
-$carry1=int(($exp_day+$carry2)/($month_bis_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_bis_days{$exp_month}+1); #increase day if so
-		}
-if($carry1) {$exp_day=1;}	#day starts with 1-anomaly solution
-
-#month increment
-$carry2=int(($exp_month+$carry1)/12);
-$exp_month=($exp_month+$carry1)%12;
-#year increment
-$exp_year += $carry2;
+#print qq!generate new transaction<br>\n!;
+my $epochTime = time();
+#CHANGE THIS for customizing
+my $epochExpire = $epochTime + 7200;		#3 min = 2 * 60 * 60 sec = 180 sec 
+my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
 #generate transaction id and its md5 MAC
 
 $hexi= sprintf("%+06X",$trid); #the transaction counter
 #assemble the trid+timestamp
 $hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and MD5
-#compute mac for trid+timestamp 
+#compute mac for trid+timestamp
 my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
 $hexi= "$hexi$heximac"; #the full transaction id
 
@@ -516,7 +453,7 @@ sub random_int($);
 
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 #my $index; #seen index in the form
-my $watchdog=0;  #should be described what the watchdog does
+my $watchdog=0;
 #CUSTOM for class IV
 #protectia muncii 10, operare 8, legislatie 20 #CUSTOM
 my @database=("db_ntsm4","db_op4","db_legis4");       #CUSTOM set the name of used databases and their order
@@ -548,7 +485,8 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.3.0\n!; #version print for easy upload check
+print qq!v 3.3.1\n!; #version print for easy upload check
+
 print qq!<center><font size="+2">Examen clasa IV</font></center>\n!;   #CUSTOM
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
 print qq!<center><font size="+1">Timpul alocat examenului este de 2 ore.</font></center><br>\n!;
@@ -601,7 +539,6 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++) #or ($#splitter
   } #.end for split iter
 
 #print Dumper(\%hlrline);  #debug only
-#print qq!DEBUG: hash  line is: %hlrline<br>\n!; #debug only
 
 } # .end if(-e, antrenament)
 
@@ -634,7 +571,7 @@ chomp($fline);				#cut <CR> from end
 #init the rucksack(fill it in)
 #print qq!db_counter: $fline<br>\n!; #debug 
 @rucksack=(0..($fline-1)); 
-print qq!rucksack content: @rucksack<br>\n!; #debug 
+#print qq!rucksack content: @rucksack<br>\n!; #debug 
 #print Dumper(\@rucksack); #same debug
 
 
@@ -645,11 +582,11 @@ $fallback=0;    #for training users generate with all conditions(fallback=1 is o
 while($#pool < (($qcount[$iter])-1))	#do until number of questions is reached; - asta nu da voie la never reached or fallback condition?
 {
 
-#tache out a $rndom out of rucksack
+#take out a $rndom out of rucksack
 $rindex= random_int($#rucksack+1); #intoarce intre 0 .. $#rucksack 
 #print qq!rindex = $rindex !; #debug
 $rndom=$rucksack[$rindex]; #rndom extracted from what remains in rucksack
-print qq!debug: new question $rndom<br>\n!; #debug 
+#print qq!debug: new question $rndom<br>\n!; #debug 
 
 
 $chosenOne=0;   #$rndom is not chosen yet, that we shall see
@@ -667,14 +604,15 @@ if(($tipcont == 0) && ($fallback == 0) && ($chosenOne == 0)) #applicable only fo
 #print qq!COND 3: daca nu vezi variabila, o sa vezi in error_log: $slurp_strip[$rndom]<br>\n!; #debug 
 unless($slurp_strip[$rndom] =~ m/^$/) #conditia are sens doar pentru intrebarile cu cod v3
  {
-  my $stripper=$slurp_strip[$rndom]; chomp $stripper;
+  my $stripper=$slurp_strip[$rndom]; 
+  chomp $stripper;
   #print qq!pentru \#$rndom cod v3 e \;$slurp_strip[$rndom]\; cu $hlrline{$stripper}<br>\n!; #debug 
   if(defined($hlrline{$stripper})) #nu stii daca exista cheia!!!
       {
   if($hlrline{$stripper} eq 'y') 
     {
      $chosenOne=1; #chosen for removal from rucksack without adding in pool
-     print qq!COND 3: \#$rndom e cu y in hlr, $slurp_strip[$rndom]; <br>\n!; #debug 
+ #    print qq!COND 3: \#$rndom e cu y in hlr, $slurp_strip[$rndom]; <br>\n!; #debug 
     }
       }#.if defined
 
@@ -689,7 +627,7 @@ if($chosenOne == 0) #fallback or not, exam or training, if not elliminated yet
 {
 @pool = (@pool,$rndom); #insert to pool
 $chosenOne =1; #mark it as chosen for pool
-print qq!new pool: @pool<br>\n!; #debug 
+#print qq!new pool: @pool<br>\n!; #debug 
 
 }
 
@@ -701,7 +639,7 @@ if($chosenOne)
 	if($rindex == 0) {@rucksack = @rucksack[1..$#rucksack];}
 	elsif ($rindex == $#rucksack) {@rucksack = @rucksack[0..($rindex-1)];}
 	else {@rucksack=(@rucksack[0..($rindex-1)],@rucksack[($rindex+1)..$#rucksack]);}
-	print qq!$rndom removed <br>new rucksack: @rucksack<br>\n!; #debug 
+#	print qq!$rndom removed <br>new rucksack: @rucksack<br>\n!; #debug 
   
    } #removed from rucksack
 
@@ -716,7 +654,7 @@ if(($fallback == 0) && ($#rucksack + $#pool < $qcount[$iter])) #sunt pre putine 
 	$fallback=1;
 	@rucksack=(0..($fline-1));	#se reumple rucksacul
 	@pool=();			#se initializeaza lista de alese 
-	print qq!FALLBACK to normal exam generating for this chapter<br>\n!; #debug 
+#	print qq!FALLBACK to normal exam generating for this chapter<br>\n!; #debug 
 	#dienice("ERR19",5,\"null");     #debug only
 	}
 
@@ -726,24 +664,6 @@ if(($fallback == 0) && ($#rucksack + $#pool < $qcount[$iter])) #sunt pre putine 
 
 }#.end while random generator
 # all the proposed questions are in the question pool now
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @pool=sort{$a <=> $b} @pool;
@@ -928,11 +848,8 @@ sub random_int($)
 	{
 	
 	my ($max)=@_;
-        my $generated;
 
-         $generated = int(rand($max));
-         
-       return $generated;
+       return int(rand($max));
 	}
 #-------------------------------------
 sub compute_mac {
@@ -996,7 +913,7 @@ my %pub_errors= (
               "ERR16" => "congestie server",
               "ERR17" => "actiune ilegala, inregistrata in log",
               "ERR18" => "actiune ilegala, inregistrata in log",
-              "ERR19" => "rucksack fallback",
+              "ERR19" => "tbd",
               "ERR20" => "silent discard, not printed"
                 );
 #textul de turnat in logfile, interne
@@ -1019,7 +936,7 @@ my %int_errors= (
               "ERR16" => "fail close one of db_file",
               "ERR17" => "received trid is undef",
               "ERR18" => "received trid is destruct",
-              "ERR19" => "rucksack fallback reached!",
+              "ERR19" => "tbd",
               "ERR20" => "silent discard"
                 );
 
@@ -1050,7 +967,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.3.0\n!; #version print for easy upload check
+print qq!v 3.3.1\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
