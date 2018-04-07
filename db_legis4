@@ -1,5 +1,5 @@
 Legislatie, clasa a IV-a v.3.31  versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_CEPT_Entry_reg</curricula></font>
-56
+62
 ##0#
 a
 01A29a~&Este adevarat ca ANCOM poate determina cu precizie locatia geografica a statiilor radio ilegale si clandestine?
@@ -150,7 +150,7 @@ c
 null
 clasa a II-a
 clasa I
-clasa a II-a sau clasa a I
+clasa a II-a sau clasa I
 clasa a III-a
 ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
 null
@@ -672,3 +672,75 @@ YO6OWN, Sacele, 2005(rev.2007)
 null
 Toate raspunsurile contin denumiri cu initialele U,T,C, si suna stiintific dar Universal Time, Coordinated este ora notata de radioamatori, restul variantelor nu exista in realitate. UTC este un succesor mai bine definit al GMT dar pentru radioamatori, UTC = GMT. (trivia - Ceasurile atomice de obicei nu folosesc uraniu). <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC: Link Wikipedia</a> 
 YO6OWN, 2017
+##56#
+b
+01A141~&In ce document se consemneaza activitatea de emisie-receptie la o statie de radioamator?
+null
+Foaie de activitate
+Jurnalul de trafic
+Formular de concurs
+Foaia de urmarire a activitatii statiei
+YO6OWN, Sacele, Brasov(rev.2018)
+null
+
+
+##57#
+a
+02A141~&Pastrarea jurnalului de trafic la statia proprie este obligatorie? Cat timp de la data efectuarii ultimei legaturi consemnate?
+null
+nu
+da, 12 luni
+da, 6 luni
+da, 2ani
+ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+null
+jurnalul este obligatoriu pentru legaturi efectuate la statii alta decat cea proprie si la statia de radioclub. Anexa la reglementari, cap IV, 23)
+YO6OWN, 2018
+##58#
+c
+03A141~&Ce informatii sunt consemnate in jurnalul de trafic (LOG)? 
+null
+indicativul statiei cu care s-a lucrat, data, ora Romaniei
+indicativul statiei, data
+data, ora UTC, banda in care s-a efectuat legatura, indicativul operatorului initiator si al corespondentului
+data, ora GMT, banda in care s-a efectuat legatura, controlul RST, indicativul statiei corespondente
+ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev. 2018)
+null
+Se trec toate datele care pot identifica unic un QSO. Pe langa datele minime, se pot adauga si alte amanunte interesante, daca exista.
+YO6OWN, Brasov, 2018
+##59#
+a
+01A172~&Ce inseamna abrevierea TNABF?
+null
+Tabelul national de atribuire a benzilor de frecvente;
+Tabara nationala de antene pe benzi de frecventa
+Un paratraznet activ de tip Traznete Negativate cu AutoBlock de Fulgere
+Transformata Fourier normata A-B
+YO6OWN, Brasov, 2014
+null
+
+
+##60#
+d
+01A173~&Ce inseamna 'statut secundar' al unei benzi de frecvente alocata serviciului de amator?
+null
+Radioamatorii pot transmite tot timpul in acea banda, insa atunci cand e liniste, si alte servicii pot transmite
+Aceasta banda are o importanta secundara din cauza conditiilor de propagare foarte instabile
+Radioamatorii pot transmite in acea banda doar daca au o autorizatie secundara speciala
+Radioamatorii folosesc in mod curent aceste benzi, insa in anumite conditii speciale, alte servicii au prioritate in folosirea acestor benzi
+YO6OWN, Brasov, 2007(rev. 2018)
+null
+TNABF defineste: STATUT SECUNDAR. Statiile de radioamator din aceasta banda nu vor cauza perturbatii statiilor din celelalte servicii de radiocomunicatii si nici nu beneficiaza de protectie.
+YO6OWN, Brasov, 2018
+##61#
+c
+02A173~&Ce inseamna 'statut primar' al unei benzi de frecvente alocata serviciului de amator?
+null
+Radioamatorii pot transmite tot timpul in acea banda, insa atunci cand e liniste, si alte servicii pot transmite
+Radioamatorii pot rejecta apeluri ale altor servicii
+Radioamatorii sunt singurii care pot transmite in acea banda
+In cazul unor calamitati, radioamatorii preiau controlul de trafic intre celelalte servicii pe aceste benzi
+YO6OWN, Brasov, 2007(rev. 2018)
+null
+TNABF defineste: Statut primar al benzii inseamna ca acea banda este alocata doar radioamatorilor.
+YO6OWN, Brasov, 2018
