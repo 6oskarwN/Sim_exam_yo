@@ -2,7 +2,7 @@ Intrebari NTSM versiunea 3.30 versiunea actualizata pe <a href="http://examyo.sc
 53
 ##0#
 c
-01A111~&Care sunt consecintele socului electric?
+01A276~&Care sunt consecintele socului electric?
 null
 arcul electric
 izolatia
@@ -14,7 +14,7 @@ Fenomenele care apar in organism ca urmare a trecerii curentului electric peste 
 YO6OWN, 2014
 ##1#
 a
-02A111~&Dintre "electrocutare" si "traumatism Electric" care este socul electric mortal?
+02A276~&Dintre "electrocutare" si "traumatism Electric" care este socul electric mortal?
 null
 electrocutarea
 traumatismul electric
@@ -26,7 +26,7 @@ Fenomenele care apar in organism ca urmare a trecerii curentului electric peste 
 YO6OWN, 2014
 ##2#
 c
-01A133~&Ce ne spune simbolul de avertizare urmator, lipit ca eticheta pe un aparat?
+01A273~&Ce ne spune simbolul de avertizare urmator, lipit ca eticheta pe un aparat?
 images_109.jpg 109
 Atentie, aparatul poate emite jet de gaze fierbinti
 Aparatul in cauza prezinta pericol de explozie
@@ -38,7 +38,7 @@ Eticheta respectiva ne spune ca aparatul emite in cursul functionarii, sau in an
 YO6OWN, Brasov, 2008
 ##3#
 a
-01A135~&Care este relatia dintre densitatea puterii de RF la care este expus operatorul si distanta dintre acesta si antena radianta?
+02A273~&Care este relatia dintre densitatea puterii de RF la care este expus operatorul si distanta dintre acesta si antena radianta?
 null
 puterea scade cu patratul distantei
 puterea scade cu radacina patrata a distantei
@@ -50,7 +50,7 @@ O explicatie empirica, fara formule ar fi: Din radiatorul izotrop, in mediu omog
 YO6OWN
 ##4#
 c
-02A135~&Care este unul din efectele biologice cauzate de expunerea la RF a ochiului? 
+03A273~&Care este unul din efectele biologice cauzate de expunerea la RF a ochiului? 
 null
 campurile magnetice intense pot genera o lumina difuza
 campurile magnetice puternice pot polariza cristalinul
@@ -62,7 +62,7 @@ Energia de radiofrecventa absorbita in materiale/substante cu continut de apa, a
 YO6OWN
 ##5#
 c
-01A112~&Ce este foarte important de stiut despre amplasamentul intrerupatorului principal de energie electrica al statiei?
+03A276~&Ce este foarte important de stiut despre amplasamentul intrerupatorului principal de energie electrica al statiei?
 null
 trebuie sa se afle intotdeauna in apropierea operatorului
 trebuie sa fie cat mai departe posibil de operator
@@ -74,7 +74,7 @@ Intrerupatorul principal, de tip ciuperca, trebuie sa fie la loc degajat, accesi
 YO6OWN
 ##6#
 d
-01A121~&Care este varianta gresita din cele 4 culori ale retei de energie electrica casnica(220V 50Hz monofazat)?
+01B276~&Care este varianta gresita din cele 4 culori ale retei de energie electrica casnica(220V 50Hz monofazat)?
 null
 nul - albastru deschis
 faza - negru
@@ -86,7 +86,7 @@ null
 
 ##7#
 d
-02A121~&Care este varianta gresita din cele 4 culori ale retei de energie electrica casnica(220V 50Hz monofazat)?
+02B276~&Care este varianta gresita din cele 4 culori ale retei de energie electrica casnica(220V 50Hz monofazat)?
 null
 nul - albastru deschis
 faza - maro
@@ -98,7 +98,7 @@ null
 
 ##8#
 d
-01A134~&Ce masuri de protectia muncii trebuie respectate atunci cand lipim cu fludor/cositor?
+04A273~&Ce masuri de protectia muncii trebuie respectate atunci cand lipim cu fludor/cositor?
 null
 Trebuie purtati ochelari de protectie
 Trebuie asigurata o ventilatie corespunzatoare
@@ -110,7 +110,7 @@ La topire, din cauza sacazului care fierbe, pot sari stropi de aliaj - purtarea 
 YO6OWN
 ##9#
 c
-01A182~&Ce trebuie sa faci intotdeauna inainte sa te urci pe pilon?
+01A274~&Ce trebuie sa faci intotdeauna inainte sa te urci pe pilon?
 null
 Trebuie activate toate emitatoarele care folosesc antene de pe pilon
 Impamantarea pilonului trebuie deconectata, pentru a ne feri de descarcari de electricitate statica
@@ -122,7 +122,7 @@ Nu trebuie activate emitatoarele! Doza de radiatie RF poate produce probleme de 
 YO6OWN
 ##10#
 b
-03A135~&De ce atunci cand folosim o statie portabila, faptul de a reduce puterea la emisie la minimum necesar, asa cum specifica regulamentul, este o idee buna?
+05A273~&De ce atunci cand folosim o statie portabila, faptul de a reduce puterea la emisie la minimum necesar, asa cum specifica regulamentul, este o idee buna?
 null
 Fiindca sunt prevazute amenzi pentru cei care lucreaza cu puterea maxima
 Ca sa reducem doza de radiatie de RF la care este expus capul operatorului
@@ -134,7 +134,7 @@ Antena unei statii portabile este in general omnidirectionala si ineficienta, fa
 YO6OWN
 ##11#
 b
-04A135~&Care este unul din efectele radiatiei de RF neionizante asupra corpului uman?
+06A273~&Care este unul din efectele radiatiei de RF neionizante asupra corpului uman?
 null
 Racirea a tesuturilor
 Incalzirea tesuturilor
@@ -146,7 +146,7 @@ La puteri mici 1-5W, nu se observa aproape nimic, poate la expunere extrem de in
 YO6OWN
 ##12#
 b
-01A153~&Cine este responsabil in cazul in care un vizitator la statia radioclubului este  electrocutat cand atinge o priza montata defectuos?
+04A276~&Cine este responsabil in cazul in care un vizitator la statia radioclubului este  electrocutat cand atinge o priza montata defectuos?
 null
 accidentatul, fiindca nu are voie sa foloseasca materiale ale statiei.
 responsabilul statiei de club
@@ -158,7 +158,7 @@ Responsabilul este responsabil pentru tot ce se intampla la statie, conform regu
 YO6OWN
 ##13#
 b
-01A152~&Un radioamator incepator in vizita la statia de radioclub observa ca sala este incalzita cu un calorifer electric, conectat la retea prin doua fire dezizolate bagate in priza, in camera se simte miros de izolatie incinsa. Cum trebuie sa actioneze?
+05A276~&Un radioamator incepator in vizita la statia de radioclub observa ca sala este incalzita cu un calorifer electric, conectat la retea prin doua fire dezizolate bagate in priza, in camera se simte miros de izolatie incinsa. Cum trebuie sa actioneze?
 null
 sa scoata imediat caloriferul din priza, tragand de cordonul izolat
 sa anunte imediat responsabilul statiei
@@ -170,7 +170,7 @@ Responsabilul trebuie anuntat, el va lua deciziile si are responsabilitatea. Nu 
 YO6OWN
 ##14#
 c
-01A162~&In cazul in care statia receptionata este o raritate si se mai aude foarte slab, fiind QRM si paraziti, atunci pentru o receptie mai buna in casti:
+07A273~&In cazul in care statia receptionata este o raritate si se mai aude foarte slab, fiind QRM si paraziti, atunci pentru o receptie mai buna in casti:
 null
 se decupleaza limitatoarele de perturbatii(NB-noise blocking) deoarece acestea afecteaza toate semnalele, atenuand inclusiv semnalul DX.
 se ridica volumul in casti chiar daca celelalte semnale mai puternice fac ca nivelul audio general sa fie dureros de mare
@@ -182,7 +182,7 @@ Sistemul NB Noise Blanker este un sistem electronic de limitare a amplitudinii a
 YO6OWN
 ##15#
 c
-01A123~&Siguranta fuzibila a radioreceptorului realizat in conditii de amator (home-made) se arde suparator de des. Ce trebuie facut?
+06A276~&Siguranta fuzibila a radioreceptorului realizat in conditii de amator (home-made) se arde suparator de des. Ce trebuie facut?
 null
 trebuie schimbata siguranta cu una care permite trecerea unui curent mai mare.
 se inlocuieste cu o lita
@@ -194,7 +194,7 @@ Chiar daca receptorul este 'home-made', siguranta fuzibila este  interzis a fi '
 YO6OWN, Brasov, 2007
 ##16#
 a
-01A132~&Dupa cateva zeci de secunde de la oprirea si scoaterea de sub tensiune a unui aparat electric, unde sunt stocate tensiunile potential periculoase?
+01A271~&Dupa cateva zeci de secunde de la oprirea si scoaterea de sub tensiune a unui aparat electric, unde sunt stocate tensiunile potential periculoase?
 null
 Unele condensatoare raman incarcate la tensiunea lor de lucru o perioada mai lunga
 Bobinele mentin campul magnetic o perioada lunga si prin autoinductie genereaza inalta tensiune
@@ -206,7 +206,7 @@ null
 
 ##17#
 b
-02A132~&Ne mai putem curenta la un aparat electric la putin timp dupa ce l-am deconectat de la reteaua de alimentare de 220V?
+02A271~&Ne mai putem curenta la un aparat electric la putin timp dupa ce l-am deconectat de la reteaua de alimentare de 220V?
 null
 nu, daca am deconectat complet(scos din priza)
 da, unele condensatoare raman incarcate si daca le atingem se pot descarca prin  corp
@@ -218,7 +218,7 @@ null
 
 ##18#
 a
-01A174~&Cum se marcheaza locurile periculoase ale unei statii de emisie de radioamator?
+07A276~&Cum se marcheaza locurile periculoase ale unei statii de emisie de radioamator?
 null
 Cu inscriptia 'NU ATINGETI! PERICOL DE MOARTE!'
 Cu inscriptia 'NU ATINGETI! SURSA RADIO-ACTIVA!'
@@ -230,7 +230,7 @@ Inscriptia 'NU ATINGETI! PERICOL DE MOARTE!' este obligatorie prin regulament.
 YO6OWN
 ##19#
 c
-01A175~&Cine poate intra fara supraveghere in incinta unde este instalat emitatorul?
+08A273~&Cine poate intra fara supraveghere in incinta unde este instalat emitatorul?
 null
 Persoanele in varsta, aerul ionizat ajuta respiratia
 Doar persoanele adulte
@@ -242,7 +242,7 @@ Conform regulamentului, doar personalul statiei; Personalul statiei automat este
 YO6OWN, Brasov, 2007
 ##20#
 d
-01A181~&Cat de inalt poate fi un pilon instalat pe casa, fara folosirea ancorarii?
+02A274~&Cat de inalt poate fi un pilon instalat pe casa, fara folosirea ancorarii?
 null
 8 metri
 7 metri
@@ -254,7 +254,7 @@ Este interzisa ridicarea de piloni fara ancorare pe cladiri(priviti orice antena
 YO6OWN, Brasov, 2007
 ##21#
 a
-02A181~&Cat de inalt poate fi un pilon de antena instalat pe casa, ancorat?
+03A274~&Cat de inalt poate fi un pilon de antena instalat pe casa, ancorat?
 null
 8 metri
 7 metri
@@ -266,7 +266,7 @@ null
 YO6OWN, Brasov, 2007
 ##22#
 a
-03A181~&Doar unul din amplasamentele de mai jos poate fi folosit ca punct de ancorare a unui pilon sau a unei antene instalate pe acoperis:
+04A274~&Doar unul din amplasamentele de mai jos poate fi folosit ca punct de ancorare a unui pilon sau a unei antene instalate pe acoperis:
 null
 carlig de fier insurubat in grinda acoperisului
 Inelul de fier din varful pilonului unui felinar public
@@ -278,7 +278,7 @@ Punctul de ancorare trebuie sa fie foarte solid, si sa nu genereze un pericol. F
 YO6OWN, Brasov, 2007
 ##23#
 d
-01A183~&In portabil, la cabana, curentul industrial(220V,50Hz) vine printr-un set de cabluri electrice izolate. Locul cel mai bun pentru instalarea antenei Windom atent calibrate la club este cu partea superioara langa geam, intr-un carlig din perete, cu bratul scurt pana la baza unui copac, prin ancorare cu tarus, cu bratul lung la fel, in directia opusa. Cineva observa ca firul antenei trece pe sub cablurile retei de curent la o distanta de 130cm, perpendicular pe acestea. E vreo problema?
+05A274~&In portabil, la cabana, curentul industrial(220V,50Hz) vine printr-un set de cabluri electrice izolate. Locul cel mai bun pentru instalarea antenei Windom atent calibrate la club este cu partea superioara langa geam, intr-un carlig din perete, cu bratul scurt pana la baza unui copac, prin ancorare cu tarus, cu bratul lung la fel, in directia opusa. Cineva observa ca firul antenei trece pe sub cablurile retei de curent la o distanta de 130cm, perpendicular pe acestea. E vreo problema?
 null
 Nu, firele trec perpendicular, cablurile sunt izolate si distanta este suficient de mare
 Nici una, aerul este un bun izolator(izoleaza peste 4000V la cei 1.3metri) iar cablurile retelei sunt si ele izolate
@@ -290,7 +290,7 @@ null
 
 ##24#
 d
-02A182~&Cand se lucreaza pe acoperis pentru instalarea unei antene?
+06A274~&Cand se lucreaza pe acoperis pentru instalarea unei antene?
 null
 Iarna, deoarece temperatura fiind scazuta, firul antenei se poate monta intins, astfel incat vara firul se va 'lasa' doar putin prin dilatare; Dispare pericolul ruperii firului antenei pe timp de iarna din cauza contractiei.
 Primavara sau vara, fiindca este mai cald.
@@ -302,7 +302,7 @@ Bineinteles ca dilatarea si contractarea firului de antena cu temperatura nu tre
 YO6OWN, Brasov, 2007
 ##25#
 b
-01A144~&Ce este priza de pamant?
+01A272~&Ce este priza de pamant?
 null
 este o priza care in loc de faza - null are null - null si care se foloseste la stabilirea potentialului de 0 la aparate electrice si electronice.
 Este un ansamblu de tevi, platbande de otel, conductoare ingropate in pamant, intr-un perimetru preponderent umed, cu rezistenta sub 4 ohmi, care asigura scurgerea in pamant a sarcinilor electrice(in general periculoase) legate la ea.
@@ -314,7 +314,7 @@ Priza de pamant este componenta esentiala a unui paratraznet; De asemenea este n
 YO6OWN, Brasov, 2007
 ##26#
 b
-02A175~&Aparatele de receptie nu vor fi lasate in functiune fara supraveghere, deoarece...
+09A273~&Aparatele de receptie nu vor fi lasate in functiune fara supraveghere, deoarece...
 null
 o sa pierdem o multime de legaturi
 prezinta pericol de incendiu
@@ -326,7 +326,7 @@ Oricand o componenta se poate defecta din cauza imbatranirii materialului sau po
 YO6OWN, Brasov, 2007
 ##27#
 c
-01A171~&Care din afirmatiile de mai jos este corecta?
+02A272~&Care din afirmatiile de mai jos este corecta?
 null
 Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie izolatoare inchise in casete metalice care vor fi conectate la calorifer.
 Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie metalice inchise in casete metalice care vor fi conectate la conducta de gaz pentru impamantare.
@@ -338,7 +338,7 @@ Caloriferul, teava de apa sau gaz nu sunt impamantari, Nu conectam nimic la ele,
 YO6OWN, Brasov, 2007
 ##28#
 d
-01A172~&Toate capacele si usile de acces la unitatile emitatorului vor fi prevazute cu
+03A272~&Toate capacele si usile de acces la unitatile emitatorului vor fi prevazute cu
 null
 sisteme de alarma
 cel putin doua posibilitati de inchidere
@@ -350,7 +350,7 @@ Usa cuptorului cu microunde are un intrerupator care opreste generarea de microu
 YO6OWN, Brasov, 2007
 ##29#
 a
-02A171~&Folosirea surselor de alimentare cu inalta tensiune separate de emitator:
+03A271~&Folosirea surselor de alimentare cu inalta tensiune separate de emitator:
 null
 nu se recomanda
 este obligatorie
@@ -362,7 +362,7 @@ Nu se recomanda, deoarece daca le folosim, trebuie folosite cabluri de alimentar
 YO6OWN, Brasov, 2007
 ##30#
 b
-01A173~&La radio-emitatoare cuplajul cu antena va fi:
+04A271~&La radio-emitatoare cuplajul cu antena va fi:
 null
 cuplaj galvanic
 inductiv sau capacitiv
@@ -374,7 +374,7 @@ Obligatoriu un cuplaj cu separatie galvanica: inductiv sau capacitiv
 YO6OWN, Brasov, 2007
 ##31#
 c
-02A173~&La radio-emitatoare capacitorul de cuplaj va avea o tensiune de strapungere egala cu:
+05A271~&La radio-emitatoare capacitorul de cuplaj va avea o tensiune de strapungere egala cu:
 null
 cel putin tensiunea anodica de alimentare a etajului final
 cel putin de doua ori tensiunea anodica de alimentare a etajului final
@@ -386,7 +386,7 @@ null
 YO6OWN, Brasov, 2007
 ##32#
 d
-03A175~&In camera unde este instalat emitatorul se va permite intrarea copiilor si a persoanelor straine de statie:
+08A276~&In camera unde este instalat emitatorul se va permite intrarea copiilor si a persoanelor straine de statie:
 null
 nu se permite in nici un caz
 numai cu un insotitor din partea parintilor
@@ -398,19 +398,19 @@ Cluburile nu emit permise de vizitare a statiilor de club, 'parintii' nu sunt o 
 YO6OWN, Brasov, 2007
 ##33#
 b
-04A175~&Aparatele de emisie nu vor fi lasate in functiune fara supraveghere, deoarece:
+10A273~&Aparatele de emisie nu vor fi lasate in functiune fara supraveghere, deoarece:
 null
 nu auzim daca suntem chemati
 prezinta pericol de incendiu
 consuma curent
-este interzis de ANC
+este interzis de ANCOM
 YO6GZI, Sacele, 2005(rev.2007)
 null
 Oricand o componenta se poate defecta din cauza imbatranirii materialului sau pot veni supratensiuni pe retea si un eventual scurtcircuit ar putea declansa un incendiu.
 YO6OWN, Brasov, 2007
 ##34#
 b
-02A153~&Cine raspunde de activitatea unei statii de club?
+11A273~&Cine raspunde de activitatea unei statii de club?
 null
 seful radioclubului
 responsabilul statiei de club
@@ -418,11 +418,11 @@ operatorul principal al statiei de club
 operatorul de moment al statiei de club
 ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2007)
 null
-Conform regulamentului, responsabilul statiei de club.
+DEBUG Conform regulamentului, responsabilul statiei de club.
 YO6OWN, Brasov, 2007
 ##35#
 d
-03A153~&La ce foloseste cunoasterea normelor de tehnica securitatii muncii la statiile de radioamator?
+12A273~&La ce foloseste cunoasterea normelor de tehnica securitatii muncii la statiile de radioamator?
 null
 la minimalizarea undelor reflectate la statiile de radioamator
 la promovarea cu succes a examenului de radioamator
@@ -434,7 +434,7 @@ Invatarea NTSM asigura cunostintele minime de securitatea muncii si de prim-ajut
 YO6OWN, Brasov, 2007
 ##36#
 a
-04A153~&Cine raspunde in cazul statiilor de club de respectarea normelor de tehnica securitatii muncii?
+13A273~&Cine raspunde in cazul statiilor de club de respectarea normelor de tehnica securitatii muncii?
 null
 responsabilul statiei
 proprietarul statiei
@@ -442,11 +442,11 @@ cel care este prezent la momentul respectiv
 seful radioclubului
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Conform legii, responsabilul statiei - in zona statiei.
+DEBUG Conform legii, responsabilul statiei - in zona statiei.
 YO6OWN, Brasov, 2007
 ##37#
 b
-05A153~&Ce indatoriri are responsabilul statiei de club referitor la tehnica securitatii muncii?
+14A273~&Ce indatoriri are responsabilul statiei de club referitor la tehnica securitatii muncii?
 null
 sa faca cat mai multe legaturi astfel testand respectarea normelor
 sa aplice masurile de protectia muncii si tehnica securitatii astfel ca lucrul la statia de club sa se desfasoare in conditii lipsite de pericol
@@ -454,11 +454,11 @@ sa aplice masurile de protectia muncii si tehnica securitatii astfel ca lucrul l
 sa fie constient de propriile responsabilitiati
 YO6GZI, Sacele, 2005(rev.2007)
 null
-
+DEBUG
 
 ##38#
 c
-02A152~&Operatorii statiei de club, referitor la tehnica securitatii, au obligatia:
+15A273~&Operatorii statiei de club, referitor la tehnica securitatii, au obligatia:
 null
 sa faca cat mai multe legaturi astfel testand respectarea normelor
 sa remedieze orice neconformitate conform legislatiei in vigoare
@@ -466,11 +466,11 @@ sa atraga atentia responsabilului statiei asupra eventualelor deficiente observa
 in cazul unor neconformitati sa opereze cu grija si numai spravegheat de responsabilul statiei
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Responsabilul statiei fiind coordonatorul de siguranta, toti ceilalti operatori trebuie sa-l anunte de orice deficienta sau pericol.
+DEBUG Responsabilul statiei fiind coordonatorul de siguranta, toti ceilalti operatori trebuie sa-l anunte de orice deficienta sau pericol.
 YO6OWN, Brasov, 2007
 ##39#
 d
-01A163~&Aparatul de receptie trebuie introdus intr-o cutie care:
+04A272~&Aparatul de receptie trebuie introdus intr-o cutie care:
 null
 este din material izolant, complet inchis si conectat la o borna de impamantare cu rezistenta sub patru ohmi
 permite accesul la componente pentru a sterge praful dintre armaturile condesatoarelor variabile, evitand modificarea capacitatii in timp
@@ -482,7 +482,7 @@ null
 
 ##40#
 a
-01A122~&Partile metalice, carcasa, sasiul receptorului:
+05A272~&Partile metalice, carcasa, sasiul receptorului:
 null
 se leaga la o borna de impamantare cu rezistenta sub patru ohmi
 se leaga la antena, imbunatateste receptia
@@ -494,7 +494,7 @@ Se leaga la impamantare astfel incat orice tensiune accidentala sau indusa se de
 YO6OWN, Brasov, 2007
 ##41#
 c
-01A161~&Conectarea castilor la un receptor (cu tuburi) se face:
+06A271~&Conectarea castilor la un receptor (cu tuburi) se face:
 null
 direct in circuitul anodic al tubului final amplificator audio 
 in circuitul filamentului tubului amplificator audio
@@ -506,7 +506,7 @@ Circuitul anodic se afla la tensiune de ordinul sutelor de V, in niciun caz nu e
 YO6OWN
 ##42#
 b
-01A131~&Sistemul de schimbare manuala a bobinelor se evita in cazul in care prin bobine circula o componenta de curent continuu mai mare de:
+07A271~&Sistemul de schimbare manuala a bobinelor se evita in cazul in care prin bobine circula o componenta de curent continuu mai mare de:
 null
 12V
 24V
@@ -518,7 +518,7 @@ La conectarea sau deconectarea unei bobine, apare tensiunea autoindusa in bobina
 YO6OWN, Brasov, 2007
 ##43#
 d
-03A171~&In cazul cand se utilizeaza surse de alimentare separate bornele sau conectoarele de inalta tensiune vor fi montate pe cat posibil:
+08A271~&In cazul cand se utilizeaza surse de alimentare separate bornele sau conectoarele de inalta tensiune vor fi montate pe cat posibil:
 null
 pe panoul frontal al aparatului
 pe o parte laterala a carcasei
@@ -530,7 +530,7 @@ Undeva unde operatorul nu are acces cat timp opereaza controalele aparatului, ad
 YO6OWN, Brasov, 2007
 ##44#
 a
-02A162~&Pentru protejarea auzului se recomanda:
+16A273~&Pentru protejarea auzului se recomanda:
 null
 folosirea limitatoarelor de nivel al perturbatiilor (noise blanker)
 mentinerea distantei standard de 70cm de difuzor
@@ -542,7 +542,7 @@ Sistemul NB Noise Blanker este un sistem electronic de limitare a amplitudinii a
 YO6OWN
 ##45#
 b
-02A183~&Suspendarea antenelor deasupra sau dedesubtul conductoarelor liniilor de tensiune peste 1000 volti:
+07A274~&Suspendarea antenelor deasupra sau dedesubtul conductoarelor liniilor de tensiune peste 1000 volti:
 null
 este permisa numai cu acord scris de la ANC
 este interzisa
@@ -554,7 +554,7 @@ Liniile peste 1000V sunt posibile fire de tractiune electrica(tramvai, troleu) -
 YO6OWN, Brasov, 2007
 ##46#
 c
-02A144~&Prizele de pamant folosite de radioamatori vor fi:
+06A272~&Prizele de pamant folosite de radioamatori vor fi:
 null
 de tipul artificial sau tubulare
 tubulare sau radiale
@@ -566,7 +566,7 @@ In primul rand, trebuie ca ele sa fie impamantari reale - nu conducta de apa, te
 YO6OWN, Brasov, 2007
 ##47#
 d
-03A144~&Conductoarele legate de priza de pamant pot fi din:
+07A272~&Conductoarele legate de priza de pamant pot fi din:
 null
 cupru, aluminiu sau fier
 aluminiu sau fier
@@ -578,7 +578,7 @@ Conductoarele trebuie sa aiba rezistivitate foarte mica. Cum Al formeaza instant
 YO6OWN, Brasov, 2007
 ##48#
 a
-04A144~&Legaturile cu priza de pamant si rezistenta electrica a acesteia vor fi verificate:
+08A272~&Legaturile cu priza de pamant si rezistenta electrica a acesteia vor fi verificate:
 null
 cel putin de doua ori pe an
 cel putin de trei ori pe an
@@ -590,7 +590,7 @@ De 2 ori pe an, se verifica rezistenta de impamantare.
 YO6OWN, Brasov, 2007
 ##49#
 b
-01A191~&In cazul electrocutarii unei persoane aflate sub o instalatie, prima actiune de intreprins este:
+09A276~&In cazul electrocutarii unei persoane aflate sub o instalatie, prima actiune de intreprins este:
 null
 extragerea persoanei de sub instalatie si astfel de sub curent 
 deconectarea partii de instalatie de care este prins accidentatul
@@ -602,7 +602,7 @@ PRIMA actiune este scoaterea persoanei de sub tensiune. Acest lucru se face prin
 YO6OWN, Brasov, 2007
 ##50#
 c
-01A192~&In cazul electrocutarii cand persoana accidentata nu mai da semne de viata (respiratia, bataile inimii, pulsul sunt absente):
+10A276~&In cazul electrocutarii cand persoana accidentata nu mai da semne de viata (respiratia, bataile inimii, pulsul sunt absente):
 null
 se noteaza ora decesului
 este interzisa atingerea persoanei
@@ -614,7 +614,7 @@ Verdictul de deces il da doar medicul, care are grija sa noteze ora decesului si
 YO6OWN, Brasov, 2007
 ##51#
 d
-01A193~&In cazul electrocutarii daca este necesara folosirea oricarei metode de respiratie artificiala se actioneaza foarte rapid pentru a oxigena creierul, altfel:
+11A276~&In cazul electrocutarii daca este necesara folosirea oricarei metode de respiratie artificiala se actioneaza foarte rapid pentru a oxigena creierul, altfel:
 null
 accidentatul moare in 10 minute
 dupa 10 minute fara oxigen, creierul se lezeaza ireversibil
@@ -626,13 +626,13 @@ Chiar daca accidentatul are rani deschise, fracturi - oxigenarea creierului este
 YO6OWN, Brasov, 2007
 ##52#
 c
-01A151~&Ce obligatii are titularul sau responsabilul unei statii la care sunt autorizati radioamatori de clasa III-R?
+17A273~&Ce obligatii de protectia muncii are titularul sau responsabilul unei statii la care lucreaza radioamatori de clasa IV?
 null
 nu au obligatii
-radioamatorii de clasa R au aceleasi drepturi ca si cei de la clasa incepatori
-asigurarea functionarii statiei in stricta conformitate cu prevederile normelor tehnice in vigoare, permitand radioamatorului de clasa R lucrul la statie numai in prezenta sa
+radioamatorii de clasa IV au aceleasi drepturi ca si cei de la clasa incepatori
+asigurarea functionarii statiei in stricta conformitate cu prevederile normelor tehnice in vigoare, permitand radioamatorului de clasa IV lucrul la statie numai in prezenta sa
 Sa-i ajute sa devina buni radioamatori
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2006)
+ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
 null
-Radioamatorul clasa III-R este un operator. Responsabilul unei statii are responsabilitatea asigurarii NTSM, iar prezenta lui este obligatorie cand la statie lucreaza operatori III-R 
-YO6OWN, Brasov, 2007
+Din punct de vedere NTSM, radioamatorul clasa IV este un operator. Responsabilul unei statii are responsabilitatea asigurarii NTSM, iar prezenta lui este obligatorie cand la statie lucreaza operatori de clasa IV
+YO6OWN, Brasov, 2018
