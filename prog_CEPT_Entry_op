@@ -1,4 +1,4 @@
-programa CEPT Entry-Class - cunostinte de operare, clasa IV [v3.30]
+programa CEPT Entry-Class - cunostinte de operare, clasa IV [v3.31]
 
 PROGRAMA DE EXAMINARE pentru obtinerea certificatului armonizat de radioamator 
 CEPT ENTRY-CLASS
@@ -9,65 +9,62 @@ Implementare a Raportului CEPT ERC 89, elaborat in 2006
 1.	ASPECTE PRACTICE DE OPERARE
 
 a)	Familiarizarea cu reglajele unui receptor, emitator sau a unei statii de emisie-receptie
-111& i.	Alimentarea si oprirea alimentarii, selectarea de banda, acordul si afisarea frecventei, volumul, nivelul si afisarea puterii, castigul microfonului etc.
+111& i.		Alimentarea si oprirea alimentarii, selectarea de banda, acordul si afisarea frecventei, volumul, nivelul si afisarea puterii, castigul microfonului etc.
 
 b)	Operarea in HF
-121& i.	Acordul in USB si LSB
+121& i.		Acordul in USB si LSB
 122& ii.	Efectuarea apelurilor initiale, apelarea CQ
 123& iii.	Capacitatea de a realiza contacte in formatul acceptat, rapoarte de semnal, numele si informatii legate de statie etc., demonstrand astfel cum este utilizat echipamentul
 
 c)	Operarea in VHF 
-131& i.	Capacitatea de a realiza contacte, similar cu HF
+131& i.		Capacitatea de a realiza contacte, similar cu HF
 132& ii.	Operarea FM
 133& iii.	Operarea printr-un repetor
 
-141& d)	Necesitatea pentru un jurnal si informatiile inregistrate in acesta
 
 e)	Demonstrarea intelegerii privind acordul antenelor si utilizarea SWR-metrului
-151& i.	Intelegerea importantei unui acord corect
+151& i.		Intelegerea importantei unui acord corect
 152& ii.	Capacitatea de a utiliza un SWR-metru si a unui dispozitiv de acord al antenei la un emitator
 153& iii.	Montarea unui conector de cablu coaxial
  
 161& f)	Utilizarea alfabetului fonetic si vocabularului comun al radioamatorilor, conform cu b) si c)
 
-g)	Planurile benzilor de frecvente la nivel IARU si national pentru radioamatori
-171& i.	Nevoia de cooperare internationala in utilizarea spectrului radio
-172& ii.	Interpretarea tabelelor cu planurile benzilor de frecvente la nivel IARU si national
-173& iii.	Alti utilizatori ai spectrului radio
 
-2.	CONTINUT TEHNIC
-
+2.	CONTINUT TEHNIC 
+ - electronica si radiotehnica nu se cere pentru cl IV - 
+<!--
 a)	Elemente de baza
-211& i.	Unitati si simboluri
+211& i.		Unitati si simboluri
 212& ii.	Circuite electrice
 213& iii.	Puterea si rezistenta
 214& iv.	Legea lui Ohm
-215& v.	Curenti si tensiuni alternative
+215& v.		Curenti si tensiuni alternative
 216& vi.	Frecventa si lungimea de unda
 
 b)	Emitatoare
-221& i.	Schema bloc a unui emitator simplu
+221& i.		Schema bloc a unui emitator simplu
 222& ii.	Tipuri de modulatie
 
 c)	Receptoare
-231& i.	Receptorul simplu si detectorul
+231& i.		Receptorul simplu si detectorul
 
 d)	Fidere si antene
-241& i.	Fider, cablu coaxial si mufe adecvate
+241& i.		Fider, cablu coaxial si mufe adecvate
 242& ii.	Tipuri de antena, dipol, plan de masa si cablu de alimentare
 243& iii.	Acordul antenei
 244& iv.	Unitatea de acord in frecventa al antenei
-245& v.	Unde stationare si SWR-metru, puterea radiata si si e.i.r.p.
+245& v.		Unde stationare si SWR-metru, puterea radiata si si e.i.r.p.
 246& vi.	Sarcina artificiala
+-->
 
 e)	Propagarea
-251& i.	Propagarea undelor
+251& i.		Propagarea undelor
 252& ii.	Gama
 253& iii.	Ionosfera
 254& iv.	Schimbari zilnice in propagare
 
 f)	Compatibilitate electromagnetica
-261& i.	Cauzele interferentelor
+261& i.		Cauzele interferentelor
 262& ii.	Minimizarea problemelor
 263& iii.	impamantare, tipuri de antena
 264& iv.	Tipuri de putere si emisii
