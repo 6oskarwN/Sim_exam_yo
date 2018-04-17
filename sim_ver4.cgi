@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2017
 
-#  sim_ver4.cgi v 3.2.3
+#  sim_ver4.cgi v 3.2.4
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.4 changed config for the new Decizia db_legis4 and db_ntsm4
 # ch 3.2.3 implemented use_time in recorded transaction_id; timestamp_expired() changed
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
@@ -365,7 +366,7 @@ dienice("ERR08",3,\$cheatmsg);
 #All clearances ok, prep to evaluate results
 
 #CUSTOM 
-my @database=("db_ntsm","db_op4","db_legis4");       #set the name of used databases and their order
+my @database=("db_ntsm4","db_op4","db_legis4");       #set the name of used databases and their order
 my @qcount=(10,8,20); #number of questions generated on each chapter
 my @mincount=(7,6,15); #minimum number of good answers per chapter
 my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #chapter names
@@ -386,7 +387,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa a IV-a</h2>\n!;
@@ -963,7 +964,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
