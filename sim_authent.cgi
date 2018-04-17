@@ -488,7 +488,7 @@ my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epo
 $hexi= sprintf("%+06X",$trid); #the transaction counter
 #assemble the trid+timestamp
 $hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and MD5
-#compute mac for trid+timestamp 
+#compute mac for trid+timestamp
 my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
 $hexi= "$hexi$heximac"; #the full transaction id
 

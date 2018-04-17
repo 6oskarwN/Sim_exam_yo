@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_ver0.cgi v 3.2.3
+#  sim_ver0.cgi v 3.2.4
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.4 minor: change a dropdown option from class III-R to IV
 # ch 3.2.3 implement epoch time and expired_timestamp with epoch
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice()
@@ -406,7 +407,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
@@ -463,7 +464,7 @@ print qq!<option value="0">Cont de antrenament</option>\n!;
 print qq!<option value="1">Examen simulat clasa I</option>\n!;
 print qq!<option value="2">Examen simulat clasa II</option>\n!;
 print qq!<option value="3">Examen simulat clasa III</option>\n!;
-print qq!<option value="4">Examen simulat clasa III-R</option>\n!;
+print qq!<option value="4">Examen simulat clasa IV</option>\n!;
 print qq!</select>\n!;
 print qq!</td>\n!;
 print qq!<td>!;
@@ -522,7 +523,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;
@@ -657,7 +658,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
