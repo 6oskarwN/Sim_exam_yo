@@ -32,7 +32,7 @@
 
 #  Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2017
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
 
 #  sim_ver4.cgi v 3.2.4
 #  Status: devel
