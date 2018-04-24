@@ -40,7 +40,7 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-# ch 3.3.1 bug fix at rucksack algorithm, introduced epoch()
+# ch 3.3.1 bug fix at rucksack algorithm, introduced epoch() instead of gmtime()
 # ch 3.3.0 implemented the mods given by law update Decizia 245/2017
 # ch 3.2.3 implemented use_time in recorded transaction_id;timestamp_expired()
 # ch 3.2.2 implemented silent discard Status 204
@@ -88,7 +88,6 @@ my $ultimaclasa;                #ultima clasa obtinuta: 0=init, 1/2/3/4=clase 5=
 my @tridfile;		        #slurped transaction file
 my $trid;	                #the Transaction-ID of the generated page
 my $hexi;                       #the trid+timestamp_MD5
-my @utc_time=gmtime(time);     	#the 'present' time, generated only once
 my @slurp_userfile;            	#RAM-userfile
 
 my $attempt_counter;	        #attempts in opening or closing files; 5 attempts allowed
@@ -801,13 +800,8 @@ truncate(transactionFILE,0);
 seek(transactionFILE,0,0);				#go to beginning of transactionfile
 
 { #begin final transaction miniblock
-my @utc_time=gmtime(time);
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
+my $epochTime = time();
+my ($act_sec, $act_min, $act_hour, $act_day,$act_month,$act_year) = (gmtime($epochTime))[0,1,2,3,4,5];
 my @linesplit;
 
 

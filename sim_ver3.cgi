@@ -32,7 +32,7 @@
 
 #  Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2017
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
 
 #  sim_ver3.cgi v 3.2.3
 #  Status: devel
@@ -88,7 +88,6 @@ my $user_account;		#user account number(an index), can be localised
 
 my @tridfile;					          #slurped transaction file
 my $trid;						            #the Transaction-ID of the generated page
-my @utc_time=gmtime(time);     	#the 'present' time, generated only once
 my @slurp_userfile;            	#RAM-userfile
 my @slurp_hlrfile;		#RAM-hlr userfile
 my @splitter;
@@ -130,6 +129,7 @@ foreach $pair(@pairs)
 
 unless($name eq 'transaction')
 {
+#next 4 transforms are specific to sim_verX
 $value =~ tr/0/a/;
 $value =~ tr/1/b/;
 $value =~ tr/2/c/;
@@ -293,10 +293,10 @@ else { dienice("ERR09",5,\$get_trid);  }
 #use timestamp_expired() (returns seconds since evaluated time)
 #===============.begin ch 3.2.3======================
 my @pairs=split(/_/,$trid_id); #reusing @pairs variable for spliting results
-if ($trid_id =~ m/\*/) { #if it has the used mark 
+if ($trid_id =~ m/\*/) { #if it has the used mark then $used_time >= 0 
   my $usedTime = timestamp_expired($pairs[9],$pairs[10],$pairs[11],$pairs[12],$pairs[13],$pairs[14]);
   if ($usedTime < 10) { #if request comes faster than 10s, might be some browser parallel request
-                            dienice ("ERR20",0,\"null");  #silent discard, Status 204 No Content
+                           dienice ("ERR20",0,\"null");  #silent discard, Status 204 No Content
                         }
    else { 
          #dienice ("ERR03",1,\$trid_id); #debug - symptom catch 
@@ -784,13 +784,9 @@ my @linesplit;
 @linesplit=split(/ /,$tridfile[$i]);
 # print qq!$linesplit[0]<br>!; #debug
 
-my @utc_time=gmtime(time);
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
+my $epochTime = time();
+my ($act_sec, $act_min, $act_hour, $act_day,$act_month,$act_year) = (gmtime($epochTime))[0,1,2,3,4,5];
+
 
 my $usedTimestamp = $linesplit[0].'_'.'*_'."$act_sec\_$act_min\_$act_hour\_$act_day\_$act_month\_$act_year"; #adds the used timestamp
 
@@ -877,7 +873,7 @@ return($timediff);  #here is the general return
 
 } #.end sub timestamp
 
-#--------------------------------------
+#-------------------------------------
 # treat the "or die" and all error cases
 #how to use it
 #$error_code is a string, you see it, this is the text selector
