@@ -115,7 +115,6 @@ $value =~ tr/0/a/;
 $value =~ tr/1/b/;
 $value =~ tr/2/c/;
 $value =~ tr/3/d/;
-
 $value=~ s/<*>*<*>//g;
 }
 
@@ -550,7 +549,6 @@ use Digest::MD5;
 #--------------------------------------
 #primeste timestamp de forma sec_min_hour_day_month_year UTC
 #out: seconds since expired MAX 99999, 0 = not expired.
-#UTC time and epoch are used
 
 sub timestamp_expired
 {
@@ -559,18 +557,15 @@ use Time::Local;
 my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
 
 my $timediff;
-my $actualTime = time(); #epoch since UTC0000
+my $actualTime = time();
 my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
 $timediff=$actualTime-$dateTime;
-
-#if ($timediff < 0 ) {return (0);}
-#else {return($timediff);}  #here is the general return
 
 return($timediff);  #here is the general return
 
 } #.end sub timestamp
 
-#--------------------------------------
+#-------------------------------------
 # treat the "or die" and all error cases
 #how to use it
 #$error_code is a string, you see it, this is the text selector
@@ -591,8 +586,8 @@ my %pub_errors= (
               "ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
               "ERR04" => "primire de  date corupte, inregistrata in log.",
               "ERR05" => "primire de  date corupte, inregistrata in log.",
-              "ERR06" => "server congestionat, reveniti in cateva momente",
-              "ERR07" => "server congestionat, reveniti in cateva momente",
+              "ERR06" => "server congestionat, incearca in cateva momente",
+              "ERR07" => "server congestionat, incearca in cateva momente",
               "ERR08" => "minor server problems",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
