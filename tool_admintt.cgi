@@ -1,6 +1,6 @@
 #!c:\Perl\bin\perl
 
-#  tool_admintt.cgi v3.2.2 (c)2007 - 2018 Francisc TOTH
+#  tool_admintt.cgi v 3.2.2 (c)2007 - 2018 Francisc TOTH
 #  status: ft1
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
@@ -141,12 +141,12 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v3.2.2</title>\n!;
+print qq!<title>ticket listing v 3.2.2</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="black" link="white" alink="white" vlink="white">\n!;
 
 print qq!<center>\n!;
-print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v3.2.2 for examYO &copy; YO6OWN, 2007-2018</font><br>\n!;
+print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v 3.2.2 for examYO &copy; YO6OWN, 2007-2018</font><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/tool_admintt.cgi" method="post">\n!;
 
 print qq!<table border="1" width="90%">\n!;
@@ -239,7 +239,7 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v3.2.2</title>\n!;
+print qq!<title>ticket listing v 3.2.2</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="gray" text="black" link="white" alink="white" vlink="white">\n!;
 
@@ -420,7 +420,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 #ins_gpl(); #this must exist, but not for tool_admintt.cgi
-print qq!v3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
