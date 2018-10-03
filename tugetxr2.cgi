@@ -1,12 +1,13 @@
 #!c:\Perl\bin\perl
 
-#  tugetxr2.cgi v.3.2.0 (c)2007 Francisc TOTH
+#  tugetxr2.cgi v 3.2.1 (c)2007 Francisc TOTH
 #  status: under development
 #  This is a module of the online radioamateur examination program
 #  "sim eXAM", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  All rights reserved by YO6OWN Francisc TOTH
 #  Made in Romania
 
+# ch 3.2.1 - md5 changed to sha1 in compute_mac()
 # ch 3.2.0 - implement a token exchange for authentication of the command
 # ch 0.0.6 - trouble ticket 25 implemented: minimal transaction info decoded: pagecode
 # ch 0.0.5 - removed the HAM-eXAM related file browsing(HAM-eXAM was decommisioned)
@@ -62,7 +63,7 @@ else {dienice ("ERR01",2,\"undef token"); } # no token or with void value
 # admin_33_19_0_12_2_116_Trl5zxcXkaO5YcsWr4UYfg
 
 #now we should check received transaction
-#case 0: check md5 if correct
+#case 0: check sha1 hash if correct
 #        if not, must be recorded in cheat_file
 #case 1: check if timestamp expired; if expired, no log in cheat
 #case 2: check if it's an admin transaction
@@ -159,10 +160,10 @@ print qq!</body>\n</html>!;
 #-------------------------------------
 sub compute_mac {
 
-use Digest::MD5;
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+  hmac_sha1_hex($secret,$message);
 } #end of compute_mac
 
 #--------------------------------------
@@ -223,7 +224,7 @@ my %pub_errors= (
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
-              "ERR01" => "token has been tampered with, md5 mismatch",    #test ok
+              "ERR01" => "token has been tampered with, sha1 mismatch",    #test ok
               "ERR02" => "timestamp expired",           #test ok
               "ERR03" => "good transaction but token not admin",             #test ok
               "ERR04" => "reserved",

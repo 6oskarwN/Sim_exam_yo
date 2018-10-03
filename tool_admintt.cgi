@@ -1,12 +1,13 @@
 #!c:\Perl\bin\perl
 
-#  tool_admintt.cgi v 3.2.1 (c)2007 - 2016 Francisc TOTH
-#  status: devel
+#  tool_admintt.cgi v3.2.2 (c)2007 - 2018 Francisc TOTH
+#  status: ft1
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  All rights reserved by YO6OWN Francisc TOTH
 #  Made in Romania
 
+# ch 3.2.2 MD5 changed to sha1 in compute_mac() 
 # ch 3.2.1 implemented silent discard Status 204
 # ch 3.2.0 implement admin authentication using an md5 token, guestbook should be alliminated
 # ch 0.0.6 displaying db_tt data better after sim_ver1 and troubleticket solved &specials; "overline" problems
@@ -88,10 +89,10 @@ $post_token= $answer{'token'}; #extract token from input data
 
 #print qq!token received: $post_token<br>\n!; #debug
 #transaction pattern: 
-# admin_33_19_0_12_2_116_Trl5zxcXkaO5YcsWr4UYfg
+# admin_33_19_0_12_2_116_96f51641c44348b2626316a840e01f7fb32ce759
 
 #now we should check received transaction
-#case 0: check md5 if correct
+#case 0: check hash if correct
 #        if not, must be recorded in cheat_file
 #case 1: check if timestamp expired; if expired, no log in cheat
 #case 2: check if it's an admin transaction
@@ -140,12 +141,12 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v 3.2.1</title>\n!;
+print qq!<title>ticket listing v3.2.2</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="black" link="white" alink="white" vlink="white">\n!;
 
 print qq!<center>\n!;
-print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v 3.2.1 for examYO &copy; YO6OWN, 2007-2016</font><br>\n!;
+print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v3.2.2 for examYO &copy; YO6OWN, 2007-2018</font><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/tool_admintt.cgi" method="post">\n!;
 
 print qq!<table border="1" width="90%">\n!;
@@ -238,7 +239,7 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v 3.2.1</title>\n!;
+print qq!<title>ticket listing v3.2.2</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="gray" text="black" link="white" alink="white" vlink="white">\n!;
 
@@ -287,12 +288,11 @@ dienice("ERR04",5,\"bogus");
 #-------------------------------------
 sub compute_mac {
 
-use Digest::MD5;
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+  hmac_sha1_hex($secret,$message);
 } #end of compute_mac
-
 
 #--------------------------------------
 #primeste timestamp de forma sec_min_hour_day_month_year
@@ -370,9 +370,9 @@ my %pub_errors= (
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
-              "ERR01" => "token has been tampered with, md5 mismatch",    #test ok
+              "ERR01" => "token has been tampered with, sha1 mismatch",    #test ok
               "ERR02" => "token timestamp expired",           #test ok
-              "ERR03" => "token is md5, live, but not admin token",             #test ok
+              "ERR03" => "token is sha1, live, but not admin token",             #test ok
               "ERR04" => "funny state",
               "ERR05" => "reserved",
               "ERR06" => "reserved",
@@ -420,7 +420,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 #ins_gpl(); #this must exist, but not for tool_admintt.cgi
-print qq!v 3.2.1\n!; #version print for easy upload check
+print qq!v3.2.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
