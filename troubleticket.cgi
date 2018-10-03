@@ -32,6 +32,7 @@
 #  Made in Romania
 
 
+# ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired();
 # ch 3.0.c Admin: changed to YO6OWN
 # ch 3.0.b the three stage of a ticket are clearly displayed [Nou][Vazut ...][Rezolvat]
 # ch 3.0.a patch in a mailer when new complaints are registered; untested since no mail account possible; hashed.
@@ -99,7 +100,8 @@ my $fline2;
 #functii
 sub legal; #intoarce 0 daca e text obscen,ilegal si 1 daca e legal
 sub aucenter(); #intoarce un string de tipul "text operatie:result"
-sub new_transaction; #adauga o tranzactie si intoarce transaction ID;
+#BUG: there is an overlap for the actions of 2 functions below:
+sub new_transaction; #face transactionlist refresh; adauga o tranzactie si intoarce transaction ID;
 sub get_transaction($); #face transaction list refresh;daca tranzactia nu exista intoarce string vid; daca exista, sterge linia din fisier si intoarce un string care e chiar linia de tranzactie din fisier;
 sub defeat; #prints a defeat page
 sub addrec; #adauga o inregistrare in db_troubleticket
@@ -181,7 +183,7 @@ if (defined $get_type) #it means we have a first call
  {
   if($get_type eq 0) #external trouble ticket call
   {
-#se apeleaza AUC
+#call aucenter() that will generate human question and answer
  my $get_aucpair=aucenter();
 
  #se splituieste rezultatul lui AUC in intrebare si raspuns
@@ -700,7 +702,7 @@ sub new_transaction
 my ($type_code,$aucresult)=@_;
 my @tridfile;
 
-my @utc_time=gmtime(time);
+#my @utc_time=gmtime(time);
 
 my @livelist=();
 my @linesplit;
@@ -719,41 +721,19 @@ seek(transactionFILE,0,0);		#go to the beginning
 
 
 #ACTION: refresh transaction list, delete expired transactions,
+# transaction pattern in file:
+# A000D6 0 10 10 23 3 9 118 16 #first 0 is type of trouble 0 = ticket, 16 is result of humanity check
 
 {
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
-
-
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
 { #.begin unless
    for($i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
    @linesplit=split(/ /,$tridfile[$i]);
 #   chomp $linesplit[8]; #\n is deleted
+if (timestamp_expired($linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7]) > 0 ) {} #if timestamp expired do nothi$
+else {@livelist=(@livelist, $i);} #not expired, refresh it
 
-if($linesplit[7] > $act_year) {@livelist=(@livelist, $i);}  #it's alive one more year, keep it in the list
- elsif($linesplit[7] == $act_year){
- if($linesplit[6] > $act_month) {@livelist=(@livelist, $i);}  #it's alive one more month, keep it in the list
- elsif($linesplit[6] == $act_month){
- if($linesplit[5] > $act_day) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[5] == $act_day){
- if($linesplit[4] > $act_hour) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[4] == $act_hour){
- if($linesplit[3] > $act_min) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[3] == $act_min){
- if($linesplit[2] > $act_sec) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- 
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
-    
   } #.end for
 #else {print qq!file has only $#tridfile lines!;}
 #we have now the list of the live transactions
@@ -786,78 +766,16 @@ if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
 else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
 
 #print qq!generate new transaction<br>\n!;
-#my @utc_time=gmtime(time);   
-my $exp_sec=$utc_time[0];
-my $exp_min=$utc_time[1];
-my $exp_hour=$utc_time[2];
-my $exp_day=$utc_time[3];
-my $exp_month=$utc_time[4];
-my $exp_year=$utc_time[5];
-my $carry1=0;
-my $carry2=0;
-my %month_days=(
-    0 => 31,	#january
-    1 => 28,	#february
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-my %month_bis_days=(
-    0 => 31,	#january
-    1 => 29,	#february, bisect
-    2 => 31,	#march
-    3 => 30,	#april
-    4 => 31,	#may
-    5 => 30,    #june
-    6 => 31,	#july
-    7 => 31,	#august
-    8 => 30,	#september
-    9 => 31,	#october
-   10 => 30, 	#november
-   11 => 31     #december
-);
-
-
+my $epochTime = time();
 #CHANGE THIS for customizing
-my $expire=15;   #15 minutes in this situation
+my $epochExpire = $epochTime + 900; #15 minutes lifetime = 900 sec
+my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
-#increment expiry time
-#for this "sim_gen0.cgi" which generates the dummy exam,
-#the expiry time increments with max. 5 minutes
-
-#minute increment
-$carry1= int(($exp_min+$expire)/60);		#check if minutes overflow
-$exp_min=($exp_min+$expire)%60;			#increase minutes
-
-
-#hour increment
-$carry2= int(($exp_hour+$carry1)/24);		#check if hours overflow
-$exp_hour=($exp_hour+$carry1)%24;		#increase hours
-
-#day increment
-if($exp_year%4) {
-$carry1=int(($exp_day+$carry2)/($month_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_days{$exp_month}+1); #increase day if so
-	        }
-else		{
-$carry1=int(($exp_day+$carry2)/($month_bis_days{$exp_month}+1));  #check if day overflows
-$exp_day=($exp_day+$carry2)%($month_bis_days{$exp_month}+1); #increase day if so
-		}
-if($carry1) {$exp_day=1;}	#day starts with 1-anomaly solution
-
-#month increment
-$carry2=int(($exp_month+$carry1)/12);
-
-$exp_month=($exp_month+$carry1)%12;
-#year increment
-$exp_year += $carry2;
+#assemble the trid+timestamp
+#my $hexi= "admin_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp
+#compute mac for timestamp 
+#my $heximac = compute_mac($hexi); #compute sha1 MessageAuthentication Code
+#$hexi= "$hexi$heximac"; #the full transaction id
 
 
 #print to screen the entry in the transaction list
@@ -888,14 +806,14 @@ return($hexi);
 #================================================================
 #================================================================
 #================================================================
-sub get_transaction($)
+sub get_transaction($) #what does this do?
 {
 my ($sub_trid)=@_;       #input data
 my $entry;  #output data
 
 my @tridfile;
 
-my @utc_time=gmtime(time);
+#my @utc_time=gmtime(time);
 
 my @livelist=();
 my @linesplit;
@@ -911,13 +829,6 @@ seek(transactionFILE,0,0);		#go to the beginning
 #ACTION: refresh transaction list, delete expired transactions,
 
 {
-my $act_sec=$utc_time[0];
-my $act_min=$utc_time[1];
-my $act_hour=$utc_time[2];
-my $act_day=$utc_time[3];
-my $act_month=$utc_time[4];
-my $act_year=$utc_time[5];
-
 
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
 { #.begin unless
@@ -925,24 +836,9 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   {
    @linesplit=split(/ /,$tridfile[$i]);
 #   chomp $linesplit[8]; #\n is deleted
+if (timestamp_expired($linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7]) > 0 ) {} #if timestamp expired do nothi$
+else {@livelist=(@livelist, $i);} #not expired, refresh it
 
-if($linesplit[7] > $act_year) {@livelist=(@livelist, $i);}  #it's alive one more year, keep it in the list
- elsif($linesplit[7] == $act_year){
- if($linesplit[6] > $act_month) {@livelist=(@livelist, $i);}  #it's alive one more month, keep it in the list
- elsif($linesplit[6] == $act_month){
- if($linesplit[5] > $act_day) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[5] == $act_day){
- if($linesplit[4] > $act_hour) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[4] == $act_hour){
- if($linesplit[3] > $act_min) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- elsif($linesplit[3] == $act_min){
- if($linesplit[2] > $act_sec) {@livelist=(@livelist, $i);}  #it's alive one more day, keep it in the list
- 
- } #.end elsif min
- } #.end elsif hour
- } #.end elsif day
- } #.end elsif month
- } #.end elsif year
     
   } #.end for
 #else {print qq!file has only $#tridfile lines!;}
@@ -1051,6 +947,34 @@ print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 #---------html page should finish here, but HTML code will continue after returning from function so that it prints different targets
 }
+#--------------------------------------
+#primeste timestamp de forma sec_min_hour_day_month_year UTC
+#out: seconds since expired MAX 99999, 0 = not expired.
+
+sub timestamp_expired
+{
+use Time::Local;
+
+my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
+
+my $timediff;
+my $actualTime = time();
+my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
+$timediff=$actualTime-$dateTime;
+
+return($timediff);  #here is the general return
+
+} #.end sub timestamp
+
+#-------------------------------------
+sub compute_mac {
+
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
+  my ($message) = @_;
+  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
+  hmac_sha1_hex($secret,$message);
+} #end of compute_mac
+
 #--------------------------------------
 sub ins_gpl
 {
