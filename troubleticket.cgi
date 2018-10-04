@@ -23,7 +23,7 @@
 # Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC in USA)
 # so any use of the official questions, other than in Read-Only way, is prohibited. 
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2017
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
 
 #  troubleticket.cgi v 3.0.c
 #  Status: devel
@@ -68,7 +68,7 @@ use warnings;
 
 sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
 
-my $get_type; #0 or 1 -gen fault report form  ELSE - gen guestbook form;
+my $get_type; #0 (anonymous) or 1(nick and prefilled) -gen fault report form  ELSE - gen guestbook form;
 my $get_nick; #nick for the guy who is writing
 my $get_text; #submitted text
 my $get_complaint; #the additional text inserted by user only when $get_type=1
@@ -90,20 +90,22 @@ my @dbtt;   #this is the slurp variable
 #### .end of mailer patch v 3.0.c #####
 
 
-#variabile interne intermediare
+#intermediate variables
 my $get_aucpair;    #$question_auc:$answer_auc
 my $question_auc;
 my $answer_auc;
 
-my $fline; #variabila generica de citit linii din fisiere
+my $fline; #var used to read a file line by line
 my $fline2;
 #functii
 sub legal; #intoarce 0 daca e text obscen,ilegal si 1 daca e legal
 sub aucenter(); #intoarce un string de tipul "text operatie:result"
 #BUG: there is an overlap for the actions of 2 functions below:
 sub new_transaction; #face transactionlist refresh; adauga o tranzactie si intoarce transaction ID;
-sub get_transaction($); #face transaction list refresh;daca tranzactia nu exista intoarce string vid; daca exista, sterge linia din fisier si intoarce un string care e chiar linia de tranzactie din fisier;
-sub defeat; #prints a defeat page
+sub get_transaction($); #daca tranzactia nu exista intoarce string vid; daca exista, sterge linia din fisier si intoarce un string care e chiar linia de tranzactie din fisier;
+sub trid_refresh; #cleans expired transactions
+sub defeat; #prints a defeat page > will be replaced by dienice()
+sub dienice; 
 sub addrec; #adauga o inregistrare in db_troubleticket
 #BLOCK: Input
 {
@@ -202,66 +204,65 @@ if (defined $get_type) #it means we have a first call
   print qq!<font size="-1">v 3.0.c</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
-print qq!<center>\n<b>sistem de colectie erori</b>\n!;
-print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post">\n!;
-print qq!<table width="90%" border="0">\n!;  #debug, border="0" originally
+  print qq!<center>\n<b>sistem de colectie erori</b>\n!;
+  print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post">\n!;
+  print qq!<table width="90%" border="0">\n!;  #debug, border="0" originally
 
 #ACTION: inserare transaction ID in pagina HTML
 {
-#my $extra=sprintf("%+06X",$trid);
-print qq!<tr>\n!;
-print qq!<td colspan="3">\n!;
-print qq!<input type="hidden" name="transaction" value="$newtrid">\n!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
-}
+  #my $extra=sprintf("%+06X",$trid); 
+  print qq!<tr>\n!;
+  print qq!<td colspan="3">\n!;
+  print qq!<input type="hidden" name="transaction" value="$newtrid">\n!;
+  print qq!</td>\n!;
+  print qq!</tr>\n!;
+  }
 
-print qq!<tr>\n!;
-print qq!<td colspan="3" align="left">\n!;
-print qq!Daca umbli cu ganduri curate, stii ca <font color="yellow">$question_auc</font>  egal !;
-print qq!<input type="text" name="answer" size="8"> (in cifre)<br><br>\n!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
+  print qq!<tr>\n!;
+  print qq!<td colspan="3" align="left">\n!;
+  print qq!Daca umbli cu ganduri curate, stii ca <font color="yellow">$question_auc</font>  egal !;
+  print qq!<input type="text" name="answer" size="8"> (in cifre)<br><br>\n!;
+  print qq!</td>\n!;
+  print qq!</tr>\n!;
 
-print qq!<tr>\n!;
-print qq!<td align="left" valign="middle">\n!;
-print qq!<font color="yellow">nickname:</font>!;
-print qq!</td>\n!;
-print qq!<td align="left" colspan="2">\n!;
-print qq!<input type="text" name="nick" size="25">!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
+  print qq!<tr>\n!;
+  print qq!<td align="left" valign="middle">\n!;
+  print qq!<font color="yellow">nickname:</font>!;
+  print qq!</td>\n!;
+  print qq!<td align="left" colspan="2">\n!;
+  print qq!<input type="text" name="nick" size="25">!;
+  print qq!</td>\n!;
+  print qq!</tr>\n!;
 
-print qq!<tr>\n!;
-print qq!<td valign="middle" align="left">\n!;
-print qq!<font color="yellow">Mesaj:</font>!;
-print qq!</td>\n!;
+  print qq!<tr>\n!;
+  print qq!<td valign="middle" align="left">\n!;
+  print qq!<font color="yellow">Mesaj:</font>!;
+  print qq!</td>\n!;
 
-print qq!<td align="left" colspan="2">\n!;
-print qq!<textarea name="subtxt" rows="5" cols="50" wrap="soft"></textarea>!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
+  print qq!<td align="left" colspan="2">\n!;
+  print qq!<textarea name="subtxt" rows="5" cols="50" wrap="soft"></textarea>!;
+  print qq!</td>\n!;
+  print qq!</tr>\n!;
 
-print qq!<tr>\n!;
-print qq!<td valign="top">\n!;
-print qq!<center><INPUT type="submit"  value="Trimite"> </center>\n!;
-print qq!</td>\n!;
-print qq!<td valign="top">\n!;
-print qq!<center><INPUT type="reset"  value="Reset"> </center>\n!;
-print qq!</form>\n!;
-print qq!</td>\n!;
+  print qq!<tr>\n!;
+  print qq!<td valign="top">\n!;
+  print qq!<center><INPUT type="submit"  value="Trimite"> </center>\n!;
+  print qq!</td>\n!;
+  print qq!<td valign="top">\n!;
+  print qq!<center><INPUT type="reset"  value="Reset"> </center>\n!;
+  print qq!</form>\n!;
+  print qq!</td>\n!;
 
-print qq!<td valign="top">\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="Abandon"></center>\n!; 
-print qq!</form>\n!;
-print qq!</td>\n!;
+  print qq!<td valign="top">\n!;
+  print qq!<form method="link" action="http://localhost/index.html">\n!;
+  print qq!<center><INPUT TYPE="submit" value="Abandon"></center>\n!; 
+  print qq!</form>\n!;
+  print qq!</td>\n!;
 
-print qq!</tr>\n!;
+  print qq!</tr>\n!;
+  print qq!</table>\n!;
 
-print qq!</table>\n!;
-
- #se deschide fisierul cu inregistrari, read-only 
+#se deschide fisierul cu inregistrari, read-only 
 #se parcurge fisierul si se afiseaza toate inregistrarile de tickets
 open(ttFILE,"<","db_tt");
 seek(ttFILE,0,0);
@@ -319,9 +320,11 @@ close(ttFILE);
  
   
   }
+#end of case when $type=0, new ticket, anonymous.
+#start the case of prefilled ticket
   elsif($get_type eq 1) #internal trouble ticket first call
   {
-#se apeleaza AUC
+#call humanity check precalculate, ,the AUC
  my $get_aucpair=aucenter();
 
  #se splituieste rezultatul lui AUC in intrebare si raspuns
@@ -415,6 +418,7 @@ print qq!</center>\n!;
   print qq!</body>\n</html>\n!;
  
   }
+# end of type=1, prefilled ticket
 #  else #guestbook first call
 elsif($get_type eq 2) #guestbook first call
   {
@@ -480,7 +484,8 @@ print qq!</tr>\n!;
 
 print qq!<tr>\n!;
 print qq!<td colspan="3" align="left">\n!;
-print qq!Cum vedeti valoarea site-ului:!;
+#CUSTOM
+print qq!Cum vedeti valoarea site-ului:!; #unique and hardcoded question, ugly choice
 print qq!<select size="1" name="rating">\n!;
 
 print qq!<option value="0" selected="y">NO COMMENT</option>\n!;
@@ -563,7 +568,8 @@ close(ttFILE);
  
   
   } #.end guestbook first call
-  else {defeat('NO FEAR');} #hacker attack, legal types are 0,1,2
+#to be changed new style logging
+  else {dienice("ERR01",1,\"null");} #hacker attack, legal types are 0,1,2
  } #.end first call solve
 else #it's not a first call, it must have a transaction-based handling
 {
@@ -692,17 +698,68 @@ return("$operand1 adunat cu $operand2:$suma");
 #================================================================
 #================================================================
 #--------------------
-#input: type;precalculated result
-#default input: expirytime=15min; 
-#output: new transaction ID
-#-----CODING DONE-----
+sub trid_refresh
+{
+my @tridfile;
+my @livelist=();
+my @linesplit;
+my $i;
+#my $j;
 
+open(transactionFILE,"+< tt_transaction");
+seek(transactionFILE,0,0);		#go to the beginning
+@tridfile = <transactionFILE>;		#slurp file into array
+
+#ACTION: refresh transaction list, delete expired transactions,
+# transaction pattern in file:
+# A000D6 0 10 10 23 3 9 118 16 #first 0 is type of trouble 0 = ticket, 16 is result of humanity check
+
+
+unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
+{ #.begin unless
+   for($i=1; $i<= $#tridfile; $i++)	#check all transactions 
+  {
+   @linesplit=split(/ /,$tridfile[$i]);
+#   chomp $linesplit[8]; #\n is deleted
+  if (timestamp_expired($linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7]) > 0 ) {} #if timestamp expired do nothi$
+  else {@livelist=(@livelist, $i);} #not expired, refresh it
+  } #.end for
+
+} #.end unless
+
+#else {print qq!file has only $#tridfile lines<br>\n!;}
+my @extra=();
+@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
+#print "extra[0]: $extra[0]<br>\n";#debug
+
+foreach $i (@livelist) {@extra=(@extra,$tridfile[$i]);}
+@tridfile=@extra;
+
+#print "trid from extra: $tridfile[0]<br>\n";#debug
+
+#Action: rewrite transaction file
+truncate(transactionFILE,0);
+seek(transactionFILE,0,0);				#go to beginning of transactionfile
+#rewrite transaction file
+#print "Tridfile length befor write: $#tridfile \n";
+for($i=0;$i <= $#tridfile;$i++)
+{
+printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
+}
+
+close(transactionFILE);
+
+
+} #.end sub trid_refresh
+
+
+
+#---------------------
 sub new_transaction
 {
 my ($type_code,$aucresult)=@_;
 my @tridfile;
 
-#my @utc_time=gmtime(time);
 
 my @livelist=();
 my @linesplit;
@@ -720,7 +777,6 @@ seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
 
 
-#ACTION: refresh transaction list, delete expired transactions,
 # transaction pattern in file:
 # A000D6 0 10 10 23 3 9 118 16 #first 0 is type of trouble 0 = ticket, 16 is result of humanity check
 
@@ -730,11 +786,8 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
    for($i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
    @linesplit=split(/ /,$tridfile[$i]);
-#   chomp $linesplit[8]; #\n is deleted
-if (timestamp_expired($linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7]) > 0 ) {} #if timestamp expired do nothi$
-else {@livelist=(@livelist, $i);} #not expired, refresh it
-
   } #.end for
+
 #else {print qq!file has only $#tridfile lines!;}
 #we have now the list of the live transactions
 #print "@livelist[0..$#livelist]\n";   
@@ -804,21 +857,15 @@ return($hexi);
 }#.end sub add_transaction
 #================================================================
 #================================================================
-#================================================================
-#================================================================
+#------------------------------------------------
+#daca tranzactia nu exista intoarce string vid; daca exista, sterge linia din fisier si intoarce un string care e chiar linia de tranzactie din fisier;
 sub get_transaction($) #what does this do?
 {
 my ($sub_trid)=@_;       #input data
 my $entry;  #output data
-
 my @tridfile;
-
-#my @utc_time=gmtime(time);
-
-my @livelist=();
 my @linesplit;
 my $i;
-my $j;
 
 #open transaction file
 open(transactionFILE,"+< tt_transaction");
@@ -826,49 +873,16 @@ seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
 
 
-#ACTION: refresh transaction list, delete expired transactions,
-
-{
-
-unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
-{ #.begin unless
-   for($i=1; $i<= $#tridfile; $i++)	#check all transactions 
-  {
-   @linesplit=split(/ /,$tridfile[$i]);
-#   chomp $linesplit[8]; #\n is deleted
-if (timestamp_expired($linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7]) > 0 ) {} #if timestamp expired do nothi$
-else {@livelist=(@livelist, $i);} #not expired, refresh it
-
-    
-  } #.end for
-#else {print qq!file has only $#tridfile lines!;}
-#we have now the list of the live transactions
-#print "@livelist[0..$#livelist]\n";   
-my @extra=();
-@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
-#print "extra[0]: $extra[0]<br>\n";#debug
-#my $j;
-
-foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
-@tridfile=@extra;
-
-#print "trid from extra: $tridfile[0]<br>\n";#debug
-
-} #.end unless
-
-#else {print qq!file has only $#tridfile lines<br>\n!;}
-} #.end refresh
-
-
-#ACTION: search for transaction with given transaction id
-{
-
 #Action: rewrite transaction file
-truncate(transactionFILE,0);
-seek(transactionFILE,0,0);				#go to beginning of transactionfile
+#truncate(transactionFILE,0);
+#seek(transactionFILE,0,0);				#go to beginning of transactionfile
 #rewrite transaction number
-printf transactionFILE "%s",$tridfile[0]; #always alive
+#printf transactionFILE "%s",$tridfile[0]; #always alive
 #rewrite transaction file
+
+#unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
+#{ #.begin unless
+
 for($i=1;$i <= $#tridfile;$i++)
 {
    @linesplit=split(/ /,$tridfile[$i]);
@@ -885,7 +899,7 @@ close(transactionFILE);
 
 return($entry);
 
-}
+#} #.end unless
 }#.end sub
 #----------------------
 sub defeat
@@ -909,13 +923,13 @@ print qq!</form>\n!;
 print qq!</body>\n</html>\n!;
 }
 #-------------
+
 sub addrec
 {
 my $sub_nick;
 my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
-
 
 #### patch for mailer implementation from v 3.0.c ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
@@ -974,6 +988,108 @@ use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
   hmac_sha1_hex($secret,$message);
 } #end of compute_mac
+
+#--------------------------------------
+#--------------------------------------
+# treat the "or die" and all error cases
+#how to use it
+#$error_code is a string, you see it, this is the text selector
+#$counter: if it is 0, error is not logged. If 1..5 = threat factor
+#reference is the reference to string that is passed to be logged.
+
+sub dienice
+{
+my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string(de ce?)
+my $timestring=gmtime(time);
+
+#textul pentru public
+my %pub_errors= (
+              "ERR01" => "err01",
+              "ERR02" => "err02",
+              "ERR03" => "err03",
+              "ERR04" => "err04",
+              "ERR05" => "reserved",
+              "ERR06" => "reserved",
+              "ERR07" => "reserved",
+              "ERR08" => "reserved",
+              "ERR09" => "reserved",
+              "ERR10" => "reserved",
+              "ERR11" => "reserved",
+              "ERR12" => "reserved",
+              "ERR13" => "reserved",
+              "ERR14" => "reserved",
+              "ERR15" => "reserved",
+              "ERR16" => "reserved",
+              "ERR17" => "reserved",
+              "ERR18" => "reserved",
+              "ERR19" => "reserved",
+              "ERR20" => "silent discard, not displayed"
+                );
+#textul de turnat in logfile, interne
+my %int_errors= (
+              "ERR01" => "token has been tampered with, sha1 mismatch",    #test ok
+              "ERR02" => "token timestamp expired",           #test ok
+              "ERR03" => "token is sha1, live, but not admin token",             #test ok
+              "ERR04" => "funny state",
+              "ERR05" => "reserved",
+              "ERR06" => "reserved",
+              "ERR07" => "reserved",
+              "ERR08" => "reserved",
+              "ERR09" => "reserved",
+              "ERR10" => "reserved",
+              "ERR11" => "reserved",
+              "ERR12" => "reserved",
+              "ERR13" => "reserved",
+              "ERR14" => "reserved",
+              "ERR15" => "reserved",
+              "ERR16" => "reserved",
+              "ERR17" => "reserved",
+              "ERR18" => "reserved",
+              "ERR19" => "reserved",
+              "ERR20" => "silent discard, not logged"
+                );
+
+
+#if commanded, write errorcode in cheat_file
+if($counter > 0)
+{
+# write errorcode in cheat_file
+#ACTION: append cheat symptoms in cheat file
+open(cheatFILE,"+< db_tt"); #open logfile for appending;
+#flock(cheatFILE,2);            #LOCK_EX the file from other CGI instances
+seek(cheatFILE,0,2);            #go to the end
+#CUSTOM
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
+printf cheatFILE "\<br\>reported by: troubleticket.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error in$
+close(cheatFILE);
+}
+
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
+print qq!Content-type: text/html\n\n!;
+print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?;
+print qq!<html>\n!;
+print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
+print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
+#ins_gpl(); #this must exist, but not for tool_admintt.cgi
+print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!<br>\n!;
+print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
+print qq!<form method="link" action="http://localhost/index.html">\n!;
+print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
+print qq!</form>\n!;
+#print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center$
+print qq!</body>\n</html>\n!;
+}
+
+exit();
+
+} #end sub
 
 #--------------------------------------
 sub ins_gpl
