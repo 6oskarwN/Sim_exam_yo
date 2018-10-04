@@ -1,10 +1,11 @@
 #!/usr/bin/perl
 
-#  tool_localhost v.0.0.3 (c)2010 Francisc TOTH
+#  tool_customize v.0.0.b (c)2018 Francisc TOTH
 #  status: devel
 #  customizing tool
 #  makes the automatic relocation of links
-#  for httpd on http://localhost
+#  inserts release number
+#  removes all remarks which start at begin of line or have a whitespace character before '#'
 #  All rights reserved by YO6OWN Francisc TOTH
 #  Made in Romania
 
@@ -28,12 +29,12 @@ else {@filelist=(
 				'sim_gen1.cgi',
 				'sim_gen2.cgi',
 				'sim_gen3.cgi',
-				'sim_gen3r.cgi',
+				'sim_gen4.cgi',
 				'sim_ver0.cgi',
 				'sim_ver1.cgi',
 				'sim_ver2.cgi',
 				'sim_ver3.cgi',
-				'sim_ver3r.cgi',
+				'sim_ver4.cgi',
 				'sim_register.cgi',
 				'tugetxr2.cgi',
  				'tool_checker2.cgi',
@@ -42,24 +43,20 @@ else {@filelist=(
 				); #numele fisierelor
 
 }
-#my $pattern1="ANRCTI";
-#my $replacement1="ANCOM";  #WAS sourced
+my $pattern1="80b3581f9e43242f96a6309e5432ce8b"; #development secret
+my $replacement1="80b3581f9e43242f96a6309e5432ce8b";  #production
 
 my $pattern2="localhost/";
 my $replacement2="localhost:8080/";
 
-#my $pattern21="infostudy/exam/exam7_yo.html"; #WAS sourced
-#my $replacement21="index.html";
-
-
 my $pattern3="^print qq!SimEx Radio Release";
-my $replacement3="print qq!SimEx Radio Release 3.2; Author: Francisc TOTH YO6OWN\\n!;\n";
+my $replacement3="print qq!SimEx Radio Release 3.3; Author: Francisc TOTH YO6OWN\\n!;\n";
 
 
-my $pattern5="\#flock";   #nu incepe cu ^ ???
+my $pattern5="\#flock";  #file lock, only for Linux servers
 my $replacement5="flock";
 
-my $pattern6='#!c:';
+my $pattern6='#!c:';      #preventiv, ca trecem la Linux/UNIX
 my $replacement6="#!/usr/bin/perl";
 
 
@@ -73,7 +70,8 @@ my $fetch_line; #line-buffer
 while($fetch_line=<INFILE>)
 {
 #line alterations
-#$fetch_line=~s/$pattern1/$replacement1/; #local replacement
+$fetch_line=~s/$pattern1/$replacement1/; #local replacement
+
 if($fetch_line=~/$pattern3/){$fetch_line=$replacement3;}#line replacement
 
 $fetch_line=~s/$pattern2/$replacement2/; #local replacement
