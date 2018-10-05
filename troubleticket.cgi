@@ -25,14 +25,14 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  troubleticket.cgi v 3.0.c
+#  troubleticket.cgi v 3.0.d
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
-# ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired(); dienice;
+# ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired(); dienice; silent logging; SHA1 mac
 # ch 3.0.c Admin: changed to YO6OWN
 # ch 3.0.b the three stage of a ticket are clearly displayed [Nou][Vazut ...][Rezolvat]
 # ch 3.0.a patch in a mailer when new complaints are registered; untested since no mail account possible; hashed.
@@ -86,7 +86,7 @@ my @dbtt;   #this is the slurp variable
 ## Change the address above to your e-mail address. Make sure to KEEP the \
 #my $target_email="yo6own\@yahoo.com";
 ## Change the address above to your e-mail address. Make sure to KEEP the \
-#### .end of mailer patch v 3.0.c #####
+#### .end of mailer patch v 3.0.d #####
 
 
 #intermediate variables
@@ -201,7 +201,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.c</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.d</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
   print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -341,7 +341,7 @@ close(ttFILE);
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.c</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.d</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -439,7 +439,7 @@ elsif($get_type eq 2) #guestbook first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.c</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.d</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
  print qq!<center>\n<b>Adauga in cartea de oaspeti, toate campurile sunt obligatorii (ai 15 minute)</b>\n!;
@@ -568,12 +568,15 @@ close(ttFILE);
  
   
   } #.end guestbook first call
-  else {dienice("ERR01",1,$get_type);} #hacker attack, type is only  0,1,2
+  else {dienice("ERR01",1,\"received type is $get_type");} #hacker attack, type is only  0,1,2
  } #.end first call solve
 else #it's not a first call, it must have a transaction-based handling
 {
-if ((defined $get_trid) && (defined $get_nick) && (defined $get_text))
+if ((defined $get_trid) && ($get_nick =~ /\w+/) && ($get_text =~ /\w+/))  #once ore more non-whitespace characters
 {
+
+#dienice("ERR19",1,\"gettrid $get_trid getnick $get_nick gettext $get_text"); #debug silent logging
+
 my $tridstring;
 my $trid_type;
 my $trid_answer;
@@ -583,10 +586,11 @@ if(defined $get_complaint ) {$get_text = "$get_text (varianta) $get_complaint";}
 $get_text=~ s/\r\l\n/<br>/g; #workaround de sfarsit de inlocuire enter cu <br>
 
 $tridstring=get_transaction($get_trid);
-if(defined $tridstring) #transaction existed because the check consumed it
+if($tridstring =~ m/:/) #transaction existed because the check consumed it
 {
 ($trid_type,$trid_answer)= split (/:/,$tridstring);
 
+#check human test
 if($trid_answer eq $get_answer) 
 {
 if((legal($get_text) eq 1) and (legal($get_nick)))
@@ -598,7 +602,7 @@ if(($trid_type eq 0) or ($trid_type eq 1)) #general troubleticket form
                     {addrec($get_nick,6,$get_text);
                     print qq!<center>\n!;
                     print qq!<INPUT TYPE="submit" value="OK"><br>\n!;
-                    print qq!Hint: Poti sa revii de aici in pagina cu examenul evaluat, pentru a propune o noua modificare, apasand de doua ori butonul de revenire la pagina anterioara <== , al browserului web. \n!;
+                    print qq!Hint: Poti sa revii de aici in pagina anterioara pentru a propune o noua notificare, apasand de doua ori sageata inapoi  <==  in browserul web. \n!;
                     print qq!</center>\n!;
                     print qq!</form>\n!; 
                     print qq!</body>\n</html>\n!;
@@ -612,25 +616,28 @@ elsif(($trid_type eq 2) and (defined $get_rating) )#guestbook
                     } 
                     else {dienice("ERR02",0,\"null"); } 
 }
+#else there are words in the banned list
 else {
    dienice("ERR03",1,\"null"); 
       }
                                                       
 }
+# $trid_answer not same as $get_answer so not human
 else {
-   dienice("ERR04",1,\"$tridstring"); 
+   dienice("ERR04",1,\"null"); 
       }
 
 
 }
+#transaction used or expired
 else {
-   dienice("ERR05",0,\"null"); 
+   dienice("ERR05",1,\"null"); 
      }
 
 
 }
 else {
-   dienice("ERR06",0,\"null"); 
+   dienice("ERR06",1,\"null"); 
       }
 } 
  
@@ -814,7 +821,7 @@ return($entry);
 #------------------------------------------------
 #daca tranzactia nu exista intoarce string vid; 
 #daca exista, sterge linia din fisier si intoarce un string care e "type:auc_result"
-sub get_transaction($) #what does this do?
+sub get_transaction($) 
 {
 my ($sub_trid)=@_;       #input data
 my $entry;  #output data
@@ -825,38 +832,46 @@ my $i;
 
 #$sub_trid must be checked first if it has valid trailing MAC
 @linesplit=split(/_/,$sub_trid);
-#chomp $linesplit[9];
+#$linesplit[9] is the mac
+
+unless(defined($linesplit[9])) {dienice ("ERR08",1,\$sub_trid); } # unstructured trid
+
+#first a check trat submitted trid is valis for hash
 $entry="$linesplit[0]\_$linesplit[1]\_$linesplit[2]\_$linesplit[3]\_$linesplit[4]\_$linesplit[5]\_$linesplit[6]\_$linesplit[7]\_$linesplit[8]\_";
 my $heximac= compute_mac($entry);
-
-if($linesplit[9] eq $heximac) {}
- else {dienice("ERR07",4,\"$linesplit[9]VsV$heximac");}
+$entry='';
+unless ($linesplit[9] eq $heximac) {dienice("ERR07",4,\"$linesplit[9]VsV$heximac");}
 
 #open transaction file
 open(transactionFILE,"+< tt_transaction");
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
 
-
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction nmber exists on first line)
 { #.begin unless
 
 for($i=1;$i <= $#tridfile;$i++)
 {
-#@linesplit=split(/_/,$tridfile[$i]);
-if($tridfile[$i] eq $sub_trid) {$entry = "$linesplit[1]:$linesplit[8]";} #transaction found and ingested
+my $string = $tridfile[$i];
+chomp($string);
+@linesplit=split(/_/,$string);
+if($string eq $sub_trid) { 
+                            $entry="$linesplit[1]:$linesplit[8]";
+                         } #transaction found and ingested
 else { @livelist=(@livelist,$i); }
+#dienice("ERR19",5,\"step3\:$string eq $sub_trid\?$entry\;");#debug logging
+
 }
+
 
 } #.end unless
 
+#Action: rewrite transaction file
 my @extra=();
 @extra=(@extra,$tridfile[0]);		#transactionID it's always alive
-
 foreach $i (@livelist) {@extra=(@extra,$tridfile[$i]);} #reconstitute @tridfile content
 @tridfile=@extra;
 
-#Action: rewrite transaction file
 truncate(transactionFILE,0);
 seek(transactionFILE,0,0);				#go to beginning of transactionfile
 #rewrite transaction file
@@ -879,7 +894,7 @@ my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
-#### patch for mailer implementation from v 3.0.c ######
+#### patch for mailer implementation from v 3.0.d ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
 #print MAIL "From: $admin_email\n";
 #print MAIL "To: $target_email\n";
@@ -903,7 +918,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.0.c\n!; #version print for easy upload check
+print qq!v 3.0.d\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -944,6 +959,7 @@ use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
 #$error_code is a string, you see it, this is the text selector
 #$counter: if it is 0, error is not logged. If 1..5 = threat factor
 #reference is the reference to string that is passed to be logged.
+#ERR19 and ERR20 have special handling
 
 sub dienice
 {
@@ -955,11 +971,11 @@ my %pub_errors= (
               "ERR01" => "date invalide",
               "ERR02" => "input lipsa",
               "ERR03" => "cuvinte si taguri interzise",
-              "ERR04" => "oare esti un robot\?",
+              "ERR04" => "test depistare boti",
               "ERR05" => "Formularul a expirat",
-              "ERR06" => "err06",
+              "ERR06" => "Nu ai completat nickname sau textul, da inapoi si completeaza",
               "ERR07" => "hmm",
-              "ERR08" => "reserved",
+              "ERR08" => "unstructured transaction",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
               "ERR11" => "reserved",
@@ -970,19 +986,19 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
+              "ERR19" => "silent logging, not displayed",
               "ERR20" => "silent discard, not displayed"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
               "ERR01" => "illegal get_type, not 0/1/2",    #test ok
-              "ERR02" => "input lipsa",           #test ok
+              "ERR02" => "rating sau lipsa optiune in guestbook",           #test ok
               "ERR03" => "cuvinte ilegale",             #test ok
               "ERR04" => "humanity test failed",
               "ERR05" => "form expired",
-              "ERR06" => "ERR06",
+              "ERR06" => "no payload",
               "ERR07" => "submitted transaction has tampered MAC",
-              "ERR08" => "reserved",
+              "ERR08" => "unstructured transaction",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
               "ERR11" => "reserved",
@@ -993,7 +1009,7 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
+              "ERR19" => "silent logging",
               "ERR20" => "silent discard, not logged"
                 );
 
@@ -1019,6 +1035,7 @@ print qq!Content-type: text/html\n\n!;
 }
 else
 {
+unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?;
 print qq!<html>\n!;
@@ -1033,9 +1050,10 @@ print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!;
 #print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center$
 print qq!</body>\n</html>\n!;
+                              }
 }
 
-exit();
+unless($error_code eq 'ERR19'){ exit(); }
 
 } #end sub
 
