@@ -32,7 +32,7 @@
 #  Made in Romania
 
 
-# ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired();
+# ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired(); dienice;
 # ch 3.0.c Admin: changed to YO6OWN
 # ch 3.0.b the three stage of a ticket are clearly displayed [Nou][Vazut ...][Rezolvat]
 # ch 3.0.a patch in a mailer when new complaints are registered; untested since no mail account possible; hashed.
@@ -77,7 +77,6 @@ my $get_answer; #authentication answer
 my $get_trid; #transaction ID
 my $trid; #transaction ID for anonymous, similar like for an exam
 my $newtrid;
-#my $buffer;
 my @dbtt;   #this is the slurp variable
 
 #### mailer patch v.3.0.a #############
@@ -100,11 +99,9 @@ my $fline2;
 #functii
 sub legal; #intoarce 0 daca e text obscen,ilegal si 1 daca e legal
 sub aucenter(); #intoarce un string de tipul "text operatie:result"
-#BUG: there is an overlap for the actions of 2 functions below:
-sub new_transaction; #face transactionlist refresh; adauga o tranzactie si intoarce transaction ID;
+sub new_transaction; #adauga o tranzactie si intoarce transaction ID;
 sub get_transaction($); #daca tranzactia nu exista intoarce string vid; daca exista, sterge linia din fisier si intoarce un string care e chiar linia de tranzactie din fisier;
-sub trid_refresh; #cleans expired transactions
-sub defeat; #prints a defeat page > will be replaced by dienice()
+sub tran_refresh; #cleans expired transactions
 sub dienice; 
 sub addrec; #adauga o inregistrare in db_troubleticket
 #BLOCK: Input
@@ -179,6 +176,9 @@ elsif($stdin_name eq 'transaction'){$get_trid=$stdin_value;}
 
 
 #########end of devel
+
+#refresh the transactions in the transactions file
+tran_refresh;
 
 #generate the form, if $get_type is 0 or 1 or else
 if (defined $get_type) #it means we have a first call
@@ -568,12 +568,10 @@ close(ttFILE);
  
   
   } #.end guestbook first call
-#to be changed new style logging
-  else {dienice("ERR01",1,\"null");} #hacker attack, legal types are 0,1,2
+  else {dienice("ERR01",1,$get_type);} #hacker attack, type is only  0,1,2
  } #.end first call solve
 else #it's not a first call, it must have a transaction-based handling
 {
-my $errmsg;
 if ((defined $get_trid) && (defined $get_nick) && (defined $get_text))
 {
 my $tridstring;
@@ -585,7 +583,7 @@ if(defined $get_complaint ) {$get_text = "$get_text (varianta) $get_complaint";}
 $get_text=~ s/\r\l\n/<br>/g; #workaround de sfarsit de inlocuire enter cu <br>
 
 $tridstring=get_transaction($get_trid);
-if(defined $tridstring) #exista tranzactia
+if(defined $tridstring) #transaction existed because the check consumed it
 {
 ($trid_type,$trid_answer)= split (/:/,$tridstring);
 
@@ -612,31 +610,27 @@ elsif(($trid_type eq 2) and (defined $get_rating) )#guestbook
                     print qq!</form>\n!; 
                     print qq!</body>\n</html>\n!;
                     } 
-    else {$errmsg='input lipsa';
-    defeat($errmsg);
-    }                  
+                    else {dienice("ERR02",0,\"null"); } 
 }
 else {
-      $errmsg='Va rugam nu folositi cuvinte interzise sau tag-uri HTML';
-     defeat($errmsg);
+   dienice("ERR03",1,\"null"); 
       }
                                                       
 }
-else {$errmsg="humanity test failed";
-      defeat($errmsg);
+else {
+   dienice("ERR04",1,\"$tridstring"); 
       }
 
 
 }
-else {$errmsg="form expired";
-      defeat($errmsg);
+else {
+   dienice("ERR05",0,\"null"); 
      }
 
 
 }
 else {
-      $errmsg="input lipsa access_log";
-      defeat($errmsg);
+   dienice("ERR06",0,\"null"); 
       }
 } 
  
@@ -682,12 +676,10 @@ if(lc($inputstring) =~ /$iter/) #forces lower-case comparison lc()
  return($legall);
 
 }#.end sub
-
-
 #------------------------
 #Authentication center function
 #exemple: dupa 1,2,3 si 4 urmeaza:5
-#---TEST IMPLEMENTATION --------
+
 sub aucenter()
 {
 my $operand1=random_int(20);
@@ -695,10 +687,9 @@ my $operand2=random_int(20);
 my $suma=$operand1+$operand2;
 return("$operand1 adunat cu $operand2:$suma");
 }
-#================================================================
-#================================================================
+
 #--------------------
-sub trid_refresh
+sub tran_refresh
 {
 my @tridfile;
 my @livelist=();
@@ -712,14 +703,14 @@ seek(transactionFILE,0,0);		#go to the beginning
 
 #ACTION: refresh transaction list, delete expired transactions,
 # transaction pattern in file:
-# A000D6 0 10 10 23 3 9 118 16 #first 0 is type of trouble 0 = ticket, 16 is result of humanity check
+# A00125_0_46_53_23_4_9_118_33_697bff0413fe06cb49f8875b7461603bc500fa6c #first 0 is type of trouble 0 = ticket, 33 is result of humanity check
 
 
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
 { #.begin unless
    for($i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
-   @linesplit=split(/ /,$tridfile[$i]);
+   @linesplit=split(/_/,$tridfile[$i]);
 #   chomp $linesplit[8]; #\n is deleted
   if (timestamp_expired($linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7]) > 0 ) {} #if timestamp expired do nothi$
   else {@livelist=(@livelist, $i);} #not expired, refresh it
@@ -727,21 +718,16 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
 
 } #.end unless
 
-#else {print qq!file has only $#tridfile lines<br>\n!;}
 my @extra=();
 @extra=(@extra,$tridfile[0]);		#transactionID it's always alive
-#print "extra[0]: $extra[0]<br>\n";#debug
 
-foreach $i (@livelist) {@extra=(@extra,$tridfile[$i]);}
+foreach $i (@livelist) {@extra=(@extra,$tridfile[$i]);} #reconstitute @tridfile content
 @tridfile=@extra;
-
-#print "trid from extra: $tridfile[0]<br>\n";#debug
 
 #Action: rewrite transaction file
 truncate(transactionFILE,0);
 seek(transactionFILE,0,0);				#go to beginning of transactionfile
 #rewrite transaction file
-#print "Tridfile length befor write: $#tridfile \n";
 for($i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
@@ -749,9 +735,7 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 
 close(transactionFILE);
 
-
-} #.end sub trid_refresh
-
+} #.end sub tran_refresh
 
 
 #---------------------
@@ -761,55 +745,23 @@ my ($type_code,$aucresult)=@_;
 my @tridfile;
 
 
-my @livelist=();
-my @linesplit;
+#my @linesplit;
 my $i;
-my $j;
+#my $j;
 my $hexi;
 
 #open transaction file
 open(transactionFILE,"+< tt_transaction");
 
-############################
-### Generate transaction ###    
-############################
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
 
 
 # transaction pattern in file:
-# A000D6 0 10 10 23 3 9 118 16 #first 0 is type of trouble 0 = ticket, 16 is result of humanity check
+# A000D6_0_10_10_23_3_9_118_16_sha1sha1sha1 #first 0 is type of trouble 0 = ticket, 16 is result of humanity check
 
-{
-unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
-{ #.begin unless
-   for($i=1; $i<= $#tridfile; $i++)	#check all transactions 
-  {
-   @linesplit=split(/ /,$tridfile[$i]);
-  } #.end for
 
-#else {print qq!file has only $#tridfile lines!;}
-#we have now the list of the live transactions
-#print "@livelist[0..$#livelist]\n";   
-my @extra=();
-@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
-#print "extra[0]: $extra[0]<br>\n";#debug
-#my $j;
 
-foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
-@tridfile=@extra;
-
-#print "trid from extra: $tridfile[0]<br>\n";#debug
-
-} #.end unless
-
-#else {print qq!file has only $#tridfile lines<br>\n!;}
-} #.end refresh
-
-#print qq!after refresh: @tridfile[0..$#tridfile]\n!;
-
-#ACTION: generate a new transaction for anonymous
-{
 #Action: generate new transaction
 $trid=$tridfile[0];
 chomp $trid;						#eliminate \n
@@ -820,7 +772,7 @@ else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increm
 
 #print qq!generate new transaction<br>\n!;
 my $epochTime = time();
-#CHANGE THIS for customizing
+#CUSTOM
 my $epochExpire = $epochTime + 900; #15 minutes lifetime = 900 sec
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
@@ -833,18 +785,19 @@ my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epo
 
 #print to screen the entry in the transaction list
 $hexi= sprintf("%+06X",$trid);
-my $entry = "$hexi $type_code $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year $aucresult\n";
+my $entry = "$hexi\_$type_code\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_$aucresult\_";
 #print qq!mio entry: $entry <br>\n!; #debug
+my $heximac = compute_mac($entry); #compute sha1 MessageAuthentication Code
+$entry= "$entry$heximac\n"; #the full transaction id
+
+
 @tridfile=(@tridfile,$entry); 				#se adauga tranzactia in array
 #print "Trid-array after adding new-trid: @tridfile[0..$#tridfile]<br>\n"; #debug
-}
-#.end of generation of new transaction
+
 
 #Action: rewrite transaction file
 truncate(transactionFILE,0);
-seek(transactionFILE,0,0);				#go to beginning of transactionfile
-#rewrite transaction file
-#print "Tridfile length befor write: $#tridfile \n";
+seek(transactionFILE,0,0);				#go to end of transactionfile
 for($i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
@@ -853,19 +806,31 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 #close transactionfile
 close(transactionFILE);
 #return new trid
-return($hexi);
+chomp($entry); #it has \n so it can be written in file
+return($entry);
 }#.end sub add_transaction
 #================================================================
 #================================================================
 #------------------------------------------------
-#daca tranzactia nu exista intoarce string vid; daca exista, sterge linia din fisier si intoarce un string care e chiar linia de tranzactie din fisier;
+#daca tranzactia nu exista intoarce string vid; 
+#daca exista, sterge linia din fisier si intoarce un string care e "type:auc_result"
 sub get_transaction($) #what does this do?
 {
 my ($sub_trid)=@_;       #input data
 my $entry;  #output data
 my @tridfile;
 my @linesplit;
+my @livelist=();
 my $i;
+
+#$sub_trid must be checked first if it has valid trailing MAC
+@linesplit=split(/_/,$sub_trid);
+#chomp $linesplit[9];
+$entry="$linesplit[0]\_$linesplit[1]\_$linesplit[2]\_$linesplit[3]\_$linesplit[4]\_$linesplit[5]\_$linesplit[6]\_$linesplit[7]\_$linesplit[8]\_";
+my $heximac= compute_mac($entry);
+
+if($linesplit[9] eq $heximac) {}
+ else {dienice("ERR07",4,\"$linesplit[9]VsV$heximac");}
 
 #open transaction file
 open(transactionFILE,"+< tt_transaction");
@@ -873,56 +838,39 @@ seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
 
 
-#Action: rewrite transaction file
-#truncate(transactionFILE,0);
-#seek(transactionFILE,0,0);				#go to beginning of transactionfile
-#rewrite transaction number
-#printf transactionFILE "%s",$tridfile[0]; #always alive
-#rewrite transaction file
-
-#unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
-#{ #.begin unless
+unless($#tridfile == 0) 		#unless transaction list is empty (but transaction nmber exists on first line)
+{ #.begin unless
 
 for($i=1;$i <= $#tridfile;$i++)
 {
-   @linesplit=split(/ /,$tridfile[$i]);
-chomp $linesplit[8];
-if($linesplit[0] eq $sub_trid) {$entry = "$linesplit[1]:$linesplit[8]";}
-else {
-printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
-     }
+#@linesplit=split(/_/,$tridfile[$i]);
+if($tridfile[$i] eq $sub_trid) {$entry = "$linesplit[1]:$linesplit[8]";} #transaction found and ingested
+else { @livelist=(@livelist,$i); }
 }
 
-#close transactionfile
+} #.end unless
+
+my @extra=();
+@extra=(@extra,$tridfile[0]);		#transactionID it's always alive
+
+foreach $i (@livelist) {@extra=(@extra,$tridfile[$i]);} #reconstitute @tridfile content
+@tridfile=@extra;
+
+#Action: rewrite transaction file
+truncate(transactionFILE,0);
+seek(transactionFILE,0,0);				#go to beginning of transactionfile
+#rewrite transaction file
+for($i=0;$i <= $#tridfile;$i++)
+{
+printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
+}
+
 close(transactionFILE);
-#return transaction core
 
 return($entry);
 
-#} #.end unless
 }#.end sub
 #----------------------
-sub defeat
-{
-my $message;
-($message)=@_;
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>sistem colectie erori examYO</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
-ins_gpl();
-print qq!v 3.0.c\n!; #version print for easy upload check
-print qq!<br>\n!;
-print qq!<h2 align="center">Actiune ilegala.</h2>\n!;
-print qq!<h4 align="center">$message</h4>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-#---------it should continue here, but HTML code will continue after returning from function so that it prints different targets
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-}
-#-------------
 
 sub addrec
 {
@@ -1004,13 +952,13 @@ my $timestring=gmtime(time);
 
 #textul pentru public
 my %pub_errors= (
-              "ERR01" => "err01",
-              "ERR02" => "err02",
-              "ERR03" => "err03",
-              "ERR04" => "err04",
-              "ERR05" => "reserved",
-              "ERR06" => "reserved",
-              "ERR07" => "reserved",
+              "ERR01" => "date invalide",
+              "ERR02" => "input lipsa",
+              "ERR03" => "cuvinte si taguri interzise",
+              "ERR04" => "oare esti un robot\?",
+              "ERR05" => "Formularul a expirat",
+              "ERR06" => "err06",
+              "ERR07" => "hmm",
               "ERR08" => "reserved",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
@@ -1027,13 +975,13 @@ my %pub_errors= (
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
-              "ERR01" => "token has been tampered with, sha1 mismatch",    #test ok
-              "ERR02" => "token timestamp expired",           #test ok
-              "ERR03" => "token is sha1, live, but not admin token",             #test ok
-              "ERR04" => "funny state",
-              "ERR05" => "reserved",
-              "ERR06" => "reserved",
-              "ERR07" => "reserved",
+              "ERR01" => "illegal get_type, not 0/1/2",    #test ok
+              "ERR02" => "input lipsa",           #test ok
+              "ERR03" => "cuvinte ilegale",             #test ok
+              "ERR04" => "humanity test failed",
+              "ERR05" => "form expired",
+              "ERR06" => "ERR06",
+              "ERR07" => "submitted transaction has tampered MAC",
               "ERR08" => "reserved",
               "ERR09" => "reserved",
               "ERR10" => "reserved",
