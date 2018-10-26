@@ -40,7 +40,7 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-# ch 3.2.3 implemented use_time in recorded transaction_id; timestamp_expired() changed
+# ch 3.2.3 compute_mac() changed from MD5 to SHA1 and user password is saved as hash.4 changed config for the new Decizia db_legis4 and db_ntsm4
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice() and possibly fix git://Sim_exam_yo/issues/4
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
@@ -847,12 +847,11 @@ close(userFILE) or dienice("ERR07",1,\"can't close user database");
 #-------------------------------------
 sub compute_mac {
 
-use Digest::MD5;
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+  hmac_sha1_hex($secret,$message);
 } #end of compute_mac
-
 
 #--------------------------------------
 #primeste timestamp de forma sec_min_hour_day_month_year UTC

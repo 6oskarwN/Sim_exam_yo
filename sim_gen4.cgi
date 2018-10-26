@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_gen4.cgi v 3.3.1
+#  sim_gen4.cgi v 3.3.2
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.2 compute_mac() changed from MD5 to SHA1
 # ch 3.3.1 bug fix at rucksack algorithm, introduced epoch() instead of gmtime()
 # ch 3.3.0 implemented the mods given by law update Decizia 245/2017
 # ch 3.2.3 implemented use_time in recorded transaction_id;timestamp_expired()
@@ -87,7 +88,7 @@ my $ultimaclasa;                #ultima clasa obtinuta: 0=init, 1/2/3/4=clase 5=
 
 my @tridfile;		        #slurped transaction file
 my $trid;	                #the Transaction-ID of the generated page
-my $hexi;                       #the trid+timestamp_MD5
+my $hexi;                       #the trid+timestamp_SHA1
 my @slurp_userfile;            	#RAM-userfile
 
 my $attempt_counter;	        #attempts in opening or closing files; 5 attempts allowed
@@ -243,11 +244,11 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 close(transactionFILE) || dienice("ERR04",1,\"null");
 
 #now we should check why received transaction was not found in sim_transaction file
-#case 0: it's an illegal transaction if md5 check fails
+#case 0: it's an illegal transaction if sha1 check fails
 #        must be recorded in cheat_file
-#case 1: md5 correct but transaction timestamp expired, file was refreshed and wiped this transaction
+#case 1: sha1 correct but transaction timestamp expired, file was refreshed and wiped this transaction
 #        must be announced to user
-#case 2: md5 ok, timestamp ok, it must (ch 3.2.3) be some sort of weird error that must be logged
+#case 2: sha1 ok, timestamp ok, it must (ch 3.2.3) be some sort of weird error that must be logged
 #        unexpired transactions that are used or not should be in sim_transaction
 
 #check case 0
@@ -427,13 +428,13 @@ my $epochTime = time();
 my $epochExpire = $epochTime + 7200;		#3 min = 2 * 60 * 60 sec = 180 sec 
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
-#generate transaction id and its md5 MAC
+#generate transaction id and its sha1 MAC
 
 $hexi= sprintf("%+06X",$trid); #the transaction counter
 #assemble the trid+timestamp
-$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and MD5
+$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and sha1
 #compute mac for trid+timestamp
-my $heximac = compute_mac($hexi); #compute MD5 MessageAuthentication Code
+my $heximac = compute_mac($hexi); #compute SHA1 MessageAuthentication Code
 $hexi= "$hexi$heximac"; #the full transaction id
 
 #CUSTOM: pagecode=7 pentru exam cl IV
@@ -484,7 +485,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.3.1\n!; #version print for easy upload check
+print qq!v 3.3.2\n!; #version print for easy upload check
 
 print qq!<center><font size="+2">Examen clasa IV</font></center>\n!;   #CUSTOM
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
@@ -848,12 +849,11 @@ sub random_int($)
 #-------------------------------------
 sub compute_mac {
 
-use Digest::MD5;
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+  hmac_sha1_hex($secret,$message);
 } #end of compute_mac
-
 
 #--------------------------------------
 #primeste timestamp de forma sec_min_hour_day_month_year UTC
@@ -912,7 +912,7 @@ my %pub_errors= (
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
-              "ERR01" => "transaction md5 authenticity failed",   #untested
+              "ERR01" => "transaction sha1 authenticity failed",   #untested
               "ERR02" => "transaction timestamp expired, normally not logged",            
               "ERR03" => "fail open sim_transaction file",           #tested
               "ERR04" => "fail close sim_transaction file",
@@ -961,7 +961,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.3.1\n!; #version print for easy upload check
+print qq!v 3.3.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

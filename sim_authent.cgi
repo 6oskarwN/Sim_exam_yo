@@ -32,15 +32,16 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2017
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_authent.cgi v 3.2.4 
+#  sim_authent.cgi v 3.2.5 
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash
 # ch 3.2.4 simplify by replacing timestamp calculation with epoch
 # ch 3.2.3 integrated sub timestamp_expired()
 # ch 3.2.2 3x login failure block is logged for probing if DoS on existing accounts are made.
@@ -281,7 +282,7 @@ if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$li
 my @linesplit;
 @linesplit=split(/\n/,$slurp_userfile[$rec_pos*7+2]); #linesplit[1] is \n, don't care
 
-unless($linesplit[0] eq $get_passwd)
+unless($linesplit[0] eq compute_mac($get_passwd))
 {
 my $wrong;
 
@@ -520,7 +521,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.4\n!; #version print for easy upload check
+print qq!v 3.2.5\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -914,10 +915,10 @@ $slurp_userfile[$user_account*7+6]=$failures;
 #--------------------------------------
 sub compute_mac {
 
-use Digest::MD5;
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+  hmac_sha1_hex($secret,$message);
 } #end of compute_mac
 
 #--------------------------------------
@@ -1030,7 +1031,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.4\n!; #version print for easy upload check
+print qq!v 3.2.5\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne notificati prin sistemul de raportare.</center>\n!;

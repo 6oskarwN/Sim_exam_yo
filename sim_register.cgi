@@ -32,14 +32,15 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2017
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_register.cgi v 3.2.4
+#  sim_register.cgi v 3.2.5
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash
 # ch 3.2.4 integrated sub timestamp_expired(); epoch replacing utc_time
 # ch 3.2.3 changed next_login_time from 0 0 0 0 0 0 to 0 0 0 1 0 0
 # ch 3.2.2 implemented silent discard Status 204
@@ -397,7 +398,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.4\n!; #version print for easy upload check
+print qq!v 3.2.5\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -554,11 +555,11 @@ my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epo
 
 
 $new_expiry = "$exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #\n is important
-
+my $passHash=compute_mac($post_passwd1);
 #ACTION: Append new record
 @slurp_userfile = (@slurp_userfile,"$post_login\n"); #add login
 @slurp_userfile = (@slurp_userfile,"0 0 0 1 0 0\n"); #add next allowed login time; $wday is [1..31]
-@slurp_userfile = (@slurp_userfile,"$post_passwd1\n"); #add password
+@slurp_userfile = (@slurp_userfile,"$passHash\n"); #add password
 @slurp_userfile = (@slurp_userfile,"0\n"); #add unsuccessful login attempts
 @slurp_userfile = (@slurp_userfile,$new_expiry); #add account expiry time
 @slurp_userfile = (@slurp_userfile,"$post_tipcont\n"); #add tip cont
@@ -582,7 +583,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.4\n!; #version print for easy upload check
+print qq!v 3.2.5\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 
@@ -601,12 +602,11 @@ print "</body>\n</html>\n";
 #-------------------------------------
 sub compute_mac {
 
-use Digest::MD5;
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+  hmac_sha1_hex($secret,$message);
 } #end of compute_mac
-
 
 #--------------------------------------
 #primeste timestamp de forma sec_min_hour_day_month_year UTC
@@ -720,7 +720,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.4\n!; #version print for easy upload check
+print qq!v 3.2.5\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

@@ -32,13 +32,14 @@
 
 #Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2016
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_gen0.cgi v 3.2.3
+#  sim_gen0.cgi v 3.2.4
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  Made in Romania
 
+# ch 3.2.4 compute_mac() changed from MD5 to SHA1
 # ch 3.2.3 integrated sub timestamp_expired(); introduce epoch timestamping
 # ch 3.2.2 implemented silent discard Status 204
 # ch 3.2.1 deploy latest dienice()
@@ -126,7 +127,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolva 3 din 4 intrebari si poti sa te inregistrezi in examen</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">Pagina expira peste 3 minute.</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">O singura varianta de raspuns este corecta. Dupa alegerea raspunsurilor, apasa butonul "Evaluare".</font></center><br><br>\n!;
@@ -367,25 +368,14 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 
 #closing transaction file, opens flock by default
 close (transactionFILE) or die("cant close transaction file\n");
-
+#--------------------
 sub compute_mac {
-# Given a message and key, returns a message authentication code
-# with the following properties relevant to our example:
-# - a 22-character string that may contain + / 0-9 a-z A-Z
-# - any given message and key will always produce the same MAC
-# - if you don't know the key, it's very hard to guess it
-#   even if you have a message, its MAC, and this source code
-# - if you have a message, its MAC, and even the key, it's 
-#   very hard to find a different message with the same MAC
-# - even a tiny change to a message, including adding on to
-#   the end of it, will produce a very different MAC
-use Digest::MD5;
+
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+  hmac_sha1_hex($secret,$message);
 } #end of compute_mac
-
-
 
 #----100%------subrutina generare random number
 # intoarce numar intre 0 si $max-1
@@ -484,7 +474,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.3\n!; #version print for easy upload check
+print qq!v 3.2.4\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

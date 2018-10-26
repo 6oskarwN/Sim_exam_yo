@@ -417,6 +417,7 @@ print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">
 
 print qq!<p><center><b>Formular de inregistrare (valabil 15 minute)</b></center></p>\n!;
 
+print qq!<center>Folositi combinatii Login + parola pe care nu le mai folositi altundeva. Riscati sa va deschideti poarta altor conturi daca salvarile acestui program sunt compromise.</center>\n!;
 
 print qq!<table width="80%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
 
@@ -440,7 +441,7 @@ print qq!<td>!;
 print qq!<input type="password" name="passwd1" size="25">!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere; nu poate contine caracterele %, space</font>!; 
+print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere; nu poate contine caracterele %, space. </font>!; 
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -539,12 +540,11 @@ exit();
 #-------------------------------------
 sub compute_mac {
 
-use Digest::MD5;
+use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-    Digest::MD5::md5_base64($secret, Digest::MD5::md5($secret, $message));
+  hmac_sha1_hex($secret,$message);
 } #end of compute_mac
-
 
 #--------------------------------------
 #primeste timestamp de forma sec_min_hour_day_month_year UTC
