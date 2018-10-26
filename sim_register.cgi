@@ -637,6 +637,7 @@ return($timediff);  #here is the general return
 #$error_code is a string, you see it, this is the text selector
 #$counter: if it is 0, error is not logged. If 1..5 = threat factor
 #reference is the reference to string that is passed to be logged.
+#ERR19 and ERR20 have special handling
 
 sub dienice
 {
@@ -665,7 +666,7 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
+              "ERR19" => "silent logging, not displayed",
               "ERR20" => "silent discard, not displayed"
                 );
 #textul de turnat in logfile, interne
@@ -688,7 +689,7 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
+              "ERR19" => "silent logging",
               "ERR20" => "silent discard, not displayed"
                 );
 
@@ -714,6 +715,7 @@ print qq!Content-type: text/html\n\n!;
 }
 else
 {
+unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
@@ -728,6 +730,7 @@ print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 #print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
 print qq!</body>\n</html>\n!;
+                              }
 }
 exit();
 

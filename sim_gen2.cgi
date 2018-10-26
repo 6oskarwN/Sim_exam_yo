@@ -880,6 +880,7 @@ return($timediff);  #here is the general return
 #$error_code is a string, you see it, this is the text selector
 #$counter: if it is 0, error is not logged. If 1..5 = threat factor
 #reference is the reference to string that is passed to be logged.
+#ERR19 and ERR20 have special handling
 
 sub dienice
 {
@@ -907,7 +908,7 @@ my %pub_errors= (
               "ERR16" => "congestie server",
               "ERR17" => "actiune ilegala, inregistrata in log",
               "ERR18" => "actiune ilegala, inregistrata in log",
-              "ERR19" => "tbd",
+              "ERR19" => "silent logging, not displayed",
               "ERR20" => "silent discard, not printed"
                 );
 #textul de turnat in logfile, interne
@@ -930,7 +931,7 @@ my %int_errors= (
               "ERR16" => "fail close one of db_file",
               "ERR17" => "received trid is undef",
               "ERR18" => "received trid is destruct",
-              "ERR19" => "tbd",
+              "ERR19" => "silent logging",
               "ERR20" => "silent discard"
                 );
 
@@ -955,6 +956,7 @@ print qq!Content-type: text/html\n\n!;
 }
 else
 {
+unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
@@ -968,6 +970,7 @@ print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 print qq!</body>\n</html>\n!;
+                              }
 }
 
 exit();

@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_ver0.cgi v 3.2.4
+#  sim_ver0.cgi v 3.2.5
 #  Status: devel
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.5 compute_mac() changed from MD5 to SHA1
 # ch 3.2.4 minor: change a dropdown option from class III-R to IV
 # ch 3.2.3 implement epoch time and expired_timestamp with epoch
 # ch 3.2.2 implemented silent discard Status 204
@@ -406,7 +407,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.4\n!; #version print for easy upload check
+print qq!v 3.2.5\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
@@ -523,7 +524,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.4\n!; #version print for easy upload check
+print qq!v 3.2.5\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;
@@ -599,7 +600,7 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
+              "ERR19" => "silent logging, not displayed",
               "ERR20" => "silent discard, not displayed"
                 );
 #textul de turnat in logfile, interne
@@ -622,7 +623,7 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
+              "ERR19" => "silent logging",
               "ERR20" => "silent discard, not logged"
                 );
 
@@ -647,13 +648,14 @@ print qq!Content-type: text/html\n\n!;
 }
 else
 {
+unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.4\n!; #version print for easy upload check
+print qq!v 3.2.5\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -661,6 +663,7 @@ print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 #print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
 print qq!</body>\n</html>\n!;
+                              }
 }
 
 exit();

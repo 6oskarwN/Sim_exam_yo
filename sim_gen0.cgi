@@ -420,8 +420,8 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
-              "ERR20" => "silent discard, not printed"
+              "ERR19" => "silent logging, not displayed",
+              "ERR20" => "silent discard, not displayed"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -443,8 +443,8 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
-              "ERR20" => "silent discard"
+              "ERR19" => "silent logging",
+              "ERR20" => "silent discard, not logged"
                 );
 
 
@@ -461,13 +461,15 @@ printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: sim_gen0.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-if($error_code eq 'ERR20') #must be silently discarded
+
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
 print qq!Content-type: text/html\n\n!;
 }
 else
 {
+unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
@@ -481,6 +483,7 @@ print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 print qq!</body>\n</html>\n!;
+                              }
 }
 
 exit();

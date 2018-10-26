@@ -191,6 +191,7 @@ return($timediff);  #here is the general return
 #$error_code is a string, you see it, this is the text selector
 #$counter: if it is 0, error is not logged. If 1..5 = threat factor
 #reference is the reference to string that is passed to be logged.
+#ERR19 and ERR20 have special handling
 
 sub dienice
 {
@@ -219,8 +220,8 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR19" => "silent logging, not displayed",
+              "ERR20" => "silent discard, not displayed"	
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -242,8 +243,8 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "reserved",
-              "ERR20" => "reserved"
+              "ERR19" => "silent logging",
+	      "ERR20" => "silent discard, not logged"
                 );
 
 
@@ -255,29 +256,72 @@ if($counter > 0)
 open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
-
-printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 #CUSTOM
+printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: tugetxr2.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which fo$
+{
+print qq!Status: 204 No Content\n\n!;
+print qq!Content-type: text/html\n\n!;
+}
+else
+{
+unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-#ins_gpl(); #this must exist
+ins_gpl(); #this must exist
 print qq!v.3.1.0\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
-#print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
 print qq!</body>\n</html>\n!;
-
+                              }
+}
 exit();
 
 } #end sub
+#--------------------------------------
+sub ins_gpl
+{
+print qq+<!--\n+;
+print qq!SimEx Radio Release \n!;
+print qq!SimEx Radio was created originally for YO6KXP radio amateur club located in\n!; 
+print qq!Sacele, ROMANIA (YO) then released to the whole radio amateur community.\n!;
+print qq!\n!;
+print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,\n!; 
+print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat in \n!;
+print qq!termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o versiune \n!;
+print qq!ulterioara. Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio \n!;
+print qq!garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
+print qq!manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
+print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea \n!;
+print qq!si versiunea in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
+print qq!Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, \n!;
+print qq!copyrightul fiind al statului roman, dar fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile \n!;
+print qq!de interes public precum al legii 109/2007 privind reutilizarea informatiilor din institutiile publice.\n!;
+print qq!\n!;
+print qq!YO6OWN Francisc TOTH\n!;
+print qq!\n!;
+print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode \n!;
+print qq!and utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \n!;
+print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version. This program is distributed \n!;
+print qq!in the hope that it will be useful, but WITHOUT ANY WARRANTY or without any implied warranty. See the GNU General Public \n!;
+print qq!License for more details. You should have received a copy of the GNU General Public License along with this software distribution; \n!;
+print qq!if not, you can download it for free at http://www.fsf.org/ \n!;
+print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC \n!;
+print qq!in USA) so any use of the official questions, other than in Read-Only way, is prohibited. \n!;
+print qq!\n!;
+print qq!YO6OWN Francisc TOTH\n!;
+print qq!\n!;
+print qq!Made in Romania\n!;
+print qq+-->\n+;
+
+}
 
