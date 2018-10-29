@@ -42,8 +42,8 @@
 # ch 3.0.7 <form> in <form> makes that blank record is saved if calculus is good but abandon is hit 
 # ch 3.0.6 change window button to method="link" button  
 # ch 0.1.5 GET changed to POST - devel
-# ch 0.1.4 link to forumer eliminated by forumer migration to awardspace.
-# ch 0.1.3 link 404 catre yo6kxp.org, corectat
+# ch 0.1.4 link to forumer elliminated by forumer migration to yuku. Ditching forum-based ticket handling.
+# ch 0.1.3 link 404 to forumer, corrected. forumer was the error handling forum
 # ch 0.1.2 linkuri aiurea catre kxp_index, corectat
 # ch 0.1.1 made case-insensitive match for legal() dictionary and added 'proxy' to list of banned words - for sotw
 # ch 0.1.0 older tickets not available any more as ZIP, but on the forum.
