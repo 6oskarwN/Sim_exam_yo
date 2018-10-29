@@ -25,13 +25,14 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  troubleticket.cgi v 3.0.d
-#  Status: devel
+#  troubleticket.cgi v 3.0.e
+#  Status: FT
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+# ch 3.0.e deleted the old guestbook logging and displaying since is unused and could display internal logs to anyone.
 # ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired(); dienice; silent logging; SHA1 mac
 # ch 3.0.c Admin: changed to YO6OWN
 # ch 3.0.b the three stage of a ticket are clearly displayed [Nou][Vazut ...][Rezolvat]
@@ -41,8 +42,8 @@
 # ch 3.0.7 <form> in <form> makes that blank record is saved if calculus is good but abandon is hit 
 # ch 3.0.6 change window button to method="link" button  
 # ch 0.1.5 GET changed to POST - devel
-# ch 0.1.4 link to forumer eliminated by forumer migration to yuku.
-# ch 0.1.3 link 404 catre forumer, corectat
+# ch 0.1.4 link to forumer eliminated by forumer migration to awardspace.
+# ch 0.1.3 link 404 catre yo6kxp.org, corectat
 # ch 0.1.2 linkuri aiurea catre kxp_index, corectat
 # ch 0.1.1 made case-insensitive match for legal() dictionary and added 'proxy' to list of banned words - for sotw
 # ch 0.1.0 older tickets not available any more as ZIP, but on the forum.
@@ -68,11 +69,10 @@ use warnings;
 
 sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
 
-my $get_type; #0 (anonymous) or 1(nick and prefilled) -gen fault report form  ELSE - gen guestbook form;
+my $get_type; #0 (anonymous) or 1(nick and prefilled) 
 my $get_nick; #nick for the guy who is writing
 my $get_text; #submitted text
 my $get_complaint; #the additional text inserted by user only when $get_type=1
-my $get_rating; #rating for site in guestbook, 1 to 5
 my $get_answer; #authentication answer
 my $get_trid; #transaction ID
 my $trid; #transaction ID for anonymous, similar like for an exam
@@ -86,7 +86,7 @@ my @dbtt;   #this is the slurp variable
 ## Change the address above to your e-mail address. Make sure to KEEP the \
 #my $target_email="yo6own\@yahoo.com";
 ## Change the address above to your e-mail address. Make sure to KEEP the \
-#### .end of mailer patch v 3.0.d #####
+#### .end of mailer patch v 3.0.e #####
 
 
 #intermediate variables
@@ -146,7 +146,6 @@ if($stdin_name eq 'type') { $get_type=$stdin_value;}
 elsif($stdin_name eq 'nick'){$get_nick=$stdin_value;}
 elsif($stdin_name eq 'subtxt'){$get_text=$stdin_value;}
 elsif($stdin_name eq 'complaint'){$get_complaint=$stdin_value;}
-elsif($stdin_name eq 'rating'){$get_rating=$stdin_value;}
 elsif($stdin_name eq 'answer'){$get_answer=$stdin_value;}
 elsif($stdin_name eq 'transaction'){$get_trid=$stdin_value;}
 
@@ -201,7 +200,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.d</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.e</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
   print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -274,11 +273,11 @@ print qq!<table border="1" width="90%">\n!;
 my $backgnd;
 $backgnd="\#d3d3d3";
 
-#se parcurge fisierul de-andoaselea si se afiseaza toate inregistrarile de guestbook
+#browse the records file backwards and display all tickets
 for(my $i=($#dbtt+1)/4;$i>0;$i--)
 {
 chomp $dbtt[$i*4-3];
-if($dbtt[$i*4-3] > 5)     #if it's a troubleticket record
+if($dbtt[$i*4-3] > 5)     #if it's a troubleticket record, only tickets are displayed, not 1-5 logs
 {
 if($backgnd eq "\#d3d3d3") {$backgnd="\#ADD8E6";}
 else {$backgnd="\#d3d3d3";}
@@ -306,7 +305,7 @@ print qq!<font color="blue" size="-1">YO6OWN: $dbtt[$i*4-1]</font><br>!;
                                }
 print qq!</td>\n!;
 print qq!</tr>\n!;                              
-} #.end it's a guestbook record
+} #.end it's a ticket record, 1-5 logs are not displayed
 } #.end for/4
 #----------------------
 
@@ -341,7 +340,7 @@ close(ttFILE);
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.d</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.e</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -419,157 +418,12 @@ print qq!</center>\n!;
  
   }
 # end of type=1, prefilled ticket
-#  else #guestbook first call
-elsif($get_type eq 2) #guestbook first call
-  {
- #se apeleaza AUC
- my $get_aucpair=aucenter();
-
- #se splituieste rezultatul lui AUC in intrebare si raspuns
-($question_auc,$answer_auc)=split (/:/, $get_aucpair);
-
- #se apeleaza new_transaction=add_transaction(type=2=guestbook,AUC_result)
- $newtrid=new_transaction(2,$answer_auc);
-# printf "new transaction: +%s+\n",$newtrid; #debug only
 
 
-  print qq!Content-type: text/html\n\n!;
-  print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-  print qq!<html>\n!;
-  print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
-  print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
-  ins_gpl();
-  print qq!<font size="-1">v 3.0.d</font>\n!; #version print for easy upload check
-  print qq!<br>\n!;
- #se genereaza formularul integrand $newtrid si $question_auc
- print qq!<center>\n<b>Adauga in cartea de oaspeti, toate campurile sunt obligatorii (ai 15 minute)</b>\n!;
+  else {dienice("ERR01",1,\"received type is $get_type");} #hacker attack, type is only  0,1
 
- print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post">\n!;
-print qq!<table width="90%" border="0">\n!;
-#ACTION: inserare transaction ID in pagina HTML
-{
-#my $extra=sprintf("%+06X",$trid);
-print qq!<tr>\n!;
-print qq!<td colspan="2">\n!;
-print qq!<input type="hidden" name="transaction" value="$newtrid">\n!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
-}
-
-print qq!<tr>\n!;
-print qq!<td colspan="3" align="left">\n!;
-print qq!Daca umbli cu ganduri curate, stii ca <font color="yellow">$question_auc</font>  egal !;
-print qq!<input type="text" name="answer" size="8"> (in cifre)<br><br>\n!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
-
-print qq!<tr>\n!;
-print qq!<td align="left" valign="middle">\n!;
-print qq!<font color="yellow">nickname:</font>!;
-print qq!</td>\n!;
-print qq!<td align="left" colspan="2">\n!;
-print qq!<input type="text" name="nick" size="25">!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
-
-print qq!<tr>\n!;
-print qq!<td valign="middle" align="left">\n!;
-print qq!<font color="yellow">Comentariu:</font>!;
-print qq!</td>\n!;
-
-print qq!<td align="left" colspan="2">\n!;
-print qq!<textarea name="subtxt" rows="5" cols="50" wrap="soft"></textarea>!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
-
-print qq!<tr>\n!;
-print qq!<td colspan="3" align="left">\n!;
-#CUSTOM
-print qq!Cum vedeti valoarea site-ului:!; #unique and hardcoded question, ugly choice
-print qq!<select size="1" name="rating">\n!;
-
-print qq!<option value="0" selected="y">NO COMMENT</option>\n!;
-print qq!<option value="1"> o stea(site jalnic)</option>\n!;
-print qq!<option value="2"> 2 stele(site mediocru)</option>\n!;
-print qq!<option value="3"> 3 stele(nu iese din rand)</option>\n!;
-print qq!<option value="4"> 4 stele (cu ceva peste medie)</option>\n!;
-print qq!<option value="5"> 5 stele(imi place, mai trec pe aici)</option>\n!;
-
-print qq!</select>\n!;
-print qq!</td>\n!;
-print qq!</tr>\n!;
-
-print qq!<tr>\n!;
-print qq!<td valign="top">\n!;
-print qq!<center><INPUT type="submit"  value="Trimite"> </center>\n!;
-print qq!</td>\n!;
-print qq!<td valign="top">\n!;
-print qq!<center><INPUT type="reset"  value="Reset"> </center>\n!;
-print qq!</form>\n!;
-print qq!</td>\n!;
-
-print qq!<td valign="top">\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="Abandon"></center>\n!; 
-print qq!</form>\n!;
-print qq!</td>\n!;
-
-print qq!</tr>\n!;
-print qq!</table>\n!;
-
-
- #se deschide fisierul cu inregistrari, read-only 
-open(ttFILE,"<","db_tt");
-seek(ttFILE,0,0);
-@dbtt=<ttFILE>;   #we slurp the whole file into an array
-
-print qq!<table border="1" width="90%">\n!;
-
-
-my $backgnd;
-$backgnd="\#d3d3d3";
-
-#se parcurge fisierul de-andoaselea si se afiseaza toate inregistrarile de guestbook
-for(my $i=($#dbtt+1)/4;$i>0;$i--)
-{
-chomp $dbtt[$i*4-3];
-if($dbtt[$i*4-3] < 6)     #if it's a guestbook record
-{
-if($backgnd eq "\#d3d3d3") {$backgnd="\#ADD8E6";}
-else {$backgnd="\#d3d3d3";}
-print qq!<tr>\n!;
-print qq!<td bgcolor="$backgnd" align="left">\n!;
-
-print qq!<font color="black"><b>$dbtt[$i*4-4]</b></font>&nbsp;!;  #print nick
-
-
-for (my $istar=0; $istar < $dbtt[$i*4-3]; $istar++)
-{print qq!<IMG src="http://localhost/img/star.gif" WIDTH="15">\n!;
-}
-
-print qq!<font color="black" size="-1">$dbtt[$i*4-2]</font><br>\n!;
-unless ($dbtt[$i*4-1] eq "\n") {
-print qq!<font color="blue" size="-1">YO6OWN: $dbtt[$i*4-1]</font><br>!;
-                               }
-print qq!</td>\n!;
-print qq!</tr>\n!;                              
-} #.end it's a guestbook record
-} #.end for/4
-#----------------------
-
-print qq!</table>\n!;
-print qq!</center>\n!;
-
-
- #se inchide html
-  print qq!</body>\n</html>\n!;
- #se inchide fisierul cu inregistrari
-close(ttFILE);
- 
-  
-  } #.end guestbook first call
-  else {dienice("ERR01",1,\"received type is $get_type");} #hacker attack, type is only  0,1,2
  } #.end first call solve
+
 else #it's not a first call, it must have a transaction-based handling
 {
 if ((defined $get_trid) && ($get_nick =~ /\w+/) && ($get_text =~ /\w+/))  #once ore more non-whitespace characters
@@ -599,7 +453,7 @@ if((legal($get_text) eq 1) and (legal($get_nick)))
  $get_text="<font color=green> ($stringtime) </font><br>$get_text";
 
 if(($trid_type eq 0) or ($trid_type eq 1)) #general troubleticket form 
-                    {addrec($get_nick,6,$get_text);
+                    {addrec($get_nick,6,$get_text); #6 is ticket, 1 to 5 are threat levels for internal logging
                     print qq!<center>\n!;
                     print qq!<INPUT TYPE="submit" value="OK"><br>\n!;
                     print qq!Hint: Poti sa revii de aici in pagina anterioara pentru a propune o noua notificare, apasand de doua ori sageata inapoi  <==  in browserul web. \n!;
@@ -607,13 +461,7 @@ if(($trid_type eq 0) or ($trid_type eq 1)) #general troubleticket form
                     print qq!</form>\n!; 
                     print qq!</body>\n</html>\n!;
                     }
-elsif(($trid_type eq 2) and (defined $get_rating) )#guestbook
-                    {
-                    addrec($get_nick,$get_rating,$get_text);
-                    print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-                    print qq!</form>\n!; 
-                    print qq!</body>\n</html>\n!;
-                    } 
+
                     else {dienice("ERR02",0,\"null"); } 
 }
 #else there are words in the banned list
@@ -894,7 +742,7 @@ my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
-#### patch for mailer implementation from v 3.0.d ######
+#### patch for mailer implementation from v 3.0.e ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
 #print MAIL "From: $admin_email\n";
 #print MAIL "To: $target_email\n";
@@ -918,7 +766,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.0.d\n!; #version print for easy upload check
+print qq!v 3.0.e\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -991,8 +839,8 @@ my %pub_errors= (
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
-              "ERR01" => "illegal get_type, not 0/1/2",    #test ok
-              "ERR02" => "rating sau lipsa optiune in guestbook",           #test ok
+              "ERR01" => "illegal get_type, not 0/1",    #test ok
+              "ERR02" => "trid_type nu e 0 sau 1, ciudat",           #test ok
               "ERR03" => "cuvinte ilegale",             #test ok
               "ERR04" => "humanity test failed",
               "ERR05" => "form expired",
@@ -1042,7 +890,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 #ins_gpl(); #this must exist, but not for tool_admintt.cgi
-print qq!v 3.0.d\n!; #version print for easy upload check
+print qq!v 3.0.e\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
