@@ -1,4 +1,4 @@
-Legislatie, clasa III v.3.32 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_CEPT_reg</curricula></font>
+Legislatie, clasa III v.3.33 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_CEPT_reg</curricula></font>
 122
 ##0#
 d
@@ -604,8 +604,8 @@ null
 a
 03A3230~&Din ce litere si cifre este alcatuit un indicativ al unei statii de emisie-receptie individuale de radioamator?
 null
-YO - indicativul tarii, urmat de o cifra ce simbolizeaza districtul radio(zona), urmat de doua sau trei litere, sufixul unic al unui radioamator
-YR - indicativul tarii, urmat de o cifra ce simbolizeaza districtul radio(zona), urmat de doua sau trei litere, sufixul unic al unui radioamator
+YO - indicativul tarii, urmat de o cifra ce simbolizeaza zona(districtul radio), urmat de doua sau trei litere, sufixul unic al unui radioamator
+YR - indicativul tarii, urmat de o cifra ce simbolizeaza zona(districtul radio), urmat de doua sau trei litere, sufixul unic al unui radioamator
 YO - indicativul tarii, urmat de o bara de fractie, urmata de doua sau trei litere, sufixul unic al unui radioamator
 YO - indicativul tarii, urmat de trei cifre, sufixul unic al unui radioamator
 YO6OWN, 2014
@@ -626,7 +626,7 @@ null
 
 ##52#
 a
-01C3231~&Ce este o zona de indicative de apel, denumit in mod uzual "district"?
+01C3231~&Ce este o zona de indicative de apel, denumit si "district"?
 null
 Este o zona geografica ce cuprinde mai multe judete adiacente carora ii este atribuita prin regulament o anumita cifra de zona.
 Este o zona geografica de acoperire radio, adica zona celor care receptioneaza un apel.
@@ -634,9 +634,9 @@ Este o zona geografica de acoperire radio, adica zona celor care raspund unui ap
 Este zona geografica a indicativelor cu acelasi prefix.
 YO6OWN, 2014
 null
-
-
-##53#
+Zona sau in denumire mai veche, district, este o arie geografica compusa din mai multe judete adiacente; Mai mai multe zone adiacente sunt arondate unei directii teritoriale a ANCOM, Bucuresti, Iasi, Cluj, Timis.
+YO6OWN, 2018
+##52#
 a
 02A3231~&Cum ne dam seama din ce zona geografica a tarii este o statie de radioamator sau club daca ii stim indicativul?
 null

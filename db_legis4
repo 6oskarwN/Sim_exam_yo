@@ -1,4 +1,4 @@
-Legislatie, clasa a IV-a v.3.31  versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_CEPT_Entry_reg</curricula></font>
+Legislatie, clasa a IV-a v.3.32  versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#E6E6FA"><curricula>prog_CEPT_Entry_reg</curricula></font>
 62
 ##0#
 a
@@ -352,8 +352,8 @@ null
 a
 04A283~&Din ce litere si cifre este alcatuit un indicativ al unei statii de emisie-receptie individuale de radioamator?
 null
-YO - indicativul tarii, urmat de o cifra ce simbolizeaza districtul radio(zona), urmat de doua sau trei litere, sufixul unic al unui radioamator
-YR - indicativul tarii, urmat de o cifra ce simbolizeaza districtul radio(zona), urmat de doua sau trei litere, sufixul unic al unui radioamator
+YO - indicativul tarii, urmat de o cifra ce simbolizeaza zona(districtul radio), urmat de doua sau trei litere, sufixul unic al unui radioamator
+YR - indicativul tarii, urmat de o cifra ce simbolizeaza zona(districtul radio), urmat de doua sau trei litere, sufixul unic al unui radioamator
 YO - indicativul tarii, urmat de o bara de fractie, urmata de doua sau trei litere, sufixul unic al unui radioamator
 YO - indicativul tarii, urmat de trei cifre, sufixul unic al unui radioamator
 YO6OWN, 2014
@@ -374,7 +374,7 @@ null
 
 ##31#
 a
-06A283~&Ce este o zona de indicative de apel, denumit in mod uzual "district"?
+01C3231~&Ce este o zona de indicative de apel, denumit si "district"?
 null
 Este o zona geografica ce cuprinde mai multe judete adiacente carora ii este atribuita prin regulament o anumita cifra de zona.
 Este o zona geografica de acoperire radio, adica zona celor care receptioneaza un apel.
@@ -382,9 +382,9 @@ Este o zona geografica de acoperire radio, adica zona celor care raspund unui ap
 Este zona geografica a indicativelor cu acelasi prefix.
 YO6OWN, 2014
 null
-
-
-##32#
+Zona sau in denumire mai veche, district, este o arie geografica compusa din mai multe judete adiacente; Mai mai multe zone adiacente sunt arondate unei directii teritoriale a ANCOM, Bucuresti, Iasi, Cluj, Timis.
+YO6OWN, 2018
+##52#
 a
 07A283~&Cum ne dam seama din ce zona geografica a tarii este o statie de radioamator sau club daca ii stim indicativul?
 null
@@ -646,8 +646,8 @@ se atribuie altele si sufixul vechi nu se poate aloca o perioada de 5 ani
 se schimba
 YO6OWN 2014
 null
-
-
+Aceasta intrebare cu pastrarea sufixului exista fiindca in regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizatiei de radioamator se vor pastra de-a lungul intregii perioade de valabilitate a acesteia, inclusiv in situatia schimbarii domiciliului". Era o facilitate pentru radioamator si o comoditate pentru ANCOM sa nu schimbe sufixul.<br>In legislatia in vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate speram ca aceasta practica va ramane neschimbata dar legal, ANCOM nu are nicio obligatie.
+Georgina28 2018
 ##54#
 a
 04A298~&Ce se intampla cu sufixele de indicativ(cele 2 sau 3 litere) in cazul schimbarii domiciliului in zona altei Directii Teritoriale ANCOM?
@@ -658,8 +658,8 @@ se atribuie altele si sufixul vechi nu se poate aloca o perioada de 5 ani
 se schimba
 YO6OWN 2014
 null
-
-
+Aceasta intrebare cu pastrarea sufixului exista fiindca in regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizatiei de radioamator se vor pastra de-a lungul intregii perioade de valabilitate a acesteia, inclusiv in situatia schimbarii domiciliului". Era o facilitate pentru radioamator si o comoditate pentru ANCOM sa nu schimbe sufixul.<br>In legislatia in vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate speram ca aceasta practica va ramane neschimbata dar legal, ANCOM nu are nicio obligatie.
+Georgina28 2018
 ##55#
 c
 09A281~&Ce este ora UTC, folosita la notarea radiolegaturii in log?
