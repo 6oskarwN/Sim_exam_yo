@@ -35,7 +35,7 @@
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
 #  sim_gen1.cgi v 3.3.2
-#  Status: devel
+#  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
@@ -74,7 +74,6 @@
 
 use strict;
 use warnings;
-#use Data::Dumper;		#for debug only
 sub ins_gpl;                    #inserts a HTML preformatted text with the GPL license text
 
 my $get_trid;                   #transaction ID from GET data
@@ -886,7 +885,7 @@ sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
 
-my $timestring=localtime(time);
+my $timestring=gmtime(time);
 
 #textul pentru public
 my %pub_errors= (
@@ -946,10 +945,10 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_gen1.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_gen1.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-if($error_code eq 'ERR20') #must be silently discarded
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
 print qq!Content-type: text/html\n\n!;

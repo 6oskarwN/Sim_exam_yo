@@ -35,7 +35,7 @@
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
 #  sim_authent.cgi v 3.2.5 
-#  Status: devel
+#  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
@@ -955,8 +955,8 @@ return($timediff);  #here is the general return
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
-chomp $err_reference;
-my $timestring=localtime(time);
+
+my $timestring=gmtime(time);
 
 #textul pentru public
 my %pub_errors= (
@@ -1016,10 +1016,10 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_authent.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_authent.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-if($error_code eq 'ERR20') #must be silently discarded with Status 204 which fo$
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
 print qq!Content-type: text/html\n\n!;
@@ -1036,13 +1036,13 @@ ins_gpl(); #this must exist
 print qq!v 3.2.5\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
-print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne notificati prin sistemul de raportare.</center>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
 print qq!</body>\n</html>\n!;
                               }
 }
+
 exit();
 
 } #end sub

@@ -30,12 +30,12 @@
 #public authority(similar to FCC in USA) so any use of the official questions, other than
 #in Read-Only way, is prohibited. 
 
-#  Made in Romania
+# Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
 #  sim_ver3.cgi v 3.2.4
-#  Status: devel
+#  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
@@ -70,8 +70,7 @@
 
 use strict;
 use warnings;
-
-sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
+sub ins_gpl;                    #inserts a HTML preformatted text with the GPL license text
 
 #-hash table for response retrieving
 my %answer=();		#hash used for depositing the answers
@@ -879,12 +878,12 @@ return($timediff);  #here is the general return
 #$error_code is a string, you see it, this is the text selector
 #$counter: if it is 0, error is not logged. If 1..5 = threat factor
 #reference is the reference to string that is passed to be logged.
+#ERR19 and ERR20 have special handling
 
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
 
-#my $timestring=localtime(time);
 my $timestring=gmtime(time);
 
 #textul pentru public
@@ -945,7 +944,7 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_ver3.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_ver3.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
 if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
@@ -968,14 +967,13 @@ print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
-#print qq!<center>In situatiile de congestie, incercati din nou in cateva momente.<br> In situatia in care erorile persista va rugam sa ne contactati pe e-mail, pentru explicatii.</center>\n!;
 print qq!</body>\n</html>\n!;
                               }
 }
+
 exit();
 
 } #end sub
-
 #--------------------------------------
 sub ins_gpl
 {
@@ -1013,4 +1011,3 @@ print qq!Made in Romania\n!;
 print qq+-->\n+;
 
 }
-

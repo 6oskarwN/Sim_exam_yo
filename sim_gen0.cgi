@@ -30,13 +30,14 @@
 #public authority(similar to FCC in USA) so any use of the official questions, other than
 #in Read-Only way, is prohibited. 
 
-#Made in Romania
+# Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
 #  sim_gen0.cgi v 3.2.4
-#  Status: devel
+#  Status: working
 #  This is a module of the online radioamateur examination program
+#  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 # ch 3.2.4 compute_mac() changed from MD5 to SHA1
@@ -57,8 +58,7 @@
 
 use strict;
 use warnings;
-
-sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
+sub ins_gpl;                    #inserts a HTML preformatted text with the GPL license text
 
 # for refreshing transaction list
 my @tridfile;
@@ -397,7 +397,7 @@ sub random_int($)
 sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
-#my $timestring=localtime(time);
+
 my $timestring=gmtime(time);
 
 #textul pentru public
@@ -458,10 +458,9 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_gen0.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_gen0.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-
 if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
@@ -497,7 +496,7 @@ exit();
 
 sub timestamp_expired
 {
-use Time::Local;
+use Time::Local; #library name
 
 my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
 

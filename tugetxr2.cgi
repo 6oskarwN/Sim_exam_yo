@@ -1,10 +1,43 @@
 #!c:\Perl\bin\perl
 
+#Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
+#problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
+#constituie un pachet software gratuit care poate fi distribuit/modificat in termenii 
+#licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in 
+#versiunea 2 sau intr-o versiune ulterioara. Programul, intrebarile si raspunsurile sunt 
+#distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, 
+#sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.
+#Utilizatorul programului, manualelor, codului sursa si utilitarelor are toate drepturile
+#descrise in licenta publica GPL.
+#In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a 
+#licentei GNU GPL, de asemenea si versiunea in limba romana, iar daca nu, ea poate fi
+#descarcata gratuit de pe pagina http://www.fsf.org/
+#Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, 
+#nefacand obiectul licentierii GNU GPL, copyrightul fiind al statului roman, dar 
+#fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile 
+#de interes public precum al legii 109/2007 privind reutilizarea informatiilor din
+#institutiile publice.
+
+#This program together with question database formatting, solutions to problems, manuals, 
+#documentation, sourcecode and utilities is a  free software; you can redistribute it 
+#and/or modify it under the terms of the GNU General Public License as published by the 
+#Free Software Foundation; either version 2 of the License, or any later version. This 
+#program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY or
+#without any implied warranty. See the GNU General Public License for more details. 
+#You should have received a copy of the GNU General Public License along with this software
+#distribution; if not, you can download it for free at http://www.fsf.org/ 
+#Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian
+#public authority(similar to FCC in USA) so any use of the official questions, other than
+#in Read-Only way, is prohibited. 
+
+# Made in Romania
+
+# (c) YO6OWN Francisc TOTH, 2008 - 2018
+
 #  tugetxr2.cgi v 3.2.1 (c)2007 Francisc TOTH
-#  status: under development
+#  Status: working
 #  This is a module of the online radioamateur examination program
-#  "sim eXAM", created for YO6KXP ham-club located in Sacele, ROMANIA
-#  All rights reserved by YO6OWN Francisc TOTH
+#  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 # ch 3.2.1 - md5 changed to sha1 in compute_mac()
@@ -197,7 +230,6 @@ sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
 
-#my $timestring=localtime(time);
 my $timestring=gmtime(time);
 
 #textul pentru public
@@ -258,10 +290,10 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: tugetxr2.cgi\<br\>  %s: %s \<br\> Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: tugetxr2.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 }
-if($error_code eq 'ERR20') #must be silently discarded with Status 204 which fo$
+if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
 print qq!Content-type: text/html\n\n!;
@@ -284,6 +316,7 @@ print qq!</form>\n!;
 print qq!</body>\n</html>\n!;
                               }
 }
+
 exit();
 
 } #end sub
