@@ -515,7 +515,8 @@ sub legal
 {
 #lower-case dictionary, enough
 my @dictionary=(
-              'regexp',  #regular expression allowed
+              'regexp',  #regular expression should not be allowed
+              '\.{2}\/',      #fara ../.. sau alte navigari prin directoare
               'sex',
               'porn',    #denied by awardspace.com
               'proxy',   #denied by awardspace.com
