@@ -34,29 +34,30 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_register.cgi v 3.2.5
+#  sim_register.cgi v 3.2.6
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-# ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash
+# ch 3.2.6 extended registration period from 7 days to 14 days to observe the impact on user retention
+# ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash for https://github.com/6oskarwN/Sim_exam_yo/issues/11
 # ch 3.2.4 integrated sub timestamp_expired(); epoch replacing utc_time
 # ch 3.2.3 changed next_login_time from 0 0 0 0 0 0 to 0 0 0 1 0 0
-# ch 3.2.2 implemented silent discard Status 204
+# ch 3.2.2 implemented silent discard Status 204 for https://github.com/6oskarwN/Sim_exam_yo/issues/5
 # ch 3.2.1 deploy latest dienice()
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
-# ch 3.0.5 table sync dupa sim_ver0 v 0.0.8
+# ch 3.0.5 table sync after sim_ver0 v 0.0.8
 # ch 3.0.4 ANRCTI replaced by ANCOM
-# ch 3.0.3 inlocuit buton "window" cu form method="link"
+# ch 3.0.3 change "window" button with form method="link"
 # ch 3.0.2 - slash permitted again, for development purpose
-# ch 3.0.1 eliminam / din caracterele ce pot forma login-ul
-# ch 3.0.0 butonul de la OK face direct request de autentificare la authent.cgi(ad-hoc improvement idea)
+# ch 3.0.1 login-ul should not contain '/' character
+# ch 3.0.0 OK button redirects from registration to authentication (ad-hoc improvement idea)
 # ch 0.0.7 fixed trouble ticket 26
 # ch 0.0.6 forestgreen and aquamarine colors changed to hex value
 # ch 0.0.5 W3C audit passed
 # ch 0.0.4 solved trouble ticket nr.7
-# ch 0.0.3 solved trouble ticket nr.1
+# ch 0.0.3 solved trouble ticket nr.1 
 # ch 0.0.2 solved trouble ticket nr. 4
 # ch 0.0.1 generated from sim_register.cgi v.0.1.9, a HAM-eXam component
 
@@ -398,7 +399,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.5\n!; #version print for easy upload check
+print qq!v 3.2.6\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -541,7 +542,7 @@ close (transactionFILE) or dienice("ERR07",1,\"err07-3");
 
 #BLOCK: re/write new user record
 {
-my $new_expiry; #generat
+my $new_expiry; #generate for new user
 
 #ACTION: open user account file
 open(userFILE,"+< sim_users") or dienice("ERR06",1,\"err06-3");	#open user file for writing
@@ -549,12 +550,11 @@ open(userFILE,"+< sim_users") or dienice("ERR06",1,\"err06-3");	#open user file 
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 
-#ACTION: generate account expiry time = +7 days from now
-my $epochExpire = $epochTime + 604800;		#7 * 24* 60*60  
+#ACTION: generate account expiry time = +14 days from now
+my $epochExpire = $epochTime + 1209600;		#CUSTOM 14 * 24* 60*60  
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
-
-
 $new_expiry = "$exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #\n is important
+
 my $passHash=compute_mac($post_passwd1);
 #ACTION: Append new record
 @slurp_userfile = (@slurp_userfile,"$post_login\n"); #add login
@@ -562,8 +562,8 @@ my $passHash=compute_mac($post_passwd1);
 @slurp_userfile = (@slurp_userfile,"$passHash\n"); #add password
 @slurp_userfile = (@slurp_userfile,"0\n"); #add unsuccessful login attempts
 @slurp_userfile = (@slurp_userfile,$new_expiry); #add account expiry time
-@slurp_userfile = (@slurp_userfile,"$post_tipcont\n"); #add tip cont
-@slurp_userfile = (@slurp_userfile,"0\n"); #add ultima clasa obtinuta
+@slurp_userfile = (@slurp_userfile,"$post_tipcont\n"); #add account type
+@slurp_userfile = (@slurp_userfile,"0\n"); #add last awarded class - init:0
 
 #ACTION: hard-rewrite userfile
 truncate(userFILE,0);			#
@@ -583,7 +583,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.5\n!; #version print for easy upload check
+print qq!v 3.2.6\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 
@@ -720,7 +720,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.5\n!; #version print for easy upload check
+print qq!v 3.2.6\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

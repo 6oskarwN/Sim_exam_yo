@@ -34,13 +34,15 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_authent.cgi v 3.2.5 
+#  sim_authent.cgi v 3.2.6 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
 
+
+# ch 3.2.6 extended registration period from 7 days to 14 days to observe the impact on user retention
 # ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash
 # ch 3.2.4 simplify by replacing timestamp calculation with epoch
 # ch 3.2.3 integrated sub timestamp_expired()
@@ -49,29 +51,29 @@
 # ch 3.2.0 fix the https://github.com/6oskarwN/Sim_exam_yo/issues/3
 # ch 3.1.1 make it slim: all error calls, logged or not in cheat_log are made as call to sub dienice{}
 #          +dienice made with 2 explanation list for errorcodes, internal and for public 
-# ch 3.1.0 eliminata referinta la manual, nu era necesara.
-# ch 3.0.f inlocuit window-button cu method="link" button
-# ch 3.0.e am explicat la legenda acoperirea cu intrebari
-# ch 3.0.d @slash@ replaces / corect, acum
+# ch 3.1.0 manual reference deleted, not neccessary.
+# ch 3.0.f exchanged window-button with method="link" button
+# ch 3.0.e curricula coverage explained
+# ch 3.0.d @slash@ replaces / correctly, now
 # ch 3.0.c @slash@ replaces /
-# ch 3.0.b radio butonul nu se mai afiseaza deloc
-# ch 3.0.a solved a minor trouble
-# ch 3.0.9 nu se vede diferit checkbox=off fata de on, cel off schimbat cu buton radio disable
+# ch 3.0.b radio buttonul not displayed - solved
+# ch 3.0.a solved a minor error
+# ch 3.0.9 solved minor error
 # ch 3.0.8 implemented a converging functionality Convergenta(TM)
 # ch 3.0.7 corrected custom bug
-# ch 3.0.6 explicatii pentru super-incepatori
-# ch 3.0.5 evidentiat subcapitolele cu erori
-# ch 3.0.4 merge pentru clasele 1-4
-# ch 3.0.3 la fiecare sf. de capitol de programa link UP la o ancora #begin.
-# ch 3.0.2 afisarea programei, cu "acoperiri", customizat pt clasa 1 doar
-# ch 3.0.1 avem o afisare a programei(din 4 sau 3 bucati, dupa clasa)
+# ch 3.0.6 explanations for first-timers
+# ch 3.0.5 curricula chapters with misses highlighted
+# ch 3.0.4 works for classes 1-4
+# ch 3.0.3 At each chapter end we have a link upwards
+# ch 3.0.2 display of curricula as covered by hits and misses
+# ch 3.0.1 display of curricula implemented(3 or 4 parts as needed per class)
 # ch 3.0.0 delete hlr-file when user expires
 # ch 0.0.9 fixed trouble ticket 26
 # ch 0.0.8 fixed trouble ticket 28
 # ch 0.0.7 fixed trouble ticket 9
 # ch 0.0.6 forestgreen and aquamarine were changed to hex values
 # ch 0.0.5 W3C audit passed
-# ch 0.0.4 specificat cine este examinatorul = cel care a creat contul
+# ch 0.0.4 specified who gives the exam = the creator of the account
 # ch 0.0.3 fixed trouble ticket 2
 # ch 0.0.2 fixed trouble ticket 3 
 # ch 0.0.1 generated from authent.cgi vers 0.1.10 
@@ -347,8 +349,8 @@ dienice("ERR06",1,\"null");
 
 #BLOCK:Reset expiry
 {
-#ACTION: generate account expiry time = +7 days from now
-my $epochExpire = $epochTime + 604800;		#7 * 24* 60*60  
+#ACTION: generate account expiry time = +14 days from now
+my $epochExpire = $epochTime + 1209600;		#CUSTOM 14 * 24* 60*60  
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 my $entry = "$exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #\n is important
 
@@ -521,7 +523,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.5\n!; #version print for easy upload check
+print qq!v 3.2.6\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -962,7 +964,7 @@ my $timestring=gmtime(time);
 my %pub_errors= (
               "ERR01" => "primire de  date corupte.",
               "ERR02" => "primire de date corupte",
-              "ERR03" => "Credentiale incorecte.<br><br>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 7 zile, contul tau s-a sters automat",
+              "ERR03" => "Credentiale incorecte.<br><br>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat", #CUSTOM nr zile
               "ERR04" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
               "ERR05" => "Autentificare imposibila cu credentialele furnizate",
               "ERR06" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
@@ -1033,7 +1035,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.5\n!; #version print for easy upload check
+print qq!v 3.2.6\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
