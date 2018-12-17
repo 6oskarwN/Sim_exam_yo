@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  tool_admintt.cgi v 3.2.2 (c)2007 - 2018 Francisc TOTH
+#  tool_admintt.cgi v 3.2.3 (c)2007 - 2018 Francisc TOTH
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.2 MD5 changed to sha1 in compute_mac() 
 # ch 3.2.1 implemented silent discard Status 204
 # ch 3.2.0 implement admin authentication using an md5 token, guestbook should be alliminated
@@ -175,12 +176,12 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v 3.2.2</title>\n!;
+print qq!<title>ticket listing v 3.2.3</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="black" link="white" alink="white" vlink="white">\n!;
 
 print qq!<center>\n!;
-print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v 3.2.2 for examYO &copy; YO6OWN, 2007-2018</font><br>\n!;
+print qq![ex-Guestbook & ]<font color="white">Troubleticket administration v 3.2.3 for examYO &copy; YO6OWN, 2007-2018</font><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/tool_admintt.cgi" method="post">\n!;
 
 print qq!<table border="1" width="90%">\n!;
@@ -273,7 +274,7 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v 3.2.2</title>\n!;
+print qq!<title>ticket listing v 3.2.3</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="gray" text="black" link="white" alink="white" vlink="white">\n!;
 
@@ -400,8 +401,8 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "silent logging, not displayed",
-              "ERR20" => "silent discard, not displayed"
+              "ERR19" => "error not displayed",
+              "ERR20" => "silent discard"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -423,8 +424,8 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "silent logging",
-              "ERR20" => "silent discard, not logged"
+              "ERR19" => "silent logging(if $counter>0), not displayed",
+	      "ERR20" => "silent discard,(logged only if $counter>0)"
                 );
 
 
@@ -432,6 +433,21 @@ my %int_errors= (
 if($counter > 0)
 {
 # write errorcode in cheat_file
+
+# count the number of lines in the db_tt by counting the '\n'
+# open read-only the db_tt
+my $CountLines = 0;
+my $filebuffer;
+#TBD - flock to be analysed if needed or not on the read-only count
+           open(DBFILE,"< db_tt") or die "Can't open db_tt";
+           while (sysread DBFILE, $filebuffer, 4096) {
+               $CountLines += ($filebuffer =~ tr/\n//);
+           }
+           close DBFILE;
+
+#CUSTOM limit db_tt writing to max number of lines (4 lines per record) 
+if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
+{
 #ACTION: append cheat symptoms in cheat file
 open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
@@ -440,7 +456,9 @@ seek(cheatFILE,0,2);		#go to the end
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: tool_admintt.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
-}
+} #.end max number of lines
+} #.end $counter>0
+
 if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
@@ -455,7 +473,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.2\n!; #version print for easy upload check
+print qq!v 3.2.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

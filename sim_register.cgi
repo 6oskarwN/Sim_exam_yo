@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  sim_register.cgi v 3.2.6
+#  sim_register.cgi v 3.2.7
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.7 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.6 extended registration period from 7 days to 14 days to observe the impact on user retention
 # ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash for https://github.com/6oskarwN/Sim_exam_yo/issues/11
 # ch 3.2.4 integrated sub timestamp_expired(); epoch replacing utc_time
@@ -399,7 +400,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.6\n!; #version print for easy upload check
+print qq!v 3.2.7\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -583,7 +584,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.6\n!; #version print for easy upload check
+print qq!v 3.2.7\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 
@@ -665,8 +666,8 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "silent logging, not displayed",
-              "ERR20" => "silent discard, not displayed"
+              "ERR19" => "error not displayed",
+              "ERR20" => "silent discard"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -688,8 +689,8 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "silent logging",
-              "ERR20" => "silent discard, not displayed"
+              "ERR19" => "silent logging(if $counter>0), not displayed",
+	      "ERR20" => "silent discard,(logged only if $counter>0)"
                 );
 
 
@@ -697,6 +698,21 @@ my %int_errors= (
 if($counter > 0)
 {
 # write errorcode in cheat_file
+
+# count the number of lines in the db_tt by counting the '\n'
+# open read-only the db_tt
+my $CountLines = 0;
+my $filebuffer;
+#TBD - flock to be analysed if needed or not on the read-only count
+           open(DBFILE,"< db_tt") or die "Can't open db_tt";
+           while (sysread DBFILE, $filebuffer, 4096) {
+               $CountLines += ($filebuffer =~ tr/\n//);
+           }
+           close DBFILE;
+
+#CUSTOM limit db_tt writing to max number of lines (4 lines per record) 
+if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
+{
 #ACTION: append cheat symptoms in cheat file
 open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
@@ -705,7 +721,9 @@ seek(cheatFILE,0,2);		#go to the end
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: sim_register.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
-}
+} #.end max number of lines
+} #.end $counter>0
+
 if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
@@ -720,7 +738,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.2.6\n!; #version print for easy upload check
+print qq!v 3.2.7\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

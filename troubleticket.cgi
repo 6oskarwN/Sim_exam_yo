@@ -34,13 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  troubleticket.cgi v 3.0.e
+#  troubleticket.cgi v 3.0.f
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-
+# ch 3.0.f solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.0.e deleted the old guestbook logging and displaying since is unused and could display internal logs to anyone.
 # ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired(); dienice; silent logging; SHA1 mac
 # ch 3.0.c Admin: changed to YO6OWN
@@ -95,7 +95,7 @@ my @dbtt;   #this is the slurp variable
 ## Change the address above to your e-mail address. Make sure to KEEP the \
 #my $target_email="yo6own\@yahoo.com";
 ## Change the address above to your e-mail address. Make sure to KEEP the \
-#### .end of mailer patch v 3.0.e #####
+#### .end of mailer patch v 3.0.f #####
 
 
 #intermediate variables
@@ -209,7 +209,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.e</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.f</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
   print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -349,7 +349,7 @@ close(ttFILE);
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.e</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.0.f</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -752,7 +752,7 @@ my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
-#### patch for mailer implementation from v 3.0.e ######
+#### patch for mailer implementation from v 3.0.f ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
 #print MAIL "From: $admin_email\n";
 #print MAIL "To: $target_email\n";
@@ -776,7 +776,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.0.e\n!; #version print for easy upload check
+print qq!v 3.0.f\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
@@ -845,8 +845,8 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "silent logging, not displayed",
-              "ERR20" => "silent discard, not displayed"
+              "ERR19" => "error not displayed",
+              "ERR20" => "silent discard"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -868,8 +868,8 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "silent logging",
-              "ERR20" => "silent discard, not logged"
+              "ERR19" => "silent logging(if $counter>0), not displayed",
+	      "ERR20" => "silent discard,(logged only if $counter>0)"
                 );
 
 
@@ -877,6 +877,21 @@ my %int_errors= (
 if($counter > 0)
 {
 # write errorcode in cheat_file
+
+# count the number of lines in the db_tt by counting the '\n'
+# open read-only the db_tt
+my $CountLines = 0;
+my $filebuffer;
+#TBD - flock to be analysed if needed or not on the read-only count
+           open(DBFILE,"< db_tt") or die "Can't open db_tt";
+           while (sysread DBFILE, $filebuffer, 4096) {
+               $CountLines += ($filebuffer =~ tr/\n//);
+           }
+           close DBFILE;
+
+#CUSTOM limit db_tt writing to max number of lines (4 lines per record) 
+if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
+{
 #ACTION: append cheat symptoms in cheat file
 open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
@@ -885,7 +900,9 @@ seek(cheatFILE,0,2);		#go to the end
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: troubleticket.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error in$
 close(cheatFILE);
-}
+} #.end max number of lines
+} #.end $counter>0
+
 if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;
@@ -900,7 +917,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.0.e\n!; #version print for easy upload check
+print qq!v 3.0.f\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

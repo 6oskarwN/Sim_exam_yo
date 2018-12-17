@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  tool_checker2.cgi v.3.3.0 (c)2007-2017 Francisc TOTH
+#  tool_checker2.cgi v 3.3.1 (c)2007-2017 Francisc TOTH
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+#ch 3.3.1 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 #ch 3.3.0 junk input whitelist updated
 #ch 3.0.5 curricula coverage sourced from strip.pl
 #ch 3.0.4 minor comments changed
@@ -100,7 +101,7 @@ print qq!<title>Probleme si Rezolvari: $get_filename</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#E6E6FA" text="black" link="blue" alink="blue" vlink="blue">\n!;
 
-print qq!<font color="blue">v.3.3.0</font>\n<br>\n!;
+print qq!<font color="blue">v 3.3.1</font>\n<br>\n!;
 
 print qq!<i>Aceasta este o afisare a bazelor de date folosite de programul SimEx, un simulator de examen de radioamatori<br>Acest program este un software gratuit, poate fi distribuit/modificat in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o veriune ulterioara.<br>Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.<br>In distributia programului SimEx trebuie sa gasiti o copie a licentei GNU GPL, iar daca nu, ea poate fi descarcata gratuit de pe pagina <a href="http://www.fsf.org" target="_new">http://www.fsf.org</a><br>Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind permisa. Acest lucru deriva din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.</i><br>\n!;
 
@@ -339,8 +340,8 @@ my %pub_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "silent logging, not displayed",
-              "ERR20" => "silent discard, not displayed"
+              "ERR19" => "error not displayed",
+              "ERR20" => "silent discard"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
@@ -362,8 +363,8 @@ my %int_errors= (
               "ERR16" => "reserved",
               "ERR17" => "reserved",
               "ERR18" => "reserved",
-              "ERR19" => "silent logging",
-              "ERR20" => "silent discard, not logged"
+              "ERR19" => "silent logging(if $counter>0), not displayed",
+	      "ERR20" => "silent discard,(logged only if $counter>0)"
                 );
 
 
@@ -371,6 +372,21 @@ my %int_errors= (
 if($counter > 0)
 {
 # write errorcode in cheat_file
+
+# count the number of lines in the db_tt by counting the '\n'
+# open read-only the db_tt
+my $CountLines = 0;
+my $filebuffer;
+#TBD - flock to be analysed if needed or not on the read-only count
+           open(DBFILE,"< db_tt") or die "Can't open db_tt";
+           while (sysread DBFILE, $filebuffer, 4096) {
+               $CountLines += ($filebuffer =~ tr/\n//);
+           }
+           close DBFILE;
+
+#CUSTOM limit db_tt writing to max number of lines (4 lines per record) 
+if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
+{
 #ACTION: append cheat symptoms in cheat file
 open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
@@ -379,7 +395,9 @@ seek(cheatFILE,0,2);		#go to the end
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
 printf cheatFILE "\<br\>reported by: tool_checker2.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
-}
+} #.end max number of lines
+} #.end $counter>0
+
 if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
 {
 print qq!Status: 204 No Content\n\n!;

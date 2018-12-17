@@ -33,15 +33,14 @@
 # Made in Romania
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
+
 #  sim_authent.cgi v 3.2.7 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-
-
-# ch 3.2.7 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14
+# ch 3.2.7 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.6 extended registration period from 7 days to 14 days to observe the impact on user retention
 # ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash
 # ch 3.2.4 simplify by replacing timestamp calculation with epoch
@@ -1030,10 +1029,10 @@ if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
 #ACTION: append cheat symptoms in cheat file
 open(cheatFILE,"+< db_tt"); #open logfile for appending;
 #flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
-seek(cheatFILE,0,2);		#go to the end - Does it return a length?
+seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_authent.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s CountRecords: %s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference,$CountLines; #write error info in logfile
+printf cheatFILE "\<br\>reported by: sim_authent.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 } #.end max number of lines
 } #.end $counter>0
