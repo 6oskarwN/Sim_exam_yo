@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2018
 
-#  tugetxr2.cgi v 3.2.1 (c)2007 Francisc TOTH
+#  tugetxr2.cgi v 3.2.2 (c)2007 Francisc TOTH
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.2 - input changet to POST to lower the chance for replay-attack with admin token.
 # ch 3.2.1 - md5 changed to sha1 in compute_mac()
 # ch 3.2.0 - implement a token exchange for authentication of the command
 # ch 0.0.6 - trouble ticket 25 implemented: minimal transaction info decoded: pagecode
@@ -63,15 +64,26 @@ my @pairs;
 ### Process inputs, generate hash table ###
 ###########################################
 {
-#my $buffer=(); #needed only for http POST
+my $buffer; #needed only for http POST
 my $pair;
 my $name;
 my $value;
 
-#read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology
-#$debug_buffer=$ENV{'QUERY_STRING'};
-#@pairs=split(/&/, $buffer); #POST-technology
-@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+if($ENV{'REQUEST_METHOD'} eq "GET")
+      {
+      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
+      }
+## end of GET
+
+else    {
+	read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+        }
+
+
+#read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology, read
+@pairs=split(/&/, $buffer); #POST-technology    #POST, split
+
+#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology, read and split
 foreach $pair(@pairs) 
 		{
 
@@ -253,13 +265,13 @@ my %pub_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "silent logging, not displayed",
-              "ERR20" => "silent discard, not displayed"	
+              "ERR20" => "silent discard, not logged"	
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
               "ERR01" => "token has been tampered with, sha1 mismatch",    #test ok
-              "ERR02" => "timestamp expired",           #test ok
-              "ERR03" => "good transaction but token not admin",             #test ok
+              "ERR02" => "untampered but timestamp expired",           #test ok
+              "ERR03" => "good transaction but not an admin token",             #test ok
               "ERR04" => "reserved",
               "ERR05" => "reserved",
               "ERR06" => "reserved",

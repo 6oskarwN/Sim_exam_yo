@@ -101,7 +101,7 @@ while ($attempt_counter < 3)
 } #end while
 
 unless($server_ok) #if server is congested, die with error code;
-{ dienice("ERR01",1,\$!) }
+{ dienice("ERR01",1,\$!) } #check ok for unclosed file before dienice
 
 ####open db_human file
 $attempt_counter=1;
@@ -118,7 +118,7 @@ while ($attempt_counter < 3)
 } #end while
 
 unless($server_ok) #if server is congested, die with error code;
-{ dienice("ERR02",1,\$!) }
+{ dienice("ERR02",1,\$!) } #check ok for unclosed file before dienice
 
 
 print qq!Content-type: text/html\n\n!;
@@ -421,7 +421,7 @@ my %pub_errors= (
               "ERR17" => "reserved",
               "ERR18" => "reserved",
               "ERR19" => "silent logging, not displayed",
-              "ERR20" => "silent discard, not displayed"
+              "ERR20" => "silent discard, not logged"
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
