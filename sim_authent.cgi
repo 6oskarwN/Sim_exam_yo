@@ -931,6 +931,8 @@ my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modif
 
 my $timestring=gmtime(time);
 
+my($package,$filename,$line)=caller;
+
 #textul pentru public
 my %pub_errors= (
               "ERR01" => "primire de  date corupte.",
@@ -1004,7 +1006,7 @@ open(cheatFILE,"+< db_tt"); #open logfile for appending;
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_authent.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: %s\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$filename,$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
 close(cheatFILE);
 } #.end max number of lines
 } #.end $counter>0
