@@ -172,7 +172,10 @@ chomp $fline;
 
 @splitline=split(/ /, $fline);
 if (defined $splitline[2]){
-if($splitline[2] eq 2) { print qq!<small><font color="white">root-page:</font></small><br>\n!; }
+   if ($splitline[2] eq 0){ print qq!<small><font color="white">4-questions for humanity</font></small><br>\n!; }
+elsif ($splitline[2] eq 1){ print qq!<small><font color="white">new user recording</font></small><br>\n!; }
+elsif ($splitline[2] eq 2){ print qq!<small><font color="white">entry menu</font></small><br>\n!; }
+elsif ($splitline[2] eq 3){ print qq!<small><font color="white">revoked token</font></small><br>\n!; }
 elsif ($splitline[2] eq 4){ print qq!<small><font color="white">ex. I:</font></small><br>\n!; }
 elsif ($splitline[2] eq 5){ print qq!<small><font color="white">ex. II:</font></small><br>\n!; }
 elsif ($splitline[2] eq 6){ print qq!<small><font color="white">ex. III:</font></small><br>\n!; }
@@ -183,7 +186,8 @@ if ($splitline[0] =~ m/\*/) {print qq!<strike>!;}
 if(timestamp_expired($splitline[3],$splitline[4],$splitline[5],$splitline[6],$splitline[7],$splitline[8])>0)
   { print qq!<font color="lightgray">!;}
  else { print qq!<font color="#7fffd4">!; }
-                         }                         
+                         }
+                         
 print qq!<small>$fline</small>!;
 if (defined $splitline[2]){print qq!</font>!; }
 if ($splitline[0] =~ m/\*/) {print qq!</strike>!;}
