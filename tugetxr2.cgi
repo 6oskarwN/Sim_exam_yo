@@ -32,14 +32,15 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2018
+# (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  tugetxr2.cgi v 3.2.3 (c)2007 Francisc TOTH
+#  tugetxr2.cgi v 3.2.4
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.4 implementing the revocation of admin token
 # ch 3.2.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.2 - input changet to POST to lower the chance for replay-attack with admin token.
 # ch 3.2.1 - md5 changed to sha1 in compute_mac()
@@ -59,7 +60,7 @@ my $fline;
 my $i;
 my @splitline;
 my @pairs;
-
+my @tridfile;                   #slurped transaction file
 
 ###########################################
 ### Process inputs, generate hash table ###
@@ -113,19 +114,20 @@ else {dienice ("ERR01",2,\"undef token"); } # no token or with void value
 #        if not, must be recorded in cheat_file
 #case 1: check if timestamp expired; if expired, no log in cheat
 #case 2: check if it's an admin transaction
-#        if not, record in cheat_file
+#case 3: check whether the admin transaction was revoked. if it is, dienice()
+#        if none of above cases found, it's a valid one, go forward
 
 my $string_token; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
-
+unless(defined($post_token)) {dienice ("ERR01",1,\"undef token"); } # no token or with void value
 @pairs=split(/_/,$post_token); #reusing @pairs variable for spliting results
 # $pairs[7] is the mac
 unless(defined($pairs[7])) {dienice ("ERR01",2,\$post_token); } # unstructured token
 $string_token="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_token);
 
-unless($heximac eq $pairs[7]) { dienice("ERR01",3,\$post_token);} #case of tampering
+unless($heximac eq $pairs[7]) { dienice("ERR01",5,\$post_token);} #case of tampering
 
 #check case 1
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])>0) { 
@@ -134,9 +136,27 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
 #check case 2
  elsif ($pairs[0] ne 'admin') {dienice("ERR03",3,\$post_token);}
 
+#check case 3 (stub) if transaction is revoked. if is revoked, dienice()
+
+my $isRevoked = 'n';
+#open sim_transaction read-only
+open(transactionFILE,"< sim_transaction") || dienice("ERR04",1,\"null"); #open for appending
+#flock(transactionFILE,1);
+seek(transactionFILE,0,0);              #go to the beginning
+@tridfile = <transactionFILE>;          #slurp file into array
+#DEVEL
+for(my $i=0;($i <= $#tridfile and $isRevoked eq 'n');$i++)
+{
+if ($tridfile[$i] =~ $post_token) {$isRevoked = 'y';}
+}
+close(transactionFILE);
+
+if ($isRevoked eq 'y') { dienice("ERR06",0,\"null");}
+
 #ACTION: open sim_transaction ID file
 open(transactionFILE,"< sim_transaction") or die("can't open simtrans file: $!\n");					#open transaction file for writing
 #flock(transactionFILE,1);		#just a read-lock
+seek(transactionFILE,0,0);              #go to the beginning
 
 print "Content-type: text/html\n\n";
 print "<html>\n";
@@ -214,7 +234,7 @@ use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
 
 #--------------------------------------
 #primeste timestamp de forma sec_min_hour_day_month_year UTC
-#out: seconds since expired MAX 99999, 0 = not expired.
+#out: seconds since expired MAX 99999, (-minus to 0] = not expired.
 
 sub timestamp_expired
 {
@@ -252,7 +272,7 @@ my %pub_errors= (
               "ERR03" => "authentication fail, logged.",
               "ERR04" => "reserved $$err_reference",
               "ERR05" => "reserved",
-              "ERR06" => "reserved",
+              "ERR06" => "admin token revoked.",
               "ERR07" => "reserved",
               "ERR08" => "reserved",
               "ERR09" => "reserved",
@@ -275,7 +295,7 @@ my %int_errors= (
               "ERR03" => "good transaction but not an admin token",             #test ok
               "ERR04" => "reserved",
               "ERR05" => "reserved",
-              "ERR06" => "reserved",
+              "ERR06" => "admin token revoked",
               "ERR07" => "reserved",
               "ERR08" => "reserved",
               "ERR09" => "reserved",

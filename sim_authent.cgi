@@ -82,7 +82,7 @@ use strict;
 use warnings;
 
 use lib '.';
-use My::ExamLib qw(ins_gpl timestamp_expired compute_mac);
+use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice);
 
 sub punishment($);      #where user gets kicked for abandoned exams
 #sub ins_gpl;            #inserts a HTML preformatted text with the GPL license text
@@ -134,7 +134,7 @@ else    {
 unless($#pairs == 1) #exact 2 perechi: p0 si p1
 {
 #my $err_harvester = $ENV{'QUERY_STRING'}; #se poate citi query string de oricate ori?
-dienice("ERR01",0,\"null"); #insert reason and data in cheat log 
+dienice("authERR01",0,\"null"); #insert reason and data in cheat log 
 }
 #end number consistency check
 
@@ -148,7 +148,7 @@ if($stdin_name eq 'login') { $get_login=$stdin_value;}
  elsif($stdin_name eq 'passwd'){$get_passwd=$stdin_value;}
   else {
          my $err_harvester = "$pairs[0] $pairs[1]";
-         dienice("ERR02",1,\$err_harvester);
+         dienice("authERR02",1,\$err_harvester);
         }
  
 
@@ -160,7 +160,7 @@ if($stdin_name eq 'login') { $get_login=$stdin_value;}
 #BLOCK: open userfile; Refresh userfile with criteria expiry time.
 {
 #ACTION: open user account file
-open(userFILE,"+< sim_users") or dienice("ERR08",1,\"can't open sim_users");					#open user file for writing
+open(userFILE,"+< sim_users") or dienice("authERR08",1,\"can't open sim_users");					#open user file for writing
 #flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: refresh user accounts, delete expired accounts
@@ -228,8 +228,8 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 } #.end unless
 else #the case when user database is empty
 {
-close(userFILE) or dienice("ERR09",1,\"cant close user file"); 
-dienice("ERR03",0,\"null"); #normally not logged
+close(userFILE) or dienice("authERR09",1,\"cant close user file"); 
+dienice("authERR03",0,\"null"); #normally not logged
 }#database empty
 
 } #.end block
@@ -254,8 +254,8 @@ my @linesplit;
 #if login was not found, print error page, close resources and exit
 if($rec_pos == -1) 
 {
-close(userFILE) or dienice("ERR09",1,\"cant close user file"); 
-dienice("ERR03",0,\"null"); #normally not logged
+close(userFILE) or dienice("authERR09",1,\"cant close user file"); 
+dienice("authERR03",0,\"null"); #normally not logged
 } #.end if
 } #.end BLOCK
 #--------------------------------------------------------------------
@@ -274,9 +274,9 @@ $gigel="$gigel timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$line
 
 if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])<0)
    {
-   close(userFILE) or dienice("ERR09",1,"cant close user file"); 
-   dienice("ERR04",0,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
-#   dienice("ERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
+   close(userFILE) or dienice("authERR09",1,"cant close user file"); 
+   dienice("authERR04",0,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
+#   dienice("authERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
    } #.end delay check
  else {}
 
@@ -308,10 +308,10 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or dienice("ERR09",1,\"cant close user file");
+close(userFILE) or dienice("authERR09",1,\"cant close user file");
 chomp($wrong);
 my $err_harvester="<font color=\"white\">$slurp_userfile[$rec_pos*7]</font> ai gresit deja de <font color=\"red\">$wrong</font> ori"; 
-dienice("ERR05",0,\$err_harvester);
+dienice("authERR05",0,\$err_harvester);
 
 } #.end if
 else
@@ -340,9 +340,9 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or dienice("ERR09",1,\"cant close user file"); 
+close(userFILE) or dienice("authERR09",1,\"cant close user file"); 
 #penetration probe: log when condition of triple failure is met.
-dienice("ERR06",1,\"null");
+dienice("authERR06",1,\"null");
 
 } #.end else
 } #.end unless
@@ -378,7 +378,7 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 #BLOCK: refresh transaction file and Generate new transaction id
 {
 #ACTION: open transaction ID file
-open(transactionFILE,"+< sim_transaction") or dienice("ERR08",1,\"can't open transaction file");					#open transaction file for writing
+open(transactionFILE,"+< sim_transaction") or dienice("authERR08",1,\"can't open transaction file");					#open transaction file for writing
 #flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: generate next transaction
@@ -462,7 +462,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or dienice("ERR09",1,\"cant close user file");
+close(userFILE) or dienice("authERR09",1,\"cant close user file");
 
 my @extra=();
 @extra=(@extra,$tridfile[0]);		#transactionID it's always alive
@@ -514,7 +514,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("ERR09",1,\"cant close transaction file");
+close (transactionFILE) or dienice("authERR09",1,\"cant close transaction file");
 
 } #.end BLOCK
 
@@ -545,7 +545,7 @@ if(-e "hlr/$hlr_filename")
 {
 #print qq!exista si deschidem hlr/$hlr_filename<br>\n!; #debug
 #deschide hlrfile readonly
-open(HLRfile,"<hlr/$hlr_filename") || dienice("ERR10",2,\"cant open hlr file"); #open readonly
+open(HLRfile,"<hlr/$hlr_filename") || dienice("authERR10",2,\"cant open hlr file"); #open readonly
 #flock(HLRfile,1); #lock shared
 seek(HLRfile,0,0); #rewind
 $hlrclass=<HLRfile>; #citeste clasa
@@ -569,7 +569,7 @@ if($hlrclass eq 'clasa1')
        @strips=("strip_db_ntsm4","strip_db_op4","strip_db_legis4");}
 
  else {# this else should never be executed
-	dienice("ERR07",1,\$hlrclass);
+	dienice("authERR07",1,\$hlrclass);
        }# this else should never be executed
 
 } #.end if -e
@@ -917,125 +917,4 @@ $slurp_userfile[$user_account*7+6]=$failures;
 } #end unless user exists
 } #end 'punishment' sub
 
-#-------------------------------------
-# treat the "or die" and all error cases
-#how to use it
-#$error_code is a string, you see it, this is the text selector
-#$counter: if it is 0, error is not logged. If 1..5 = threat factor
-#reference is the reference to string that is passed to be logged.
-#ERR19 and ERR20 have special handling regarding the browser error display
-
-sub dienice
-{
-my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
-
-my $timestring=gmtime(time);
-
-my($package,$filename,$line)=caller;
-
-#textul pentru public
-my %pub_errors= (
-              "ERR01" => "primire de  date corupte.",
-              "ERR02" => "primire de date corupte",
-              "ERR03" => "Credentiale incorecte.<br><br>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat", #CUSTOM nr zile
-              "ERR04" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
-              "ERR05" => "Autentificare imposibila cu credentialele furnizate",
-              "ERR06" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
-              "ERR07" => "examyo system error, logged for admin",
-              "ERR08" => "congestie server, incearca in cateva momente",
-              "ERR09" => "congestie server, incearca in cateva momente",
-              "ERR10" => "congestie server, incearca in cateva momente",
-              "ERR11" => "reserved",
-              "ERR12" => "reserved",
-              "ERR13" => "reserved",
-              "ERR14" => "reserved",
-              "ERR15" => "reserved",
-              "ERR16" => "reserved",
-              "ERR17" => "reserved",
-              "ERR18" => "reserved",
-              "ERR19" => "error not displayed",
-              "ERR20" => "silent discard"	
-                );
-#textul de turnat in logfile, interne
-my %int_errors= (
-              "ERR01" => "not exactly 2 pairs received",            #test ok
-              "ERR02" => "2 pairs but not login and passwd",        #test ok
-              "ERR03" => "cont inexistent sau expirat",             #test ok
-              "ERR04" => "normally not logged",
-              "ERR05" => "normally not logged, we should just count them somewhere",
-              "ERR06" => "3xfailed authentication for existing user",
-              "ERR07" => "examyo system error, should never occur, weird hlr_class:",
-              "ERR08" => "cannot open file",
-              "ERR09" => "cannot close file",
-              "ERR10" => "cannot open hlr file",
-              "ERR11" => "reserved",
-              "ERR12" => "reserved",
-              "ERR13" => "reserved",
-              "ERR14" => "reserved",
-              "ERR15" => "reserved",
-              "ERR16" => "reserved",
-              "ERR17" => "reserved",
-              "ERR18" => "reserved",
-              "ERR19" => "silent logging(if $counter>0), not displayed",
-	      "ERR20" => "silent discard,(logged only if $counter>0)"
-                );
-
-
-#if commanded, write errorcode in cheat_file
-if($counter > 0)
-{
-# write errorcode in cheat_file
-
-# count the number of lines in the db_tt by counting the '\n'
-# open read-only the db_tt
-my $CountLines = 0;
-my $filebuffer;
-#TBD - flock to be analysed if needed or not on the read-only count
-           open(DBFILE,"< db_tt") or die "Can't open db_tt";
-           while (sysread DBFILE, $filebuffer, 4096) {
-               $CountLines += ($filebuffer =~ tr/\n//);
-           }
-           close DBFILE;
-
-#CUSTOM limit db_tt writing to max number of lines (4 lines per record) 
-if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
-{
-#ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< db_tt"); #open logfile for appending;
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
-seek(cheatFILE,0,2);		#go to the end
-#CUSTOM
-printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: %s\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$filename,$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
-close(cheatFILE);
-} #.end max number of lines
-} #.end $counter>0
-
-if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
-{
-print qq!Status: 204 No Content\n\n!;
-print qq!Content-type: text/html\n\n!;
-}
-else
-{
-unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl(); #this must exist
-print qq!v 3.2.7\n!; #version print for easy upload check
-print qq!<br>\n!;
-print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-                              }
-}
-
-exit();
-
-} #end sub
 

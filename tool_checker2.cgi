@@ -99,7 +99,7 @@ print qq!<html>\n!;
 print qq!<head>\n!;
 print qq!<title>Probleme si Rezolvari: $get_filename</title>\n!;
 print qq!</head>\n!;
-print qq!<body bgcolor="#E6E6FA" text="black" link="blue" alink="blue" vlink="blue">\n!;
+print qq!<body bgcolor="#FAFAFA" text="black" link="blue" alink="blue" vlink="blue">\n!;
 
 print qq!<font color="blue">v 3.3.1</font>\n<br>\n!;
 

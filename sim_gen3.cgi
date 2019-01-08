@@ -75,7 +75,10 @@
 
 use strict;
 use warnings;
-sub ins_gpl;                    #inserts a HTML preformatted text with the GPL license text
+
+use lib '.';
+use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice random_int);
+
 
 my $get_trid;                   #transaction ID from GET data
 my $trid_id;                    #transaction ID extracted from transaction file
@@ -163,7 +166,7 @@ if(!defined($get_trid)) {dienice ("ERR20",0,\"undef trid"); } # no transaction o
 
 #ACTION: open transaction ID file and clear expired transactions
 
-open(transactionFILE,"+< sim_transaction") || dienice("ERR03",1,\"null");
+open(transactionFILE,"+< sim_transaction") || dienice("genERR03",1,\"null");
 #flock(transactionFILE,2);
 
 #ACTION: refresh transaction file
@@ -241,7 +244,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close(transactionFILE) || dienice("ERR04",1,\"null");
+close(transactionFILE) || dienice("genERR04",1,\"null");
 
 #now we should check why received transaction was not found in sim_transaction file
 #case 0: it's an illegal transaction if sha1 check fails
@@ -262,19 +265,19 @@ my $heximac;
 @pairs=split(/_/,$get_trid); #reusing @pairs variable for spliting results
 
 # $pairs[7] is the mac
-unless(defined($pairs[7])) {dienice ("ERR18",1,\$get_trid); } # unstructured trid
+unless(defined($pairs[7])) {dienice ("genERR18",1,\$get_trid); } # unstructured trid
 
 $string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_trid);
 
-unless($heximac eq $pairs[7]) { dienice("ERR01",1,\$get_trid);}
+unless($heximac eq $pairs[7]) { dienice("genERR01",1,\$get_trid);}
 
 #check case 1, timestamp
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])>0) { 
-                                             dienice("ERR02",0,\"null"); }
+                                             dienice("genERR02",0,\"null"); }
 
 #else is really case 2 so transaction already used
-else { dienice("ERR09",5,\$get_trid);  }
+else { dienice("genERR09",5,\$get_trid);  }
 
 } #end of local block
 } #.end expired
@@ -294,8 +297,8 @@ if ($trid_id =~ m/\*/) { #if it has the used mark
                             dienice ("ERR20",0,\"null");  #silent discard, Status 204 No Content
                         }
    else { 
-         #dienice ("ERR15",1,\$trid_id); #debug - symptom catch 
-         dienice ("ERR15",0,\"null"); 
+         #dienice ("genERR15",1,\$trid_id); #debug - symptom catch 
+         dienice ("genERR15",0,\"null"); 
         }                          
                        }
 #===============.end ch 3.2.3========================
@@ -307,7 +310,7 @@ if ($trid_id =~ m/\*/) { #if it has the used mark
 #-----------------------------------------------------
 #ACTION: open user account file
 
-open(userFILE,"< sim_users") || dienice("ERR05",1,\"null");
+open(userFILE,"< sim_users") || dienice("genERR05",1,\"null");
 #flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 seek(userFILE,0,0);		#go to the beginning
@@ -337,7 +340,7 @@ $trid_login_hlrname =~ s/\//\@slash\@/; #replace /
 #first, if exists, we check the class of hlrfile
 if(-e "hlr/$trid_login_hlrname")
  {
-open(HLRread,"< hlr/$trid_login_hlrname") || dienice("ERR06",1,\"null"); #open for reading only
+open(HLRread,"< hlr/$trid_login_hlrname") || dienice("genERR06",1,\"null"); #open for reading only
 #flock(HLRread,1); #LOCK_SH
 seek(HLRread,0,0);
 $hlrclass = <HLRread>;
@@ -349,7 +352,7 @@ unless((-e "hlr/$trid_login_hlrname") && ($hlrclass eq "clasa3" )) #if does not 
 {
 if($tipcont == 0) #se genereaza doar pt cont de antrenament
   {
-open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("ERR07",1,\"null");
+open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("genERR07",1,\"null");
 
 #flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
@@ -369,7 +372,7 @@ close(HLRfile);
 } #.END BLOCK: search user record
 
 #ACTION: data was extracted, close user database
-close(userFILE) || dienice("ERR08",1,\"null");
+close(userFILE) || dienice("genERR08",1,\"null");
 
 
 #ACTION: check the trid_pagecode, so exam is invoked using valid page and it's corresponding transaction
@@ -383,11 +386,11 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close(transactionFILE) || dienice("ERR04",1,\"null");
+close(transactionFILE) || dienice("genERR04",1,\"null");
 
 #ACTION: append cheat symptoms in cheat file
 my $err_harvester="pagecode\: $trid_pagecode login\: $trid_login";
-dienice("ERR10",1,\$err_harvester);
+dienice("genERR10",1,\$err_harvester);
 } #.end unless $trid_pagecode
 
 #ACTION: check the clearance level: (tipcont==TRAINING && clasa==any)||(tipcont==III && ultime_clasa_promovata==0)
@@ -402,12 +405,12 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close(transactionFILE) || dienice("ERR11",1,\"null");
+close(transactionFILE) || dienice("genERR11",1,\"null");
 
 
 #ACTION: append cheat symptoms in cheat file
 my $err_harvester="\$trid_login\: $trid_login \$tipcont\: $tipcont";
-dienice("ERR12",1,\$err_harvester);
+dienice("genERR12",1,\$err_harvester);
 }
 
 ##BLOCK: Generate new transaction: EXAM III and close transaction file
@@ -449,7 +452,7 @@ my $entry = "$hexi $trid_login 6 $exp_sec $exp_min $exp_hour $exp_day $exp_month
 
 {
 #subroutine declaration
-sub random_int($);
+#sub random_int($);
 
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 #my $index; #seen index in the form
@@ -496,7 +499,7 @@ print qq!<form action="http://localhost/cgi-bin/sim_ver3.cgi" method="post">\n!;
 # if hlrfile (-e) usertype==0(antrenament) and hlr class='clasa3') openfile and skip first line #CUSTOM
 if($tipcont == 0) #for sure hlr file exists, was created just lines above
 {
-open(HLRread,"<hlr/$trid_login_hlrname") || dienice("ERR13",1,\"null"); #open for reading only
+open(HLRread,"<hlr/$trid_login_hlrname") || dienice("genERR13",1,\"null"); #open for reading only
 #flock(HLRread,1); #LOCK_SH
 seek(HLRread,0,0);
 
@@ -513,7 +516,7 @@ $hlrclass = <HLRread>;#il mai aveam dar trebuie sa scapam de linia asta
 for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions from each database
 {
 #tbd: open database
-open(INFILE,"< $database[$iter]") || dienice("ERR14",1,\"null");   
+open(INFILE,"< $database[$iter]") || dienice("genERR14",1,\"null");   
 #flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 
 
@@ -545,7 +548,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++) #or ($#splitter
 #open,load and close the appropriate stripfile
 #stripfiles are used by all user types
 #stripfiles REALLY needed.
-open(stripFILE, "<$strips[$iter]") || dienice("ERR14",1,\"null");
+open(stripFILE, "<$strips[$iter]") || dienice("genERR14",1,\"null");
 #flock(stripFILE,1);
 seek(stripFILE,0,0);
 @slurp_strip=<stripFILE>;
@@ -758,7 +761,7 @@ print qq!</dl><br>\n!;
 else #watchdog situation detected 
 {
 #ACTION: append watchdog symptoms in cheat file
-##dienice("WATCHDOG",1);
+
 print qq!<font color="red">Formular corupt si incomplet, va rog generati altul</font><br>\n!;
 
 last DIRTY;
@@ -767,7 +770,7 @@ last DIRTY;
 } #.end foreach $item
 #------------------------------
 #close database
-close(INFILE) || dienice("ERR16",1,\"null");
+close(INFILE) || dienice("genERR16",1,\"null");
 
 } #.end foreach database
 
@@ -828,7 +831,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 } #.end for
 
-close(transactionFILE) or dienice("ERR04",1,\"cant close transaction file");
+close(transactionFILE) or dienice("genERR04",1,\"cant close transaction file");
 } #.end miniblock
 
 print qq!</body>\n</html>\n!; #debug place
@@ -836,197 +839,3 @@ print qq!</body>\n</html>\n!; #debug place
 } #.END BLOCK
 
 
-
-#----100%------subrutina generare random number
-# intoarce numar intre 0 si $max-1
-sub random_int($)
-	{
-	
-	my ($max)=@_;
-
-       return int(rand($max));
-	}
-#-------------------------------------
-sub compute_mac {
-
-use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
-  my ($message) = @_;
-  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-  hmac_sha1_hex($secret,$message);
-} #end of compute_mac
-
-#--------------------------------------
-#primeste timestamp de forma sec_min_hour_day_month_year UTC
-#out: seconds since expired MAX 99999, 0 = not expired.
-
-sub timestamp_expired
-{
-use Time::Local;
-
-my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
-
-my $timediff;
-my $actualTime = time();
-my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
-$timediff=$actualTime-$dateTime;
-
-return($timediff);  #here is the general return
-
-} #.end sub timestamp
-
-#--------------------------------------
-# treat the "or die" and all error cases
-#how to use it
-#$error_code is a string, you see it, this is the text selector
-#$counter: if it is 0, error is not logged. If 1..5 = threat factor
-#reference is the reference to string that is passed to be logged.
-#ERR19 and ERR20 have special handling
-
-sub dienice
-{
-my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
-
-my $timestring=gmtime(time);
-
-#textul pentru public
-my %pub_errors= (
-              "ERR01" => "actiune ilegala, inregistrata in log",
-              "ERR02" => "timpul alocat formularului a expirat",
-              "ERR03" => "server congestionat",
-              "ERR04" => "server congestionat",
-              "ERR05" => "server congestionat",
-              "ERR06" => "server congestionat",
-              "ERR07" => "server congestionat",
-              "ERR08" => "server congestionat",
-              "ERR09" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
-              "ERR10" => "actiune ilegala, inregistrata in log",
-              "ERR11" => "server congestionat",
-              "ERR12" => "actiune ilegala, inregistrata in log",
-              "ERR13" => "server congestionat",
-              "ERR14" => "server congestionat",
-              "ERR15" => "formularul a fost deja folosit odata",
-              "ERR16" => "congestie server",
-              "ERR17" => "actiune ilegala, inregistrata in log",
-              "ERR18" => "actiune ilegala, inregistrata in log",
-              "ERR19" => "error not displayed",
-              "ERR20" => "silent discard"
-                );
-#textul de turnat in logfile, interne
-my %int_errors= (
-              "ERR01" => "transaction sha1 authenticity failed",   #untested
-              "ERR02" => "transaction timestamp expired, normally not logged",            
-              "ERR03" => "fail open sim_transaction file",           #tested
-              "ERR04" => "fail close sim_transaction file",
-              "ERR05" => "fail open sim_users file",                 #tested
-              "ERR06" => "fail open existing user's hlrfile",        #tested
-              "ERR07" => "fail create new hlrfile",                  #tested
-              "ERR08" => "fail close sim_users",
-              "ERR09" => "good and unexpired received trid but not in tridfile. Under attack?",
-              "ERR10" => "from wrong pagecode invoked generation of exam",
-              "ERR11" => "fail close transaction file",
-              "ERR12" => "wrong clearance level to request this exam",
-              "ERR13" => "fail open user's hlrfile",
-              "ERR14" => "fail open one of db_ file",
-              "ERR15" => "transaction id already used, normally not logged",
-              "ERR16" => "fail close one of db_file",
-              "ERR17" => "received trid is undef",
-              "ERR18" => "received trid is destruct",
-              "ERR19" => "silent logging(if $counter>0), not displayed",
-	      "ERR20" => "silent discard,(logged only if $counter>0)"
-                );
-
-
-#if commanded, write errorcode in cheat_file
-if($counter > 0)
-{
-# write errorcode in cheat_file
-
-# count the number of lines in the db_tt by counting the '\n'
-# open read-only the db_tt
-my $CountLines = 0;
-my $filebuffer;
-#TBD - flock to be analysed if needed or not on the read-only count
-           open(DBFILE,"< db_tt") or die "Can't open db_tt";
-           while (sysread DBFILE, $filebuffer, 4096) {
-               $CountLines += ($filebuffer =~ tr/\n//);
-           }
-           close DBFILE;
-
-#CUSTOM limit db_tt writing to max number of lines (4 lines per record) 
-if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
-{
-#ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< db_tt"); #open logfile for appending;
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
-seek(cheatFILE,0,2);		#go to the end
-#CUSTOM
-printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: sim_gen3.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
-close(cheatFILE);
-} #.end max number of lines
-} #.end $counter>0
-
-if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
-{
-print qq!Status: 204 No Content\n\n!;
-print qq!Content-type: text/html\n\n!;
-}
-else
-{
-unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl(); #this must exist
-print qq!v 3.3.3\n!; #version print for easy upload check
-print qq!<br>\n!;
-print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-                              }
-}
-
-exit();
-
-} #end sub
-#--------------------------------------
-sub ins_gpl
-{
-print qq+<!--\n+;
-print qq!SimEx Radio Release \n!;
-print qq!SimEx Radio was created originally for YO6KXP radio amateur club located in\n!; 
-print qq!Sacele, ROMANIA (YO) then released to the whole radio amateur community.\n!;
-print qq!\n!;
-print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,\n!; 
-print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat in \n!;
-print qq!termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o versiune \n!;
-print qq!ulterioara. Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio \n!;
-print qq!garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
-print qq!manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea \n!;
-print qq!si versiunea in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
-print qq!Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, \n!;
-print qq!copyrightul fiind al statului roman, dar fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile \n!;
-print qq!de interes public precum al legii 109/2007 privind reutilizarea informatiilor din institutiile publice.\n!;
-print qq!\n!;
-print qq!YO6OWN Francisc TOTH\n!;
-print qq!\n!;
-print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode \n!;
-print qq!and utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \n!;
-print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version. This program is distributed \n!;
-print qq!in the hope that it will be useful, but WITHOUT ANY WARRANTY or without any implied warranty. See the GNU General Public \n!;
-print qq!License for more details. You should have received a copy of the GNU General Public License along with this software distribution; \n!;
-print qq!if not, you can download it for free at http://www.fsf.org/ \n!;
-print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC \n!;
-print qq!in USA) so any use of the official questions, other than in Read-Only way, is prohibited. \n!;
-print qq!\n!;
-print qq!YO6OWN Francisc TOTH\n!;
-print qq!\n!;
-print qq!Made in Romania\n!;
-print qq+-->\n+;
-
-}
