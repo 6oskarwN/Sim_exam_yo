@@ -32,7 +32,7 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2018
+# (c) YO6OWN Francisc TOTH, 2008 - 2019
 
 #  troubleticket.cgi v 3.0.f
 #  Status: working

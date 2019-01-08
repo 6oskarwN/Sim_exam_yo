@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-#  tool_customize v.0.0.b (c)2018 Francisc TOTH
+#  tool_customize v.0.0.b (c)2008 - 2019 Francisc TOTH
 #  status: devel
 #  customizing tool
 #  makes the automatic relocation of links
@@ -96,6 +96,6 @@ close (INFILE); #inchizi fisierul sursa
 open(OUTFILE,">", "hx_release/$FileName") || print "can't write to $FileName.hx\n";#deschizi fisier copie .hx
 foreach $fetch_line(@CopyBuffer)
 {print OUTFILE "$fetch_line";} 
-close(OUTFILE);#inchizi fisierul.hx
+close(OUTFILE); #inchizi fisierul.hx
 
 }

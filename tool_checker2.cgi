@@ -32,9 +32,9 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2018
+# (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  tool_checker2.cgi v 3.3.1 (c)2007-2017 Francisc TOTH
+#  tool_checker2.cgi v 3.3.1 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA

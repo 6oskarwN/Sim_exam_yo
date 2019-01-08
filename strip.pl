@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # db stripping tool. only v3 codes remain, one per line
-# (c) 2014 Francisc TOTH YO6OWN
+# (c)2014 - 2019 Francisc TOTH YO6OWN
 # ver. 3.0.6
 # input at commandline:strip.pl db_xxxx prog_XXXX
 # output strip_xxxxx 

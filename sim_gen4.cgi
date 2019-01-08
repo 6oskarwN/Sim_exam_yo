@@ -32,7 +32,7 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2018
+# (c) YO6OWN Francisc TOTH, 2008 - 2019
 
 #  sim_gen4.cgi v 3.3.3
 #  Status: working

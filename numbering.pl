@@ -2,7 +2,7 @@
 
 # ver. 3.0.5
 # general syntax-checking and auto-numbering script for eXAM databases(except db_human)
-# (c) 2007-2014 Francisc TOTH YO6OWN
+# (c) 2008-2019 Francisc TOTH YO6OWN
 # input at commandline:db_syntax.pl db_xxxxx prog_Programa
 # output in ./hx_release db_xxx and strip_db_xxx and in . db_xxx.html
 # open with a text editor the db_xxxxx.out, and on line 2 put the number of questions(last+1, because first question is ##0#)
