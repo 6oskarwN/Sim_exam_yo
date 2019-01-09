@@ -373,25 +373,20 @@ else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increm
 ##print qq!generate new transaction<br>\n!;
 #trebuie extras timpul din tranzactie
 @splitter = split(/_/,$post_token);
-my $exp_sec=$splitter[1];
-my $exp_min=$splitter[2];
-my $exp_hour=$splitter[3];
-my $exp_day=$splitter[4];
-my $exp_month=$splitter[5];
-my $exp_year=$splitter[6];
 
 #generate transaction id and its sha1 MAC
-
 my $hexi= sprintf("%+06X",$trid); #the transaction counter
+
 #assemble the trid+timestamp
-$hexi= "$hexi\_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp and sha1
+$hexi= "$hexi\_$splitter[1]\_$splitter[2]\_$splitter[3]\_$splitter[4]\_$splitter[5]\_$splitter[6]\_"; #adds the expiry timestamp and sha1
+
 #compute mac for trid+timestamp
 my $heximac = compute_mac($hexi); #compute SHA1 MessageAuthentication Code
+
 $hexi= "$hexi$heximac"; #the full transaction id
 
 ##CUSTOM: pagecode=3 for revoked tokens
-my $entry = "$hexi admin 3 $exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year $post_token\n";
-#
+my $entry = "$hexi admin 3 $splitter[1] $splitter[2] $splitter[3] $splitter[4] $splitter[5] $splitter[6] $post_token\n";
 
 #Action: rewrite transaction file
 truncate(transactionFILE,0);
@@ -403,9 +398,8 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 }
 printf transactionFILE "%s",$entry; #we have \n at the end of each element
 
-
 close(transactionFILE) || dienice("genERR04",1,\"null");
-dienice("ERR05",0,\"null"); #stub
+dienice("ERR05",0,\"null"); #finish the script here with a message
 
 } #.end 3rd type call
 
