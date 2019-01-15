@@ -342,7 +342,7 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 
 close(userFILE) or dienice("authERR09",1,\"cant close user file"); 
 #penetration probe: log when condition of triple failure is met.
-dienice("authERR06",1,\"null");
+dienice("authERR06",1,\$slurp_userfile[$rec_pos*7+0]);
 
 } #.end else
 } #.end unless
