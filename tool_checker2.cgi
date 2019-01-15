@@ -301,7 +301,7 @@ close (INFILE) || dienice("ERR07",1,\"null");
 else  {dienice("ERR06",1,\$get_filename);} #else the case when correct filename could not be opened
 
 }
-else {dienice("ERR01",1,\"junk input");} #else the case when input was not void, but some junk
+else {dienice("ERR01",1,\$get_buffer);} #else the case when input was not void, but some junk
 
 }
 else {dienice("ERR01",1,\"void URL");} #else the case when URL input was void
