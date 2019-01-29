@@ -451,9 +451,6 @@ my $entry = "$hexi $trid_login 5 $exp_sec $exp_min $exp_hour $exp_day $exp_month
 #
 
 {
-#subroutine declaration
-#sub random_int($);
-
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 #my $index; #seen index in the form
 my $watchdog=0;

@@ -1,8 +1,10 @@
-Acesta este distributia de Sim_exam_yo adica
+Acesta este distributia de Sim_exam_YO adica
 Simulator de examen de radioamator YO(YO=Romania)
 
-Programul este scris ca o suita de scripturi cgi-bin Perl
-exista si baze de date de intrebari
+Programul este scris ca o suita de scripturi cgi-bin Perl(da, da, chestii invechite, puneti mana si faceti ceva mai nou si mai bun, nu ma supar).
+Exista si baze de date de intrebari si raspunsuri, aici se afla cea mai mare
+nevoie de energie investita din partea comunitatii, asta nu e munca pentru un singur om.
+
 Licensing & copyright e GNU GPL 2 +, vezi fisierele din ZIP
 exista System Requirement specifications (SRS) si document de arhitectura in ZIP
 
@@ -11,3 +13,14 @@ Manual de instalare, de utilizator - pending review
 Francisc Toth, YO6OWN
 
 Versiunea din branch-ul master R3.3
+
+Roadmap:
+--------
+Faza de development, testare, imbunatatiri s-a terminat cu R 3.1
+Faza actuala este de intretinere, este o faza reactiva, nu proactiva.
+Se mai fac urmatoarele:
+- modificari in soft ca o reactie la modificari ale legii, daca e nevoie. 
+- corectii de bug-uri raportate.
+- modificari si adaugiri in bazele de date, tot ca o reactie la raportari si sugestii.
+
+ 

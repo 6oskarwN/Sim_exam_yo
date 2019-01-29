@@ -90,35 +90,54 @@ my($package,$filename,$line)=caller;
 
 #textul pentru public
 my %pub_errors= (
+
+
               "ERR00" => "error: unknown/unspecified",
+
               "authERR01" => "primire de  date corupte.",
               "gen0ERR01" => "Server congestionat, incearca in cateva momente",
               "genERR01" => "actiune ilegala, inregistrata in log",
+              "ver0ERR01" => "primire de  date corupte, inregistrata in log.",
+              "verERR01" => "primire de  date corupte, inregistrata in log.",
 
               "authERR02" => "primire de date corupte",
               "gen0ERR02" => "Server congestionat, incearca in cateva momente",
               "genERR02" => "timpul alocat formularului a expirat",
+              "ver0ERR02" => "pagina pe care ai trimis-o a expirat",
+              "verERR02" => "pagina pe care ai trimis-o a expirat",
 
               "authERR03" => "Credentiale incorecte.<br><br>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat", #CUSTOM nr zile
               "genERR03" => "server congestionat",
+              "ver0ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
+              "verERR03" => "Acest formular de examen a fost deja evaluat",
 
               "authERR04" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
               "genERR04" => "server congestionat",
+              "ver0ERR04" => "primire de  date corupte, inregistrata in log.",
 
               "authERR05" => "Autentificare imposibila cu credentialele furnizate",
               "genERR05" => "server congestionat",
+              "ver0ERR05" => "primire de  date corupte, inregistrata in log.",
+              "verERR05" => "primire de  date corupte, inregistrata in log.",
 
               "authERR06" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
               "genERR06" => "server congestionat",
+              "ver0ERR06" => "server congestionat, incearca in cateva momente",
+              "verERR06" => "server congestionat, incearca in cateva momente",
 
               "authERR07" => "examyo system error, logged for admin",
+              "ver0ERR07" => "server congestionat, incearca in cateva momente",
               "genERR07" => "server congestionat",
+              "verERR07" => "server congestion",
 
               "authERR08" => "congestie server, incearca in cateva momente",
               "genERR08" => "server congestionat",
+              "ver0ERR08" => "minor server problems",
+              "verERR08" => "tentativa de frauda, inregistrata in log",
 
               "authERR09" => "congestie server, incearca in cateva momente",
               "genERR09" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
+              "verERR09" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
 
               "authERR10" => "congestie server, incearca in cateva momente",
               "genERR10" => "actiune ilegala, inregistrata in log",
@@ -137,32 +156,41 @@ my %pub_errors= (
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
+
               "ERR00" => "unknown/unspecified",
               "authERR01" => "not exactly 2 pairs received",            #test ok
               "gen0ERR01" => "server cannot open sim_transaction file",    #test
               "genERR01" => "transaction sha1 authenticity failed",   #untested
+              "ver0ERR01" => "transaction id has been tampered with, md5 mismatch",    #test ok
 
               "authERR02" => "2 pairs but not login and passwd",        #test ok
               "genERR02" => "transaction timestamp expired, normally not logged",            
+              "ver0ERR02" => "timestamp was already expired, normally not logged",     #test ok
 
               "gen0ERR02" => "server cannot open db_human file",           #test
               "authERR03" => "cont inexistent sau expirat",             #test ok
               "genERR03" => "fail open sim_transaction file",           #tested
+              "ver0ERR03" => "good transaction but already used",             #test ok
 
               "authERR04" => "normally not logged",
               "genERR04" => "fail close sim_transaction file",
+              "ver0ERR04" => "undef transaction id",
 
               "authERR05" => "normally not logged, we should just count them somewhere",
               "genERR05" => "fail open sim_users file",                 #tested
+              "ver0ERR05" => "unstructured transaction id",
 
               "authERR06" => "3xfailed authentication for existing user",
               "genERR06" => "fail open existing user's hlrfile",        #tested
+              "ver0ERR06" => "cannot open sim_transaction file",
 
               "authERR07" => "examyo system error, should never occur, weird hlr_class:",
               "genERR07" => "fail create new hlrfile",                  #tested
+              "ver0ERR07" => "cannot open db_human file",
 
               "authERR08" => "cannot open file",
               "genERR08" => "fail close sim_users",
+              "ver0ERR08" => "cannot close a file",
 
               "authERR09" => "cannot close file",
               "genERR09" => "good and unexpired received trid but not in tridfile. Under attack?",
