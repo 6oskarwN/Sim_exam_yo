@@ -40,13 +40,14 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.1.1 implementing Occam's Razor for input parameters
 # ch 3.1.0 functions moved to ExamLib.pm
 # ch 3.0.f solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.0.e deleted the old guestbook logging and displaying since is unused and could display internal logs to anyone.
 # ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired(); dienice; silent logging; SHA1 mac
 # ch 3.0.c Admin: changed to YO6OWN
 # ch 3.0.b the three stage of a ticket are clearly displayed [Nou][Vazut ...][Rezolvat]
-# ch 3.0.a patch in a mailer when new complaints are registered; untested since no mail account possible; hashed.
+# ch 3.0.a patch in a mailer when new complaints are registered; untested since no mail account possible; commented out
 # ch 3.0.9 'ativan' added in the deny list, banned by awardspace.com
 # ch 3.0.8 fixed POST that comes from special link in sim_verx.cgi in order to preserve &specials; and "overline"
 # ch 3.0.7 <form> in <form> makes that blank record is saved if calculus is good but abandon is hit 
@@ -112,8 +113,8 @@ sub aucenter(); #intoarce un string de tipul "text operatie:result"
 sub new_transaction; #adauga o tranzactie si intoarce transaction ID;
 sub get_transaction($); #daca tranzactia nu exista intoarce string vid; daca exista, sterge linia din fisier si intoarce un string care e chiar linia de tranzactie din fisier;
 sub tran_refresh; #cleans expired transactions
-sub dienice; 
 sub addrec; #adauga o inregistrare in db_troubleticket
+
 #BLOCK: Input
 {
 my $buffer;
@@ -128,17 +129,16 @@ my $stdin_value;
   if($ENV{'REQUEST_METHOD'} eq "POST")
          { read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data 
          }
-  else  { $buffer = $ENV{'QUERY_STRING'}; #GET data for backwards-compatibility
-   
+  else  { $buffer = $ENV{'QUERY_STRING'}; #GET data for type=0 request
         }
 
 @pairs=split(/&/,$buffer ); #split the pairs in input
 
 foreach $pair(@pairs) {
-($stdin_name,$stdin_value) = split(/=/,$pair);
+ ($stdin_name,$stdin_value) = split(/=/,$pair);
 
-$stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
-$stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
+ $stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
+ $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
 
 #temporarily out
 # DEBUG DEBUG
@@ -149,39 +149,29 @@ $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %2
 
 #$stdin_value=~ s/<(\s*\/?[^span]*[^>]*\s*)>//g; #nu ma intereseaza sa  elimin html taguri ? <bold, etc...>
 #$stdin_value=~ s/<\s*\/?[^b]*>//g; 
-
 ##end of DEBUG DEBUG 
 
-if($stdin_name eq 'type') { $get_type=$stdin_value;}
-elsif($stdin_name eq 'nick'){$get_nick=$stdin_value;}
-elsif($stdin_name eq 'subtxt'){$get_text=$stdin_value;}
-elsif($stdin_name eq 'complaint'){$get_complaint=$stdin_value;}
-elsif($stdin_name eq 'answer'){$get_answer=$stdin_value;}
-elsif($stdin_name eq 'transaction'){$get_trid=$stdin_value;}
+#Occam's razor:
+#we try first to fill the expected parameters
+ if($stdin_name eq 'type') { $get_type=$stdin_value;}
+ elsif($stdin_name eq 'nick'){$get_nick=$stdin_value;}
+ elsif($stdin_name eq 'subtxt'){$get_text=$stdin_value;}
+ elsif($stdin_name eq 'complaint'){$get_complaint=$stdin_value;}
+ elsif($stdin_name eq 'answer'){$get_answer=$stdin_value;}
+ elsif($stdin_name eq 'transaction'){$get_trid=$stdin_value;}
 
-                        } #end foreach pair
+                      } #end foreach pair
+#we check that all mandatory parameters have a value
+if (defined $get_type) 
+ {
+  if($get_type == 1) {
+                      unless(defined $get_nick) { dienice("ttERR06",1,\"Occam: mandatory nick not given");} #Occam not satisfied
+                      unless(defined $get_text) { dienice("ttERR06",1,\"Occam: mandatory subtxt not given");} #Occam not satisfied
+                      }
+ } 
+#end of Occam's razor
 
 } #end input block
-
-####
-##DEVEL PRINT only DEBUG DEBUG
-#  print qq!Content-type: text/html\n\n!; #DEBUG, should not exist
-#  print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; #debug, normally not exist
-#print qq!<html>\n!; #debug only
-#print qq!<head>\n<title>debug title</title>\n</head>\n!; #debug only
-#print qq!<body>\n!; #debug only
-#print qq!$buffer\n!; #debug only
-#print qq!$get_type\n!; #debug only
-#print qq!$get_complaint\n!; #debug only
-
-#print qq!ce avem dupa primul hex-to-char : $get_text\n!; #debug only
-
-#print qq!</body>\n!;
-#print qq!</html>\n!;
-
-
-
-
 
 
 #########end of devel
@@ -192,15 +182,15 @@ tran_refresh;
 #generate the form, if $get_type is 0 or 1 or else
 if (defined $get_type) #it means we have a first call
  {
-  if($get_type eq 0) #external trouble ticket call
+  if($get_type eq 0) #external trouble ticket call; ignore any other possible parameter
   {
 #call aucenter() that will generate human question and answer
  my $get_aucpair=aucenter();
 
- #se splituieste rezultatul lui AUC in intrebare si raspuns
+ #split result from AUC in question and answer
 ($question_auc,$answer_auc)=split (/:/, $get_aucpair);
 
- #se apeleaza new_transaction=add_transaction(type=1,AUC_result)
+ #call new_transaction=add_transaction(type=1,AUC_result)
  $newtrid=new_transaction(0,$answer_auc);
 # printf "new transaction: +%s+\n",$newtrid; #debug only
 
@@ -217,7 +207,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post">\n!;
   print qq!<table width="90%" border="0">\n!;  #debug, border="0" originally
 
-#ACTION: inserare transaction ID in pagina HTML
+#ACTION: insert transaction ID in HTML page
 {
   #my $extra=sprintf("%+06X",$trid); 
   print qq!<tr>\n!;

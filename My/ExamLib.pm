@@ -147,7 +147,7 @@ my %pub_errors= (
               "admERR06" => "admin token revoked.",
               "chkERR06" => "server congestion",
               "tugERR06" => "admin token revoked.",
-              "ttERR06" => "Nu ai completat nickname sau textul, da inapoi si completeaza",
+              "ttERR06" => "Nu ai completat nickname si/sau textul, da inapoi si completeaza",
 
               "authERR07" => "examyo system error, logged for admin",
               "ver0ERR07" => "server congestionat, incearca in cateva momente",
