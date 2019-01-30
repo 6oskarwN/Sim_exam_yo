@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_gen3.cgi v 3.3.3
+#  sim_gen3.cgi v 3.3.4
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.4 functions moved to ExamLib.pm
 # ch 3.3.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.3.2 compute_mac() changed from MD5 to SHA1
 # ch 3.3.1 bug fix at rucksack algorithm, introduced epoch() instead of gmtime()
@@ -75,7 +76,6 @@
 
 use strict;
 use warnings;
-
 use lib '.';
 use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice random_int);
 
@@ -485,7 +485,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.3.3\n!; #version print for easy upload check
+print qq!v 3.3.4\n!; #version print for easy upload check
 
 print qq!<center><font size="+2">Examen clasa III</font></center>\n!;   #CUSTOM
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;

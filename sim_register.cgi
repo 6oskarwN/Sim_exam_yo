@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_register.cgi v 3.2.7
+#  sim_register.cgi v 3.2.8
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.8 functions moved to ExamLib.pm
 # ch 3.2.7 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.6 extended registration period from 7 days to 14 days to observe the impact on user retention
 # ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash for https://github.com/6oskarwN/Sim_exam_yo/issues/11
@@ -400,7 +401,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.7\n!; #version print for easy upload check
+print qq!v 3.2.8\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -584,7 +585,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.7\n!; #version print for easy upload check
+print qq!v 3.2.8\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 

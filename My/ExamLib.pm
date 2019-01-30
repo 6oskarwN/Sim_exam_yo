@@ -91,7 +91,6 @@ my($package,$filename,$line)=caller;
 #textul pentru public
 my %pub_errors= (
 
-
               "ERR00" => "error: unknown/unspecified",
 
               "authERR01" => "primire de  date corupte.",
@@ -99,41 +98,70 @@ my %pub_errors= (
               "genERR01" => "actiune ilegala, inregistrata in log",
               "ver0ERR01" => "primire de  date corupte, inregistrata in log.",
               "verERR01" => "primire de  date corupte, inregistrata in log.",
+              "regERR01" => "primire de  date corupte, inregistrata in log.",
+              "admERR01" => "admin authentication token fail, logged.",
+              "chkERR01" => "primire de  date corupte, inregistrata in log.",
+              "tugERR01" => "authentication fail, logged.",
+              "ttERR01" => "date invalide",
 
               "authERR02" => "primire de date corupte",
               "gen0ERR02" => "Server congestionat, incearca in cateva momente",
               "genERR02" => "timpul alocat formularului a expirat",
               "ver0ERR02" => "pagina pe care ai trimis-o a expirat",
               "verERR02" => "pagina pe care ai trimis-o a expirat",
+              "regERR02" => "pagina pe care ai trimis-o a expirat",
+              "admERR02" => "token expired, get another token",
+              "tugERR02" => "authentication token expired",
+              "ttERR02" => "input lipsa",
 
               "authERR03" => "Credentiale incorecte.<br><br>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat", #CUSTOM nr zile
               "genERR03" => "server congestionat",
               "ver0ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
               "verERR03" => "Acest formular de examen a fost deja evaluat",
+              "regERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
+              "admERR03" => "identity failed, logged.",
+              "tugERR03" => "authentication fail, logged.",
+              "ttERR03" => "cuvinte si taguri interzise",
 
               "authERR04" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
               "genERR04" => "server congestionat",
               "ver0ERR04" => "primire de  date corupte, inregistrata in log.",
-
+              "regERR04" => "primire de  date corupte, inregistrata in log.",
+              "admERR04" => "funny state",
+              "tugERR04" => "server congestionat",
+              "ttERR04" => "test depistare boti",
+ 
               "authERR05" => "Autentificare imposibila cu credentialele furnizate",
               "genERR05" => "server congestionat",
               "ver0ERR05" => "primire de  date corupte, inregistrata in log.",
               "verERR05" => "primire de  date corupte, inregistrata in log.",
+              "regERR05" => "primire de  date corupte, inregistrata in log.",
+              "admERR05" => "admin token revoke request executed",
+              "ttERR05" => "Formularul a expirat",
 
               "authERR06" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
               "genERR06" => "server congestionat",
               "ver0ERR06" => "server congestionat, incearca in cateva momente",
               "verERR06" => "server congestionat, incearca in cateva momente",
+              "regERR06" => "server congestionat, incercati mai tarziu",
+              "admERR06" => "admin token revoked.",
+              "chkERR06" => "server congestion",
+              "tugERR06" => "admin token revoked.",
+              "ttERR06" => "Nu ai completat nickname sau textul, da inapoi si completeaza",
 
               "authERR07" => "examyo system error, logged for admin",
               "ver0ERR07" => "server congestionat, incearca in cateva momente",
               "genERR07" => "server congestionat",
               "verERR07" => "server congestion",
+              "regERR07" => "server congestionat, incercati mai tarziu",
+              "chkERR07" => "server congestion",
+              "ttERR07" => "hmm",
 
               "authERR08" => "congestie server, incearca in cateva momente",
               "genERR08" => "server congestionat",
               "ver0ERR08" => "minor server problems",
               "verERR08" => "tentativa de frauda, inregistrata in log",
+              "ttERR08" => "unstructured transaction",
 
               "authERR09" => "congestie server, incearca in cateva momente",
               "genERR09" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
@@ -156,44 +184,82 @@ my %pub_errors= (
                 );
 #textul de turnat in logfile, interne
 my %int_errors= (
+  
 
               "ERR00" => "unknown/unspecified",
               "authERR01" => "not exactly 2 pairs received",            #test ok
               "gen0ERR01" => "server cannot open sim_transaction file",    #test
               "genERR01" => "transaction sha1 authenticity failed",   #untested
               "ver0ERR01" => "transaction id has been tampered with, md5 mismatch",    #test ok
+              "verERR01" => "transaction id has been tampered with, md5 mismatch", #test ok
+              "regERR01" => "transaction id has been tampered with, md5 mismatch",    #test ok
+              "admERR01" => "token has been tampered with, sha1 mismatch",    #test ok
+              "chkERR01" => "junk input", 
+              "tugERR01" => "token has been tampered with, sha1 mismatch",    #test ok
+              "ttERR01" => "illegal get_type, not 0/1",    #test ok
 
               "authERR02" => "2 pairs but not login and passwd",        #test ok
+              "gen0ERR02" => "server cannot open db_human file",           #test
               "genERR02" => "transaction timestamp expired, normally not logged",            
               "ver0ERR02" => "timestamp was already expired, normally not logged",     #test ok
+              "verERR02" => "timestamp was already expired", #test ok
+              "regERR02" => "timestamp was already expired",           #test ok
+              "admERR02" => "token timestamp expired",           #test ok
+              "tugERR02" => "untampered but timestamp expired",           #test ok
+              "ttERR02" => "trid_type nu e 0 sau 1, ciudat",           #test ok
 
-              "gen0ERR02" => "server cannot open db_human file",           #test
               "authERR03" => "cont inexistent sau expirat",             #test ok
               "genERR03" => "fail open sim_transaction file",           #tested
               "ver0ERR03" => "good transaction but already used",             #test ok
+              "verERR03" => "exam already used", #normally not logged
+              "regERR03" => "good transaction but already used",             #test ok
+              "admERR03" => "token is sha1, live, but not admin token",             #test ok
+              "tugERR03" => "good transaction but not an admin token",             #test ok
+              "ttERR03" => "cuvinte ilegale",             #test ok
 
               "authERR04" => "normally not logged",
               "genERR04" => "fail close sim_transaction file",
               "ver0ERR04" => "undef transaction id",
+              "regERR04" => "undef transaction id",
+              "admERR04" => "funny state",
+              "tugERR04" => "cannot open file",
+              "ttERR04" => "humanity test failed",
 
               "authERR05" => "normally not logged, we should just count them somewhere",
               "genERR05" => "fail open sim_users file",                 #tested
               "ver0ERR05" => "unstructured transaction id",
+              "verERR05" => "unstructured transaction id",
+              "regERR05" => "unstructured transaction id",
+              "admERR05" => "admin token revoke request ok",
+              "ttERR05" => "form expired",
 
               "authERR06" => "3xfailed authentication for existing user",
               "genERR06" => "fail open existing user's hlrfile",        #tested
               "ver0ERR06" => "cannot open sim_transaction file",
+	      "verERR06" => "cannot open file",
+              "regERR06" => "cannot open a file",
+              "admERR06" => "admin token revoked",
+              "chkERR06" => "cannot open file",
+              "tugERR06" => "admin token revoked",
+              "ttERR06" => "no payload",
 
               "authERR07" => "examyo system error, should never occur, weird hlr_class:",
               "genERR07" => "fail create new hlrfile",                  #tested
               "ver0ERR07" => "cannot open db_human file",
+              "verERR07" => "cannot close file",
+              "regERR07" => "cannot close a file",
+              "chkERR07" => "cannot close file",
+              "ttERR07" => "submitted transaction has tampered MAC",
 
               "authERR08" => "cannot open file",
               "genERR08" => "fail close sim_users",
               "ver0ERR08" => "cannot close a file",
+              "verERR08" => "cheating attempt",
+              "ttERR08" => "unstructured transaction",
 
               "authERR09" => "cannot close file",
               "genERR09" => "good and unexpired received trid but not in tridfile. Under attack?",
+              "verERR09" => "good and unexpired received trid but not in tridfile. Under attack?",
 
               "authERR10" => "cannot open hlr file",
               "genERR10" => "from wrong pagecode invoked generation of exam",

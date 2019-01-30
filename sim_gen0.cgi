@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_gen0.cgi v 3.2.5 
+#  sim_gen0.cgi v 3.2.6 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.6 functions moved to ExamLib.pm
 # ch 3.2.5 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.4 compute_mac() changed from MD5 to SHA1
 # ch 3.2.3 integrated sub timestamp_expired(); introduce epoch timestamping
@@ -59,7 +60,6 @@
 
 use strict;
 use warnings;
-
 use lib '.';
 use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice random_int);
 
@@ -130,7 +130,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.5\n!; #version print for easy upload check
+print qq!v 3.2.6\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolva 3 din 4 intrebari si poti sa te inregistrezi in examen</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">Pagina expira peste 3 minute.</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">O singura varianta de raspuns este corecta. Dupa alegerea raspunsurilor, apasa butonul "Evaluare".</font></center><br><br>\n!;

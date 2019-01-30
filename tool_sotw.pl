@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-#  tool_customize v.0.0.b (c)2018 Francisc TOTH
+#  tool_customize v.0.0.b (c)2008 - 2019 Francisc TOTH
 #  status: devel
 #  customizing tool
 #  makes the automatic relocation of links
@@ -39,7 +39,8 @@ else {@filelist=(
 				'tugetxr2.cgi',
  				'tool_checker2.cgi',
 				'troubleticket.cgi',
-				'tool_admintt.cgi'
+				'tool_admintt.cgi',
+                                'My/ExamLib.pm'
 				); #numele fisierelor
 
 }

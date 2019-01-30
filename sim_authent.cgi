@@ -40,7 +40,7 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
-# ch 3.2.8 make implementation slim and clear by using .pm perl module(s)
+# ch 3.2.8 functions moved to ExamLib.pm
 # ch 3.2.7 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.6 extended registration period from 7 days to 14 days to observe the impact on user retention
 # ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash

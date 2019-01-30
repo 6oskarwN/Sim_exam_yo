@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  troubleticket.cgi v 3.0.f
+#  troubleticket.cgi v 3.1.0
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.1.0 functions moved to ExamLib.pm
 # ch 3.0.f solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.0.e deleted the old guestbook logging and displaying since is unused and could display internal logs to anyone.
 # ch 3.0.d new transaction code simplified with epoch_time; timestamp_expired(); dienice; silent logging; SHA1 mac
@@ -75,8 +76,8 @@
 #$=====================================================================
 use strict;
 use warnings;
-
-sub ins_gpl;                 #inserts a HTML preformatted text with the GPL license text
+use lib '.';
+use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice);
 
 my $get_type; #0 (anonymous) or 1(nick and prefilled) 
 my $get_nick; #nick for the guy who is writing
@@ -95,7 +96,7 @@ my @dbtt;   #this is the slurp variable
 ## Change the address above to your e-mail address. Make sure to KEEP the \
 #my $target_email="yo6own\@yahoo.com";
 ## Change the address above to your e-mail address. Make sure to KEEP the \
-#### .end of mailer patch v 3.0.f #####
+#### .end of mailer patch v 3.1.0 #####
 
 
 #intermediate variables
@@ -209,7 +210,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.f</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.1.0</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
   print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -349,7 +350,7 @@ close(ttFILE);
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.0.f</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.1.0</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -429,7 +430,7 @@ print qq!</center>\n!;
 # end of type=1, prefilled ticket
 
 
-  else {dienice("ERR01",1,\"received type is $get_type");} #hacker attack, type is only  0,1
+  else {dienice("ttERR01",1,\"received type is $get_type");} #hacker attack, type is only  0,1
 
  } #.end first call solve
 
@@ -471,30 +472,30 @@ if(($trid_type eq 0) or ($trid_type eq 1)) #general troubleticket form
                     print qq!</body>\n</html>\n!;
                     }
 
-                    else {dienice("ERR02",0,\"null"); } 
+                    else {dienice("ttERR02",0,\"null"); } 
 }
 #else there are words in the banned list
 else {
-   dienice("ERR03",1,\"null"); 
+   dienice("ttERR03",1,\"null"); 
       }
                                                       
 }
 # $trid_answer not same as $get_answer so not human
 else {
-   dienice("ERR04",1,\"null"); 
+   dienice("ttERR04",1,\"null"); 
       }
 
 
 }
 #transaction used or expired
 else {
-   dienice("ERR05",1,\"null"); 
+   dienice("ttERR05",1,\"null"); 
      }
 
 
 }
 else {
-   dienice("ERR06",1,\"null"); 
+   dienice("ttERR06",1,\"null"); 
       }
 } 
  
@@ -692,13 +693,13 @@ my $i;
 @linesplit=split(/_/,$sub_trid);
 #$linesplit[9] is the mac
 
-unless(defined($linesplit[9])) {dienice ("ERR08",1,\$sub_trid); } # unstructured trid
+unless(defined($linesplit[9])) {dienice ("ttERR08",1,\$sub_trid); } # unstructured trid
 
 #first a check trat submitted trid is valis for hash
 $entry="$linesplit[0]\_$linesplit[1]\_$linesplit[2]\_$linesplit[3]\_$linesplit[4]\_$linesplit[5]\_$linesplit[6]\_$linesplit[7]\_$linesplit[8]\_";
 my $heximac= compute_mac($entry);
 $entry='';
-unless ($linesplit[9] eq $heximac) {dienice("ERR07",4,\"$linesplit[9]VsV$heximac");}
+unless ($linesplit[9] eq $heximac) {dienice("ttERR07",4,\"$linesplit[9]VsV$heximac");}
 
 #open transaction file
 open(transactionFILE,"+< tt_transaction");
@@ -752,7 +753,7 @@ my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
-#### patch for mailer implementation from v 3.0.f ######
+#### patch for mailer implementation from v 3.1.0 ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
 #print MAIL "From: $admin_email\n";
 #print MAIL "To: $target_email\n";
@@ -776,194 +777,11 @@ print qq!<html>\n!;
 print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.0.f\n!; #version print for easy upload check
+print qq!v 3.1.0\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 #---------html page should finish here, but HTML code will continue after returning from function so that it prints different targets
 }
 
-#-------------------------------------
-sub compute_mac {
 
-use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
-  my ($message) = @_;
-  my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-  hmac_sha1_hex($secret,$message);
-} #end of compute_mac
-
-#--------------------------------------
-#primeste timestamp de forma sec_min_hour_day_month_year UTC
-#out: seconds since expired MAX 99999, 0 = not expired.
-
-sub timestamp_expired
-{
-use Time::Local;
-
-my($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year)=@_;
-
-my $timediff;
-my $actualTime = time();
-my $dateTime= timegm($x_sec,$x_min,$x_hour,$x_day,$x_month,$x_year);
-$timediff=$actualTime-$dateTime;
-
-return($timediff);  #here is the general return
-
-} #.end sub timestamp
-
-#-------------------------------------
-# treat the "or die" and all error cases
-#how to use it
-#$error_code is a string, you see it, this is the text selector
-#$counter: if it is 0, error is not logged. If 1..5 = threat factor
-#reference is the reference to string that is passed to be logged.
-#ERR19 and ERR20 have special handling
-
-sub dienice
-{
-my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
-
-my $timestring=gmtime(time);
-
-#textul pentru public
-my %pub_errors= (
-              "ERR01" => "date invalide",
-              "ERR02" => "input lipsa",
-              "ERR03" => "cuvinte si taguri interzise",
-              "ERR04" => "test depistare boti",
-              "ERR05" => "Formularul a expirat",
-              "ERR06" => "Nu ai completat nickname sau textul, da inapoi si completeaza",
-              "ERR07" => "hmm",
-              "ERR08" => "unstructured transaction",
-              "ERR09" => "reserved",
-              "ERR10" => "reserved",
-              "ERR11" => "reserved",
-              "ERR12" => "reserved",
-              "ERR13" => "reserved",
-              "ERR14" => "reserved",
-              "ERR15" => "reserved",
-              "ERR16" => "reserved",
-              "ERR17" => "reserved",
-              "ERR18" => "reserved",
-              "ERR19" => "error not displayed",
-              "ERR20" => "silent discard"
-                );
-#textul de turnat in logfile, interne
-my %int_errors= (
-              "ERR01" => "illegal get_type, not 0/1",    #test ok
-              "ERR02" => "trid_type nu e 0 sau 1, ciudat",           #test ok
-              "ERR03" => "cuvinte ilegale",             #test ok
-              "ERR04" => "humanity test failed",
-              "ERR05" => "form expired",
-              "ERR06" => "no payload",
-              "ERR07" => "submitted transaction has tampered MAC",
-              "ERR08" => "unstructured transaction",
-              "ERR09" => "reserved",
-              "ERR10" => "reserved",
-              "ERR11" => "reserved",
-              "ERR12" => "reserved",
-              "ERR13" => "reserved",
-              "ERR14" => "reserved",
-              "ERR15" => "reserved",
-              "ERR16" => "reserved",
-              "ERR17" => "reserved",
-              "ERR18" => "reserved",
-              "ERR19" => "silent logging(if $counter>0), not displayed",
-	      "ERR20" => "silent discard,(logged only if $counter>0)"
-                );
-
-
-#if commanded, write errorcode in cheat_file
-if($counter > 0)
-{
-# write errorcode in cheat_file
-
-# count the number of lines in the db_tt by counting the '\n'
-# open read-only the db_tt
-my $CountLines = 0;
-my $filebuffer;
-#TBD - flock to be analysed if needed or not on the read-only count
-           open(DBFILE,"< db_tt") or die "Can't open db_tt";
-           while (sysread DBFILE, $filebuffer, 4096) {
-               $CountLines += ($filebuffer =~ tr/\n//);
-           }
-           close DBFILE;
-
-#CUSTOM limit db_tt writing to max number of lines (4 lines per record) 
-if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
-{
-#ACTION: append cheat symptoms in cheat file
-open(cheatFILE,"+< db_tt"); #open logfile for appending;
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
-seek(cheatFILE,0,2);		#go to the end
-#CUSTOM
-printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: troubleticket.cgi\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error in$
-close(cheatFILE);
-} #.end max number of lines
-} #.end $counter>0
-
-if($error_code eq 'ERR20') #must be silently discarded with Status 204 which forces browser stay in same state
-{
-print qq!Status: 204 No Content\n\n!;
-print qq!Content-type: text/html\n\n!;
-}
-else
-{
-unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
-ins_gpl(); #this must exist
-print qq!v 3.0.f\n!; #version print for easy upload check
-print qq!<br>\n!;
-print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
-print qq!<form method="link" action="http://localhost/index.html">\n!;
-print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
-print qq!</form>\n!; 
-print qq!</body>\n</html>\n!;
-                              }
-}
-
-exit();
-
-} #end sub
-#--------------------------------------
-sub ins_gpl
-{
-print qq+<!--\n+;
-print qq!SimEx Radio Release \n!;
-print qq!SimEx Radio was created originally for YO6KXP radio amateur club located in\n!; 
-print qq!Sacele, ROMANIA (YO) then released to the whole radio amateur community.\n!;
-print qq!\n!;
-print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,\n!; 
-print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat in \n!;
-print qq!termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o versiune \n!;
-print qq!ulterioara. Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio \n!;
-print qq!garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
-print qq!manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea \n!;
-print qq!si versiunea in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
-print qq!Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, \n!;
-print qq!copyrightul fiind al statului roman, dar fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile \n!;
-print qq!de interes public precum al legii 109/2007 privind reutilizarea informatiilor din institutiile publice.\n!;
-print qq!\n!;
-print qq!YO6OWN Francisc TOTH\n!;
-print qq!\n!;
-print qq!This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode \n!;
-print qq!and utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \n!;
-print qq!as published by the Free Software Foundation; either version 2 of the License, or any later version. This program is distributed \n!;
-print qq!in the hope that it will be useful, but WITHOUT ANY WARRANTY or without any implied warranty. See the GNU General Public \n!;
-print qq!License for more details. You should have received a copy of the GNU General Public License along with this software distribution; \n!;
-print qq!if not, you can download it for free at http://www.fsf.org/ \n!;
-print qq!Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC \n!;
-print qq!in USA) so any use of the official questions, other than in Read-Only way, is prohibited. \n!;
-print qq!\n!;
-print qq!YO6OWN Francisc TOTH\n!;
-print qq!\n!;
-print qq!Made in Romania\n!;
-print qq+-->\n+;
-
-}
