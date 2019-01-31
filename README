@@ -13,14 +13,15 @@ Manual de instalare, de utilizator - pending review
 Francisc Toth, YO6OWN
 
 Versiunea din branch-ul master R3.3
-
+Versiunea in lucru: R3.4
 Roadmap:
 --------
 Faza de development, testare, imbunatatiri s-a terminat cu R 3.1
-Faza actuala este de intretinere, este o faza reactiva, nu proactiva.
+R3.4 va fi ultima versiune.
+
+Cu R3.4 se va face doar intretinere, este o faza reactiva, nu proactiva.
 Se mai fac urmatoarele:
 - modificari in soft ca o reactie la modificari ale legii, daca e nevoie. 
-- corectii de bug-uri raportate.
+- corectii de bug-uri raportate, daca se justifica efortul.
 - modificari si adaugiri in bazele de date, tot ca o reactie la raportari si sugestii.
 
- 

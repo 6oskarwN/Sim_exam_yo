@@ -1,4 +1,4 @@
-#!c:\Perl\bin\perl
+#!/usr/bin/perl
 
 #Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
 #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 

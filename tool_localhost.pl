@@ -57,9 +57,6 @@ my $replacement3="print qq!SimEx Radio Release 3.3; Author: Francisc TOTH YO6OWN
 my $pattern5="\#flock";  #file lock, only for Linux servers
 my $replacement5="flock";
 
-my $pattern6='#!c:';      #preventiv, ca trecem la Linux/UNIX
-my $replacement6="#!/usr/bin/perl";
-
 
 foreach my $FileName(@filelist)
 {
@@ -82,7 +79,6 @@ if($fetch_line=~/$pattern2/){$fetch_line=$replacement2;}#line replacement
 #if($fetch_line=~/$pattern21/){$fetch_line=$replacement21;}#line replacement
 
 $fetch_line=~s/$pattern5/$replacement5/; #local replacement
-if($fetch_line=~/$pattern6/){$fetch_line=$replacement6;}#line replacement
 
 
 #removes all remarks
