@@ -94,7 +94,7 @@ $attempt_counter=0;
 while ($attempt_counter < 3)
 { 
   if(open(transactionFILE,"+< sim_transaction")) {
-          #flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
+          flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 		  $attempt_counter=3; #file was opened, no more attempt needed
                   $server_ok=1;       #file was opened so server is ok
 			                          } 
@@ -111,7 +111,7 @@ $attempt_counter=1;
 while ($attempt_counter < 3)
 { 
   if(open(INFILE,"<","db_human")) {
-          #flock(INFILE,1);		#LOCK_EX the file from other CGI instances
+          flock(INFILE,1);		#LOCK_EX the file from other CGI instances
 		  $attempt_counter=3; #file was opened, no more attempt needed
                   $server_ok=1;       #file was opened so server is ok
 			                                 } 

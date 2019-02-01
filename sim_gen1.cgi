@@ -167,7 +167,7 @@ if(!defined($get_trid)) {dienice ("ERR20",0,\"undef trid"); } # no transaction o
 #ACTION: open transaction ID file and clear expired transactions
 
 open(transactionFILE,"+< sim_transaction") || dienice("genERR03",1,\"null");
-#flock(transactionFILE,2);
+flock(transactionFILE,2);
 
 #ACTION: refresh transaction file
 seek(transactionFILE,0,0);		#go to the beginning
@@ -311,7 +311,7 @@ if ($trid_id =~ m/\*/) { #if it has the used mark
 #ACTION: open user account file
 
 open(userFILE,"< sim_users") || dienice("genERR05",1,\"null");
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
@@ -341,7 +341,7 @@ $trid_login_hlrname =~ s/\//\@slash\@/; #replace /
 if(-e "hlr/$trid_login_hlrname")
  {
 open(HLRread,"< hlr/$trid_login_hlrname") || dienice("genERR06",1,\"null"); #open for reading only
-#flock(HLRread,1); #LOCK_SH
+flock(HLRread,1); #LOCK_SH
 seek(HLRread,0,0);
 $hlrclass = <HLRread>;
 close(HLRread);
@@ -354,7 +354,7 @@ if($tipcont == 0) #se genereaza doar pt cont de antrenament
   {
 open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("genERR07",1,\"null");
 
-#flock(HLRfile,2); #LOCK_EX the file from other CGI instances
+flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
 printf HLRfile "clasa1\n"; #se inscrie examenul de clasa1 #CUSTOM
 printf HLRfile "\n\n\n\n"; #bagat linii pt 4 probe	#CUSTOM
@@ -497,7 +497,7 @@ print qq!<form action="http://localhost/cgi-bin/sim_ver1.cgi" method="post">\n!;
 if($tipcont == 0) #for sure hlr file exists, was created just lines above
 {
 open(HLRread,"<hlr/$trid_login_hlrname") || dienice("genERR13",1,\"null"); #open for reading only
-#flock(HLRread,1); #LOCK_SH
+flock(HLRread,1); #LOCK_SH
 seek(HLRread,0,0);
 
 $hlrclass = <HLRread>;#il mai aveam dar trebuie sa scapam de linia asta
@@ -514,7 +514,7 @@ for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions f
 {
 #tbd: open database
 open(INFILE,"< $database[$iter]") || dienice("genERR14",1,\"null");   
-#flock(INFILE,1);		#LOCK_SH the file from other CGI instances
+flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 
 
 
@@ -546,7 +546,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++) #or ($#splitter
 #stripfiles are used by all user types
 #stripfiles REALLY needed.
 open(stripFILE, "<$strips[$iter]") || dienice("genERR14",1,\"null");
-#flock(stripFILE,1);
+flock(stripFILE,1);
 seek(stripFILE,0,0);
 @slurp_strip=<stripFILE>;
 #print qq!DEBUG:in acest strip avem:@slurp_strip<br>\n!; #debug

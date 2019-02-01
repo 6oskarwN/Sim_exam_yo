@@ -169,7 +169,7 @@ else {dienice ("ERR20",0,\"undef trid"); } # no transaction or with void value -
 
 #ACTION: open transaction ID file
 open(transactionFILE,"+< sim_transaction") or dienice("verERR06",1,\"can't open transaction file");		#open transaction file for writing
-#flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
+flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
 
@@ -316,7 +316,7 @@ if ($trid_id =~ m/\*/) { #if it has the used mark then $used_time >= 0
 #ACTION: extract account type and last achievement of user from user database
 #open user account file
 open(userFILE,"< sim_users") or dienice("verERR06",1,\"can't open user file");	#open user file for writing
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 
@@ -404,7 +404,7 @@ $trid_login_hlrname =~ s/\//\@slash\@/; #substitute /
 if(-e "hlr/$trid_login_hlrname"){ #doar userii de antrenament  au hlrfile, one-shooters nu.
 
 open(HLRfile,"+< hlr/$trid_login_hlrname") or dienice("verERR07",1,\"cant open hlr file"); #open
-#flock(HLRfile,2); #flock exclusive
+flock(HLRfile,2); #flock exclusive
 seek(HLRfile,0,0);		# rewind
 @slurp_hlrfile = <HLRfile>;	# slurp into a @variable
 			 } #.end if(-e)
@@ -441,7 +441,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++)
 # open database
 
 	open(INFILE,"< $database[$iter]");
-          #flock(INFILE,1);		#LOCK_SH the file from other CGI instances
+          flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 #------------------------
 
 #print chapter name
@@ -834,7 +834,7 @@ else
 
 #open userfile for write
 open(userFILE,"+< sim_users") or dienice("verERR06",1,\"can't open user file");	#open user file for writing
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #rewrite userfile
 truncate(userFILE,0);			#

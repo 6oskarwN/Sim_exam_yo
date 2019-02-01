@@ -299,7 +299,7 @@ if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
 {
 #ACTION: append cheat symptoms in cheat file
 open(cheatFILE,"+< db_tt"); #open logfile for appending;
-#flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
+flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor

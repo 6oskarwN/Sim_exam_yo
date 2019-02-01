@@ -90,7 +90,7 @@ if($get_filename ne "") { #eliminate the possibility of input without filename
 if(open(INFILE,"<", $get_filename)) { #open the question file
 
 
-#flock(INFILE,1);		        #LOCK_SH, file can be read
+flock(INFILE,1);		        #LOCK_SH, file can be read
 
 seek(INFILE,0,0);			#goto begin of db file
 

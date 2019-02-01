@@ -169,7 +169,7 @@ if(defined($post_trid)){
 {
 #ACTION: open transaction ID file
 open(transactionFILE,"+< sim_transaction") or dienice("regERR06",1,\"err06-1");					#open transaction file for writing
-#flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
+flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: refresh transaction file
 seek(transactionFILE,0,0);		#go to the beginning
@@ -331,7 +331,7 @@ $f_xuser=0;    #initializare
 #ACTION: open user account file
 
 open(userFILE,"< sim_users") or dienice("regERR06",1,\"err06-2");	#open user file for writing
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 
@@ -548,7 +548,7 @@ my $new_expiry; #generate for new user
 
 #ACTION: open user account file
 open(userFILE,"+< sim_users") or dienice("regERR06",1,\"err06-3");	#open user file for writing
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 

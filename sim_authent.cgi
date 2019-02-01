@@ -161,7 +161,7 @@ if($stdin_name eq 'login') { $get_login=$stdin_value;}
 {
 #ACTION: open user account file
 open(userFILE,"+< sim_users") or dienice("authERR08",1,\"can't open sim_users");					#open user file for writing
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: refresh user accounts, delete expired accounts
 seek(userFILE,0,0);		#go to the beginning
@@ -379,7 +379,7 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 {
 #ACTION: open transaction ID file
 open(transactionFILE,"+< sim_transaction") or dienice("authERR08",1,\"can't open transaction file");					#open transaction file for writing
-#flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
+flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: generate next transaction
 seek(transactionFILE,0,0);		#go to the beginning
@@ -546,7 +546,7 @@ if(-e "hlr/$hlr_filename")
 #print qq!exista si deschidem hlr/$hlr_filename<br>\n!; #debug
 #deschide hlrfile readonly
 open(HLRfile,"<hlr/$hlr_filename") || dienice("authERR10",2,\"cant open hlr file"); #open readonly
-#flock(HLRfile,1); #lock shared
+flock(HLRfile,1); #lock shared
 seek(HLRfile,0,0); #rewind
 $hlrclass=<HLRfile>; #citeste clasa
 chomp($hlrclass);
@@ -765,7 +765,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++)
 print qq!<hr>\n!; #debug
 #trateaza cazul cu ERRxx
 open(stripFILE, "<$strips[$iter]") || die ("cannot open stripfile");
-#flock(stripFILE,1);
+flock(stripFILE,1);
 seek(stripFILE,0,0);
 @slurp_strip=<stripFILE>;
 close(stripFILE);
@@ -774,7 +774,7 @@ my $checkbox_ena;	#flag, checkbox enabled if chapter in programa is covered with
 #print qq!stripperi:@slurp_strip<br>\n!; #debug
 
 open (libFILE, "<$materii[$iter]") || die ("cannot open materia");
-#flock(libFILE,1);
+flock(libFILE,1);
 seek(libFILE,0,0);
 
 #titlul  materiei e pe prima linie

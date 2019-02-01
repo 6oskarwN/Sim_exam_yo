@@ -156,7 +156,7 @@ else {dienice ("ver0ERR04",1,\"undef trid"); } # no transaction or with void val
 
 #### open transaction ID file ####
 open(transactionFILE,"+< sim_transaction") or dienice("ver0ERR06",1,\$!);					#open transaction file for writing
-#flock(transactionFILE,2);		#lock the file from other CGI instances
+flock(transactionFILE,2);		#lock the file from other CGI instances
 
 
 {
@@ -291,7 +291,7 @@ else { dienice("ver0ERR03",0,\"null");  }
 
 ####open db_human file
 open(INFILE,"<", "db_human") || dienice("ver0ERR07",1,\$!); #open the question file
-#flock(INFILE,1);		        #shared lock, file can be read
+flock(INFILE,1);		        #shared lock, file can be read
 
 
 	

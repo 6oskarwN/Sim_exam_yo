@@ -55,9 +55,6 @@ my $replacement3="print qq!SimEx Radio Release 3.3; Author: Francisc TOTH YO6OWN
 my $pattern4="localhost";
 my $replacement4="examyo.scienceontheweb.net";
 
-my $pattern5="\#flock";  #file lock, only for Linux servers
-my $replacement5="flock";
-
 my $pattern41="\'kpage\'";
 my $replacement41="'_top\'";
 
@@ -76,7 +73,6 @@ $fetch_line=~s/$pattern1/$replacement1/; #local replacement
 if($fetch_line=~/$pattern3/){$fetch_line=$replacement3;}#line replacement
 $fetch_line=~s/$pattern4/$replacement4/; #local replacement
 $fetch_line=~s/$pattern41/$replacement41/; #local replacement
-$fetch_line=~s/$pattern5/$replacement5/; #local replacement
 
 
 #removes all remarks
