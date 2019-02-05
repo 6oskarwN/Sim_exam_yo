@@ -1,5 +1,89 @@
 Intrebari NTSM versiunea 3.31 versiunea actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_NTSM_Entry</curricula></font>
-53
+60
+##0#
+c
+07A275~&Care este pericolul principal al descarcarii accidentale prin scurt-circuit al unui acumulator incarcat?
+null
+Se descarca acumulatorul foarte repede si nu pute m observa decat prea tarziu.
+Acumulatorul fierbe violent.
+Curentul de descarcare fiind foarte mare, se poate ajunge la incendiu prin efect termoelectric, sudarea bornelor si imposibilitatea opririi scurt-circuitului, pana la explozia bateriei cu imprastierea materialului coroziv.
+Se arde statia sau echipamentul alimentat din acel acumulator.
+YO6OWN, 2019
+null
+
+
+##0#
+b
+06A275~&De ce exista(si daca nu exista, trebuie construita)protectie la supraincarcare pentru acumulatorii Pb-acid?
+null
+La supraincarcare, acumulatorul se bombeaza dincauza gazelor, fiind etans. Daca in invelis apare o fisura, acumulatorul poate lua foc sau exploda.
+La supraincarcare, acumulatorul fierbe si isi pierde electrolitul, se usuca si se poate sulfata.
+Se pierde multa energie electrica.
+La supraincare peste nivel, poate apare scurtcircuitul sau se poate arde aparatul alimentat in serie.
+YO6OWN, 2019
+null
+
+
+##0#
+a
+05A275~&De ce exista(si daca nu exista, trebuie construita)protectie la supraincarcare pentru acumulatorii cu Litiu?
+null
+La supraincarcare, acumulatorul se bombeaza dincauza gazelor, fiind etans. Daca in invelis apare o fisura, acumulatorul poate lua foc sau exploda.
+La supraincarcare, acumulatorul fierbe si isi pierde electrolitul, se usuca si se poate sulfata.
+Se pierde multa energie electrica.
+La supraincare peste nivel, poate apare scurtcircuitul sau se poate arde aparatul alimentat in serie.
+YO6OWN, 2019
+null
+
+
+##0#
+d
+04A275~&Care este pericolul cel mai mare in detinerea si utilizarea bateriilor si acumulatorilor cu Litiu (Li)
+null
+Nu este niciun pericol, se gasesc in toate aparatele si jucariile, nu ar primi aprobari daca nu ar fi sigure.
+Efectul de memorie care face ca la cicluri de incarcare-descarcare necorespunzatoare, capacitatea acumulatorului sa scada rapid, scurtand mult perioada de utilizare.
+Pericol de poluare chimica si otravire, daca acumulatorului cu Li i se scurge acidul in apa, chiar si in canalizare.
+Pericol de incendiu, mai ales la perforarea bateriei. Li se combina violent cu apa din atmosfera, reactia este exoterma.
+YO6OWN, 2019
+null
+
+
+##0#
+c
+03A275~&De ce trebuie montat un tub subtire de la acumulatorul Pb-acid, care sa ajunga afara?
+null
+La primele incarcari, acidul se dilata si tubul este pentru preaplin
+Pentru egalizarea presiunii din incinta acumulatorului cu presiunea atmosferica
+In cursul incarcarii, din acumulator sunt emanate gaze otravitoare
+Cand fierbe acumulatorul isi trage aer rece prin acel tub
+YO6OWN, 2019
+null
+
+
+##0#
+b
+02A275~&La ce trebuie sa fim atenti cand transportam, mutam acumulatori de Pb cu electrolit acid?
+null
+Electrolitul este foarte greu si acidul e dificil de scos complet inainte de transport si turnat inapoi dupa transport
+Electrolitul acid e coroziv, puram echipament de protectie si suntem atenti la scurgeri de electrolit, chiar picaturi
+Trebuie sa fim atenti sa nu agitam electrolitul, poate sa spumeze
+Trebuie sa fim atenti ca electrolitul sa fie la nivel
+YO6OWN, 2019
+null
+
+
+##0#
+a
+01A275~&La ce trebuie sa fim atenti cand transportam, mutam acumulatori de Pb cu electrolit acid?
+null
+Electrolitul e coroziv, puram echipament de protectie si suntem atenti la scurgeri de electrolit
+Electrolitul emana gaze la incarcare
+Trebuie sa fim atenti sa nu agitam electrolitul, poate sa spumeze
+Trebuie sa fim atenti ca electrolitul sa fie la nivel
+YO6OWN, 2019
+null
+
+
 ##0#
 c
 01A276~&Care sunt consecintele socului electric?
