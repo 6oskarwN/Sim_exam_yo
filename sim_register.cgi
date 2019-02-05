@@ -253,7 +253,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("ERR07",1,\"err07-1");
+close (transactionFILE) or dienice("regERR07",1,\"err07-1 $! $^E $?");
 
 #now we should check why received transaction was not found in sim_transaction file
 #case 0: it's an illegal transaction if md5 check fails
@@ -393,7 +393,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("ERR07",1,\"err07-2");
+close (transactionFILE) or dienice("regERR07",1,\"err07-2 $! $^E $?");
 #ACTION: Generate the form, again
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
@@ -540,7 +540,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("ERR07",1,\"err07-3");
+close (transactionFILE) or dienice("regERR07",1,\"err07-3 $! $^E $?");
 
 #BLOCK: re/write new user record
 {

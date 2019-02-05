@@ -142,7 +142,7 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
 
 my $isRevoked = 'n';
 #open sim_transaction read-only
-open(transactionFILE,"< sim_transaction") || dienice("tugERR04",1,\"null"); #open for appending
+open(transactionFILE,"< sim_transaction") || dienice("tugERR04",1,\"$! $^E $?"); #open for appending
 flock(transactionFILE,1);
 seek(transactionFILE,0,0);              #go to the beginning
 @tridfile = <transactionFILE>;          #slurp file into array

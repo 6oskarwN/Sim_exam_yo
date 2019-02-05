@@ -166,7 +166,7 @@ if(!defined($get_trid)) {dienice ("ERR20",0,\"undef trid"); } # no transaction o
 
 #ACTION: open transaction ID file and clear expired transactions
 
-open(transactionFILE,"+< sim_transaction") || dienice("genERR03",1,\"null");
+open(transactionFILE,"+< sim_transaction") || dienice("genERR03",1,\"$! $^E $?");
 flock(transactionFILE,2);
 
 #ACTION: refresh transaction file
@@ -244,7 +244,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close(transactionFILE) || dienice("genERR04",1,\"null");
+close(transactionFILE) || dienice("genERR04",1,\"$! $^E $?");
 
 #now we should check why received transaction was not found in sim_transaction file
 #case 0: it's an illegal transaction if sha1 check fails
@@ -310,7 +310,7 @@ if ($trid_id =~ m/\*/) { #if it has the used mark
 #-----------------------------------------------------
 #ACTION: open user account file
 
-open(userFILE,"< sim_users") || dienice("genERR05",1,\"null");
+open(userFILE,"< sim_users") || dienice("genERR05",1,\"$! $^E $?");
 flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 seek(userFILE,0,0);		#go to the beginning
@@ -340,7 +340,7 @@ $trid_login_hlrname =~ s/\//\@slash\@/; #replace /
 #first, if exists, we check the class of hlrfile
 if(-e "hlr/$trid_login_hlrname")
  {
-open(HLRread,"< hlr/$trid_login_hlrname") || dienice("genERR06",1,\"null"); #open for reading only
+open(HLRread,"< hlr/$trid_login_hlrname") || dienice("genERR06",1,\"$! $^E $?"); #open for reading only
 flock(HLRread,1); #LOCK_SH
 seek(HLRread,0,0);
 $hlrclass = <HLRread>;
@@ -352,7 +352,7 @@ unless((-e "hlr/$trid_login_hlrname") && ($hlrclass eq "clasa1" )) #if does not 
 {
 if($tipcont == 0) #se genereaza doar pt cont de antrenament
   {
-open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("genERR07",1,\"null");
+open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("genERR07",1,\"$! $^E $?");
 
 flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
@@ -372,7 +372,7 @@ close(HLRfile);
 } #.END BLOCK: search user record
 
 #ACTION: data was extracted, close user database
-close(userFILE) || dienice("genERR08",1,\"null");
+close(userFILE) || dienice("genERR08",1,\"$! $^E $?");
 
 
 #ACTION: check the trid_pagecode, so exam is invoked using valid page and it's corresponding transaction
@@ -386,7 +386,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close(transactionFILE) || dienice("genERR04",1,\"null");
+close(transactionFILE) || dienice("genERR04",1,\"$! $^E $?");
 
 #ACTION: append cheat symptoms in cheat file
 my $err_harvester="pagecode\: $trid_pagecode login\: $trid_login";
@@ -405,7 +405,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close(transactionFILE) || dienice("genERR11",1,\"null");
+close(transactionFILE) || dienice("genERR11",1,\"$! $^E $?");
 
 
 #ACTION: append cheat symptoms in cheat file
@@ -496,7 +496,7 @@ print qq!<form action="http://localhost/cgi-bin/sim_ver1.cgi" method="post">\n!;
 # if hlrfile (-e) usertype==0(antrenament) and hlr class='clasa1') openfile and skip first line #CUSTOM
 if($tipcont == 0) #for sure hlr file exists, was created just lines above
 {
-open(HLRread,"<hlr/$trid_login_hlrname") || dienice("genERR13",1,\"null"); #open for reading only
+open(HLRread,"<hlr/$trid_login_hlrname") || dienice("genERR13",1,\"$! $^E $?"); #open for reading only
 flock(HLRread,1); #LOCK_SH
 seek(HLRread,0,0);
 
@@ -513,7 +513,7 @@ $hlrclass = <HLRread>;#il mai aveam dar trebuie sa scapam de linia asta
 for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions from each database
 {
 #tbd: open database
-open(INFILE,"< $database[$iter]") || dienice("genERR14",1,\"null");   
+open(INFILE,"< $database[$iter]") || dienice("genERR14",1,\"$! $^E $?");   
 flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 
 
@@ -545,7 +545,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++) #or ($#splitter
 #open,load and close the appropriate stripfile
 #stripfiles are used by all user types
 #stripfiles REALLY needed.
-open(stripFILE, "<$strips[$iter]") || dienice("genERR14",1,\"null");
+open(stripFILE, "<$strips[$iter]") || dienice("genERR14",1,\"$! $^E $?");
 flock(stripFILE,1);
 seek(stripFILE,0,0);
 @slurp_strip=<stripFILE>;
@@ -767,7 +767,7 @@ last DIRTY;
 } #.end foreach $item
 #------------------------------
 #close database
-close(INFILE) || dienice("genERR16",1,\"null");
+close(INFILE) || dienice("genERR16",1,\"$! $^E $?");
 
 } #.end foreach database
 
@@ -828,7 +828,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 } #.end for
 
-close(transactionFILE) or dienice("genERR04",1,\"cant close transaction file");
+close(transactionFILE) or dienice("genERR04",1,\"$! $^E $?");
 } #.end miniblock
 
 print qq!</body>\n</html>\n!; #debug place

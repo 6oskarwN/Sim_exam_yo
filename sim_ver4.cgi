@@ -168,7 +168,7 @@ else {dienice ("ERR20",0,\"undef trid"); } # no transaction or with void value -
 
 
 #ACTION: open transaction ID file
-open(transactionFILE,"+< sim_transaction") or dienice("verERR06",1,\"can't open transaction file");		#open transaction file for writing
+open(transactionFILE,"+< sim_transaction") or dienice("verERR06",1,\"$! $^E $?");		#open transaction file for writing
 flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
@@ -315,7 +315,7 @@ if ($trid_id =~ m/\*/) { #if it has the used mark then $used_time >= 0
 
 #ACTION: extract account type and last achievement of user from user database
 #open user account file
-open(userFILE,"< sim_users") or dienice("verERR06",1,\"can't open user file");	#open user file for writing
+open(userFILE,"< sim_users") or dienice("verERR06",1,\"$! $^E $?");	#open user file for writing
 flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
@@ -833,7 +833,7 @@ else
 { $slurp_userfile[$user_account*7+6]="4\n";} #custom
 
 #open userfile for write
-open(userFILE,"+< sim_users") or dienice("verERR06",1,\"can't open user file");	#open user file for writing
+open(userFILE,"+< sim_users") or dienice("verERR06",1,\"$! $^E $?");	#open user file for writing
 flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #rewrite userfile

@@ -290,13 +290,13 @@ while($fline=<PRFILE>)
     print qq!$fline<br>!;
     }
 }
-close (PRFILE) || dienice("chkERR07",1,\"null");
+close (PRFILE) || dienice("chkERR07",1,\"$! $^E $?");
 
 
 print qq!</body>\n!;
 print qq!</html>\n!;
 
-close (INFILE) || dienice("chkERR07",1,\"null");
+close (INFILE) || dienice("chkERR07",1,\"$! $^E $?");
 
 } #close file
 else  {dienice("chkERR06",1,\$get_filename);} #else the case when correct filename could not be opened
