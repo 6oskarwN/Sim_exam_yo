@@ -155,7 +155,7 @@ else {dienice ("ver0ERR04",1,\"undef trid"); } # no transaction or with void val
 ###############################
 
 #### open transaction ID file ####
-open(transactionFILE,"+< sim_transaction") or dienice("ver0ERR06",1,\"$! $^E $?");					#open transaction file for writing
+open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"$! $^E $?");					#open transaction file for writing
 flock(transactionFILE,2);		#lock the file from other CGI instances
 
 
@@ -245,7 +245,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close (transactionFILE) or dienice("ver0ERR08",1,\"err08-1 $! $^E $?");
+close (transactionFILE) or dienice("ERR02_cl",1,\"err08-1 $! $^E $?");
 
 #now we should check why received transaction was not found in sim_transaction file
 #case 0: it's an illegal transaction if md5 check fails
@@ -290,7 +290,7 @@ else { dienice("ver0ERR03",0,\"null");  }
 } #.END extraction BLOCK
 
 ####open db_human file
-open(INFILE,"<", "db_human") || dienice("ver0ERR07",1,\"$! $^E $?"); #open the question file
+open(INFILE,"<", "db_human") || dienice("ERR01_op",1,\"$! $^E $?"); #open the question file
 flock(INFILE,1);		        #shared lock, file can be read
 
 
@@ -351,7 +351,7 @@ else {
 ## split results as correct ##
 ##############################
 
-close( INFILE ) || dienice("ver0ERR08",1,\"$! $^E $?");
+close( INFILE ) || dienice("ERR02_cl",1,\"$! $^E $?");
 
 if($correct>=3)
 {
@@ -401,7 +401,7 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 }
 
 #closing transaction file, opens flock by default
-close (transactionFILE) or dienice("ver0ERR08",1,\"err08-2 $! $^E $?");
+close (transactionFILE) or dienice("ERR02_cl",1,\"err08-2 $! $^E $?");
 
 
 ###Generate the registration form ###
@@ -520,7 +520,7 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 }
 
 #closing transaction file, opens flock by default
-close (transactionFILE) or dienice("ver0ERR08",1,\"err08-3 $! $^E $?");
+close (transactionFILE) or dienice("ERR02_cl",1,\"err08-3 $! $^E $?");
 
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 

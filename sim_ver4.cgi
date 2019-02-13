@@ -168,7 +168,7 @@ else {dienice ("ERR20",0,\"undef trid"); } # no transaction or with void value -
 
 
 #ACTION: open transaction ID file
-open(transactionFILE,"+< sim_transaction") or dienice("verERR06",1,\"$! $^E $?");		#open transaction file for writing
+open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"$! $^E $?");		#open transaction file for writing
 flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
@@ -248,7 +248,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close (transactionFILE) or dienice("verERR07",1,\"cant close transaction file");
+close (transactionFILE) or dienice("ERR02_cl",1,\"cant close transaction file");
 
 
 #now we should check why received transaction was not found in sim_transaction file
@@ -315,7 +315,7 @@ if ($trid_id =~ m/\*/) { #if it has the used mark then $used_time >= 0
 
 #ACTION: extract account type and last achievement of user from user database
 #open user account file
-open(userFILE,"< sim_users") or dienice("verERR06",1,\"$! $^E $?");	#open user file for writing
+open(userFILE,"< sim_users") or dienice("ERR01_op",1,\"$! $^E $?");	#open user file for writing
 flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
@@ -346,7 +346,7 @@ if($slurp_userfile[$account*7+0] eq "$trid_login\n") #this is the user record we
 } #.END BLOCK: search user record
 
 #close user file; will reopen it if needed
-close(userFILE) or dienice("verERR07",1,\"can't close user database"); 
+close(userFILE) or dienice("ERR02_cl",1,\"can't close user database"); 
 
 #ACTION: check request clearances pagecode == 7 and tip cont == 0/4&&notused)
 unless($trid_pagecode == 7 && ($user_tipcont == 0 || $user_tipcont == 4 && $user_lastresult == 0)) #CUSTOM: invoked from examIIIR page
@@ -360,7 +360,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("verERR07",1,\"cant close transaction file");
+close (transactionFILE) or dienice("ERR02_cl",1,\"cant close transaction file");
 
 #ACTION: append cheat symptoms in cheat file
 #CUSTOM
@@ -403,7 +403,7 @@ $trid_login_hlrname = $trid_login;
 $trid_login_hlrname =~ s/\//\@slash\@/; #substitute /
 if(-e "hlr/$trid_login_hlrname"){ #doar userii de antrenament  au hlrfile, one-shooters nu.
 
-open(HLRfile,"+< hlr/$trid_login_hlrname") or dienice("verERR07",1,\"cant open hlr file"); #open
+open(HLRfile,"+< hlr/$trid_login_hlrname") or dienice("ERR02_cl",1,\"cant open hlr file"); #open
 flock(HLRfile,2); #flock exclusive
 seek(HLRfile,0,0);		# rewind
 @slurp_hlrfile = <HLRfile>;	# slurp into a @variable
@@ -824,7 +824,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-close (transactionFILE) or dienice("verERR07",1,\"cant close transaction file");
+close (transactionFILE) or dienice("ERR02_cl",1,\"cant close transaction file");
 
 #update user record with the result of test
 if ($f_failed)
@@ -833,7 +833,7 @@ else
 { $slurp_userfile[$user_account*7+6]="4\n";} #custom
 
 #open userfile for write
-open(userFILE,"+< sim_users") or dienice("verERR06",1,\"$! $^E $?");	#open user file for writing
+open(userFILE,"+< sim_users") or dienice("ERR01_op",1,\"$! $^E $?");	#open user file for writing
 flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #rewrite userfile
@@ -844,7 +844,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 #close userfile
-close(userFILE) or dienice("verERR07",1,\"can't close user database"); 
+close(userFILE) or dienice("ERR02_cl",1,\"can't close user database"); 
 
 
 }#end finishing block

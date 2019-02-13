@@ -93,31 +93,32 @@ my %pub_errors= (
 
               "ERR00" => "error: unknown/unspecified",
 #astea cu cannot open file, toate
-              "gen0ERR02" => "Server congestionat, incearca in cateva momente",
-              "gen0ERR01" => "Server congestionat, incearca in cateva momente",
-              "authERR10" => "Server congestionat, incearca in cateva momente",
-              "ver0ERR07" => "Server congestionat, incearca in cateva momente",
-              "chkERR06" => "Server congestionat, incearca in cateva momente",
-              "genERR06" => "Server congestionat, incearca in cateva momente",
-              "genERR13" => "Server congestionat, incearca in cateva momente",
-              "genERR14" => "Server congestionat, incearca in cateva momente",
-              "genERR03" => "Server congestionat, incearca in cateva momente",
-              "genERR05" => "Server congestionat, incearca in cateva momente",
-              "ver0ERR06" => "Server congestionat, incearca in cateva momente",
-              "verERR06" => "Server congestionat, incearca in cateva momente",
-              "regERR06" => "Server congestionat, incearca in cateva momente",
-              "tugERR04" => "Server congestionat, incearca in cateva momente",
-              "authERR08" => "Server congestionat, incearca in cateva momente",
+              "ERR01_op" => "Server congestionat, incearca in cateva momente",
+#              "gen0ERR01" => "Server congestionat, incearca in cateva momente",
+#              "authERR10" => "Server congestionat, incearca in cateva momente",
+#              "ver0ERR07" => "Server congestionat, incearca in cateva momente",
+#              "chkERR06"  => "Server congestionat, incearca in cateva momente",
+#              "genERR06"  => "Server congestionat, incearca in cateva momente",
+#              "genERR13"  => "Server congestionat, incearca in cateva momente",
+#              "genERR14"  => "Server congestionat, incearca in cateva momente",
+#              "genERR03"  => "Server congestionat, incearca in cateva momente",
+#              "genERR05"  => "Server congestionat, incearca in cateva momente",
+#              "ver0ERR06" => "Server congestionat, incearca in cateva momente",
+#              "verERR06"  => "Server congestionat, incearca in cateva momente",
+#              "regERR06"  => "Server congestionat, incearca in cateva momente",
+#              "tugERR04"  => "Server congestionat, incearca in cateva momente",
+#             "authERR08" => "Server congestionat, incearca in cateva momente",
 
 #astea cu cannot close file, toate
-              "genERR08" => "Server congestionat, incearca in cateva momente",
-              "genERR16" => "Server congestionat, incearca in cateva momente",
-              "genERR11" => "Server congestionat, incearca in cateva momente",
-              "authERR09" => "Server congestionat, incearca in cateva momente",
-              "ver0ERR08" => "Server congestionat, incearca in cateva momente",
-              "verERR07" => "Server congestionat, incearca in cateva momente",
-              "regERR07" => "Server congestionat, incearca in cateva momente",
-              "chkERR07" => "Server congestionat, incearca in cateva momente",
+              "ERR02_cl"  => "Server congestionat, incearca in cateva momente",
+#              "genERR16"  => "Server congestionat, incearca in cateva momente",
+#              "genERR11"  => "Server congestionat, incearca in cateva momente",
+#              "authERR09" => "Server congestionat, incearca in cateva momente",
+#              "ver0ERR08" => "Server congestionat, incearca in cateva momente",
+#              "verERR07"  => "Server congestionat, incearca in cateva momente",
+#              "regERR07"  => "Server congestionat, incearca in cateva momente",
+#              "chkERR07"  => "Server congestionat, incearca in cateva momente",
+#              "genERR04"  => "server congestionat",
 
 #unprocessed
               "authERR01" => "primire de  date corupte.",
@@ -151,7 +152,7 @@ my %pub_errors= (
               "ttERR03" => "cuvinte si taguri interzise",
 
               "authERR04" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
-              "genERR04" => "server congestionat",
+
               "ver0ERR04" => "primire de  date corupte, inregistrata in log.",
               "regERR04" => "primire de  date corupte, inregistrata in log.",
               "admERR04" => "funny state",
@@ -215,6 +216,38 @@ my %int_errors= (
   
 
               "ERR00" => "unknown/unspecified",
+#dienice("authERR10",2,\"$! $^E $?");
+# err when opening file
+#              "ERR01_op" => "cannot open file",
+#             "gen0ERR01" => "cannot open file",   
+#              "authERR10" => "cannot open file",
+#             "ver0ERR07" => "cannot open file",
+#              "chkERR06"  => "cannot open file",
+#              "genERR06"  => "cannot open file",
+#              "genERR13"  => "cannot open file",
+#              "genERR14"  => "cannot open file",
+#              "genERR03"  => "cannot open file",
+#              "genERR05"  => "cannot open file",
+#              "ver0ERR06" => "cannot open file",
+#	      "verERR06"  => "cannot open file",
+#              "regERR06"  => "cannot open file",
+#              "tugERR04"  => "cannot open file",
+#              "authERR08" => "cannot open file",
+
+#err when closing file
+              "ERR02_cl"  => "cannot close file",
+#             "genERR16"  => "cannot close file",
+#              "genERR11"  => "cannot close file",
+#	      "authERR09" => "cannot close file",
+#              "ver0ERR08" => "cannot close file",
+#             "verERR07"  => "cannot close file",
+#              "regERR07"  => "cannot close file",
+#              "chkERR07"  => "cannot close file",
+#               "genERR04"  => "cannot close file",
+
+#err when creating file
+              "genERR07" => "fail create new hlrfile",
+
 
               "authERR01" => "not exactly 2 pairs received",            #test ok
               "chkERR01" => "junk input", 
@@ -294,37 +327,7 @@ my %int_errors= (
 
 
 
-#dienice("authERR10",2,\"$! $^E $?");
-# err when opening file
-              "gen0ERR02" => "cannot open file",
-              "gen0ERR01" => "cannot open file",   
-              "authERR10" => "cannot open file",
-              "ver0ERR07" => "cannot open file",
-              "chkERR06"  => "cannot open file",
-              "genERR06"  => "cannot open file",
-              "genERR13"  => "cannot open file",
-              "genERR14"  => "cannot open file",
-              "genERR03"  => "cannot open file",
-              "genERR05"  => "cannot open file",
-              "ver0ERR06" => "cannot open file",
-	      "verERR06"  => "cannot open file",
-              "regERR06"  => "cannot open file",
-              "tugERR04"  => "cannot open file",
-              "authERR08" => "cannot open file",
 
-#err when closing file
-              "genERR08"  => "cannot close file",
-              "genERR16"  => "cannot close file",
-              "genERR11"  => "cannot close file",
-	      "authERR09" => "cannot close file",
-              "ver0ERR08" => "cannot close file",
-              "verERR07"  => "cannot close file",
-              "regERR07"  => "cannot close file",
-              "chkERR07"  => "cannot close file",
-              "genERR04"  => "cannot close file",
-
-#err when creating file
-              "genERR07" => "fail create new hlrfile",
 
  #altceva
               "verERR08" => "cheating attempt",
