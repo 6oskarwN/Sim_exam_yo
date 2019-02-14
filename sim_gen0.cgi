@@ -1,4 +1,4 @@
-#!c:\Perl\bin\perl
+#!/usr/bin/perl
 
 #Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
 #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
@@ -94,7 +94,7 @@ $attempt_counter=0;
 while ($attempt_counter < 3)
 { 
   if(open(transactionFILE,"+< sim_transaction")) {
-          #flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
+          flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 		  $attempt_counter=3; #file was opened, no more attempt needed
                   $server_ok=1;       #file was opened so server is ok
 			                          } 
@@ -104,14 +104,14 @@ while ($attempt_counter < 3)
 } #end while
 
 unless($server_ok) #if server is congested, die with error code;
-{ dienice("gen0ERR01",1,\$!) } #check ok for unclosed file before dienice
+{ dienice("ERR01_op",1,\"$! $^E $?"); } #check ok for unclosed file before dienice
 
 ####open db_human file
 $attempt_counter=1;
 while ($attempt_counter < 3)
 { 
   if(open(INFILE,"<","db_human")) {
-          #flock(INFILE,1);		#LOCK_EX the file from other CGI instances
+          flock(INFILE,1);		#LOCK_EX the file from other CGI instances
 		  $attempt_counter=3; #file was opened, no more attempt needed
                   $server_ok=1;       #file was opened so server is ok
 			                                 } 
@@ -121,7 +121,7 @@ while ($attempt_counter < 3)
 } #end while
 
 unless($server_ok) #if server is congested, die with error code;
-{ dienice("gen0ERR02",1,\$!) } #check ok for unclosed file before dienice
+{ dienice("ERR01_op",1,\"$! $^E $?"); } #check ok for unclosed file before dienice
 
 
 print qq!Content-type: text/html\n\n!;

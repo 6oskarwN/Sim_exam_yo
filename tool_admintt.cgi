@@ -1,4 +1,4 @@
-#!c:\Perl\bin\perl
+#!/usr/bin/perl
 
 #Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
 #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
@@ -165,7 +165,7 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
 my $isRevoked = 'n';
 #open sim_transaction read-only
 open(transactionFILE,"< sim_transaction") || dienice("admERR04",1,\"null"); #open for appending
-#flock(transactionFILE,1);
+flock(transactionFILE,1);
 seek(transactionFILE,0,0);              #go to the beginning
 @tridfile = <transactionFILE>;          #slurp file into array
 #DEVEL
@@ -195,7 +195,7 @@ if($call_switch == 1) #it's  a display order
 {
 open(INFILE,"<","db_tt") or die(); #open read-only the tickets file
 
-#flock(INFILE,1);		        #LOCK_SH, file can be read
+flock(INFILE,1);		        #LOCK_SH, file can be read
 
 seek(INFILE,0,0);			#goto begin of file
 @dbtt=<INFILE>; #slurp
@@ -357,7 +357,7 @@ elsif ($call_switch == 3)    #it's 3rd type call if  token and revoke command ex
 #ACTION: open transaction ID file and adds revoked transaction
 
 open(transactionFILE,"+< sim_transaction") || dienice("admERR04",1,\"null"); #open for appending
-#flock(transactionFILE,2);
+flock(transactionFILE,2);
 
 seek(transactionFILE,0,0);              #go to the beginning
 

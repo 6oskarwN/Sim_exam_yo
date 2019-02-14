@@ -1,4 +1,4 @@
-#!c:\Perl\bin\perl
+#!/usr/bin/perl
 
 #Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
 #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
@@ -80,6 +80,7 @@ $get_buffer=$ENV{'QUERY_STRING'};
 
 if (defined($get_buffer)) {   #eliminate possibility of void input
 
+#we check the request to be exactly legal, to avoi sql injection or other bogus requests
 if($get_buffer =~ m/((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/)
        {$get_filename = $1;}
        else {$get_filename = "";}
@@ -90,7 +91,7 @@ if($get_filename ne "") { #eliminate the possibility of input without filename
 if(open(INFILE,"<", $get_filename)) { #open the question file
 
 
-#flock(INFILE,1);		        #LOCK_SH, file can be read
+flock(INFILE,1);		        #LOCK_SH, file can be read
 
 seek(INFILE,0,0);			#goto begin of db file
 
@@ -290,19 +291,19 @@ while($fline=<PRFILE>)
     print qq!$fline<br>!;
     }
 }
-close (PRFILE) || dienice("chkERR07",1,\"null");
+close (PRFILE) || dienice("ERR02_cl",1,\"$! $^E $?");
 
 
 print qq!</body>\n!;
 print qq!</html>\n!;
 
-close (INFILE) || dienice("chkERR07",1,\"null");
+close (INFILE) || dienice("ERR02_cl",1,\"$! $^E $?");
 
 } #close file
-else  {dienice("chkERR06",1,\$get_filename);} #else the case when correct filename could not be opened
+else  {dienice("ERR01_op",1,\$get_filename);} #else the case when correct filename could not be opened
 
 }
-else {dienice("chkERR01",1,\$get_buffer);} #else the case when input was not void, but some junk
+else {dienice("chkERR01",3,\$get_buffer);} #else the case when input was not void, but some junk
 
 }
 else {dienice("chkERR01",1,\"void URL");} #else the case when URL input was void

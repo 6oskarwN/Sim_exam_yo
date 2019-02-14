@@ -1,4 +1,4 @@
-#!c:\Perl\bin\perl
+#!/usr/bin/perl
 
 #Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
 #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
@@ -142,8 +142,8 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
 
 my $isRevoked = 'n';
 #open sim_transaction read-only
-open(transactionFILE,"< sim_transaction") || dienice("tugERR04",1,\"null"); #open for appending
-#flock(transactionFILE,1);
+open(transactionFILE,"< sim_transaction") || dienice("ERR01_op",1,\"$! $^E $?"); #open for appending
+flock(transactionFILE,1);
 seek(transactionFILE,0,0);              #go to the beginning
 @tridfile = <transactionFILE>;          #slurp file into array
 #DEVEL
@@ -157,7 +157,7 @@ if ($isRevoked eq 'y') { dienice("tugERR06",0,\"null");}
 
 #ACTION: open sim_transaction ID file
 open(transactionFILE,"< sim_transaction") or die("can't open simtrans file: $!\n");					#open transaction file for writing
-#flock(transactionFILE,1);		#just a read-lock
+flock(transactionFILE,1);		#just a read-lock
 seek(transactionFILE,0,0);              #go to the beginning
 
 print "Content-type: text/html\n\n";
@@ -204,7 +204,7 @@ print qq!----------------------------------------------<br><br>\n!;
 
 #ACTION: open user file
 open(xfile_handler,"< sim_users") or die("can't open transaction file: $!\n");					#open transaction file for writing
-#flock(xfile_handler,1);		#just a read-lock
+flock(xfile_handler,1);		#just a read-lock
 $i=1;
 print qq!<small><br>\n!;
 while($fline=<xfile_handler>) 

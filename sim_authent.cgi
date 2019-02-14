@@ -1,4 +1,4 @@
-#!c:\Perl\bin\perl
+#!/usr/bin/perl
 
 #Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
 #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
@@ -160,8 +160,8 @@ if($stdin_name eq 'login') { $get_login=$stdin_value;}
 #BLOCK: open userfile; Refresh userfile with criteria expiry time.
 {
 #ACTION: open user account file
-open(userFILE,"+< sim_users") or dienice("authERR08",1,\"can't open sim_users");					#open user file for writing
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+open(userFILE,"+< sim_users") or dienice("ERR01_op",1,\"$! $^E $?");					#open user file for writing
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: refresh user accounts, delete expired accounts
 seek(userFILE,0,0);		#go to the beginning
@@ -228,7 +228,7 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 } #.end unless
 else #the case when user database is empty
 {
-close(userFILE) or dienice("authERR09",1,\"cant close user file"); 
+close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?"); 
 dienice("authERR03",0,\"null"); #normally not logged
 }#database empty
 
@@ -254,7 +254,7 @@ my @linesplit;
 #if login was not found, print error page, close resources and exit
 if($rec_pos == -1) 
 {
-close(userFILE) or dienice("authERR09",1,\"cant close user file"); 
+close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?"); 
 dienice("authERR03",0,\"null"); #normally not logged
 } #.end if
 } #.end BLOCK
@@ -274,7 +274,7 @@ $gigel="$gigel timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$line
 
 if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])<0)
    {
-   close(userFILE) or dienice("authERR09",1,"cant close user file"); 
+   close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?"); 
    dienice("authERR04",0,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
 #   dienice("authERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
    } #.end delay check
@@ -308,7 +308,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or dienice("authERR09",1,\"cant close user file");
+close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
 chomp($wrong);
 my $err_harvester="<font color=\"white\">$slurp_userfile[$rec_pos*7]</font> ai gresit deja de <font color=\"red\">$wrong</font> ori"; 
 dienice("authERR05",0,\$err_harvester);
@@ -340,7 +340,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or dienice("authERR09",1,\"cant close user file"); 
+close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?"); 
 #penetration probe: log when condition of triple failure is met.
 dienice("authERR06",1,\$slurp_userfile[$rec_pos*7+0]);
 
@@ -378,8 +378,8 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 #BLOCK: refresh transaction file and Generate new transaction id
 {
 #ACTION: open transaction ID file
-open(transactionFILE,"+< sim_transaction") or dienice("authERR08",1,\"can't open transaction file");					#open transaction file for writing
-#flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
+open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"$! $^E $?");					#open transaction file for writing
+flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: generate next transaction
 seek(transactionFILE,0,0);		#go to the beginning
@@ -462,7 +462,7 @@ for(my $i=0;$i <= $#slurp_userfile;$i++)
 printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
-close(userFILE) or dienice("authERR09",1,\"cant close user file");
+close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
 
 my @extra=();
 @extra=(@extra,$tridfile[0]);		#transactionID it's always alive
@@ -514,7 +514,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("authERR09",1,\"cant close transaction file");
+close (transactionFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
 
 } #.end BLOCK
 
@@ -545,8 +545,8 @@ if(-e "hlr/$hlr_filename")
 {
 #print qq!exista si deschidem hlr/$hlr_filename<br>\n!; #debug
 #deschide hlrfile readonly
-open(HLRfile,"<hlr/$hlr_filename") || dienice("authERR10",2,\"cant open hlr file"); #open readonly
-#flock(HLRfile,1); #lock shared
+open(HLRfile,"<hlr/$hlr_filename") || dienice("ERR01_op",2,\"$! $^E $?"); #open readonly
+flock(HLRfile,1); #lock shared
 seek(HLRfile,0,0); #rewind
 $hlrclass=<HLRfile>; #citeste clasa
 chomp($hlrclass);
@@ -765,7 +765,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++)
 print qq!<hr>\n!; #debug
 #trateaza cazul cu ERRxx
 open(stripFILE, "<$strips[$iter]") || die ("cannot open stripfile");
-#flock(stripFILE,1);
+flock(stripFILE,1);
 seek(stripFILE,0,0);
 @slurp_strip=<stripFILE>;
 close(stripFILE);
@@ -774,7 +774,7 @@ my $checkbox_ena;	#flag, checkbox enabled if chapter in programa is covered with
 #print qq!stripperi:@slurp_strip<br>\n!; #debug
 
 open (libFILE, "<$materii[$iter]") || die ("cannot open materia");
-#flock(libFILE,1);
+flock(libFILE,1);
 seek(libFILE,0,0);
 
 #titlul  materiei e pe prima linie

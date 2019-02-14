@@ -1,4 +1,4 @@
-#!c:\Perl\bin\perl
+#!/usr/bin/perl
 
 #Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile 
 #problemelor, manual de utilizare, instalare, SRS, cod sursa si utilitarele aferente 
@@ -168,8 +168,8 @@ if(defined($post_trid)){
 #BLOCK: Refresh transaction file, rewrite but don't close file
 {
 #ACTION: open transaction ID file
-open(transactionFILE,"+< sim_transaction") or dienice("regERR06",1,\"err06-1");					#open transaction file for writing
-#flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
+open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"err06-1");					#open transaction file for writing
+flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 
 #ACTION: refresh transaction file
 seek(transactionFILE,0,0);		#go to the beginning
@@ -253,7 +253,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("ERR07",1,\"err07-1");
+close (transactionFILE) or dienice("ERR02_cl",1,\"err07-1 $! $^E $?");
 
 #now we should check why received transaction was not found in sim_transaction file
 #case 0: it's an illegal transaction if md5 check fails
@@ -330,8 +330,8 @@ $f_xuser=0;    #initializare
 #ACTION: Verify for append only if login is unique in user database
 #ACTION: open user account file
 
-open(userFILE,"< sim_users") or dienice("regERR06",1,\"err06-2");	#open user file for writing
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+open(userFILE,"< sim_users") or dienice("ERR01_op",1,\"err06-2");	#open user file for writing
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 
@@ -393,7 +393,7 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("ERR07",1,\"err07-2");
+close (transactionFILE) or dienice("ERR02_cl",1,\"err07-2 $! $^E $?");
 #ACTION: Generate the form, again
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
@@ -540,15 +540,15 @@ for(my $i=0;$i <= $#tridfile;$i++)
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
 
-close (transactionFILE) or dienice("ERR07",1,\"err07-3");
+close (transactionFILE) or dienice("ERR02_cl",1,\"err07-3 $! $^E $?");
 
 #BLOCK: re/write new user record
 {
 my $new_expiry; #generate for new user
 
 #ACTION: open user account file
-open(userFILE,"+< sim_users") or dienice("regERR06",1,\"err06-3");	#open user file for writing
-#flock(userFILE,2);		#LOCK_EX the file from other CGI instances
+open(userFILE,"+< sim_users") or dienice("ERR01_op",1,\"err06-3");	#open user file for writing
+flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 
