@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  tool_checker2.cgi v 3.3.1 
+#  tool_checker2.cgi v 3.3.2 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+#ch 3.3.2 strengthen whitelist
 #ch 3.3.1 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 #ch 3.3.0 junk input whitelist updated
 #ch 3.0.5 curricula coverage sourced from strip.pl
@@ -76,16 +77,20 @@ my $array_size; #used to store coverage of curricula
 sub dienice;
 
 
-$get_buffer=$ENV{'QUERY_STRING'};
+$get_buffer=$ENV{'QUERY_STRING'}; #GET
 
 if (defined($get_buffer)) {   #eliminate possibility of void input
 
 #we check the request to be exactly legal, to avoi sql injection or other bogus requests
-if($get_buffer =~ m/((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/)
-       {$get_filename = $1;}
+if($get_buffer =~ m/^get_fname={1}((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/)
+       {
+        
+        $get_buffer =~ m/((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/;
+        $get_filename=$1;
+       }
        else {$get_filename = "";}
 
-####open hamquest file
+####open questions file
 if($get_filename ne "") { #eliminate the possibility of input without filename
 
 if(open(INFILE,"<", $get_filename)) { #open the question file
@@ -103,7 +108,7 @@ print qq!<title>Probleme si Rezolvari: $get_filename</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#FAFAFA" text="black" link="blue" alink="blue" vlink="blue">\n!;
 
-print qq!<font color="blue">v 3.3.1</font>\n<br>\n!;
+print qq!<font color="blue">v 3.3.2</font>\n<br>\n!;
 
 print qq!<i>Aceasta este o afisare a bazelor de date folosite de programul SimEx, un simulator de examen de radioamatori<br>Acest program este un software gratuit, poate fi distribuit/modificat in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o veriune ulterioara.<br>Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.<br>In distributia programului SimEx trebuie sa gasiti o copie a licentei GNU GPL, iar daca nu, ea poate fi descarcata gratuit de pe pagina <a href="http://www.fsf.org" target="_new">http://www.fsf.org</a><br>Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind permisa. Acest lucru deriva din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.</i><br>\n!;
 
