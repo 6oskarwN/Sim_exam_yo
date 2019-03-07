@@ -40,6 +40,7 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.9 check input string for defined format as security measure
 # ch 3.2.8 functions moved to ExamLib.pm
 # ch 3.2.7 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.6 extended registration period from 7 days to 14 days to observe the impact on user retention
@@ -113,18 +114,23 @@ my $stdin_name;
 my $stdin_value;
 
 # Read input text, POST or GET
-  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case
-  if($ENV{'REQUEST_METHOD'} eq "GET")
+#  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #make everything upper-case
+  if($ENV{'REQUEST_METHOD'} =~ m/GET/i) #not POST but also not GET? just garble
       {
       dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
       }
 ## end of GET
 
-else    {
-	read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
-        }
-#this else is not really nice but it's correct for the moment.
+elsif($ENV{'REQUEST_METHOD'} =~ m/POST/i)
+     {
+      read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+     }
+else {dienice("authERR07",3,\"request metod other than GET/POST");}
 
+#before split, before anything, check if input string obeys the defined rules
+unless($buffer =~ m/^login={1}[^%| |\.|<|>]{4,25}&{1}passwd={1}[^%| ]{8,40}$/) {
+ dienice("authERR05",3,\"input blacklist fail:$buffer"); 
+ } #sau alta rezolvare 
 
 
 @pairs=split(/&/, $buffer); #POST-technology
@@ -275,8 +281,10 @@ $gigel="$gigel timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$line
 if(timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])<0)
    {
    close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?"); 
-   dienice("authERR04",0,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
-#   dienice("authERR04",0,\$slurp_userfile[$rec_pos*7]); #ati bagat parola gresit de multe ori, asteptati
+#   dienice("authERR04",0,\$gigel); #debug ati bagat parola gresit de multe ori, asteptati
+my $guiltyName = $slurp_userfile[$rec_pos*7]; #debug: this ends with \n
+chomp $guiltyName; #debug
+   dienice("authERR04",0,\"$guiltyName"); #debug: ati bagat parola gresit de multe ori, asteptati
    } #.end delay check
  else {}
 
@@ -309,9 +317,12 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 }
 
 close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
-chomp($wrong);
-my $err_harvester="<font color=\"white\">$slurp_userfile[$rec_pos*7]</font> ai gresit deja de <font color=\"red\">$wrong</font> ori"; 
-dienice("authERR05",0,\$err_harvester);
+
+chomp($wrong); 
+my $guiltyUser = $slurp_userfile[$rec_pos*7];
+chomp $guiltyUser;
+my $err_harvester="$guiltyUser\, ai gresit deja de $wrong ori"; 
+dienice("authERR05",0,\"$err_harvester"); #normally not logging this special case of 2 wrong passwords before temporary account lock
 
 } #.end if
 else
@@ -342,7 +353,9 @@ printf userFILE "%s",$slurp_userfile[$i]; #we have \n at the end of each element
 
 close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?"); 
 #penetration probe: log when condition of triple failure is met.
-dienice("authERR06",1,\$slurp_userfile[$rec_pos*7+0]);
+my $faultyUser = $slurp_userfile[$rec_pos*7+0];
+chomp $faultyUser;
+dienice("authERR06",1,\$faultyUser);
 
 } #.end else
 } #.end unless
@@ -536,9 +549,11 @@ print qq!</tr>\n!;
 print qq!</table>\n!;
 
 #====================V3 code ======================
-# undeva aici trebuie sa ma infig
-# aici trebuie extras numele userului 
+# username must be extracted
+# Security issue: should be extracted from $slurp_userfile[$rec_pos*7](with \n at the end)
+#instead of $get_login
  $hlr_filename = $get_login;
+#this "/" should not exist in first place, since it could be circumvented with \/ or \\
  $hlr_filename =~ s/\//\@slash\@/; # spec char / is replaced
 
 if(-e "hlr/$hlr_filename") 

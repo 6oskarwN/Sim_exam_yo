@@ -105,8 +105,8 @@ my $name;
 my $value;
 
 # Read input text, POST or GET
-  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
-  if($ENV{'REQUEST_METHOD'} eq "GET") 
+
+  if($ENV{'REQUEST_METHOD'} =~ m/GET/i) # i is modifier for case insensitive matching  
       {
       dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
       }

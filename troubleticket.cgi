@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  troubleticket.cgi v 3.1.0
+#  troubleticket.cgi v 3.1.2
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.1.2 filtering inputs for protection against cross-side-scripting
 # ch 3.1.1 implementing Occam's Razor for input parameters
 # ch 3.1.0 functions moved to ExamLib.pm
 # ch 3.0.f solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -80,7 +81,7 @@ use warnings;
 use lib '.';
 use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice);
 
-my $get_type; #0 (anonymous) or 1(nick and prefilled) 
+my $get_type; #0 (anonymous) or 1(nick and prefilled) or undef(when we have transaction, or also attack cases)
 my $get_nick; #nick for the guy who is writing
 my $get_text; #submitted text
 my $get_complaint; #the additional text inserted by user only when $get_type=1
@@ -97,7 +98,7 @@ my @dbtt;   #this is the slurp variable
 ## Change the address above to your e-mail address. Make sure to KEEP the \
 #my $target_email="yo6own\@yahoo.com";
 ## Change the address above to your e-mail address. Make sure to KEEP the \
-#### .end of mailer patch v 3.1.0 #####
+#### .end of mailer patch v 3.1.2 #####
 
 
 #intermediate variables
@@ -124,13 +125,15 @@ my $stdin_name;
 my $stdin_value;
 
 
-# Read input, POST or GET
-  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/; #facem totul upper-case
-  if($ENV{'REQUEST_METHOD'} eq "POST")
+# Read input, POST or GET only
+
+  if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
          { read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data 
          }
-  else  { $buffer = $ENV{'QUERY_STRING'}; #GET data for type=0 request
-        }
+  elsif($ENV{'REQUEST_METHOD'} =~ m/GET/i)
+         { $buffer = $ENV{'QUERY_STRING'}; #GET data for type=0 request
+         }
+  else   {dienice("authERR07",3,\"request metod other than GET/POST");}
 
 @pairs=split(/&/,$buffer ); #split the pairs in input
 
@@ -138,40 +141,88 @@ foreach $pair(@pairs) {
  ($stdin_name,$stdin_value) = split(/=/,$pair);
 
  $stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
+#2 times(once not enough to catch the stored XSS that will be active only after emerging from store)
  $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
-
-#temporarily out
-# DEBUG DEBUG
-# 
-#$stdin_value=~ s/<*>*<*>//g; #regexp de rafinat: taie toate html 
-#tagurile din orice input field #asta ne afecteaza la raportarea 
-#erorilor cu formule </span> <sub> <sup> 
-
-#$stdin_value=~ s/<(\s*\/?[^span]*[^>]*\s*)>//g; #nu ma intereseaza sa  elimin html taguri ? <bold, etc...>
-#$stdin_value=~ s/<\s*\/?[^b]*>//g; 
-##end of DEBUG DEBUG 
-
+ $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
+ 
 #Occam's razor:
-#we try first to fill the expected parameters
- if($stdin_name eq 'type') { $get_type=$stdin_value;}
- elsif($stdin_name eq 'nick'){$get_nick=$stdin_value;}
+#we try first to fill all and only the expected parameters - depending on the scenario,
+#not all parameters are expected and might remain void/undef
+#no value should be trusted since it can be malformed
+ if($stdin_name eq 'type') { $get_type=$stdin_value;}   
+ elsif($stdin_name eq 'nick'){$get_nick=$stdin_value;}  
  elsif($stdin_name eq 'subtxt'){$get_text=$stdin_value;}
  elsif($stdin_name eq 'complaint'){$get_complaint=$stdin_value;}
  elsif($stdin_name eq 'answer'){$get_answer=$stdin_value;}
  elsif($stdin_name eq 'transaction'){$get_trid=$stdin_value;}
-
                       } #end foreach pair
-#we check that all mandatory parameters have a value
-if (defined $get_type) 
- {
-  if($get_type == 1) {
-                      unless(defined $get_nick) { dienice("ttERR06",1,\"Occam: mandatory nick not given");} #Occam not satisfied
-                      unless(defined $get_text) { dienice("ttERR06",1,\"Occam: mandatory subtxt not given");} #Occam not satisfied
-                      }
- } 
 #end of Occam's razor
 
+
+#any input parameter is not trusted, even if it's not a field of a form, it could be malformed.
+#whitelist regexp  possible for: $get_type,$get_trid,$get_answer;
+#$get_type: 0 and 1 legal, undef is legal, anything else not
+
+if (defined $get_type) 
+   {
+    unless ($get_type =~ m/(0|1){1}/) 
+      {
+      dienice("ttERR01",1,\"not compliant - type is: $get_type"); 
+      }
+    if ($get_type eq 1) {
+                     unless(defined $get_nick && defined $get_text) { dienice ("ttERR03",1,\"occam fail - troubleticket type 1 fails mandatory inputs: $buffer");}
+                        }
+   }
+#$get_trid whitelist
+if (defined $get_trid) 
+   {
+     unless ($get_trid =~ m/^[0-9,A-F]{6}_(\d{1,2}_){6}\d{3}_\d{1,2}_[0-9,a-f]{40}$/) 
+     {
+     dienice("ttERR03",4,\"not compliant - transaction is:  $get_trid"); 
+     }
+   }
+#$get_answer
+if (defined $get_answer) 
+   {   unless ($get_answer =~ m/^\d{1,2}$/) 
+       {
+       dienice("ttERR03",4,\"not compliant - human answer is: $get_answer"); 
+       }
+   }
+
+#whitelist regexp not possible for: $get_nick, $get_text, $get_complaint
+#$get_nick blacklist
+if (defined $get_nick) 
+   {
+    if($get_nick=~ m/(\%3C|<|&lt\;|\%3E|>|&gt\;)/i) #blacklist everything except whitelist  <b, i, span, sup, sub>  exceptions
+       {
+       dienice("ttERR03",4,\"blacklist catch on nick: $get_nick"); 
+       }
+    }
+#$get_text blacklist
+if (defined $get_text) 
+   {
+    if($get_text=~ m/(\%3C|<|&lt\;|\%3E|>|&gt\;)/i) #blacklist
+       {
+       $get_text=~ s/\r\l\n/<br>/g; #replace newline with <br>
+       dienice("ttERR03",4,\"blacklist catch on text: $get_text"); 
+       }
+    }
+
+#$get_complaint blacklist
+if (defined $get_complaint) 
+   {
+    if($get_complaint=~ m/((\%3C|<|&lt;).*(\%3E|>|&gt;)|\/)/i) #blacklist
+       {
+       $get_complaint=~ s/\r\l\n/<br>/g; #replace newline with <br>
+       dienice("ttERR03",4,\"blacklist catch on complaint: $get_complaint"); 
+       }
+    }
+
+
+
 } #end input block
+
+
 
 
 #########end of devel
@@ -200,7 +251,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.1.0</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.1.2</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
   print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -340,7 +391,7 @@ close(ttFILE);
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.1.0</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.1.2</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -369,7 +420,7 @@ print qq!<td align="left" valign="middle">\n!;
 print qq!<font color="yellow">nickname:</font>!;
 print qq!</td>\n!;
 print qq!<td align="left" colspan="2">\n!;
-print qq!$get_nick <input type="hidden" name="nick" value="$get_nick">!; #nick = eXAM login
+print qq!$get_nick <input type="hidden" name="nick" value="$get_nick">!; #nick supposed to be eXAM login but don't take it as granted, can be malformed.
 print qq!</td>\n!;
 print qq!</tr>\n!;
 
@@ -384,7 +435,8 @@ print qq!<td align="left" colspan="2">\n!;
 #print qq!$get_text<br>\n!; #debug
 print qq!<input type="hidden" name="subtxt" value=\"$get_text\">\n!;
 my $toprint=$get_text;
-$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
+#asta e o evaluare, de vazut daca chiar e nevoie, si de vazut daca asta e inainte de writ in fisier sau inainte de resend to troubleticket.cgi
+#normal nu e nevoie deoarece s-a facut deja o conversie hex2char
 #$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
 print qq!$toprint<br>\n!; #debug
 
@@ -420,7 +472,8 @@ print qq!</center>\n!;
 # end of type=1, prefilled ticket
 
 
-  else {dienice("ttERR01",1,\"received type is $get_type");} #hacker attack, type is only  0,1
+# code coverage dead branch, this case is treated at the beginning
+# else {dienice("ttERR01",1,\"received type is $get_type");} #hacker attack, type is only  0,1
 
  } #.end first call solve
 
@@ -472,7 +525,7 @@ else {
 }
 # $trid_answer not same as $get_answer so not human
 else {
-   dienice("ttERR04",1,\"null"); 
+   dienice("ttERR04",1,\"$get_answer"); 
       }
 
 
@@ -505,6 +558,8 @@ sub random_int($)
 sub legal
 {
 #lower-case dictionary, enough
+#it's a black list, whicj is not a best idea. whitelist is better
+
 my @dictionary=(
               'regexp',  #regular expression should not be allowed
               '\.{2}\/',      #fara ../.. sau alte navigari prin directoare
@@ -743,7 +798,7 @@ my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
-#### patch for mailer implementation from v 3.1.0 ######
+#### patch for mailer implementation from v 3.1.2 ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
 #print MAIL "From: $admin_email\n";
 #print MAIL "To: $target_email\n";
@@ -767,11 +822,9 @@ print qq!<html>\n!;
 print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.1.0\n!; #version print for easy upload check
+print qq!v 3.1.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 #---------html page should finish here, but HTML code will continue after returning from function so that it prints different targets
 }
-
-

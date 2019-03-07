@@ -84,6 +84,7 @@ sub dienice
 {
 my ($error_code,$counter,$err_reference)=@_; #in vers. urmatoare counter e modificat in referinta la array/string
 
+my $errorText = $$err_reference; #still XSS possible, unsecure content, process later
 my $timestring=gmtime(time);
 
 my($package,$filename,$line)=caller;
@@ -94,43 +95,20 @@ my %pub_errors= (
               "ERR00" => "error: unknown/unspecified",
 #astea cu cannot open file, toate
               "ERR01_op" => "Server congestionat, incearca in cateva momente",
-#              "gen0ERR01" => "Server congestionat, incearca in cateva momente",
-#              "authERR10" => "Server congestionat, incearca in cateva momente",
-#              "ver0ERR07" => "Server congestionat, incearca in cateva momente",
-#              "chkERR06"  => "Server congestionat, incearca in cateva momente",
-#              "genERR06"  => "Server congestionat, incearca in cateva momente",
-#              "genERR13"  => "Server congestionat, incearca in cateva momente",
-#              "genERR14"  => "Server congestionat, incearca in cateva momente",
-#              "genERR03"  => "Server congestionat, incearca in cateva momente",
-#              "genERR05"  => "Server congestionat, incearca in cateva momente",
-#              "ver0ERR06" => "Server congestionat, incearca in cateva momente",
-#              "verERR06"  => "Server congestionat, incearca in cateva momente",
-#              "regERR06"  => "Server congestionat, incearca in cateva momente",
-#              "tugERR04"  => "Server congestionat, incearca in cateva momente",
-#             "authERR08" => "Server congestionat, incearca in cateva momente",
-
 #astea cu cannot close file, toate
               "ERR02_cl"  => "Server congestionat, incearca in cateva momente",
-#              "genERR16"  => "Server congestionat, incearca in cateva momente",
-#              "genERR11"  => "Server congestionat, incearca in cateva momente",
-#              "authERR09" => "Server congestionat, incearca in cateva momente",
-#              "ver0ERR08" => "Server congestionat, incearca in cateva momente",
-#              "verERR07"  => "Server congestionat, incearca in cateva momente",
-#              "regERR07"  => "Server congestionat, incearca in cateva momente",
-#              "chkERR07"  => "Server congestionat, incearca in cateva momente",
-#              "genERR04"  => "server congestionat",
 
 #unprocessed
               "authERR01" => "primire de  date corupte.",
 
-              "genERR01" => "actiune ilegala, inregistrata in log",
-              "ver0ERR01" => "primire de  date corupte, inregistrata in log.",
-              "verERR01" => "primire de  date corupte, inregistrata in log.",
-              "regERR01" => "primire de  date corupte, inregistrata in log.",
-              "admERR01" => "admin authentication token fail, logged.",
-              "chkERR01" => "primire de  date corupte, inregistrata in log.",
-              "tugERR01" => "authentication fail, logged.",
-              "ttERR01" => "date invalide",
+              "genERR01" => "actiune ilegala",
+              "ver0ERR01" => "primire de  date corupte",
+              "verERR01" => "primire de  date corupte",
+              "regERR01" => "primire de  date corupte",
+              "admERR01" => "admin authentication token fail",
+              "chkERR01" => "primire de  date corupte",
+              "tugERR01" => "authentication fail",
+              "ttERR01" => "expresii incorecte",
 
               "authERR02" => "primire de date corupte",
 
@@ -142,28 +120,28 @@ my %pub_errors= (
               "tugERR02" => "authentication token expired",
               "ttERR02" => "input lipsa",
 
-              "authERR03" => "Credentiale incorecte.<br><br>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat", #CUSTOM nr zile
+              "authERR03" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>", #CUSTOM nr zile
 
               "ver0ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
               "verERR03" => "Acest formular de examen a fost deja evaluat",
               "regERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
-              "admERR03" => "identity failed, logged.",
-              "tugERR03" => "authentication fail, logged.",
-              "ttERR03" => "cuvinte si taguri interzise",
+              "admERR03" => "identity failed.",
+              "tugERR03" => "authentication fail",
+              "ttERR03" => "expresii incorecte",
 
-              "authERR04" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
+              "authERR04" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>", #CUSTOM nr zile
 
-              "ver0ERR04" => "primire de  date corupte, inregistrata in log.",
-              "regERR04" => "primire de  date corupte, inregistrata in log.",
+              "ver0ERR04" => "primire de  date corupte",
+              "regERR04" => "primire de  date corupte",
               "admERR04" => "funny state",
 
               "ttERR04" => "test depistare boti",
  
-              "authERR05" => "Autentificare imposibila cu credentialele furnizate",
+               "authERR05" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>",  #CUSTOM nr zile
 
-              "ver0ERR05" => "primire de  date corupte, inregistrata in log.",
-              "verERR05" => "primire de  date corupte, inregistrata in log.",
-              "regERR05" => "primire de  date corupte, inregistrata in log.",
+              "ver0ERR05" => "primire de  date corupte",
+              "verERR05" => "primire de  date corupte",
+              "regERR05" => "primire de  date corupte",
               "admERR05" => "admin token revoke request executed",
               "ttERR05" => "Formularul a expirat",
 
@@ -177,7 +155,7 @@ my %pub_errors= (
               "tugERR06" => "admin token revoked.",
               "ttERR06" => "Nu ai completat nickname si/sau textul, da inapoi si completeaza",
 
-              "authERR07" => "examyo system error, logged for admin",
+              "authERR07" => "examyo system error",
 
               "genERR07" => "server congestionat",
 
@@ -188,24 +166,24 @@ my %pub_errors= (
 
 
 
-              "verERR08" => "tentativa de frauda, inregistrata in log",
+              "verERR08" => "tentativa de frauda",
 
 
 
-              "genERR09" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
-              "verERR09" => "Aceasta cerere nu este recunoscuta de sistem, cererea a fost logata",
+              "genERR09" => "Aceasta cerere nu este recunoscuta de sistem",
+              "verERR09" => "Aceasta cerere nu este recunoscuta de sistem",
 
 
-              "genERR10" => "actiune ilegala, inregistrata in log",
+              "genERR10" => "actiune ilegala",
 
 
-              "genERR12" => "actiune ilegala, inregistrata in log",
+              "genERR12" => "actiune ilegala",
 
 
               "genERR15" => "formularul a fost deja folosit odata",
 
-              "genERR17" => "actiune ilegala, inregistrata in log",
-              "genERR18" => "actiune ilegala, inregistrata in log",
+              "genERR17" => "actiune ilegala",
+              "genERR18" => "actiune ilegala",
 
 #special treatment
               "ERR19" => "error not displayed",
@@ -216,36 +194,6 @@ my %int_errors= (
   
 
               "ERR00" => "unknown/unspecified",
-#dienice("authERR10",2,\"$! $^E $?");
-# err when opening file
-#              "ERR01_op" => "cannot open file",
-#             "gen0ERR01" => "cannot open file",   
-#              "authERR10" => "cannot open file",
-#             "ver0ERR07" => "cannot open file",
-#              "chkERR06"  => "cannot open file",
-#              "genERR06"  => "cannot open file",
-#              "genERR13"  => "cannot open file",
-#              "genERR14"  => "cannot open file",
-#              "genERR03"  => "cannot open file",
-#              "genERR05"  => "cannot open file",
-#              "ver0ERR06" => "cannot open file",
-#	      "verERR06"  => "cannot open file",
-#              "regERR06"  => "cannot open file",
-#              "tugERR04"  => "cannot open file",
-#              "authERR08" => "cannot open file",
-
-#err when closing file
-              "ERR02_cl"  => "cannot close file",
-#             "genERR16"  => "cannot close file",
-#              "genERR11"  => "cannot close file",
-#	      "authERR09" => "cannot close file",
-#              "ver0ERR08" => "cannot close file",
-#             "verERR07"  => "cannot close file",
-#              "regERR07"  => "cannot close file",
-#              "chkERR07"  => "cannot close file",
-#               "genERR04"  => "cannot close file",
-
-#err when creating file
               "genERR07" => "fail create new hlrfile",
 
 
@@ -292,7 +240,7 @@ my %int_errors= (
               "admERR03" => "token is sha1, live, but not admin token",             #test ok
               "tugERR03" => "good transaction but not an admin token",             #test ok
 
-              "ttERR03" => "cuvinte ilegale",             #test ok
+              "ttERR03" => "cuvinte ilegale sau tag-uri html",             #test ok
 
 
               "ver0ERR04" => "undef transaction id",
@@ -302,14 +250,13 @@ my %int_errors= (
 
               "ttERR04" => "humanity test failed",
 
-              "authERR05" => "normally not logged, we should just count them somewhere",
-              "authERR04" => "normally not logged",
+              "authERR05" => "wrong passwd, normally not logged",
+              "authERR04" => "auth blocked 5 min, normally not logged",
 
 
               "ver0ERR05" => "unstructured transaction id",
               "verERR05" => "unstructured transaction id",
               "regERR05" => "unstructured transaction id",
-              "ttERR08" => "unstructured transaction",
               "ttERR08" => "unstructured transaction",
               "genERR17" => "received trid is undef",
               "genERR18" => "received trid is destruct",
@@ -375,9 +322,13 @@ if($CountLines < 200) #CUSTOM max number of db_tt lines (200/4=50 records)
 open(cheatFILE,"+< db_tt"); #open logfile for appending;
 flock(cheatFILE,2);		#LOCK_EX the file from other CGI instances
 seek(cheatFILE,0,2);		#go to the end
+#elliminate XSS threat from $errorText
+ $errorText =~ s/(<|\%3C)/\&lt\;/g; #replace before write
+ $errorText =~ s/(>|\%3E)/\&gt\;/g; #replace before write
+
 #CUSTOM
 printf cheatFILE qq!cheat logger\n$counter\n!; #de la 1 la 5, threat factor
-printf cheatFILE "\<br\>reported by: %s\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$filename,$error_code,$int_errors{$error_code},$timestring,$$err_reference; #write error info in logfile
+printf cheatFILE "\<br\>reported by: %s\<br\>  %s: %s \<br\> UTC Time: %s\<br\>  Logged:%s\n\n",$filename,$error_code,$int_errors{$error_code},$timestring,$errorText; #write error info in logfile
 close(cheatFILE);
 } #.end max number of lines
 } #.end $counter>0
