@@ -140,11 +140,12 @@ my $stdin_value;
 foreach $pair(@pairs) {
  ($stdin_name,$stdin_value) = split(/=/,$pair);
 
+if(defined $stdin_value) { #if input is malformed, pairs could be incomplete so stdin_value could be inexistent
  $stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
 #2 times(once not enough to catch the stored XSS that will be active only after emerging from store)
  $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
  $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
- 
+                         }
 #Occam's razor:
 #we try first to fill all and only the expected parameters - depending on the scenario,
 #not all parameters are expected and might remain void/undef
@@ -165,14 +166,16 @@ foreach $pair(@pairs) {
 
 if (defined $get_type) 
    {
-    unless ($get_type =~ m/(0|1){1}/) 
+    unless ( $get_type =~ m/^(0|1){1}$/ ) 
       {
       dienice("ttERR01",1,\"not compliant - type is: $get_type"); 
       }
-    if ($get_type eq 1) {
+    elsif ($get_type eq 1) {
                      unless(defined $get_nick && defined $get_text) { dienice ("ttERR03",1,\"occam fail - troubleticket type 1 fails mandatory inputs: $buffer");}
-                        }
+                           }
    }
+
+
 #$get_trid whitelist
 if (defined $get_trid) 
    {

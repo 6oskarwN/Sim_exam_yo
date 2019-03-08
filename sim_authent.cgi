@@ -34,7 +34,7 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_authent.cgi v 3.2.7 
+#  sim_authent.cgi v 3.2.9 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
@@ -539,7 +539,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.7\n!; #version print for easy upload check
+print qq!v 3.2.9\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
