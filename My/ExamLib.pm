@@ -153,7 +153,7 @@ my %pub_errors= (
               "admERR06" => "admin token revoked.",
 
               "tugERR06" => "admin token revoked.",
-              "ttERR06" => "Nu ai completat nickname si/sau textul, da inapoi si completeaza",
+              "ttERR06" => "Nu ai completat nickname si/sau textul, poti da inapoi cu Back sa completezi",
 
               "authERR07" => "examyo system error",
 

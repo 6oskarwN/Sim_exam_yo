@@ -159,7 +159,6 @@ if(defined $stdin_value) { #if input is malformed, pairs could be incomplete so 
                       } #end foreach pair
 #end of Occam's razor
 
-
 #any input parameter is not trusted, even if it's not a field of a form, it could be malformed.
 #whitelist regexp  possible for: $get_type,$get_trid,$get_answer;
 #$get_type: 0 and 1 legal, undef is legal, anything else not
@@ -540,6 +539,7 @@ else {
 
 
 }
+#what is this case?
 else {
    dienice("ttERR06",1,\"null"); 
       }
