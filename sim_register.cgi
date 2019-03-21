@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_register.cgi v 3.2.8
+#  sim_register.cgi v 3.2.9
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.9 whitelisting user input instead of blacklisting
 # ch 3.2.8 functions moved to ExamLib.pm
 # ch 3.2.7 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.6 extended registration period from 7 days to 14 days to observe the impact on user retention
@@ -291,8 +292,6 @@ else { dienice("regERR03",0,\"null");  }
 } #end of local block
 
 
-#exit(); #still needed? is this exit() ever active?
-
 } #.end expired
 				
 } #.END extraction BLOCK
@@ -302,21 +301,15 @@ else { dienice("regERR03",0,\"null");  }
 #BLOCK: Verify the POST data
 {
 #Action: Verify validity of login if it's an append form
-if($post_login =~ / /) { $f_valid_login=1; } #login has multiple words!
-elsif($post_login =~ /\+/) { $f_valid_login=1; } #login has nasty character!
-elsif($post_login =~ /%/) { $f_valid_login=1; } #login has nasty character!
-#elsif($post_login =~ /\./) { $f_valid_login=1; } #login has nasty character!
-elsif($post_login =~ /\//) { $f_valid_login=1; } #login has nasty character!
-elsif((length $post_login < 4) or (length $post_login > 25)) {$f_valid_login=1}
-else { $f_valid_login=0;}
+#Verify by whitelist
+if($post_login =~ /^[a-zA-Z0-9_]{4,25}$/) #must match regexp from sim_authent.cgi
+       { $f_valid_login=0; } #password conforms whitelist
+  else { $f_valid_login=1; }
 
-#Action: Verify passwords
-if    ($post_passwd1 =~ / /){ $f_pass_eq=1; }  #if there are multiple words
-elsif ($post_passwd2 =~ / /){ $f_pass_eq=1; }  #if there are multiple words
-elsif ((length $post_passwd1 < 8) or (length $post_passwd1 > 25)) {$f_pass_eq=1;}
-elsif ((length $post_passwd2 < 8) or (length $post_passwd2 > 25)) {$f_pass_eq=1;}
-elsif ($post_passwd1 eq $post_passwd2) {$f_pass_eq=0;}
-else {$f_pass_eq=1;}
+#Action: Verify passwords by whitelist
+if(($post_passwd1 =~ /^[a-zA-Z0-9!@#\$*\-_]{8,40}$/) && ($post_passwd2 =~ /^[a-zA-Z0-9!@#\$*\-_]{8,40}$/) && ($post_passwd1 eq $post_passwd2)) #must match regexp from sim_authent.cgi
+       { $f_pass_eq=0; } #password conforms whitelist
+  else { $f_pass_eq=1; }
 
 #Action: Verify validity of tipcont. 0,1,2,3,4 only
 if(($post_tipcont eq "0") || ($post_tipcont eq "1") || ($post_tipcont eq "2") || ($post_tipcont eq "3") || ($post_tipcont eq "4")) { $f_valid_tipcont=0;} #the condition is not accurate
@@ -401,7 +394,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.8\n!; #version print for easy upload check
+print qq!v 3.2.9\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -431,7 +424,7 @@ unless($f_xuser or $f_valid_login) {print qq!<input type="text" name="login"  va
 else {print qq!<input type="text" name="login" size="25">!;}
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space, /, sau tag-uri HTML <*> ; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
+print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere din setul (a-z, A-Z, 0-9, _). login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!; #must match string from sim_ver0.cgi
 print qq!</td>!;
 print qq!</tr>\n!;
 	 
@@ -445,7 +438,7 @@ if($f_pass_eq) {print qq!<input type="password" name="passwd1" size="25">!;}
 else {print qq!<input type="password" name="passwd1" value="$post_passwd1" size="25">!;}
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere; nu poate contine caracterele %, space</font>!; 
+print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere din setul (a-z, A-Z, 0-9, \!\@\#\$\*\-\_).</font>!; #must match string from sim_ver0.cgi
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -585,7 +578,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.8\n!; #version print for easy upload check
+print qq!v 3.2.9\n!; #version print for easy upload check
 print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
 print "<br>\n";
 

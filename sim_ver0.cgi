@@ -434,7 +434,7 @@ print qq!<td>!;
 print qq!<input type="text" name="login" size="25">!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space, punct, / sau tag-uri HTML <*> ; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
+print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere din setul (a-z, A-Z, 0-9, _). login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!; #must match string from sim_register.cgi
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -446,7 +446,7 @@ print qq!<td>!;
 print qq!<input type="password" name="passwd1" size="25">!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere; nu poate contine caracterele %, space. </font>!; 
+print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere din setul(a-z, A-Z, 0-9, \!\@\#\$\*\-\_) </font>!;  #must match string from sim_register.cgi
 print qq!</td>!;
 print qq!</tr>\n!;
 
