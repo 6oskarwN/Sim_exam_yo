@@ -305,7 +305,7 @@ else { dienice("regERR03",0,\"null");  }
 if($post_login =~ / /) { $f_valid_login=1; } #login has multiple words!
 elsif($post_login =~ /\+/) { $f_valid_login=1; } #login has nasty character!
 elsif($post_login =~ /%/) { $f_valid_login=1; } #login has nasty character!
-elsif($post_login =~ /\./) { $f_valid_login=1; } #login has nasty character!
+#elsif($post_login =~ /\./) { $f_valid_login=1; } #login has nasty character!
 elsif($post_login =~ /\//) { $f_valid_login=1; } #login has nasty character!
 elsif((length $post_login < 4) or (length $post_login > 25)) {$f_valid_login=1}
 else { $f_valid_login=0;}
@@ -431,7 +431,7 @@ unless($f_xuser or $f_valid_login) {print qq!<input type="text" name="login"  va
 else {print qq!<input type="text" name="login" size="25">!;}
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space, punct, /, sau tag-uri HTML <*> ; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
+print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere. Nu se accepta caractere speciale: %, space, /, sau tag-uri HTML <*> ; login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!;
 print qq!</td>!;
 print qq!</tr>\n!;
 	 

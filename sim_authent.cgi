@@ -114,7 +114,7 @@ my $stdin_name;
 my $stdin_value;
 
 # Read input text, POST or GET
-#  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #make everything upper-case
+
   if($ENV{'REQUEST_METHOD'} =~ m/GET/i) #not POST but also not GET? just garble
       {
       dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
@@ -128,10 +128,12 @@ elsif($ENV{'REQUEST_METHOD'} =~ m/POST/i)
 else {dienice("authERR07",3,\"request metod other than GET/POST");}
 
 #before split, before anything, check if input string obeys the defined rules
-unless($buffer =~ m/^login={1}[^%| |\.|<|>]{4,25}&{1}passwd={1}[^%| ]{8,40}$/) {
- dienice("authERR05",3,\"input blacklist fail:$buffer"); 
- } #sau alta rezolvare 
 
+$buffer=~ tr/+/ /;
+$buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
+
+unless($buffer =~ m/^login=[a-zA-Z0-9@\.]{4,25}&passwd=[a-zA-Z0-9\!@#*\-_\$]{8,40}$/) 
+ { dienice("authERR05",3,\"input whitelist fail:$buffer"); } #sau alta rezolvare 
 
 @pairs=split(/&/, $buffer); #POST-technology
 #@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
@@ -146,9 +148,6 @@ dienice("authERR01",0,\"null"); #insert reason and data in cheat log
 
 foreach $pair(@pairs) {
 ($stdin_name,$stdin_value) = split(/=/,$pair);
-$stdin_value=~ tr/+/ /;
-$stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-$stdin_value=~ s/<*>*<*>//g; #do not allow html header injection
 
 if($stdin_name eq 'login') { $get_login=$stdin_value;}
  elsif($stdin_name eq 'passwd'){$get_passwd=$stdin_value;}
