@@ -240,7 +240,7 @@ my %int_errors= (
               "admERR03" => "token is sha1, live, but not admin token",             #test ok
               "tugERR03" => "good transaction but not an admin token",             #test ok
 
-              "ttERR03" => "cuvinte ilegale sau tag-uri html",             #test ok
+              "ttERR03" => "illegal input catch by white or blacklist ",      #test ok
 
 
               "ver0ERR04" => "undef transaction id",

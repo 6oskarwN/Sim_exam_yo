@@ -133,7 +133,7 @@ my $stdin_value;
   elsif($ENV{'REQUEST_METHOD'} =~ m/GET/i)
          { $buffer = $ENV{'QUERY_STRING'}; #GET data for type=0 request
          }
-  else   {dienice("authERR07",3,\"request metod other than GET/POST");}
+  else   {dienice("ERR20",0,\"null");} #request method other than GET/POST is discarded in non-descriptive way
 
 @pairs=split(/&/,$buffer ); #split the pairs in input
 
@@ -142,10 +142,12 @@ foreach $pair(@pairs) {
 
 if(defined $stdin_value) { #if input is malformed, pairs could be incomplete so stdin_value could be inexistent
  $stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
+#this is needed because POST replaces every special char with its hex
+ $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
 #2 times(once not enough to catch the stored XSS that will be active only after emerging from store)
- $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
- $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
+# $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
                          }
+else { dienice("ERR20",0,\"null"); } #if undef $stdin_value
 #Occam's razor:
 #we try first to fill all and only the expected parameters - depending on the scenario,
 #not all parameters are expected and might remain void/undef
@@ -160,14 +162,14 @@ if(defined $stdin_value) { #if input is malformed, pairs could be incomplete so 
 #end of Occam's razor
 
 #any input parameter is not trusted, even if it's not a field of a form, it could be malformed.
-#whitelist regexp  possible for: $get_type,$get_trid,$get_answer;
+#whitelist regexp  possible for: $get_type,$get_trid,$get_answer, $get_nick;
 #$get_type: 0 and 1 legal, undef is legal, anything else not
 
 if (defined $get_type) 
    {
     unless ( $get_type =~ m/^(0|1){1}$/ ) 
       {
-      dienice("ttERR01",1,\"not compliant - type is: $get_type"); 
+      dienice("ttERR01",2,\"not compliant - type is: $get_type"); 
       }
     elsif ($get_type eq 1) {
                      unless(defined $get_nick && defined $get_text) { dienice ("ttERR03",1,\"occam fail - troubleticket type 1 fails mandatory inputs: $buffer");}
@@ -191,15 +193,17 @@ if (defined $get_answer)
        }
    }
 
-#whitelist regexp not possible for: $get_nick, $get_text, $get_complaint
-#$get_nick blacklist
+#$get_nick whitelist
 if (defined $get_nick) 
    {
-    if($get_nick=~ m/(\%3C|<|&lt\;|\%3E|>|&gt\;)/i) #blacklist everything except whitelist  <b, i, span, sup, sub>  exceptions
+   unless($get_nick=~ m/^[a-zA-Z0-9_]{4,25}$/) #whitelist for nick same as for login 
        {
-       dienice("ttERR03",4,\"blacklist catch on nick: $get_nick"); 
+       dienice("ttERR03",4,\"whitelist catch on nick: $get_nick"); 
        }
     }
+
+
+#whitelist regexp not possible for: $get_text, $get_complaint
 #$get_text blacklist
 if (defined $get_text) 
    {
@@ -346,8 +350,8 @@ elsif ($dbtt[$i*4-3] eq 8) {print qq!<font color="green">[Rezolvat]</font>!;}
 
 ##doubled
 my $toprint = $dbtt[$i*4-2];
-$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
-$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
+#$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
+#$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
 #$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
 
 #print qq!<font color="black" size="-1">$dbtt[$i*4-2]</font><br>\n!; #debug: black is orange
@@ -539,7 +543,7 @@ else {
 
 
 }
-#what is this case?
+#one or more whitespace characters, see if() line 484
 else {
    dienice("ttERR06",1,\"null"); 
       }
@@ -555,22 +559,21 @@ sub random_int($)
 
        return int rand($max);
 	}
-#---legalitatea unui string---
-#--intoarce 1 daca legal
-#--intoarce 0 daca e ilegal
+#---legality of a string---
+#--returns 1 for legal
+#--returns 0 for illegal
 sub legal
 {
 #lower-case dictionary, enough
-#it's a black list, whicj is not a best idea. whitelist is better
+#it's a black list, which is not a best idea. whitelist is better but awardnet 
+#implements it as blacklist
 
-my @dictionary=(
+my @blackDictionary=(
               'regexp',  #regular expression should not be allowed
-              '\.{2}\/',      #fara ../.. sau alte navigari prin directoare
               'sex',
               'porn',    #denied by awardspace.com
               'proxy',   #denied by awardspace.com
-              'ativan',    #denied by awardspace.com
-              '<\s*[a|A]\s+(href|HREF)'  #good idea not to give link-spammers chances
+              'ativan'    #denied by awardspace.com
 
             );
 my $inputstring;
@@ -579,10 +582,10 @@ my $iter;
 my $legall;
 $legall=1;#init to legal
 
-foreach $iter (@dictionary)
+foreach $iter (@blackDictionary)
 {
-if(lc($inputstring) =~ /$iter/) #forces lower-case comparison lc()
-{ $legall=0; #should be the exit from loop, not from if
+if($inputstring =~ m/$iter/i) #forces case-insensitive match
+{ $legall=0; #should be the exit from loop, not from if but the list is still short
 }
 
 }#.end foreach

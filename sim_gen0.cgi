@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_gen0.cgi v 3.2.6 
+#  sim_gen0.cgi v 3.2.7 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.7 small on input
 # ch 3.2.6 functions moved to ExamLib.pm
 # ch 3.2.5 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.4 compute_mac() changed from MD5 to SHA1
@@ -73,20 +74,18 @@ my $attempt_counter;			#attempts in opening or closing files; 5 attempts allowed
 my $server_ok;		#flag; 1-server free; 0-server congested
 $server_ok=1; #we suppose at the beginning a free server
 #### process inputs
-#BLOCK: Input:transaction ID
-{
+##there are no expected inputs so whatever it comes, it is not used.
+#BLOCK: Input: nada
+
+# SEC: this is blacklist on GET, please whitelist on POST if needed
 # Read input text, POST or GET
-# GET-technology for us not ok, permits multiple requests made by browser.
 
-  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
-  if($ENV{'REQUEST_METHOD'} eq "GET") 
-  { 
-dienice ("ERR20",0,\"unexpected GET");  #silently discard
-       }
-## end of GET method
+if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
+     {     } #do nothing, there are no expected inputs
+else {dienice("ERR20",0,\"null");} #request method other than POST is discarded
+
+## end of BLOCK
  
-} #.end process inputs
-
 
 
 #### open transaction file, try 3 times ####
@@ -130,7 +129,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.6\n!; #version print for easy upload check
+print qq!v 3.2.7\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolva 3 din 4 intrebari si poti sa te inregistrezi in examen</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">Pagina expira peste 3 minute.</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">O singura varianta de raspuns este corecta. Dupa alegerea raspunsurilor, apasa butonul "Evaluare".</font></center><br><br>\n!;

@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_authent.cgi v 3.2.9 
+#  sim_authent.cgi v 3.2.a 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.a things done in 3.0.c,d obsoleted by 3.2.9 and deleted
 # ch 3.2.9 check input string for defined format as security measure
 # ch 3.2.8 functions moved to ExamLib.pm
 # ch 3.2.7 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -115,17 +116,18 @@ my $stdin_value;
 
 # Read input text, POST or GET
 
-  if($ENV{'REQUEST_METHOD'} =~ m/GET/i) #not POST but also not GET? just garble
-      {
-      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
-      }
-## end of GET
-
-elsif($ENV{'REQUEST_METHOD'} =~ m/POST/i)
+if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
      {
       read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
      }
-else {dienice("authERR07",3,\"request metod other than GET/POST");}
+
+#  if($ENV{'REQUEST_METHOD'} =~ m/GET/i) #not POST but also not GET? just garble
+#      {
+#      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
+#      }
+## end of GET
+
+else {dienice("ERR20",0,\"null");} #request method other than POST is discarded
 
 #before split, before anything, check if input string obeys the defined rules
 
@@ -136,13 +138,12 @@ unless($buffer =~ m/^login=[a-zA-Z0-9_]{4,25}&passwd=[a-zA-Z0-9!@#\$*\-_]{8,40}$
  { dienice("authERR05",3,\"input whitelist fail:$buffer"); } #sau alta rezolvare 
 
 @pairs=split(/&/, $buffer); #POST-technology
-#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
 
 #verificare ca sa existe exact 2 perechi: login si passwd
 unless($#pairs == 1) #exact 2 perechi: p0 si p1
 {
 #my $err_harvester = $ENV{'QUERY_STRING'}; #se poate citi query string de oricate ori?
-dienice("authERR01",0,\"null"); #insert reason and data in cheat log 
+dienice("authERR01",0,\"nu exista exact perechea login si password"); #insert reason and data in cheat log 
 }
 #end number consistency check
 
@@ -184,7 +185,6 @@ unless($#slurp_userfile < 0) 		#unless  userlist is empty
 # aici trebuie extras numele userilor pe rand pentru faza de unlink hlr files pentru expirati 
  $hlr_filename=$slurp_userfile[$account*7+0];
  chomp $hlr_filename;
- $hlr_filename =~ s/\//\@slash\@/; # spec char / is replaced
 
    chomp $linesplit[5];		#otherwise $linesplit[5]='ab\n'
 
@@ -251,6 +251,8 @@ my @linesplit;
 
    if($linesplit[0] eq $get_login) {
 					$rec_pos=$account;					#mark the good record
+                                        $hlr_filename=$slurp_userfile[$account*7+0]; #in case the file exists, this is the name
+                                        chomp $hlr_filename;  #cut the \n
 					$account=($#slurp_userfile+1)/7; 	#finish search
 				    }
 
@@ -538,7 +540,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.9\n!; #version print for easy upload check
+print qq!v 3.2.a\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -551,9 +553,7 @@ print qq!</table>\n!;
 # username must be extracted
 # Security issue: should be extracted from $slurp_userfile[$rec_pos*7](with \n at the end)
 #instead of $get_login
- $hlr_filename = $get_login;
-#this "/" should not exist in first place, since it could be circumvented with \/ or \\
- $hlr_filename =~ s/\//\@slash\@/; # spec char / is replaced
+# $hlr_filename = $get_login; #variable already loaded
 
 if(-e "hlr/$hlr_filename") 
 {

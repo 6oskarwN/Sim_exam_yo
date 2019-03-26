@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  tool_admintt.cgi v 3.2.5
+#  tool_admintt.cgi v 3.2.6
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.6 whitelist Request method, solved the no-change of reflow
 # ch 3.2.5 functions moved to ExamLib.pm
 # ch 3.2.4 implementing the revocation of admin token
 # ch 3.2.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -88,17 +89,13 @@ my $kee;
 my $name;
 my $value;
 
-# Read input text, POST or GET
-  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
-  if($ENV{'REQUEST_METHOD'} eq "GET") 
-  { 
-dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
-       }
-## end of GET
+#whitelist POST request method
+if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
+         { read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data 
+         }
+else     {dienice("ERR20",0,\"null");} #request method other than POST is discarded in non-descriptive way
 
-else    { 
-read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
-        }
+
 
 @pairs=split(/&/, $buffer); #split into name - value pairs
                       
@@ -107,26 +104,25 @@ read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
 foreach $pair(@pairs) 
 		{
 ($name,$value) = split(/=/,$pair);
-
-#transformarea asta e pentru textele reflow, dar trateaza si + si / al token-ului MD5(obsolete)
+if(defined $value) { #if input is malformed, pairs could be incomplete so stdin_value could be inexistent
+#this transfor is for reflow texts 
 $value=~ s/\+/ /g; 
 $value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-$value=~ s/\r\l\n$//g;
-$value=~ s/\r\l\n/<br>/g;
-
+$value=~ s/\r\l\n$//g; #only those at end of line
+$value=~ s/\r\l\n/<br>/g; #the others are not in the end of line
+                   }
  %answer = (%answer,$name,$value); #hash filled in with key+value
 
 		} #end foreach
 
 #hash it is filled in now
 
+#Occam's razor:
+#we try first to fill all and only the expected parameters - depending on the scenario,
+#not all parameters are expected and might remain void/undef
+#no value should be trusted since it can be malformed
 $post_token = $answer{'token'}; #extract token from input data
-## double POST debug
-#not implemented
-#@ Occam check
-#not implemented
-
-
+#end of Occam's razor
 
 
 #print qq!token received: $post_token<br>\n!; #debug
@@ -204,12 +200,12 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v 3.2.5</title>\n!;
+print qq!<title>ticket listing v 3.2.6</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="black" link="white" alink="white" vlink="white">\n!;
 
 print qq!<center>\n!;
-print qq!<font color="white">Troubleticket administration v 3.2.5 for examYO &copy; YO6OWN, 2007-2019</font><br>\n!;
+print qq!<font color="white">Troubleticket administration v 3.2.6 for examYO &copy; YO6OWN, 2007-2019</font><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/tool_admintt.cgi" method="post">\n!;
 
 print qq!<table border="1" width="90%">\n!;
@@ -249,12 +245,20 @@ print qq!\n!;
 } #else trouble ticket
 
 my $toprint=$dbtt[$i*4+2];
-$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+#$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 
 print qq!<font color="black" size="-1">$toprint</font><br>\n!;
 
 unless ($dbtt[$i*4+3] eq "\n") {
-print qq!<textarea name="admintxt$i" rows="3" cols="120" wrap="soft">$dbtt[$i*4+3]</textarea>\n!;
+#reading admin area text from disk
+$toprint = $dbtt[$i*4+3];
+
+#preparing the text so we write it in the textarea so that admin sees it as on the disk
+#and at the next reflow we write it unchanged on the disk
+# &radic; on the disk, we wite &amp;radic; the browser shows &radic; and on the disk is the same, unchanged.
+$toprint =~ s/&/&amp;/g; #replace & with &amp;
+
+print qq!<textarea name="admintxt$i" rows="3" cols="120" wrap="soft">$toprint</textarea>\n!;
                                }
                                else {
                                print qq!<textarea name="admintxt$i" rows="2" cols="120" wrap="soft"></textarea>\n!;
@@ -294,10 +298,10 @@ close (INFILE) || die("cannot close, $!\n");
 
 #### if it's 2nd type call
 
-elsif ($call_switch == 2)    #it's 2nd call if  'admintxt0=' exists - should be imlpemented
+elsif ($call_switch == 2)    #it's 2nd call if  'admintxt0=' exists
 {
 
-open(INFILE,"+<","db_tt"); #am fixat la db_tt, ca un hacker sa poata corupe doar pe asta.
+open(INFILE,"+<","db_tt"); 
 seek(INFILE,0,0);			#goto begin of file
 @dbtt=<INFILE>;
 
@@ -305,7 +309,7 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v 3.2.5</title>\n!;
+print qq!<title>ticket listing v 3.2.6</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="gray" text="black" link="white" alink="white" vlink="white">\n!;
 
