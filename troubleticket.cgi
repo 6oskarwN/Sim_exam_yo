@@ -135,19 +135,24 @@ my $stdin_value;
          }
   else   {dienice("ERR20",0,\"null");} #request method other than GET/POST is discarded in non-descriptive way
 
-@pairs=split(/&/,$buffer ); #split the pairs in input
+#pre-process the POST data
+$buffer=~ tr/+/ /;
+$buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
+
+@pairs=split(/&/,$buffer ); #split the pairs in input; you don't know the exact order of the parameters
 
 foreach $pair(@pairs) {
  ($stdin_name,$stdin_value) = split(/=/,$pair);
 
-if(defined $stdin_value) { #if input is malformed, pairs could be incomplete so stdin_value could be inexistent
- $stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
+#if(defined $stdin_value) { #if input is malformed, pairs could be incomplete so stdin_value could be inexistent
+# $stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
 #this is needed because POST replaces every special char with its hex
- $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
+# $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
 #2 times(once not enough to catch the stored XSS that will be active only after emerging from store)
 # $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
-                         }
-else { dienice("ERR20",0,\"null"); } #if undef $stdin_value
+#                         }
+#else { dienice("ERR20",0,\"null"); } #if undef $stdin_value
+
 #Occam's razor:
 #we try first to fill all and only the expected parameters - depending on the scenario,
 #not all parameters are expected and might remain void/undef
