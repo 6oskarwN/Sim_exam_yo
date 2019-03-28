@@ -40,6 +40,7 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.5 whitelisting for inputs
 # ch 3.3.4 functions moved to ExamLib.pm
 # ch 3.3.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.3.2 compute_mac() changed from MD5 to SHA1
@@ -114,37 +115,33 @@ my $stdin_value;
 # Read input text, POST or GET
 # GET-technology for us not ok, permits multiple requests made by browser.
 
-  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
-  if($ENV{'REQUEST_METHOD'} eq "GET") 
-       { 
-	dienice ("ERR20",0,\"unexpected GET");  #silently discard
-       }
-## end of GET
-
- 
-else {
-read (STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST-technology
+if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
+     {
+      read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
      }
+else {dienice("ERR20",1,\"unu");} #request method other than POST is discarded
 
-#inainte de split, $buffer citit ar trebui confruntat cu un regexp pt sintaxa
+#before split, before anything, check if input string obeys the defined rules
+#normally cannot be sure on the order of parameters
 
-@pairs=split(/&/, $buffer); #POST-technology
+#pre-process the POST data
+$buffer=~ tr/+/ /;
+$buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
+
+#transaction whitelist
+unless($buffer =~ m/^transaction=[0-9,A-F]{6}_(\d{1,2}_){5}\d{3}_[0-9,a-f]{40}$/) #must match regexp in sim_register.cgi
+ { dienice("genERR18",3,\"transaction whitelist fail:$buffer"); } 
+
+#then split
+@pairs=split(/&/, $buffer); 
 
 
 foreach $pair(@pairs) {
-($stdin_name,$stdin_value) = split(/=/,$pair); #se presupune cateodata gresit ca avem abele parti ale perechii
+($stdin_name,$stdin_value) = split(/=/,$pair); #do not suppose that both sides of the pair arrived 
 
-if(defined($stdin_value)){
-#transformarea asta e pentru textele reflow, dar trateaza si + si / al token-ului
-$stdin_value=~ s/\+/ /g;  #GET an POST send + but + is also character of transaction. Check for possible bug from this
-$stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-$stdin_value=~ s/<*>*<*>//g; #clears html,xml tag injection
-                         }
-
-if($stdin_name eq 'transaction') {if(defined($stdin_value)){$get_trid=$stdin_value;}
+if($stdin_name eq 'transaction') {if(defined($stdin_value) && $stdin_value =~  m/^[0-9,A-F]{6}_(\d{1,2}_){5}\d{3}_[0-9,a-f]{40}$/)
+                                     { $get_trid=$stdin_value;}
                                     else{$get_trid=undef;}
-
-#am presupus ca daca cheia e 'transaction' atunci 'value' e neaparat transaction. S-ar putea sa nu fie adevarat 
 
 }
 
@@ -154,14 +151,12 @@ if($stdin_name eq 'transaction') {if(defined($stdin_value)){$get_trid=$stdin_val
 #now we have the hash table with answers. error: they can be less answers than needed
 #or they can be less answers than all, but this is not error. answers for questions are not
 #Mandatory, but Optional parameters. User can answer all or less questions.
-#Occam check  -not implemented yet
 #this should silently discard if not all mandatory parameters are received
 
 
 
-
 #md MAC has + = %2B and / = %2F characters, must be reconverted - already done
-if(!defined($get_trid)) {dienice ("ERR20",0,\"undef trid"); } # no transaction or with void value
+if(!defined($get_trid)) {dienice ("ERR20",1,\"undef trid"); } # no transaction or with void value
 
 
 #ACTION: open transaction ID file and clear expired transactions

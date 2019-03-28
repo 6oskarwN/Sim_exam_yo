@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_gen1.cgi v 3.3.4
+#  sim_gen1.cgi v 3.3.5
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.5 whitelisting for inputs
 # ch 3.3.4 functions moved to ExamLib.pm
 # ch 3.3.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.3.2 compute_mac() changed from MD5 to SHA1
@@ -118,8 +119,7 @@ if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
      {
       read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
      }
-
-else {dienice("ERR20",0,\"null");} #request method other than POST is discarded
+else {dienice("ERR20",1,\"unu");} #request method other than POST is discarded
 
 #before split, before anything, check if input string obeys the defined rules
 #normally cannot be sure on the order of parameters
@@ -129,8 +129,8 @@ $buffer=~ tr/+/ /;
 $buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
 
 #transaction whitelist
-unless($buffer =~ m/^transaction=[0-9,A-F]{6}_(\d{1,2}_){6}\d{3}_\d{1,2}_[0-9,a-f]{40}$/) #must match regexp in sim_register.cgi
- { dienice("genERR05",3,\"transaction whitelist fail:$buffer"); } 
+unless($buffer =~ m/^transaction=[0-9,A-F]{6}_(\d{1,2}_){5}\d{3}_[0-9,a-f]{40}$/) #must match regexp in sim_register.cgi
+ { dienice("genERR18",3,\"transaction whitelist fail:$buffer"); } 
 
 #then split
 @pairs=split(/&/, $buffer); 
@@ -139,17 +139,9 @@ unless($buffer =~ m/^transaction=[0-9,A-F]{6}_(\d{1,2}_){6}\d{3}_\d{1,2}_[0-9,a-
 foreach $pair(@pairs) {
 ($stdin_name,$stdin_value) = split(/=/,$pair); #do not suppose that both sides of the pair arrived 
 
-#if(defined($stdin_value)){
-#transformarea asta e pentru textele reflow, dar trateaza si + si / al token-ului
-#$stdin_value=~ s/\+/ /g;  #GET an POST send + but + is also character of transaction. Check for possible bug from this
-#$stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-##$stdin_value=~ s/<*>*<*>//g; #clears html,xml tag injection
-#                         }
-
-if($stdin_name eq 'transaction') {if(defined($stdin_value)){$get_trid=$stdin_value;}
+if($stdin_name eq 'transaction') {if(defined($stdin_value) && $stdin_value =~  m/^[0-9,A-F]{6}_(\d{1,2}_){5}\d{3}_[0-9,a-f]{40}$/)
+                                     { $get_trid=$stdin_value;}
                                     else{$get_trid=undef;}
-
-#am presupus ca daca cheia e 'transaction' atunci 'value' e neaparat transaction. S-ar putea sa nu fie adevarat 
 
 }
 
@@ -159,14 +151,12 @@ if($stdin_name eq 'transaction') {if(defined($stdin_value)){$get_trid=$stdin_val
 #now we have the hash table with answers. error: they can be less answers than needed
 #or they can be less answers than all, but this is not error. answers for questions are not
 #Mandatory, but Optional parameters. User can answer all or less questions.
-#Occam check  -not implemented yet
 #this should silently discard if not all mandatory parameters are received
 
 
 
-
 #md MAC has + = %2B and / = %2F characters, must be reconverted - already done
-if(!defined($get_trid)) {dienice ("ERR20",0,\"undef trid"); } # no transaction or with void value
+if(!defined($get_trid)) {dienice ("ERR20",1,\"undef trid"); } # no transaction or with void value
 
 
 #ACTION: open transaction ID file and clear expired transactions
@@ -299,7 +289,7 @@ if ($trid_id =~ m/\*/) { #if it has the used mark
   my $usedTime = timestamp_expired($pairs[9],$pairs[10],$pairs[11],$pairs[12],$pairs[13],$pairs[14]);
   if ($usedTime < 10) { #if request comes faster than 10s, might be some browser parallel request
                            #dienice ("ERR20",1,\"debug fast request $usedTime seconds \, $trid_id");  #debug symptom catch
-                            dienice ("ERR20",0,\"null");  #silent discard, Status 204 No Content
+                            dienice ("ERR20",1,\"null");  #silent discard, Status 204 No Content
                         }
    else { 
          #dienice ("genERR15",1,\$trid_id); #debug - symptom catch 
@@ -490,7 +480,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.3.4\n!; #version print for easy upload check
+print qq!v 3.3.5\n!; #version print for easy upload check
 
 print qq!<center><font size="+2">Examen clasa I</font></center>\n!;   #CUSTOM
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
