@@ -170,7 +170,7 @@ my %pub_errors= (
 
 
 
-              "verERR08" => "tentativa de frauda",
+              "verERR08" => "trimitere de date corupte",
 
 
 

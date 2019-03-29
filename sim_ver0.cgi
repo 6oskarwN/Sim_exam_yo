@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_ver0.cgi v 3.2.7
+#  sim_ver0.cgi v 3.2.8
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.8 whitelisting inputs 
 # ch 3.2.7 functions moved to ExamLib.pm
 # ch 3.2.6 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.5 compute_mac() changed from MD5 to SHA1
@@ -88,66 +89,76 @@ my $correct;			#how many correct answers you gave
 my $buffer=();
 my @pairs;
 my $pair;
-my $name;
-my $value;
+my $stdin_name;
+my $stdin_value;
 
-# Read input text, POST or GET
-  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
-  if($ENV{'REQUEST_METHOD'} eq "GET") 
-      {
-      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
-      }
-## end of GET
+# Read input text, POST 
+if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
+     {
+      read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+     }
+else {dienice("ERR20",0,\"request method other than POST");} #request method other than POST is discarded
 
-else    { 
-        read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
-        }
-#this else is not really nice but it's correct for the moment.
+#transform params sent by POST
+$buffer=~ tr/+/ /;
+$buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
 
-@pairs=split(/&/, $buffer); #POST-technology
-
-#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
+#split on &
+@pairs=split(/&/, $buffer);
 
 foreach $pair(@pairs) 
 		{
+   ($stdin_name,$stdin_value) = split(/=/,$pair);
 
-($name,$value) = split(/=/,$pair);
+#Occam's razor:
+#we try first to fill all and only the expected parameters - depending on the scenario,
+#not all parameters are expected and might remain void/undef
+#no value should be trusted since it can be malformed
+# not yet finished as it's not verified that mandatory params exist.
+if($stdin_name =~ m/^transaction$/){
+         if ($stdin_value =~ m/^[0-9,A-F]{6}_(\d{1,2}_){5}\d{3}_[0-9,a-f]{40}$/)
+                           {
+           %answer = (%answer,$stdin_name,$stdin_value);        #hash filled in     
+                           }
+         else {dienice("ver0ERR05",1,\"whitelist catch on transaction, $stdin_value");}
+                                    }
+elsif($stdin_name =~ m/^answer$/){
+         if ($stdin_value =~ m/^EVALUARE$/)
+                           {     
+           %answer = (%answer,$stdin_name,$stdin_value);        #hash filled in
+                           }
+         else {dienice("ver0ERR05",1,\"whitelist catch on EVALUARE text, $stdin_value");}
+                                }
 
-unless($name eq 'transaction')
-{
+elsif( ($stdin_name =~ m/^question[0-9]{1,2}$/) and defined($stdin_value) and ($stdin_value =~ m/^[0-3]{1}$/))
+          {
 #next 4 transforms are specific to sim_verX
-$value =~ tr/0/a/;
-$value =~ tr/1/b/;
-$value =~ tr/2/c/;
-$value =~ tr/3/d/;
-$value=~ s/<*>*<*>//g;
-}
+           $stdin_value =~ tr/0/a/;
+	   $stdin_value =~ tr/1/b/;
+	   $stdin_value =~ tr/2/c/;
+	   $stdin_value =~ tr/3/d/;
 
-if(defined($name) and defined($value)){
-                 %answer = (%answer,$name,$value);        #hash filled in
-					}
+           %answer = (%answer,$stdin_name,$stdin_value);        #hash filled in
+	  }
 
 		} #.end foreach
+#check for existence of mandatory params:
+if((defined $answer{'transaction'}) and (defined $answer{'answer'}))
+  {
+    $post_trid= $answer{'transaction'};
+  }
+  else{ dienice("verERR08",2,\"mandatory input missing"); }
 
 } #.end process inputs
 
 #now we have the hash table with answers. error: they can be less answers than needed
 #or they can be less answers than all, but this is not error. answers for questions are not
 #Mandatory, but Optional parameters. User can answer all or less questions.
-#Occam check  -not implemented yet
-#this should silently discard if not all mandatory parameters are received
+#Occam check  -not fully implemented yet
+# NOT IMPLEMENTED this should silently discard if not all mandatory parameters are received
 
-
-
-
-$post_trid= $answer{'transaction'}; #if exists, extract POST_trid from POST data
-#md MAC has + = %2B and / = %2F characters, must be reconverted
-
-if(defined($post_trid)) {
-			$post_trid =~ s/%2B/\+/g;
-			$post_trid =~ s/%2F/\//g;
-                         }
-else {dienice ("ver0ERR04",1,\"undef trid"); } # no transaction or with void value
+unless(defined($post_trid)) 
+       {dienice ("ver0ERR04",1,\"undef trid"); } # no transaction or with void value
 
 
 ###############################
@@ -411,7 +422,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.7\n!; #version print for easy upload check
+print qq!v 3.2.8\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
@@ -528,7 +539,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.7\n!; #version print for easy upload check
+print qq!v 3.2.8\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;

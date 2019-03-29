@@ -121,12 +121,6 @@ if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
       read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
      }
 
-#  if($ENV{'REQUEST_METHOD'} =~ m/GET/i) #not POST but also not GET? just garble
-#      {
-#      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
-#      }
-## end of GET
-
 else {dienice("ERR20",0,\"null");} #request method other than POST is discarded
 
 #before split, before anything, check if input string obeys the defined rules

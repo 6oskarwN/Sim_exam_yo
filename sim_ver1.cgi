@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_ver1.cgi v 3.2.7
+#  sim_ver1.cgi v 3.2.8
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.8 whitelisting inputs 
 # ch 3.2.7 functions moved to ExamLib.pm
 # ch 3.2.6 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
 # ch 3.2.5 compute_mac() changed from MD5 to SHA1 and user password is saved as hash
@@ -81,7 +82,7 @@ use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice);
 my %answer=();		#hash used for depositing the answers
 my %hlrline=();		#hash used for rewriting test results in hlr
 
-my $get_trid;                   #transaction ID from GET data; it never has an "used" timestamp
+my $post_trid;                   #transaction ID from GET data; it never has an "used" timestamp
 
 my $trid_id;                    #transaction ID extracted from transaction file
 my $trid_login;       		#login extracted from transaction file
@@ -107,46 +108,60 @@ my $trid_login_hlrname;
 my $buffer=();
 my @pairs;
 my $pair;
-my $name;
-my $value;
+my $stdin_name;
+my $stdin_value;
 
-# Read input text, POST or GET
-  $ENV{'REQUEST_METHOD'} =~ tr/a-z/A-Z/;   #facem totul uper-case 
-  if($ENV{'REQUEST_METHOD'} eq "GET") 
-      {
-      dienice ("ERR20",0,\"null");  #silently discard, Status 204 No Content
-      }
-## end of GET
+# Read input text, POST
+if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
+     {
+      read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
+     }
+else {dienice("ERR20",0,\"request method other than POST");} #request method other than POST is discarded
 
-else    { 
-        read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
-        }
-#this else is not really nice but it's correct for the moment.
+#transform params sent by POST
+$buffer=~ tr/+/ /;
+$buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
 
+#split on &
 @pairs=split(/&/, $buffer); #POST-technology
 
-#@pairs=split(/&/, $ENV{'QUERY_STRING'}); #GET-technology
 
-foreach $pair(@pairs) 
-		{
+foreach $pair(@pairs)  {
+        ($stdin_name,$stdin_value) = split(/=/,$pair);
 
-($name,$value) = split(/=/,$pair);
+if($stdin_name =~ m/^transaction$/){
+         if ($stdin_value =~ m/^[0-9,A-F]{6}_(\d{1,2}_){5}\d{3}_[0-9,a-f]{40}$/)
+                           {
+           %answer = (%answer,$stdin_name,$stdin_value);        #hash filled in     
+                           }
+         else {dienice("ver0ERR05",1,\"whitelist catch on transaction, $stdin_value");}
+                                    }
+elsif($stdin_name =~ m/^answer$/){
+         if ($stdin_value =~ m/^EVALUARE$/)
+                           {     
+           %answer = (%answer,$stdin_name,$stdin_value);        #hash filled in
+                           }
+         else {dienice("ver0ERR05",1,\"whitelist catch on EVALUARE text, $stdin_value");}
+                                }
 
-unless($name eq 'transaction')
-{
+elsif( ($stdin_name =~ m/^question[0-9]{1,2}$/) and defined($stdin_value) and ($stdin_value =~ m/^[0-3]{1}$/))
+          {
 #next 4 transforms are specific to sim_verX
-$value =~ tr/0/a/;
-$value =~ tr/1/b/;
-$value =~ tr/2/c/;
-$value =~ tr/3/d/;
-$value=~ s/<*>*<*>//g;
-}
+           $stdin_value =~ tr/0/a/;
+	   $stdin_value =~ tr/1/b/;
+	   $stdin_value =~ tr/2/c/;
+	   $stdin_value =~ tr/3/d/;
 
-if(defined($name) and defined($value)){
-                 %answer = (%answer,$name,$value);        #hash filled in
-					}
+           %answer = (%answer,$stdin_name,$stdin_value);        #hash filled in
+	  }
 
 		} #.end foreach
+#check for existence of mandatory params:
+if((defined $answer{'transaction'}) and (defined $answer{'answer'}))
+  {
+    $post_trid= $answer{'transaction'};
+  }
+  else{ dienice("verERR08",2,\"mandatory input missing"); }
 
 } #.end process inputs
 
@@ -155,16 +170,6 @@ if(defined($name) and defined($value)){
 #Mandatory, but Optional parameters. User can answer all or less questions.
 #Occam check  -not implemented yet
 #this should silently discard if not all mandatory parameters are received
-
-
-$get_trid= $answer{'transaction'}; #if exists, extract GET_trid from GET data
-#md MAC has + = %2B and / = %2F characters, must be reconverted
-
-if(defined($get_trid)) {
-			$get_trid =~ s/%2B/\+/g;
-			$get_trid =~ s/%2F/\//g;
-                         }
-else {dienice ("ERR20",0,\"undef trid"); } # no transaction or with void value - silent discard
 
 
 #ACTION: open transaction ID file
@@ -227,7 +232,7 @@ unless(($#tridfile == 0) || ($expired)) 		#unless transaction list is empty (but
    @linesplit=split(/ /,$tridfile[$i]);
 
 #ch 3.2.3 aici linesplit[0] poate sa aiba sau nu bucata de "used_timestamp" si atunci eq nu mai e eq
-  if($linesplit[0] =~ /^\Q$get_trid\E/) { 
+  if($linesplit[0] =~ /^\Q$post_trid\E/) { 
 			$trid_login=$linesplit[1]; #extract login
 			$trid_id   =$linesplit[0]; #extract transaction
 			$trid_pagecode=$linesplit[2]; #extract pagecode
@@ -267,15 +272,15 @@ my $string_trid; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
 
-@pairs=split(/_/,$get_trid); #reusing @pairs variable for spliting results
+@pairs=split(/_/,$post_trid); #reusing @pairs variable for spliting results
 
 # $pairs[7] is the mac
-unless(defined($pairs[7])) {dienice ("verERR05",1,\$get_trid); } # unstructured trid
+unless(defined($pairs[7])) {dienice ("verERR05",1,\$post_trid); } # unstructured trid
 
 $string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_trid);
 
-unless($heximac eq $pairs[7]) { dienice("verERR01",1,\$get_trid);}
+unless($heximac eq $pairs[7]) { dienice("verERR01",1,\$post_trid);}
 
 #check case 1
 
@@ -285,7 +290,7 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
                                  }
 
 #else is really case 2
-else { dienice("verERR09",5,\$get_trid);  }
+else { dienice("verERR09",5,\$post_trid);  }
 
 } #end of local block
 } #.end expired
@@ -392,7 +397,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.7\n!; #version print for easy upload check
+print qq!v 3.2.8\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa I</h2>\n!;
@@ -416,8 +421,8 @@ seek(HLRfile,0,0);		# rewind
 
    @linesplit=split(/ /,$tridfile[$i]);
 #ch 3.2.3
-#   if($linesplit[0] eq $get_trid) #version before ch 3.2.3
-   if($linesplit[0] =~ /^\Q$get_trid\E/)  
+#   if($linesplit[0] eq $post_trid) #version before ch 3.2.3
+   if($linesplit[0] =~ /^\Q$post_trid\E/)  
    { #our transaction, which exists and is ok
      #ch 3.2.3 will NOT be eliminated by evaluation, just marked as used ///doesn't enter in livelist
    
@@ -730,7 +735,7 @@ $slurp_hlrfile[$iter+1]=""; #make it empty
 
 #hash il scrii  in @slurp_hlrfile;
 for my $key ( keys %hlrline ) {
-        #my $value = $hash{$key};
+        #my $stdin_value = $hash{$key};
 #sau cu defined? "" e defined dpmdv
 if($slurp_hlrfile[$iter+1] eq "") {$slurp_hlrfile[$iter+1]="$key,$hlrline{$key}";} #sa nu inceapa cu virgula
     else {$slurp_hlrfile[$iter+1]="$slurp_hlrfile[$iter+1],$key,$hlrline{$key}";} 
