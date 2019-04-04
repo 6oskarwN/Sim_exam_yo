@@ -174,10 +174,10 @@ if (defined $get_type)
    {
     unless ( $get_type =~ m/^(0|1){1}$/ ) 
       {
-      dienice("ttERR01",2,\"not compliant - type is: $get_type"); 
+      dienice("ERR01",2,\"illegal get_type, not 0/1 - type is: $get_type"); 
       }
     elsif ($get_type eq 1) {
-                     unless(defined $get_nick && defined $get_text) { dienice ("ttERR03",1,\"occam fail - troubleticket type 1 fails mandatory inputs: $buffer");}
+                     unless(defined $get_nick && defined $get_text) { dienice ("ERR01",1,\"occam fail - troubleticket type 1 fails mandatory inputs: $buffer");}
                            }
    }
 
@@ -187,14 +187,14 @@ if (defined $get_trid)
    {
      unless ($get_trid =~ m/^[0-9,A-F]{6}_(\d{1,2}_){6}\d{3}_\d{1,2}_[0-9,a-f]{40}$/) 
      {
-     dienice("ttERR03",4,\"not compliant - transaction is:  $get_trid"); 
+     dienice("ERR01",4,\"not compliant - transaction is:  $get_trid"); 
      }
    }
 #$get_answer
 if (defined $get_answer) 
    {   unless ($get_answer =~ m/^\d{1,2}$/) 
        {
-       dienice("ttERR03",4,\"not compliant - human answer is: $get_answer"); 
+       dienice("ERR01",4,\"not compliant - human answer is: $get_answer"); 
        }
    }
 
@@ -203,7 +203,7 @@ if (defined $get_nick)
    {
    unless($get_nick=~ m/^[a-zA-Z0-9_]{4,25}$/) #whitelist for nick same as for login 
        {
-       dienice("ttERR03",4,\"whitelist catch on nick: $get_nick"); 
+       dienice("ERR01",4,\"whitelist catch on nick: $get_nick"); 
        }
     }
 
@@ -215,7 +215,7 @@ if (defined $get_text)
     if($get_text=~ m/(\%3C|<|&lt\;|\%3E|>|&gt\;)/i) #blacklist
        {
        $get_text=~ s/\r\l\n/<br>/g; #replace newline with <br>
-       dienice("ttERR03",4,\"blacklist catch on text: $get_text"); 
+       dienice("ERR01",4,\"blacklist catch on text: $get_text"); 
        }
     }
 
@@ -225,7 +225,7 @@ if (defined $get_complaint)
     if($get_complaint=~ m/((\%3C|<|&lt;).*(\%3E|>|&gt;)|\/)/i) #blacklist
        {
        $get_complaint=~ s/\r\l\n/<br>/g; #replace newline with <br>
-       dienice("ttERR03",4,\"blacklist catch on complaint: $get_complaint"); 
+       dienice("ERR01",4,\"blacklist catch on complaint: $get_complaint"); 
        }
     }
 
@@ -484,7 +484,7 @@ print qq!</center>\n!;
 
 
 # code coverage dead branch, this case is treated at the beginning
-# else {dienice("ttERR01",1,\"received type is $get_type");} #hacker attack, type is only  0,1
+# else {dienice("ERR01",1,\"received type is not 0 or 1:  $get_type");} #hacker attack, type is only  0,1
 
  } #.end first call solve
 
@@ -526,11 +526,11 @@ if(($trid_type eq 0) or ($trid_type eq 1)) #general troubleticket form
                     print qq!</body>\n</html>\n!;
                     }
 
-                    else {dienice("ttERR02",0,\"null"); } 
+                    else {dienice("ERR01",0,\"trid_type nu e 0 sau 1, ciudat"); } 
 }
 #else there are words in the banned list
 else {
-   dienice("ttERR03",1,\"null"); 
+   dienice("ERR01",1,\"illegal input catch by white or blacklist: null"); 
       }
                                                       
 }
@@ -543,7 +543,7 @@ else {
 }
 #transaction used or expired
 else {
-   dienice("ttERR05",1,\"null"); 
+   dienice("ERR02",1,\"transaction used or expired"); 
      }
 
 
@@ -755,7 +755,7 @@ unless(defined($linesplit[9])) {dienice ("ttERR08",1,\$sub_trid); } # unstructur
 $entry="$linesplit[0]\_$linesplit[1]\_$linesplit[2]\_$linesplit[3]\_$linesplit[4]\_$linesplit[5]\_$linesplit[6]\_$linesplit[7]\_$linesplit[8]\_";
 my $heximac= compute_mac($entry);
 $entry='';
-unless ($linesplit[9] eq $heximac) {dienice("ttERR07",4,\"$linesplit[9]VsV$heximac");}
+unless ($linesplit[9] eq $heximac) {dienice("ERR01",4,\"transaction id sha1 mismatch: $linesplit[9]VsV$heximac");}
 
 #open transaction file
 open(transactionFILE,"+< tt_transaction");

@@ -140,18 +140,18 @@ $post_token = $answer{'token'}; #extract token from input data
 my $string_token; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
-unless(defined($post_token)) {dienice ("admERR01",1,\"undef token"); } # no token or with void value
+unless(defined($post_token)) {dienice ("ERR01",1,\"undef token"); } # no token or with void value
 @pairs=split(/_/,$post_token); #reusing @pairs variable for spliting results
 # $pairs[7] is the mac
-unless(defined($pairs[7])) {dienice ("admERR01",2,\$post_token); } # unstructured token
+unless(defined($pairs[7])) {dienice ("ERR01",2,\"transaction id sha1 mismatch: $post_token"); } # unstructured token
 $string_token="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_token);
 
-unless($heximac eq $pairs[7]) { dienice("admERR01",5,\$post_token);} #case of tampering
+unless($heximac eq $pairs[7]) { dienice("ERR01",5,\"transaction id sha1 mismatch: $post_token");} #case of tampering
 
 #check case 1
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])>0) { 
-                                             dienice("admERR02",0,\"null"); }
+                                             dienice("ERR02",0,\"token timestamp expired, get another token"); }
 
 #check case 2
  elsif ($pairs[0] ne 'admin') {dienice("admERR03",3,\$post_token);}

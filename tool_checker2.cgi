@@ -84,7 +84,6 @@ if (defined($get_buffer)) {   #eliminate possibility of void input
 #we check the request to be exactly legal, to avoi sql injection or other bogus requests
 if($get_buffer =~ m/^get_fname={1}((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/)
        {
-        
         $get_buffer =~ m/((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/;
         $get_filename=$1;
        }
@@ -308,10 +307,10 @@ close (INFILE) || dienice("ERR02_cl",1,\"$! $^E $?");
 else  {dienice("ERR01_op",1,\$get_filename);} #else the case when correct filename could not be opened
 
 }
-else {dienice("chkERR01",3,\$get_buffer);} #else the case when input was not void, but some junk
+else {dienice("ERR01",0,\"junk input: $get_buffer");} #else the case when input was not void, but junk that fails the whitelisting
 
 }
-else {dienice("chkERR01",1,\"void URL");} #else the case when URL input was void
+else {dienice("ERR01",1,\"void URL");} #else the case when URL input was void
 
 #-------------------------------------
 

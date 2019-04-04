@@ -160,7 +160,7 @@ if(defined($post_trid)){
 #	$post_trid =~ s/%2B/\+/g;
 #	$post_trid =~ s/%2F/\//g;
 			}
-   else {dienice ("regERR04",1,\"undef trid"); } # no transaction or with void value
+   else {dienice ("ERR01",1,\"undef trid"); } # no transaction or with void value
 
 ###############################
 ### combined refresh-search ###    
@@ -280,14 +280,14 @@ unless(defined($pairs[7])) {dienice ("regERR05",1,\$post_trid); } # unstructured
 $string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_trid);
 
-unless($heximac eq $pairs[7]) { dienice("regERR01",1,\$post_trid);}
+unless($heximac eq $pairs[7]) { dienice("ERR01",1,\"ransaction id sha1 mismatch: $post_trid");}
 
 #check case 1
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6]) > 0) { 
-                                             dienice("regERR02",0,\"null"); }
+                                             dienice("ERR02",0,\"timestamp was already expired"); }
 
 #else is really case 2
-else { dienice("regERR03",0,\"null");  }
+else { dienice("regERR03",0,\"good transaction but already used");  }
 
 } #end of local block
 

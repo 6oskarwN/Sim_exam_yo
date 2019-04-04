@@ -158,7 +158,7 @@ if((defined $answer{'transaction'}) and (defined $answer{'answer'}))
 # NOT IMPLEMENTED this should silently discard if not all mandatory parameters are received
 
 unless(defined($post_trid)) 
-       {dienice ("ver0ERR04",1,\"undef trid"); } # no transaction or with void value
+       {dienice ("ERR01",1,\"undef trid"); } # no transaction or with void value
 
 
 ###############################
@@ -273,7 +273,7 @@ my @pairs; #local
 my $string_trid; # we compose the incoming transaction to recalculate mac
 my $heximac;
 
-#unless(defined($post_trid)) {dienice ("ver0ERR04",1,\"undef trid"); } # no transaction or with void value
+#unless(defined($post_trid)) {dienice ("ERR01",1,\"undef trid"); } # no transaction or with void value
 
 @pairs=split(/_/,$post_trid); #reusing @pairs variable for spliting results
 
@@ -283,11 +283,11 @@ unless(defined($pairs[7])) {dienice ("ver0ERR05",1,\$post_trid); } # unstructure
 $string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_trid);
 
-unless($heximac eq $pairs[7]) { dienice("ver0ERR01",5,\$post_trid);} #threat level 5
+unless($heximac eq $pairs[7]) { dienice("ERR01",5,\"transaction id has been tampered with, sha1 mismatch: $post_trid");} #threat level 5
 
 #check case 1
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6]) > 0) { 
-                                             dienice("ver0ERR02",0,\"null"); }
+                                             dienice("ERR02",0,\"timestamp expired"); } #normally not logged
 
 #else is really case 2
 else { dienice("ver0ERR03",0,\"null");  }

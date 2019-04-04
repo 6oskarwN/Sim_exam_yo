@@ -265,11 +265,11 @@ unless(defined($pairs[7])) {dienice ("genERR18",1,\$get_trid); } # unstructured 
 $string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_trid);
 
-unless($heximac eq $pairs[7]) { dienice("genERR01",1,\$get_trid);}
+unless($heximac eq $pairs[7]) { dienice("ERR01",1,\"transaction_id sha1 mismatch: $get_trid");}
 
 #check case 1, timestamp
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6])>0) { 
-                                             dienice("genERR02",0,\"null"); }
+                                             dienice("ERR02",0,\"transaction timestamp expired"); } #normally not logged
 
 #else is really case 2 so transaction already used
 else { dienice("genERR09",5,\$get_trid);  }

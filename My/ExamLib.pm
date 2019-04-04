@@ -103,51 +103,62 @@ my %pub_errors= (
               "ERR02_cl"  => "Server congestionat, incearca in cateva momente",
 
 #unprocessed
-              "authERR01" => "primire de  date corupte.",
 
-              "genERR01" => "actiune ilegala",
-              "ver0ERR01" => "primire de  date corupte",
-              "verERR01" => "primire de  date corupte",
-              "regERR01" => "primire de  date corupte",
-              "admERR01" => "admin authentication token fail",
-              "chkERR01" => "primire de  date corupte",
-              "tugERR01" => "authentication fail",
-              "ttERR01" => "expresii incorecte",
 
-              "authERR02" => "primire de date corupte",
 
-              "genERR02" => "timpul alocat formularului a expirat",
-              "ver0ERR02" => "pagina pe care ai trimis-o a expirat",
-              "verERR02" => "pagina pe care ai trimis-o a expirat",
-              "regERR02" => "pagina pe care ai trimis-o a expirat",
-              "admERR02" => "token expired, get another token",
-              "tugERR02" => "authentication token expired",
-              "ttERR02" => "input lipsa",
-
+              "admERR03" => "identity failed.",
+              "tugERR03" => "authentication fail",
               "authERR03" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>", #CUSTOM nr zile
+              "authERR04" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>", #CUSTOM nr zile
+              "authERR05" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>",  #CUSTOM nr zile
 
+              "ERR01"  =>  "primire de  date corupte.", #this should remain
+#              "authERR01" => "primire de  date corupte.",
+#              "ver0ERR01" => "primire de  date corupte",
+#              "verERR01" => "primire de  date corupte",
+#              "regERR01" => "primire de  date corupte",
+#              "chkERR01" => "primire de  date corupte",
+#              "authERR02" => "primire de date corupte",
+#              "ttERR01" => "primire de date corupte",
+#              "ttERR02" => "primire de date corupte",
+#              "ttERR03" => "primire de date corupte",
+#              "ver0ERR04" => "primire de  date corupte",
+#              "regERR04" => "primire de  date corupte",
+#              "genERR01" => "actiune ilegala",
+#              "admERR01" => "admin authentication token fail",
+#              "tugERR01" => "authentication fail",
+#              "ttERR07" => "primire de  date corupte",
+              "ver0ERR05" => "primire de  date corupte",
+              "verERR05" => "primire de  date corupte",
+              "regERR05" => "primire de  date corupte",
+              "verERR08" => "trimitere de date corupte",
+
+
+              "ERR02" => "timpul alocat paginii a expirat", #this should remain
+#              "genERR02" => "timpul alocat formularului a expirat",
+#              "ver0ERR02" => "pagina pe care ai trimis-o a expirat",
+#              "verERR02" => "pagina pe care ai trimis-o a expirat",
+#              "regERR02" => "pagina pe care ai trimis-o a expirat",
+#              "ttERR05" => "Formularul a expirat",
+
+#              "admERR02" => "token expired, get another token",
+#              "tugERR02" => "authentication token expired",
+
+
+                "ERR03" => "Aceasta pagina a fost deja evaluata, s-a consumat.",
               "ver0ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
               "verERR03" => "Acest formular de examen a fost deja evaluat",
               "regERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
-              "admERR03" => "identity failed.",
-              "tugERR03" => "authentication fail",
-              "ttERR03" => "expresii incorecte",
+              "genERR15" => "formularul a fost deja folosit odata",
 
-              "authERR04" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>", #CUSTOM nr zile
-
-              "ver0ERR04" => "primire de  date corupte",
-              "regERR04" => "primire de  date corupte",
               "admERR04" => "funny state",
 
               "ttERR04" => "test depistare boti",
  
-               "authERR05" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>",  #CUSTOM nr zile
 
-              "ver0ERR05" => "primire de  date corupte",
-              "verERR05" => "primire de  date corupte",
-              "regERR05" => "primire de  date corupte",
+
               "admERR05" => "admin token revoke request executed",
-              "ttERR05" => "Formularul a expirat",
+  
 
               "authERR06" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
 
@@ -155,8 +166,8 @@ my %pub_errors= (
 
 
               "admERR06" => "admin token revoked.",
-
               "tugERR06" => "admin token revoked.",
+
               "ttERR06" => "Nu ai completat nickname si/sau textul, poti da inapoi cu Back sa completezi",
 
               "authERR07" => "examyo system error",
@@ -165,12 +176,6 @@ my %pub_errors= (
 
 
 
-              "ttERR07" => "hmm",
-
-
-
-
-              "verERR08" => "trimitere de date corupte",
 
 
 
@@ -179,13 +184,7 @@ my %pub_errors= (
 
 
               "genERR10" => "actiune ilegala",
-
-
               "genERR12" => "actiune ilegala",
-
-
-              "genERR15" => "formularul a fost deja folosit odata",
-
               "genERR17" => "actiune ilegala",
               "genERR18" => "actiune ilegala",
 
@@ -198,35 +197,42 @@ my %int_errors= (
   
 
               "ERR00" => "unknown/unspecified",
+#astea cu cannot open file, toate
+              "ERR01_op" => "cannot open file",
+#astea cu cannot close file, toate
+              "ERR02_cl"  => "cannot close file",
               "genERR07" => "fail create new hlrfile",
 
 
-              "authERR01" => "not exactly 2 pairs received",            #test ok
-              "chkERR01" => "junk input", 
-              "ttERR01" => "illegal get_type, not 0/1",    #test ok
+              "ERR01" => "messy input",
+            #  "authERR01" => "not exactly 2 pairs received",            #test ok
+ #             "chkERR01" => "junk input", 
+ #             "ttERR01" => "illegal get_type, not 0/1",    #test ok
 
 
-              "genERR01" => "transaction sha1 authenticity failed",   
-              "ver0ERR01" => "transaction id has been tampered with, sha1 mismatch",    #test ok
-              "verERR01" => "transaction id has been tampered with, sha1 mismatch", #test ok
-              "regERR01" => "transaction id has been tampered with, sha1 mismatch",    #test ok
-              "admERR01" => "token has been tampered with, sha1 mismatch",    #test ok
-              "tugERR01" => "token has been tampered with, sha1 mismatch",    #test ok
-              "ttERR07" => "submitted transaction has tampered MAC",
+   #           "genERR01" => "transaction id sha1 mismatch",   
+          #    "ver0ERR01" => "transaction id has been tampered with, sha1 mismatch",    #test ok
+          #    "verERR01" => "transaction id sha1 mismatch", #test ok
+          #    "regERR01" => "transaction id sha1 mismatch",    #test ok
+          #    "admERR01" => "token has been tampered with, sha1 mismatch",    #test ok
+          #    "tugERR01" => "token has been tampered with, sha1 mismatch",    #test ok
+         #     "ttERR07" => "submitted transaction has tampered MAC",
 
 
 
 
-              "authERR02" => "2 pairs but not login and passwd",        #test ok
+          #    "authERR02" => "2 pairs but not login and passwd",        #test ok
 
-              "genERR02" => "transaction timestamp expired, normally not logged",            
-              "ver0ERR02" => "timestamp was already expired, normally not logged",     #test ok
-              "verERR02" => "timestamp was already expired", #test ok
-              "regERR02" => "timestamp was already expired",           #test ok
-              "admERR02" => "token timestamp expired",           #test ok
-              "tugERR02" => "untampered but timestamp expired",           #test ok
+              "ERR02" => "transaction or token timestamp expired",
+ 
+#             "genERR02" => "transaction timestamp expired, normally not logged",            
+  #            "ver0ERR02" => "timestamp was already expired, normally not logged",     #test ok
+#              "verERR02" => "timestamp was already expired", #test ok
+#              "regERR02" => "timestamp was already expired",           #test ok
+#              "admERR02" => "token timestamp expired",           #test ok
+#              "tugERR02" => "untampered but timestamp expired",           #test ok
 
-              "ttERR02" => "trid_type nu e 0 sau 1, ciudat",           #test ok
+      #        "ttERR02" => "trid_type nu e 0 sau 1, ciudat",           #test ok
               "admERR04" => "funny state",
               "authERR07" => "examyo system error, should never occur, weird hlr_class:",
 
@@ -244,11 +250,11 @@ my %int_errors= (
               "admERR03" => "token is sha1, live, but not admin token",             #test ok
               "tugERR03" => "good transaction but not an admin token",             #test ok
 
-              "ttERR03" => "illegal input catch by white or blacklist ",      #test ok
+      #        "ttERR03" => "illegal input catch by white or blacklist ",      #test ok
 
 
-              "ver0ERR04" => "undef transaction id",
-              "regERR04"  => "undef transaction id",
+      #        "ver0ERR04" => "undef transaction id",
+ #             "regERR04"  => "undef transaction id",
 
 
 
@@ -289,8 +295,6 @@ my %int_errors= (
 
 
               "genERR10" => "from wrong pagecode invoked generation of exam",
-
-
               "genERR12" => "wrong clearance level to request this exam",
 
 
