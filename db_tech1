@@ -1,4 +1,4 @@
-Intrebari cu dificultate sporita propuse pentru pregatirea la proba radiotehnica clasa I  - versiunea 3.10 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_HAREC_radiotehnica</curricula></font>
+Intrebari cu dificultate sporita propuse pentru pregatirea la proba radiotehnica clasa I  - versiunea 3.11 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_HAREC_radiotehnica</curricula></font>
 278
 ##0#
 b
@@ -1834,7 +1834,7 @@ a
  Uab=100V
 Subiect public ANCOM, 2007
 null
-Este o pacaleala pentru ochi, rezistentele sunt aranjate mai neobisnuit. De fapt, cele 4 rezistente din stanga formeaza o punte Wheatstone, si se poate rearanja ca in <a href="http://mee.didactic.ro/puntea%20wh.htm" target="_blank">figura generala</a>. Se observa ca puntea este in echilibru - rezistentele sunt egale, deci tensiunea intre punctele A si B este zero. Tensiunea fiind zero, pe rezistenta din dreapta, paralela cu voltmetrul, nu avem curent, ea se poate scoate din schema.<br>Mai simplist: In acest caz particular, puntea este alcatuita din doua divizoare identice de tensiune. Punctele A si B ale divizoarelor se afla la acelasi potential, 50V(divizoarele sunt de tipul /2). U<sub>AB</sub> = V<sub>A</sub> -  V<sub>B</sub> = 50V - 50V = 0.
+Este o pacaleala pentru ochi, rezistentele sunt aranjate mai neobisnuit. De fapt, cele 4 rezistente din stanga formeaza o punte Wheatstone, si se poate rearanja ca in <a href="https://ro.wikipedia.org/wiki/Punte_Wheatstone" target="_blank">figura generala</a>. Se observa ca puntea este in echilibru - rezistentele sunt egale, deci tensiunea intre punctele A si B este zero. Tensiunea fiind zero, pe rezistenta din dreapta, paralela cu voltmetrul, nu avem curent, ea se poate scoate din schema.<br>Mai simplist: In acest caz particular, puntea este alcatuita din doua divizoare identice de tensiune. Punctele A si B ale divizoarelor se afla la acelasi potential, 50V(divizoarele sunt de tipul /2). U<sub>AB</sub> = V<sub>A</sub> -  V<sub>B</sub> = 50V - 50V = 0.
 YO6OWN, Brasov, 2008
 ##153#
 b
@@ -1846,7 +1846,7 @@ b
  0,25A la dreapta lui zero.
 Subiect public ANCOM, 2007
 null
-Este o pacaleala pentru ochi, rezistentele sunt aranjate mai neobisnuit. De fapt, cele 4 rezistente din stanga formeaza o punte Wheatstone, si se poate rearanja ca in <a href="http://mee.didactic.ro/puntea%20wh.htm" target="_blank">figura generala</a>. Se observa ca puntea este in echilibru - rezistentele sunt egale, deci tensiunea intre punctele A si B este zero. Tensiunea fiind zero, pe rezistenta din dreapta, in serie cu ampermetrul, nu avem curent, ea se poate scoate din schema.<br>Mai simplist: In acest caz particular, puntea este alcatuita din doua divizoare identice de tensiune. Punctele A si B ale divizoarelor se afla la acelasi potential, 5V(divizoarele sunt de tipul /2). U<sub>AB</sub> = V<sub>A</sub> -  V<sub>B</sub> = 5V - 5V = 0.
+Este o pacaleala pentru ochi, rezistentele sunt aranjate mai neobisnuit. De fapt, cele 4 rezistente din stanga formeaza o punte Wheatstone, si se poate rearanja ca in <a href="https://ro.wikipedia.org/wiki/Punte_Wheatstone" target="_blank">figura generala</a>. Se observa ca puntea este in echilibru - rezistentele sunt egale, deci tensiunea intre punctele A si B este zero. Tensiunea fiind zero, pe rezistenta din dreapta, in serie cu ampermetrul, nu avem curent, ea se poate scoate din schema.<br>Mai simplist: In acest caz particular, puntea este alcatuita din doua divizoare identice de tensiune. Punctele A si B ale divizoarelor se afla la acelasi potential, 5V(divizoarele sunt de tipul /2). U<sub>AB</sub> = V<sub>A</sub> -  V<sub>B</sub> = 5V - 5V = 0.
 YO6OWN, Brasov, 2008
 ##154#
 a
@@ -2339,7 +2339,7 @@ null
 Subiect public ANCOM, 2007
 null
 Taietura AT se foloseste pentru frecvente fundamentale cuprinse intre 1 MHz si 25 MHz, cu mod fundamental de oscilatie de contur. Acest tip de taiere este folosit si pentru frecventele overtone (armonicile de ordin impar 3, 5, 7) cu frecvente in gama de la 17 MHz pana la 250 MHz.<br>Uzual, rezonatoarele au frecvente de oscilatie cuprinse intre 15 kHz si 25 MHz, deoarece pentru frecvente mai mici dimensiunile lamei de cuart sunt mari, greu de obtinut, iar pentru frecvente mai mari lamela de cuart devine fragila ca urmare a grosimii foarte mici(s <= 0,15 mm).
-YO6OWN, Brasov, 2008, dupa <a href="https://vega.unitbv.ro/courses/rtv/cps_rezonatoarePiezo.pdf" target="_blank">link</a> documentatie PDF 400kByte
+YO6OWN, Brasov, 2008, dupa <a href="http://vega.unitbv.ro/~nicolaeg/ELA-IM%20-MIAIA%20-EPI/Componente%20pasive%20de%20circuit%20-1999/Cap.6.1-Rezonatoare%20piezoelectrice.pdf" target="_blank">link</a> documentatie PDF
 ##195#
 a
 01A363~&07C36K/ In care din schemele de oscilatoare LC cunoscute reactia se obtine printr-un divizor inductiv? (Alegeti raspunsul cel mai complet.)
