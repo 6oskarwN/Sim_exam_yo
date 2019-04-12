@@ -749,7 +749,7 @@ print qq!La subcapitolul unde nu vezi vreun semn, nu exista intrebari, nici ofic
 #print qq!<input type="radio" value="x" name="y" disabled="y" unchecked="y">Nu exista nicio intrebare la acest subcapitol din programa.<br>\n!;
 print qq!<input type="checkbox" value="x" name="y" enabled="y" unchecked="y">Inca nu ai intalnit intrebari din acest subcapitol.<br>\n!;
 print qq!<table cellspacing="2"><tr><td bgcolor="red" valign="middle" align="center"><input type="checkbox" value="x" name="y" enabled="y" unchecked="y"></td><td>Aici ai probleme, cel putin o intrebare ai gresit-o, asa ca aici vom insista.</td></tr></table>\n!;
-print qq!<input type="checkbox" value="x" name="y" enabled="y" checked="y">Subcapitol stapanit - ai rezolvat toate intrebarile oferite de aici.<br>\n!;
+print qq!<input type="checkbox" value="x" name="y" enabled="y" checked="y">Subcapitol stapanit - ai rezolvat toate intrebarile extrase de aici.<br>\n!;
 print qq!</form>\n!;
 
 for (my $iter=0; $iter< ($#materii+1); $iter++)
