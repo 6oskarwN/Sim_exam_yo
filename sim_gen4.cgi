@@ -352,7 +352,7 @@ open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("genERR07",1,\"$! $^E $?");
 flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
 printf HLRfile "clasa4\n"; #se inscrie examenul de clasa4 #CUSTOM
-printf HLRfile "\n\n\n"; #bagat linii pt 3 probe #CUSTOM
+printf HLRfile "\n\n\n\n"; #prefill with as many \n as many db_s are opened  #CUSTOM
 close(HLRfile);
   }
 }
@@ -450,10 +450,10 @@ my $masked_index=0;   #index of the question in <form>; init with 0 if appropria
 #my $index; #seen index in the form
 my $watchdog=0;
 #CUSTOM for class IV
-#protectia muncii 10, operare 8, legislatie 20 #CUSTOM
-my @database=("db_ntsm4","db_op4","db_legis4");       #CUSTOM set the name of used databases and their order
-my @qcount=(10,8,20); #CUSTOM number of questions generated on each chapter
-my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #CUSTOM chapter names
+#protectia muncii 10, operare 8, legislatie 20(=19+1) #CUSTOM
+my @database=("db_ntsm4","db_op4","db_legis4","db_sanctiuni");       #CUSTOM set the name of used databases and their order
+my @qcount=(10,8,19,1); #CUSTOM number of questions generated on each chapter
+my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #CUSTOM chapter names
 
 my $fline;	#line read from file
 my $rndom;	#used to store random integers
@@ -466,7 +466,7 @@ my $rindex;	#rucksack index
 my %hlrline;    #hlr-hash for the corresponding line of hlr
 my @splitter;	#cu el manipulam v3code din linia intrebarii
 #contains list with files containing only v3-codes
-my @strips=("strip_db_ntsm4","strip_db_op4","strip_db_legis4");#CUSTOM
+my @strips=("strip_db_ntsm4","strip_db_op4","strip_db_legis4","strip_db_sanctiuni");#CUSTOM
 my @slurp_strip;  #slurped content of such a file
 my $fallback;	#flag for generating exam for training users, when db is exhausted
 my $found;
@@ -517,7 +517,7 @@ flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 #for each database the hash is loaded
 %hlrline=(); #init
 # if hlrfile (-e) and  usertype==0(antrenament))
-if($tipcont == 0) #but hlr file exists for taining account
+if($tipcont == 0) #but hlr file exists for training account
 {
 #fetch hlr line corresponding to $database[$iter]
 $hlrclass = <HLRread>; #variable reused to fetch the corresponding line from HLR

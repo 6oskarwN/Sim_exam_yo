@@ -354,7 +354,7 @@ if($slurp_userfile[$account*7+0] eq "$trid_login\n") #this is the user record we
 close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?"); 
 
 #ACTION: check request clearances pagecode == 7 and tip cont == 0/4&&notused)
-unless($trid_pagecode == 7 && ($user_tipcont == 0 || $user_tipcont == 4 && $user_lastresult == 0)) #CUSTOM: invoked from examIIIR page
+unless($trid_pagecode == 7 && ($user_tipcont == 0 || $user_tipcont == 4 && $user_lastresult == 0)) #CUSTOM: invoked from exam IV page
 {
 #ACTION: close all resources
 truncate(transactionFILE,0);
@@ -376,10 +376,10 @@ dienice("verERR08",3,\$cheatmsg);
 #All clearances ok, prep to evaluate results
 
 #CUSTOM 
-my @database=("db_ntsm4","db_op4","db_legis4");       #set the name of used databases and their order
-my @qcount=(10,8,20); #number of questions generated on each chapter
-my @mincount=(7,6,15); #minimum number of good answers per chapter
-my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #chapter names
+my @database=("db_ntsm4","db_op4","db_legis4","db_sanctiuni");       #CUSTOM set the name of used databases and their order
+my @qcount=(10,8,19,1); #CUSTOM number of questions generated on each chapter
+my @mincount=(7,6,14,1); #CUSTOM minimum number of good answers per chapter
+my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #CUSTOM chapter names
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 my $f_failed=0;         #flag, start assuming that exam is taken
 my @linesplit;
@@ -833,9 +833,9 @@ close (transactionFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
 
 #update user record with the result of test
 if ($f_failed)
-{unless($user_tipcont == 0) {$slurp_userfile[$user_account*7+6]="5\n";}}
+{unless($user_tipcont == 0) {$slurp_userfile[$user_account*7+6]="5\n";}} #5 means failed
 else 
-{ $slurp_userfile[$user_account*7+6]="4\n";} #custom
+{ $slurp_userfile[$user_account*7+6]="4\n";} #CUSTOM - 4 is latest achieved class
 
 #open userfile for write
 open(userFILE,"+< sim_users") or dienice("ERR01_op",1,\"$! $^E $?");	#open user file for writing

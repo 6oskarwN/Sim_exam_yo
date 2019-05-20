@@ -573,8 +573,8 @@ if($hlrclass eq 'clasa1')
         @strips=("strip_db_tech3","strip_db_ntsm","strip_db_op3","strip_db_legis3");}
 
  elsif($hlrclass eq 'clasa4')
-       {@materii=("prog_NTSM_Entry","prog_CEPT_Entry_op","prog_CEPT_Entry_reg");
-       @strips=("strip_db_ntsm4","strip_db_op4","strip_db_legis4");}
+       {@materii=("prog_NTSM_Entry","prog_CEPT_Entry_op","prog_CEPT_Entry_reg","prog_reg_sanctiuni");
+       @strips=("strip_db_ntsm4","strip_db_op4","strip_db_legis4","strip_db_sanctiuni");}
 
  else {# this else should never be executed
 	dienice("authERR07",1,\$hlrclass);
