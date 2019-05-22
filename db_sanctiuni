@@ -1,14 +1,230 @@
 Legislatie - sanctiuni, toate clasele v.3.0  versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_reg_sanctiuni</curricula></font>
-1
+19
 ##0#
 a
-01A3561~&Test, demo question
+01A3562~&Ce este autorizatia de radioamator?
 null
-Da, este adevarat(right answer)
-Nu are cum(false)
-Nimeni nu (false)
-Precizia (false)
-YO6OWN
+Act prin care se atribuie un indicativ si se acorda unei persoane cu domiciliul sau rezidenta pe teritoriul Romaniei dreptul de a opera o statie de radioamator in benzile de frecventa de radioamator;
+Act prin care unui radioamator i se acorda dreptul de a opera o statie de radioamator in toate benzile de frecventa;
+Act prin care se atesta ca titularul detine cunostintele si aptitudinile necesare operarii unei statii de radiocomunicatii in serviciul de amator;
+Act prin care este autorizata folosirea unui indicativ de statie la o anumita adresa.
+YO6OWN, 2019
 null
-test
-YO6OWN, Brasov, 2019
+
+
+##1#
+c
+02A3562~&Ce este certificatul de radioamator?
+null
+Act prin care se atribuie un indicativ si se acorda unei persoane cu domiciliul sau rezidenta pe teritoriul Romaniei dreptul de a opera o statie de radioamator in benzile de frecventa de radioamator;
+Act prin care unui radioamator i se acorda dreptul de a opera o statie de radioamator in toate benzile de frecventa;
+Act prin care se atesta ca titularul detine cunostintele si aptitudinile necesare operarii unei statii de radiocomunicatii in serviciul de amator;
+Act prin care este autorizata folosirea unui indicativ de statie la o anumita adresa.
+YO6OWN, 2019
+null
+
+
+##2#
+d
+01A3564~&Titularul unei autorizatii de radioamator are urmatoarele obligatii:
+null
+sa transmita complet si corect indicativele de apel in conformitate cu actele normative in vigoare;
+sa respecte parametrii de emisie ai legaturilor radio efectuate, in mod direct sau de la distanta, indiferent de statia de la care lucreaza radioamatorul: a sa proprie, de radioclub, detinuta de o alta persoana sau pusa la dispozitie catre un alt radioamator;
+sa nu transmita date si informatii ce nu au legatura cu activitatea de radioamator ori care au caracter comercial sau a mesajelor care contin cuvinte sau expresii indecente sau insultatoare;
+Toate celelalte variante sunt corecte
+YO6OWN, 2019
+null
+
+
+##3#
+a
+02A3564~&Titularul unei autorizatii de radioamator are urmatoarele obligatii:
+null
+sa nu intercepteze mesajele transmise de operatori ce apartin altor servicii de radiocomunicatii decat cel de amator sau, in situatia in care interceptarea mesajelor are loc accidental, sa nu divulge existenta sau continutul mesajelor receptionate, sa nu se foloseasca de acestea sub nicio forma, cu exceptia situatiilor de urgenta sau a altor interese publice;
+sa intercepteze dupa dorinta mesajele transmise de operatori ce apartin altor servicii de radiocomunicatii decat cel de amator dar sa nu divulge existenta sau continutul mesajelor receptionate;
+sa nu intercepteze mesajele transmise de operatori ce apartin altor servicii de radiocomunicatii, cu exceptia celor necodate in vreun fel, pentru situatii de urgenta, dar sa nu divulge existenta sau continutul mesajelor receptionate, sa nu se foloseasca de acestea sub nicio forma, cu exceptia situatiilor de urgenta sau a altor interese publice;
+sa nu intercepteze mesajele transmise de operatori ce apartin altor servicii de radiocomunicatii, care nu sunt codate sau criptate in vreun fel, dar daca se intampla accidental, sa le stocheze sub forma inregistrata cel putin un an.
+YO6OWN, 2019
+null
+
+
+##4#
+a
+03A3564~&Titularul unei autorizatii de radioamator are obligatia:
+null
+sa nu realizeze legaturi radio cu operatori ce apartin altor servicii de radiocomunicatii sau cu radioamatori, respectiv operatori, care nu isi comunica identitatea prin transmiterea indicativului de apel
+poate sa realizeze legaturi radio cu radioamatori care nu isi comunica de la inceput identitatea prin transmiterea indicativului de apel, doar in limita primelor 10 minute de transmitere obligatorie a indicativului
+sa raspunda la apelul unui radioamatori care nu isi comunica de la inceput identitatea prin transmiterea indicativului de apel, doar in limita primelor 10 minute de transmitere obligatorie a indicativului
+sa fie selectiv in a raspunde la apelul unor operatori care nu pot dovedi ca sunt radioamatori.
+YO6OWN, 2019
+null
+
+
+##5#
+d
+04A3564~&Detinatorul unei statii de radioamator trebuie sa asigure:
+null
+respectarea parametrilor de emisie si a continutului legaturilor radio efectuate, in mod direct sau de la distanta, de catre orice radioamator care lucreaza pe o statie a radioclubului la care el este responsabil sau pe statia radio detinuta in conditiile stabilite prin actele normative in vigoare si sa mentina o copie audio a traficului realizat pe statia radio respectiva;
+mentionarea, in jurnalul de trafic, a identitatii radioamatorilor care au utilizat statia de radioclub la care este responsabil sau statia radio detinuta in mod direct sau de la distanta, precum si parametrii tehnici ai legaturilor radio efectuate;
+punerea la dispozitie a unei statii radio doar catre persoane care detin calitatea de radioamator.
+toate celelalte trei variante sunt corecte
+YO6OWN, 2019
+null
+
+
+##6#
+a
+05B3564~&Cine trebuie sa sa mentina o copie audio a traficului realizat pe statia radio, in conditiile stabilite prin actele normative in vigoare?
+null
+Radioamatorul care permite lucrul la distanta altui radioamator pe statia sa 
+Toti radioamatorii, pentru traficul realizat pe statia proprie.
+responsabilul statiei de club, pentru traficul facut pe statia de club
+Radioamatorul nu tine copie audio a traficului ci inregistreaza radiolegaturile in jurnalul de trafic.
+YO6OWN, 2019
+null
+<a href="http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf">http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf</a><br><a href="http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html">http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html</a>
+YO6OWN, 2019
+##7#
+a
+06B3564~&Cine trebuie sa sa mentina o copie audio a traficului realizat pe statia radio, in conditiile stabilite prin actele normative in vigoare?
+null
+responsabilul de club pentru statiile de radioclub, in cazul in care acestea sunt operate de la distanta
+Toti radioamatorii, pentru traficul realizat pe statia proprie.
+responsabilul statiei de club, pentru traficul facut pe statia de club
+responsabilul statiei nu tine copie audio a traficului ci inregistreaza radiolegaturile in jurnalul de trafic.
+YO6OWN, 2019
+null
+<a href="http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf">http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf</a><br><a href="http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html">http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html</a>
+YO6OWN, 2019
+##8#
+a
+07B3564~&Cand trebuie responsabilul statiei de club sa inregistreze in format audio traficul realizat pe statia de club?
+null
+Atunci cand statia de club este operata la distanta. Pe langa copia audio a traficului, se completeaza jurnalul de trafic cu identitatea operatorului la distanta si parametrii tehnici folositi.
+Tot traficul realizat pe statia de club trebuie inregistrat in format audio.
+Atunci cand pune la dispozitie statia de club pentru lucru direct sau la distanta unui radioamator
+Niciodata, responsabilul statiei nu tine copie audio a traficului ci inregistreaza radiolegaturile in jurnalul de trafic.
+YO6OWN, 2019
+null
+<a href="http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf">http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf</a><br><a href="http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html">http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html</a>
+YO6OWN, 2019
+##9#
+a
+08B3564~&Cand trebuie radioamatorul titular al statiei sa inregistreze in format audio traficul realizat pe statia sa?
+null
+Atunci cand statia sa este operata la distanta de un alt radioamator. Pe langa copia audio a traficului, se completeaza jurnalul de trafic cu identitatea operatorului la distanta si parametrii tehnici folositi.
+Atunci cand statia face trafic, tot traficul realizat pe statia sa trebuie inregistrat in format audio.
+Atunci cand pune la dispozitie statia sa altui radioamator pentru lucru direct sau la distanta
+Niciodata, nu se tine o copie audio a traficului ci se inregistreaza radiolegaturile in jurnalul de trafic.
+YO6OWN, 2019
+null
+<a href="http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf">http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf</a><br><a href="http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html">http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html</a>
+YO6OWN, 2019
+##10#
+a
+09B3564~&Cat timp trebuie pastrata copia audio a traficului unei statii operate de la distanta?
+null
+un an
+6 luni
+trei ani
+60 de zile
+YO6OWN, 2019
+null
+<a href="http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf">http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf</a><br><a href="http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html">http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html</a>
+YO6OWN, 2019
+##11#
+a
+10B3564~&Care sunt tipurile de statii de radioamator pentru care nu se poate evita inregistrarea integrala in format audio a traficului efectuat?
+null
+toate statiile/echipamentele operate doar la distanta, cum ar fi: sateliti de radioamator, statii repetoare, digpeatere, noduri, MMDVM
+toate statiile de club
+toate statiile cu titular o persoana juridica
+toate statiile operate de o Inteligenta Artificiala (AI)
+YO6OWN, 2019
+null
+<a href="http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf">http://www.ancom.org.ro/uploads/links_files/Precizari_referitoare_la_sanctiunea_stabilita_in_art_4_lit_g.pdf</a><br><a href="http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html">http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html</a>
+YO6OWN, 2019
+##12#
+a
+01A3565~&Cine defasoara activitatea de supraveghere si control in scopul asigurarii indeplinirii dispozitiilor legii?
+null
+Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii - ANCOM.
+Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii - ANRC.
+Inspectoratul General in Comunicatii si Tehnologia Informatiei - IGCTI
+La statia lui, radioamatorul insusi
+YO6OWN, 2019
+null
+
+
+##13#
+a
+01A3566~&Constituie contraventii, in masura in care nu sunt savarsite in astfel de conditii incat sa fie considerate potrivit legii penale infractiuni, urmatoarele fapte:
+null
+operarea unei statii de radiocomunicatii in alte benzi de frecvente radio decat cele atribuite serviciului de amator
+operarea unei statii de radioamator la marginea benzii de frecventa alocate
+operarii unei statii de radioamator la o tensiune de alimentare alta decat cea nominala
+Receptia la un volum audio foarte mare
+YO6OWN, 2019
+null
+
+
+##14#
+b
+02A3566~&Constituie contraventii, in masura in care nu sunt savarsite in astfel de conditii incat sa fie considerate potrivit legii penale infractiuni, urmatoarele fapte:
+null
+operarea statiei de catre persoane juridice
+operarea statiei sau permiterea operarii statiei de catre persoane ce nu detin ori le-a fost suspendata autorizatia de radioamator;
+operarea statiei proprii in lipsa responsabilului de radioclub
+organizarea concursurilor de statii de radioamatori pe benzile de frecvente legal alocate in TNABF.
+YO6OWN, 2019
+null
+
+
+##15#
+c
+04A3566~&Constituie contraventii, in masura in care nu sunt savarsite in astfel de conditii incat sa fie considerate potrivit legii penale infractiuni, urmatoarele fapte:
+null
+refuzul radioamatorului de a permite unui alt radioamator lucrul direct la statia lui
+refuzul radioamatorului de a permite unui alt radioamator lucrul de la distanta la statia lui
+refuzul radioamatorului de a se supune controlului sau obstructionarea efectuarii controlului de catre personalul de control al ANCOM, imputernicit in acest scop.
+lipsa de la domiciliu a radioamatorului
+YO6OWN, 2019
+null
+
+
+##16#
+d
+01A3568~&Constituie contraventii, in masura in care nu sunt savarsite in astfel de conditii incat sa fie considerate potrivit legii penale infractiuni, urmatoarele fapte:
+null
+nerespectarea obligatiei de a transmite complet si corect indicativele de apel in conformitate cu actele normative in vigoare;  
+nerespectarea parametrilor de emisie ai legaturilor radio efectuate, in mod direct sau de la distanta, indiferent de statia de la care lucreaza radioamatorul: a sa proprie, de radioclub, detinuta de o alta persoana sau pusa la dispozitie catre un alt radioamator;  
+transmiterea de date si informatii care nu au legatura cu activitatea de radioamator
+Toate celelalte trei optiuni sunt corecte
+YO6OWN, 2019
+null
+
+
+##17#
+a
+01A3561~&Ce inseamna sintagma "Constituie contraventii, in masura in care nu sunt savarsite in astfel de conditii incat sa fie considerate potrivit legii penale infractiuni"?
+null
+In Codul Penal exista o serie de infractiuni care au la baza contraventii. Factori ca modul de savarsire, scopul final, premeditarea pot schimba incadrarea de la contraventional la penal, in conditiile legii.
+Asa se formuleaza in lege
+Toate faptele sanctionabile pentru radioamatori sunt contraventii, nu infractiuni
+Inseamna ca ramane la latitudinea judecatorului unde incadreaza, in functie de procesul verbal de constatare
+YO6OWN, 2019
+null
+In Codul penal exista o serie de infractiuni care au la baza fapte de transmitere de informatii catre persoane care nu au calitatea de a le primi;<br>Sau alt exemplu tras de par: Obstructionarea controlului statie de catre personalul ANCOM(contraventie) pentru ca in statie sunt ascunse droguri(infractiune)<br>(inspirat din YO3HJV: http://yo3hjv.blogspot.com/2019/01/legea-nr-3562018-privind-unele-masuri.html)
+YO6OWN, 2019
+##18#
+a
+01A356a~&Cine face constatarea contraventiilor si aplicarea sanctiunilor prevazute de lege in domeniul radiocomunicatiilor de amator?
+null
+personalul de control din cadrul ANCOM.
+Politia Romana ca organ constatator
+Federatia Romana de Radioamatorism
+personalul de control din cadrul ISU, imputernicit in acest scop prin decizie a presedintelui.
+YO6OWN, 2019
+null
+
+

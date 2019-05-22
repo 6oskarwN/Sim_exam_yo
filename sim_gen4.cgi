@@ -452,7 +452,7 @@ my $watchdog=0;
 #CUSTOM for class IV
 #protectia muncii 10, operare 8, legislatie 20(=19+1) #CUSTOM
 my @database=("db_ntsm4","db_op4","db_legis4","db_sanctiuni");       #CUSTOM set the name of used databases and their order
-my @qcount=(10,8,19,1); #CUSTOM number of questions generated on each chapter
+my @qcount=(10,8,16,4); #CUSTOM number of questions generated on each chapter
 my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #CUSTOM chapter names
 
 my $fline;	#line read from file

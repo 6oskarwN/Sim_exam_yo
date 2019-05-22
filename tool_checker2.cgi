@@ -82,7 +82,7 @@ $get_buffer=$ENV{'QUERY_STRING'}; #GET
 if (defined($get_buffer)) {   #eliminate possibility of void input
 
 #we check the request to be exactly legal, to avoi sql injection or other bogus requests
-if($get_buffer =~ m/^get_fname={1}((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/)
+if($get_buffer =~ m/^get_fname={1}((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}(sanctiuni){1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/)
        {
         $get_buffer =~ m/((db_{1}(op|legis){1}(1|2|3|4){1}$){1}|(db_{1}(ntsm){1}[4]{0,1}$){1}|(db_{1}tech{1}(1|2|3){1}$){1})/;
         $get_filename=$1;
