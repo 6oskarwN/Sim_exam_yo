@@ -105,7 +105,6 @@ my %pub_errors= (
 #unprocessed
 
 
-
               "admERR03" => "identity failed.",
               "tugERR03" => "authentication fail",
               "authERR03" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>", #CUSTOM nr zile
@@ -113,39 +112,15 @@ my %pub_errors= (
               "authERR05" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>",  #CUSTOM nr zile
 
               "ERR01"  =>  "primire de  date corupte.", #this should remain
-#              "authERR01" => "primire de  date corupte.",
-#              "ver0ERR01" => "primire de  date corupte",
-#              "verERR01" => "primire de  date corupte",
-#              "regERR01" => "primire de  date corupte",
-#              "chkERR01" => "primire de  date corupte",
-#              "authERR02" => "primire de date corupte",
-#              "ttERR01" => "primire de date corupte",
-#              "ttERR02" => "primire de date corupte",
-#              "ttERR03" => "primire de date corupte",
-#              "ver0ERR04" => "primire de  date corupte",
-#              "regERR04" => "primire de  date corupte",
-#              "genERR01" => "actiune ilegala",
-#              "admERR01" => "admin authentication token fail",
-#              "tugERR01" => "authentication fail",
-#              "ttERR07" => "primire de  date corupte",
+
               "ver0ERR05" => "primire de  date corupte",
               "verERR05" => "primire de  date corupte",
               "regERR05" => "primire de  date corupte",
               "verERR08" => "trimitere de date corupte",
 
-
               "ERR02" => "timpul alocat paginii a expirat", #this should remain
-#              "genERR02" => "timpul alocat formularului a expirat",
-#              "ver0ERR02" => "pagina pe care ai trimis-o a expirat",
-#              "verERR02" => "pagina pe care ai trimis-o a expirat",
-#              "regERR02" => "pagina pe care ai trimis-o a expirat",
-#              "ttERR05" => "Formularul a expirat",
 
-#              "admERR02" => "token expired, get another token",
-#              "tugERR02" => "authentication token expired",
-
-
-                "ERR03" => "Aceasta pagina a fost deja evaluata, s-a consumat.",
+              "ERR03" => "Aceasta pagina a fost deja evaluata, s-a consumat.",
               "ver0ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
               "verERR03" => "Acest formular de examen a fost deja evaluat",
               "regERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
@@ -205,34 +180,9 @@ my %int_errors= (
 
 
               "ERR01" => "messy input",
-            #  "authERR01" => "not exactly 2 pairs received",            #test ok
- #             "chkERR01" => "junk input", 
- #             "ttERR01" => "illegal get_type, not 0/1",    #test ok
-
-
-   #           "genERR01" => "transaction id sha1 mismatch",   
-          #    "ver0ERR01" => "transaction id has been tampered with, sha1 mismatch",    #test ok
-          #    "verERR01" => "transaction id sha1 mismatch", #test ok
-          #    "regERR01" => "transaction id sha1 mismatch",    #test ok
-          #    "admERR01" => "token has been tampered with, sha1 mismatch",    #test ok
-          #    "tugERR01" => "token has been tampered with, sha1 mismatch",    #test ok
-         #     "ttERR07" => "submitted transaction has tampered MAC",
-
-
-
-
-          #    "authERR02" => "2 pairs but not login and passwd",        #test ok
 
               "ERR02" => "transaction or token timestamp expired",
  
-#             "genERR02" => "transaction timestamp expired, normally not logged",            
-  #            "ver0ERR02" => "timestamp was already expired, normally not logged",     #test ok
-#              "verERR02" => "timestamp was already expired", #test ok
-#              "regERR02" => "timestamp was already expired",           #test ok
-#              "admERR02" => "token timestamp expired",           #test ok
-#              "tugERR02" => "untampered but timestamp expired",           #test ok
-
-      #        "ttERR02" => "trid_type nu e 0 sau 1, ciudat",           #test ok
               "admERR04" => "funny state",
               "authERR07" => "examyo system error, should never occur, weird hlr_class:",
 
@@ -249,13 +199,6 @@ my %int_errors= (
 
               "admERR03" => "token is sha1, live, but not admin token",             #test ok
               "tugERR03" => "good transaction but not an admin token",             #test ok
-
-      #        "ttERR03" => "illegal input catch by white or blacklist ",      #test ok
-
-
-      #        "ver0ERR04" => "undef transaction id",
- #             "regERR04"  => "undef transaction id",
-
 
 
               "ttERR04" => "humanity test failed",
@@ -365,7 +308,10 @@ print qq!</body>\n</html>\n!;
                               }
 }
 
-exit();
+unless($error_code eq 'ERR19') #ERR19 is silent logging, no display, no exit()
+         {
+           exit(); #exiting for all errors except ERR19
+         }
 
 } #end sub
 

@@ -40,6 +40,7 @@
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.6 implementing clustered chapters
 # ch 3.3.5 whitelisting for inputs
 # ch 3.3.4 functions moved to ExamLib.pm
 # ch 3.3.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -453,7 +454,13 @@ my $watchdog=0;
 #protectia muncii 10, operare 8, legislatie 20(=19+1) #CUSTOM
 my @database=("db_ntsm4","db_op4","db_legis4","db_sanctiuni");       #CUSTOM set the name of used databases and their order
 my @qcount=(10,8,16,4); #CUSTOM number of questions generated on each chapter
-my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #CUSTOM chapter names
+my @chapter=("Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale, sectiunea Legislatie si Regulamente","Reglementari interne, sectiunea Sanctiuni"); #CUSTOM chapter names
+#CUSTOM: the cluster is an array for grouping chapters toghether
+
+my @cluster = ( [0],   #$database[0],$qcount[0],$chapter[0]
+                [1],
+                [2,3]
+              );
 
 my $fline;	#line read from file
 my $rndom;	#used to store random integers
@@ -504,11 +511,20 @@ $hlrclass = <HLRread>;#il mai aveam dar trebuie sa scapam de linia asta
 
 
 #================.V3===
-#tbd: foreach database
-for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions from each database
+# foreach cluster line
+for (my $clusterline=0; $clusterline < ($#cluster+1); $clusterline++)
+{#start clusterline
+
+# foreach database
+#for (my $iter=0; $iter < (  @{$cluster[$clusterline]} +1); $iter++)   #generate sets of questions from each database
+
+my $index=0; #this is the index of the question as displayed
+
+for (my $iter=0; $iter <   @{$cluster[$clusterline]} ; $iter++)   #generate sets of questions from each database
 {
 #tbd: open database
-open(INFILE,"< $database[$iter]") || dienice("ERR01_op",1,\"$! $^E $?");   
+#dienice("ERR19",1,\"$clusterline $iter");  #debug only
+open(INFILE,"< $database[ $cluster[$clusterline][$iter] ]") || dienice("ERR01_op",1,\"$! $^E $?");   
 flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 
 
@@ -540,7 +556,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++) #or ($#splitter
 #open,load and close the appropriate stripfile
 #stripfiles are used by all user types
 #stripfiles REALLY needed.
-open(stripFILE, "<$strips[$iter]") || dienice("ERR01_op",1,\"$! $^E $?");
+open(stripFILE, "<$strips[$cluster[$clusterline][$iter]]") || dienice("ERR01_op",1,\"$! $^E $?");
 flock(stripFILE,1);
 seek(stripFILE,0,0);
 @slurp_strip=<stripFILE>;
@@ -551,7 +567,7 @@ close(stripFILE);
 #------------------------
 #tbd: print chapter name
 print qq!<table width="99%" bgcolor="lightblue" border="2"><tr><td>!;
-print qq!<font color="black"><big>$chapter[$iter]</big></font>\n!; 
+print qq!<font color="black"><big>$chapter[$cluster[$clusterline][$iter]]</big></font>\n!; 
 print qq!</td></tr></table>\n<br>\n!;
 
 #------------------------
@@ -574,7 +590,7 @@ chomp($fline);				#cut <CR> from end
 $fallback=0;    #for training users generate with all conditions(fallback=1 is one-shot exam-like conditions)
 
 #conditia de while trebuie imbunatatita si   cu conditia V3 de iesire
-while($#pool < (($qcount[$iter])-1))	#do until number of questions is reached; - asta nu da voie la never reached or fallback condition?
+while($#pool < (($qcount[$cluster[$clusterline][$iter]])-1))	#do until number of questions is reached; - asta nu da voie la never reached or fallback condition?
 {
 
 #take out a $rndom out of rucksack
@@ -644,7 +660,7 @@ if($chosenOne)
 #==  conditia de fallback, adica rucksack gol;
 
 #se poate inlocui cu conditia rapida #rucksack + #pool < desired size
-if(($fallback == 0) && ($#rucksack + $#pool < $qcount[$iter])) #sunt pre putine ramase in rucsac
+if(($fallback == 0) && ($#rucksack + $#pool < $qcount[$cluster[$clusterline][$iter]])) #sunt pre putine ramase in rucsac
 	{
 	$fallback=1;
 	@rucksack=(0..($fline-1));	#se reumple rucksacul
@@ -667,7 +683,7 @@ $entry = "$entry @pool"; #the proposed questions are entered, K \n is terminator
 
 #tbd: print questions
 #Action: Desfasuram intrebarile
-my $index=0;
+#my $index=0;
 DIRTY: foreach my $item (@pool) #for each selected question
 {
 $index++; #this is the seen index of the question
@@ -765,6 +781,7 @@ last DIRTY;
 close(INFILE) || dienice("ERR02_cl",1,\"$! $^E $?");
 
 } #.end foreach database
+} #.end foreach cluster line
 
 close(HLRread);
 
