@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_authent.cgi v 3.2.a 
+#  sim_authent.cgi v 3.2.b 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.b added chapter to support new clustered-chapter
 # ch 3.2.a things done in 3.0.c,d obsoleted by 3.2.9 and deleted
 # ch 3.2.9 check input string for defined format as security measure
 # ch 3.2.8 functions moved to ExamLib.pm
@@ -534,7 +535,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.a\n!; #version print for easy upload check
+print qq!v 3.2.b\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -561,16 +562,16 @@ chomp($hlrclass);
 #print qq!are clasa $hlrclass<br>\n!; #debug
 if($hlrclass eq 'clasa1') 
   {
- @materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
- @strips=("strip_db_tech1","strip_db_ntsm","strip_db_op1","strip_db_legis1");}
+ @materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg","prog_reg_sanctiuni");
+ @strips=("strip_db_tech1","strip_db_ntsm","strip_db_op1","strip_db_legis1","strip_db_sanctiuni");}
 
  elsif($hlrclass eq 'clasa2')
-       {@materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg");
-        @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2");}
+       {@materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg","prog_reg_sanctiuni");
+        @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2","strip_db_sanctiuni");}
 
  elsif($hlrclass eq 'clasa3')
-       {@materii=("prog_CEPT_Novice_radiotehnica","prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg");
-        @strips=("strip_db_tech3","strip_db_ntsm","strip_db_op3","strip_db_legis3");}
+       {@materii=("prog_CEPT_Novice_radiotehnica","prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg","prog_reg_sanctiuni");
+        @strips=("strip_db_tech3","strip_db_ntsm","strip_db_op3","strip_db_legis3","strip_db_sanctiuni");}
 
  elsif($hlrclass eq 'clasa4')
        {@materii=("prog_NTSM_Entry","prog_CEPT_Entry_op","prog_CEPT_Entry_reg","prog_reg_sanctiuni");

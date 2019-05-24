@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_ver3.cgi v 3.2.8
-#  Status: working
+#  sim_ver3.cgi v 3.2.9
+#  Status: in test
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.9 implementing cluster-chapter feature
 # ch 3.2.8 whitelisting inputs 
 # ch 3.2.7 functions moved to ExamLib.pm
 # ch 3.2.6 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -376,10 +377,19 @@ dienice("verERR08",3,\$cheatmsg);
 #All clearances ok, prep to evaluate results
 
 #CUSTOM 
-my @database=("db_tech3","db_ntsm","db_op3","db_legis3");       #set the name of used databases and their order
-my @qcount=(16,10,8,20); #number of questions generated on each chapter
-my @mincount=(12,7,6,15); #minimum number of good answers per chapter
-my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #chapter names
+my @database=("db_tech3","db_ntsm","db_op3","db_legis3","db_sanctiuni");       #set the name of used databases and their order
+my @qcount=(16,10,8,16,4); #number of questions generated on each chapter
+my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #chapter names
+
+#CUSTOM: clustering the databases into cluster-chapters
+my @cluster = ( [0],   #$database[0],$qcount[0],$chapter[0]
+                [1],
+                [2],
+                [3,4]
+              );
+my @clusterCount = (16,10,8,20); #CUSTOM: counts per cluster-chapter - not a nice implementation
+my @mincount=(12,7,6,15); #minimum number of good answers per clustered chapter
+
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 my $f_failed=0;         #flag, start assuming that exam is taken
 my @linesplit;
@@ -397,7 +407,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.8\n!; #version print for easy upload check
+print qq!v 3.2.9\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa a III-a</h2>\n!;
@@ -405,7 +415,7 @@ print qq!<h2 align="center">Rezultate Examen clasa a III-a</h2>\n!;
 print qq!<h4 align="center">rezultatul final se afla in <a href="#endof">partea de jos a a paginii</a>.</h4>\n!;
 #===================V3============
 $trid_login_hlrname = $trid_login;
-$trid_login_hlrname =~ s/\//\@slash\@/; #substitute /
+#$trid_login_hlrname =~ s/\//\@slash\@/; #substitute /  #normally never executed, because / slash is not in the username whitelist, must be obsoleted
 if(-e "hlr/$trid_login_hlrname"){ #doar userii de antrenament  au hlrfile, one-shooters nu.
 
 open(HLRfile,"+< hlr/$trid_login_hlrname") or dienice("ERR02_cl",1,\"$! $^E $?"); #open
@@ -425,15 +435,23 @@ seek(HLRfile,0,0);		# rewind
    if($linesplit[0] =~ /^\Q$post_trid\E/)  
    { #our transaction, which exists and is ok
      #ch 3.2.3 will NOT be eliminated by evaluation, just marked as used ///doesn't enter in livelist
+
+# foreach cluster line
+my $clusterCnt; #index of the question in the cluster=chapter
+for (my $clusterline=0; $clusterline < ($#cluster+1); $clusterline++)
+{#start clusterline
+
+$correct=0; #init correct answers counter
+$clusterCnt=0;
    
 #foreach database
-for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions from each database
+for (my $iter=0; $iter< @{$cluster[$clusterline]}; $iter++)   #expects and verifies sets of questions from each database
 {#foreach database
 #===================V3============
 %hlrline=(); #empty the hash, also for non-hlr users, just it wont be used finally
 
  if(-e "hlr/$trid_login_hlrname"){
-my $tempvar=$slurp_hlrfile[$iter+1];
+my $tempvar=$slurp_hlrfile[$cluster[$clusterline][$iter]+1];
 chomp $tempvar;
 @splitter= split(/,/,$tempvar);
 for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++)
@@ -445,24 +463,25 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++)
 #===========.V3===
 # open database
 
-	open(INFILE,"< $database[$iter]");
+	open(INFILE,"< $database[ $cluster[$clusterline][$iter] ]");
           flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 #------------------------
 
 #print chapter name
-print qq!<font color="white"><big>$chapter[$iter]</big></font><br>\n!;
+print qq!<font color="white"><big>$chapter[$cluster[$clusterline][$iter]]</big></font><br>\n!;
 
 #>>>>>>>>>>>>>>>>>
 #BLOCK: Evaluare rezultate intr-un capitol
-$correct=0; #init correct answers counter
+#$correct=0; #init correct answers counter
 
 seek(INFILE,0,0);	#rewind question database
 $fline = <INFILE>;	#jump over first line=version string
 $fline = <INFILE>;	#jump over first line=number of questions in database
 
 
-for(my $m=1;$m<($qcount[$iter]+1);$m++) #all questions in a chapter 
+for(my $index=1;$index<(($qcount[$cluster[$clusterline][$iter]])+1);$index++) #all questions in a chapter 
   {
+ $clusterCnt++;
   my $right_answer; #this is used only for feedback printing
   $masked_index++; #masked index of the current question 
   #linesplit[$masked_index+8] is the index in the database
@@ -488,7 +507,7 @@ $temp= sprintf("question%s",$masked_index); #question name from hash
 print qq!<form action="#">\n!;
 print qq!<dl>\n!;
 if(defined $answer{$temp} && ($fline eq $answer{$temp})) 
-{#good sollution feedback
+{#good solution feedback
 
 $correct++;
 
@@ -506,7 +525,7 @@ $fline=$splitter[1];		#se ascunde codul v3
 $buffertext=$splitter[1];	#buffertext e fara v3-code
 #chiar daca userul nu are hlrfile, se baga in hash, el oricum nu se va 
 #rescrie decat pentru userii cu hlr-file 
-%hlrline = (%hlrline,$v3code,'y'); #sper ca face si overwrite
+%hlrline = (%hlrline,$v3code,'y'); #it overwrites if the code already there, which is nice
 			
     }
 else {
@@ -514,7 +533,7 @@ $v3code="null"; #initializam cu ceva, totusi
 $buffertext=$fline;}  #va fi folosit pentru auto-complete
 #===========.V3===
 
-print qq!<dt><b><font color="blue">$m)</font> $fline</b><br><font color="blue" size="-2">Raspuns corect</font><br>\n!;
+print qq!<dt><b><font color="blue">$clusterCnt)</font> $fline</b><br><font color="blue" size="-2">Raspuns corect</font><br>\n!;
 
 
 #Daca exista, se insereaza imaginea cu WIDTH
@@ -612,7 +631,7 @@ else {
 #print qq!<font color="red">codul v3 se gaseste la inceputul:<br>$fline</font><br>\n!; #debug
 #===========.V3===
 
-print qq!<dt><b><font color="red">$m)</font> $fline</b><br><font color="red" size="-2">Raspuns gresit</font><br>\n!;
+print qq!<dt><b><font color="red">$clusterCnt)</font> $fline</b><br><font color="red" size="-2">Raspuns gresit</font><br>\n!;
 #Daca exista, se insereaza imaginea cu WIDTH
 $fline = <INFILE>;				#se citeste figura
 chomp($fline);
@@ -677,7 +696,7 @@ if(defined $answer{$temp}) #adica daca a incercat
 
 if($v3code =~ /\d+\w{1}[0-9]{2,}[a-z]?/)  #v3-code e valid sau "null"(init value) 
       {
-%hlrline = (%hlrline,$v3code,'n'); #sper ca face si overwrite
+%hlrline = (%hlrline,$v3code,'n'); #overwrites existing v3-code which is nice
 			}			
 #===========.V3===
 
@@ -724,43 +743,47 @@ print qq!</form>\n!;
 }  #.end wrong solution
 
 
-  }#.end for $m, all questions in a chapter were seen
+  }#.end for $index, all questions in a chapter were seen
 
 #inchidere baza de date cu intrebari
 close(INFILE);
 #============V3===
 # daca exista hlrfile
 if(-e "hlr/$trid_login_hlrname") {
-$slurp_hlrfile[$iter+1]=""; #make it empty
+$slurp_hlrfile[$cluster[$clusterline][$iter]+1]=""; #makes the line empty
 
 #hash il scrii  in @slurp_hlrfile;
 for my $key ( keys %hlrline ) {
         #my $stdin_value = $hash{$key};
 #sau cu defined? "" e defined dpmdv
-if($slurp_hlrfile[$iter+1] eq "") {$slurp_hlrfile[$iter+1]="$key,$hlrline{$key}";} #sa nu inceapa cu virgula
-    else {$slurp_hlrfile[$iter+1]="$slurp_hlrfile[$iter+1],$key,$hlrline{$key}";} 
+if($slurp_hlrfile[$cluster[$clusterline][$iter]+1] eq "") {$slurp_hlrfile[$cluster[$clusterline][$iter]+1]="$key,$hlrline{$key}";} #sa nu inceapa cu virgula
+    else {$slurp_hlrfile[$cluster[$clusterline][$iter]+1]="$slurp_hlrfile[$cluster[$clusterline][$iter]+1],$key,$hlrline{$key}";} 
     			 
 			       } #.end for $key
 
 #even it is empty, finish with newline
-$slurp_hlrfile[$iter+1]="$slurp_hlrfile[$iter+1]\n";
+$slurp_hlrfile[$cluster[$clusterline][$iter]+1]="$slurp_hlrfile[$cluster[$clusterline][$iter]+1]\n";
 
 #print qq!<font color="red">linia rescrisa in slurp: $slurp_hlrfile[$iter+1].</font><br>\n!; #debug
 			  } #.end (-e)
 #===========.V3===
 
+
+}#.end foreach database
+
 #evaluare pe capitol a nr de raspunsuri corecte
 #tbd
 
 print qq!<table width="99%" bgcolor="lightblue" border="2"><tr><td>!;
-print qq!<font color="black">La acest capitol ai realizat $correct raspunsuri corecte din $qcount[$iter] intrebari, necesarul minim este de $mincount[$iter] raspunsuri corecte.</font>\n!; 
+print qq!<font color="black">La acest capitol ai realizat $correct raspunsuri corecte din $clusterCount[$clusterline] intrebari, necesarul minim este de $mincount[$clusterline] raspunsuri corecte.</font>\n!; 
 print qq!</td></tr></table>\n<br>\n!;
 #chapter result is good enough?
-if($correct < $mincount[$iter]) {$f_failed=1;} #there are less than mimum number of correct answers
+if($correct < $mincount[$clusterline]) {$f_failed=1;} #there are less than mimum number of correct answers
 
 #print qq!failed=$f_failed<br>\n!; #debug info
 
-}#.end foreach database
+
+}#.end foreach cluster line
 #============V3===
 # daca exista hlrfile
 if(-e "hlr/$trid_login_hlrname") {
@@ -833,9 +856,9 @@ close (transactionFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
 
 #update user record with the result of test
 if ($f_failed)
-{unless($user_tipcont == 0) {$slurp_userfile[$user_account*7+6]="5\n";}}
+{unless($user_tipcont == 0) {$slurp_userfile[$user_account*7+6]="5\n";}} #5 means failed
 else 
-{ $slurp_userfile[$user_account*7+6]="3\n";} #custom
+{ $slurp_userfile[$user_account*7+6]="3\n";} #CUSTOM - 3 is latest achieved class
 
 #open userfile for write
 open(userFILE,"+< sim_users") or dienice("ERR01_op",1,\"$! $^E $?");	#open user file for writing

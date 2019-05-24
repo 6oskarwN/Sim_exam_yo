@@ -34,8 +34,8 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_gen4.cgi v 3.3.5
-#  Status: working
+#  sim_gen4.cgi v 3.3.6
+#  Status: in test
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
@@ -353,7 +353,7 @@ open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("genERR07",1,\"$! $^E $?");
 flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
 printf HLRfile "clasa4\n"; #se inscrie examenul de clasa4 #CUSTOM
-printf HLRfile "\n\n\n\n"; #prefill with as many \n as many db_s are opened  #CUSTOM
+printf HLRfile "\n\n\n\n"; #CUSTOM: prefill with as many \n as many db_s are opened
 close(HLRfile);
   }
 }
@@ -448,7 +448,7 @@ my $entry = "$hexi $trid_login 7 $exp_sec $exp_min $exp_hour $exp_day $exp_month
 
 {
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
-#my $index; #seen index in the form
+
 my $watchdog=0;
 #CUSTOM for class IV
 #protectia muncii 10, operare 8, legislatie 20(=19+1) #CUSTOM
@@ -487,7 +487,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.3.5\n!; #version print for easy upload check
+print qq!v 3.3.6\n!; #version print for easy upload check
 
 print qq!<center><font size="+2">Examen clasa IV</font></center>\n!;   #CUSTOM
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
@@ -516,7 +516,6 @@ for (my $clusterline=0; $clusterline < ($#cluster+1); $clusterline++)
 {#start clusterline
 
 # foreach database
-#for (my $iter=0; $iter < (  @{$cluster[$clusterline]} +1); $iter++)   #generate sets of questions from each database
 
 my $index=0; #this is the index of the question as displayed
 

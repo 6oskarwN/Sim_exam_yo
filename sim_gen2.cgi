@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_gen2.cgi v 3.3.5
-#  Status: working
+#  sim_gen2.cgi v 3.3.6
+#  Status: in test
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.6 implementing clustered chapters
 # ch 3.3.5 whitelisting for inputs
 # ch 3.3.4 functions moved to ExamLib.pm
 # ch 3.3.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -289,7 +290,7 @@ if ($trid_id =~ m/\*/) { #if it has the used mark
   my $usedTime = timestamp_expired($pairs[9],$pairs[10],$pairs[11],$pairs[12],$pairs[13],$pairs[14]);
   if ($usedTime < 10) { #if request comes faster than 10s, might be some browser parallel request
                            #dienice ("ERR20",1,\"debug fast request $usedTime seconds \, $trid_id");  #debug symptom catch
-                            dienice ("ERR20",1,\"null");  #silent discard, Status 204 No Content
+                            dienice ("ERR20",0,\"null");  #silent discard, Status 204 No Content
                         }
    else { 
          #dienice ("genERR15",1,\$trid_id); #debug - symptom catch 
@@ -352,7 +353,7 @@ open(HLRfile,"> hlr/$trid_login_hlrname") || dienice("genERR07",1,\"$! $^E $?");
 flock(HLRfile,2); #LOCK_EX the file from other CGI instances
 seek(HLRfile, 0, 0);
 printf HLRfile "clasa2\n"; #se inscrie examenul de clasa2 #CUSTOM
-printf HLRfile "\n\n\n\n"; #bagat linii pt 4 probe	#CUSTOM
+printf HLRfile "\n\n\n\n\n"; #CUSTOM: prefill with as many \n as many db_s are opened
 close(HLRfile);
   }
 }
@@ -447,13 +448,20 @@ my $entry = "$hexi $trid_login 5 $exp_sec $exp_min $exp_hour $exp_day $exp_month
 
 {
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
-#my $index; #seen index in the form
+
 my $watchdog=0;
 #CUSTOM for class II
-#radiotehnica 20 protectia muncii 10, operare 8, legislatie 25
-my @database=("db_tech2","db_ntsm","db_op2","db_legis2");       #set the name of used databases and their order
-my @qcount=(20,10,8,25); #CUSTOM number of questions generated on each chapter
-my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale"); #chapter names
+#radiotehnica 20 protectia muncii 10, operare 8, legislatie 25 #CUSTOM
+my @database=("db_tech2","db_ntsm","db_op2","db_legis2","db_sanctiuni");       #set the name of used databases and their order
+my @qcount=(20,10,8,20,5); #CUSTOM number of questions generated on each chapter
+my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #chapter names
+#CUSTOM: the cluster is an array for grouping chapters toghether
+
+my @cluster = ( [0],   #$database[0],$qcount[0],$chapter[0]
+                [1],
+                [2],
+                [3,4]
+              );
 
 my $fline;	#line read from file
 my $rndom;	#used to store random integers
@@ -466,7 +474,7 @@ my $rindex;	#rucksack index
 my %hlrline;    #hlr-hash for the corresponding line of hlr
 my @splitter;	#cu el manipulam v3code din linia intrebarii
 #contains list with files containing only v3-codes
-my @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2");#CUSTOM
+my @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2","strip_db_sanctiuni");#CUSTOM
 my @slurp_strip;  #slurped content of such a file
 my $fallback;	#flag for generating exam for training users, when db is exhausted
 my $found;
@@ -480,7 +488,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.3.5\n!; #version print for easy upload check
+print qq!v 3.3.6\n!; #version print for easy upload check
 
 print qq!<center><font size="+2">Examen clasa II</font></center>\n!;   #CUSTOM
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
@@ -504,11 +512,19 @@ $hlrclass = <HLRread>;#il mai aveam dar trebuie sa scapam de linia asta
 
 
 #================.V3===
-#tbd: foreach database
-for (my $iter=0; $iter< ($#database+1); $iter++)   #generate sets of questions from each database
+# foreach cluster line
+for (my $clusterline=0; $clusterline < ($#cluster+1); $clusterline++)
+{#start clusterline
+
+# foreach database
+
+my $index=0; #this is the index of the question as displayed
+
+for (my $iter=0; $iter <   @{$cluster[$clusterline]} ; $iter++)   #generate sets of questions from each database
 {
 #tbd: open database
-open(INFILE,"< $database[$iter]") || dienice("ERR01_op",1,\"$! $^E $?");   
+#dienice("ERR19",1,\"$clusterline $iter");  #debug only
+open(INFILE,"< $database[ $cluster[$clusterline][$iter] ]") || dienice("ERR01_op",1,\"$! $^E $?");   
 flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 
 
@@ -517,7 +533,7 @@ flock(INFILE,1);		#LOCK_SH the file from other CGI instances
 #for each database the hash is loaded
 %hlrline=(); #init
 # if hlrfile (-e) and  usertype==0(antrenament))
-if($tipcont == 0) #but hlr file exists for taining account
+if($tipcont == 0) #but hlr file exists for training account
 {
 #fetch hlr line corresponding to $database[$iter]
 $hlrclass = <HLRread>; #variable reused to fetch the corresponding line from HLR
@@ -540,7 +556,7 @@ for (my $split_iter=0; $split_iter<($#splitter/2);$split_iter++) #or ($#splitter
 #open,load and close the appropriate stripfile
 #stripfiles are used by all user types
 #stripfiles REALLY needed.
-open(stripFILE, "<$strips[$iter]") || dienice("ERR01_op",1,\"$! $^E $?");
+open(stripFILE, "<$strips[$cluster[$clusterline][$iter]]") || dienice("ERR01_op",1,\"$! $^E $?");
 flock(stripFILE,1);
 seek(stripFILE,0,0);
 @slurp_strip=<stripFILE>;
@@ -551,7 +567,7 @@ close(stripFILE);
 #------------------------
 #tbd: print chapter name
 print qq!<table width="99%" bgcolor="lightblue" border="2"><tr><td>!;
-print qq!<font color="black"><big>$chapter[$iter]</big></font>\n!; 
+print qq!<font color="black"><big>$chapter[$cluster[$clusterline][$iter]]</big></font>\n!; 
 print qq!</td></tr></table>\n<br>\n!;
 
 #------------------------
@@ -574,7 +590,7 @@ chomp($fline);				#cut <CR> from end
 $fallback=0;    #for training users generate with all conditions(fallback=1 is one-shot exam-like conditions)
 
 #conditia de while trebuie imbunatatita si   cu conditia V3 de iesire
-while($#pool < (($qcount[$iter])-1))	#do until number of questions is reached; - asta nu da voie la never reached or fallback condition?
+while($#pool < (($qcount[$cluster[$clusterline][$iter]])-1))	#do until number of questions is reached; - asta nu da voie la never reached or fallback condition?
 {
 
 #take out a $rndom out of rucksack
@@ -644,7 +660,7 @@ if($chosenOne)
 #==  conditia de fallback, adica rucksack gol;
 
 #se poate inlocui cu conditia rapida #rucksack + #pool < desired size
-if(($fallback == 0) && ($#rucksack + $#pool < $qcount[$iter])) #sunt pre putine ramase in rucsac
+if(($fallback == 0) && ($#rucksack + $#pool < $qcount[$cluster[$clusterline][$iter]])) #sunt pre putine ramase in rucsac
 	{
 	$fallback=1;
 	@rucksack=(0..($fline-1));	#se reumple rucksacul
@@ -667,7 +683,7 @@ $entry = "$entry @pool"; #the proposed questions are entered, K \n is terminator
 
 #tbd: print questions
 #Action: Desfasuram intrebarile
-my $index=0;
+#my $index=0;
 DIRTY: foreach my $item (@pool) #for each selected question
 {
 $index++; #this is the seen index of the question
@@ -765,6 +781,7 @@ last DIRTY;
 close(INFILE) || dienice("ERR02_cl",1,\"$! $^E $?");
 
 } #.end foreach database
+} #.end foreach cluster line
 
 close(HLRread);
 

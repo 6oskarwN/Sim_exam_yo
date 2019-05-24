@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_ver4.cgi v 3.2.8
-#  Status: working
+#  sim_ver4.cgi v 3.2.9
+#  Status: in test
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.9 implementing cluster-chapter feature
 # ch 3.2.8 whitelisting inputs 
 # ch 3.2.7 functions moved to ExamLib.pm
 # ch 3.2.6 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -388,8 +389,6 @@ my @cluster = ( [0],   #$database[0],$qcount[0],$chapter[0]
 my @clusterCount = (10,8,20); #CUSTOM: counts per cluster-chapter - not a nice implementation
 my @mincount=(7,6,15); #CUSTOM minimum number of good answers per clustered chapter
 
-
-
 my $masked_index=0;   #index of the question in <form>; init with 0 if appropriate
 my $f_failed=0;         #flag, start assuming that exam is taken
 my @linesplit;
@@ -407,7 +406,7 @@ print qq!<html>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.8\n!; #version print for easy upload check
+print qq!v 3.2.9\n!; #version print for easy upload check
 print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa a IV-a</h2>\n!;
