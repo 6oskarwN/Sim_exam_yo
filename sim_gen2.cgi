@@ -452,7 +452,7 @@ my $masked_index=0;   #index of the question in <form>; init with 0 if appropria
 my $watchdog=0;
 #CUSTOM for class II
 #radiotehnica 20 protectia muncii 10, operare 8, legislatie 25 #CUSTOM
-my @database=("db_tech2","db_ntsm","db_op2","db_legis2","db_sanctiuni");       #set the name of used databases and their order
+my @database=("db_tech2","db_ntsm","db_op1","db_legis1","db_sanctiuni");       #set the name of used databases and their order
 my @qcount=(20,10,8,20,5); #CUSTOM number of questions generated on each chapter
 my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #chapter names
 #CUSTOM: the cluster is an array for grouping chapters toghether
@@ -474,7 +474,7 @@ my $rindex;	#rucksack index
 my %hlrline;    #hlr-hash for the corresponding line of hlr
 my @splitter;	#cu el manipulam v3code din linia intrebarii
 #contains list with files containing only v3-codes
-my @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2","strip_db_sanctiuni");#CUSTOM
+my @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op1","strip_db_legis1","strip_db_sanctiuni");#CUSTOM
 my @slurp_strip;  #slurped content of such a file
 my $fallback;	#flag for generating exam for training users, when db is exhausted
 my $found;

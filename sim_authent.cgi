@@ -567,7 +567,7 @@ if($hlrclass eq 'clasa1')
 
  elsif($hlrclass eq 'clasa2')
        {@materii=("prog_HAREC_radiotehnica","prog_NTSM","prog_HAREC_op","prog_HAREC_reg","prog_reg_sanctiuni");
-        @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op2","strip_db_legis2","strip_db_sanctiuni");}
+        @strips=("strip_db_tech2","strip_db_ntsm","strip_db_op1","strip_db_legis1","strip_db_sanctiuni");}
 
  elsif($hlrclass eq 'clasa3')
        {@materii=("prog_CEPT_Novice_radiotehnica","prog_NTSM","prog_CEPT_Novice_op","prog_CEPT_reg","prog_reg_sanctiuni");

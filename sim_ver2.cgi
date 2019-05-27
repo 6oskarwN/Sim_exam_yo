@@ -377,7 +377,7 @@ dienice("verERR08",3,\$cheatmsg);
 #All clearances ok, prep to evaluate results
 
 #CUSTOM 
-my @database=("db_tech2","db_ntsm","db_op2","db_legis2","db_sanctiuni");       #set the name of used databases and their order
+my @database=("db_tech2","db_ntsm","db_op1","db_legis1","db_sanctiuni");       #set the name of used databases and their order
 my @qcount=(20,10,8,20,5); #number of questions generated on each chapter
 my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #chapter names
 
