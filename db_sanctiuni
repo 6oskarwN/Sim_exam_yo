@@ -1,5 +1,5 @@
 Legislatie - sanctiuni, toate clasele v.3.0.1  versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_reg_sanctiuni</curricula></font>
-20
+33
 ##0#
 a
 01A3562~&Ce este autorizatia de radioamator?
@@ -240,3 +240,159 @@ YO6OWN 2014, rev. 2019
 null
 
 
+##20#
+a
+01C3569~&Care este cuantumul amenzii pentru operarea unei statii de radioamator in alte benzi de frecvente radio decat cele atribuite serviciului de amator?
+null
+de la 2500 la 7000lei
+de la 2000 la 5500 lei sau avertisment
+de la 4 la 6 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+de la 1000 la 1999 lei
+YO6OWN, 2019
+null
+
+
+##21#
+a
+02C3569~&Care este cuantumul amenzii pentru operarea statiei de catre persoane ce nu detin ori le-a fost suspendata autorizatia de radioamator?
+null
+de la 2500 la 7000lei
+de la 2000 la 5500 lei sau avertisment
+de la 4 la 6 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+de la 1000 la 1999 lei
+YO6OWN, 2019
+null
+
+
+##22#
+a
+03C3569~&Cat este amenda data pentru refuzul radioamatorului de a se supune controlului sau obstructionarea efectuarii controlului de catre personalul de control al ANCOM, imputernicit in acest scop?
+null
+de la 2500 la 7000lei
+de la 2000 la 5500 lei sau avertisment
+de la 4 la 6 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+de la 1000 la 1999 lei
+YO6OWN, 2019
+null
+
+
+##23#
+a
+04C3569~&Care este cuantumul amenzii pentru fapta de a nu transmite corect si complet indicativele de apel?
+null
+de la 500 la 5000 lei
+de la 2000 la 5500 lei sau avertisment
+de la 4 la 6 puncte-amenda sau avertisment(1 punct-amenda = 10% din salariul mediu pe economie)
+de la 1000 la 1999 lei
+YO6OWN, 2019
+null
+Art. 8, (3) a) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. a), c), d) și f), cu amenda de la 500 lei la 5.000 lei;
+Legea 356/2018
+##24#
+a
+05C3569~&Cat este amenta data pentru  transmitere de date si informatii ce nu au legatura cu activitatea de radioamator ori care au caracter comercial sau a mesajelor care contin cuvinte sau expresii indecente sau insultatoare?
+null
+de la 500 la 5000 lei
+de la 2000 la 5500 lei sau avertisment
+de la 4 la 6 puncte-amenda sau avertisment(1 punct-amenda = 10% din salariul mediu pe economie)
+de la 1000 la 1999 lei
+YO6OWN, 2019
+null
+Art. 8, (3) a) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. a), c), d) și f), cu amenda de la 500 lei la 5.000 lei;
+Legea 356/2018
+##25#
+a
+06C3569~&Care este cuantumul amenzii pentru  interceptarea mesajelor transmise de operatori ce apartin altor servicii de radiocomunicatii decat cel de amator?
+null
+de la 500 la 5000 lei
+de la 2000 la 5500 lei sau avertisment
+de la 4 la 6 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+de la 1000 la 1999 lei
+YO6OWN, 2019
+null
+Art. 8, (3) a) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. a), c), d) și f), cu amenda de la 500 lei la 5.000 lei;
+Legea 356/2018
+##26#
+a
+07C3569~&Care este amenda pentru un radioamator autorizat care utilizeaza statia detinuta de altcineva, fara acordul scris al acestuia.
+null
+de la 500 la 5000 lei
+de la 2000 la 5500 lei
+de la 4 la 6 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+de la 1000 la 1999 lei
+YO6OWN, 2019
+null
+Art. 8, (3) a) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. a), c), d) și f), cu amenda de la 500 lei la 5.000 lei;
+Legea 356/2018
+##27#
+a
+08C3569~&Care este marimea amenzii pentru nerespectarea parametrilor de emisie ai legaturilor radio efectuate, in mod direct sau de la distanta?
+null
+de la 2000 la 5500 lei
+de la 500 la 5000 lei
+de la 100 la 500 lei
+de la 1000 la 1999 lei
+YO6OWN, 2019
+null
+Art. 8, (3) b) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. b) și i), precum si in cazul contraventiilor stabilite in art. 8 alin. (2) lit. b), cu amenda de la 2.000 lei la 5.500 lei;
+Legea 356/2018
+##28#
+a
+09C3569~&Care este cuantumul amenzii pentru reglarea emitatorului cu intrarea in emisie in antena, fara folosirea antenei neradiante(dummy load)?
+null
+de la 2000 la 5500 lei
+de la 500 la 1000 lei sau avertisment
+de la 300 la 1000 lei
+de la 1000 la 3000 lei
+YO6OWN, 2019
+null
+Art. 8, (3) b) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. b) și i), precum si in cazul contraventiilor stabilite in art. 8 alin. (2) lit. b), cu amenda de la 2.000 lei la 5.500 lei;
+Legea 356/2018
+##29#
+a
+10C3569~& Cu cat se amendeaza lipsa mentionarii, in jurnalul de trafic, a identitatii radioamatorilor care au utilizat statia de radioclub sau statia radio detinuta, in mod direct sau de la distanta, precum si lipsa parametrilor tehnici ai legaturilor radio efectuate?
+null
+de la 2000 la 5500 lei
+de la 250 la 550 lei
+de la 150 la 500 lei
+de la 5 la 7 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+YO6OWN, 2019
+null
+Art. 8, (3) b) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. b) și i), precum si in cazul contraventiilor stabilite in art. 8 alin. (2) lit. b), cu amenda de la 2.000 lei la 5.500 lei;
+Legea 356/2018
+##30#
+a
+11C3569~&Care este cuantumul amenzii contraventionale aplicate pentru realizarea de legaturi radio cu operatori ce apartin altor servicii de radiocomunicatii sau cu radioamatori, respectiv operatori, care nu isi comunica identitatea prin transmiterea indicativului de apel?
+null
+de la 1.500 lei la 2.500 lei
+de la 50 la 150 lei
+de la 150 la 500 lei
+de la 3 la 5 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+YO6OWN, 2019
+null
+Art 8, (3) c) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. e), g) si h), cu amenda de la 1.500 lei la 2.500 lei;
+Legea 356/2018
+##31#
+a
+12C3569~&Cat este amenda pentru radioamatorul care nu poate face dovada mentinerii pe durata unui an a unei copii audio a traficului realizat de la distanta pe statia sa radio?
+null
+de la 1.500 lei la 2.500 lei
+de la 50 la 150 lei
+de la 150 la 500 lei
+de la 3 la 5 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+YO6OWN, 2019
+null
+Art 8, (3) c) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. e), g) si h), cu amenda de la 1.500 lei la 2.500 lei;
+Legea 356/2018
+##32#
+a
+13C3569~&Care e amenda pentru lipsa unui jurnal de trafic intocmit coresspunzator, conform specificatiilor in vigoare? 
+null
+de la 1.500 lei la 2.500 lei
+de la 50 la 150 lei
+de la 150 la 500 lei
+de la 3 la 5 puncte-amenda(1 punct-amenda = 10% din salariul mediu pe economie)
+YO6OWN, 2019
+null
+Art 8, (3) c) in cazul contraventiilor prevazute la art. 8 alin. (1) lit. e), g) si h), cu amenda de la 1.500 lei la 2.500 lei;
+Legea 356/2018
