@@ -1,4 +1,4 @@
-Intrebari NTSM versiunea 3.09 versiunea actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_NTSM</curricula></font>
+Intrebari NTSM versiunea 3.10 versiunea actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_NTSM</curricula></font>
 65
 ##0#
 c
@@ -400,14 +400,14 @@ null
 a
 05A142~&Unde se monteaza socul de RF pentru a fi eficient ca protectie la electricitate statica de inalta tensiune(nu e pentru trasnet)
 null
-intre firul de semnal al antenei si impamantare. La frecventa de emisie este un Z imens, prin care se scurge la impamantare incarcarea electrostatica de la vant de exemplu.
+intre firul de semnal al antenei si impamantare.
 pe firul central, blocheaza trasnetul
 pe anodul emitatorului
 pe condensatorul din filtrul PI
 YO6OWN, 2019
 null
-
-
+Socul, o bobina cu inductivitate mare, va avea Z infinit la frecventa de emisie/receptie. Nu trebuie sa afecteze emisia sau receptia, dar in cc(electricitate statica = cc) are rezistenta mica, ohmica a bobinei ca sa descarce antena la masa.<br>Astfel socul trebuie montat intre firul cald al antenei si masa.
+YO6OWN, 2019
 ##34#
 a
 01A143~&Unde se conecteaza aparatura, ca sa fie protejata atat ea cat si operatorul de supratensiuni?
