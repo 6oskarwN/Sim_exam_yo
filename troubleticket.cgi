@@ -174,7 +174,7 @@ if (defined $get_type)
    {
     unless ( $get_type =~ m/^(0|1){1}$/ ) 
       {
-      dienice("ERR01",2,\"illegal get_type, not 0/1 - type is: $get_type"); 
+      dienice("ERR01",0,\"illegal get_type, not 0/1 - type is: $get_type"); 
       }
     elsif ($get_type eq 1) {
                      unless(defined $get_nick && defined $get_text) { dienice ("ERR01",1,\"occam fail - troubleticket type 1 fails mandatory inputs: $buffer");}
@@ -194,7 +194,7 @@ if (defined $get_trid)
 if (defined $get_answer) 
    {   unless ($get_answer =~ m/^\d{1,2}$/) 
        {
-       dienice("ERR01",4,\"not compliant - human answer is: $get_answer"); 
+       dienice("ERR01",0,\"not compliant - human answer is: $get_answer"); 
        }
    }
 
@@ -203,7 +203,7 @@ if (defined $get_nick)
    {
    unless($get_nick=~ m/^[a-zA-Z0-9_]{4,25}$/) #whitelist for nick same as for login 
        {
-       dienice("ERR01",4,\"whitelist catch on nick: $get_nick"); 
+       dienice("ERR01",0,\"whitelist catch on nick: $get_nick"); 
        }
     }
 

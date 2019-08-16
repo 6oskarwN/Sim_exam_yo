@@ -120,7 +120,7 @@ if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
      {
       read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
      }
-else {dienice("ERR20",1,\"unu");} #request method other than POST is discarded
+else {dienice("ERR20",0,\"request method other than POST");} #request method other than POST is discarded
 
 #before split, before anything, check if input string obeys the defined rules
 #normally cannot be sure on the order of parameters

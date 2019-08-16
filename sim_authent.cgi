@@ -130,7 +130,7 @@ $buffer=~ tr/+/ /;
 $buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
 
 unless($buffer =~ m/^login=[a-zA-Z0-9_]{4,25}&passwd=[a-zA-Z0-9!@#\$*\-_]{8,40}$/) #must match regexp in sim_register.cgi
- { dienice("authERR05",3,\"input whitelist fail:$buffer"); } #sau alta rezolvare 
+ { dienice("authERR05",0,\"input whitelist fail:$buffer"); }  
 
 @pairs=split(/&/, $buffer); #POST-technology
 
