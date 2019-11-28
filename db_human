@@ -1,14 +1,14 @@
-Test pentru limitarea inregistrarilor automate, v03/04.04.2011
-5
+Test pentru limitarea inregistrarilor automate, v05/23.10.2019
+8
 ##0#
-a
-Daca v-ar intreba cineva, ati putea da un raspuns direct la intrebarile 'Vrei sa fii radioamator? Daca da, de ce? Daca nu, de ce?' ?
+d
+<font color="white">Ce culoare are textul acestei intrebari?</font>
 null
-da
-nu
-nu prea stiu ce vreau
-sunt niste intrebari fara rost
-YO6OWN, Sacele, 2005
+rosu
+albastru
+galben
+alb
+YO6OWN
 ##1#
 c
 Ce fel de aparat de masura este simbolizat cu simbolul urmator?
@@ -45,3 +45,30 @@ doua
 trei
 patru
 YO5OWN, Sacele
+##5#
+b
+Cate laturi are un romb?
+null
+trei
+patru
+cinci
+sase
+YO6OWN, Brasov, 2019
+##6#
+a
+Cate laturi are un triunghi dreptunghic?
+null
+trei
+patru
+nouazeci de grade
+ipotenuza
+YO6OWN, Brasov, 2019
+##7#
+a
+<font color="red">Ce culoare are textul acestei intrebari?</font>
+null
+rosu
+albastru
+galben
+alb
+YO6OWN
