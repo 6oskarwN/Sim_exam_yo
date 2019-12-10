@@ -227,7 +227,7 @@ print qq!<font color="black"><b>$dbtt[$i*4]</b></font>&nbsp;!;  #print nick
 if($dbtt[$i*4+1] < 6)     #if it's a guestbook record
                     {
 for (my $istar=0; $istar < $dbtt[$i*4+1]; $istar++)
-{print qq!<IMG src="http://localhost/star.gif" WIDTH="15">\n!;
+{print qq!<IMG src="http://localhost/shelf/star.gif" WIDTH="15">\n!;
 }
                      } #.end it's a guestbook record
 else {   #else it is a trouble ticket

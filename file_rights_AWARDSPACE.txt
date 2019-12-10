@@ -1,5 +1,4 @@
 fisierele in care se si scrie: rw-r--r-- (644)
-cheat_log
 db_tt
 tt_transaction
 sim_transaction
