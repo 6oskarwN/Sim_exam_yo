@@ -5,12 +5,16 @@ sim_transaction
 sim_users
 fisierele din care doar se citeste: r--r--r-- (444) 
 db_xxx
+strip_db_xxx
 prog_CEPT/HAREC
+My/ExamLib.pm
 
 executabile scripturi cgi-bin: rwxr--r-- (744)
 
-directorul /hlr: rwxr-xr-x
-           /archives: rwxr-xr-x
+directory  /hlr: rwxr-xr-x  (755, mkdir default)
+           /My: (755, mkdir default)
 
 
 
+chown apache:apache *
+chown apache:apache My/ExamLib

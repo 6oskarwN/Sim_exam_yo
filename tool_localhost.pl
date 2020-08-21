@@ -39,7 +39,8 @@ else {@filelist=(
 				'tugetxr2.cgi',
  				'tool_checker2.cgi',
 				'troubleticket.cgi',
-				'tool_admintt.cgi'
+				'tool_admintt.cgi',
+				'My/ExamLib.pm'
 				); #numele fisierelor
 
 }

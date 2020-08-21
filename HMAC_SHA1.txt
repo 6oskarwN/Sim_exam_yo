@@ -1,0 +1,13 @@
+Awrdspace.com that hosts examyo.scienceontheweb.com has Digest::HMAC_SHA1 installed, nothing to do.
+In order to have this functionality on a Linux development platform, the steps are:
+As a root:
+#yum install cpan
+#cpan
+configure it with defaults - as automatic as possible
+
+#yum install gcc
+#cpan YAML
+
+#cpan Digest::HMAC_SHA1
+
+

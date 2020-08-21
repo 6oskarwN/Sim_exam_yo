@@ -9,7 +9,7 @@
 # DONE sa faca toata treaba, outputul sa fie corect, in UNIX format!!!!! sau sa fie error.
 # DONE in HTML da warning daca linia intrebarii nu contine v3code(nu e obligatoriu, dar doar cele cu v3 fac history)
 
-
+#change request: prog_Programa is already known and contained in first line of db_xxxxx
 #ch v.3.0.5 - warning daca raspunsurile lina 4-7 sa fie doar de formatul /^[a-d]$/
 #ch v.3.0.4 - awardspace.com banned list check: "porn","proxy","vand" implemented
 
@@ -37,7 +37,7 @@ $overall_err=0;       #init
 $overall_warnings=0;  #init
 
 $filename= $ARGV[0];
-$programa= $ARGV[1];
+$programa= $ARGV[1]; #ramane, doar pentru alegere
 
 if(!defined( $filename)) {print "please enter db_xxx filename"; exit();}
 if(!defined( $programa)) {print "please enter prog_xxx filename"; exit();}
