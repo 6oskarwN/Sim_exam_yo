@@ -39,8 +39,7 @@ else {@filelist=(
 				'tugetxr2.cgi',
  				'tool_checker2.cgi',
 				'troubleticket.cgi',
-				'tool_admintt.cgi',
-                                'My/ExamLib.pm'
+				'tool_admintt.cgi'
 				); #numele fisierelor
 
 }
@@ -86,7 +85,7 @@ $fetch_line =~ s%(^|\s)(#)([^!])(.*)$%%;
 
 close (INFILE); #inchizi fisierul sursa
 
-open(OUTFILE,">", "hx_release/$FileName") || print "can't write to $FileName.hx\n";#deschizi fisier copie .hx
+open(OUTFILE,">", "hx_release/$FileName") || print "can't write to $FileName.hx\n"; #deschizi fisier copie .hx
 foreach $fetch_line(@CopyBuffer)
 {print OUTFILE "$fetch_line";} 
 close(OUTFILE); #inchizi fisierul.hx
