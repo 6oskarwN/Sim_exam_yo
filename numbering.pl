@@ -9,7 +9,7 @@
 # DONE sa faca toata treaba, outputul sa fie corect, in UNIX format!!!!! sau sa fie error.
 # DONE in HTML da warning daca linia intrebarii nu contine v3code(nu e obligatoriu, dar doar cele cu v3 fac history)
 
-#change request: prog_Programa is already known and contained in first line of db_xxxxx
+#ch v.3.0.6 - change request: prog_Programa is already known and contained in first line of db_xxxxx
 #ch v.3.0.5 - warning daca raspunsurile lina 4-7 sa fie doar de formatul /^[a-d]$/
 #ch v.3.0.4 - awardspace.com banned list check: "porn","proxy","vand" implemented
 
@@ -40,11 +40,22 @@ $filename= $ARGV[0];
 $programa= $ARGV[1]; #ramane, doar pentru alegere
 
 if(!defined( $filename)) {print "please enter db_xxx filename"; exit();}
+ else {
+open(INFILE,"<", "$filename") || print "can't open $filename!\n"; #open the question file
+#rewind prompter in infile
+seek(INFILE,0,0); #go to the beginning
+$in_line=<INFILE>; #read first line  
+my @splitter= split(/<curricula>|<\/curricula>/,$in_line);
+$programa=$splitter[1];
+print "detected curricula: $programa \n";
+close (INFILE);
+      }
 if(!defined( $programa)) {print "please enter prog_xxx filename"; exit();}
 
 ####open db_xxx hamquest file
 open(INFILE,"<", "$filename") || print "can't open $filename!\n"; #open the question file
 open(OUTFILE,">", "$filename.out") || print "can't open $filename.out\n";
+#HTFILE opens a html result file where warnings and errors are highlighted
 open(HTFILE, ">", "$filename.html") || print "can't open $filename.html";
 
 printf HTFILE qq!Content-type: text/html\n\n!;
