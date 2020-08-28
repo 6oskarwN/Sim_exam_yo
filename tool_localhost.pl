@@ -48,7 +48,7 @@ my $pattern1="80b3581f9e43242f96a6309e5432ce8b"; #development secret
 my $replacement1="80b3581f9e43242f96a6309e5432ce8b";  #production
 
 my $pattern2="localhost/";
-my $replacement2="localhost:8080/";
+my $replacement2="localhost/";
 
 my $pattern3="^print qq!SimEx Radio Release";
 my $replacement3="print qq!SimEx Radio Release 3.3; Author: Francisc TOTH YO6OWN\\n!;\n";
@@ -71,7 +71,6 @@ $fetch_line=~s/$pattern1/$replacement1/; #local replacement
 if($fetch_line=~/$pattern3/){$fetch_line=$replacement3;}#line replacement
 
 $fetch_line=~s/$pattern2/$replacement2/; #local replacement
-if($fetch_line=~/$pattern2/){$fetch_line=$replacement2;}#line replacement
 
 #$fetch_line=~s/$pattern21/$replacement21/; #local replacement
 #if($fetch_line=~/$pattern21/){$fetch_line=$replacement21;}#line replacement
