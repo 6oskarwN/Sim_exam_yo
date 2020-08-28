@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_gen3.cgi v 3.3.6
+#  sim_gen3.cgi v 3.3.7
 #  Status: in test
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.3.7 charset=utf-8 in html
 # ch 3.3.6 implementing clustered chapters
 # ch 3.3.5 whitelisting for inputs
 # ch 3.3.4 functions moved to ExamLib.pm
@@ -485,10 +486,11 @@ my $v3code;	#temporary var so chomp() can be made
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
+print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.3.6\n!; #version print for easy upload check
+print qq!v 3.3.7\n!; #version print for easy upload check
 
 print qq!<center><font size="+2">Examen clasa III</font></center>\n!;   #CUSTOM
 print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;

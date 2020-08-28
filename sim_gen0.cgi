@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2019
 
-#  sim_gen0.cgi v 3.2.7 
+#  sim_gen0.cgi v 3.2.8 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.8 charset=utf-8 in html
 # ch 3.2.7 small on input
 # ch 3.2.6 functions moved to ExamLib.pm
 # ch 3.2.5 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -130,7 +131,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.7\n!; #version print for easy upload check
+print qq!v 3.2.8\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolvă 3 din 4 întrebări și poți să te înregistrezi în examen</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">Pagina expiră peste 3 minute.</font></center><br>\n!;
 print qq!<center><font size="+1" color="yellow">O singură variantă de răspuns este corectă. După alegerea răspunsurilor, apasă butonul "Evaluare".</font></center><br><br>\n!;
