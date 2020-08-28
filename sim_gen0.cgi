@@ -126,13 +126,14 @@ unless($server_ok) #if server is congested, die with error code;
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
+print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!v 3.2.7\n!; #version print for easy upload check
-print qq!<center><font size="+1" color="yellow">Rezolva 3 din 4 intrebari si poti sa te inregistrezi in examen</font></center><br>\n!;
-print qq!<center><font size="+1" color="yellow">Pagina expira peste 3 minute.</font></center><br>\n!;
-print qq!<center><font size="+1" color="yellow">O singura varianta de raspuns este corecta. Dupa alegerea raspunsurilor, apasa butonul "Evaluare".</font></center><br><br>\n!;
+print qq!<center><font size="+1" color="yellow">Rezolvă 3 din 4 întrebări și poți să te înregistrezi în examen</font></center><br>\n!;
+print qq!<center><font size="+1" color="yellow">Pagina expiră peste 3 minute.</font></center><br>\n!;
+print qq!<center><font size="+1" color="yellow">O singură variantă de răspuns este corectă. După alegerea răspunsurilor, apasă butonul "Evaluare".</font></center><br><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/sim_ver0.cgi" method="post">\n!;
 
 
