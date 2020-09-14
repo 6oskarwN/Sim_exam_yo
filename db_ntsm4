@@ -1,4 +1,4 @@
-Intrebari NTSM versiunea 3.33 versiunea actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_NTSM_Entry</curricula></font>
+Intrebari NTSM versiunea 3.34 versiunea actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_NTSM_Entry</curricula></font>
 60
 ##0#
 c
@@ -158,7 +158,7 @@ Intrerupatorul principal, de tip ciuperca, trebuie sa fie la loc degajat, accesi
 YO6OWN
 ##13#
 d
-01B276~&Care este varianta gresita din cele 4 culori ale retei de energie electrica casnica(220V 50Hz monofazat)?
+01B276~&Care este varianta gresita din cele 4 culori ale rețelei de energie electrica casnica(220V 50Hz monofazat)?
 null
 nul - albastru deschis
 faza - negru
@@ -170,7 +170,7 @@ null
 
 ##14#
 d
-02B276~&Care este varianta gresita din cele 4 culori ale retei de energie electrica casnica(220V 50Hz monofazat)?
+02B276~&Care este varianta gresita din cele 4 culori ale rețelei de energie electrica casnica(220V 50Hz monofazat)?
 null
 nul - albastru deschis
 faza - maro
@@ -362,7 +362,7 @@ Punctul de ancorare trebuie sa fie foarte solid, si sa nu genereze un pericol. F
 YO6OWN, Brasov, 2007
 ##30#
 d
-05A274~&In portabil, la cabana, curentul industrial(220V,50Hz) vine printr-un set de cabluri electrice izolate. Locul cel mai bun pentru instalarea antenei Windom atent calibrate la club este cu partea superioara langa geam, intr-un carlig din perete, cu bratul scurt pana la baza unui copac, prin ancorare cu tarus, cu bratul lung la fel, in directia opusa. Cineva observa ca firul antenei trece pe sub cablurile retei de curent la o distanta de 130cm, perpendicular pe acestea. E vreo problema?
+05A274~&In portabil, la cabana, curentul industrial(220V,50Hz) vine printr-un set de cabluri electrice izolate. Locul cel mai bun pentru instalarea antenei Windom atent calibrate la club este cu partea superioara langa geam, intr-un carlig din perete, cu bratul scurt pana la baza unui copac, prin ancorare cu tarus, cu bratul lung la fel, in directia opusa. Cineva observa ca firul antenei trece pe sub cablurile rețelei de curent la o distanta de 130cm, perpendicular pe acestea. E vreo problema?
 null
 Nu, firele trec perpendicular, cablurile sunt izolate si distanta este suficient de mare
 Nici una, aerul este un bun izolator(izoleaza peste 4000V la cei 1.3metri) iar cablurile retelei sunt si ele izolate

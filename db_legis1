@@ -1,4 +1,4 @@
-Legislatie, clasa I si II v.3.35 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_HAREC_reg</curricula></font>
+Legislație, clasa I și II v.3.36 versiune actualizată pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_HAREC_reg</curricula></font>
 120
 ##0#
 d
@@ -34,351 +34,350 @@ null
 În legea telecomunicațiilor
 YO6OWN - adaptare după eham.net, 2007(rev. 2018)
 null
-Prin permisiuni de operare înțelegem benzile de frecvente, modurile de lucru, puterile alocate fiecărei clase.
+Prin permisiuni de operare înțelegem benzile de frecvențe, modurile de lucru, puterile alocate fiecărei clase.
 YO6OWN, 2018
 ##3#
 a
 01A3239~&Este permis radioamatorilor să asculte traficul radio de pe alte frecvențe decât cele alocate serviciului de amator?
 null
 Nu, interceptarea intenționată a altor servicii de radiocomunicație este interzisă, excepție fac doar situațiile de dezastre naturale, situații care primejduiesc vieți omenești
-Da, atât timp cât nu se emite se poate ascultă orice frecvență
+Da, atât timp cât nu se emite se poate asculta orice frecvență
 Nu, ascultarea frecvențelor poliției și a armatei este strict interzisă în România
 Da, dacă echipamentul folosit permite acest lucru
 YO3HAF, Bucuresti, 2005 - rev.2018
 null
-Chiar dacă ascultarea frecvențelor poliției și a armatei este strict interzisă în Romania, nu acesta este răspunsul complet, nu sunt singurele 'alte frecvențe' din enunțul întrebării.
+Chiar dacă ascultarea frecvențelor poliției și a armatei este strict interzisă în România, nu acesta este răspunsul complet, nu sunt singurele 'alte frecvențe' din enunțul întrebării.
 YO6OWN, 2010
 ##4#
 a
-03A3235~&Este interzisa transmiterea mesajelor care:
+03A3235~&Este interzisă transmiterea mesajelor care:
 null
- Contin expresii indecente sau insultatoare
- Contin mutari de la partide de sah (ex. Na1vPb2) deoarece pot fi interpretate ca fiind coduri secrete
- Contin clasamente din concursuri de radioamator
- Contin indicative ale unor statii de club fara ca acestea sa fie prezente pe frecventa
-YO6OWN, Sacele, 2005 (rev. 2018)
+ Conțin expresii indecente sau insultătoare
+ Conțin mutări de la partide de șah (ex. Na1vPb2) deoarece pot fi interpretate ca fiind coduri secrete
+ Conțin clasamente din concursuri de radioamator
+ Conțin indicative ale unor stații de club fără ca acestea să fie prezente pe frecvență
+YO6OWN, Săcele, 2005 (rev. 2018)
 null
-nu sunt permise: a) transmiterea mesajelor care contin cuvinte sau expresii indecente sau insultatoare;
-YO6OWN, Brasov, 2018
+nu sunt permise: a) transmiterea mesajelor care conțin cuvinte sau expresii indecente sau insultătoare;
+YO6OWN, Brașov, 2018
 ##5#
 a
-04A3235~&Este permisa folosirea emisiunilor cu modulatie vocala criptata?:
+04A3235~&Este permisă folosirea emisiunilor cu modulație vocală criptată?
 null
- Nu, nu se permite nici un fel de criptare, codare sau modulare, alta decat cele permise in Reglementarea serviciului de Amator
- Da, cat timp cheia este fixa si publica, astfel incat ANCOM sa poata controla QSO-ul
- Da, doar pentru experimente, si avand cheia de criptare publica
- Da, doar pentru experimente, si folosind doar unica cheie publica data de ANCOM
+ Nu, nu se permite niciun fel de criptare, codare sau modulare, alta decât cele permise în Reglementarea serviciului de Amator
+ Da, cât timp cheia este fixă și publică, astfel încât ANCOM să poată controla QSO-ul
+ Da, doar pentru experimente, și având cheia de criptare publică
+ Da, doar pentru experimente, și folosind doar unica cheie publică dată de ANCOM
 YO6OWN,2018
 null
-Radioamatorismul fiind un serviciu deschis experimentarii, nu se poate emite intr-un fel in care cineva sa nu poata receptiona. Este foarte important mai ales ca pentru trafic de urgenta sa se foloseasca un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Cap IV, 17) c) din Anexa la Decizie.
-YO6OWN, Brasov, 2018
+Radioamatorismul fiind un serviciu deschis experimentării, nu se poate emite într-un fel în care cineva să nu poată recepționa. Este foarte important mai ales ca pentru trafic de urgență să se folosească un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Cap IV, 17) c) din Anexa la Decizie.
+YO6OWN, Brașov, 2018
 ##6#
 a
-01A3237~&Cum poate testa un radioamator un nou tip de modulatie inca nepermis de reglementarile serviciului de amator? Radioamatorul are doua echipamente ce folosesc acest nou mod.
+01A3237~&Cum poate testa un radioamator un nou tip de modulație încă nepermis de reglementările serviciului de amator? Radioamatorul are două echipamente ce folosesc acest nou mod.
 null
-Nu se emite in eter, ci intr-un ghid de unda/coax, la capetul caruia se afla o antena neradianta "dummy load" 
-Poate emite cu puteri de pana la 100 mW, pentru a fi receptionat dincolo de raza localitatii
-Poate emite, insa cu puteri mici de pana la 100 mW, cu pauza de minimum 10 min. intre emisiuni pentru a fi sigur ca nu interfereaza
-Poate emite, pentru ca pana vine cardul QSL, acest tip de modulatie va fi permis.
-YO6OWN, Sacele, 2005(rev. 2018)
+Nu se emite în eter, ci într-un ghid de undă/coax, la capătul căruia se află o antenă neradiantă "dummy load" 
+Poate emite cu puteri de până la 100 mW, pentru a fi recepționat dincolo de raza localității
+Poate emite, însă cu puteri mici de până la 100 mW, cu pauză de minimum 10 min. între emisiuni pentru a fi sigur că nu interferează
+Poate emite, pentru că până vine cardul QSL, acest tip de modulație va fi permis.
+YO6OWN, Săcele, 2005(rev. 2018)
 null
-Daca e un sistem cu adevarat neradiant, atunci nu e radio-emisie, si atunci nu perturba pe nimeni. Anexa la Decizie, Cap.IV, 4)
-YO6OWN, 2010
+Dacă e un sistem cu adevărat neradiant, atunci nu e radio-emisie, atunci nu perturbă pe nimeni. Anexa la Decizie, Cap.IV, 4)YO6OWN, 2010
 ##7#
 a
-02A3237~&Cum poate testa un radioamator un emitator reparat de curand, fara sa perturbe?
+02A3237~&Cum poate testa un radioamator un emițător reparat de curând, fără să perturbe?
 null
-Nu se emite in antena reala, ci intr-o antena neradianta "dummy load"
-Emite la inceput cu putere mica, apoi creste succesiv puterea cerand tot timpul control RST si mentinand emisia cat mai scurta
-Poate emite, insa cu puteri mici de pana la 100 mW, cu pauza de minimum 10 min. intre emisiuni pentru a fi sigur ca nu interfereaza
-Emite cat mai scurt cu putinta si isi controleaza emisia cu un alt receptor, de calitate buna, verificand in jurul benzii de emisie daca are armonici.
+Nu se emite în antenă reală, ci într-o antenă neradiantă "dummy load"
+Emite la început cu putere mică, apoi crește succesiv puterea cerând tot timpul control RST și menținând emisia cât mai scurtă
+Poate emite, însă cu puteri mici de până la 100 mW, cu pauză de minimum 10 min. între emisiuni pentru a fi sigur că nu interferează
+Emite cât mai scurt cu putință și își controlează emisia cu un alt receptor, de calitate bună, verificând în jurul benzii de emisie dacă are armonici.
 YO6OWN, 2014
 null
-Orice test si reglaj se face intr-un sistem ne-radiant, Anexa la Decizie, Cap.IV, 4)
+Orice test și reglaj se face într-un sistem ne-radiant, Anexă la Decizie, Cap.IV, 4)
 YO6OWN, 2018
 ##8#
 c
-01A3212~&In functie de modul de folosire statiile de amator se impart in:
+01A3212~&În funcție de modul de folosire, stațiile de amator se împart în:
 null
-statii de receptori, statii de emitatori.
-statii standard si statii modificate de operator
-statii fixe, mobile si portabile
-statii de club, statii individuale, statii de concurs
-YO6GZI, Sacele, 2004(rev.2018)
+stații de receptori, stații de emițători.
+stații standard și stații modificate de operator
+stații fixe, mobile și portabile
+stații de club, stații individuale, stații de concurs
+YO6GZI, Săcele, 2004(rev.2018)
 null
 
 
 ##9#
 b
-01A3213~&In functie de titularul autorizatiei statiile de amator se impart in:
+01A3213~&În funcție de titularul autorizației stațiile de amator se împart în:
 null
-Statii fixe si statii mobile.
-Statii de club si statii individuale.
-Statii de receptori si statii de emitatori.
-statii de putere mica si statii de putere mare.
-YO6GZI, Sacele, 2004(rev.2018)
+Stații fixe și stații mobile.
+Stații de club și stații individuale.
+Stații de receptori și stații de emițători.
+stații de putere mică și stații de putere mare.
+YO6GZI, Săcele, 2004(rev.2018)
 null
 Art. 4, Decizia
-YO6OWN, Brasov, 2018
+YO6OWN, Brașov, 2018
 ##10#
 b
-02B3213~&Statiile de radioamator pot apartine persoanelor fizice sau persoanelor juridice(firme, ONG, organizatii)?
+02B3213~&Stațiile de radioamator pot aparține persoanelor fizice sau persoanelor juridice(firme, ONG, organizații)?
 null
-Doar persoanele juridice pot detine statii de radioamatori
-Statiile individuale apartin persoanelor fizice iar statiile de radioclub apartin doar persoanelor juridice.
-Doar persoanele fizice pot avea statie de radioamatori
-Organizatiile detin statiile de radioamator ale membrilor
-YO6OWN, Brasov 2018
+Doar persoanele juridice pot deține stații de radioamatori
+Stațiile individuale aparțin persoanelor fizice iar stațiile de radioclub aparțin doar persoanelor juridice.
+Doar persoanele fizice pot avea stație de radioamatori
+Organizațiile dețin stațiile de radioamator ale membrilor
+YO6OWN, Brașov 2018
 null
 Art. 4, Decizia
-YO6OWN, Brasov, 2018
+YO6OWN, Brașov, 2018
 ##11#
 c
-01A3230~&Statiile de radioclub din Romania au prima litera a sufixului:
+01A3230~&Stațiile de radioclub din România au prima litera a sufixului:
 null
 Y
 C
 K
 R
-YO6GZI, Sacele, 2004(rev.2010)
+YO6GZI, Săcele, 2004(rev.2010)
 null
 Art. 12, b)
 YO6OWN, 2010
 ##12#
 a
-02A3530~&Banda de 50 - 52 MHz este alocata radioamatorilor din Romania?
+02A3530~&Banda de 50 - 52 MHz este alocată radioamatorilor din România?
 null
 da
 nu
-nu, fiindca nu este banda pentru radioamatori
-da, insa doar pentru modurile AM si FM, SSB nu e permis
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+nu, fiindcă nu este banda pentru radioamatori
+da, însă doar pentru modurile AM și FM, SSB nu e permis
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
 ##13#
 b
-03A3530~&Care este puterea maxima la varf demodulatie in banda de 50-52MHz pentru radioamatorii de clasa III?
+03A3530~&Care este puterea maximă la vârf de modulație în banda de 50-52MHz pentru radioamatorii de clasa III?
 null
 50W
 100W
 20W
 400W
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
-Raspunsul se obtine din Anexa la Decizie, cap.II, 1)
+Răspunsul se obține din Anexa la Decizie, cap.II, 1)
 YO6OWN, 2018
 ##14#
 c
-01A3421~&Ce clasa de autorizatie trebuie sa posede un responsabil de statie de club?
+01A3421~&Ce clasă de autorizație trebuie să posede un responsabil de stație de club?
 null
 clasa a II-a
 clasa I
 clasa a II-a sau clasa a I
 clasa a III-a
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##15#
 b
-01A3463~&Ce trebuie sa faca un radioamator la schimbarea numelui?
+01A3463~&Ce trebuie să facă un radioamator la schimbarea numelui?
 null
-preda autorizatia la radioclubul de care apartine
-cere modificarea autorizatiei, anexand documente care justifica schimbarea numelui, precum si autorizatia in original
-nu are obligatii
-anunta in scris ANCOM
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+predă autorizația la radioclubul de care aparține
+cere modificarea autorizației, anexând documente care justifică schimbarea numelui, precum și autorizația în original
+nu are obligații
+anunță în scris ANCOM
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
-Se trimite formularul de eliberare/[modificare]/prelungire a autorizatiei de radioamator conform  Art 32.
+Se trimite formularul de eliberare/[modificare]/prelungire a autorizației de radioamator conform  Art 32.
 YO6OWN, 2018
 ##16#
 b
-02A3463~&Ce trebuie sa faca un radioclub la schimbarea responsabilului de statie?
+02A3463~&Ce trebuie să facă un radioclub la schimbarea responsabilului de stație?
 null
-preda autorizatia Federatiei
-cere modificarea autorizatiei, anexand informatii privind noul responsabil de statie si ajutorul acestuia, precum si autorizatia in original
-nu are obligatii
-notifica in scris ANCOM despre schimbarea responsabilului de statie
+predă autorizația Federației
+cere modificarea autorizației, anexând informații privind noul responsabil de stație și ajutorul acestuia, precum și autorizația în original
+nu are obligații
+notifică în scris ANCOM despre schimbarea responsabilului de stație
 YO6OWN,  2018
 null
-Se trimite formularul de eliberare/[modificare]/prelungire a autorizatiei de radioamator conform  Art 32.
+Se trimite formularul de eliberare/[modificare]/prelungire a autorizației de radioamator conform  Art 32.
 YO6OWN, 2018
 ##17#
 d
-04A3302~&Cate clase au certificatele de radioamator in Romania?
+04A3302~&Câte clase au certificatele de radioamator în România?
 null
-Cl I, cl. II si Novice conform CEPT
+Cl I, cl. II și Novice conform CEPT
 A,B (tip HAREC)
-I-a, avansat, incepator, restrans
+I-a, avansat, începător, restrâns
 cl. I, II, III, IV
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##18#
 c
-01A3236~&Semnalele de test emise in antena nu pot depasi:
+01A3236~&Semnalele de test emise în antenă nu pot depăși:
 null
 10 secunde
 20 secunde
-nu se specifica durata, insa trebuie sa fie de o durata cat mai scurta posibil si sa nu perturbe o alta legatura.
+nu se specifică durata, însă trebuie să fie de o durată cât mai scurtă posibil și să nu perturbe o altă legătură.
 30 secunde
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev. 2010)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev. 2010)
 null
 
 
 ##19#
 a
-02A3236~&Care e conditia de baza a semnalelor de test emise in antena:
+02A3236~&Care e condiția de bază a semnalelor de test emise în antenă:
 null
-sa nu perturbe legaturi radio existente
-sa nu depaseasca 15 secunde
-sa testeze emitatorul
-puterea emisa in antena sa fie minima
+să nu perturbe legături radio existente
+să nu depășească 15 secunde
+să testeze emițătorul
+puterea emisă în antenă să fie minimă
 YO6OWN 2014
 null
 
 
 ##20#
 c
-01A3411~&In trafic se admit prescurtari la transmiterea indicativelor de apel?
+01A3411~&În trafic se admit prescurtări la transmiterea indicativelor de apel?
 null
 da, cu aprobarea ANCOM
-da, numai in concursuri cu aprobarea FRR
+da, numai în concursuri cu aprobarea FRR
 nu
-doar in traficul de primejdie
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+doar în traficul de primejdie
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 Anexa la Decizie, Cap.IV, 11)
 YO6OWN, 2018
 ##21#
 c
-02A3212~&Dupa modul de folosire, statiile de radioamator sunt:
+02A3212~&După modul de folosire, stațiile de radioamator sunt:
 null
-Statii individuale si de club
-Statii de receptie si de emisie-receptie
-Statii fixe, mobile si portabile
-Statii pe acumulatori si statii alimentate la retea
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+Stații individuale și de club
+Stații de recepție și de emisie-recepție
+Stații fixe, mobile și portabile
+Stații pe acumulatori și stații alimentate la rețea
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##22#
 b
-01A3101~&Cine reglementeaza activitatea de radioamator din Romania?
+01A3101~&Cine reglementează activitatea de radioamator din România?
 null
-Ministerul Postelor si Comunicatiilor
-Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii
-Ministerul Transporturilor si Telecomunicatiilor
+Ministerul Poștelor și Comunicațiilor
+Autoritatea Națională pentru Administrare și Reglementare în Comunicații
+Ministerul Transporturilor și Telecomunicațiilor
 Ministerul Sportului
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
 ##23#
 b
-01A3233~&Cine acorda si tine evidenta indicativelor de apel ale statiilor de amator?
+01A3233~&Cine acordă și ține evidența indicativelor de apel ale stațiilor de amator?
 null
-Directia de Posta si Telecomunicatii
-Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii
-Federatia Romana de Radioamatorism
-Comisia Nationala Radio
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+Direcția de Poștă și Telecomunicații
+Autoritatea Națională pentru Administrare și Reglementare în Comunicații
+Federația Română de Radioamatorism
+Comisia Națională Radio
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
 ##24#
 b
-01A3464~&Cand anunta radioamatorul incetarea activitatii?
+01A3464~&Când anunță radioamatorul încetarea activității?
 null
-cu 15 de zile inainte de incetarea activitatii
-In momentul cand doreste incetarea activitatii, anexand la cerere si autorizatia in original.
-nu anunta incetarea activitatii
-dupa 30 de zile de la incetarea activitatii
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+cu 15 de zile înainte de încetarea activității
+În momentul când dorește încetarea activității, anexând la cerere și autorizația în original.
+nu anunță încetarea activității
+dupa 30 de zile de la încetarea activității
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##25#
 b
-02A3464~&Cat timp nu se pot atribui indicativele radioamatorilor cu autorizatii retrase?
+02A3464~&Cât timp nu se pot atribui indicativele radioamatorilor cu autorizații retrase?
 null
 un an
 5 ani
-pana cand fostii titulari nu si le revendica
+până când foștii titulari nu și le revendică
 10 ani
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##26#
 a
-04A3530~&Posesorul unei autorizatii de clasa a III-a, poate opera o statie de radioamator in banda de 18 MHz?
+04A3530~&Posesorul unei autorizații de clasa a III-a, poate opera o stație de radioamator în banda de 18 MHz?
 null
 da
 nu
-da, cu aprobarea ANCOM, in cazuri deosebite
-da, cu aprobarea Radiocluburilor Judetene      
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+da, cu aprobarea ANCOM, în cazuri deosebite
+da, cu aprobarea Radiocluburilor Județene      
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
 ##27#
 a
-05A3530~&Cu ce putere (putere maxima la varf de modulatie) poate lucra un radioamator de clasa a III-a in banda de 1,8 MHz?
+05A3530~&Cu ce putere (putere maximă la vârf de modulație) poate lucra un radioamator de clasa a III-a în banda de 1,8 MHz?
 null
 100 W
 25 W
-nu are dreptul sa lucreze in aceasta banda
+nu are dreptul să lucreze în această bandă
 0.5 W
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
 ##28#
 b
-06A3530~&Cu ce putere (putere maxima la varf de modulatie) poate lucra un radioamator de clasa a III-a in banda de 28 MHz?
+06A3530~&Cu ce putere (putere maximă la vârf de modulație) poate lucra un radioamator de clasa a III-a în banda de 28 MHz?
 null
 5W
 100W
-nu are dreptul sa lucreze in aceasta banda
+nu are dreptul să lucreze în această bandă
 25W
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
 ##29#
 b
-07A3530~&Cu ce putere maxima de iesire poate lucra un radioamator de clasa a III-a in banda de 14 MHz?
+07A3530~&Cu ce putere maximă de ieșire poate lucra un radioamator de clasa a III-a în banda de 14 MHz?
 null
 5W
 100W
-nu are dreptul sa lucreze in aceasta banda
+nu are dreptul să lucreze în această bandă
 25W
-YO6OWN, Brasov, 2010
+YO6OWN, Brașov, 2010
 null
-Dupa regulamentul din 2010 radioamatorii clasa III nu mai au restrictie la niciuna din benzile permise claselor superioare, sunt limitate doar in putere.
-YO6OWN, Brasov, 2010
+După regulamentul din 2010 radioamatorii clasa III nu mai au restricție la niciuna din benzile permise claselor superioare, sunt limitate doar în putere.
+YO6OWN, Brașov, 2010
 ##30#
 b
-08A3530~&Cu ce putere maxima de iesire poate lucra un radioamator de clasa a III-a in banda de 21 MHz?
+08A3530~&Cu ce putere maximă de ieșire poate lucra un radioamator de clasa a III-a în banda de 21 MHz?
 null
 5W
 100W
-nu are dreptul sa lucreze in aceasta banda
+nu are dreptul să lucreze în această bandă
 25W
-YO6OWN, Brasov, 2010
+YO6OWN, Brașov, 2010
 null
-Dupa regulamentul din 2010 radioamatorii clasa III nu mai au restrictie la niciuna din benzile permise claselor superioare, sunt limitate doar in putere.
-YO6OWN, Brasov, 2010
+După regulamentul din 2010 radioamatorii clasa III nu mai au restricție la niciuna din benzile permise claselor superioare, sunt limitate doar în putere.
+YO6OWN, Brașov, 2010
 ##31#
 a
-01A3214~&Cu ce parametri de  emisie functioneaza statia de club atunci cand se foloseste indicativul de club?
+01A3214~&Cu ce parametri de  emisie funcționeaza stația de club atunci când se folosește indicativul de club?
 null
-Corespunzatori clasei I sau II, clasa de autorizare este dedusa din clasa de autorizare a responsabilului de radioclub
-Corespunzatori clasei I, II, III sau IV, clasa de autorizare este dedusa din clasa de autorizare a operatorului statiei
-Corespunzatori clasei I pentru putere maxima
+Corespunzatori clasei I sau II, clasa de autorizare este dedusă din clasa de autorizare a responsabilului de radioclub
+Corespunzatori clasei I, II, III sau IV, clasa de autorizare este dedusă din clasa de autorizare a operatorului stației
+Corespunzatori clasei I pentru putere maximă
 Corespunzatori clasei speciale aprobate de ANCOM
 YO6OWN, 2018
 null
@@ -386,11 +385,11 @@ Anexa la Decizie, Cap. IV, 10)
 YO6OWN, 2018
 ##32#
 b
-02A3214~&Cu ce parametri de  emisie functioneaza statia de club atunci cand se foloseste indicativul operatorului?
+02A3214~&Cu ce parametri de  emisie funcționează stația de club atunci când se folosește indicativul operatorului?
 null
-Corespunzatori clasei I sau II, clasa de autorizare este dedusa din clasa de autorizare a responsabilului de radioclub
-Corespunzatori clasei I, II, III sau IV, clasa de autorizare este dedusa din clasa de autorizare a operatorului statiei
-Corespunzatori clasei I pentru putere maxima
+Corespunzatori clasei I sau II, clasa de autorizare este dedusă din clasa de autorizare a responsabilului de radioclub
+Corespunzatori clasei I, II, III sau IV, clasa de autorizare este dedusă din clasa de autorizare a operatorului stației
+Corespunzatori clasei I pentru putere maximă
 Corespunzatori clasei speciale aprobate de ANCOM
 YO6OWN, 2018
 null
@@ -398,85 +397,85 @@ Anexa la Decizie, Cap. IV, 10)
 YO6OWN, 2018
 ##33#
 b
-03A3214~&De cate categorii sunt statiile de radioamator, in functie de puterea emitatoarelor si in functie de benzile de frecvente pe care le pot folosi?
+03A3214~&De câte categorii sunt stațiile de radioamator, în funcție de puterea emițătoarelor și în funcție de benzile de frecvențe pe care le pot folosi?
 null
 categoria I sau II
 categoria I, II, III sau IV
 categoria I
-Clasa statiei este clasa operatorului
-YO6OWN, Brasov, 2018
+Clasa stației este clasa operatorului
+YO6OWN, Brașov, 2018
 null
-Cap.II, 1) in Anexa la Decizie
+Cap.II, 1) în Anexa la Decizie
 YO6OWN, 2018
 ##34#
 a
-04A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria I ?	
+04A3214~&Ce clasă trebuie să aibă un radioamator autorizat pentru a opera o stație individuală de radioamator de categoria I ?	
 null
 clasa I
 clasa I sau clasa II
 I, II, III sau IV
 Toate clasele
-YO6OWN, Brasov, 2018
+YO6OWN, Brașov, 2018
 null
-Cap.IV, 10) in Anexa la Decizie
-YO6OWN, 2018
+Art. 6, a) în Decizie
+YO6OWN, 2020
 ##35#
 b
-05A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria a II-a ?	
+05A3214~&Ce clasă trebuie să aibă un radioamator autorizat pentru a opera o stație individuală de radioamator de categoria a II-a ?	
 null
 clasa I
 clasa I sau clasa II
 I, II, III sau IV
 Toate clasele
-YO6OWN, Brasov, 2018
+YO6OWN, Brașov, 2018
 null
-Cap.IV, 10) in Anexa la Decizie
-YO6OWN, 2018
+Art. 6 în Decizie
+YO6OWN, 2020
 ##36#
 c
-06A3214~&Ce clasa trebuie sa aiba un radioamator autorizat pentru a opera o statie individuala de radioamator de categoria a III-a ?	
+06A3214~&Ce clasă trebuie să aibă un radioamator autorizat pentru a opera o stație individuală de radioamator de categoria a III-a ?	
 null
 clasa I
 clasa I sau clasa II
 I, II, sau III
 clasa a IV-a
-YO6OWN, Brasov, 2014
+YO6OWN, Brașov, 2014
 null
-Art. 6, b) in Regulament
-YO6OWN, 2014
+Art. 6 în Decizie
+YO6OWN, 2020
 ##37#
 a
-09A3530~&Ce domeniu de frecvente corespunde benzii de 2m alocate radioamatorilor in Romania?
+09A3530~&Ce domeniu de frecvențe corespunde benzii de 2m alocate radioamatorilor în România?
 null
 144 - 146 MHz
 143 - 144 MHz
 432 - 447 MHz
 430 - 432 MHz
-YO6GZI, Sacele, 2004(rev.2010)
+YO6GZI, Săcele, 2004(rev.2010)
 null
 
 
 ##38#
 c
-10A3530~&Ce domeniu de frecvente corespunde benzii de 70cm alocate radioamatorilor in Romania?
+10A3530~&Ce domeniu de frecvențe corespunde benzii de 70cm alocate radioamatorilor în România?
 null
 144 - 146 MHz
 432 - 440 MHz
 430 - 440 MHz
 430 - 431 MHz
-YO6GZI, Sacele, 2004(rev.2010)
+YO6GZI, Săcele, 2004(rev.2010)
 null
 
 
 ##39#
 d
-11A3530~&Ce domeniu de frecvente corespunde benzii de 160m?
+11A3530~&Ce domeniu de frecvențe corespunde benzii de 160m?
 null
 144 - 146 MHz
 3,5 - 3,8 MHz
 432 - 438 MHz
 1,85 - 2,00 MHz
-YO6GZI, Sacele, 2004(rev.2014)
+YO6GZI, Săcele, 2004(rev.2014)
 null
 
 
@@ -484,125 +483,125 @@ null
 d
 01A111~&Care dintre cele enumerate sunt o parte a scopurilor serviciului de radioamator?
 null
-De a proteja datele istorice si a ajuta publicul la intelegerea istoriei radioului.
-De a ajuta tarile straine sa-si imbunatateasca tehnicile de comunicare radio si a incuraja radioamatorii straini sa viziteze Romania.
-De a imbunatati tehnicile de desenare a schemelor radio si a mari numarul specialistilor proiectanti.
-De a spori numarul celor instruiti in radiotehnica si electronica si a contribui la promovarea spiritului de pace si prietenie, asa-numitul 'HAM-spirit'.
-YO6GZI, Sacele, 2004(rev.2010)
+De a proteja datele istorice și a ajuta publicul la înțelegerea istoriei radioului.
+De a ajuta țările străine să-și îmbunătățească tehnicile de comunicare radio și a încuraja radioamatorii străini să viziteze România.
+De a îmbunătăți tehnicile de desenare a schemelor radio și a mări numărul specialiștilor proiectanți.
+De a spori numărul celor instruiți în radiotehnică și electronică și a contribui la promovarea spiritului de pace și prietenie, așa-numitul 'HAM-spirit'.
+YO6GZI, Săcele, 2004(rev.2010)
 null
-Din regulament: serviciul de amator - serviciul de radiocomunicatii avand ca scop autoinstruirea, intercomunicatiile si investigatiile tehnice efectuate de radioamatori, in conditiile legii, interesate de tehnica radiocomunicatiilor, numai in scop personal si fara nici un interes pecuniar;<br>
-YO6OWN, Brasov, 2010
+Din regulament: serviciul de amator - serviciul de radiocomunicații avand ca scop autoinstruirea, intercomunicațiile și investigațiile tehnice efectuate de radioamatori, în condițiile legii, interesate de tehnica radiocomunicațiilor, numai în scop personal și fără nici un interes pecuniar;<br>
+YO6OWN, Brașov, 2010
 ##41#
 d
 02A111~&Ce urmareste activitatea de radioamator?
 null
 Transmiterea de radiograme, contra cost
-Difuzarea de muzica in FM
-Urmarire de posturi radio foarte indepartate
-instruire individuala sau in colectiv in domeniul radiotehnicii, participare la concursuri, experimentare
-YO6OWN, Sacele, 2005(rev.2010)
+Difuzarea de muzica în FM
+Urmărire de posturi radio foarte îndepărtate
+instruire individuală sau în colectiv în domeniul radiotehnicii, participare la concursuri, experimentare
+YO6OWN, Săcele, 2005(rev.2010)
 null
-Din regulament: serviciul de amator - serviciul de radiocomunicatii avand ca scop autoinstruirea, intercomunicatiile si investigatiile tehnice efectuate de radioamatori, in conditiile legii, interesate de tehnica radiocomunicatiilor, numai in scop personal si fara nici un interes pecuniar;<br>
-YO6OWN, Brasov, 2010
+Din regulament: serviciul de amator - serviciul de radiocomunicații avand ca scop autoinstruirea, intercomunicațiile și investigațiile tehnice efectuate de radioamatori, în condițiile legii, interesate de tehnica radiocomunicațiilor, numai în scop personal și fără nici un interes pecuniar;<br>
+YO6OWN, Brașov, 2010
 ##42#
 b
-01A323b~&In ce document se consemneaza activitatea de emisie-receptie la o statie de radioamator?
+01A323b~&În ce document se consemnează activitatea de emisie-recepție la o stație de radioamator?
 null
 Foaie de activitate
 Jurnalul de trafic
 Formular de concurs
-Foaia de urmarire a activitatii statiei
-YO6OWN, Sacele, Brasov(rev.2018)
+Foaia de urmărire a activității stației
+YO6OWN, Săcele, Brașov(rev.2018)
 null
 
 
 ##43#
 d
-02A3101~&Care este definitia unei statii de amator?
+02A3101~&Care este definiția unei stații de amator?
 null
-Statie de emisie-receptie folosita de amatorii care asculta radiodifuziunea.
-Statie de emisie-receptie folosita in scopuri comerciale.
-Aparat radio folosit pentru ascultarea posturilor pe frecvente neconventionale.
-Statie de emisie-receptie folosita in serviciul de radioamator.
-YO6GZI, Sacele, 2004(rev.2010)
+Stație de emisie-recepție folosită de amatorii care ascultă radiodifuziunea.
+Stație de emisie-recepție folosită în scopuri comerciale.
+Aparat radio folosit pentru ascultarea posturilor pe frecvențe neconvenționale.
+Stație de emisie-recepție folosită în serviciul de radioamator.
+YO6GZI, Săcele, 2004(rev.2010)
 null
 
 
 ##44#
 a
-01A3462~&Cine emite un duplicat pentru un certificat sau autorizatie de radioamator?
+01A3462~&Cine emite un duplicat pentru un certificat sau autorizație de radioamator?
 null
 ANCOM
-orice Directie Teritoriala
-Ministerul Telecomunicatiilor
-Directia de Posta, Telefon, Telegraf si Radio
+orice Direcție Teritorială
+Ministerul Telecomunicațiilor
+Direcția de Poștă, Telefon, Telegraf și Radio
 YO6OWN, 2018
 null
 
 
 ##45#
 a
-03A3212~&Cum pot fi folosite statiile de emisie-receptie de catre titular?
+03A3212~&Cum pot fi folosite stațiile de emisie-recepție de către titular?
 null
-din amplasament fix, mobil sau portabil, cu respectarea reglementarilor serviciului de radioamator
-doar in regim portabil
-Se pot folosi din amplasament fix, mobil sau portabil, insa doar la adresa/adresele inscrisa in autorizatie, cu respectarea Regulamentului
-doar din amplasament fix, la adresa inscrisa in autorizatie
-YO6OWN, Sacele, 2005(rev.2018)
+din amplasament fix, mobil sau portabil, cu respectarea reglementărilor serviciului de radioamator
+doar în regim portabil
+Se pot folosi din amplasament fix, mobil sau portabil, însă doar la adresa/adresele înscrisă în autorizație, cu respectarea Regulamentului
+doar din amplasament fix, la adresa inscrisă în autorizație
+YO6OWN, Săcele, 2005(rev.2018)
 null
 
 
 ##46#
 a
-03A3464~&In ce cazuri pot fi retrase autorizatiile de radioamator?
+03A3464~&În ce cazuri pot fi retrase autorizațiile de radioamator?
 null
 La cererea titularului
 pentru neplata cotizatiei
-pentru inscrisuri nereale in LOG
+pentru înscrisuri nereale în LOG
 pentru inactivitate
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##47#
 a
-02A323b~&Pastrarea jurnalului de trafic la statia proprie este obligatorie? Cat timp de la data efectuarii ultimei legaturi consemnate?
+02A323b~&Păstrarea jurnalului de trafic la stația proprie este obligatorie? Cât timp de la data efectuării ultimei legături consemnate?
 null
 nu
 da, 12 luni
 da, 6 luni
 da, 2 ani
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
-jurnalul este obligatoriu pentru legaturi efectuate la statii alta decat cea proprie si la statia de radioclub. Anexa la reglementari, cap IV, 23)
+jurnalul este obligatoriu pentru legături efectuate la stații alta decat cea proprie și la stația de radioclub. Anexa la reglementari, cap IV, 23)
 YO6OWN, 2018
 ##48#
 a
-02A3230~&Grupele de litere YP, YQ, YR pot fi atribuite ca prefix unui indicativ din Romania?
+02A3230~&Grupele de litere YP, YQ, YR pot fi atribuite ca prefix unui indicativ din România?
 null
 da, cu aprobarea ANCOM
 nu
 da, cu aprobarea Asociatiei Judetene de Radioamatorism
-da, cu aprobarea Federatiei Romane de Radioamatorism
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+da, cu aprobarea Federației Române de Radioamatorism
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
 ##49#
 a
-03A3230~&Din ce litere si cifre este alcatuit un indicativ al unei statii de emisie-receptie individuale de radioamator?
+03A3230~&Din ce litere și cifre este alcătuit un indicativ al unei stații de emisie-recepție individuale de radioamator?
 null
-YO - indicativul tarii, urmat de o cifra ce simbolizeaza zona(districtul radio), urmat de doua sau trei litere, sufixul unic al unui radioamator
-YR - indicativul tarii, urmat de o cifra ce simbolizeaza zona(districtul radio), urmat de doua sau trei litere, sufixul unic al unui radioamator
-YO - indicativul tarii, urmat de o bara de fractie, urmata de doua sau trei litere, sufixul unic al unui radioamator
-YO - indicativul tarii, urmat de trei cifre, sufixul unic al unui radioamator
+YO - indicativul țării, urmat de o cifră ce simbolizează zona(districtul radio), urmat de două sau trei litere, sufixul unic al unui radioamator
+YR - indicativul țării, urmat de o cifră ce simbolizează zona(districtul radio), urmat de doua sau trei litere, sufixul unic al unui radioamator
+YO - indicativul țării, urmat de o bară de fracție, urmată de două sau trei litere, sufixul unic al unui radioamator
+YO - indicativul țării, urmat de trei cifre, sufixul unic al unui radioamator
 YO6OWN, 2014
 null
 
 
 ##50#
 a
-04A3230~&Cate litere are in sufix indicativul unei statii de club?
+04A3230~&Câte litere are în sufix indicativul unei stații de club?
 null
 trei
 doua
@@ -614,23 +613,23 @@ null
 
 ##51#
 a
-01C3231~&Ce este o zona de indicative de apel, denumit si "district"?
+01C3231~&Ce este o zonă de indicative de apel, denumit și "district"?
 null
-Este o zona geografica ce cuprinde mai multe judete adiacente carora ii este atribuita prin regulament o anumita cifra de zona.
-Este o zona geografica de acoperire radio, adica zona celor care receptioneaza un apel.
-Este o zona geografica de acoperire radio, adica zona celor care raspund unui apel.
-Este zona geografica a indicativelor cu acelasi prefix.
+Este o zonă geografică ce cuprinde mai multe județe adiacente carora îi este atribuită prin regulament o anumita cifră de zonă.
+Este o zonă geografică de acoperire radio, adică zona celor care recepționează un apel.
+Este o zonă geografică de acoperire radio, adică zona celor care răspund unui apel.
+Este zonă geografică a indicativelor cu același prefix.
 YO6OWN, 2014
 null
-Zona sau in denumire mai veche, district, este o arie geografica compusa din mai multe judete adiacente; Mai mai multe zone adiacente sunt arondate unei directii teritoriale a ANCOM, Bucuresti, Iasi, Cluj, Timis.
+Zona sau în denumire mai veche, district, este o arie geografică compusă din mai multe județe adiacente; Mai mai multe zone adiacente sunt arondate unei direcții teritoriale a ANCOM, Bucuresti, Iasi, Cluj, Timis.
 YO6OWN, 2018
 ##52#
 a
-02A3231~&Cum ne dam seama din ce zona geografica a tarii este o statie de radioamator sau club daca ii stim indicativul?
+02A3231~&Cum ne dăm seama din ce zonă geografică a țării este o stație de radioamator sau club dacă îi știm indicativul?
 null
-Cifra din indicativ codifica o zona geografica anume
+Cifra din indicativ codifică o zonă geografică anume
 Nu ne putem da seama
-Ne uitam in lista statiilor autorizate publicata de ANCOM
+Ne uităm în lista stațiilor autorizate publicata de ANCOM
 Doar din Callbook
 YO6OWN, 2014
 null
@@ -638,25 +637,25 @@ null
 
 ##53#
 b
-02A3421~&Cine raspunde de activitatea unei statii de club?
+02A3421~&Cine răspunde de activitatea unei stații de club?
 null
-seful radioclubului
-responsabilul statiei de club
-operatorul principal al statiei de club
-operatorul de moment al statiei de club
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+șeful radioclubului
+responsabilul stației de club
+operatorul principal al stației de club
+operatorul de moment al stației de club
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##54#
 c
-01A3505~&Ce obligatii are titularul sau responsabilul unei statii care pune la dispozitie statia unui radioamator de clasa a IV-a?
+01A3505~&Ce obligații are titularul sau responsabilul unei stații care pune la dispoziție stația unui radioamator de clasa a IV-a?
 null
-nu are obligatii suplimentare daca radioamatorul de clasa a IV-a opereaza doar in prezenta lui
-radioamatorii de clasa a IV-a au aceleasi drepturi ca si cei de clasa a III-a, dar incepatori
-asigurarea functionarii statiei in conformitate cu prevederile normelor tehnice in vigoare, permitand radioamatorului de clasa IV lucrul la statie doar in limitele autorizatiei de clasa a IV-a
-Sa-l ajute sa devina bun radioamator
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+nu are obligații suplimentare dacă radioamatorul de clasa a IV-a operează doar în prezența lui
+radioamatorii de clasa a IV-a au aceleași drepturi ca și cei de clasa a III-a, dar începători
+asigurarea funcționării stației în conformitate cu prevederile normelor tehnice în vigoare, permițând radioamatorului de clasa IV lucrul la stație doar în limitele autorizației de clasa a IV-a
+Să-l ajute să devina bun radioamator
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
@@ -664,94 +663,94 @@ null
 b
 02A3301~&Ce este un certificat de radioamator?
 null
-un document emis de un radioclub care face dovada ca posesorul este membru al acelui club
-un document care face dovada ca posesorul are cunostinte si aptitudini necesare unui radioamator, este dobandit in urma unui examen
-un document emis de Federatia Romana de Radioamatorism care atesta apartenenta posesorului la un club
-un document care permite lucrul la o statie de radioamator
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+un document emis de un radioclub care face dovada că posesorul este membru al acelui club
+un document care face dovada că posesorul are cunoștințe și aptitudini necesare unui radioamator, este dobandit în urma unui examen
+un document emis de Federația Română de Radioamatorism care atestă apartenența posesorului la un club
+un document care permite lucrul la o stație de radioamator
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##56#
 c
-01A3408~&Radioamatorii ce transmit de la o statie de club, transmit obligatoriu indicativul statiei sau cel propriu?
+01A3408~&Radioamatorii ce transmit de la o stație de club, transmit obligatoriu indicativul stației sau cel propriu?
 null
 cel propriu
-cel al statiei de club
-cel al statiei de club urmat optional de cel propriu SAU doar cel propriu, cu acordul responsabilului de statie si cu consemnarea in jurnalul statiei
-cel al responsabilului statiei de club si optional cel propriu
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+cel al stației de club
+cel al stației de club urmat opțional de cel propriu SAU doar cel propriu, cu acordul responsabilului de stație și cu consemnarea în jurnalul stației
+cel al responsabilului stației de club și opțional cel propriu
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 Anexa la Decizie, Cap. IV, 8)
 YO6OOWN, 2018
 ##57#
 c
-03A323b~&Ce informatii sunt consemnate in jurnalul de trafic (LOG)? 
+03A323b~&Ce informații sunt consemnate în jurnalul de trafic (LOG)? 
 null
-indicativul statiei cu care s-a lucrat, data, ora Romaniei
-indicativul statiei, data
-data, ora UTC, banda in care s-a efectuat legatura, indicativul operatorului initiator si al corespondentului
-data, ora GMT, banda in care s-a efectuat legatura, controlul RST, indicativul statiei corespondente
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev. 2018)
+indicativul stației cu care s-a lucrat, data, ora României
+indicativul stației, data
+data, ora UTC, banda în care s-a efectuat legătura, indicativul operatorului initiator și al corespondentului
+data, ora GMT, banda în care s-a efectuat legătura, controlul RST, indicativul stației corespondente
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev. 2018)
 null
-Se trec toate datele care pot identifica unic un QSO. Pe langa datele minime, se pot adauga si alte amanunte interesante, daca exista.
-YO6OWN, Brasov, 2018
+Se trec toate datele care pot identifica unic un QSO. Pe lângă datele minime, se pot adăuga și alte amănunte interesante, dacă exista.
+YO6OWN, Brașov, 2018
 ##58#
 a
-01A3441~&Radioamatorii straini care poseda licenta CEPT pot lucra in Romania?
+01A3441~&Radioamatorii străini care poseda licența CEPT pot lucra în România?
 null
-da, in baza autorizatiei emise in tara de origine, fara a fi nevoie de a notifica ANCOM in prealabil.
-da, dupa obtinerea unei autorizatii de la ANCOM in care se trece clasa echivalata
-da, cu aprobarea Federatiei Romane de Radioamatorism
-da, de la statia unui radioamator roman
+da, în baza autorizației emise în țara de origine, fără a fi nevoie de a notifica ANCOM în prealabil.
+da, dupa obținerea unei autorizații de la ANCOM în care se trece clasa echivalată
+da, cu aprobarea Federației Române de Radioamatorism
+da, de la stația unui radioamator român
 YO6OWN, 2018
 null
 
 
 ##59#
 b
-02A3441~&Care este clasa echivalenta in Romania pentru radioamatorii straini care poseda certificatul HAREC?
+02A3441~&Care este clasa echivalentă în România pentru radioamatorii străini care posedă certificatul HAREC?
 null
-Clasa inscrisa pe autorizatia emisa in tara de origine
+Clasa inscrisă pe autorizația emisă în țara de origine
 Clasa a II-a
 Clasa I
-Clasa statiei de la care lucreaza
+Clasa stației de la care lucrează
 YO6OWN, 2018
 null
 
 
 ##60#
 a
-03A3441~&Radioamatorii straini care nu poseda licenta CEPT pot lucra in Romania?
+03A3441~&Radioamatorii străini care nu posedă licența CEPT pot lucra în România?
 null
-da, daca exista o conventie de reciprocitate intre tari, be baza autorizatiei emise in tara de origine.
+da, dacă există o convenție de reciprocitate între țări, be baza autorizației emise în țara de origine.
 nu
-da, cu aprobarea Federatiei Romane de Radioamatorism
-da, de la statia unui radioamator roman
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+da, cu aprobarea Federației Române de Radioamatorism
+da, de la stația unui radioamator român
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 
 
 ##61#
 b
-04B3441~&Care este clasa echivalenta in Romania pentru radioamatorii straini care detin o autorizatie fara echivalenta CEPT, dar care vin dintr-o tara cu care exista semnat un acord de reciprocitate?
+04B3441~&Care este clasa echivalentă în România pentru radioamatorii străini care dețin o autorizație fără echivalență CEPT, dar care vin dintr-o țară cu care exista semnat un acord de reciprocitate?
 null
-Clasa inscrisa pe autorizatia emisa in tara de origine
-Clasa echivalata prin conventie sau clasa a III-a in lipsa unei echivalari
+Clasa înscrisă pe autorizația emisă în țara de origine
+Clasa echivalată prin convenție sau clasa a III-a în lipsa unei echivalări
 Clasa II
-Clasa statiei de la care lucreaza
+Clasa stației de la care lucrează
 YO6OWN, 2018
 null
 
 
 ##62#
 b
-05A3441~&Ce indicativ de apel foloseste un radioamator strain care opereaza pe teritoriul Romaniei?
+05A3441~&Ce indicativ de apel folosește un radioamator străin care operează pe teritoriul României?
 null
 indicativul propriu
-YO, bara de fractie ("/") si indicativul propriu
-Indicativul clubului la care lucreaza, bara de fractie ("/") si indicativul propriu
-Indicativul statiei de la care lucreaza, bara de fractie ("/") si indicativul propriu
+YO, bară de fracție ("/") și indicativul propriu
+Indicativul clubului la care lucreaza, bară de fracție ("/") și indicativul propriu
+Indicativul stației de la care lucreaza, bară de fracție ("/") și indicativul propriu
 YO6OWN, 2018
 null
 
@@ -764,25 +763,25 @@ null
 25 minute
 10 minute
 2 minute
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2018)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
 Anexa la Decizie, cap.IV, 3)
 YO6OWN, 2018
 ##64#
 a
-01A3461~&Cand se inainteaza solicitarea de prelungire a autorizatiei de radioamator?
+01A3461~&Când se înaintează solicitarea de prelungire a autorizației de radioamator?
 null
-Cu cel putin 30 de zile calendaristice  inainte de expirarea valabilitatii
-Cu cel putin 3 luni inainte de expirarea valabilitatii
-oricand
-cu 6 luni inainte sa expire autorizatia
+Cu cel puțin 30 de zile calendaristice înainte de expirarea valabilității
+Cu cel puțin 3 luni înainte de expirarea valabilității
+oricând
+cu 6 luni inainte să expire autorizația
 YO6OWN, 2018
 null
 
 
 ##65#
 d
-02B3461~&Cat timp ramane un indicativ rezervat pentru un radioamator care nu si-a prelungit autorizatia?
+02B3461~&Cât timp rămâne un indicativ rezervat pentru un radioamator care nu si-a prelungit autorizația?
 null
 sufixul ramane rezervat pe viata
 3 ani
@@ -794,49 +793,49 @@ conf. cu art 29 alin. 3
 robbie, 2018, user examyo
 ##66#
 a
-03A3461~&Mutarea la un nou amplasament fix sau folosirea unui nou amplasament fix pentru statia de amator poate incepe:
+03A3461~&Mutarea la un nou amplasament fix sau folosirea unui nou amplasament fix pentru stația de amator poate începe:
 null
-numai dupa primirea autorizatiei de radioamator
-30 de zile dupa mutare
-30 de zile inainte de mutare
-20 de zile dupa mutare, anexand copia dupa buletinul de identitate
-YO6OWN, Brasov, 2007(rev.2010)
+numai după primirea autorizației de radioamator
+30 de zile după mutare
+30 de zile înainte de mutare
+20 de zile după mutare, anexând copia dupa buletinul de identitate
+YO6OWN, Brașov, 2007(rev.2010)
 null
 
 
 ##67#
 a
-01A3303~&Care este varsta implinita la care cineva se poate inscrie la examenul de radioamator pentru clasa III,II sau I?
+01A3303~&Care este vârsta împlinită la care cineva se poate înscrie la examenul de radioamator pentru clasa III,II sau I?
 null
 14 ani
 7 ani
 18 ani
-nu exista limita de varsta
-YO6OWN, Sacele, 2005(rev. 2017)
+nu există limită de vârstă
+YO6OWN, Săcele, 2005(rev. 2017)
 null
 
 
 ##68#
 d
-06A3303~&Daca nu are inca implinita varsta de 14 ani, pentru ce categorie de certificat se poate inscrie cineva cand da examen de radioamator?
+06A3303~&Dacă nu are încă împlinită vârsta de 14 ani, pentru ce categorie de certificat se poate înscrie cineva când dă examen de radioamator?
 null
 clasa I
 clasa a II-a sau a III-a
 oricare din clase
 clasa a IV-a
-YO6OWN, Brasov, 2017
+YO6OWN, Brașov, 2017
 null
 
 
 ##69#
 a
-01A302~&Care este normativul care reglementeaza functionarea serviciului de radioamator in Romania?
+01A302~&Care este normativul care reglementează funcționarea serviciului de radioamator în România?
 null
 Decizia ANCOM 245/2017
-Tabelul national de atribuire a benzilor de frecventa TNABF
+Tabelul național de atribuire a benzilor de frecvență TNABF
 Vademecum pentru Radioamatori
-Regulamentul telecomunicatiilor terestre
-YO6OWN, Brasov 2018
+Regulamentul telecomunicațiilor terestre
+YO6OWN, Brașov 2018
 null
 
 
@@ -844,11 +843,11 @@ null
 a
 03A111~&Ce este serviciul de amator?
 null
-Serviciul de radiocomunicatii avand ca scop autoinstruirea, intercomunicatiile si investigatiile tehnice efectuate de radioamatori, in conditiile legii, interesate de tehnica radiocomunicatiilor, numai in scop personal si fara nici un interes pecuniar;
-Grupul pasionatilor din hobby care are scopul de a proteja datele istorice si a ajuta publicul la intelegerea istoriei radioului.
-Grupul unit de o federatie radio care are ca scop in a ajuta tarile straine sa-si imbunatateasca tehnicile de comunicare radio si a incuraja radioamatorii straini sa viziteze Romania.
-Serviciul tehnic de proiectare a statiilor de radioamatori cu scopul de a imbunatati tehnicile de desenare a schemelor radio si a mari numarul specialistilor proiectanti.
-YO6OWN, Brasov, 2014
+Serviciul de radiocomunicații având ca scop autoinstruirea, intercomunicațiile și investigațiile tehnice efectuate de radioamatori, în conditiile legii, interesate de tehnica radiocomunicațiilor, numai în scop personal și fără nici un interes pecuniar;
+Grupul pasionaților din hobby care are scopul de a proteja datele istorice și a ajuta publicul la înțelegerea istoriei radioului.
+Grupul unit de o federație radio care are ca scop în a ajuta țările străine să-și îmbunătățeasca tehnicile de comunicare radio și a încuraja radioamatorii străini să viziteze România.
+Serviciul tehnic de proiectare a stațiilor de radioamatori cu scopul de a îmbunătăți tehnicile de desenare a schemelor radio și a mări numărul specialiștilor proiectanti.
+YO6OWN, Brașov, 2014
 null
 
 
@@ -856,107 +855,107 @@ null
 a
 04A111~&Ce este serviciul de amator prin satelit?
 null
-serviciul de radiocomunicatii folosind statii spatiale pe sateliti in acelasi scop ca si al serviciului de amator
-serviciul de radioamator care construieste si lanseaza statii spatiale 
-serviciul de radioamator care construieste si lanseaza sateliti de radioamator
-radioamatorii membri ai societatilor de radioamator AMSAT(Amateur SATellite) si ARISS (Amateur Radio on ISS)
-YO6OWN, Brasov, 2014
+serviciul de radiocomunicații folosind stații spatiale pe sateliti în acelasi scop ca și al serviciului de amator
+serviciul de radioamator care construiește și lansează stații spatiale 
+serviciul de radioamator care construiește și lansează sateliți de radioamator
+radioamatorii membri ai societăților de radioamator AMSAT(Amateur SATellite) și ARISS (Amateur Radio on ISS)
+YO6OWN, Brașov, 2014
 null
 
 
 ##72#
 a
-03A3101~&Ce inseamna abrevierea UIT?
+03A3101~&Ce inseamnă abrevierea UIT?
 null
-Uniunea Internationala a Telecomunicatiilor (ITU - International Telecommunications Union)
+Uniunea Internationala a Telecomunicațiilor (ITU - International Telecommunications Union)
 Uniunea Internationala a Comertului (International Trade Union) 
-Uniunea Internationala a firmelor de Telecomunicatii
+Uniunea Internationala a firmelor de Telecomunicații
 Uniunea Internationala de Telegrafie
-YO6OWN, Brasov, 2014
+YO6OWN, Brașov, 2014
 null
 
 
 ##73#
 a
-04A3101~&Ce inseamna abrevierea CEPT?
+04A3101~&Ce inseamnă abrevierea CEPT?
 null
-Conferinta Europeana pentru Posta si Telecomunicatii
-Comisia Europeana de Pachete si Transmisiuni
-Comisia Europeana de Poste si Telegrafie
-Constitutia Europeana de Posta si Transmisiuni
-YO6OWN, Brasov, 2014
+Conferinta Europeana pentru Posta și Telecomunicații
+Comisia Europeana de Pachete și Transmisiuni
+Comisia Europeana de Poste și Telegrafie
+Constitutia Europeana de Posta și Transmisiuni
+YO6OWN, Brașov, 2014
 null
 
 
 ##74#
 a
-05A3101~&Ce inseamna abrevierea IARU?
+05A3101~&Ce inseamnă abrevierea IARU?
 null
 Uniunea Internationala a Radioamatorilor
 Institutul pentru Antene al Regatului Unit
 Institutul American de inginerie Radio Unificat
 International Amateur Relay Union
-YO6OWN, Brasov, 2014
+YO6OWN, Brașov, 2014
 null
 
 
 ##75#
 a
-06A3101~&Ce inseamna abrevierea ANCOM?
+06A3101~&Ce inseamnă abrevierea ANCOM?
 null
-Autoritatea Nationala pentru Administrare si Reglementare in Comunicatii
+Autoritatea Națională pentru Administrare și Reglementare în Comunicații
 Agentia Nationala de Comunicatii
-Asociatia Nationala de Administrare in Comunicatii
-Agentia Nationala a Comunicatiilor si Operatiunilor Mobile
-YO6OWN, Brasov, 2014
+Asociatia Nationala de Administrare în Comunicatii
+Agentia Nationala a Comunicatiilor și Operatiunilor Mobile
+YO6OWN, Brașov, 2014
 null
 
 
 ##76#
 a
-07A3101~&Ce inseamna abrevierea TNABF?
+07A3101~&Ce inseamnă abrevierea TNABF?
 null
-Tabelul national de atribuire a benzilor de frecvente;
-Tabara nationala de antene pe benzi de frecventa
+Tabelul national de atribuire a benzilor de frecvențe;
+Tabara nationala de antene pe benzi de frecvență
 Un paratrasnet activ de tip Trasnete Negativate cu AutoBlock de Fulgere
 Transformata Fourier normata A-B
-YO6OWN, Brasov, 2014
+YO6OWN, Brașov, 2014
 null
 
 
 ##77#
 a
-08A3101~&Ce inseamna abrevierea HAREC?
+08A3101~&Ce inseamnă abrevierea HAREC?
 null
 Certificatul de Examinare Armonizat pentru Serviciul de Amator
 Comitetul Executiv de Armonizare Radio
 Comisia de Examinare Armonizata pentru Radioamatori
 Hotararea armonizata a comisiei de examinare, care e baza pentru publicarea rezultatelor examinarii.
-YO6OWN, Brasov, 2014
+YO6OWN, Brașov, 2014
 null
 
 
 ##78#
 a
-01B3102~&Conform definitiei din Decizie, ce este puterea la varf de modulatie a unui emitator radio?
+01B3102~&Conform definitiei din Decizie, ce este puterea la vârf de modulație a unui emițător radio?
 null
-puterea medie furnizata liniei de alimentare a antenei de catre un emitator in timpul unui ciclu de radiofrecventa, corespunzatoare amplitudinii maxime a anvelopei de modulatie in conditii normale de lucru;
-puterea maxima furnizata liniei de alimentare a antenei de catre un emitator in timpul unui ciclu de radiofrecventa, corespunzatoare amplitudinii maxime a anvelopei de modulatie in conditii normale de lucru;
-puterea maxima furnizata liniei de alimentare a antenei de catre un emitator atunci cand gradul de modulatie este maxim;
-puterea maxima furnizata liniei de alimentare a antenei de catre un emitator atunci cand se ajunge la supramodulatie;
-YO6OWN, Brasov, 2018
+puterea medie furnizata liniei de alimentare a antenei de catre un emițător în timpul unui ciclu de radiofrecvență, corespunzatoare amplitudinii maxime a anvelopei de modulație în conditii normale de lucru;
+puterea maximă furnizata liniei de alimentare a antenei de catre un emițător în timpul unui ciclu de radiofrecvență, corespunzatoare amplitudinii maxime a anvelopei de modulație în conditii normale de lucru;
+puterea maximă furnizata liniei de alimentare a antenei de catre un emițător atunci când gradul de modulație este maxim;
+puterea maximă furnizata liniei de alimentare a antenei de catre un emițător atunci când se ajunge la supramodulație;
+YO6OWN, Brașov, 2018
 null
 
 
 ##79#
 a
-03B3102~&Conform definitiei din Decizie, ce este puterea la purtatoare a unui emitator radio?
+03B3102~&Conform definitiei din Decizie, ce este puterea la purtatoare a unui emițător radio?
 null
-puterea medie furnizata liniei de transmisie a antenei de catre un emitator radio in timpul unui ciclu de radiofrecventa luata in conditii de nemodulare;
-puterea medie furnizata liniei de alimentare a antenei de catre emitator in timpul unui interval de timp suficient de lung in comparatie cu componenta de frecventa de modulatie cea mai joasa, luata in conditii normale de lucru;
-puterea medie furnizata liniei de alimentare a antenei de catre un emitator in timpul unui ciclu de radiofrecventa, corespunzatoare amplitudinii maxime a anvelopei de modulatie in conditii normale de lucru;
-puterea maxima furnizata liniei de alimentare a antenei de catre un emitator atunci cand gradul de modulatie este maxim;
-YO6OWN, Brasov, 2018
+puterea medie furnizata liniei de transmisie a antenei de catre un emițător radio în timpul unui ciclu de radiofrecvență luata în conditii de nemodulare;
+puterea medie furnizata liniei de alimentare a antenei de catre emițător în timpul unui interval de timp suficient de lung în comparatie cu componenta de frecvență de modulație cea mai joasa, luata în conditii normale de lucru;
+puterea medie furnizata liniei de alimentare a antenei de catre un emițător în timpul unui ciclu de radiofrecvență, corespunzatoare amplitudinii maxime a anvelopei de modulație în conditii normale de lucru;
+puterea maximă furnizata liniei de alimentare a antenei de catre un emițător atunci când gradul de modulație este maxim;
+YO6OWN, Brașov, 2018
 null
 
 
@@ -964,11 +963,11 @@ null
 a
 05B3102~&Conform definitiei din Decizie, ce este largimea de banda ocupata?
 null
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
-banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
-valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
-YO6OWN, Brasov, 2018
+largimea benzii de frecvențe ocupate de o emisie, în care se concentreaza 99% din puterea medie totala radiata, sub frecvența limita inferioară și peste frecvența limita superioară fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
+banda de frecvență în cadrul careia emite stația titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecvență; în cazul stațiilor spatiale, banda de frecvență asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
+valoarea minima a largimii de banda, în cazul unei clase de emisie date, pentru asigurarea transmiterii informației cu viteza și calitatea dorite;
+largimea benzii de frecvențe ocupate de o emisie, în care se concentreaza 75% din puterea medie totala radiata, sub frecvența limita inferioară și peste frecvența limita superioară fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
+YO6OWN, Brașov, 2018
 null
 
 
@@ -976,104 +975,104 @@ null
 a
 06B3102~&Conform definitiei din Decizie, ce este largimea de banda necesara?
 null
-valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
-banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
-YO6OWN, Brasov, 2018
+valoarea minima a largimii de banda, în cazul unei clase de emisie date, pentru asigurarea transmiterii informației cu viteza și calitatea dorite;
+banda de frecvență în cadrul careia emite stația titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecvență; în cazul stațiilor spatiale, banda de frecvență asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
+largimea benzii de frecvențe ocupate de o emisie, în care se concentreaza 99% din puterea medie totala radiata, sub frecvența limita inferioară și peste frecvența limita superioară fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
+largimea benzii de frecvențe ocupate de o emisie, în care se concentreaza 75% din puterea medie totala radiata, sub frecvența limita inferioară și peste frecvența limita superioară fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata;
+YO6OWN, Brașov, 2018
 null
 
 
 ##82#
 a
-07A3102~&Conform definitiei din Decizie, ce este banda de frecventa asignata?
+07A3102~&Conform definitiei din Decizie, ce este banda de frecvența asignata?
 null
-banda de frecventa in cadrul careia emite statia titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecventa; in cazul statiilor spatiale, banda de frecventa asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
-valoarea minima a largimii de banda, in cazul unei clase de emisie date, pentru asigurarea transmiterii informatiei cu viteza si calitatea dorite;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 99% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
-largimea benzii de frecvente ocupate de o emisie, in care se concentreaza 75% din puterea medie totala radiata, sub frecventa limita inferioara si peste frecventa limita superioara fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata
-YO6OWN, Brasov, 2018
+banda de frecvență în cadrul careia emite stația titularului autorizat; largimea benzii este egala cu latimea de banda necesara plus de doua ori valoarea absoluta a tolerantei de frecvență; în cazul stațiilor spatiale, banda de frecvență asignata este stabilita tinandu-se cont de implicatiile efectului Doppler.
+valoarea minima a largimii de banda, în cazul unei clase de emisie date, pentru asigurarea transmiterii informației cu viteza și calitatea dorite;
+largimea benzii de frecvențe ocupate de o emisie, în care se concentreaza 99% din puterea medie totala radiata, sub frecvența limita inferioară și peste frecvența limita superioară fiind radiate puteri medii egale, fiecare, cu 0,5% din puterea medie radiata;
+largimea benzii de frecvențe ocupate de o emisie, în care se concentreaza 75% din puterea medie totala radiata, sub frecvența limita inferioară și peste frecvența limita superioară fiind radiate puteri medii egale, fiecare, cu 2,5% din puterea medie radiata
+YO6OWN, Brașov, 2018
 null
 
 
 ##83#
 a
-01C211~&Titularul autorizatiei de radioamator clasa II are voie sa emita de pe teritoriului unui alt stat, fara sa ceara in prealabil o autorizare speciala?
+01C211~&Titularul autorizației de radioamator clasa II are voie să emita de pe teritoriului unui alt stat, fără să ceara în prealabil o autorizare speciala?
 null
-da, doar daca acel stat a ratificat acordul CEPT si Recomandarea CEPT - ERC T/R 61 - 01
-nu, fiindca doar clasa I are autorizatie CEPT HAREC, clasa II are doar CEPT
-da, insa doar cu 50W maxim
-Fara exceptie, este nevoie de autorizatie speciala dela autoritatile acelui stat
+da, doar dacă acel stat a ratificat acordul CEPT și Recomandarea CEPT - ERC T/R 61 - 01
+nu, fiindca doar clasa I are autorizație CEPT HAREC, clasa II are doar CEPT
+da, însă doar cu 50W maxim
+Fara excepție, este nevoie de autorizație speciala dela autoritatile acelui stat
 YO6OWN 2014
 null
 Recommendation T/R 61-01 (Nice 1985, Paris 1992, August 1992, Nicosia 2003)
 YO6OWN 2014
 ##84#
 a
-02B211~&Ce recomanda CEPT in Recomandarea T/R 61 - 01?
+02B211~&Ce recomanda CEPT în Recomandarea T/R 61 - 01?
 null
-Recomanda ca tarile membre CEPT sa recunoasca autorizatiile de radioamator echivalente CEPT
-Recomanda ca tarile membre CEPT sa permita radioamatorilor din tarile non-CEPT sa opereze de pe teritoriul lor
+Recomanda ca tarile membre CEPT să recunoasca autorizațiile de radioamator echivalente CEPT
+Recomanda ca tarile membre CEPT să permita radioamatorilor din tarile non-CEPT să opereze de pe teritoriul lor
 Recomanda perceperea unor taxe pentru autorizarea radioamatorilor din tarile non-CEPT
-Recomanda ca tarile membre CEPT sa isi recunoasca reciproc autorizatiile de radioamator emise de respectivele tari.
+Recomanda ca tarile membre CEPT să isi recunoasca reciproc autorizațiile de radioamator emise de respectivele tari.
 YO6OWN 2014
 null
 Recommendation T/R 61-01 (Nice 1985, Paris 1992, August 1992, Nicosia 2003)
 YO6OWN 2014
 ##85#
 b
-01B113~&Este permisa efectuarea de radiolegaturi(QSO) cu radioamatori ale unei tari in conditiile in care autoritatile acelei tari se opun activitatii de radioamator?
+01B113~&Este permisă efectuarea de radiolegaturi(QSO) cu radioamatori ale unei tari în conditiile în care autoritatile acelei tari se opun activității de radioamator?
 null
 da, oricum radioamatorul de dincolo nu-si da indicativul real. 
-nu, este stipulat si in reglementari radio ITU/UIT
-da, insa doar daca raspunzi la apel de QSO din tara respectiva, nu este permis sa initiezi.
-da, si asta-i frumusetea, nimeni nu poate intrerupe unda radio
+nu, este stipulat și în reglementari radio ITU/UIT
+da, însă doar dacă raspunzi la apel de QSO din țara respectiva, nu este permis să initiezi.
+da, și asta-i frumusetea, nimeni nu poate intrerupe unda radio
 YO6OWN 2014
 null
-Articolul 25 din "Reglementarile Radio UIT", 25.1 stipuleaza ca nu se fac radiolegaturi cu tari ale caror administratii anunta ca nu permit radioamatorismul.<br>Desi pare ca ITU recunoaste si ajuta prin acest paragraf dictaturile, ne putem gandi la consecintele efectuarii de QSO-uri cu o asemenea tara: niste pasionati ca noi vor fi cautati si pedepsiti. Exista posibilitatea in dictaturi ca doar aservitii directi ai dictaturii sa se joace de-a radioamatorii iar respectarea reglementarii ITU de tacere radio ii priveaza de o distractie accesibila doar "elitei".
+Articolul 25 din "Reglementarile Radio UIT", 25.1 stipuleaza că nu se fac radiolegaturi cu tari ale caror administratii anunță că nu permit radioamatorismul.<br>Desi pare că ITU recunoaste și ajuta prin acest paragraf dictaturile, ne putem gandi la consecintele efectuarii de QSO-uri cu o asemenea tara: niste pasionati ca noi vor fi cautati și pedepsiti. Exista posibilitatea în dictaturi ca doar aservitii directi ai dictaturii să se joace de-a radioamatorii iar respectarea reglementarii ITU de tacere radio ii priveaza de o distractie accesibila doar "elitei".
 YO6OWN, 2014
 ##86#
 a
-02B113~&Ce anume este specificat (in mare) in Articolul 25 din "Reglementarile Radio UIT" ?
+02B113~&Ce anume este specificat (in mare) în Articolul 25 din "Reglementarile Radio UIT" ?
 null
-Este vorba de un set de reguli generice din serviciul de radioamator si radioamator prin satelit, privitoare la autorizarea si exploatarea statiilor de radioamator care sa fie adoptate in regulamentele interne are tarilor membre UIT
-Contine lista tehnicilor de modulatie permise in traficul de radioamator pentru tarile membre
-Se specifica ca statiile de radioclub trebuie sa aiba un responsabil cu licenta HAREC Advanced
-Este specificata lista cerintelor pentru aderarea unei tari ne-membre la UIT si CEPT
+Este vorba de un set de reguli generice din serviciul de radioamator și radioamator prin satelit, privitoare la autorizarea și exploatarea stațiilor de radioamator care să fie adoptate în regulamentele interne are tarilor membre UIT
+Contine lista tehnicilor de modulație permise în traficul de radioamator pentru tarile membre
+Se specifică că stațiile de radioclub trebuie să aibă un responsabil cu licenta HAREC Advanced
+Este specificata lista cerintelor pentru aderarea unei tari ne-membre la UIT și CEPT
 YO6OWN 2014
 null
-Articolul 25 are o pagina si un sfert, iar continutul sau este deja armonizat in Regulamentul romanesc, articolele lui se regasesc intr-o alta forma in regulament, nu contine ceva extraordinar.
+Articolul 25 are o pagina și un sfert, iar continutul sau este deja armonizat în Regulamentul romanesc, articolele lui se regasesc într-o altă forma în regulament, nu contine ceva extraordinar.
 YO6OWN, 2014
 ##88#
 a
-01B213~&Este permisa utilizarea temporara de catre un radioamator roman a statiilor de radioamator de tip "CEPT License" in tarile membre CEPT, fara a se cere in prealabil o autorizatie speciala?
+01B213~&Este permisă utilizarea temporara de catre un radioamator român a stațiilor de radioamator de tip "CEPT License" în tarile membre CEPT, fără a se cere în prealabil o autorizație speciala?
 null
 da
 nu
-da, insa doar in prezenta unui radioamator al tarii vizitate
-da, doar din amplasamentul si de la statia unui radioamator al tarii vizitate
+da, însă doar în prezenta unui radioamator al tarii vizitate
+da, doar din amplasamentul și de la stația unui radioamator al tarii vizitate
 YO6OWN 2014
 null
-Recomandarea CEPT T/R 61-01 specifica ca utilizarea pe o perioada scurta de timp a statiilor de radioamator de tip CEPT License este permisa in tarile membre CEPT. Nu se specifica ce inseamna perioada scurta, ramane la latitudinea administratiei fiecarei tari. Radioamatorul aflat in vizita este dator sa se informeze asupra regulamentelor locale referitoare la radioamatorism.
+Recomandarea CEPT T/R 61-01 specifică că utilizarea pe o perioada scurtă de timp a stațiilor de radioamator de tip CEPT License este permisă în tarile membre CEPT. Nu se specifică ce inseamna perioada scurta, ramane la latitudinea administratiei fiecarei tari. Radioamatorul aflat în vizita este dator să se informeze asupra regulamentelor locale referitoare la radioamatorism.
 YO6OWN 2014
 ##89#
 a
-02B213~&Este permisa utilizarea temporara de catre un radioamator roman a statiilor de radioamator de tip "CEPT Novice License" in tarile membre CEPT, fara a se cere in prealabil o autorizatie speciala?
+02B213~&Este permisă utilizarea temporara de catre un radioamator român a stațiilor de radioamator de tip "CEPT Novice License" în tarile membre CEPT, fără a se cere în prealabil o autorizație speciala?
 null
 da
-nu, doar radioamatorii cu echivalenta "CEPT", si nu "CEPT License" au voie sa activeze fara autorizare prealabila.
-da, insa doar in prezenta unui radioamator al tarii vizitate
-da, doar din amplasamentul si de la statia unui radioamator al tarii vizitate
+nu, doar radioamatorii cu echivalenta "CEPT", și nu "CEPT License" au voie să activeze fără autorizare prealabila.
+da, însă doar în prezenta unui radioamator al tarii vizitate
+da, doar din amplasamentul și de la stația unui radioamator al tarii vizitate
 YO6OWN 2014
 null
-Recomandarea CEPT ECC (05)06 specifica recunoasterea mutuala a autorizatiilor echivalente CEPT Novice
+Recomandarea CEPT ECC (05)06 specifică recunoasterea mutuala a autorizațiilor echivalente CEPT Novice
 YO6OWN 2014
 ##90#
 b
-03A3237~&Pe ce se face reglajul emitatoarelor de radioamatori, in mod obligatoriu?
+03A3237~&Pe ce se face reglajul emitatoarelor de radioamatori, în mod obligatoriu?
 null
 pe o scala gradata
-pe o antena artificiala neradianta
+pe o antenă artificiala neradianta
 pe un tub cu neon
 pe un receptor performant
 YO6OWN, 2018
@@ -1082,11 +1081,11 @@ null
 
 ##91#
 b
-01A3232~&Cum se compune indicativul radioamatorului YO6ABC, cand el lucreaza pe statie portabila?
+01A3232~&Cum se compune indicativul radioamatorului YO6ABC, când el lucreaza pe stație portabila?
 null
 se compune din indicativul de apel atribuit, urmat de litera P: YO6ABCP
-se compune din indicativul de apel atribuit, urmat de o bara de fractie / si litera P: YO6ABC/P
-se compune din indicativul de apel atribuit, urmat de doua bare de fractie // si litera P: YO6ABC//P
+se compune din indicativul de apel atribuit, urmat de o bara de fractie / și litera P: YO6ABC/P
+se compune din indicativul de apel atribuit, urmat de doua bare de fractie // și litera P: YO6ABC//P
 se compune din indicativul de apel atribuit, urmat de cuvantul PORTABIL: YO6ABC PORTABIL
 YO6OWN 2014
 null
@@ -1094,11 +1093,11 @@ Anexa la Decizie, Cap. IV, 5)
 YO6OWN, 2018
 ##92#
 b
-02A3232~&Cum se compune indicativul radioamatorului YO6ABC, cand el lucreaza pe o statie montata in automobil?
+02A3232~&Cum se compune indicativul radioamatorului YO6ABC, când el lucreaza pe o stație montata în automobil?
 null
-se compune din litera M urmata de o bara de fractie si de indicativul de apel atribuit: M/YO6ABC
-se compune din indicativul de apel atribuit, urmat de o bara de fractie / si litera M: YO6ABC/M
-se compune din indicativul de apel atribuit, urmat de doua bare de fractie // si litera M: YO6ABC//M
+se compune din litera M urmata de o bara de fractie și de indicativul de apel atribuit: M/YO6ABC
+se compune din indicativul de apel atribuit, urmat de o bara de fractie / și litera M: YO6ABC/M
+se compune din indicativul de apel atribuit, urmat de doua bare de fractie // și litera M: YO6ABC//M
 se compune din indicativul de apel atribuit, urmat de cuvantul MOBIL: YO6ABC MOBIL
 YO6OWN 2014
 null
@@ -1106,11 +1105,11 @@ Anexa la Decizie, Cap. IV, 5)
 YO6OWN, 2018
 ##93#
 b
-03A3232~&Cum se compune indicativul radioamatorului YO6ABC, cand el face radiolegaturi dintr-un avion usor?
+03A3232~&Cum se compune indicativul radioamatorului YO6ABC, când el face radiolegaturi dintr-un avion usor?
 null
-se compune din literele AM urmate de o bara de fractie si de indicativul de apel atribuit: AM/YO6ABC
-se compune din indicativul de apel atribuit, urmat de o bara de fractie / si literele AM: YO6ABC/AM
-se compune din indicativul de apel atribuit, dar cu prefix YR si cu liniuta in loc de numar de zona: YR-ABC
+se compune din literele AM urmate de o bara de fractie și de indicativul de apel atribuit: AM/YO6ABC
+se compune din indicativul de apel atribuit, urmat de o bara de fractie / și literele AM: YO6ABC/AM
+se compune din indicativul de apel atribuit, dar cu prefix YR și cu liniuta în loc de numar de zona: YR-ABC
 se compune din indicativul de apel atribuit, urmat de cuvantul AERO: YO6ABC AERO
 YO6OWN 2014
 null
@@ -1118,59 +1117,59 @@ Anexa la Decizie, Cap. IV, 5)
 YO6OWN, 2018
 ##94#
 b
-04B3232~&Cum se compune indicativul radioamatorului YO6ABC, cand lucreaza cu statia de buzunar din postura sa de pasager pe un vapor fluvial?
+04B3232~&Cum se compune indicativul radioamatorului YO6ABC, când lucreaza cu stația de buzunar din postura să de pasager pe un vapor fluvial?
 null
-se compune din indicativul de apel atribuit, urmat de o bara de fractie / si litera P: YO6ABC/P
-se compune din indicativul de apel atribuit, urmat de o bara de fractie / si literele MM: YO6ABC/MM
-se compune din indicativul de apel atribuit, urmat de doua bare de fractie // si litera M: YO6ABC//M
-se compune din indicativul de apel atribuit, urmat de o bara de fractie / si grupul P-MM : YO6ABC/P-MM  
+se compune din indicativul de apel atribuit, urmat de o bara de fractie / și litera P: YO6ABC/P
+se compune din indicativul de apel atribuit, urmat de o bara de fractie / și literele MM: YO6ABC/MM
+se compune din indicativul de apel atribuit, urmat de doua bare de fractie // și litera M: YO6ABC//M
+se compune din indicativul de apel atribuit, urmat de o bara de fractie / și grupul P-MM : YO6ABC/P-MM  
 YO6OWN 2014
 null
 Anexa la Decizie, Cap. IV, 5)
 YO6OWN, 2018
 ##95#
 c
-02B3239~&Cand sunt permise, ca exceptie, transmiterea mesajelor de la, sau catre terti neradioamatori? 
+02B3239~&Cand sunt permise, ca excepție, transmiterea mesajelor de la, sau catre terti neradioamatori? 
 null
-Cand e vorba de o zona fara acces la internet, telefonie sau alte servicii comerciale
-Atunci cand nu exista semnal la telefonul mobil
-In situatii de urgenta si umanitare
-Nu sunt permise mesajele de la, sau catre terti in nici un caz
+Cand e vorba de o zona fără acces la internet, telefonie sau alte servicii comerciale
+Atunci când nu exista semnal la telefonul mobil
+În situatii de urgenta și umanitare
+Nu sunt permise mesajele de la, sau catre terti în nici un caz
 YO6OWN 2014
 null
 
 
 ##96#
 d
-01A3238~&In caz de interferente sau perturbatii intre radioamatori romani, cum se va rezolva aceasta problema?
+01A3238~&În caz de interferențe sau perturbații între radioamatori români, cum se va rezolva această problemă?
 null
-prin marirea puterii de emisie
-prin impunerea schimbarii frecventei
+prin mărirea puterii de emisie
+prin impunerea schimbării frecvenței
 prin arbitrajul unui radioamator neutru
-prin intelegere amiabila intre cei interesati
+prin înțelegere amiabilă între cei interesați
 YO6OWN 2014
 null
 
 
 ##97#
 d
-03A3239~&Cu cine pot stabili statiile de radioamatori in mod normal, legaturi radio?
+03A3239~&Cu cine pot stabili stațiile de radioamatori în mod normal, legaturi radio?
 null
 cu Statia Spatiala
-cu orice statie care apeleaza CQ
-cu statii de radioamator si de Citizen Band
-doar cu alte statii de radioamator
+cu orice stație care apeleaza CQ
+cu stații de radioamator și de Citizen Band
+doar cu alte stații de radioamator
 YO6OWN 2014
 null
 
 
 ##98#
 a
-01A3302~&Care sunt clasele de certificate romanesti echivalente cu certificatul CEPT HAREC?
+01A3302~&Care sunt clasele de certificate românești echivalente cu certificatul CEPT HAREC?
 null
-certificatele de clasa I si a II-a
-certificatele de clasa a II-a si a III-a
-certificatele de clasa a III-a si IV
+certificatele de clasa I și a II-a
+certificatele de clasa a II-a și a III-a
+certificatele de clasa a III-a și IV
 certificatul de clasa I
 YO6OWN, 2018
 null
@@ -1178,11 +1177,11 @@ null
 
 ##99#
 d
-02A3302~&Care sunt clasele de certificate romanesti echivalente cu certificatul CEPT Novice?
+02A3302~&Care sunt clasele de certificate românești echivalente cu certificatul CEPT Novice?
 null
-certificatele de clasa I si a II-a
-certificatele de clasa a II-a si a III-a
-certificatele de clasa a III-a si a IV-a
+certificatele de clasa I și a II-a
+certificatele de clasa a II-a și a III-a
+certificatele de clasa a III-a și a IV-a
 certificatul de clasa a III-a
 YO6OWN, 2018
 null
@@ -1190,7 +1189,7 @@ null
 
 ##100#
 a
-03A3302~&Carei certificari CEPT ii este echivalenta clasa romaneasca IV?
+03A3302~&Cărei certificari CEPT ii este echivalenta clasa romaneasca IV?
 null
 echivalenta cu CEPT Entry Level
 echivalenta cu CEPT Novice
@@ -1202,35 +1201,35 @@ null
 
 ##101#
 d
-02A3303~&Ce inseamna examen semestrial(ordinar)?
+02A3303~&Ce inseamnă examen semestrial(ordinar)?
 null
-este singurul examen in care se poate da examen pentru clasa I
+este singurul examen în care se poate da examen pentru clasa I
 este examenul la care candidatul participa prima data
-este examenul in care se dau subiectele obisnuite cu cod A
-este examenul organizat in perioada obisnuita, semestrial(aprilie sau octombrie) de catre directiile teritoriale ANCOM
+este examenul în care se dau subiectele obisnuite cu cod A
+este examenul organizat în perioada obisnuita, semestrial(aprilie sau octombrie) de catre directiile teritoriale ANCOM
 YO6OWN 2018
 null
 
 
 ##102#
 d
-03A3303~&Ce inseamna sesiune suplimentara de examinare(examen extraordinar)?
+03A3303~&Ce inseamnă sesiune suplimentara de examinare(examen extraordinar)?
 null
 este examenul cu proba practica pe aparate
-este examenul la care se prezinta cei care nu au obtinut calificativul ADMIS la toate probele in primul examen
-este examenul in care se dau subiectele cu dificultate D,E,F
-este examenul altul decat semestrial sau organizat in alte localitati decat in cere in care exista directii teritoriale ANCOM
+este examenul la care se prezinta cei care nu au obtinut calificativul ADMIS la toate probele în primul examen
+este examenul în care se dau subiectele cu dificultate D,E,F
+este examenul altul decat semestrial sau organizat în alte localitati decat în cele în care exista directii teritoriale ANCOM
 YO6OWN 2018
 null
 
 
 ##103#
 a
-04A3303~&Ce calificative trebuie sa obtina candidatul probe pentru a obtine "admis" la examen?
+04A3303~&Ce calificative trebuie să obtina candidatul probe pentru a obtine "admis" la examen?
 null
 Sa promoveze fiecare din probe
-"Foarte Bine" la 3 probe din 4 si un "Satisfacator"
-"Satisfacator" la 3 probe si "Foarte Bine" la proba de protectia muncii si electrosecuritate.
+"Foarte Bine" la 3 probe din 4 și un "Satisfacator"
+"Satisfacator" la 3 probe și "Foarte Bine" la proba de protectia muncii și electrosecuritate.
 "Satisfacator" la proba eliminatorie, apoi "Satisfacator" la restul probelor.
 YO6OWN 2014
 null
@@ -1238,129 +1237,129 @@ null
 
 ##104#
 c
-05A3303~&Cate semne trebuie sa transmita in Morse un candidat pentru clasa IV?
+05A3303~&Cate semne trebuie să transmita în Morse un candidat pentru clasa IV?
 null
 30 semne
 50 semne
 nu se mai sustine proba de telegrafie
 12 semne pe minut, timp de 3 minute
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2010)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
 
 ##105#
 a
-01A3413~&Da dreptul autorizatia de radioamator de a presta munca contra cost sau de a efectua operatiuni comerciale?
+01A3413~&Da dreptul autorizația de radioamator de a presta munca contra cost sau de a efectua operatiuni comerciale?
 null
-nu, autorizatia de confera dreptul de utilizare a benzilor radio atribuite serviciului de amator, in conditiile clasei autorizatiei respective
+nu, autorizația de confera dreptul de utilizare a benzilor radio atribuite serviciului de amator, în conditiile clasei autorizației respective
 da, nu poate limita dreptul la munca, nu numai radioamatorii muncesc contra cost
 nu, cu exceptia infiintarii unui service de aparatura de radioamator
-da, insa doar trafic comercial contra cost
+da, însă doar trafic comercial contra cost
 YO6OWN 2018
 null
 
 
 ##106#
 c
-02A3413~&Ce drepturi da detinerea autorizatiei de radioamator?
+02A3413~&Ce drepturi dă deținerea autorizației de radioamator?
 null
 de a presta munca contra cost
 de a face trafic radio comercial
 de a face doar trafic de radioamator
-de a percepe taxa modica pentru radiograme transmise tertilor
+de a percepe taxă modică pentru radiograme transmise terților
 YO6OWN 2018
 null
 
 
 ##107#
 c
-01A3414~&De cate clase sunt autorizatiile de radioamator?
+01A3414~&De câte clase sunt autorizațiile de radioamator?
 null
-2 clase: Novice si Avansat
-3 clase: clasa I, clasa a II-a, si clasa a III-a
-4 clase: clasa I, clasa a II-a, clasa a III-a si clasa a IV-a
-4 clase: clasa I, clasa a II-a, clasa a III-a si clasa a III-a restrans
+2 clase: Novice și Avansat
+3 clase: clasa I, clasa a II-a, și clasa a III-a
+4 clase: clasa I, clasa a II-a, clasa a III-a și clasa a IV-a
+4 clase: clasa I, clasa a II-a, clasa a III-a și clasa a III-a restrâns
 YO6OWN 2014,rev.2018
 null
 
 
 ##108#
 a
-01A3415~&Care sunt clasele de autorizatii romanesti echivalente cu autorizatia CEPT?
+01A3415~&Care sunt clasele de autorizații românești echivalente cu autorizația CEPT?
 null
-clasa I si clasa a II-a
+clasa I și clasa a II-a
 clasa a III-a
 clasa I
-Toate clasele I,II,III,IV sunt echivalente cu autorizatia CEPT
+Toate clasele I,II,III,IV sunt echivalente cu autorizația CEPT
 YO6OWN 2014
 null
 
 
 ##109#
 b
-02A3415~&Care sunt clasele de autorizatii romanesti echivalente cu autorizatia CEPT Novice?
+02A3415~&Care sunt clasele de autorizații românești echivalente cu autorizația CEPT Novice?
 null
-clasa I si clasa a II-a
+clasa I și clasa a II-a
 clasa a III-a
 clasa I
-Toate clasele I,II,III,IV sunt echivalente cu autorizatia CEPT
+Toate clasele I,II,III,IV sunt echivalente cu autorizația CEPT
 YO6OWN 2014, rev. 2018
 null
 
 
 ##110#
 a
-03A3415~&Cu ce nivel de autorizatie CEPT este echivalenta autorizatia romaneasca de clasa a IV-a?
+03A3415~&Cu ce nivel de autorizație CEPT este echivalenta autorizația romaneasca de clasa a IV-a?
 null
-echivalenta cu autorizatia CEPT Entry-Class
+echivalenta cu autorizația CEPT Entry-Class
 nu este echivalenta cu nici o clasa CEPT
-echivalenta cu autorizatia CEPT Novice
-echivalenta cu autorizatia HAREC
+echivalenta cu autorizația CEPT Novice
+echivalenta cu autorizația HAREC
 YO6OWN 2014, rev. 2018
 null
 
 
 ##111#
 b
-03A3421~&Care este durata de valabilitate a autorizatiei pentru radioclub?
+03A3421~&Care este durata de valabilitate a autorizației pentru radioclub?
 null
 10 ani
 5 ani
 1 an
-este valabila atata timp cat responsabilul de radioclub are o autorizatie valida
+este valabila atata timp cat responsabilul de radioclub are o autorizație valida
 YO6OWN 2018
 null
 
 
 ##112#
 c
-01B3431~&Cine poate solicita emiterea unei autorizatii pentru o radiobaliza?
+01B3431~&Cine poate solicita emiterea unei autorizații pentru o radiobaliza?
 null
-O persoana fizica sau o persoana juridica din Romania care se angajeaza sa asigure toate conditiile tehnice, organizatorice si administrative pentru ca activitatea radiobalizei sa se desfasoare conform Deciziei ce reglementeaza serviciul de amator
+O persoana fizica sau o persoana juridica din România care se angajeaza să asigure toate conditiile tehnice, organizatorice și administrative pentru ca activitatea radiobalizei să se desfasoare conform Deciziei ce reglementeaza serviciul de amator
 Un radioclub
-Un radioamator sau un radioclub din Romania care se angajeaza sa asigure toate conditiile tehnice, organizatorice si administrative pentru ca activitatea radiobalizei sa se desfasoare conform Deciziei ce reglementeaza serviciul de amator
-orice radioamator autorizat cu clasa I sau II care nu are abateri de la Regulament in ultimii 2 ani
+Un radioamator sau un radioclub din România care se angajeaza să asigure toate conditiile tehnice, organizatorice și administrative pentru ca activitatea radiobalizei să se desfasoare conform Deciziei ce reglementeaza serviciul de amator
+orice radioamator autorizat cu clasa I sau II care nu are abateri de la Regulament în ultimii 2 ani
 YO6OWN, 2018
 null
 Art. 24 din Decizie
 YO6OWN, 2018
 ##113#
 c
-02B3431~&Cine poate solicita emiterea unei autorizatii pentru o statie repetoare?
+02B3431~&Cine poate solicita emiterea unei autorizații pentru o stație repetoare?
 null
-O persoana fizica sau o persoana juridica din Romania care se angajeaza sa asigure toate conditiile tehnice, organizatorice si administrative pentru ca activitatea statiei repetoare sa se desfasoare conform Deciziei ce reglementeaza serviciul de amator
+O persoana fizica sau o persoana juridica din România care se angajeaza să asigure toate conditiile tehnice, organizatorice și administrative pentru ca activitatea stației repetoare să se desfasoare conform Deciziei ce reglementeaza serviciul de amator
 Un radioclub
-Un radioamator sau un radioclub din Romania care se angajeaza sa asigure toate conditiile tehnice, organizatorice si administrative pentru ca activitatea statiei repetoare sa se desfasoare conform Deciziei ce reglementeaza serviciul de amator
-orice radioamator autorizat cu clasa I sau II care nu are abateri de la Regulament in ultimii 2 ani
+Un radioamator sau un radioclub din România care se angajeaza să asigure toate conditiile tehnice, organizatorice și administrative pentru ca activitatea stației repetoare să se desfasoare conform Deciziei ce reglementeaza serviciul de amator
+orice radioamator autorizat cu clasa I sau II care nu are abateri de la Regulament în ultimii 2 ani
 YO6OWN, 2018
 null
 Art. 24 din Decizie
 YO6OWN, 2018
 ##114#
 a
-03B3431~&Ce clasa are autorizatia emisa de ANCOM pentru o statie repetoare sau pentru o radiobaliza?
+03B3431~&Ce clasă are autorizația emisă de ANCOM pentru o stație repetoare sau pentru o radiobaliza?
 null
-Aceeasi clasa cu a radioamatorului sau a responsabilului de radioclub care solicita autorizatia
+Aceeasi clasă cu a radioamatorului sau a responsabilului de radioclub care solicita autorizația
 clasa I
 Statia repetoare sau radiobaliza se autorizeaza cu lista de parametri tehnici, nu are clasa.
 Se acorda clasa minima necesara pentru a se atinge utilitatea sistemului, conform memoriului tehnic
@@ -1372,17 +1371,17 @@ YO6OWN, 2018
 a
 01A3442~&Cum se atribuie indicativele YO cu 2 litere?
 null
-la cerere, daca indicativul e disponibil si daca solicitantul e autorizat clasa I sau II.
-la cerere, cu conditia de a nu fi avut abateri de la regulament in ultimii 2 ani
+la cerere, dacă indicativul e disponibil și dacă solicitantul e autorizat clasa I sau II.
+la cerere, cu conditia de a nu fi avut abateri de la regulament în ultimii 2 ani
 la cerere, se atribuie doar maestrilor sportului
-se atribuie la propunerea Federatiei Romane de Radioamatorism (FRR)
+se atribuie la propunerea Federației Române de Radioamatorism (FRR)
 YO6OWN 2018
 null
-Indicativele de radioamatori care au doar 2 litere semnifica in lumea radioamatorilor un indicativ al unui "venerabil si veritabil radioamator", fiindca in trecut radioamatorii aveau sufixul din 2 litere doar, fiind putini. Decizia dispune alocarea indicativelor cu 2 litere in acelasi spirit.
+Indicativele de radioamatori care au doar 2 litere semnifica în lumea radioamatorilor un indicativ al unui "venerabil și veritabil radioamator", fiindca în trecut radioamatorii aveau sufixul din 2 litere doar, fiind puțini. Decizia dispune alocarea indicativelor cu 2 litere în acelasi spirit.
 YO6OWN 2018
 ##116#
 d
-02A3442~&Care este durata de valabilitate a autorizatiei pentru un indicativ special?
+02A3442~&Care este durata de valabilitate a autorizației pentru un indicativ special?
 null
 90 zile calendaristice
 180 zile calendaristice
@@ -1406,37 +1405,37 @@ Sunt trei regiuni ITU, <a href="https://www.itu.int/en/ITU-R/information/Publish
 YO6OWN 2014
 ##118#
 b
-12A3530~&Ce domeniu de frecvente corespunde benzii de 80m alocate radioamatorilor din Romania?
+12A3530~&Ce domeniu de frecvențe corespunde benzii de 80m alocate radioamatorilor din România?
 null
 7,0-7,200 MHz
 3,5 - 3,8 MHz
 430 - 440 MHz
 1,85 - 2,00 MHz
-YO6OWN, Sacele, 2005(rev. 2014)
+YO6OWN, Săcele, 2005(rev. 2014)
 null
 Anexa 3 la regulament, Art. 1
 Regulamentul
 ##119#
 a
-13A3530~&Ce domeniu de frecvente corespunde benzii de 40m alocate radioamatorilor din Romania?
+13A3530~&Ce domeniu de frecvențe corespunde benzii de 40m alocate radioamatorilor din România?
 null
 7,0-7,2 MHz
 3,5 - 3,8 MHz
 430 - 440 MHz
 1,85 - 2,00 MHz
-YO6OWN, Sacele, 2005(rev. 2014)
+YO6OWN, Săcele, 2005(rev. 2014)
 null
 Anexa 3 la regulament, Art. 1
 Regulamentul
 ##120#
 c
-04A323b~&Ce este ora UTC, folosita la notarea radiolegaturii in log?
+04A323b~&Ce este ora UTC, folosita la notarea radiolegaturii în log?
 null
-ora Uniunii de Telecomunicatii si Comunicatii, care sincronizeaza toate centralele de telefonie din lume(ora plesiocrona)
+ora Uniunii de Telecomunicații și Comunicatii, care sincronizeaza toate centralele de telefonie din lume(ora plesiocrona)
 ora Uranium Time Clock - ora data de ceasul atomic de la Berna
-ora Universal  Time, Coordinated - ceasul atomic, aproximativ acelasi cu GMT in utilizare curenta
+ora Universal  Time, Coordinated - ceasul atomic, aproximativ acelasi cu GMT în utilizare curenta
 ora Uniform Time Clock - ora data de timpul de rotatie al planetei Terra
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
-Toate raspunsurile contin denumiri cu initialele U,T,C, si suna stiintific dar Universal Time, Coordinated este ora notata de radioamatori, restul variantelor nu exista in realitate. UTC este un succesor mai bine definit al GMT dar pentru radioamatori, UTC = GMT. (trivia - Ceasurile atomice de obicei nu folosesc uraniu). <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC: Link Wikipedia</a> 
+Toate raspunsurile contin denumiri cu initialele U,T,C, și suna stiintific dar Universal Time, Coordinated este ora notata de radioamatori, restul variantelor nu exista în realitate. UTC este un succesor mai bine definit al GMT dar pentru radioamatori, UTC = GMT. (trivia - Ceasurile atomice de obicei nu folosesc uraniu). <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC: Link Wikipedia</a> 
 YO6OWN, 2017
