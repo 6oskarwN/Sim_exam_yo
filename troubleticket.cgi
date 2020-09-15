@@ -110,12 +110,12 @@ my $answer_auc;
 my $fline; #var used to read a file line by line
 my $fline2;
 #functii
-sub legal; #intoarce 0 daca e text obscen,ilegal si 1 daca e legal
-sub aucenter(); #intoarce un string de tipul "text operatie:result"
-sub new_transaction; #adauga o tranzactie si intoarce transaction ID;
+sub legal; #returns 0 for obscene or illegal text and returns 1 for legal
+sub aucenter(); #returns a string of following type - "text operatie:result"
+sub new_transaction; #adds a tranzaction and returns a transaction ID;
 sub get_transaction($); #daca tranzactia nu exista intoarce string vid; daca exista, sterge linia din fisier si intoarce un string care e chiar linia de tranzactie din fisier;
 sub tran_refresh; #cleans expired transactions
-sub addrec; #adauga o inregistrare in db_troubleticket
+sub addrec; #adds a record in db_tt troubletickets file
 
 #BLOCK: Input
 {
@@ -261,13 +261,13 @@ if (defined $get_type) #it means we have a first call
   print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
   print qq!<html>\n!;
   print qq!<meta charset=utf-8>\n!;
-  print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
+  print qq!<head>\n<title>colectare erori și sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
   print qq!<font size="-1">v 3.1.3</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
- #se genereaza formularul integrand $newtrid si $question_auc
-  print qq!<center>\n<b>sistem de colectie erori</b>\n!;
+ #se generate form by integrating $newtrid and $question_auc
+  print qq!<center>\n<b>sistem de colecție erori</b>\n!;
   print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post">\n!;
   print qq!<table width="90%" border="0">\n!;  #debug, border="0" originally
 
@@ -283,8 +283,8 @@ if (defined $get_type) #it means we have a first call
 
   print qq!<tr>\n!;
   print qq!<td colspan="3" align="left">\n!;
-  print qq!Daca umbli cu ganduri curate, stii ca <font color="yellow">$question_auc</font>  egal !;
-  print qq!<input type="text" name="answer" size="8"> (in cifre)<br><br>\n!;
+  print qq!Dacă umbli cu gânduri curate, știi că <font color="yellow">$question_auc</font>  egal !;
+  print qq!<input type="text" name="answer" size="8"> (în cifre)<br><br>\n!;
   print qq!</td>\n!;
   print qq!</tr>\n!;
 
@@ -357,9 +357,6 @@ elsif ($dbtt[$i*4-3] eq 8) {print qq!<font color="green">[Rezolvat]</font>!;}
 
 ##doubled
 my $toprint = $dbtt[$i*4-2];
-#$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
-#$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
-#$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
 
 #print qq!<font color="black" size="-1">$dbtt[$i*4-2]</font><br>\n!; #debug: black is orange
 print qq!<font color="black" size="-1">$toprint</font><br>\n!; #debug: black is orange
@@ -402,13 +399,13 @@ close(ttFILE);
   print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
   print qq!<html>\n!;
   print qq!<meta charset=utf-8>\n!;
-  print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
+  print qq!<head>\n<title>colectare erori și sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
   print qq!<font size="-1">v 3.1.3</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
-print qq!<center>\n<b>sistem de colectie erori</b>\n!;
+print qq!<center>\n<b>sistem de colecție erori</b>\n!;
 print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post">\n!;
 print qq!<table width="90%" border="0">\n!;
 
@@ -424,8 +421,8 @@ print qq!</tr>\n!;
 
 print qq!<tr>\n!;
 print qq!<td colspan="3" align="left">\n!;
-print qq!Daca umbli cu ganduri curate, stii ca <font color="yellow">$question_auc</font>  egal !;
-print qq!<input type="text" name="answer" size="8"> (in cifre)<br><br>\n!;
+print qq!Dacă umbli cu gânduri curate, știi că <font color="yellow">$question_auc</font>  egal !;
+print qq!<input type="text" name="answer" size="8"> (în cifre)<br><br>\n!;
 print qq!</td>\n!;
 print qq!</tr>\n!;
 
@@ -449,12 +446,12 @@ print qq!<td align="left" colspan="2">\n!;
 #print qq!$get_text<br>\n!; #debug
 print qq!<input type="hidden" name="subtxt" value=\"$get_text\">\n!;
 my $toprint=$get_text;
-#asta e o evaluare, de vazut daca chiar e nevoie, si de vazut daca asta e inainte de writ in fisier sau inainte de resend to troubleticket.cgi
+#asta e o evaluare, de vazut daca chiar e nevoie, si de vazut daca asta e inainte de write in fisier sau inainte de resend to troubleticket.cgi
 #normal nu e nevoie deoarece s-a facut deja o conversie hex2char
 #$toprint=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char #poate aici afecta inainte pe &radic, nu mai e cazul;
 print qq!$toprint<br>\n!; #debug
 
-print qq!<textarea name="complaint" rows="5" cols="50" wrap="soft">explicatia ta aici</textarea>!;
+print qq!<textarea name="complaint" rows="5" cols="50" wrap="soft">explicația ta aici</textarea>!;
 #print qq!<textarea name="subtxt" rows="5" cols="50" wrap="soft">$get_text</textarea>!;
 print qq!</td>\n!;
 print qq!</tr>\n!;
@@ -523,7 +520,7 @@ if(($trid_type eq 0) or ($trid_type eq 1)) #general troubleticket form
                     {addrec($get_nick,6,$get_text); #6 is ticket, 1 to 5 are threat levels for internal logging
                     print qq!<center>\n!;
                     print qq!<INPUT TYPE="submit" value="OK"><br>\n!;
-                    print qq!Hint: Poti sa revii de aici in pagina anterioara pentru a propune o noua notificare, apasand de doua ori sageata inapoi  <==  in browserul web. \n!;
+                    print qq!Hint: Poți să revii de aici în pagina anterioară pentru a propune o nouă notificare, apăsând de două ori săgeata înapoi  <==  în browserul web. \n!;
                     print qq!</center>\n!;
                     print qq!</form>\n!; 
                     print qq!</body>\n</html>\n!;
@@ -701,12 +698,6 @@ my $epochTime = time();
 my $epochExpire = $epochTime + 900; #15 minutes lifetime = 900 sec
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
-#assemble the trid+timestamp
-#my $hexi= "admin_$exp_sec\_$exp_min\_$exp_hour\_$exp_day\_$exp_month\_$exp_year\_"; #adds the expiry timestamp
-#compute mac for timestamp 
-#my $heximac = compute_mac($hexi); #compute sha1 MessageAuthentication Code
-#$hexi= "$hexi$heximac"; #the full transaction id
-
 
 #print to screen the entry in the transaction list
 $hexi= sprintf("%+06X",$trid);
@@ -834,12 +825,12 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<meta charset=utf-8>\n!;
-print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
+print qq!<head>\n<title>colectare erori și sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
 print qq!v 3.1.3\n!; #version print for easy upload check
 print qq!<br>\n!;
-print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
+print qq!<h1 align="center">Adăugare reușită.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 #---------html page should finish here, but HTML code will continue after returning from function so that it prints different targets
 }
