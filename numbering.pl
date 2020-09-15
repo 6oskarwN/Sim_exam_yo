@@ -1,14 +1,13 @@
 #!/usr/bin/perl
 
-# ver. 3.0.6
+# ver. 3.0.7
 # general syntax-checking and auto-numbering script for eXAM databases(except db_human)
-# (c) 2008-2019 Francisc TOTH YO6OWN
+# (c) 2008-2020 Francisc TOTH YO6OWN
 # input at commandline:db_syntax.pl db_xxxxx [prog_Programa]
 # output in ./hx_release db_xxx and strip_db_xxx and in . db_xxx.html
 # open with a text editor the db_xxxxx.out, and on line 2 put the number of questions(last+1, because first question is ##0#)
-# DONE sa faca toata treaba, outputul sa fie corect, in UNIX format!!!!! sau sa fie error.
-# DONE in HTML da warning daca linia intrebarii nu contine v3code(nu e obligatoriu, dar doar cele cu v3 fac history)
 
+#ch v.3.0.7 - charset = utf-8 added in html page
 #ch v.3.0.6 - prog_Programa is already known and contained in first line of db_xxxxx
 #ch v.3.0.5 - warning daca raspunsurile lina 4-7 sa fie doar de formatul /^[a-d]$/
 #ch v.3.0.4 - awardspace.com banned list check: "porn","proxy","vand" implemented
@@ -61,6 +60,7 @@ open(HTFILE, ">", "$filename.html") || print "can't open $filename.html";
 printf HTFILE qq!Content-type: text/html\n\n!;
 printf HTFILE qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 printf HTFILE qq!<html>\n!;
+printf HTFILE qq!<meta charset=utf-8>\n!;
 printf HTFILE qq!<head>\n<title>$filename.html</title>\n</head>\n!;
 printf HTFILE qq!<body bgcolor="forestgreen" text="aquamarine" link="white" alink="white" vlink="white">\n!;
 
