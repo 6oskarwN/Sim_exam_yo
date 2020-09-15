@@ -32,14 +32,15 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2019
+# (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  tool_admintt.cgi v 3.2.6
+#  tool_admintt.cgi v 3.2.7
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.7 charset = utf-8 added in generated html
 # ch 3.2.6 whitelist Request method, solved the no-change of reflow
 # ch 3.2.5 functions moved to ExamLib.pm
 # ch 3.2.4 implementing the revocation of admin token
@@ -200,12 +201,13 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v 3.2.6</title>\n!;
+print qq!<meta charset=utf-8>\n!;
+print qq!<title>ticket listing v 3.2.7</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="black" link="white" alink="white" vlink="white">\n!;
 
 print qq!<center>\n!;
-print qq!<font color="white">Troubleticket administration v 3.2.6 for examYO &copy; YO6OWN, 2007-2019</font><br>\n!;
+print qq!<font color="white">Troubleticket administration v 3.2.7 for examYO &copy; YO6OWN, 2007-2019</font><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/tool_admintt.cgi" method="post">\n!;
 
 print qq!<table border="1" width="90%">\n!;
@@ -309,7 +311,8 @@ print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
 print qq!<head>\n!;
-print qq!<title>ticket listing v 3.2.6</title>\n!;
+print qq!<meta charset=utf-8>\n!;
+print qq!<title>ticket listing v 3.2.7</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="gray" text="black" link="white" alink="white" vlink="white">\n!;
 

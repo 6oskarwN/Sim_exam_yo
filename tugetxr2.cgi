@@ -32,14 +32,15 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2019
+# (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  tugetxr2.cgi v 3.2.5
+#  tugetxr2.cgi v 3.2.6
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.6 charset=utf-8 in generated html
 # ch 3.2.5 functions moved to ExamLib.pm
 # ch 3.2.4 implementing the revocation of admin token
 # ch 3.2.3 solving https://github.com/6oskarwN/Sim_exam_yo/issues/14 - set a max size to db_tt
@@ -162,7 +163,10 @@ seek(transactionFILE,0,0);              #go to the beginning
 
 print "Content-type: text/html\n\n";
 print "<html>\n";
-print qq!<head><title>noname Sanity Check R2.0</title></head>\n!;
+print qq!<head>\n!;
+print qq!<meta charset=utf-8>\n!;
+print qq!<title>Sanity Check R3.0</title>\n!;
+print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 
 

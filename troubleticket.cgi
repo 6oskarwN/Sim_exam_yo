@@ -32,14 +32,15 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2019
+# (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  troubleticket.cgi v 3.1.2
+#  troubleticket.cgi v 3.1.3
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.1.3 charset=utf-8 added in generated html
 # ch 3.1.2 filtering inputs for protection against cross-side-scripting
 # ch 3.1.1 implementing Occam's Razor for input parameters
 # ch 3.1.0 functions moved to ExamLib.pm
@@ -98,7 +99,7 @@ my @dbtt;   #this is the slurp variable
 ## Change the address above to your e-mail address. Make sure to KEEP the \
 #my $target_email="yo6own\@yahoo.com";
 ## Change the address above to your e-mail address. Make sure to KEEP the \
-#### .end of mailer patch v 3.1.2 #####
+#### .end of mailer patch v 3.1.3 #####
 
 
 #intermediate variables
@@ -259,10 +260,11 @@ if (defined $get_type) #it means we have a first call
   print qq!Content-type: text/html\n\n!;
   print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
   print qq!<html>\n!;
+  print qq!<meta charset=utf-8>\n!;
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.1.2</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.1.3</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
   print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -399,10 +401,11 @@ close(ttFILE);
   print qq!Content-type: text/html\n\n!;
   print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
   print qq!<html>\n!;
+  print qq!<meta charset=utf-8>\n!;
   print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.1.2</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.1.3</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colectie erori</b>\n!;
@@ -809,7 +812,7 @@ my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
-#### patch for mailer implementation from v 3.1.2 ######
+#### patch for mailer implementation from v 3.1.3 ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
 #print MAIL "From: $admin_email\n";
 #print MAIL "To: $target_email\n";
@@ -830,10 +833,11 @@ close(recFILE);
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
+print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>colectare erori si sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.1.2\n!; #version print for easy upload check
+print qq!v 3.1.3\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adaugare reusita.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;

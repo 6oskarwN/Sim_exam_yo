@@ -32,14 +32,15 @@
 
 # Made in Romania
 
-# (c) YO6OWN Francisc TOTH, 2008 - 2019
+# (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  sim_authent.cgi v 3.2.b 
+#  sim_authent.cgi v 3.2.c
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.c charset=utf-8 added in generated html
 # ch 3.2.b added chapter to support new clustered-chapter
 # ch 3.2.a things done in 3.0.c,d obsoleted by 3.2.9 and deleted
 # ch 3.2.9 check input string for defined format as security measure
@@ -531,11 +532,12 @@ close (transactionFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
+print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.b\n!; #version print for easy upload check
+print qq!v 3.2.c\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
