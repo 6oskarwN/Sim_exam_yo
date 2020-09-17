@@ -1,4 +1,4 @@
-Legislatie, clasa III v.3.35 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_CEPT_reg</curricula></font>
+Legislație, clasa III v.3.35 versiune actualizată pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_CEPT_reg</curricula></font>
 121
 ##0#
 d
@@ -1010,7 +1010,7 @@ null
 
 ##84#
 a
-01B211~&Ce clasa de autorizatie de radioamator din Romania este echivalenta cu CEPT Novice License?
+01B211~&Ce clasa de autorizatie de radioamator din Romania este echivalentă cu CEPT Novice License?
 null
 clasa a III-a
 clasa I
@@ -1025,7 +1025,7 @@ a
 02C211~&Titularul autorizatiei de radioamator clasa III are voie sa emita de pe teritoriului unui alt stat, fara sa ceara in prealabil o autorizare speciala?
 null
 da, doar daca acel stat a ratificat acordul CEPT si Recomandarea ECC (05) 06
-nu, fiindca aceasta clasa este echivalenta doar cu licenta de incepatori CEPT Novice si poate emite doar in tara proprie
+nu, fiindca aceasta clasa este echivalentă doar cu licența de incepatori CEPT Novice si poate emite doar in tara proprie
 da, insa doar cu 50W maxim
 Fara exceptie, este nevoie de autorizatie speciala dela autoritatile acelui stat
 YO6OWN 2014
@@ -1054,7 +1054,7 @@ da, insa doar daca raspunzi la apel de QSO din tara respectiva, nu este permis s
 da, si asta-i frumusetea, nimeni nu poate intrerupe unda radio
 YO6OWN 2014
 null
-Articolul 25 din "Reglementarile Radio UIT", 25.1 stipuleaza ca nu se fac radiolegaturi cu tari ale caror administratii anunta ca nu permit radioamatorismul.<br>Desi pare ca ITU recunoaste si ajuta prin acest paragraf dictaturile, ne putem gandi la consecintele efectuarii de QSO-uri cu o asemenea tara: niste pasionati ca noi vor fi cautati si pedepsiti. Exista posibilitatea in dictaturi ca doar aservitii directi ai dictaturii sa se joace de-a radioamatorii iar respectarea reglementarii ITU de tacere radio ii priveaza de o distractie accesibila doar "elitei".
+Articolul 25 din "Reglementarile Radio UIT", 25.1 stipuleaza ca nu se fac radiolegaturi cu tari ale caror administratii anunta ca nu permit radioamatorismul.<br>Desi pare ca ITU recunoaste si ajuta prin acest paragraf dictaturile, ne putem gandi la consecintele efectuarii de QSO-uri cu o asemenea tara: niste pasionati ca noi vor fi cautati si pedepsiti. Exista posibilitatea in dictaturi ca doar aservitii directi ai dictaturii sa se joace de-a radioamatorii iar respectarea reglementarii ITU de tacere radio îi priveaza de o distractie accesibila doar "elitei".
 YO6OWN, 2014
 ##88#
 a
@@ -1062,7 +1062,7 @@ a
 null
 Este vorba de un set de reguli generice din serviciul de radioamator si radioamator prin satelit, privitoare la autorizarea si exploatarea statiilor de radioamator care sa fie adoptate in regulamentele interne are tarilor membre UIT
 Contine lista tehnicilor de modulatie permise in traficul de radioamator pentru tarile membre
-Se specifica ca statiile de radioclub trebuie sa aiba un responsabil cu licenta HAREC Advanced
+Se specifica ca statiile de radioclub trebuie sa aiba un responsabil cu licența HAREC Advanced
 Este specificata lista cerintelor pentru aderarea unei tari ne-membre la UIT si CEPT
 YO6OWN 2014
 null
@@ -1073,7 +1073,7 @@ a
 02B213~&Este permisa utilizarea temporara de catre un radioamator roman a statiilor de radioamator de tip "CEPT Novice License" in tarile membre CEPT, fara a se cere in prealabil o autorizatie speciala?
 null
 da
-nu, doar radioamatorii cu echivalenta "CEPT", și nu "CEPT License" au voie să activeze fără autorizare prealabilă.
+nu, doar radioamatorii cu echivalentă "CEPT", și nu "CEPT License" au voie să activeze fără autorizare prealabilă.
 da, însă doar în prezența unui radioamator al țării vizitate
 da, doar din amplasamentul și de la stația unui radioamator al țării vizitate
 YO6OWN 2014
@@ -1202,12 +1202,12 @@ null
 
 ##101#
 a
-03A3302~&Cărei certificari CEPT ii este echivalenta clasa româneasca IV?
+03A3302~&Cărei certificări CEPT îi este echivalentă clasa româneasca IV?
 null
-echivalenta cu CEPT Entry Level
-echivalenta cu CEPT Novice
-echivalenta cu HAREC
-echivalenta cu CEPT Novice Junior
+echivalentă cu CEPT Entry Level
+echivalentă cu CEPT Novice
+echivalentă cu HAREC
+echivalentă cu CEPT Novice Junior
 YO6OWN, 2018
 null
 
@@ -1339,7 +1339,7 @@ null
 10 ani
 5 ani
 1 an
-este valabila atât timp cât responsabilul de radioclub are o autorizație validă
+este valabilă atât timp cât responsabilul de radioclub are o autorizație validă
 YO6OWN 2018
 null
 
