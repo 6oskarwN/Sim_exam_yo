@@ -403,13 +403,13 @@ print "<br>\n";
 #print qq!<font color="yellow">Erori:</font><br>\n!;
 print qq!<table border="0" width="80%" align="center"><tr><td>!;
 if($f_valid_login) {print qq!<font color="yellow">- nume utilizator formatat incorect(vezi descrierea din dreptul parametrului)</font><br>\n!;}
-if($f_xuser){print qq!<font color="yellow">- numele de utilizator ales exista deja. Alege-ti un alt login.</font><br>\n!;}
-if($f_valid_tipcont) {print qq!<font color="red">- $post_tipcont nu este o valoare acceptata</font><br>\n!;} #should be logged as cheat attempt maybe
-if($f_pass_eq){print qq!<font color="yellow">- cele doua parole nu sunt identice sau parola nu respecta normele de securitate(vezi descrierea din dreptul parametrului)</font><br>\n!;}
+if($f_xuser){print qq!<font color="yellow">- numele de utilizator ales există deja. Alege-ți un alt login.</font><br>\n!;}
+if($f_valid_tipcont) {print qq!<font color="red">- $post_tipcont nu este o valoare acceptată</font><br>\n!;} #should be logged as cheat attempt maybe
+if($f_pass_eq){print qq!<font color="yellow">- cele două parole nu sunt identice sau parola nu respectă normele de securitate(vezi descrierea din dreptul parametrului)</font><br>\n!;}
 print qq!</td></tr></table>!;
 
 print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">\n!;
-print qq!<p><center><b>Formular de inregistrare (valabil 15 minute)</b></center></p>\n!;
+print qq!<p><center><b>Formular de înregistrare (valabil 15 minute)</b></center></p>\n!;
 
 print qq!<table width="80%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
 
@@ -426,7 +426,7 @@ unless($f_xuser or $f_valid_login) {print qq!<input type="text" name="login"  va
 else {print qq!<input type="text" name="login" size="25">!;}
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere din setul (a-z, A-Z, 0-9, _). login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!; #must match string from sim_ver0.cgi
+print qq!<font size="-1">Trebuie să aibă între 4 și 25 caractere din setul (a-z, A-Z, 0-9, _). login-ul trebuie să fie unic și să nu fie folosit deja.</font>!; #must match string from sim_ver0.cgi
 print qq!</td>!;
 print qq!</tr>\n!;
 	 
@@ -440,7 +440,7 @@ if($f_pass_eq) {print qq!<input type="password" name="passwd1" size="25">!;}
 else {print qq!<input type="password" name="passwd1" value="$post_passwd1" size="25">!;}
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere din setul (a-z, A-Z, 0-9, \!\@\#\$\*\-\_).</font>!; #must match string from sim_ver0.cgi
+print qq!<font size="-1">Parola trebuie să aibă între 8 și 25 caractere din setul (a-z, A-Z, 0-9, \!\@\#\$\*\-\_).</font>!; #must match string from sim_ver0.cgi
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -454,7 +454,7 @@ if($f_pass_eq) {print qq!<input type="password" name="passwd2" size="25">!;}
 else {print qq!<input type="password" name="passwd2" value="$post_passwd2" size="25">!;}
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa fie identica cu parola introdusa mai sus</font>!; 
+print qq!<font size="-1">Trebuie să fie identică cu parola introdusă mai sus</font>!; 
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -480,12 +480,12 @@ print qq!>Examen simulat clasa III</option>\n!;
 
 print qq!<option value="4" !;
 if(!$f_valid_tipcont && ($post_tipcont eq "4")){ print qq!selected="y" !;}
-print qq!>Examen simulat clasa III-R</option>\n!;
+print qq!>Examen simulat clasa IV</option>\n!;
 
 print qq!</select>\n!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Contul de antrenament permite sa dai oricate examene, examenul simulat este unic.</font>!;
+print qq!<font size="-1">Contul de antrenament permite să dai oricâte examene, examenul simulat este unic.</font>!;
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -582,7 +582,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!v 3.2.a\n!; #version print for easy upload check
-print qq!<h1 align="center">Inregistrare reusita.</h1>\n!;
+print qq!<h1 align="center">Înregistrare reușită.</h1>\n!;
 print "<br>\n";
 
 print "<center>Acum puteti sa va autentificati cu noile date.</center>\n";
