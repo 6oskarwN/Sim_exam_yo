@@ -139,7 +139,7 @@ unless($buffer =~ m/^login=[a-zA-Z0-9_]{4,25}&passwd=[a-zA-Z0-9!@#\$*\-_]{8,40}$
 unless($#pairs == 1) #exact 2 perechi: p0 si p1
 {
 #my $err_harvester = $ENV{'QUERY_STRING'}; #se poate citi query string de oricate ori?
-dienice("ERR01",0,\"nu exista exact perechea login si password"); #insert reason and data in cheat log 
+dienice("ERR01",0,\"login and password pair does not exist exactly like this"); #insert reason and data in cheat log 
 }
 #end number consistency check
 

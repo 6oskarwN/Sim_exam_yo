@@ -566,9 +566,9 @@ null
 
 ##47#
 c
-06B285~&Cândsunt permise, ca exceptie, transmiterea mesajelor de la, sau către terți neradioamatori? 
+06B285~&Când sunt permise, ca exceptie, transmiterea mesajelor de la, sau către terți neradioamatori? 
 null
-Cânde vorba de o zonă fără acces la internet, telefonie sau alte servicii comerciale
+Când e vorba de o zonă fără acces la internet, telefonie sau alte servicii comerciale
 Atunci când nu există semnal la telefonul mobil
 În situatii de urgență și umanitare
 Nu sunt permise mesajele de la, sau către terți în nici un caz
@@ -580,8 +580,8 @@ null
 d
 07A285~&Cu cine pot stabili stațiile de radioamatori în mod normal, legături radio?
 null
-cu Stația Spatiala
-cu orice stație care apeleaza CQ
+cu Stația Spațială
+cu orice stație care apelează CQ
 cu stații de radioamator și de Citizen Band
 doar cu alte stații de radioamator
 YO6OWN 2014
@@ -590,103 +590,103 @@ null
 
 ##49#
 d
-09A282~&Ce inseamna examen semestrial(ordinar)?
+09A282~&Ce înseamnă examen semestrial(ordinar)?
 null
 este singurul examen în care se poate da examen pentru clasa I
-este examenul la care candidatul participa prima dată
-este examenul în care se dau subiectele obisnuite cu cod A
-este examenul organizat în perioada obisnuita, semestrial(aprilie sau octombrie) de către direcțiile teritoriale ANCOM
+este examenul la care candidatul participă prima dată
+este examenul în care se dau subiectele obișnuite cu cod A
+este examenul organizat în perioada obișnuită, semestrial(aprilie sau octombrie) de către direcțiile teritoriale ANCOM
 YO6OWN 2018
 null
 
 
 ##50#
 a
-08A281~&Da dreptul autorizația de radioamator de a presta munca contra cost sau de a efectua operatiuni comerciale?
+08A281~&Dă dreptul autorizația de radioamator de a presta muncă contra cost sau de a efectua operațiuni comerciale?
 null
-nu, autorizația de confera dreptul de utilizare a benzilor radio atribuite serviciului de amator, în condițiile clasei autorizației respective
-da, nu poate limita dreptul la munca, nu numai radioamatorii muncesc contra cost
-nu, cu exceptia inființării unui service de aparatura de radioamator
-da, însă doar trafic comercial contra cost
-YO6OWN 2018
+nu, autorizația de radioamator conferă dreptul de utilizare a benzilor radio atribuite serviciului de amator, în condițiile clasei autorizației respective
+da, nu poate limita dreptul la muncă, nu numai radioamatorii muncesc contra cost
+nu, cu excepția înființării unui service de aparatură de radioamator
+da, cu condiția respectării obligațiilor fiscale.
+YO6OWN 2020
 null
 
 
 ##51#
 c
-10A282~&De cate clase sunt autorizațiile de radioamator?
+10A282~&De câte clase sunt autorizațiile de radioamator?
 null
 2 clase: Novice și Avansat
 3 clase: clasa I, clasa a II-a, și clasa a III-a
 4 clase: clasa I, clasa a II-a, clasa a III-a și clasa a IV-a
-4 clase: clasa I, clasa a II-a, clasa a III-a și clasa a III-a restrans
-YO6OWN 2014,rev..2018
+4 clase: clasa I, clasa a II-a, clasa a III-a și clasa a III-a restrâns
+YO6OWN 2014,rev. 2018
 null
 
 
 ##52#
 a
-11A282~&Cu ce nivel de autorizație CEPT este echivalenta autorizația romaneasca de clasa a IV-a?
+11A282~&Cu ce nivel de autorizație CEPT este echivalentă autorizația românească de clasa a IV-a?
 null
-echivalenta cu autorizația CEPT Entry-Class
-nu este echivalenta cu nici o clasa CEPT
-echivalenta cu autorizația CEPT Novice
-echivalenta cu autorizația HAREC
+echivalentă cu autorizația CEPT Entry-Class
+nu este echivalentă cu nici o clasa CEPT
+echivalentă cu autorizația CEPT Novice
+echivalentă cu autorizația HAREC
 YO6OWN 2014, rev. 2018
 null
 
 
 ##53#
 a
-03A298~&Ce se intampla cu sufixele de indicativ(cele 2 sau 3 litere) în cazul schimbării domiciliului
+03A298~&Ce se întamplă cu sufixele de indicativ(cele 2 sau 3 litere) în cazul schimbării domiciliului?
 null
-se pastreaza
-se realoca
+se păstrează
+se realocă
 se atribuie altele și sufixul vechi nu se poate aloca o perioada de 5 ani
-se schimba
+se schimbă
 YO6OWN 2014
 null
-Aceasta intrebare cu pastrarea sufixului există fiindcă în regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizației de radioamator se vor pastra de-a lungul intregii perioade de valabilitate a acesteia, inclusiv în situatia schimbării domiciliului". Era o facilitate pentru radioamator și o comoditate pentru ANCOM să nu schimbe sufixul.<br>În legislatia în vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate speram că aceasta practica va ramane neschimbata dar legal, ANCOM nu are nicio obligație.
+Această întrebare cu păstrarea sufixului există fiindcă în regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizației de radioamator se vor păstra de-a lungul întregii perioade de valabilitate a acesteia, inclusiv în situația schimbării domiciliului". Era o facilitate pentru radioamator și o comoditate pentru ANCOM să nu schimbe sufixul.<br>În legislatia în vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate sperăm că această practică va rămâne neschimbată dar legal, ANCOM nu are nicio obligație.
 Georgina28 2018
 ##54#
 a
-04A298~&Ce se intampla cu sufixele de indicativ(cele 2 sau 3 litere) în cazul schimbării domiciliului în zona altei Directii Teritoriale ANCOM?
+04A298~&Ce se întâmplă cu sufixele de indicativ(cele 2 sau 3 litere) în cazul schimbării domiciliului în zona altei Direcții Teritoriale ANCOM?
 null
-se pastreaza
-se realoca
+se pastrează
+se realocă
 se atribuie altele și sufixul vechi nu se poate aloca o perioada de 5 ani
-se schimba
+se schimbă
 YO6OWN 2014
 null
-Aceasta intrebare cu pastrarea sufixului există fiindcă în regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizației de radioamator se vor pastra de-a lungul intregii perioade de valabilitate a acesteia, inclusiv în situatia schimbării domiciliului". Era o facilitate pentru radioamator și o comoditate pentru ANCOM să nu schimbe sufixul.<br>În legislatia în vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate speram că aceasta practica va ramane neschimbata dar legal, ANCOM nu are nicio obligație.
+Această întrebare cu păstrarea sufixului există fiindcă în regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizației de radioamator se vor păstra de-a lungul întregii perioade de valabilitate a acesteia, inclusiv în situația schimbării domiciliului". Era o facilitate pentru radioamator și o comoditate pentru ANCOM să nu schimbe sufixul.<br>În legislatia în vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate sperăm că această practică va rămâne neschimbată dar legal, ANCOM nu are nicio obligație.
 Georgina28 2018
 ##55#
 c
 09A281~&Ce este ora UTC, folosită la notarea radiolegăturii în log?
 null
-ora Uniunii de Telecomunicații și Comunicații, care sincronizeaza toate centralele de telefonie din lume(ora plesiocrona)
+ora Uniunii de Telecomunicații și Comunicații, care sincronizează toate centralele de telefonie din lume(ora plesiocronă)
 ora Uranium Time Clock - ora dată de ceasul atomic de la Berna
-ora Universal  Time, Coordinated - ceasul atomic, aproximativ același cu GMT în utilizare curenta
-ora Uniform Time Clock - ora dată de timpul de rotatie al planetei Terra
+ora Universal  Time, Coordinated - ceasul atomic, aproximativ același cu GMT în utilizare curentă
+ora Uniform Time Clock - ora dată de timpul de rotație al planetei Terra
 YO6OWN, Săcele, 2005(rev.2007)
 null
-Toate răspunsurile conțin denumiri cu initialele U,T,C, și suna stiintific dar Universal Time, Coordinated este ora notata de radioamatori, restul variantelor nu există în realitate. UTC este un succesor mai bine definit al GMT dar pentru radioamatori, UTC = GMT. (trivia - Ceasurile atomice de obicei nu folosesc uraniu). <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC: Link Wikipedia</a> 
+Toate răspunsurile conțin denumiri cu initialele U,T,C, și sună științific dar Universal Time, Coordinated este ora notată de radioamatori, restul variantelor nu există în realitate. UTC este un succesor mai bine definit al GMT dar pentru radioamatori, UTC = GMT. (trivia - Ceasurile atomice de obicei nu folosesc uraniu). <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC: Link Wikipedia</a> 
 YO6OWN, 2017
 ##56#
 b
-01A141~&În ce document se consemneaza activitatea de emisie-recepție la o stație de radioamator?
+01A141~&În ce document se consemnează activitatea de emisie-recepție la o stație de radioamator?
 null
 Foaie de activitate
 Jurnalul de trafic
 Formular de concurs
-Foaia de urmarire a activitatii stației
+Foaia de urmărire a activității stației
 YO6OWN, Săcele, Brașov(rev.2018)
 null
 
 
 ##57#
 a
-02A141~&Pastrarea jurnalului de trafic la stația proprie este obligatorie? Cat timp de la data efectuarii ultimei legături consemnate?
+02A141~&Păstrarea jurnalului de trafic la stația proprie este obligatorie? Cât timp de la data efectuării ultimei legături consemnate?
 null
 nu
 da, 12 luni
@@ -694,53 +694,53 @@ da, 6 luni
 da, 2 ani
 ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
-jurnalul este obligatoriu pentru legături efectuate la stații alta decat cea proprie și la stația de radioclub. Anexa la reglementări, cap IV, 23)
+jurnalul este obligatoriu pentru legături efectuate la stații alta decât cea proprie și la stația de radioclub. Anexa la reglementări, cap IV, 23)
 YO6OWN, 2018
 ##58#
 c
-03A141~&Ce informatii sunt consemnate în jurnalul de trafic (LOG)? 
+03A141~&Ce informații sunt consemnate în jurnalul de trafic (LOG)? 
 null
-indicativul stației cu care s-a lucrat, data, ora Romaniei
+indicativul stației cu care s-a lucrat, data, ora României
 indicativul stației, data
-data, ora UTC, banda în care s-a efectuat legătura, indicativul operatorului initiator și al corespondentului
+data, ora UTC, banda în care s-a efectuat legătura, indicativul operatorului inițiator și al corespondentului
 data, ora GMT, banda în care s-a efectuat legătura, controlul RST, indicativul stației corespondente
 ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev. 2018)
 null
-Se trec toate datele care pot identifica unic un QSO. Pe langa datele minime, se pot adauga și alte amanunte interesante, dacă există.
+Se trec toate datele care pot identifica unic un QSO. Pe lângă datele minime, se pot adăuga și alte amănunte interesante, dacă există.
 YO6OWN, Brașov, 2018
 ##59#
 a
-01A172~&Ce inseamna abrevierea TNABF?
+01A172~&Ce înseamnă abrevierea TNABF?
 null
 Tabelul național de atribuire a benzilor de frecvențe;
-Tabara națională de antene pe benzi de frecvență
-Un paratrasnet activ de tip Trasnete Negativate cu AutoBlock de Fulgere
-Transformata Fourier normata A-B
+Tabăra națională de antene pe benzi de frecvență
+Un paratrăsnet activ de tip Trasnete Negativate cu AutoBlock de Fulgere
+Transformata Fourier normată A-B
 YO6OWN, Brașov, 2014
 null
 
 
 ##60#
 d
-01A173~&Ce inseamna 'statut secundar' al unei benzi de frecvențe alocata serviciului de amator?
+01A173~&Ce înseamnă 'statut secundar' al unei benzi de frecvențe alocata serviciului de amator?
 null
-Radioamatorii pot transmite tot timpul în acea banda, însă atunci când e liniste, și alte servicii pot transmite
-Aceasta banda are o importanta secundara din cauza condițiilor de propagare foarte instabile
-Radioamatorii pot transmite în acea banda doar dacă au o autorizație secundara speciala
+Radioamatorii pot transmite tot timpul în acea bandă, însă atunci când e liniște, și alte servicii pot transmite
+Această bandă are o importanță secundară din cauza condițiilor de propagare foarte instabile
+Radioamatorii pot transmite în acea bandă doar dacă au o autorizație secundară specială
 Radioamatorii folosesc în mod curent aceste benzi, însă în anumite condiții speciale, alte servicii au prioritate în folosirea acestor benzi
 YO6OWN, Brașov, 2007(rev. 2018)
 null
-TNABF defineste: STATUT SECUNDAR. Stațiile de radioamator din aceasta banda nu vor cauza perturbatii stațiilor din celelalte servicii de radiocomunicații și nici nu beneficiaza de protectie.
+TNABF defineste: STATUT SECUNDAR. Stațiile de radioamator din această bandă nu vor cauza perturbații stațiilor din celelalte servicii de radiocomunicații și nici nu beneficiază de protecție.
 YO6OWN, Brașov, 2018
 ##61#
 c
-02A173~&Ce inseamna 'statut primar' al unei benzi de frecvențe alocata serviciului de amator?
+02A173~&Ce înseamnă 'statut primar' al unei benzi de frecvențe alocată serviciului de amator?
 null
-Radioamatorii pot transmite tot timpul în acea banda, însă atunci când e liniste, și alte servicii pot transmite
+Radioamatorii pot transmite tot timpul în acea bandă, însă atunci când e liniște, și alte servicii pot transmite
 Radioamatorii pot rejecta apeluri ale altor servicii
-Radioamatorii sunt singurii care pot transmite în acea banda
-În cazul unor calamitati, radioamatorii preiau controlul de trafic intre celelalte servicii pe aceste benzi
+Radioamatorii sunt singurii care pot transmite în acea bandă
+În cazul unor calamități, radioamatorii preiau controlul de trafic între celelalte servicii pe aceste benzi
 YO6OWN, Brașov, 2007(rev. 2018)
 null
-TNABF defineste: Statut primar al benzii inseamna că acea banda este alocata doar radioamatorilor.
+TNABF defineste: Statut primar al benzii înseamnă că acea bandă este alocată doar radioamatorilor.
 YO6OWN, Brașov, 2018
