@@ -112,7 +112,7 @@ print qq!<body bgcolor="#FAFAFA" text="black" link="blue" alink="blue" vlink="bl
 
 print qq!<font color="blue">v 3.3.4</font>\n<br>\n!;
 
-print qq!<i>Aceasta este o afisare a bazelor de date folosite de programul SimEx, un simulator de examen de radioamatori<br>Acest program este un software gratuit, poate fi distribuit/modificat in termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o veriune ulterioara.<br>Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii.<br>In distributia programului SimEx trebuie sa gasiti o copie a licentei GNU GPL, iar daca nu, ea poate fi descarcata gratuit de pe pagina <a href="http://www.fsf.org" target="_new">http://www.fsf.org</a><br>Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, modificarea lor si/sau folosirea lor in afara Romaniei in alt mod decat read-only nefiind permisa. Acest lucru deriva din faptul ca ANCOM este o institutie publica romana, iar intrebarile publicate au caracter de document oficial.</i><br>\n!;
+print qq!<i>Aceasta este o afișare a bazelor de date folosite de programul SimEx, un simulator de examen de radioamatori.<br>Acest program este un software gratuit, poate fi distribuit/modificat în termenii licenței libere GNU GPL, așa cum este ea publicată de Free Software Foundation în versiunea 2 sau într-o veriune ulterioara.<br>Programul, întrebările și răspunsurile sunt distribuite gratuit, în speranța că vor fi folositoare, dar fără nicio garanție, sau garanție implicită, vezi textul licenței GNU GPL pentru mai multe detalii.<br>În distribuția programului SimEx trebuie să găsiți o copie a licenței GNU GPL, iar dacă nu, ea poate fi descărcată gratuit de pe pagina <a href="http://www.fsf.org" target="_new">http://www.fsf.org</a><br>Textul întrebărilor oficiale publicate de ANCOM face excepție de la cele de mai sus, nefăcând obiectul licențierii GNU GPL, modificarea lor și/sau folosirea lor în afara României în alt mod decât read-only nefiind permisă. Acest lucru derivă din faptul că ANCOM este o instituție publică română, iar întrebările publicate au caracter de document oficial.</i><br>\n!;
 
 #first line read
 $fline=<INFILE>;
@@ -273,7 +273,7 @@ elsif($counter ==  10)
 
 if($counter > 15) 
 {
-print qq!<font color="red">EROARE in baza de date, ar trebui sa anuntati adminul cod eroare: $counter</font><br><hr>\n!;
+print qq!<font color="red">EROARE în baza de date, ar trebui să anunțați adminul, cod eroare: $counter</font><br><hr>\n!;
 $counter = 15;
 }
 
@@ -281,8 +281,8 @@ $counter = 15;
 }
 
 #here we intend to print curricula coverage
-print qq!<font color="blue">NOU: Afisarea acoperirii programei, pe subcapitole, cu intrebari din baza de date.</font><br><br>\n!;
-print qq!<font color="blue">Valorile sunt calculate, nu completate de mana, deci fara trucuri depasite cu productivitatea la hectar.<br><br>Tineti cont ca in unele cazuri, de ex. radiotehnica pentru clasa I si II la subcapitolul Legea lui Ohm si altele similare e normal sa nu fie intrebari, ANCOM specifica intrebari de dificultate sporita. In alte cazuri nu sunt intrebari inca, ele nu cresc singure, trebuie facute, asa ca accept propuneri cu placere.</font><br>\n<br>\n!;
+print qq!<font color="blue">NOU: Afișarea acoperirii programei, pe subcapitole, cu întrebări din baza de date.</font><br><br>\n!;
+print qq!<font color="blue">Valorile sunt calculate, nu completate de mână, deci fără trucuri depășite cu productivitatea la hectar.<br><br>Țineți cont că în unele cazuri, de ex. radiotehnică pentru clasa I și II la subcapitolul Legea lui Ohm și altele similare e normal să nu fie întrebări, ANCOM specifică întrebări de dificultate sporită. În alte cazuri nu sunt întrebări încă, ele nu cresc singure, trebuie făcute, așa că accept propuneri cu plăcere.</font><br>\n<br>\n!;
 
 seek(PRFILE,0,0); #rewind curricula, we intend to print now
 while($fline=<PRFILE>)
