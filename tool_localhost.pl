@@ -51,7 +51,7 @@ my $pattern2="localhost/";
 my $replacement2="localhost/";
 
 my $pattern3="^print qq!SimEx Radio Release";
-my $replacement3="print qq!SimEx Radio Release 3.3; Author: Francisc TOTH YO6OWN\\n!;\n";
+my $replacement3="print qq!SimEx Radio Release 3.4; Author: Francisc TOTH YO6OWN\\n!;\n";
 
 
 
