@@ -1,5 +1,5 @@
 
-#Version v 3.3.0
+#Version v 3.3.1
 
 
 package My::ExamLib;
@@ -15,19 +15,19 @@ sub ins_gpl
 print qq+<!--\n+;
 print qq!SimEx Radio Release \n!;
 print qq!SimEx Radio was created originally for YO6KXP radio amateur club located in\n!; 
-print qq!Sacele, ROMANIA (YO) then released to the whole radio amateur community.\n!;
+print qq!Săcele, Brașov, România (YO) then released to the whole radio amateur community.\n!;
 print qq!\n!;
-print qq!Prezentul simulator de examen impreuna cu formatul bazelor de intrebari, rezolvarile problemelor, manual de utilizare,\n!; 
-print qq!instalare, SRS, cod sursa si utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat in \n!;
-print qq!termenii licentei libere GNU GPL, asa cum este ea publicata de Free Software Foundation in versiunea 2 sau intr-o versiune \n!;
-print qq!ulterioara. Programul, intrebarile si raspunsurile sunt distribuite gratuit, in speranta ca vor fi folositoare, dar fara nicio \n!;
-print qq!garantie, sau garantie implicita, vezi textul licentei GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
-print qq!manualelor, codului sursa si utilitarelor are toate drepturile descrise in licenta publica GPL.\n!;
-print qq!In distributia de pe https://github.com/6oskarwN/Sim_exam_yo trebuie sa gasiti o copie a licentei GNU GPL, de asemenea \n!;
-print qq!si versiunea in limba romana, iar daca nu, ea poate fi descarcata gratuit de pe pagina http://www.fsf.org/\n!;
-print qq!Textul intrebarilor oficiale publicate de ANCOM face exceptie de la cele de mai sus, nefacand obiectul licentierii GNU GPL, \n!;
-print qq!copyrightul fiind al statului roman, dar fiind folosibil in virtutea legii 544/2001 privind liberul acces la informatiile \n!;
-print qq!de interes public precum al legii 109/2007 privind reutilizarea informatiilor din institutiile publice.\n!;
+print qq!Prezentul simulator de examen împreună cu formatul bazelor de întrebări, rezolvările problemelor, manual de utilizare,\n!; 
+print qq!instalare, SRS, cod sursă și utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat în \n!;
+print qq!termenii licenței libere GNU GPL, așa cum este ea publicată de Free Software Foundation în versiunea 2 sau într-o versiune \n!;
+print qq!ulterioară. Programul, întrebările și răspunsurile sunt distribuite gratuit, în speranța că vor fi folositoare, dar fără nicio \n!;
+print qq!garanție, sau garanție implicită, vezi textul licenței GNU GPL pentru mai multe detalii. Utilizatorul programului, \n!;
+print qq!manualelor, codului sursă și utilitarelor are toate drepturile descrise în licența publica GPL.\n!;
+print qq!În distribuția de pe https://github.com/6oskarwN/Sim_exam_yo trebuie să găsiți o copie a licenței GNU GPL, de asemenea \n!;
+print qq!și versiunea în limba română, iar dacă nu, ea poate fi descărcată gratuit de pe pagina http://www.fsf.org/\n!;
+print qq!Textul întrebărilor oficiale publicate de ANCOM face excepție de la cele de mai sus, nefăcând obiectul licențierii GNU GPL, \n!;
+print qq!copyrightul fiind al statului român, dar fiind folosibil în virtutea legii 544/2001 privind liberul acces la informațiile \n!;
+print qq!de interes public precum al legii 109/2007 privind reutilizarea informațiilor din instituțiile publice.\n!;
 print qq!\n!;
 print qq!YO6OWN Francisc TOTH\n!;
 print qq!\n!;
@@ -98,18 +98,18 @@ my %pub_errors= (
 
               "ERR00" => "error: unknown/unspecified",
 #astea cu cannot open file, toate
-              "ERR01_op" => "Server congestionat, incearca in cateva momente",
+              "ERR01_op" => "Server congestionat, încearcă în câteva momente",
 #astea cu cannot close file, toate
-              "ERR02_cl"  => "Server congestionat, incearca in cateva momente",
+              "ERR02_cl"  => "Server congestionat, încearcă în câteva momente",
 
 #unprocessed
 
 
               "admERR03" => "identity failed.",
               "tugERR03" => "authentication fail",
-              "authERR03" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>", #CUSTOM nr zile
-              "authERR04" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>", #CUSTOM nr zile
-              "authERR05" => "Autentificare imposibila cu credentialele furnizate.<br><br><small>ATENTIE: Daca ai avut un cont mai demult si nu te-ai mai logat de peste 14 zile, contul tau s-a sters automat</small>",  #CUSTOM nr zile
+              "authERR03" => "Autentificare imposibilă cu credențialele furnizate.<br><br><small>ATENȚIE: Dacă ai avut un cont mai demult și nu te-ai mai logat de peste 14 zile, contul tău s-a șters automat</small>", #CUSTOM nr zile
+              "authERR04" => "Autentificare imposibilă cu credențialele furnizate.<br><br><small>ATENȚIE: Dacă ai avut un cont mai demult și nu te-ai mai logat de peste 14 zile, contul tău s-a șters automat</small>", #CUSTOM nr zile
+              "authERR05" => "Autentificare imposibilă cu credențialele furnizate.<br><br><small>ATENȚIE: Dacă ai avut un cont mai demult și nu te-ai mai logat de peste 14 zile, contul tău s-a șters automat</small>",  #CUSTOM nr zile
 
               "ERR01"  =>  "primire de  date corupte.", #this should remain
 
@@ -120,22 +120,22 @@ my %pub_errors= (
 
               "ERR02" => "timpul alocat paginii a expirat", #this should remain
 
-              "ERR03" => "Aceasta pagina a fost deja evaluata, s-a consumat.",
-              "ver0ERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
+              "ERR03" => "Această pagină a fost deja evaluată, s-a consumat.",
+              "ver0ERR03" => "ai mai evaluat această pagină, se poate o singură dată",
               "verERR03" => "Acest formular de examen a fost deja evaluat",
-              "regERR03" => "ai mai evaluat aceasta pagina, se poate o singura data",
-              "genERR15" => "formularul a fost deja folosit odata",
+              "regERR03" => "ai mai evaluat această pagină, se poate o singură dată",
+              "genERR15" => "formularul a fost deja folosit o dată",
 
               "admERR04" => "funny state",
 
-              "ttERR04" => "test depistare boti",
+              "ttERR04" => "test depistare boți",
  
 
 
               "admERR05" => "admin token revoke request executed",
   
 
-              "authERR06" => "Autentificarea blocata pentru o perioada de 5 minute pentru incercari repetate cu credentiale incorecte. Incercati din nou dupa expirarea periodei de penalizare.",
+              "authERR06" => "Autentificarea blocată pentru o perioadă de 5 minute pentru încercări repetate cu credențiale incorecte. Încercați din nou după expirarea perioadei de penalizare.",
 
 
 
@@ -143,7 +143,7 @@ my %pub_errors= (
               "admERR06" => "admin token revoked.",
               "tugERR06" => "admin token revoked.",
 
-              "ttERR06" => "Nu ai completat nickname si/sau textul, poti da inapoi cu Back sa completezi",
+              "ttERR06" => "Nu ai completat nickname și/sau textul, poți da înapoi cu Back să completezi",
 
               "authERR07" => "examyo system error",
 
@@ -154,14 +154,14 @@ my %pub_errors= (
 
 
 
-              "genERR09" => "Aceasta cerere nu este recunoscuta de sistem",
-              "verERR09" => "Aceasta cerere nu este recunoscuta de sistem",
+              "genERR09" => "Această cerere nu este recunoscută de sistem",
+              "verERR09" => "Această cerere nu este recunoscută de sistem",
 
 
-              "genERR10" => "actiune ilegala",
-              "genERR12" => "actiune ilegala",
-              "genERR17" => "actiune ilegala",
-              "genERR18" => "actiune ilegala",
+              "genERR10" => "acțiune ilegală",
+              "genERR12" => "acțiune ilegală",
+              "genERR17" => "acțiune ilegală",
+              "genERR18" => "acțiune ilegală",
 
 #special treatment
               "ERR19" => "error not displayed",
@@ -295,6 +295,7 @@ unless($error_code eq 'ERR19'){ #ERR19 is silent logging, no display, no exit()
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
 print qq!<html>\n!;
+print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
