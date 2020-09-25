@@ -114,7 +114,7 @@ print qq!<body bgcolor="#FAFAFA" text="black" link="blue" alink="blue" vlink="bl
 
 print qq!<font color="blue">v 3.3.5</font>\n<br>\n!;
 
-print qq!<i>Aceasta este o afișare a bazelor de date folosite de programul SimEx, un simulator de examen de radioamatori.<br>Acest program este un software gratuit, poate fi distribuit/modificat în termenii licenței libere GNU GPL, așa cum este ea publicată de Free Software Foundation în versiunea 2 sau într-o veriune ulterioara.<br>Programul, întrebările și răspunsurile sunt distribuite gratuit, în speranța că vor fi folositoare, dar fără nicio garanție, sau garanție implicită, vezi textul licenței GNU GPL pentru mai multe detalii.<br>În distribuția programului SimEx trebuie să găsiți o copie a licenței GNU GPL, iar dacă nu, ea poate fi descărcată gratuit de pe pagina <a href="http://www.fsf.org" target="_new">http://www.fsf.org</a><br>Textul întrebărilor oficiale publicate de ANCOM face excepție de la cele de mai sus, nefăcând obiectul licențierii GNU GPL, modificarea lor și/sau folosirea lor în afara României în alt mod decât read-only nefiind permisă. Acest lucru derivă din faptul că ANCOM este o instituție publică română, iar întrebările publicate au caracter de document oficial.</i><br>\n!;
+print qq!<i>Aceasta este o afișare a bazelor de date folosite de programul SimEx, un simulator de examen de radioamatori.<br>Acest program este un software gratuit, poate fi distribuit/modificat în termenii licenței libere GNU GPL, așa cum este ea publicată de Free Software Foundation în versiunea 2 sau într-o veriune ulterioara.<br>Programul, întrebările și răspunsurile sunt distribuite gratuit, în speranța că vor fi folositoare, dar fără nicio garanție, sau garanție implicită, vezi textul licenței GNU GPL pentru mai multe detalii.<br>În distribuția programului SimEx trebuie să găsiți o copie a licenței GNU GPL, iar dacă nu, ea poate fi descărcată gratuit de pe pagina <a href="http://www.fsf.org" target="_new">http://www.fsf.org</a><br>Textul întrebărilor oficiale publicate de ANCOM face excepție de la cele de mai sus, nefăcând obiectul licențierii GNU GPL, copyrightul fiind al statului român, modificarea lui nu este permisă dar este folosibil în virtutea legii 544/2001 privind liberul acces la informațiile de interes public precum al legii 109/2007 privind reutilizarea informațiilor din instituțiile publice. </i><br>\n!;
 
 #first line read
 $fline=<INFILE>;
@@ -295,7 +295,7 @@ print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post"
 print qq!<input type="hidden" name="type" value="1">\n!;
 print qq!<input type="hidden" name="nick" value="probleme_rezolvate">\n!;
 print qq!<input type="hidden" name="subtxt" value=\"(propun) $buffertext\">\n!;
-print qq!<font color="black" size="-1">Poti semnala ceva, poti propune o imbunatatire, apasand butonul </font> !;
+print qq!<font color="black" size="-1">Poți semnala ceva, poți propune o îmbunătățire, apăsând butonul </font> !;
 print qq!<input type="submit" value="aici">\n!;
 
 print qq!</form>\n!;
@@ -352,4 +352,3 @@ else {dienice("ERR01",0,\"junk input: $get_buffer");} #else the case when input 
 else {dienice("ERR01",1,\"void URL");} #else the case when URL input was void
 
 #-------------------------------------
-
