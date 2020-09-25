@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  sim_ver0.cgi v 3.2.9
+#  sim_ver0.cgi v 3.2.a
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.a check done for caller page to be $trid_pagecode=0
 # ch 3.2.9 charset=utf-8 added
 # ch 3.2.8 whitelisting inputs 
 # ch 3.2.7 functions moved to ExamLib.pm
@@ -65,12 +66,18 @@ use warnings;
 use lib '.';
 use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice);
 
+#-hash table for response retrieving
+my %answer=();		#hash used for depositing the answers
+my $post_trid;                  #transaction ID from POST data
 
 my $debug_buffer; #debugging I/O
 
-#-for response retrieving
-my %answer=();
-my $post_trid;                  #transaction ID from POST data
+
+#my $trid_id;                    #transaction ID extracted from transaction file
+my $trid_login;       		#login extracted from transaction file
+my $trid_pagecode;		#pagecode extracted from transaction file 
+
+
 #- for refreshing transaction list
 my @tridfile;
 my $trid;			#the Transaction-ID of the generated page
@@ -93,7 +100,7 @@ my $pair;
 my $stdin_name;
 my $stdin_value;
 
-# Read input text, POST 
+# Read input text, POST
 if($ENV{'REQUEST_METHOD'} =~ m/POST/i)
      {
       read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'}); #POST data
@@ -105,17 +112,12 @@ $buffer=~ tr/+/ /;
 $buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
 
 #split on &
-@pairs=split(/&/, $buffer);
+@pairs=split(/&/, $buffer); #POST-technology
 
-foreach $pair(@pairs) 
-		{
-   ($stdin_name,$stdin_value) = split(/=/,$pair);
 
-#Occam's razor:
-#we try first to fill all and only the expected parameters - depending on the scenario,
-#not all parameters are expected and might remain void/undef
-#no value should be trusted since it can be malformed
-# not yet finished as it's not verified that mandatory params exist.
+foreach $pair(@pairs)  {
+        ($stdin_name,$stdin_value) = split(/=/,$pair);
+
 if($stdin_name =~ m/^transaction$/){
          if ($stdin_value =~ m/^[0-9,A-F]{6}_(\d{1,2}_){5}\d{3}_[0-9,a-f]{40}$/)
                            {
@@ -161,16 +163,9 @@ if((defined $answer{'transaction'}) and (defined $answer{'answer'}))
 unless(defined($post_trid)) 
        {dienice ("ERR01",1,\"undef trid"); } # no transaction or with void value
 
-
-###############################
-### combined refresh-search ###    
-###############################
-
-#### open transaction ID file ####
-open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"$! $^E $?");					#open transaction file for writing
-flock(transactionFILE,2);		#lock the file from other CGI instances
-
-
+#ACTION: open transaction ID file
+open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"$! $^E $?");		#open transaction file for writing
+flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 {
 seek(transactionFILE,0,0);		#go to the beginning
 @tridfile = <transactionFILE>;		#slurp file into array
@@ -196,14 +191,15 @@ unless($#tridfile == 0) 		#unless transaction list is empty
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted
 
-#if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
-#this is nicer
+#check if it's normal exam transaction
 if ($linesplit[2] =~ /[4-7]/) {@livelist=(@livelist, $i);} #if this is an exam transaction, do not refresh it even it's expired, is the job of sim_authent.cgi
 
 
 # next 'if' is changed into 'elsif'
 elsif (timestamp_expired($linesplit[3],$linesplit[4],$linesplit[5],$linesplit[6],$linesplit[7],$linesplit[8]) > 0 ) {} #if timestamp expired do nothing = transaction will not refresh
-else {@livelist=(@livelist, $i);} #not expired, refresh it
+else {					#not expired
+       @livelist=(@livelist, $i);       #keep it in the transaction list
+      } #.end else
 
  } #.end for
 #we have now the list of the live transactions
@@ -216,9 +212,8 @@ my $j;
 foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 @tridfile=@extra;
 
- } #.end unless
-} #.end refresh block
-
+} #.end unless
+} #.END BLOCK
 
 #BLOCK: extract data from actual transaction and then delete it
 {
@@ -231,7 +226,12 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   for(my $i=1; $i<= $#tridfile; $i++)	#check all transactions 
   {
    @linesplit=split(/ /,$tridfile[$i]);
-   if($linesplit[0] eq $post_trid) {$expired=0;}
+   if($linesplit[0] eq $post_trid) {
+                                    $expired=0;
+                                    #$trid_id   =$linesplit[0]; #extract transaction
+                                    $trid_login=$linesplit[1]; #extract login
+                                    $trid_pagecode=$linesplit[2]; #extract pagecode
+                                   }
 	else {@livelist=(@livelist, $i);}
   } #.end for
 
@@ -260,11 +260,11 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 close (transactionFILE) or dienice("ERR02_cl",1,\"err08-1 $! $^E $?");
 
 #now we should check why received transaction was not found in sim_transaction file
-#case 0: it's an illegal transaction if md5 check fails
+#case 0: it's an illegal transaction if MAC check fails
 #        must be recorded in cheat_file
-#case 1: md5 correct but transaction timestamp expired, file was refreshed and wiped this transaction
+#case 1: MAC correct but transaction timestamp expired, file was refreshed and wiped this transaction
 #        must be announced to user
-#case 2: md5 ok, timestamp ok, it must have been used up already
+#case 2: MAC ok, timestamp ok, it must have been used up already
 #        must be announced to user
 
 #check case 0
@@ -300,6 +300,30 @@ else { dienice("ver0ERR03",0,\"null");  }
 } #.end expired
 				
 } #.END extraction BLOCK
+
+#we have here the "login = anonymous" and the pagecode of the guy
+#ACTION: check request clearances pagecode == 0
+unless($trid_pagecode == 0) #CUSTOM: invoked from humanity test page
+{
+#ACTION: close all resources
+truncate(transactionFILE,0);
+seek(transactionFILE,0,0);                              #go to beginning of transactionfile
+
+for(my $i=0;$i <= $#tridfile;$i++)
+{
+printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
+}
+
+close (transactionFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
+
+#ACTION: append cheat symptoms in cheat file
+#CUSTOM
+my $cheatmsg="$trid_login from wrong pagecode $trid_pagecode invoked sim_ver0.cgi";
+dienice("verERR08",4,\$cheatmsg); #de customizat
+}
+
+
+
 
 ####open db_human file
 open(INFILE,"<", "db_human") || dienice("ERR01_op",1,\"$! $^E $?"); #open the question file
@@ -424,7 +448,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.9\n!; #version print for easy upload check
+print qq!v 3.2.a\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
@@ -542,7 +566,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.9\n!; #version print for easy upload check
+print qq!v 3.2.a\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;

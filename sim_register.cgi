@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  sim_register.cgi v 3.2.a
+#  sim_register.cgi v 3.2.b
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.b check done for caller page to be $trid_pagecode=1
 # ch 3.2.a charset=utf-8 added in generated html
 # ch 3.2.9 whitelisting user input instead of blacklisting
 # ch 3.2.8 functions moved to ExamLib.pm
@@ -79,7 +80,9 @@ my $post_passwd2;
 my $post_tipcont;	#tip cont: 0-training, 1,2,3,4=cl 1,2,3,3r
 my $post_trid;
 
-my $trid_login; #the username from the transactionfile, corresponding to the active transaction
+#my $trid_id;                    #transaction ID extracted from transaction file
+my $trid_login;                 #login extracted from transaction file
+my $trid_pagecode;              #pagecode extracted from transaction file
 
 #Global flags
 my $f_valid_login;
@@ -190,8 +193,8 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
    @linesplit=split(/ /,$tridfile[$i]);
    chomp $linesplit[8]; #\n is deleted
 
-#exam transactions are not refreshed here because sim_authent.cgi has special refresh 
-#for punishing expired abandoned exams
+#exam transactions are not refreshed here because sim_authent.cgi has ...
+# ...a special refresh for punishing expired abandoned exams
 if (($linesplit[2] > 3) && ($linesplit[2] < 8)) {@livelist=(@livelist, $i);}#if this is an exam transaction, don't touch it
 
 # next 'if' is changed into 'elsif'
@@ -226,7 +229,9 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
    @linesplit=split(/ /,$tridfile[$i]);
    if($linesplit[0] eq $post_trid) {
    				    $expired=0;
+                                    #$trid_id   =$linesplit[0]; #extract transaction
 				    $trid_login=$linesplit[1]; #extract trid_login
+                                    $trid_pagecode=$linesplit[2]; #extract pagecode
 				    #nu se adauga inregistrarea asta in @livelist
    				   }
 	else {@livelist=(@livelist, $i);} #se adauga celelalte inregistrari in livelist
@@ -260,13 +265,13 @@ close (transactionFILE) or dienice("ERR02_cl",1,\"err07-1 $! $^E $?");
 #now we should check why received transaction was not found in sim_transaction file
 #case 0: it's an illegal transaction if md5 check fails
 #        must be recorded in cheat_file
-#case 1: md5 correct but transaction timestamp expired, file was refreshed and wiped this transaction
+#case 1: SHA1 hash correct but transaction timestamp expired, file was refreshed and wiped this transaction
 #        must be announced to user
-#case 2: md5 ok, timestamp ok, it must have been used up already
+#case 2: SHA1 hash ok, timestamp ok, it must have been used up already
 #        must be announced to user
 
 #check case 0
-#incoming is like 'B00053_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ'
+#incoming is like 'B00053_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ' - to be updated
 { #local block start
 my @pairs; #local
 my $string_trid; # we compose the incoming transaction to recalculate mac
@@ -296,6 +301,30 @@ else { dienice("regERR03",0,\"good transaction but already used");  }
 } #.end expired
 				
 } #.END extraction BLOCK
+
+
+#we have here the "login==anonymous" and the pagecode of the guy
+#ACTION: check request clearances pagecode == 1 (from sim_ver0 or sim_register)
+unless($trid_pagecode == 1) #CUSTOM: invoked from sim_ver0.cgi or sim_register page
+{
+#ACTION: close all resources
+truncate(transactionFILE,0);
+seek(transactionFILE,0,0);                              #go to beginning of transactionfile
+
+for(my $i=0;$i <= $#tridfile;$i++)
+{
+printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
+}
+close (transactionFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
+
+#ACTION: append cheat symptoms in cheat file
+#CUSTOM
+my $cheatmsg="$trid_login, from wrong pagecode $trid_pagecode invoked sim_register.cgi";
+dienice("verERR08",4,\$cheatmsg); #de customizat
+}
+
+
+
 
 #### sim_register.cgi specific logic
 
@@ -362,7 +391,7 @@ my $epochExpire = $epochTime + 900;		#15 min * 60 sec = 900 sec
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 
 
-#generate transaction id and its md5 MAC
+#generate transaction id and its SHA1 MAC
 
 $hexi= sprintf("%+06X",$trid); #the transaction counter
 #assemble the trid+timestamp
@@ -396,7 +425,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.a\n!; #version print for easy upload check
+print qq!v 3.2.b\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -581,7 +610,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.a\n!; #version print for easy upload check
+print qq!v 3.2.b\n!; #version print for easy upload check
 print qq!<h1 align="center">Înregistrare reușită.</h1>\n!;
 print "<br>\n";
 
