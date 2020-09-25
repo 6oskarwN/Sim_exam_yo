@@ -82,9 +82,10 @@ use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice);
 
 #-hash table for response retrieving
 my %answer=();		#hash used for depositing the answers
+my $post_trid;                  #transaction ID from POST data; it never has an "used" timestamp
+
 my %hlrline=();		#hash used for rewriting test results in hlr
 
-my $post_trid;                   #transaction ID from GET data; it never has an "used" timestamp
 
 my $trid_id;                    #transaction ID extracted from transaction file
 my $trid_login;       		#login extracted from transaction file
@@ -216,7 +217,6 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 @tridfile=@extra;
 
 } #.end unless
-
 } #.END BLOCK
 
 #BLOCK: extract data from actual transaction but read-only
@@ -261,9 +261,9 @@ close (transactionFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
 #now we should check why received transaction was not found in sim_transaction file
 #case 0: it's an illegal transaction if md5 check fails
 #        must be recorded in cheat_file
-#case 1: md5 correct but transaction timestamp expired, file was refreshed and wiped this transaction
+#case 1: MAC correct but transaction timestamp expired, file was refreshed and wiped this transaction
 #        must be announced to user
-#case 2: md5 ok, timestamp ok, it must (ch 3.2.3) be some sort of weird error that must be logged
+#case 2: MAC ok, timestamp ok, it must (ch 3.2.3) be some sort of weird error that must be logged
 #        unexpired transactions that are used or not should be in sim_transaction
 
 #check case 0
