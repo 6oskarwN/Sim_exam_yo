@@ -41,7 +41,7 @@ sub compute_mac {
 use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b';
-  hmac_sha1_hex($secret,$message);
+  hmac_sha1_hex($message,$secret);
 } #end of compute_mac
 #--------------------------------------
 

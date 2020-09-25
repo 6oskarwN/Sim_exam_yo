@@ -1,5 +1,5 @@
 
-#Version v 3.3.1
+#Version v 3.3.2
 
 
 package My::ExamLib;
@@ -73,7 +73,7 @@ sub compute_mac {
 use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
   my ($message) = @_;
   my $secret = '80b3581f9e43242f96a6309e5432ce8b'; #development secret
-  hmac_sha1_hex($secret,$message);
+  hmac_sha1_hex($message,$secret);
 } #end of compute_mac
 
 #-------------------------------------
@@ -299,7 +299,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl(); #this must exist
-print qq!v 3.3.0\n!; #version print for easy upload check
+print qq!v 3.3.2\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">$pub_errors{$error_code}</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
