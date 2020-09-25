@@ -1,4 +1,4 @@
-#  token_gen.pl v 3.2.2 (c)2018 - 2019 Francisc TOTH YO6OWN
+#  token_gen.pl v 3.2.2 (c)2018 - 2020 Francisc TOTH YO6OWN
 #  status: working
 #  This is a module of the online radioamateur examination program
 #  "sim eXAM", created for YO6KXP ham-club located in Sacele, ROMANIA
