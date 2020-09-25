@@ -318,7 +318,7 @@ close(userFILE) or dienice("ERR02_cl",1,\"$! $^E $?");
 chomp($wrong); 
 my $guiltyUser = $slurp_userfile[$rec_pos*7];
 chomp $guiltyUser;
-my $err_harvester="$guiltyUser\, ai gresit deja de $wrong ori"; 
+my $err_harvester="$guiltyUser\, ai greșit deja de $wrong ori"; 
 dienice("authERR05",0,\"$err_harvester"); #normally not logging this special case of 2 wrong passwords before temporary account lock
 
 } #.end if
@@ -542,7 +542,7 @@ print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
 print qq!<tr bgcolor="gray">\n!;
-print qq!<td align="center">Rezultatele si datele de contact pentru <font size="+1" color="yellow">$slurp_userfile[$rec_pos*7]</font> </td>\n!;
+print qq!<td align="center">Rezultatele și datele de contact pentru <font size="+1" color="yellow">$slurp_userfile[$rec_pos*7]</font> </td>\n!;
 print qq!</tr>\n!;
 print qq!</table>\n!;
 
@@ -593,7 +593,7 @@ print qq!<table width="90%" border="1" align="center" cellpadding="5">\n!;
 
 print qq!<tr bgcolor="gray">\n!;
 print qq!<td align="center" width="15%"><font color="white">&nbsp;</font>\n!;
-print qq!<td align="center">PAGINA ESTE VALABILA 15 minute.\n!;
+print qq!<td align="center">PAGINA ESTE VALABILĂ 15 minute.\n!;
 print qq!</tr>\n!;
 
 print qq!<tr>\n!;
@@ -616,10 +616,10 @@ print qq!</td>\n!;
 print qq!</tr>\n!;
 
 print qq!<tr>\n!;
-print qq!<td align="center">Clasa promovata:</td>\n!;
+print qq!<td align="center">Clasa promovată:</td>\n!;
 
 print qq!<td align="center">!;
-if($slurp_userfile[$rec_pos*7+6] eq "0\n") {print qq!Niciun examen promovat inca<br><small>Selectati butonul de examen corespunzator</small>!;} 
+if($slurp_userfile[$rec_pos*7+6] eq "0\n") {print qq!Niciun examen promovat încă<br><small>Selectați butonul de examen corespunzător</small>!;} 
 elsif($slurp_userfile[$rec_pos*7+6] eq "1\n") {print qq!clasa I!;} 
 elsif($slurp_userfile[$rec_pos*7+6] eq "2\n") {print qq!clasa II!;} 
 elsif($slurp_userfile[$rec_pos*7+6] eq "3\n") {print qq!clasa III!;} 
@@ -627,7 +627,7 @@ elsif($slurp_userfile[$rec_pos*7+6] eq "4\n") {print qq!clasa IV!;}
 elsif($slurp_userfile[$rec_pos*7+6] eq "5\n") {print qq!NEPROMOVAT!;} 
 else{ print qq!cod eronat!;}
 if($slurp_userfile[$rec_pos*7+5] ne "0\n" && $slurp_userfile[$rec_pos*7+6] ne "0\n" ){
-print qq!<br><small>Rezultatul acestui examen ramane blocat pentru a fi vazut de examinator(rolul celui care a creat contul). Pentru alt examen trebuie sa primesti un nou cont de examen sau sa te inregistrezi cu un cont de antrenament</small>!;
+print qq!<br><small>Rezultatul acestui examen rămâne blocat pentru a fi văzut de examinator(rolul celui care a creat contul). Pentru alt examen trebuie să primești un nou cont de examen sau să te înregistrezi cu un cont de antrenament</small>!;
     }
 print qq!</td>\n!;
 
@@ -743,16 +743,16 @@ print qq!</table>\n!;
 if(-e "hlr/$hlr_filename") {
 #afisam legenda
 print qq!<br>\n!;
-print qq!<font color="yellow">Convergenta&trade; activata.</font> Daca ramaneti pe aceeasi clasa de autorizare, cu contul de antrenament, programul va monitorizeaza si dirijeaza prin programa. Tine cont de problemele rezolvate, chiar daca examenul ca intreg nu a fost promovat. <br>Astfel la fiecare examinare nu veti mai primi intrebari la care ati raspuns deja corect, va gaseste punctele slabe si insista pe rezolvarea lor.<br>\n!;
-print qq!Schimbarea clasei de autorizare sterge acoperirea programei. Daca vrei sa o iei de la inceput cu aceeasi clasa, treci la alta clasa si apoi revii la cea initiala.<br>\n!;
+print qq!<font color="yellow">Convergență&trade; activată.</font> Dacă rămâneți pe aceeași clasă de autorizare, cu contul de antrenament, programul vă monitorizează și dirijează prin programă. Ține cont de problemele rezolvate, chiar dacă examenul ca întreg nu a fost promovat. <br>Astfel la fiecare examinare nu veți mai primi întrebări la care ați răspuns deja corect, vă găsește punctele slabe și insistă pe rezolvarea lor.<br>\n!;
+print qq!Schimbarea clasei de autorizare șterge acoperirea programei. Dacă vrei să o iei de la început cu aceeași clasă, treci la altă clasă și apoi revii la cea inițială.<br>\n!;
 print qq!<br>LEGENDA:<br>\n!;
 print qq!<font size="-2">!; 
 print qq!<form action="#">\n!;
-print qq!La subcapitolul unde nu vezi vreun semn, nu exista intrebari, nici oficiale ale ANCOM, nici de antrenament.<br>\n!; 
-#print qq!<input type="radio" value="x" name="y" disabled="y" unchecked="y">Nu exista nicio intrebare la acest subcapitol din programa.<br>\n!;
-print qq!<input type="checkbox" value="x" name="y" enabled="y" unchecked="y">Inca nu ai intalnit intrebari din acest subcapitol.<br>\n!;
-print qq!<table cellspacing="2"><tr><td bgcolor="red" valign="middle" align="center"><input type="checkbox" value="x" name="y" enabled="y" unchecked="y"></td><td>Aici ai probleme, cel putin o intrebare ai gresit-o, asa ca aici vom insista.</td></tr></table>\n!;
-print qq!<input type="checkbox" value="x" name="y" enabled="y" checked="y">Subcapitol stapanit - ai rezolvat toate intrebarile extrase de aici.<br>\n!;
+print qq!La subcapitolul unde nu vezi vreun semn, nu există întrebări, nici oficiale ale ANCOM, nici de antrenament.<br>\n!; 
+#print qq!<input type="radio" value="x" name="y" disabled="y" unchecked="y">Nu există nicio întrebare la acest subcapitol din programă.<br>\n!;
+print qq!<input type="checkbox" value="x" name="y" enabled="y" unchecked="y">Încă nu ai întâlnit întrebări din acest subcapitol.<br>\n!;
+print qq!<table cellspacing="2"><tr><td bgcolor="red" valign="middle" align="center"><input type="checkbox" value="x" name="y" enabled="y" unchecked="y"></td><td>Aici ai probleme, cel puțin o întrebare ai greșit-o, așa că aici vom insista.</td></tr></table>\n!;
+print qq!<input type="checkbox" value="x" name="y" enabled="y" checked="y">Subcapitol stăpânit - ai rezolvat toate întrebările extrase de aici.<br>\n!;
 print qq!</form>\n!;
 
 for (my $iter=0; $iter< ($#materii+1); $iter++)
@@ -869,7 +869,7 @@ print qq!</form>\n!;
 print qq!</font>!; #debug
 
 close(libFILE);
-print qq!<br>\n<a href="#begin">Sari la inceputul paginii</a>\n!;
+print qq!<br>\n<a href="#begin">Sari la începutul paginii</a>\n!;
 } #.end for @materii
 
 # aici vine afisarea programei intregi daca exista history file pentru user
@@ -881,10 +881,10 @@ close(HLRfile);
 else #daca nu are history, afisam ce insemna clasele de autorizare 
 {
 print qq!<ul>\n!;
-print qq!<li>IV - incepator; Drept de a opera doar sub supravegherea unui radioamator de clasa III, II sau I.\n!;
-print qq!<li>III - incepator; Drept de a lucra in toate benzile.\n!;
-print qq!<li>II - avansat; Drept de a opera in toate benzile cu putere sporita. Drept de a fi responsabil de statie colectiva.\n!;
-print qq!<li>I - avansat; Nivel maxim de putere aprobat, drept de a fi responsabil de statie colectiva.\n!;
+print qq!<li>IV - începător; Drept de a opera doar sub supravegherea unui radioamator de clasa III, II sau I.\n!;
+print qq!<li>III - începător; Drept de a lucra în toate benzile.\n!;
+print qq!<li>II - avansat; Drept de a opera în toate benzile cu putere sporită. Drept de a fi responsabil de stație colectivă.\n!;
+print qq!<li>I - avansat; Nivel maxim de putere aprobat, drept de a fi responsabil de stație colectivă.\n!;
 print qq!</ul>\n!;
 }
 #=====.V3 code========
