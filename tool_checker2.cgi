@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  tool_checker2.cgi v 3.3.4 
+#  tool_checker2.cgi v 3.3.5 
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+#ch 3.3.5 added possibility for adding feedback for each problem
 #ch 3.3.4 charset = utf-8 added in html
 #ch 3.3.3 delete d_legis2 and db_op2 from whitelist
 #ch 3.3.2 strengthen whitelist
@@ -76,6 +77,7 @@ my @splitter; #taietorul de v3code
 my %progcodes=(); #hash of codes from curricula(keys); list of v3 codes for each chapter key
 my $v3code;
 my $array_size; #used to store coverage of curricula
+my $buffertext;  #se va aduna aici textul intrebarii si cele 4 raspunsuri
 sub dienice;
 
 
@@ -110,7 +112,7 @@ print qq!<title>Probleme si Rezolvari: $get_filename</title>\n!;
 print qq!</head>\n!;
 print qq!<body bgcolor="#FAFAFA" text="black" link="blue" alink="blue" vlink="blue">\n!;
 
-print qq!<font color="blue">v 3.3.4</font>\n<br>\n!;
+print qq!<font color="blue">v 3.3.5</font>\n<br>\n!;
 
 print qq!<i>Aceasta este o afișare a bazelor de date folosite de programul SimEx, un simulator de examen de radioamatori.<br>Acest program este un software gratuit, poate fi distribuit/modificat în termenii licenței libere GNU GPL, așa cum este ea publicată de Free Software Foundation în versiunea 2 sau într-o veriune ulterioara.<br>Programul, întrebările și răspunsurile sunt distribuite gratuit, în speranța că vor fi folositoare, dar fără nicio garanție, sau garanție implicită, vezi textul licenței GNU GPL pentru mai multe detalii.<br>În distribuția programului SimEx trebuie să găsiți o copie a licenței GNU GPL, iar dacă nu, ea poate fi descărcată gratuit de pe pagina <a href="http://www.fsf.org" target="_new">http://www.fsf.org</a><br>Textul întrebărilor oficiale publicate de ANCOM face excepție de la cele de mai sus, nefăcând obiectul licențierii GNU GPL, modificarea lor și/sau folosirea lor în afara României în alt mod decât read-only nefiind permisă. Acest lucru derivă din faptul că ANCOM este o instituție publică română, iar întrebările publicate au caracter de document oficial.</i><br>\n!;
 
@@ -150,6 +152,7 @@ if ($fline =~ m/^##[0-9]+#$/)
                         print qq!$fline\n<br>\n!;
                         $counter = 0;
 			$rasp = 'f';
+			$buffertext = "$get_filename: $fline";
 			}
 
 elsif ($counter == 0)
@@ -172,6 +175,7 @@ if($fline =~ m/^[0-9]{2,3}[A-Z]{1}[0-9]{2,}[a-z]?~&/) #v3 code
 
    @splitter = split(/~&/,$fline);
    print qq!$splitter[1]<br>\n!; #tiparim linia intrebarii cu v3 "pierdut"
+   $buffertext = "$buffertext $splitter[1]";
    #putem refolosi @splitter la nevoie
 
    #codul v3 il bagam in hash-list daca se poate, pentru coverage
@@ -184,7 +188,10 @@ if($fline =~ m/^[0-9]{2,3}[A-Z]{1}[0-9]{2,}[a-z]?~&/) #v3 code
    } #if defined
   } #if fline has v3 code
 
-else {print qq!$fline<br>\n!;} #has no v3 code, print full question
+else {
+                print qq!$fline<br>\n!; #has no v3 code, print full question
+                $buffertext="$buffertext $fline";
+     } 
 
 $counter = 2;
  }
@@ -208,30 +215,42 @@ elsif (( $counter == 2) || ($counter == 8))
 
 
 elsif( $counter == 3) 
- {
+ { 
      print qq!<form action="#">\n!;
-if ($rasp eq 'a' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;}
-              else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;}
+if ($rasp eq 'a' ) { print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;
+                     $buffertext = "$buffertext @(a)$fline";
+			}
+              else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;
+                     $buffertext = "$buffertext (a)$fline";
+			}
         
     $counter = 4;
 
 
- if ($rasp eq 'f') { $counter =18;}
+ if ($rasp eq 'f') { $counter =18;} #why f???
 
   }
 
 
 elsif( $counter == 4) 
 {
-if ($rasp eq 'b' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;}
-              else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;}
+if ($rasp eq 'b' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;
+                     $buffertext = "$buffertext @(b)$fline";
+			}
+              else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;
+                     $buffertext = "$buffertext (b)$fline";
+			}
        $counter = 5;
 }
 
 elsif( $counter == 5) 
 {
-	if ($rasp eq 'c' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;}
-        else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;}
+	if ($rasp eq 'c' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;
+                     $buffertext = "$buffertext @(c)$fline";
+			}
+        else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;
+                     $buffertext = "$buffertext (c)$fline";
+			}
 
        	$counter = 6;
 }
@@ -239,8 +258,13 @@ elsif( $counter == 5)
 
 elsif( $counter == 6) 
 {
-if ($rasp eq 'd' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;}
-              else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;}
+
+if ($rasp eq 'd' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;
+                     $buffertext = "$buffertext @(d)$fline";
+			}
+              else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;
+                     $buffertext = "$buffertext (d)$fline";
+			}
 print qq!</form>\n<br>\n!;
        $counter = 7;
                       }
@@ -264,7 +288,19 @@ elsif($counter ==  9)
 elsif($counter ==  10) 
  {
 	unless ($fline eq "") 
-          { print qq!<font size="-1"><i>(rezolvare: $fline)</i></font><br>\n!;} 
+          { print qq!<font size="-1"><i>(rezolvare: $fline)</i></font><br>\n!;}
+
+## butonul de complaining ##
+print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post">\n!;
+print qq!<input type="hidden" name="type" value="1">\n!;
+print qq!<input type="hidden" name="nick" value="probleme_rezolvate">\n!;
+print qq!<input type="hidden" name="subtxt" value=\"(propun) $buffertext\">\n!;
+print qq!<font color="black" size="-1">Poti semnala ceva, poti propune o imbunatatire, apasand butonul </font> !;
+print qq!<input type="submit" value="aici">\n!;
+
+print qq!</form>\n!;
+
+ 
             print qq!<hr>\n!;
 	    $counter = 11; 
 
