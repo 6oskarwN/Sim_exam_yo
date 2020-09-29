@@ -1,52 +1,52 @@
-Întrebări NTSM versiunea 3.11 versiunea actualizată pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_NTSM</curricula></font>
+Întrebări NTSM versiunea 3.12 versiunea actualizată pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_NTSM</curricula></font>
 65
 ##0#
-c
-01A111~&Care sunt consecintele socului electric?
+d
+01A111~&Care este o consecință a șocului electric?
 null
 arcul electric
-izolatia
-electrocutarea
+izolația
+electrocardiograma
 traumatismul electric
 YO6OWN, 2014
 null
-Fenomenele care apar in organism ca urmare a trecerii curentului electric peste nivelul minim acceptabil, produc afectiuni tulburari diverse si definesc <b>socul electric</b>. Electrocutarea este socul electric fatal, restul socurilor electrice care pot avea o paleta larga de gravitati se numesc <b>traumatisme electrice</b>
+Fenomenele care apar în organism ca urmare a trecerii curentului electric peste nivelul minim acceptabil, produc afecțiuni și tulburări diverse și definesc <b>șocul electric</b>. Electrocutarea este șocul electric fatal, restul șocurilor electrice care pot avea o paleta largă de gravități se numesc <b>traumatisme electrice</b>
 YO6OWN, 2014
 ##1#
 a
-02A111~&Dintre "electrocutare" si "traumatism Electric" care este socul electric mortal?
+02A111~&Dintre "electrocutare" și "traumatism electric" care este șocul electric mortal?
 null
 electrocutarea
 traumatismul electric
 ambele
-nici unul din cele doua
+nici unul din cele două
 YO6OWN, 2014
 null
-Fenomenele care apar in organism ca urmare a trecerii curentului electric peste nivelul minim acceptabil, produc afectiuni tulburari diverse si definesc <b>socul electric</b>. Electrocutarea este socul electric fatal, restul socurilor electrice care pot avea o paleta larga de gravitati se numesc <b>traumatisme electrice</b>
+Fenomenele care apar în organism ca urmare a trecerii curentului electric peste nivelul minim acceptabil, produc afecțiuni și tulburări diverse și definesc <b>șocul electric</b>. Electrocutarea este șocul electric fatal, restul șocurilor electrice care pot avea o paleta largă de gravități se numesc <b>traumatisme electrice</b>
 YO6OWN, 2014
 ##2#
 c
-01A133~&Ce ne spune simbolul de avertizare urmator, lipit ca eticheta pe un aparat?
+01A133~&Ce ne spune simbolul de avertizare următor, lipit ca etichetă pe un aparat?
 images_109.jpg 109
-Atentie, aparatul poate emite jet de gaze fierbinti
-Aparatul in cauza prezinta pericol de explozie
-Aparatul in fata caruia ne aflam emite fascicul laser care ne poate distruge ireversibil ochiul
-Aparat dotat cu supapa de suprapresiune, poate emite jet la intrarea in functiune
-YO6OWN, Brasov, 2008
+Atenție, aparatul poate emite jet de gaze fierbinți
+Aparatul în cauză prezintă pericol de explozie
+Aparatul în fața căruia ne aflăm emite fascicul laser care ne poate distruge ireversibil ochiul
+Aparat dotat cu supapă de suprapresiune, poate emite jet la intrarea în functiune
+YO6OWN, Brașov, 2008
 null
-Eticheta respectiva ne spune ca aparatul emite in cursul functionarii, sau in anumite faze ale functionarii, fascicul laser. De obicei mai exista o a doua eticheta care ne indica purtarea ochelarilor de protectie. Exemple de porturi laser: port laser in retele cu fibra optica; Mufa audio laser in placile audio mai noi(5+1 si asemanatoare), jocuri de lumini cu laser, pointer laser. Unele statii de radioamator au port pentru fibra optica.<br> Raza laser, chiar si de putere foarte mica, poate afecta ireversibil retina. Exista ochelari de protectie special facuti pentru lucru in mediu cu raze laser. 
-YO6OWN, Brasov, 2008
+Eticheta respectivă ne spune că aparatul emite în cursul funcționării, sau în anumite faze ale funcționării, fascicul laser. De obicei mai există o a doua etichetă care ne indica purtarea ochelarilor de protecție. Exemple de locuri la aparate unde poate apare fascicul laser: port laser în rețele cu fibră optică; Mufa audio laser în plăcile audio mai noi(5+1 și asemănătoare), jocuri de lumini cu laser, pointer laser. Unele stații de radioamator au port pentru fibră optică.<br> Raza laser, chiar și de putere foarte mica, poate afecta ireversibil retina. Există ochelari de protecție special făcuți pentru lucru în mediu cu raze laser. 
+YO6OWN, Brașov, 2008
 ##3#
 a
-01A135~&Care este relatia dintre densitatea puterii de RF la care este expus operatorul si distanta dintre acesta si antena radianta?
+01A135~&Care este relația dintre densitatea puterii de RF la care este expus operatorul și distanța dintre acesta și antena radianta?
 null
-puterea scade cu patratul distantei
-puterea scade cu radacina patrata a distantei
-puterea creste cu patratul distantei
-puterea creste cu radacina patrata a distantei
+puterea scade cu pătratul distanței
+puterea scade cu rădăcina pătrată a distanței
+puterea crește cu pătratul distanței
+puterea crește cu rădacina pătrată a distanței
 YO6OWN - adaptare dupa eham.net, 2007
 null
-O explicatie empirica, fara formule ar fi: Din radiatorul izotrop, in mediu omogen, unda se imprastie in toate directiile, asa cum unda e circulara la aruncarea unei pietre in apa - numai ca la noi e sfera. Energia masurata la suprafata unei astfel de sfere este aceeasi in oricare punct al sferei. Suma de putere de pe punctele sferei este egala cu puterea la emisie. Cu cat distanta de la emitator, adica raza sferei creste, cu atat suprafata sferei creste deci densitatea de energie intr-un punct(receptorul) scade.  
+O explicație empirică, fără formule ar fi: Din radiatorul izotrop, în mediu omogen, unda se împrăștie în toate direcțiile, așa cum unda e circulara la aruncarea unei pietre în apa - numai ca la noi e sfera. Energia masurata la suprafata unei astfel de sfere este aceeasi în oricare punct al sferei. Suma de putere de pe punctele sferei este egala cu puterea la emisie. Cu cât distanta de la emițător, adica raza sferei creste, cu atat suprafata sferei creste deci densitatea de energie intr-un punct(receptorul) scade.  
 YO6OWN
 ##4#
 c
@@ -58,19 +58,19 @@ poate cauza incalzirea ochiului, care duce la cataracta
 poate cauza incalzirea ochiului, care duce la astigmatism
 YO6OWN - adaptare dupa eham.net, 2007
 null
-Energia de radiofrecventa absorbita in materiale/substante cu continut de apa, are proprietatea de a le incalzi. In cazul ochiului, efectul termic produce cataracta, care este un proces ireversibil.
+Energia de radiofrecvența absorbita în materiale/substanțe cu conținut de apa, are proprietatea de a le incalzi. In cazul ochiului, efectul termic produce cataracta, care este un proces ireversibil.
 YO6OWN
 ##5#
 c
 01A112~&Ce este foarte important de stiut despre amplasamentul intrerupatorului principal de energie electrica al statiei?
 null
-trebuie sa se afle intotdeauna in apropierea operatorului
-trebuie sa fie cat mai departe posibil de operator
+trebuie sa se afle intotdeauna în apropierea operatorului
+trebuie sa fie cât mai departe posibil de operator
 toata lumea trebuie sa cunoasca amplasamentul lui, pentru caz de accident
 trebuie sa se gaseasca intr-o cutie metalica incuiata, pentru ca sa nu se poata inchide accidental
 YO6OWN - adaptare dupa eham.net, 2007
 null
-Intrerupatorul principal, de tip ciuperca, trebuie sa fie la loc degajat, accesibil tuturor, permitand ca in caz de electrocutare intreaga instalatie sa poata fi deconectata.
+Intrerupatorul principal, de tip ciuperca, trebuie sa fie la loc degajat, accesibil tuturor, permitand ca în caz de electrocutare intreaga instalatie sa poata fi deconectata.
 YO6OWN
 ##6#
 d
@@ -78,7 +78,7 @@ d
 null
 nul - albastru deschis
 faza - negru
-protectie - verde-galben(combinatie)
+protecție - verde-galben(combinatie)
 faza - rosu
 YO6OWN, 2014
 null
@@ -98,7 +98,7 @@ null
 
 ##8#
 d
-01A134~&Ce masuri de protectia muncii trebuie respectate atunci cand lipim cu fludor/cositor?
+01A134~&Ce masuri de protecția muncii trebuie respectate atunci cand lipim cu fludor/cositor?
 null
 Trebuie purtati ochelari de protectie
 Trebuie asigurata o ventilatie corespunzatoare
@@ -106,31 +106,31 @@ Ne asiguram ca nimeni nu poate atinge varful fierbinte al ciocanului de lipit ce
 Toate celelalte optiuni sunt corecte
 YO6OWN - adaptare dupa eham.net, 2007
 null
-La topire, din cauza sacazului care fierbe, pot sari stropi de aliaj - purtarea ochelarilor de protectie e obligatorie. Ventilatia este necesara pentru a indeparta vaporii de oxizi de Pb si Sn din fumul lipiturii. Chiar si deconectat de la sursa, un ciocan fierbinta arata ca si unul rece, pana pui mana! 
+La topire, din cauza sacazului care fierbe, pot sari stropi de aliaj - purtarea ochelarilor de protectie e obligatorie. Ventilația este necesara pentru a indeparta vaporii de oxizi de Pb și Sn din fumul lipiturii. Chiar și deconectat de la sursa, un ciocan fierbinta arata ca și unul rece, pana pui mana! 
 YO6OWN
 ##9#
 c
 01A182~&Ce trebuie sa faci intotdeauna inainte sa te urci pe pilon?
 null
-Trebuie activate toate emitatoarele care folosesc antene de pe pilon
+Trebuie activate toate emițătoarele care folosesc antene de pe pilon
 Impamantarea pilonului trebuie deconectata, pentru a ne feri de descarcari de electricitate statica
 Trebuie folosita centura de siguranta
 Trebuie informat ANCOM despre lucrarile care vor incepe pe pilon
 YO6OWN - adaptare dupa eham.net, 2007
 null
-Nu trebuie activate emitatoarele! Doza de radiatie RF poate produce probleme de sanatate celui de pe pilon; Impamantarea este obligatorie, ea ne fereste pe noi si echipamentele de descarcari electrice; Centura de siguranta este obligatorie inaintea oricarei escaladari a pilonului.
+Nu trebuie activate emițătoarele! Doza de radiatie RF poate produce probleme de sanatate celui de pe pilon; Impamantarea este obligatorie, ea ne fereste pe noi și echipamentele de descarcari electrice; Centura de siguranta este obligatorie inaintea oricarei escaladari a pilonului.
 YO6OWN
 ##10#
 b
-03A135~&De ce atunci cand folosim o statie portabila, faptul de a reduce puterea la emisie la minimum necesar, asa cum specifica regulamentul, este o idee buna?
+03A135~&De ce atunci cand folosim o statie portabila, faptul de a reduce puterea la emisie la minimum necesar, așa cum specifica regulamentul, este o idee buna?
 null
 Fiindca sunt prevazute amenzi pentru cei care lucreaza cu puterea maxima
 Ca sa reducem doza de radiatie de RF la care este expus capul operatorului
 Ca sa reducem calcifierea acumulatorilor NiCd
-Pentru a se elimina autooscilatia in amplificatorul de RF in receptor 
+Pentru a se elimina autooscilația în amplificatorul de RF în receptor 
 YO6OWN - adaptare dupa eham.net, 2007
 null
-Antena unei statii portabile este in general omnidirectionala si ineficienta, facand ca majoritatea energiei RF sa fie absorbite de corpul operatorului. Creierul si ochii sunt cele mai vulnerabile la folosirea statiei in mod obisnuit - la inaltimea fetei.
+Antena unei statii portabile este în general omnidirectionala și ineficienta, facand ca majoritatea energiei RF sa fie absorbite de corpul operatorului. Creierul și ochii sunt cele mai vulnerabile la folosirea statiei în mod obisnuit - la inaltimea fetei.
 YO6OWN
 ##11#
 b
@@ -142,11 +142,11 @@ Deshidratarea rapida
 Caderea neasteptata a parului
 YO6OWN - adaptare dupa eham.net, 2007
 null
-La puteri mici 1-5W, nu se observa aproape nimic, poate la expunere extrem de indelungata. La puteri mai mari de 10W in UUS si chiar US, atingerea firului cald poate produce instantaneu arsuri in volum; Locul ars ramane de tip 'carne alba' multa vreme. 
+La puteri mici 1-5W, nu se observa aproape nimic, poate la expunere extrem de indelungata. La puteri mai mari de 10W în UUS și chiar US, atingerea firului cald poate produce instantaneu arsuri în volum; Locul ars ramane de tip 'carne alba' multa vreme. 
 YO6OWN
 ##12#
 b
-01A153~&Cine este responsabil in cazul in care un vizitator la statia radioclubului este  electrocutat cand atinge o priza montata defectuos?
+01A153~&Cine este responsabil în cazul în care un vizitator la stația radioclubului este  electrocutat cand atinge o priza montata defectuos?
 null
 accidentatul, fiindca nu are voie sa foloseasca materiale ale statiei.
 responsabilul statiei de club
@@ -158,7 +158,7 @@ Responsabilul este responsabil pentru tot ce se intampla la statie, conform regu
 YO6OWN
 ##13#
 b
-01A152~&Un radioamator incepator in vizita la statia de radioclub observa ca sala este incalzita cu un calorifer electric, conectat la retea prin doua fire dezizolate bagate in priza, in camera se simte miros de izolatie incinsa. Cum trebuie sa actioneze?
+01A152~&Un radioamator incepator în vizita la stația de radioclub observa ca sala este incalzita cu un calorifer electric, conectat la retea prin doua fire dezizolate bagate în priza, în camera se simte miros de izolatie incinsa. Cum trebuie sa actioneze?
 null
 sa scoata imediat caloriferul din priza, tragand de cordonul izolat
 sa anunte imediat responsabilul statiei
@@ -166,15 +166,15 @@ sa stinga focul, aruncand pe el ulei de transformator.
 sa scoata siguranta.
 YO5OWN, Sacele, 2004 - rev. 2006
 null
-Responsabilul trebuie anuntat, el va lua deciziile si are responsabilitatea. Nu se scoate siguranta, o procedura periculoasa pentru un neavizat. 
+Responsabilul trebuie anuntat, el va lua deciziile și are responsabilitatea. Nu se scoate siguranta, o procedura periculoasa pentru un neavizat. 
 YO6OWN
 ##14#
 c
-01A162~&In cazul in care statia receptionata este o raritate si se mai aude foarte slab, fiind QRM si paraziti, atunci pentru o receptie mai buna in casti:
+01A162~&In cazul în care stația receptionata este o raritate și se mai aude foarte slab, fiind QRM și paraziti, atunci pentru o receptie mai buna în casti:
 null
 se decupleaza limitatoarele de perturbatii(NB-noise blocking) deoarece acestea afecteaza toate semnalele, atenuand inclusiv semnalul DX.
-se ridica volumul in casti chiar daca celelalte semnale mai puternice fac ca nivelul audio general sa fie dureros de mare
-se abandoneaza receptia postului slab in cazul in care volumul general ar trebui sa fie foarte mare
+se ridica volumul în casti chiar daca celelalte semnale mai puternice fac ca nivelul audio general sa fie dureros de mare
+se abandoneaza recepția postului slab în cazul în care volumul general ar trebui sa fie foarte mare
 dupa o receptie de nivel foarte puternic se ia o pauza de minim 30 de minute.
 YO5OWN, Sacele, 2004 - rev. 2006
 null
@@ -182,22 +182,22 @@ Sistemul NB Noise Blanker este un sistem electronic de limitare a amplitudinii a
 YO6OWN
 ##15#
 c
-01A123~&Siguranta fuzibila a radioreceptorului realizat in conditii de amator (home-made) se arde suparator de des. Ce trebuie facut?
+01A123~&Siguranta fuzibila a radioreceptorului realizat în conditii de amator (home-made) se arde suparator de des. Ce trebuie facut?
 null
 trebuie schimbata siguranta cu una care permite trecerea unui curent mai mare.
 se inlocuieste cu o lita
-se inlocuieste cu una de aceeasi valoare cu cea care s-a ars, si se cauta cauza care a dus la declansarea protectiei. In unele cazuri va fi necesara o reproiectare.
+se inlocuieste cu una de aceeasi valoare cu cea care s-a ars, și se cauta cauza care a dus la declansarea protectiei. In unele cazuri va fi necesara o reproiectare.
 folosirea unui asemenea aparat este riscanta, se poate folosi doar alimentat de la baterie.
 YO5OWN, Sacele, 2004 - rev. 2006
 null
-Chiar daca receptorul este 'home-made', siguranta fuzibila este  interzis a fi 'home-made' - lita, cuie sau altele asemanatoare; Daca siguranta fuzibila are o valoare conforma curentului nominal, atunci trebuie cautata cauza care duce la aparitia unui curent asa mare. In cazul in care nu e defect, ar putea fi o eroare de proiectare, care duce la aceasta manifestare. 
-YO6OWN, Brasov, 2007
+Chiar daca receptorul este 'home-made', siguranta fuzibila este  interzis a fi 'home-made' - lita, cuie sau altele asemanatoare; Daca siguranta fuzibila are o valoare conforma curentului nominal, atunci trebuie cautata cauza care duce la apariția unui curent așa mare. In cazul în care nu e defect, ar putea fi o eroare de proiectare, care duce la aceasta manifestare. 
+YO6OWN, Brașov, 2007
 ##16#
 a
-01A132~&Dupa cateva zeci de secunde de la oprirea si scoaterea de sub tensiune a unui aparat electric, unde sunt stocate tensiunile potential periculoase?
+01A132~&Dupa cateva zeci de secunde de la oprirea și scoaterea de sub tensiune a unui aparat electric, unde sunt stocate tensiunile potential periculoase?
 null
 Unele condensatoare raman incarcate la tensiunea lor de lucru o perioada mai lunga
-Bobinele mentin campul magnetic o perioada lunga si prin autoinductie genereaza inalta tensiune
+Bobinele mentin campul magnetic o perioada lunga și prin autoinductie genereaza inalta tensiune
 in rezistentele de valoare mare
 pe anodul tuburilor de inalta tensiune
 YO6OWN, 2014
@@ -209,37 +209,37 @@ b
 02A132~&Ne mai putem curenta la un aparat electric la putin timp dupa ce l-am deconectat de la reteaua de alimentare de 220V?
 null
 nu, daca am deconectat complet(scos din priza)
-da, unele condensatoare raman incarcate si daca le atingem se pot descarca prin  corp
+da, unele condensatoare raman incarcate și daca le atingem se pot descarca prin  corp
 doar daca ne atingem de transformator
 da, insa doar daca nu il oprim dinainte sa-l scoatem din priza
 YO6OWN, 2014
 null
-In special la echipamentele cu tuburi electronice, capacitorii din circuitul anodic sau de grila se incarca la tensiuni de sute de V. Valoarea capacitorilor nu e foarte mare dar tensiunea este suficient de mare ca sa electrocuteze in mod dureros. Impulsul electric poate comanda o contractie puternica a muschilor, dar sa nu uitam ca si inima e un muschi. De dorit sa asteptam autodescarcarea capacitorilor inainte de a atinge piese. E de luat in calcul si descarcarea la impamantare printr-o rezistenta a partilor de circuit pe care tensiunea persista timp indelungat.
+In special la echipamentele cu tuburi electronice, capacitorii din circuitul anodic sau de grila se incarca la tensiuni de sute de V. Valoarea capacitorilor nu e foarte mare dar tensiunea este suficient de mare ca sa electrocuteze în mod dureros. Impulsul electric poate comanda o contractie puternica a muschilor, dar sa nu uitam ca și inima e un muschi. De dorit sa asteptam autodescarcarea capacitorilor inainte de a atinge piese. E de luat în calcul și descarcarea la impamantare printr-o rezistenta a partilor de circuit pe care tensiunea persista timp indelungat.
 YO6OWN, 2018
 ##18#
 a
 01A174~&Cum se marcheaza locurile periculoase ale unei statii de emisie de radioamator?
 null
-Cu inscriptia 'NU ATINGETI! PERICOL DE MOARTE!'
-Cu inscriptia 'NU ATINGETI! SURSA RADIO-ACTIVA!'
-Cu inscriptia 'LOC PERICULOS!'
-Cu inscritia 'FIR CALD! NU ATINGETI!'
+Cu inscripția 'NU ATINGETI! PERICOL DE MOARTE!'
+Cu inscripția 'NU ATINGETI! SURSA RADIO-ACTIVA!'
+Cu inscripția 'LOC PERICULOS!'
+Cu inscriția 'FIR CALD! NU ATINGETI!'
 YO5OWN, Sacele, 2004 - rev. 2006
 null
-Inscriptia 'NU ATINGETI! PERICOL DE MOARTE!' este obligatorie prin regulament.
+Inscripția 'NU ATINGETI! PERICOL DE MOARTE!' este obligatorie prin regulament.
 YO6OWN
 ##19#
 c
-01A175~&Cine poate intra fara supraveghere in incinta unde este instalat emitatorul?
+01A175~&Cine poate intra fara supraveghere în incinta unde este instalat emițătorul?
 null
-Persoanele in varsta, aerul ionizat ajuta respiratia
+Persoanele în varsta, aerul ionizat ajuta respiratia
 Doar persoanele adulte
 Personalul statiei
-Oricine, in afara de copii nesupravegheati - Statia de emisie este izolata.
+Oricine, în afara de copii nesupravegheati - Stația de emisie este izolata.
 YO5OWN, Sacele, 2004 - rev. 2006
 null
-Conform regulamentului, doar personalul statiei; Personalul statiei automat este instruita sa manipuleze statia. Raspunsul 'Persoanele in varsta' e capcana -  persoanele in varsta s-ar putea sa nu aiba probleme de respiratie, sa nu fie radioamatori, sau sa nu aiba habar de lucru in mediu electric. Cunostintele nu vin cu varsta, ci cu experienta. Cu adultii la fel. Faptul de a fi adult nu garanteaza automat o buna cunoastere a statiei. Raspunsul 'oricine' - din aceleasi motive este gresit.
-YO6OWN, Brasov, 2007
+Conform regulamentului, doar personalul statiei; Personalul statiei automat este instruita sa manipuleze statia. Raspunsul 'Persoanele în varsta' e capcana -  persoanele în varsta s-ar putea sa nu aiba probleme de respiratie, sa nu fie radioamatori, sau sa nu aiba habar de lucru în mediu electric. Cunostintele nu vin cu varsta, ci cu experienta. Cu adultii la fel. Faptul de a fi adult nu garanteaza automat o buna cunoastere a statiei. Raspunsul 'oricine' - din aceleasi motive este gresit.
+YO6OWN, Brașov, 2007
 ##20#
 d
 01A181~&Cat de inalt poate fi un pilon instalat pe casa, fara folosirea ancorarii?
@@ -250,8 +250,8 @@ Nu este specificat
 Este interzisa inaltarea de piloni fara ancorare
 YO5OWN, Sacele, 2004 - rev. 2006
 null
-Este interzisa ridicarea de piloni fara ancorare pe cladiri(priviti orice antena GSM cat de ancorata este). Pe acoperis, sistemul pilon+antena trebuie sa reziste vanturilor de peste 150km/h; Iarna, depunerile de zapada si gheata de pe pilon si antena pot ajunge sa dezechilibreze pilonul.<br> Ancorarea este o metoda care creste foarte mult rezistenta transversala a pilonului.  
-YO6OWN, Brasov, 2007
+Este interzisa ridicarea de piloni fara ancorare pe cladiri(priviti orice antena GSM cât de ancorata este). Pe acoperis, sistemul pilon+antena trebuie sa reziste vanturilor de peste 150km/h; Iarna, depunerile de zapada și gheata de pe pilon și antena pot ajunge sa dezechilibreze pilonul.<br> Ancorarea este o metoda care creste foarte mult rezistenta transversala a pilonului.  
+YO6OWN, Brașov, 2007
 ##21#
 a
 02A181~&Cat de inalt poate fi un pilon de antena instalat pe casa, ancorat?
@@ -262,28 +262,28 @@ null
 Este interzisa inaltarea de piloni pe casa
 YO5OWN, Sacele, 2004 - rev. 2006
 null
-8m dace e ANCORAT - scrie in regulament.
-YO6OWN, Brasov, 2007
+8m dace e ANCORAT - scrie în regulament.
+YO6OWN, Brașov, 2007
 ##22#
 a
 03A181~&Doar unul din amplasamentele de mai jos poate fi folosit ca punct de ancorare a unui pilon sau a unei antene instalate pe acoperis:
 null
-carlig de fier insurubat in grinda acoperisului
+carlig de fier insurubat în grinda acoperisului
 Inelul de fier din varful pilonului unui felinar public
 Cos de fum cu armatura metalica
 Trunchiul unui copac cu diametrul peste 50cm 
 YO5OWN, Sacele, 2004 - rev. 2006
 null
-Punctul de ancorare trebuie sa fie foarte solid, si sa nu genereze un pericol. Felinarul public nu e un punct de ancorare, fiindca este pe domeniu public; In plus, nu este certificat sa suporte stresuri mecanice generate de un pilon in vant.<br> Cosul de fum, cu sau fara armatura nu poate fi punct de ancorare, si de altfel niciun tip de zidarie nu se preteaza la asa ceva.<br>Copacii pot fi strangulati de bucla cablului de ancoraj si sa se usuce. O furtuna care misca copacul va afecta si pilonul
-YO6OWN, Brasov, 2007
+Punctul de ancorare trebuie sa fie foarte solid, și sa nu genereze un pericol. Felinarul public nu e un punct de ancorare, fiindca este pe domeniu public; In plus, nu este certificat sa suporte stresuri mecanice generate de un pilon în vant.<br> Cosul de fum, cu sau fara armatura nu poate fi punct de ancorare, și de altfel niciun tip de zidarie nu se preteaza la așa ceva.<br>Copacii pot fi strangulati de bucla cablului de ancoraj și sa se usuce. O furtuna care misca copacul va afecta și pilonul
+YO6OWN, Brașov, 2007
 ##23#
 d
-01A183~&In portabil, la cabana, curentul industrial(220V,50Hz) vine printr-un set de cabluri electrice izolate. Locul cel mai bun pentru instalarea antenei Windom atent calibrate la club este cu partea superioara langa geam, intr-un carlig din perete, cu bratul scurt pana la baza unui copac, prin ancorare cu tarus, cu bratul lung la fel, in directia opusa. Cineva observa ca firul antenei trece pe sub cablurile rețelei de curent la o distanta de 130cm, perpendicular pe acestea. E vreo problema?
+01A183~&In portabil, la cabana, curentul industrial(220V,50Hz) vine printr-un set de cabluri electrice izolate. Locul cel mai bun pentru instalarea antenei Windom atent calibrate la club este cu partea superioara langa geam, intr-un carlig din perete, cu bratul scurt pana la baza unui copac, prin ancorare cu tarus, cu bratul lung la fel, în direcția opusa. Cineva observa ca firul antenei trece pe sub cablurile rețelei de curent la o distanta de 130cm, perpendicular pe acestea. E vreo problema?
 null
-Nu, firele trec perpendicular, cablurile sunt izolate si distanta este suficient de mare
-Nici una, aerul este un bun izolator(izoleaza peste 4000V la cei 1.3metri) iar cablurile retelei sunt si ele izolate
+Nu, firele trec perpendicular, cablurile sunt izolate și distanta este suficient de mare
+Nici una, aerul este un bun izolator(izoleaza peste 4000V la cei 1.3metri) iar cablurile retelei sunt și ele izolate
 Da, daca proprietarul nu este de acord.
-Distanta dintre antena si cabluri este prea mica, distanta minima trebuie sa fie de 4000mm
+Distanta dintre antena și cabluri este prea mica, distanta minima trebuie sa fie de 4000mm
 YO5OWN, Sacele, 2004 - rev. 2006
 null
 
@@ -295,18 +295,18 @@ null
 Iarna, deoarece temperatura fiind scazuta, firul antenei se poate monta intins, astfel incat vara firul se va 'lasa' doar putin prin dilatare; Dispare pericolul ruperii firului antenei pe timp de iarna din cauza contractiei.
 Primavara sau vara, fiindca este mai cald.
 In orice anotimp, daca se fac calculele de corectie a dilatarii firului.
-In orice anotimp, daca nu e polei, nu exista alte conditii posibile de accident iar cel care urca poarta centura de siguranta si este ancorat.
+In orice anotimp, daca nu e polei, nu exista alte conditii posibile de accident iar cel care urca poarta centura de siguranta și este ancorat.
 YO5OWN, Sacele, 2004 - rev. 2006
 null
-Bineinteles ca dilatarea si contractarea firului de antena cu temperatura nu trebuie neglijate, insa din punct de vedere al sigurantei persoanei de pe acoperis, obligatorii sunt ancorarea si centura de siguranta, precum si interzicerea lucrului in conditii de polei
-YO6OWN, Brasov, 2007
+Bineinteles ca dilatarea și contractarea firului de antena cu temperatura nu trebuie neglijate, insa din punct de vedere al sigurantei persoanei de pe acoperis, obligatorii sunt ancorarea și centura de siguranta, precum și interzicerea lucrului în conditii de polei
+YO6OWN, Brașov, 2007
 ##25#
 c
 01A141~&Ce pericole ar putea aparea la dezvoltarea unui fenomen meteo tip furtuna(orajos)?
 null
-pericolul descarcarii electrice a trasnetelor asupra echipamentelor radioamatorului si asupra vietii celor din zona, pericolul luminii orbitoare a trasnetului sau fulgerelor, zgomotul puternic,  impulsul electromagnetic indus in echipamente.
+pericolul descarcarii electrice a trasnetelor asupra echipamentelor radioamatorului și asupra vietii celor din zona, pericolul luminii orbitoare a trasnetului sau fulgerelor, zgomotul puternic,  impulsul electromagnetic indus în echipamente.
 distrugeri determinate de forta vantului: antene rupte, copaci daramtati, ditrugeri datorate precipitatiilor: scurt-circuite, inundatie
-Toate pericolele mentionate prin fortele care le genereaza si prin efecte.
+Toate pericolele mentionate prin fortele care le genereaza și prin efecte.
 Pericole inchipuite
 YO6OWN, 2019
 null
@@ -316,22 +316,22 @@ null
 a
 02A141~&Cum ne dam seama ca este foarte aproape un fenomen meteo care produce trasnete? 
 null
-Se apropie furtuna, fenomen vizibil prin norii specifici, se vad fulgere si se aud tunete. 
+Se apropie furtuna, fenomen vizibil prin norii specifici, se vad fulgere și se aud tunete. 
 Pisicile se ascund sub pat
-se aud pocnete in urechi
-se aud cateva pocnete in receptia audio a statiei
+se aud pocnete în urechi
+se aud cateva pocnete în recepția audio a statiei
 YO6OWN, 2019
 null
 
 
 ##27#
 d
-03A141~&Esti la statie, absorbit de traficul SSB. Cum iti dai seama ca ar putea sa se apropie o furtuna cu descarcari electrice, si ar fi cazul sa te opresti din trafic si sa verifici starea vremii?
+03A141~&Esti la statie, absorbit de traficul SSB. Cum iti dai seama ca ar putea sa se apropie o furtuna cu descarcari electrice, și ar fi cazul sa te opresti din trafic și sa verifici starea vremii?
 null
-Se aud in casti/audio pocnete specifice, iar frecventa si nivelul lor sonor este in scadere
+Se aud în casti/audio pocnete specifice, iar frecventa și nivelul lor sonor este în scadere
 Nu se poate determina, dar sigur se va plange despre furtuna unul din corespondentii tai apropiati.
 Primesti alerta pe SMS
-Incep sa se auda in casti/audio pocnete specifice, iar frecventa, lungimea si nivelul lor sonor este in crestere.
+Incep sa se auda în casti/audio pocnete specifice, iar frecventa, lungimea și nivelul lor sonor este în crestere.
 YO6OWN, 2019
 null
 
@@ -343,7 +343,7 @@ null
 pericol de moarte prin electrocutare
 electrocutarea prin inductie
 incendiul
-sperietura mare si pericol de asurzire la tunet
+sperietura mare și pericol de asurzire la tunet
 YO6OWN, 2019
 null
 
@@ -355,7 +355,7 @@ null
 paratrasnetul montat conform bunelor practici din domeniu
 Inaltimea moderata
 paratrasnetul cu varf de aluminiu
-paratrasnetul bila cu mercur in varf
+paratrasnetul bila cu mercur în varf
 YO6OWN, 2019
 null
 
@@ -378,7 +378,7 @@ c
 null
 La un dispersor de energie
 La pilonul metalic
-La o priza de impamantare corect executata si masurata.
+La o priza de impamantare corect executata și masurata.
 La o groapa cu pamant umed.
 YO6OWN, 2019
 null
@@ -386,11 +386,11 @@ null
 
 ##32#
 d
-04A142~&O furtuna se apropie, vor fi fulgere si trasnete. Antena are un comutator cu 3 pozitii, "la statie", "la impamantare", "deconectat". Pe care pozitie mutam comutatorul?
+04A142~&O furtuna se apropie, vor fi fulgere și trasnete. Antena are un comutator cu 3 pozitii, "la statie", "la impamantare", "deconectat". Pe care pozitie mutam comutatorul?
 null
 mutam pe "deconectat". Nefiind conectata la GND sau la statie, nu va fi lovita de trasnet deoarece nu exista o cale de conductie la impamantare
-lasam antena conectata la statie, fiindca statia are intern protectii la supratensiune.
-doar scoatem statia din priza.
+lasam antena conectata la statie, fiindca stația are intern protectii la supratensiune.
+doar scoatem stația din priza.
 cuplam antena la impamantare. Chiar daca va fi lovita de trasnet, energia va fi condusa la impamantare.
 YO6OWN, 2019
 null
@@ -398,19 +398,19 @@ null
 
 ##33#
 a
-05A142~&Unde se monteaza socul de RF pentru a fi eficient ca protectie la electricitate statica de inalta tensiune(nu e pentru trasnet)
+05A142~&Unde se monteaza șocul de RF pentru a fi eficient ca protectie la electricitate statica de inalta tensiune(nu e pentru trasnet)
 null
-intre firul de semnal al antenei si impamantare.
+intre firul de semnal al antenei și impamantare.
 pe firul central, blocheaza trasnetul
-pe anodul emitatorului
+pe anodul emițătorului
 pe condensatorul din filtrul PI
 YO6OWN, 2019
 null
-Socul, o bobina cu inductivitate mare, va avea Z infinit la frecventa de emisie/receptie. Nu trebuie sa afecteze emisia sau receptia, dar in cc(electricitate statica = cc) are rezistenta mica, ohmica a bobinei ca sa descarce antena la masa.<br>Astfel socul trebuie montat intre firul cald al antenei si masa.
+Socul, o bobina cu inductivitate mare, va avea Z infinit la frecventa de emisie/receptie. Nu trebuie sa afecteze emisia sau receptia, dar în cc(electricitate statica = cc) are rezistenta mica, ohmica a bobinei ca sa descarce antena la masa.<br>Astfel șocul trebuie montat intre firul cald al antenei și masa.
 YO6OWN, 2019
 ##34#
 a
-01A143~&Unde se conecteaza aparatura, ca sa fie protejata atat ea cat si operatorul de supratensiuni?
+01A143~&Unde se conecteaza aparatura, ca sa fie protejata atat ea cât și operatorul de supratensiuni?
 null
 la priza de pamant
 la paratraznet
@@ -430,35 +430,35 @@ la trei
 la calorifer
 YO6OWN, 2019
 null
-Cel mai simplu se explica prin contraexemplu: daca o statie ar fi legata de doua prize de pamant, inseamna ca statia ar lega cele doua prize de pamant. Nu garaneaza nimeni ca cele doua prize sunt la acelasi potential, fiindca norii de deasupra pot induce tensiuni diferite in sol. Si astfel, avand potentiale diferite, apare o tensiune, si curent care se scurg prin aparatul care uneste cele doua prize de pamant.
+Cel mai simplu se explica prin contraexemplu: daca o statie ar fi legata de doua prize de pamant, inseamna ca stația ar lega cele doua prize de pamant. Nu garaneaza nimeni ca cele doua prize sunt la acelasi potential, fiindca norii de deasupra pot induce tensiuni diferite în sol. Si astfel, avand potentiale diferite, apare o tensiune, și curent care se scurg prin aparatul care uneste cele doua prize de pamant.
 YO6OWN, 2019
 ##36#
 b
 01A144~&Ce este priza de pamant?
 null
-este o priza care in loc de faza - null are null - null si care se foloseste la stabilirea potentialului de 0 la aparate electrice si electronice.
-Este un ansamblu de tevi, platbande de otel, conductoare ingropate in pamant, intr-un perimetru preponderent umed, cu rezistenta sub 4 ohmi, care asigura scurgerea in pamant a sarcinilor electrice(in general periculoase) legate la ea.
-este un carlig sau un inel de otel montat intr-o fundatie de beton turnata in pamant, la care se leaga un cablu de otel de ancorare la pamant a pilonului unei antene.
+este o priza care în loc de faza - null are null - null și care se foloseste la stabilirea potentialului de 0 la aparate electrice și electronice.
+Este un ansamblu de tevi, platbande de otel, conductoare ingropate în pamant, intr-un perimetru preponderent umed, cu rezistenta sub 4 ohmi, care asigura scurgerea în pamant a sarcinilor electrice(in general periculoase) legate la ea.
+este un carlig sau un inel de otel montat intr-o fundatie de beton turnata în pamant, la care se leaga un cablu de otel de ancorare la pamant a pilonului unei antene.
 este un paratrasnet
 YO5OWN, Sacele, 2004 - rev.2007
 null
 Priza de pamant este componenta esentiala a unui paratrasnet; De asemenea este necesara o buna priza de pamant pentru a avea un GND eficient. In locatiile de concurs este o idee buna sa avem un GND adevarat. Maximul de 4 ohmi este cerut de STAS, insa o zecime de ohm este ceva adecvat.
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
 ##37#
 a
 02C144~&Care este pericolul folosirii aparaturii conectate la doua prize de impamantare?
 null
-Cele doua prize, pot fi la doua potentiale diferite(induse de norii deasupra) si diferenta de potential se va descarca prin aparatura dintre ele.
+Cele doua prize, pot fi la doua potentiale diferite(induse de norii deasupra) și diferenta de potential se va descarca prin aparatura dintre ele.
 Apar oscilatii
-Nu este niciun pericol, cu cat mai multe prize de impamantare, cu atat mai bine
-Apar mai multe puncte de masa si nu se mai pot face calculele.
+Nu este niciun pericol, cu cât mai multe prize de impamantare, cu atat mai bine
+Apar mai multe puncte de masa și nu se mai pot face calculele.
 YO6OWN, 2019
 null
 
 
 ##38#
 b
-02A175~&Aparatele de receptie nu vor fi lasate in functiune fara supraveghere, deoarece...
+02A175~&Aparatele de receptie nu vor fi lasate în functiune fara supraveghere, deoarece...
 null
 o sa pierdem o multime de legaturi
 prezinta pericol de incendiu
@@ -466,35 +466,35 @@ consuma curent
 este interzis de ANCOM
 YO6GZI, Sacele, 2005(rev.2010)
 null
-Oricand o componenta se poate defecta din cauza imbatranirii materialului sau pot veni supratensiuni pe retea si un eventual scurtcircuit ar putea declansa un incendiu.
-YO6OWN, Brasov, 2007
+Oricand o componenta se poate defecta din cauza imbatranirii materialului sau pot veni supratensiuni pe retea și un eventual scurtcircuit ar putea declansa un incendiu.
+YO6OWN, Brașov, 2007
 ##39#
 c
 01A171~&Care din afirmatiile de mai jos este corecta?
 null
-Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie izolatoare inchise in casete metalice care vor fi conectate la calorifer.
-Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie metalice inchise in casete metalice care vor fi conectate la conducta de gaz pentru impamantare.
-Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie metalice inchise in casete metalice care vor fi conectate la o de priza pamant.
-Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie metalice inchise in casete izolatoare pentru a evita electrocutarea
+Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie izolatoare inchise în casete metalice care vor fi conectate la calorifer.
+Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie metalice inchise în casete metalice care vor fi conectate la conducta de gaz pentru impamantare.
+Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie metalice inchise în casete metalice care vor fi conectate la o de priza pamant.
+Aparatele de radio-emisie, sursele de alimentare etc. vor fi executate pe sasie metalice inchise în casete izolatoare pentru a evita electrocutarea
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Caloriferul, teava de apa sau gaz nu sunt impamantari, Nu conectam nimic la ele, desi tot felul de mituri urbane asta ne sfatuiesc. Carcasa aparatelor si punctele care vin in contact cu operatorii trebuie puse la masa, pentru ca se scurga tensiunile induse sau cele datorate unor defecte. Carcasa izolatoare se poate comporta ca un dielectric de condensator, si orice izolator are o tensiune de strapungere. Odata strapuns izolatorul, sutem electrocutati la ACEA tensiune. In echipamentele de emisie cu tuburi, se foloseste foarte inalta tensiune (FIT) in circuitul anodic.
-YO6OWN, Brasov, 2007, rev. 2019
+Caloriferul, teava de apa sau gaz nu sunt impamantari, Nu conectam nimic la ele, desi tot felul de mituri urbane asta ne sfatuiesc. Carcasa aparatelor și punctele care vin în contact cu operatorii trebuie puse la masa, pentru ca se scurga tensiunile induse sau cele datorate unor defecte. Carcasa izolatoare se poate comporta ca un dielectric de condensator, și orice izolator are o tensiune de strapungere. Odata strapuns izolatorul, sutem electrocutati la ACEA tensiune. In echipamentele de emisie cu tuburi, se foloseste foarte inalta tensiune (FIT) în circuitul anodic.
+YO6OWN, Brașov, 2007, rev. 2019
 ##40#
 d
-01A172~&Toate capacele si usile de acces la unitatile emitatorului vor fi prevazute cu
+01A172~&Toate capacele și usile de acces la unitatile emițătorului vor fi prevazute cu
 null
 sisteme de alarma
 cel putin doua posibilitati de inchidere
 fereastra
-sisteme de intrerupere a tensiunilor mai mari de 24 de volti, in cazul deschiderii lor
+sisteme de intrerupere a tensiunilor mai mari de 24 de volti, în cazul deschiderii lor
 YO6GZI, Sacele, 2005(rev.2007)
 null
 Usa cuptorului cu microunde are un intrerupator care opreste generarea de microunda cand se deschide usa; Similar, usile de la echipamentele de inalta tensiune trebuie dotate cu intrerupatoare care vor comanda intreruperea inaltei tensiuni.
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
 ##41#
 a
-02A171~&Folosirea surselor de alimentare cu inalta tensiune separate de emitator:
+02A171~&Folosirea surselor de alimentare cu inalta tensiune separate de emițător:
 null
 nu se recomanda
 este obligatorie
@@ -502,11 +502,11 @@ nu exista astfel de surse
 se permite doar pana la tensiunea de 120V
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Nu se recomanda, deoarece daca le folosim, trebuie folosite cabluri de alimentare care rezista la inalta tensiune, care se pot defecta, cablul induce tensiuni mai mari in obiectele metalice apropiate, etc. Cel mai bine inalta tensiune se genereaza in interiorul carcasei ecranate a emitatorului.
-YO6OWN, Brasov, 2007
+Nu se recomanda, deoarece daca le folosim, trebuie folosite cabluri de alimentare care rezista la inalta tensiune, care se pot defecta, cablul induce tensiuni mai mari în obiectele metalice apropiate, etc. Cel mai bine inalta tensiune se genereaza în interiorul carcasei ecranate a emițătorului.
+YO6OWN, Brașov, 2007
 ##42#
 b
-01A173~&La radio-emitatoare cuplajul cu antena va fi:
+01A173~&La radio-emițătoare cuplajul cu antena va fi:
 null
 cuplaj galvanic
 inductiv sau capacitiv
@@ -515,10 +515,10 @@ prin trimer de inalta frecventa
 YO6GZI, Sacele, 2005(rev.2007)
 null
 Obligatoriu un cuplaj cu separatie galvanica: inductiv sau capacitiv
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
 ##43#
 c
-02A173~&La radio-emitatoare capacitorul de cuplaj va avea o tensiune de strapungere egala cu:
+02A173~&La radio-emițătoare capacitorul de cuplaj va avea o tensiune de strapungere egala cu:
 null
 cel putin tensiunea anodica de alimentare a etajului final
 cel putin de doua ori tensiunea anodica de alimentare a etajului final
@@ -526,23 +526,23 @@ cel putin de trei ori tensiunea anodica de alimentare a etajului final
 cel putin de patru ori tensiunea anodica de alimentare a etajului final
 YO6GZI, Sacele, 2005(rev.2007)
 null
-'Cel putin de...'  - normele impun o valoare minima, de supraproiectare, insa un condensator de cuplaj este cu atat mai bun cu cat are o tensiune de strapungere mai mare.
-YO6OWN, Brasov, 2007
+'Cel putin de...'  - normele impun o valoare minima, de supraproiectare, insa un condensator de cuplaj este cu atat mai bun cu cât are o tensiune de strapungere mai mare.
+YO6OWN, Brașov, 2007
 ##44#
 d
-03A175~&In camera unde este instalat emitatorul se va permite intrarea copiilor si a persoanelor straine de statie:
+03A175~&In camera unde este instalat emițătorul se va permite intrarea copiilor și a persoanelor straine de statie:
 null
-nu se permite in nici un caz
+nu se permite în nici un caz
 numai cu un insotitor din partea parintilor
 numai daca au permis de intrare valabil
 numai cu un insotitor din partea personalului statiei
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Cluburile nu emit permise de vizitare a statiilor de club, 'parintii' nu sunt o autoritate certificata in protectia muncii si probabil nici nu cunosc statia asa cum o cunoaste personalul statiei, care are posibilitatea sa faca pe ghidul in cunostinta de cauza.
-YO6OWN, Brasov, 2007
+Cluburile nu emit permise de vizitare a statiilor de club, 'parintii' nu sunt o autoritate certificata în protecția muncii și probabil nici nu cunosc stația așa cum o cunoaste personalul statiei, care are posibilitatea sa faca pe ghidul în cunostinta de cauza.
+YO6OWN, Brașov, 2007
 ##45#
 b
-04A175~&Aparatele de emisie nu vor fi lasate in functiune fara supraveghere, deoarece:
+04A175~&Aparatele de emisie nu vor fi lasate în functiune fara supraveghere, deoarece:
 null
 nu auzim daca suntem chemati
 prezinta pericol de incendiu
@@ -550,8 +550,8 @@ consuma curent
 este interzis de ANC
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Oricand o componenta se poate defecta din cauza imbatranirii materialului sau pot veni supratensiuni pe retea si un eventual scurtcircuit ar putea declansa un incendiu.
-YO6OWN, Brasov, 2007
+Oricand o componenta se poate defecta din cauza imbatranirii materialului sau pot veni supratensiuni pe retea și un eventual scurtcircuit ar putea declansa un incendiu.
+YO6OWN, Brașov, 2007
 ##46#
 b
 02A153~&Cine raspunde de activitatea unei statii de club?
@@ -563,7 +563,7 @@ operatorul de moment al statiei de club
 ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2007)
 null
 Conform regulamentului, responsabilul statiei de club.
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
 ##47#
 d
 03A153~&La ce foloseste cunoasterea normelor de tehnica securitatii muncii la statiile de radioamator?
@@ -571,14 +571,14 @@ null
 la minimalizarea undelor reflectate la statiile de radioamator
 la promovarea cu succes a examenului de radioamator
 la montarea antenelor 
-la inlaturarea/evitarea pericolelor de accidentare in special din cauza electrocutarilor
+la inlaturarea/evitarea pericolelor de accidentare în special din cauza electrocutarilor
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Invatarea NTSM asigura cunostintele minime de securitatea muncii si de prim-ajutor, insa nu este suficient. Din cand in cand, cate un exercitiu de NTSM la club ar ajuta foarte mult.<br>Cunoasterea NTSM duce la promovarea unei parti a examenului de radioamator, insa acesta este un mijloc, nu e scopul.
-YO6OWN, Brasov, 2007
+Invatarea NTSM asigura cunostintele minime de securitatea muncii și de prim-ajutor, insa nu este suficient. Din cand în cand, cate un exercitiu de NTSM la club ar ajuta foarte mult.<br>Cunoasterea NTSM duce la promovarea unei parti a examenului de radioamator, insa acesta este un mijloc, nu e scopul.
+YO6OWN, Brașov, 2007
 ##48#
 a
-04A153~&Cine raspunde in cazul statiilor de club de respectarea normelor de tehnica securitatii muncii?
+04A153~&Cine raspunde în cazul statiilor de club de respectarea normelor de tehnica securitatii muncii?
 null
 responsabilul statiei
 proprietarul statiei
@@ -586,15 +586,15 @@ cel care este prezent la momentul respectiv
 seful radioclubului
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Conform legii, responsabilul statiei - in zona statiei.
-YO6OWN, Brasov, 2007
+Conform legii, responsabilul statiei - în zona statiei.
+YO6OWN, Brașov, 2007
 ##49#
 b
 05A153~&Ce indatoriri are responsabilul statiei de club referitor la tehnica securitatii muncii?
 null
-sa faca cat mai multe legaturi astfel testand respectarea normelor
-sa aplice masurile de protectia muncii si tehnica securitatii astfel ca lucrul la statia de club sa se desfasoare in conditii lipsite de pericol
-sa aplice masurile de protectia muncii si tehnica securitatii astfel ca lucrul la statiile membrilor clubului sa se desfasoare in conditii lipsite de pericol
+sa faca cât mai multe legaturi astfel testand respectarea normelor
+sa aplice masurile de protecția muncii și tehnica securitatii astfel ca lucrul la stația de club sa se desfasoare în conditii lipsite de pericol
+sa aplice masurile de protecția muncii și tehnica securitatii astfel ca lucrul la statiile membrilor clubului sa se desfasoare în conditii lipsite de pericol
 sa fie constient de propriile responsabilitiati
 YO6GZI, Sacele, 2005(rev.2007)
 null
@@ -604,21 +604,21 @@ null
 c
 02A152~&Operatorii statiei de club, referitor la tehnica securitatii, au obligatia:
 null
-sa faca cat mai multe legaturi astfel testand respectarea normelor
-sa remedieze orice neconformitate conform legislatiei in vigoare
-sa atraga atentia responsabilului statiei asupra eventualelor deficiente observate, care ar putea provoca accidente
-in cazul unor neconformitati sa opereze cu grija si numai spravegheat de responsabilul statiei
+sa faca cât mai multe legaturi astfel testand respectarea normelor
+sa remedieze orice neconformitate conform legislatiei în vigoare
+sa atraga atenția responsabilului statiei asupra eventualelor deficiente observate, care ar putea provoca accidente
+in cazul unor neconformități sa opereze cu grija și numai spravegheat de responsabilul statiei
 YO6GZI, Sacele, 2005(rev.2007)
 null
 Responsabilul statiei fiind coordonatorul de siguranta, toti ceilalti operatori trebuie sa-l anunte de orice deficienta sau pericol.
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
 ##51#
 d
 01A163~&Aparatul de receptie trebuie introdus intr-o cutie care:
 null
-este din material izolant, complet inchis si conectat la o borna de impamantare cu rezistenta sub patru ohmi
-permite accesul la componente pentru a sterge praful dintre armaturile condesatoarelor variabile, evitand modificarea capacitatii in timp
-nu se introduce in cutie pentru ca scade sensibilitatea la receptie
+este din material izolant, complet inchis și conectat la o borna de impamantare cu rezistenta sub patru ohmi
+permite accesul la componente pentru a sterge praful dintre armaturile condesatoarelor variabile, evitand modificarea capacitatii în timp
+nu se introduce în cutie pentru ca scade sensibilitatea la receptie
 sa nu permita accesul la partile aflate sub tensiune
 YO6GZI, Sacele, 2005(rev.2007)
 null
@@ -635,22 +635,22 @@ receptorul nu are carcasa metalica
 YO6GZI, Sacele, 2005(rev.2007)
 null
 Se leaga la impamantare astfel incat orice tensiune accidentala sau indusa se descarca la masa prin cordonul de impamantare, nu prin corpul operatorului
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
 ##53#
 c
 01A161~&Conectarea castilor la un receptor (cu tuburi) se face:
 null
-direct in circuitul anodic al tubului final amplificator audio 
+direct în circuitul anodic al tubului final amplificator audio 
 in circuitul filamentului tubului amplificator audio
-in circuitul anodic al tubului final amplificator audio printr-un condensator de 0,1...1uF si de tensiune de lucru egala cu dublul tensiunii anodice
+in circuitul anodic al tubului final amplificator audio printr-un condensator de 0,1...1uF și de tensiune de lucru egala cu dublul tensiunii anodice
 in baza tranzistorului final amplificator audio
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Circuitul anodic se afla la tensiune de ordinul sutelor de V, in niciun caz nu e voie conectarea castilor la aceasta tensiune. Desi regulamentul permite conectarea castilor printr-un condensator de izolatie la tensiune dubla, aceasta metoda nu se mai foloseste si nici nu e recomandata din cauza posibilitatii de strapungere a condensatorului.
+Circuitul anodic se afla la tensiune de ordinul sutelor de V, în niciun caz nu e voie conectarea castilor la aceasta tensiune. Desi regulamentul permite conectarea castilor printr-un condensator de izolatie la tensiune dubla, aceasta metoda nu se mai foloseste și nici nu e recomandata din cauza posibilitatii de strapungere a condensatorului.
 YO6OWN
 ##54#
 b
-01A131~&Sistemul de schimbare manuala a bobinelor se evita in cazul in care prin bobine circula o componenta de curent continuu mai mare de:
+01A131~&Sistemul de schimbare manuala a bobinelor se evita în cazul în care prin bobine circula o componenta de curent continuu mai mare de:
 null
 12V
 24V
@@ -658,11 +658,11 @@ null
 120V
 YO6GZI, Sacele, 2005(rev.2007)
 null
-La conectarea sau deconectarea unei bobine, apare tensiunea autoindusa in bobina de variatia curentului (de la 0 la max sau de la max la 0), iar aceasta tensiune poate ajunge la valori de kV.
-YO6OWN, Brasov, 2007
+La conectarea sau deconectarea unei bobine, apare tensiunea autoindusa în bobina de variația curentului (de la 0 la max sau de la max la 0), iar aceasta tensiune poate ajunge la valori de kV.
+YO6OWN, Brașov, 2007
 ##55#
 d
-03A171~&In cazul cand se utilizeaza surse de alimentare separate bornele sau conectoarele de inalta tensiune vor fi montate pe cat posibil:
+03A171~&In cazul cand se utilizeaza surse de alimentare separate bornele sau conectoarele de inalta tensiune vor fi montate pe cât posibil:
 null
 pe panoul frontal al aparatului
 pe o parte laterala a carcasei
@@ -670,8 +670,8 @@ nu se monteaza astfel de borne
 pe partea din spate a aparatului
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Undeva unde operatorul nu are acces cat timp opereaza controalele aparatului, adica pe partea din spate a aparatului.
-YO6OWN, Brasov, 2007
+Undeva unde operatorul nu are acces cât timp opereaza controalele aparatului, adica pe partea din spate a aparatului.
+YO6OWN, Brașov, 2007
 ##56#
 a
 02A162~&Pentru protejarea auzului se recomanda:
@@ -694,8 +694,8 @@ nu se recomanda
 este permisa dar trebuie respectate prevederile normelor de securitate a muncii la inaltime
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Liniile peste 1000V sunt posibile fire de tractiune electrica(tramvai, troleu) - si la un contact accidental al antenei neizolate cu aceste linii, exista riscul electrocutarii operatorului statiei.
-YO6OWN, Brasov, 2007
+Liniile peste 1000V sunt posibile fire de tractiune electrica(tramvai, troleu) - și la un contact accidental al antenei neizolate cu aceste linii, exista riscul electrocutarii operatorului statiei.
+YO6OWN, Brașov, 2007
 ##58#
 c
 02A144~&Prizele de pamant folosite de radioamatori vor fi:
@@ -706,8 +706,8 @@ de tipul artificial, tubulare sau radiale
 tubulare, pentru a avea rezistenta sub patru ohmi
 YO6GZI, Sacele, 2005(rev.2007)
 null
-In primul rand, trebuie ca ele sa fie impamantari reale - nu conducta de apa, teava de gaz, calorifere, si altele asemanatoare.<br>Priza de pamant are descriere in manualul NTSM: este un ansamblu de tije si platbande metalice ingropate care formeaza un sistem artificial eficient de scurgere a curentilor la pamant. Rezistenta intre priza si pamant trebuie sa fie mica iar suprafata de contact cu pamantul trebuie sa fie mare pentru a permite scurgerea unor curenti mari de ex. curentul unui trasnet in antena.
-YO6OWN, Brasov, 2007
+In primul rand, trebuie ca ele sa fie impamantari reale - nu conducta de apa, teava de gaz, calorifere, și altele asemanatoare.<br>Priza de pamant are descriere în manualul NTSM: este un ansamblu de tije și platbande metalice ingropate care formeaza un sistem artificial eficient de scurgere a curentilor la pamant. Rezistenta intre priza și pamant trebuie sa fie mica iar suprafata de contact cu pamantul trebuie sa fie mare pentru a permite scurgerea unor curenti mari de ex. curentul unui trasnet în antena.
+YO6OWN, Brașov, 2007
 ##59#
 d
 03A144~&Conductoarele legate de priza de pamant pot fi din:
@@ -719,10 +719,10 @@ cupru sau fier
 YO6GZI, Sacele, 2005(rev.2007)
 null
 Conductoarele trebuie sa aiba rezistivitate foarte mica. Cum Al formeaza instantaneu o pelicula de oxid, nu corespunde.
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
 ##60#
 a
-04A144~&Legaturile cu priza de pamant si rezistenta electrica a acesteia vor fi verificate:
+04A144~&Legaturile cu priza de pamant și rezistenta electrica a acesteia vor fi verificate:
 null
 cel putin de doua ori pe an
 cel putin de trei ori pe an
@@ -731,19 +731,19 @@ periodic
 YO6GZI, Sacele, 2005(rev.2007)
 null
 De 2 ori pe an, se verifica rezistenta de impamantare.
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
 ##61#
 b
 01A191~&In cazul electrocutarii unei persoane aflate sub o instalatie, prima actiune de intreprins este:
 null
-extragerea persoanei de sub instalatie si astfel de sub curent 
+extragerea persoanei de sub instalatie și astfel de sub curent 
 deconectarea partii de instalatie de care este prins accidentatul
 se trage cel accidentat de picioare
 se cheama pompierii
 YO6GZI, Sacele, 2005(rev.2007)
 null
-PRIMA actiune este scoaterea persoanei de sub tensiune. Acest lucru se face prin deconectarea partii de instalatie care intra in contact cu accidentatul. In unele cazuri disperate se poate recurge la provocarea de scurtcircuite care in mod normal duc la declansarea protectiei/sigurantei pentru acel sector. Nu se pierde vremea cu chematul pompierilor, iar tragerea accidentatului aflat sub tensiune de membre poate duce la electrocutarea salvatorului - interzis! 
-YO6OWN, Brasov, 2007
+PRIMA actiune este scoaterea persoanei de sub tensiune. Acest lucru se face prin deconectarea partii de instalatie care intra în contact cu accidentatul. In unele cazuri disperate se poate recurge la provocarea de scurtcircuite care în mod normal duc la declansarea protectiei/sigurantei pentru acel sector. Nu se pierde vremea cu chematul pompierilor, iar tragerea accidentatului aflat sub tensiune de membre poate duce la electrocutarea salvatorului - interzis! 
+YO6OWN, Brașov, 2007
 ##62#
 c
 01A192~&In cazul electrocutarii cand persoana accidentata nu mai da semne de viata (respiratia, bataile inimii, pulsul sunt absente):
@@ -754,29 +754,29 @@ nu trebuie sa fie considerata pierduta
 se cheama politia
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Verdictul de deces il da doar medicul, care are grija sa noteze ora decesului si sa cheme politia, pana atunci, daca suntem in situatia de a da prim-ajutor, trebuie sa incepem de la premisa ca accidentatul poate fi salvat, asa ca nu trebuie sa intarziem nicio secunda in a-i da ajutor. 
-YO6OWN, Brasov, 2007
+Verdictul de deces il da doar medicul, care are grija sa noteze ora decesului și sa cheme politia, pana atunci, daca suntem în situația de a da prim-ajutor, trebuie sa incepem de la premisa ca accidentatul poate fi salvat, așa ca nu trebuie sa intarziem nicio secunda în a-i da ajutor. 
+YO6OWN, Brașov, 2007
 ##63#
 d
 01A193~&In cazul electrocutarii daca este necesara folosirea oricarei metode de respiratie artificiala se actioneaza foarte rapid pentru a oxigena creierul, altfel:
 null
-accidentatul moare in 10 minute
+accidentatul moare în 10 minute
 dupa 10 minute fara oxigen, creierul se lezeaza ireversibil
 nu mai are efect nici o metoda de resuscitare
 dupa 3 minute fara oxigen, creierul se lezeaza ireversibil
 YO6GZI, Sacele, 2005(rev.2007)
 null
-Chiar daca accidentatul are rani deschise, fracturi - oxigenarea creierului este primordiala. Trebuie inceputa cat mai repede respiratia artificiala - nu se pierde vremea nicio secunda cu apeluri dupa ambulanta si altele asemenea  - decat daca sunt mai multi salvatori si se coordoneaza bine intre ei. Odata ce accidentatul incepe sa respire singur, putem trece la primul ajutor al celorlalte leziuni, in functie de importanta lor.
-YO6OWN, Brasov, 2007
+Chiar daca accidentatul are rani deschise, fracturi - oxigenarea creierului este primordiala. Trebuie inceputa cât mai repede respirația artificiala - nu se pierde vremea nicio secunda cu apeluri dupa ambulanta și altele asemenea  - decat daca sunt mai multi salvatori și se coordoneaza bine intre ei. Odata ce accidentatul incepe sa respire singur, putem trece la primul ajutor al celorlalte leziuni, în functie de importanta lor.
+YO6OWN, Brașov, 2007
 ##64#
 c
 01A151~&Ce obligatii are titularul sau responsabilul unei statii la care sunt autorizati radioamatori de clasa IV?
 null
 nu au obligatii
-radioamatorii de clasa IV au aceleasi drepturi ca si cei de la clasa incepatori
-asigurarea functionarii statiei in stricta conformitate cu prevederile normelor tehnice in vigoare, permitand radioamatorului de clasa IV lucrul la statie numai in prezenta sa
+radioamatorii de clasa IV au aceleasi drepturi ca și cei de la clasa incepatori
+asigurarea functionarii statiei în stricta conformitate cu prevederile normelor tehnice în vigoare, permitand radioamatorului de clasa IV lucrul la statie numai în prezenta sa
 Sa-i ajute sa devina buni radioamatori
 ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2006)
 null
 Radioamatorul clasa IV este un operator. Responsabilul unei statii are responsabilitatea asigurarii NTSM, iar prezenta lui este obligatorie cand la statie lucreaza operatori de clasa IV 
-YO6OWN, Brasov, 2007
+YO6OWN, Brașov, 2007
