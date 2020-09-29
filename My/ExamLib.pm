@@ -68,11 +68,25 @@ return($timediff);  #here is the general return
 } #.end sub timestamp
 
 #--------------------------------------
-sub compute_mac {
+#sub compute_mac {
 
+#use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
+#  my ($message) = @_;
+#  my $secret = '80b3581f9e43242f96a6309e5432ce8b'; #development secret
+#  hmac_sha1_hex($message,$secret);
+#} #end of compute_mac
+
+#-------------------------------------
+sub compute_mac {
 use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
+my $secret='80b3581f9e43242f96a6309e5432ce8b'; #development secret.
+# the name of trusted connection must be string that does not resemble a 6-digit hex code
+my %trusted_connection = (
+                          'testry' => '80b3581f9e43242f96a6309e5432aaaa' #development secret first trusted key
+                          );
   my ($message) = @_;
-  my $secret = '80b3581f9e43242f96a6309e5432ce8b'; #development secret
+  my @splitter = split(/_/,$message);
+  if(defined($trusted_connection{$splitter[0]})) {$secret = $trusted_connection{$splitter[0]}};
   hmac_sha1_hex($message,$secret);
 } #end of compute_mac
 
@@ -326,5 +340,5 @@ sub random_int($)
        return int(rand($max));
 	}
 
-#----- don't know what for, but it should return something probably
+#----- don't know what is this 1; for, but it should return something probably 
 1;

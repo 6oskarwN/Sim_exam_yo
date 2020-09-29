@@ -159,11 +159,7 @@ $post_tipcont = $answer{'tipcont'};
 
 
 
-#md MAC has + = %2B and / = %2F characters, must be reconverted
-if(defined($post_trid)){
-#	$post_trid =~ s/%2B/\+/g;
-#	$post_trid =~ s/%2F/\//g;
-			}
+if(defined($post_trid)){} #do nothing
    else {dienice ("ERR01",1,\"undef trid"); } # no transaction or with void value
 
 ###############################
@@ -263,15 +259,15 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 close (transactionFILE) or dienice("ERR02_cl",1,\"err07-1 $! $^E $?");
 
 #now we should check why received transaction was not found in sim_transaction file
-#case 0: it's an illegal transaction if md5 check fails
+#case 0: it's an illegal transaction if MAC hash check fails
 #        must be recorded in cheat_file
-#case 1: SHA1 hash correct but transaction timestamp expired, file was refreshed and wiped this transaction
+#case 1: MAC hash correct but transaction timestamp expired
 #        must be announced to user
-#case 2: SHA1 hash ok, timestamp ok, it must have been used up already
-#        must be announced to user
+#case 2: MAC hash ok, timestamp ok, it must have been used up already OR might be a trusted hash
 
 #check case 0
 #incoming is like 'B00053_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ' - to be updated
+#incoming is like 'trustee_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ' - to be updated
 { #local block start
 my @pairs; #local
 my $string_trid; # we compose the incoming transaction to recalculate mac
