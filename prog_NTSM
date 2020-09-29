@@ -1,54 +1,54 @@
 programa NTSM pentru clasele 1,2,3 [v3.03]
 
-PROTECTIA MUNCII
+PROTECȚIA MUNCII
 
 1.1. Corpul uman
-111&-	Consecintele socului electric
-112&-	Precautii impotriva socului electric
+111&-	Consecințele șocului electric
+112&-	Precauții împotriva șocului electric
 
-1.2. Reteaua de alimentare
-121&-	Diferenta dintre linia de faza, nul si impamantare (codul culorilor)
-122&-	Importanta unor conexiuni bine impamantate
-123&-	Sigurante rapide si lente; valoarea unei sigurante
+1.2. Rețeaua de alimentare
+121&-	Diferența dintre linia de faza, nul și împământare (codul culorilor)
+122&-	Importanța unor conexiuni bine împământate
+123&-	Siguranțe rapide și lente; valoarea unei siguranțe
 
 1.3. Pericole
-131&-	Tensiuni inalte
-132&-	Condensatoare incarcate
+131&-	Tensiuni înalt
+132&-	Condensatoare încărcate
 133&-	Raza LASER(extra-curricular)
 134&-	Lipirea cu letcon, fludor, flux(extra-curricular)
-135&-	Efectele radiatiei RF neionizante asupra corpului uman(extra-curricular)
+135&-	Efectele radiației RF neionizante asupra corpului uman(extra-curricular)
 
-1.4. Traznete
+1.4. Trăznete
 141&-	Pericole
-142&-	Protectie
-143&-	Impamantarea echipamentelor
-144&-	Priza de pamant, caracteristici
+142&-	Protecție
+143&-	Împământarea echipamentelor
+144&-	Priza de pământ, caracteristici
 
-1.5. Responsabilitati si indatoriri
-151&-	Responsabilitatea operatorului la statia individuala
-152&-	Obligatiile operatorului  la statia colectiva
-153&-	Raspunderile si indatoririle responsabilului de club  la statia colectiva
+1.5. Responsabilități și îndatoriri
+151&-	Responsabilitatea operatorului la stația individuală
+152&-	Obligațiile operatorului la stația colectivă
+153&-	Răspunderile și îndatoririle responsabilului de club  la stația colectivă
 
-II. MASURI DE TEHNICA SECURITATII LA APARATELE DE RECEPTIE
-161&-	Conectarea castilor
+II. MĂSURI DE TEHNICA SECURITĂȚII LA APARATELE DE RECEPȚIE
+161&-	Conectarea căștilor
 162&-	Protejarea auzului, Noise Blanker
-163&-	Realizarea receptorului, carcasa.
+163&-	Realizarea receptorului, carcasă.
 
-III. MASURI DE TEHNICA SECURITATII LA APARATELE DE EMISIE
-171&-	Folosirea surselor de alimentare de inalta tensiune
-172&-	Usi de acces la echipamentele de inalta tensiune
-173&-	Cuplarea antenei la emitator
-174&-	Marcarea locurilor periculoase de la statie
-175&-	Accesul la statie si supravegherea functionarii statiei
+III. MĂSURI DE TEHNICA SECURITĂȚII LA APARATELE DE EMISIE
+171&-	Folosirea surselor de alimentare de înaltă tensiune
+172&-	Uși de acces la echipamentele de înaltă tensiune
+173&-	Cuplarea antenei la emițător
+174&-	Marcarea locurilor periculoase de la stație
+175&-	Accesul la stație și supravegherea functionării stației
 
-IV. ANTENA SI LUCRU LA INALTIME	 
-181&-	Piloni, ancorari
-182&-	Lucrul pe acoperisuri si la inaltime
+IV. ANTENA SI LUCRU LA ÎNĂLȚIME	 
+181&-	Piloni, ancorări
+182&-	Lucrul pe acoperișuri și la înălțime
 183&-	Suspendarea conductorilor
-184&-	fidere si protectia la descarcari de inalta tensiune
+184&-	fidere și protecția la descărcări de înaltă tensiune
 
-V. PRIMUL AJUTOR IN CAZ DE ACCIDENTARE PRIN ELECTROCUTARE
+V. PRIMUL AJUTOR ÎN CAZ DE ACCIDENTARE PRIN ELECTROCUTARE
 191&-	Scoaterea celui accidentat de sub curent
-192&-	Primele masuri dupa scoaterea de sub curent
-193&-	Metode de respiratie artificiala
+192&-	Primele măsuri după scoaterea de sub curent
+193&-	Metode de respirație artificială
 194&-	Masajul inimii
