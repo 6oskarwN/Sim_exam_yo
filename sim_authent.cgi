@@ -743,8 +743,8 @@ print qq!</table>\n!;
 if(-e "hlr/$hlr_filename") {
 #afisam legenda
 print qq!<br>\n!;
-print qq!<font color="yellow">Convergență&trade; activată.</font> Dacă rămâneți pe aceeași clasă de autorizare, cu contul de antrenament, programul vă monitorizează și dirijează prin programă. Ține cont de problemele rezolvate, chiar dacă examenul ca întreg nu a fost promovat. <br>Astfel la fiecare examinare nu veți mai primi întrebări la care ați răspuns deja corect, vă găsește punctele slabe și insistă pe rezolvarea lor.<br>\n!;
-print qq!Schimbarea clasei de autorizare șterge acoperirea programei. Dacă vrei să o iei de la început cu aceeași clasă, treci la altă clasă și apoi revii la cea inițială.<br>\n!;
+print qq!<font color="yellow">Convergență&trade; activată.</font> Dacă rămâi pe aceeași clasă de autorizare, cu contul de antrenament, programul îți salvează progresul și ține cont de el, astfel încât la fiecare examen propus nu mai pierzi timpul cu capitolele deja stăpânite, astfel îți accelerează învățarea.<br>\n!;
+print qq!Schimbarea clasei de autorizare șterge această salvare a progresului. Dacă vrei să o iei de la început cu aceeași clasă, treci la altă clasă și apoi revii la cea inițială.<br>\n!;
 print qq!<br>LEGENDA:<br>\n!;
 print qq!<font size="-2">!; 
 print qq!<form action="#">\n!;
