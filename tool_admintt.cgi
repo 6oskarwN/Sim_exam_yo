@@ -157,7 +157,7 @@ elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pair
 #check case 2
  elsif ($pairs[0] ne 'admin') {dienice("admERR03",3,\$post_token);}
 
-#check case 3 (stub) if transaction is revoked. if is revoked, dienice()
+#check case 3  if transaction is revoked. if is revoked, dienice()
 
 my $isRevoked = 'n';
 #open sim_transaction read-only

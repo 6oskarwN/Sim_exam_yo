@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  sim_register.cgi v 3.2.b
+#  sim_register.cgi v 3.2.c
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.c implemented trusted user creator
 # ch 3.2.b check done for caller page to be $trid_pagecode=1
 # ch 3.2.a charset=utf-8 added in generated html
 # ch 3.2.9 whitelisting user input instead of blacklisting
@@ -215,7 +216,7 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 {
 my @livelist=();
 my @linesplit;
-my $expired=1;  #flag which checks if posted transaction id is found in transaction file
+my $missingLocally=1;  #flag which checks if posted transaction id is found in transaction file
                 #flag init to 'not found'
 
 unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exists on first line)
@@ -224,9 +225,9 @@ unless($#tridfile == 0) 		#unless transaction list is empty (but transaction exi
   {
    @linesplit=split(/ /,$tridfile[$i]);
    if($linesplit[0] eq $post_trid) {
-   				    $expired=0;
+   				    $missingLocally=0;
                                     #$trid_id   =$linesplit[0]; #extract transaction
-				    $trid_login=$linesplit[1]; #extract trid_login
+				    $trid_login=$linesplit[1]; #extract trid_login 
                                     $trid_pagecode=$linesplit[2]; #extract pagecode
 				    #nu se adauga inregistrarea asta in @livelist
    				   }
@@ -246,7 +247,7 @@ foreach $j (@livelist) {@extra=(@extra,$tridfile[$j]);}
 #**********************************************************************************
 #if received transaction id was not found in the transaction file
 
-if($expired) {
+if($missingLocally) {
 #Action: rewrite transaction file
 truncate(transactionFILE,0);
 seek(transactionFILE,0,0);		#go to beginning of transactionfile
@@ -282,14 +283,47 @@ unless(defined($pairs[7])) {dienice ("regERR05",1,\$post_trid); } # unstructured
 $string_trid="$pairs[0]\_$pairs[1]\_$pairs[2]\_$pairs[3]\_$pairs[4]\_$pairs[5]\_$pairs[6]\_";
 $heximac=compute_mac($string_trid);
 
-unless($heximac eq $pairs[7]) { dienice("ERR01",1,\"ransaction id sha1 mismatch: $post_trid");}
+unless($heximac eq $pairs[7]) { dienice("ERR01",1,\"transaction id sha1 mismatch: $post_trid");}
 
 #check case 1
 elsif (timestamp_expired($pairs[1],$pairs[2],$pairs[3],$pairs[4],$pairs[5],$pairs[6]) > 0) { 
                                              dienice("ERR02",0,\"timestamp was already expired"); }
 
-#else is really case 2
-else { dienice("regERR03",0,\"good transaction but already used");  }
+#else is case 2
+#must discriminate between the two types of transaction
+#incoming is like 'B00053_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ' - transaction has been used already
+#incoming is like 'trustee_25_8_23_11_2_116_4N9RcV572jWzLG+bW8vumQ' - trusted type of tansaction
+
+if($pairs[0] =~ m/[0-9a-fA-F]{6}/) { dienice("regERR03",0,\"good transaction but already used");  } 
+         else #MAC verifies, timestamp valid, not matching internal transaction - so it's a trusted request
+                {
+                  $trid_login = $pairs[0]; #name of trusted link
+                  $trid_pagecode = 1; #allowed to register
+		#verify if the transaction is revoked.
+		my $isRevoked = 'n';
+		#open sim_transaction read-only
+		open(transactionFILE,"< sim_transaction") || dienice("admERR04",1,\"null"); #open readonly
+		flock(transactionFILE,1);
+		seek(transactionFILE,0,0);              #go to the beginning
+		@tridfile = <transactionFILE>;          #slurp file into array
+		#DEVEL
+		for(my $i=0;($i <= $#tridfile and $isRevoked eq 'n');$i++)
+			{
+			if ($tridfile[$i] =~ $post_trid) {$isRevoked = 'y';} #if transaction contains the token then it is revoked
+			}
+		close(transactionFILE);
+
+		if ($isRevoked eq 'y') { dienice("admERR06",0,\"null");}
+
+		#if trusted transaction was not revoked, it can go ahead
+
+                 #reopen the tansaction file for read-write, that was closed for case 1,2,3a but should be open for 3b
+                 open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"err06-4");		#open transaction file for writing
+                 flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
+		 seek(transactionFILE,0,0);		#go to the beginning
+		 @tridfile = <transactionFILE>;		#slurp file into array
+
+                 }
 
 } #end of local block
 
@@ -299,8 +333,9 @@ else { dienice("regERR03",0,\"good transaction but already used");  }
 } #.END extraction BLOCK
 
 
-#we have here the "login==anonymous" and the pagecode of the guy
+#we have here the "login==anonymous" or "login = trust link name" and the pagecode of the guy
 #ACTION: check request clearances pagecode == 1 (from sim_ver0 or sim_register)
+#here the transaction file is open or closed #inconsistency
 unless($trid_pagecode == 1) #CUSTOM: invoked from sim_ver0.cgi or sim_register page
 {
 #ACTION: close all resources
@@ -413,6 +448,7 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 }
 
 close (transactionFILE) or dienice("ERR02_cl",1,\"err07-2 $! $^E $?");
+
 #ACTION: Generate the form, again
 print qq!Content-type: text/html\n\n!;
 print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
@@ -421,7 +457,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.b\n!; #version print for easy upload check
+print qq!v 3.2.c\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -551,6 +587,39 @@ exit(); #ACTIVATE THIS since I think it must be here
 else
 #BLOCK: POST data is OK, write it in userfile
 {
+
+unless ($trid_login eq "anonymous") {
+                dienice("ERR19",1,\"$trid_login trusted link registered user: $post_login"); #silent logging user creation by trusted link
+                #Action: revoke the trusted token
+                $trid=$tridfile[0];  #take the transaction counter
+                chomp $trid;                                            #eliminate \n
+		$trid=hex($trid);               #convert string to numeric
+
+		if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
+		else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
+
+		#ACTION: generate a new transaction
+		#trebuie extras timpul din tranzactie
+
+		my @splitter = split(/_/,$post_trid); #reuse this vector name
+		#generate transaction id and its sha1 MAC
+		 $hexi= sprintf("%+06X",$trid); #the transaction counter
+
+		#assemble the trid+timestamp
+		$hexi= "$hexi\_$splitter[1]\_$splitter[2]\_$splitter[3]\_$splitter[4]\_$splitter[5]\_$splitter[6]\_"; #adds the expiry timestamp and sha1
+
+		#compute mac for trid+timestamp
+		my $heximac = compute_mac($hexi); #compute SHA1 MessageAuthentication Code
+
+		$hexi= "$hexi$heximac"; #the full transaction id
+
+		##CUSTOM: pagecode=3 for revoked tokens
+		my $entry = "$hexi admin 3 $splitter[1] $splitter[2] $splitter[3] $splitter[4] $splitter[5] $splitter[6] $post_trid\n";
+                @tridfile=(@tridfile,$entry); 				#se adauga tranzactia in array
+
+                                   } #.end silent logging and prepare revoked trusted transaction
+
+
 #Action: rewrite transaction file
 truncate(transactionFILE,0);
 seek(transactionFILE,0,0);				#go to beginning of transactionfile
@@ -559,7 +628,6 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-
 close (transactionFILE) or dienice("ERR02_cl",1,\"err07-3 $! $^E $?");
 
 #BLOCK: re/write new user record
@@ -606,7 +674,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.b\n!; #version print for easy upload check
+print qq!v 3.2.c\n!; #version print for easy upload check
 print qq!<h1 align="center">Înregistrare reușită.</h1>\n!;
 print "<br>\n";
 

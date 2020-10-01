@@ -46,6 +46,8 @@ else {@filelist=(
 }
 my $pattern1="80b3581f9e43242f96a6309e5432ce8b"; #development secret
 my $replacement1="80b3581f9e43242f96a6309e5432ce8b";  #production
+my $pattern1b="80b3581f9e43242f96a6309e5432aaaa"; #development secret
+my $replacement1b="80b3581f9e43242f96a6309e5432aaaa";  #production
 
 my $pattern2="localhost/";
 my $replacement2="localhost/";
@@ -67,6 +69,7 @@ while($fetch_line=<INFILE>)
 {
 #line alterations
 $fetch_line=~s/$pattern1/$replacement1/; #local replacement
+$fetch_line=~s/$pattern1b/$replacement1b/; #local replacement
 
 if($fetch_line=~/$pattern3/){$fetch_line=$replacement3;}#line replacement
 
