@@ -455,7 +455,7 @@ my $watchdog=0;
 #radiotehnica 16 protectia muncii 10, operare 8, legislatie 20 #CUSTOM
 my @database=("db_tech3","db_ntsm","db_op3","db_legis3","db_sanctiuni");       #CUSTOM name of used databases and their order
 my @qcount=(16,10,8,16,4); #CUSTOM number of questions generated on each chapter
-my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #CUSTOM chapter names
+my @chapter=("Electronică și Radiotehnică","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementări Interne și Internaționale","Sancțiuni"); #CUSTOM chapter names
 #CUSTOM: the cluster is an array for grouping chapters toghether
 
 my @cluster = ( [0],   #$database[0],$qcount[0],$chapter[0]
@@ -493,7 +493,7 @@ ins_gpl();
 print qq!v 3.3.7\n!; #version print for easy upload check
 
 print qq!<center><font size="+2">Examen clasa III</font></center>\n!;   #CUSTOM
-print qq!<center><font size="+2">O singura varianta de raspuns corecta din 4 posibile.</font></center>\n!;
+print qq!<center><font size="+2">O singură variantă de răspuns corectă din 4 posibile.</font></center>\n!;
 print qq!<center><font size="+1">Timpul alocat examenului este de 2 ore.</font></center><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/sim_ver3.cgi" method="post">\n!; #CUSTOM
 
