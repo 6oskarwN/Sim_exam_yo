@@ -154,7 +154,7 @@ my %pub_errors= (
 
 
 
-              "admERR06" => "admin token revoked.",
+              "admERR06" => "token used or revoked",
               "tugERR06" => "admin token revoked.",
 
               "ttERR06" => "Nu ai completat nickname și/sau textul, poți da înapoi cu Back să completezi",

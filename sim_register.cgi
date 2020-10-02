@@ -299,7 +299,25 @@ if($pairs[0] =~ m/[0-9a-fA-F]{6}/) { dienice("regERR03",0,\"good transaction but
                 {
                   $trid_login = $pairs[0]; #name of trusted link
                   $trid_pagecode = 1; #allowed to register
-                 #reopen the tansaction file, that was closed for case 1,2,3a but should be open for 3b
+		#verify if the transaction is revoked.
+		my $isRevoked = 'n';
+		#open sim_transaction read-only
+		open(transactionFILE,"< sim_transaction") || dienice("admERR04",1,\"null"); #open readonly
+		flock(transactionFILE,1);
+		seek(transactionFILE,0,0);              #go to the beginning
+		@tridfile = <transactionFILE>;          #slurp file into array
+		#DEVEL
+		for(my $i=0;($i <= $#tridfile and $isRevoked eq 'n');$i++)
+			{
+			if ($tridfile[$i] =~ $post_trid) {$isRevoked = 'y';} #if transaction contains the token then it is revoked
+			}
+		close(transactionFILE);
+
+		if ($isRevoked eq 'y') { dienice("admERR06",0,\"null");}
+
+		#if trusted transaction was not revoked, it can go ahead
+
+                 #reopen the tansaction file for read-write, that was closed for case 1,2,3a but should be open for 3b
                  open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"err06-4");		#open transaction file for writing
                  flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 		 seek(transactionFILE,0,0);		#go to the beginning
@@ -571,8 +589,36 @@ else
 {
 
 unless ($trid_login eq "anonymous") {
-                 dienice("ERR19",1,\"$trid_login trusted link registered user: $post_login"); #silent logging user creation by trusted link
-                                   }
+                dienice("ERR19",1,\"$trid_login trusted link registered user: $post_login"); #silent logging user creation by trusted link
+                #Action: revoke the trusted token
+                $trid=$tridfile[0];  #take the transaction counter
+                chomp $trid;                                            #eliminate \n
+		$trid=hex($trid);               #convert string to numeric
+
+		if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
+		else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
+
+		#ACTION: generate a new transaction
+		#trebuie extras timpul din tranzactie
+
+		my @splitter = split(/_/,$post_trid); #reuse this vector name
+		#generate transaction id and its sha1 MAC
+		 $hexi= sprintf("%+06X",$trid); #the transaction counter
+
+		#assemble the trid+timestamp
+		$hexi= "$hexi\_$splitter[1]\_$splitter[2]\_$splitter[3]\_$splitter[4]\_$splitter[5]\_$splitter[6]\_"; #adds the expiry timestamp and sha1
+
+		#compute mac for trid+timestamp
+		my $heximac = compute_mac($hexi); #compute SHA1 MessageAuthentication Code
+
+		$hexi= "$hexi$heximac"; #the full transaction id
+
+		##CUSTOM: pagecode=3 for revoked tokens
+		my $entry = "$hexi admin 3 $splitter[1] $splitter[2] $splitter[3] $splitter[4] $splitter[5] $splitter[6] $post_trid\n";
+                @tridfile=(@tridfile,$entry); 				#se adauga tranzactia in array
+
+                                   } #.end silent logging and prepare revoked trusted transaction
+
 
 #Action: rewrite transaction file
 truncate(transactionFILE,0);
@@ -582,7 +628,6 @@ for(my $i=0;$i <= $#tridfile;$i++)
 {
 printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each element
 }
-
 close (transactionFILE) or dienice("ERR02_cl",1,\"err07-3 $! $^E $?");
 
 #BLOCK: re/write new user record
