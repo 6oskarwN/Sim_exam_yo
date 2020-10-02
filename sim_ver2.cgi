@@ -380,7 +380,7 @@ dienice("verERR08",3,\$cheatmsg);
 #CUSTOM 
 my @database=("db_tech2","db_ntsm","db_op1","db_legis1","db_sanctiuni");       #set the name of used databases and their order
 my @qcount=(20,10,8,20,5); #number of questions generated on each chapter
-my @chapter=("Electronica si Radiotehnica","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementari Interne si Internationale","Sanctiuni"); #chapter names
+my @chapter=("Electronică și Radiotehnică","Norme Tehnice pentru Securitatea Muncii","Proceduri de Operare","Reglementări Interne și Internaționale","Sancțiuni"); #chapter names
 
 #CUSTOM: clustering the databases into cluster-chapters
 my @cluster = ( [0],   #$database[0],$qcount[0],$chapter[0]
@@ -414,7 +414,7 @@ print qq!<br>\n!;
 #CUSTOM
 print qq!<h2 align="center">Rezultate Examen clasa a II-a</h2>\n!;
 #print qq!<h2 align="center">evaluare</font></h2>\n!;
-print qq!<h4 align="center">rezultatul final se afla in <a href="#endof">partea de jos a a paginii</a>.</h4>\n!;
+print qq!<h4 align="center">rezultatul final se află în <a href="#endof">partea de jos a a paginii</a>.</h4>\n!;
 #===================V3============
 $trid_login_hlrname = $trid_login;
 #$trid_login_hlrname =~ s/\//\@slash\@/; #substitute /  #normally never executed, because / slash is not in the username whitelist, must be obsoleted
@@ -603,7 +603,7 @@ print qq!<input type="hidden" name="type" value="1">\n!;
 print qq!<input type="hidden" name="nick" value="$trid_login">\n!;
 print qq!<input type="hidden" name="subtxt" value=\"(propun) $buffertext\">\n!;
 
-print qq!<font color="black" size="-2">Puteti propune rezolvarea acestei intrebari pentru a-i ajuta si pe altii, apasand </font> !;
+print qq!<font color="black" size="-2">Poți propune rezolvarea acestei întrebări pentru a-i ajuta și pe alții, apăsând </font> !;
 print qq!<input type="submit" value="aici">\n!;
 
 print qq!</form>\n!;
@@ -737,7 +737,7 @@ print qq!<form action="http://localhost/cgi-bin/troubleticket.cgi" method="post"
 print qq!<input type="hidden" name="type" value="1">\n!;
 print qq!<input type="hidden" name="nick" value="$trid_login">\n!;
 print qq!<input type="hidden" name="subtxt" value=\"(incorect) $buffertext\">\n!;
-print qq!<font color="black" size="-2">In cazul in care considerati ca ceva este incorect - raspunsul,rezolvarea, sau enuntul problemei este gresit, poti sa ne notifici </font> !;
+print qq!<font color="black" size="-2">În cazul în care consideri că ceva este incorect - răspunsul,rezolvarea, sau enunțul problemei este greșit, poți să ne notifici </font> !;
 print qq!<input type="submit" value="aici">\n!;
 print qq!</form>\n!;
 
@@ -777,7 +777,7 @@ $slurp_hlrfile[$cluster[$clusterline][$iter]+1]="$slurp_hlrfile[$cluster[$cluste
 #tbd
 
 print qq!<table width="99%" bgcolor="lightblue" border="2"><tr><td>!;
-print qq!<font color="black">La acest capitol ai realizat $correct raspunsuri corecte din $clusterCount[$clusterline] intrebari, necesarul minim este de $mincount[$clusterline] raspunsuri corecte.</font>\n!; 
+print qq!<font color="black">La acest capitol ai realizat $correct răspunsuri corecte din $clusterCount[$clusterline] întrebări, necesarul minim este de $mincount[$clusterline] răspunsuri corecte.</font>\n!; 
 print qq!</td></tr></table>\n<br>\n!;
 #chapter result is good enough?
 if($correct < $mincount[$clusterline]) {$f_failed=1;} #there are less than mimum number of correct answers
@@ -806,10 +806,10 @@ print qq!<a name="endof"></a>\n!;
 print qq!<table width="99%" bgcolor="lightblue" border="2"><tr><td>!;
 print qq!<font color="black">\n<u>Rezultat final:</u><br>\n!;
 if ($f_failed) { #exam is failed
-    print qq!<b>Nu ai trecut examenul.</b><br>\n Nu ai intrunit baremul la toate capitolele.<br>\n!;
+    print qq!<b>Nu ai trecut examenul.</b><br>\n Nu ai întrunit baremul la toate capitolele.<br>\n!;
                }
 else {
-    print qq!<b>Ai trecut examenul.</b><br>\n Ai facut un scor bun la toate capitolele.<br>\n!;
+    print qq!<b>Ai trecut examenul.</b><br>\n Ai făcut un scor bun la toate capitolele.<br>\n!;
      }
 print qq!</font></td></tr></table>\n<br>\n!;
 
