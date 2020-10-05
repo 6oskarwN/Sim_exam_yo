@@ -4,7 +4,7 @@ Legislație, clasa a IV-a v.3.33  versiune actualizată pe <a href="http://examy
 a
 01A29a~&Este adevărat că ANCOM poate determina cu precizie locația geografică a stațiilor radio ilegale și clandestine?
 null
-Da, este adevarăt, tehnicile de RDF(radio direction finding) - goniometrie sunt folosite de la începuturile radioului, iar acum tehnicile sunt mult mai evoluate
+Da, este adevărat, tehnicile de RDF(radio direction finding) - goniometrie sunt folosite de la începuturile radioului, iar acum tehnicile sunt mult mai evoluate
 Nu are cum, se poate determina orașul, însă mai precis nu se poate - în oraș postul radio se aude la fel de bine peste tot
 Nimeni nu a văzut unda electromagnetică
 Precizia determinării depinde de cât de rău este câinele din curte
@@ -30,7 +30,7 @@ b
 null
 Deranjează pe toți cei care ascultă
 Poate întrerupe comunicații ale poliției care ar putea fi trafic de urgentă
-Este lipsit de bun-simț să comunici cu ne-amatori, chiar și sub formă de glumă
+Este lipsit de bun simț să comunici cu ne-amatori, chiar și sub formă de glumă
 Este un obicei nelalocul lui să transmiți în afara benzilor de radioamatori
 YO6OWN - adaptare după eham.net, 2007, rev. 2018
 null
@@ -50,7 +50,7 @@ Prin permisiuni de operare înțelegem benzile de frecvențe, modurile de lucru,
 YO6OWN, Brașov, 2011
 ##4#
 a
-02A285~&Este permis radioamatorilor să asculte traficul radio de pe alte frecvențe decat cele alocate serviciului de amator?
+02A285~&Este permis radioamatorilor să asculte traficul radio de pe alte frecvențe decât cele alocate serviciului de amator?
 null
  Nu, interceptarea intenționată a altor servicii de radiocomunicație este interzisă, excepție fac doar situațiile de dezastre naturale, situații care primejduiesc vieți omenești
  Da, atât timp cât nu se emite se poate fasculta orice frecvență
@@ -82,7 +82,7 @@ null
  Da, doar pentru experimente, și folosind doar unica cheie publică dată de ANCOM
 YO6OWN, Săcele, 2005(rev. 2018)
 null
-Radioamatorismul fiind un serviciu deschis experimentării, nu se poate emite într-un fel în care cineva să nu poată recepționa. Este foarte important mai ales ca pentru trafic de urgență să se foloseasca un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Legal, în anexele la Decizie este dată lista de modulații și moduri(A1A, J3E samd.) și niciunul din moduri nu e cu criptare. 
+Radioamatorismul fiind un serviciu deschis experimentării, nu se poate emite într-un fel în care cineva să nu poată recepționa. Este foarte important mai ales ca pentru trafic de urgență să se folosească un mod comun, larg folosit, altfel apelul nu este inteligibil;<br>Legal, în anexele la Decizie este dată lista de modulații și moduri(A1A, J3E samd.) și nici unul din moduri nu e cu criptare. 
 YO6OWN, Brașov, 2009
 ##7#
 a
@@ -103,7 +103,7 @@ null
 Nu se emite în antenă reală, ci într-o antenă neradiantă "dummy load"
 Emite la început cu putere mică, apoi crește succesiv puterea cerând tot timpul control RST și menținând emisia cât mai scurtă
 Poate emite, însă cu puteri mici de până la 100 mW, cu pauză de minimum 10 min. între emisiuni pentru a fi sigur că nu interferează
-Emite cât mai scurt cu putință și își controleaza emisia cu un alt receptor, de calitate bună, verificând în jurul benzii de emisie dacă are armonici.
+Emite cât mai scurt cu putință și își controlează emisia cu un alt receptor, de calitate bună, verificând în jurul benzii de emisie dacă are armonici.
 YO6OWN, 2014
 null
 Dacă e neradiantă, atunci nu e radio-emisie, și atunci nu perturbă pe nimeni.
@@ -125,7 +125,7 @@ b
 01B284~&Stațiile de radioamator pot aparține persoanelor fizice sau persoanelor juridice(firme, ONG, organizații)?
 null
 Doar persoanele juridice pot deține stații de radioamatori
-Stațiile individuale aparțin persoanelor fizice iar stațiile de radioclub apartin doar persoanelor juridice.
+Stațiile individuale aparțin persoanelor fizice iar stațiile de radioclub aparțin doar persoanelor juridice.
 Doar persoanele fizice pot avea stație de radioamatori
 Organizațiile dețin stațiile de radioamator ale membrilor
 YO6OWN, Brașov 2014
@@ -232,7 +232,7 @@ null
 b
 02A283~&Cine acordă și ține evidența indicativelor de apel ale stațiilor de amator?
 null
-Directia de Poștă și Telecomunicații
+Direcția de Poștă și Telecomunicații
 Autoritatea Națională pentru Administrare și Reglementare în Comunicații
 Federația Română de Radioamatorism
 Comisia Națională Radio
@@ -266,7 +266,7 @@ Art. 6, b) în Regulament
 YO6OWN, 2014
 ##22#
 a
-03A281~&Ce domeniu de frecvențe corespunde benzii de 2m alocate radioamatorilor în România?
+03A281~&Ce domeniu de frecvențe corespunde benzii de 2 m alocate radioamatorilor în România?
 null
 144 - 146 MHz
 143 - 144 MHz
@@ -283,7 +283,7 @@ null
 De a proteja datele istorice și a ajuta publicul la înțelegerea istoriei radioului.
 De a ajuta țările străine să-și îmbunătățească tehnicile de comunicare radio și a încuraja radioamatorii străini să viziteze România.
 De a îmbunătăți tehnicile de desenare a schemelor radio și a mări numărul specialiștilor proiectanți.
-De a spori numărul celor instruiți în radiotehnică și electronică și a contribui la promovarea spiritului de pace și prietenie, așa-numitul 'HAM-spirit'.
+De a spori numărul celor instruiți în radiotehnică și electronică și a contribui la promovarea spiritului de pace și prietenie, așa-numitul 'HAM spirit'.
 YO6GZI, Săcele, 2004(rev.2010)
 null
 Din regulament: serviciul de amator - serviciul de radiocomunicații având ca scop autoinstruirea, intercomunicațiile și investigațiile tehnice efectuate de radioamatori, în condițiile legii, interesate de tehnica radiocomunicațiilor, numai în scop personal și fără nici un interes pecuniar;<br>
@@ -322,7 +322,7 @@ Urmărire de posturi radio foarte îndepărtate
 instruire individuală sau în colectiv în domeniul radiotehnicii, participare la concursuri, experimentare
 YO6OWN, Săcele, 2005(rev.2010)
 null
-Din regulament: serviciul de amator - serviciul de radiocomunicații având ca scop autoinstruirea, intercomunicațiile și investigațiile tehnice efectuate de radioamatori, în condițiile legii, interesate de tehnica radiocomunicațiilor, numai în scop personal și fără nici un interes pecuniar;<br>
+Din regulament: serviciul de amator - serviciul de radiocomunicații având ca scop autoinstruirea, intercomunicațiile și investigațiile tehnice efectuate de radioamatori, în condițiile legii, interesate de tehnica radiocomunicațiilor, numai în scop personal și fără nici un interes pecuniar;
 YO6OWN, Brașov, 2010
 ##27#
 d
@@ -342,8 +342,8 @@ a
 null
 da, cu aprobarea ANCOM
 nu
-da, cu aprobarea Asociatiei Judetene de Radioamatorism
-da, cu aprobarea Federatiei Romane de Radioamatorism
+da, cu aprobarea Asociației Județene de Radioamatorism
+da, cu aprobarea Federației Române de Radioamatorism
 ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2010)
 null
 
@@ -354,7 +354,7 @@ a
 null
 YO - indicativul țării, urmat de o cifră ce simbolizează zona(districtul radio), urmat de două sau trei litere, sufixul unic al unui radioamator
 YR - indicativul țării, urmat de o cifră ce simbolizează zona(districtul radio), urmat de două sau trei litere, sufixul unic al unui radioamator
-YO - indicativul țării, urmat de o bară de fracție, urmata de două sau trei litere, sufixul unic al unui radioamator
+YO - indicativul țării, urmat de o bară de fracție, urmată de două sau trei litere, sufixul unic al unui radioamator
 YO - indicativul țării, urmat de trei cifre, sufixul unic al unui radioamator
 YO6OWN, 2014
 null
@@ -376,15 +376,15 @@ null
 a
 01C3231~&Ce este o zonă de indicative de apel, denumit și "district"?
 null
-Este o zonă geografică ce cuprinde mai multe județe adiacente carora îi este atribuita prin regulament o anumita cifră de zonă.
-Este o zonă geografică de acoperire radio, adica zona celor care recepționeaza un apel.
-Este o zonă geografică de acoperire radio, adica zona celor care raspund unui apel.
+Este o zonă geografică ce cuprinde mai multe județe adiacente cărora îi este atribuită prin regulament o anumită cifră de zonă.
+Este o zonă geografică de acoperire radio, adică zona celor care recepționează un apel.
+Este o zonă geografică de acoperire radio, adică zona celor care răspund unui apel.
 Este zona geografică a indicativelor cu același prefix.
 YO6OWN, 2014
 null
 Zona sau în denumire mai veche, district, este o arie geografică compusă din mai multe județe adiacente; Mai mai multe zone adiacente sunt arondate unei direcții teritoriale a ANCOM, București, Iasi, Cluj, Timis.
 YO6OWN, 2018
-##52#
+##32#
 a
 07A283~&Cum ne dăm seama din ce zonă geografică a țării este o stație de radioamator sau club dacă îi știm indicativul?
 null
@@ -470,7 +470,7 @@ null
 
 ##39#
 a
-07A282~&Care este vârsta împlinită la care cineva se poate înscrie la examenul de radioamator pentru clasa III,II sau I?
+07A282~&Care este vârsta împlinită la care cineva se poate înscrie la examenul de radioamator pentru clasa III, II sau I?
 null
 14 ani
 7 ani
@@ -496,34 +496,34 @@ null
 a
 07A281~&Ce este serviciul de amator?
 null
-Serviciul de radiocomunicații având ca scop autoinstruirea, intercomunicațiile și investigațiile tehnice efectuate de radioamatori, în condițiile legii, interesate de tehnica radiocomunicațiilor, numai în scop personal și fără nici un interes pecuniar;
-Grupul pasionatilor din hobby care are scopul de a proteja datele istorice și a ajuta publicul la ințelegerea istoriei radioului.
-Grupul unit de o federatie radio care are ca scop în a ajuta țările străine să-și imbunatateasca tehnicile de comunicare radio și a incuraja radioamatorii străini să viziteze România.
-Serviciul tehnic de proiectare a stațiilor de radioamatori cu scopul de a imbunatati tehnicile de desenare a schemelor radio și a mari numarul specialistilor proiectanti.
+Serviciul de radiocomunicații având ca scop autoinstruirea, intercomunicațiile și investigațiile tehnice efectuate de radioamatori, în condițiile legii, interesate de tehnica radiocomunicațiilor, numai în scop personal și fără niciun interes pecuniar;
+Grupul pasionatilor din hobby care are scopul de a proteja datele istorice și a ajuta publicul la înțelegerea istoriei radioului.
+Grupul unit de o federație radio care are ca scop în a ajuta țările străine să-și imbunatateasca tehnicile de comunicare radio și a încuraja radioamatorii străini să viziteze România.
+Serviciul tehnic de proiectare a stațiilor de radioamatori cu scopul de a îmbunătăți tehnicile de desenare a schemelor radio și a mări numărul specialiștilor proiectanți.
 YO6OWN, Brașov, 2014
 null
 
 
 ##42#
 b
-05B285~&Este permisă efectuarea de radiolegături(QSO) cu radioamatori ale unei țări în condițiile în care autoritatile acelei țări se opun activității de radioamator?
+05B285~&Este permisă efectuarea de radiolegături(QSO) cu radioamatori ale unei țări în condițiile în care autoritățile acelei țări se opun activității de radioamator?
 null
 da, oricum radioamatorul de dincolo nu-și dă indicativul real. 
 nu, este stipulat și în reglementări radio ITU/UIT
-da, însă doar dacă raspunzi la apel de QSO din tara respectiva, nu este permis să initiezi.
-da, și asta-i frumusetea, nimeni nu poate intrerupe unda radio
+da, însă doar dacă răspunzi la apel de QSO din țara respectivă, nu este permis să inițiezi.
+da, și asta-i frumusețea, nimeni nu poate întrerupe unda radio
 YO6OWN 2014
 null
-Articolul 25 din "Reglementările Radio UIT", 25.1 stipuleaza că nu se fac radiolegături cu țări ale caror administrații anunta că nu permit radioamatorismul.<br>Desi pare că ITU recunoaste și ajuta prin acest paragraf dictaturile, ne putem gandi la consecintele efectuarii de QSO-uri cu o asemenea tara: niste pasionati ca noi vor fi cautati și pedepsiti. Exista posibilitatea în dictaturi ca doar aserviții direcți ai dictaturii să se joace de-a radioamatorii iar respectarea reglementării ITU de tacere radio îi priveaza de o distractie accesibila doar "elitei".
+Articolul 25 din "Reglementările Radio UIT", 25.1 stipulează că nu se fac radiolegături cu țări ale căror administrații anunță că nu permit radioamatorismul.<br>Deși pare că ITU recunoaște și ajută prin acest paragraf dictaturile, ne putem gândi la consecințele efectuării de QSO-uri cu o asemenea țară: niște pasionați ca noi vor fi căutați și pedepsiți. Există posibilitatea în dictaturi ca doar aserviții direcți ai dictaturii să se joace de-a radioamatorii iar respectarea reglementării ITU de tăcere radio îi privează de o distracție accesibilă doar "elitei".
 YO6OWN, 2014
 ##43#
 b
-08A283~&Cum se compune indicativul radioamatorului YO6ABC, când el lucreaza pe stație portabila?
+08A283~&Cum se compune indicativul radioamatorului YO6ABC, când el lucrează pe stație portabilă?
 null
 se compune din indicativul de apel atribuit, urmat de litera P: YO6ABCP
 se compune din indicativul de apel atribuit, urmat de o bară de fracție / și litera P: YO6ABC/P
 se compune din indicativul de apel atribuit, urmat de două bare de fracție // și litera P: YO6ABC//P
-se compune din indicativul de apel atribuit, urmat de cuvantul PORTABIL: YO6ABC PORTABIL
+se compune din indicativul de apel atribuit, urmat de cuvântul PORTABIL: YO6ABC PORTABIL
 YO6OWN 2014
 null
 
@@ -532,29 +532,29 @@ null
 b
 09A283~&Cum se compune indicativul radioamatorului YO6ABC, când el lucreaza pe o stație montata în automobil?
 null
-se compune din litera M urmata de o bară de fracție și de indicativul de apel atribuit: M/YO6ABC
+se compune din litera M urmată de o bară de fracție și de indicativul de apel atribuit: M/YO6ABC
 se compune din indicativul de apel atribuit, urmat de o bară de fracție / și litera M: YO6ABC/M
 se compune din indicativul de apel atribuit, urmat de două bare de fracție // și litera M: YO6ABC//M
-se compune din indicativul de apel atribuit, urmat de cuvantul MOBIL: YO6ABC MOBIL
+se compune din indicativul de apel atribuit, urmat de cuvântul MOBIL: YO6ABC MOBIL
 YO6OWN 2014
 null
 
 
 ##45#
 b
-10A283~&Cum se compune indicativul radioamatorului YO6ABC, când el face radiolegături dintr-un avion usor?
+10A283~&Cum se compune indicativul radioamatorului YO6ABC, când el face radiolegături dintr-un avion ușor?
 null
 se compune din literele AM urmate de o bară de fracție și de indicativul de apel atribuit: AM/YO6ABC
 se compune din indicativul de apel atribuit, urmat de o bară de fracție / și literele AM: YO6ABC/AM
-se compune din indicativul de apel atribuit, dar cu prefix YR și cu liniuta în loc de numar de zonă: YR-ABC
-se compune din indicativul de apel atribuit, urmat de cuvantul AERO: YO6ABC AERO
+se compune din indicativul de apel atribuit, dar cu prefix YR și cu liniuta în loc de număr de zonă: YR-ABC
+se compune din indicativul de apel atribuit, urmat de cuvântul AERO: YO6ABC AERO
 YO6OWN 2014
 null
 
 
 ##46#
 b
-11B283~&Cum se compune indicativul radioamatorului YO6ABC, când lucreaza cu stația de buzunar din postura să de pasager pe un vapor fluvial?
+11B283~&Cum se compune indicativul radioamatorului YO6ABC, când lucrează cu stația de buzunar din postura sa de pasager pe un vapor fluvial?
 null
 se compune din indicativul de apel atribuit, urmat de o bară de fracție / și litera P: YO6ABC/P
 se compune din indicativul de apel atribuit, urmat de o bară de fracție / și literele MM: YO6ABC/MM
@@ -566,7 +566,7 @@ null
 
 ##47#
 c
-06B285~&Când sunt permise, ca exceptie, transmiterea mesajelor de la, sau către terți neradioamatori? 
+06B285~&Când sunt permise, ca excepție, transmiterea mesajelor de la, sau către terți neradioamatori? 
 null
 Când e vorba de o zonă fără acces la internet, telefonie sau alte servicii comerciale
 Atunci când nu există semnal la telefonul mobil
@@ -638,7 +638,7 @@ null
 
 ##53#
 a
-03A298~&Ce se întamplă cu sufixele de indicativ(cele 2 sau 3 litere) în cazul schimbării domiciliului?
+03A298~&Ce se întâmplă cu sufixele de indicativ(cele 2 sau 3 litere) în cazul schimbării domiciliului?
 null
 se păstrează
 se realocă
@@ -646,7 +646,7 @@ se atribuie altele și sufixul vechi nu se poate aloca o perioada de 5 ani
 se schimbă
 YO6OWN 2014
 null
-Această întrebare cu păstrarea sufixului există fiindcă în regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizației de radioamator se vor păstra de-a lungul întregii perioade de valabilitate a acesteia, inclusiv în situația schimbării domiciliului". Era o facilitate pentru radioamator și o comoditate pentru ANCOM să nu schimbe sufixul.<br>În legislatia în vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate sperăm că această practică va rămâne neschimbată dar legal, ANCOM nu are nicio obligație.
+Această întrebare cu păstrarea sufixului există fiindcă în regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizației de radioamator se vor păstra de-a lungul întregii perioade de valabilitate a acesteia, inclusiv în situația schimbării domiciliului". Era o facilitate pentru radioamator și o comoditate pentru ANCOM să nu schimbe sufixul.<br>În legislația în vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate sperăm că această practică va rămâne neschimbată dar legal, ANCOM nu are nicio obligație.
 Georgina28 2018
 ##54#
 a
@@ -658,7 +658,7 @@ se atribuie altele și sufixul vechi nu se poate aloca o perioada de 5 ani
 se schimbă
 YO6OWN 2014
 null
-Această întrebare cu păstrarea sufixului există fiindcă în regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizației de radioamator se vor păstra de-a lungul întregii perioade de valabilitate a acesteia, inclusiv în situația schimbării domiciliului". Era o facilitate pentru radioamator și o comoditate pentru ANCOM să nu schimbe sufixul.<br>În legislatia în vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate sperăm că această practică va rămâne neschimbată dar legal, ANCOM nu are nicio obligație.
+Această întrebare cu păstrarea sufixului există fiindcă în regulamentul anterior(versiunea 2010) era Art. 37 (5):<br>"Sufixele de indicativ atribuite prin intermediul autorizației de radioamator se vor păstra de-a lungul întregii perioade de valabilitate a acesteia, inclusiv în situația schimbării domiciliului". Era o facilitate pentru radioamator și o comoditate pentru ANCOM să nu schimbe sufixul.<br>În legislația în vigoare - Decizia 245/2017 acest aspect nu mai este reglementat. Din comoditate sperăm că această practică va rămâne neschimbată dar legal, ANCOM nu are nicio obligație.
 Georgina28 2018
 ##55#
 c
@@ -670,7 +670,7 @@ ora Universal  Time, Coordinated - ceasul atomic, aproximativ același cu GMT î
 ora Uniform Time Clock - ora dată de timpul de rotație al planetei Terra
 YO6OWN, Săcele, 2005(rev.2007)
 null
-Toate răspunsurile conțin denumiri cu initialele U,T,C, și sună științific dar Universal Time, Coordinated este ora notată de radioamatori, restul variantelor nu există în realitate. UTC este un succesor mai bine definit al GMT dar pentru radioamatori, UTC = GMT. (trivia - Ceasurile atomice de obicei nu folosesc uraniu). <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC: Link Wikipedia</a> 
+Toate răspunsurile conțin denumiri cu inițialele U,T,C, și sună științific dar Universal Time, Coordinated este ora notată de radioamatori, restul variantelor nu există în realitate. UTC este un succesor mai bine definit al GMT dar pentru radioamatori, UTC = GMT. (trivia - Ceasurile atomice de obicei nu folosesc uraniu). <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC: Link Wikipedia</a> 
 YO6OWN, 2017
 ##56#
 b
