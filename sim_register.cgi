@@ -307,7 +307,7 @@ if($pairs[0] =~ m/[0-9a-fA-F]{6}/) { dienice("regERR03",0,\"good transaction but
 		seek(transactionFILE,0,0);              #go to the beginning
 		@tridfile = <transactionFILE>;          #slurp file into array
 		#DEVEL
-		for(my $i=0;($i <= $#tridfile and $isRevoked eq 'n');$i++)
+		for(my $i=0;($i <= $#tridfile and $isRevoked eq 'n');$i++) #search between saved transactions to see if it's revoked or not
 			{
 			if ($tridfile[$i] =~ $post_trid) {$isRevoked = 'y';} #if transaction contains the token then it is revoked
 			}
@@ -317,7 +317,7 @@ if($pairs[0] =~ m/[0-9a-fA-F]{6}/) { dienice("regERR03",0,\"good transaction but
 
 		#if trusted transaction was not revoked, it can go ahead
 
-                 #reopen the tansaction file for read-write, that was closed for case 1,2,3a but should be open for 3b
+                 #reopen the transaction file for read-write, that was closed for case 1,2,3a but should be open for 3b
                  open(transactionFILE,"+< sim_transaction") or dienice("ERR01_op",1,\"err06-4");		#open transaction file for writing
                  flock(transactionFILE,2);		#LOCK_EX the file from other CGI instances
 		 seek(transactionFILE,0,0);		#go to the beginning
@@ -406,15 +406,23 @@ if($slurp_userfile[$account*7+0] eq "$post_login\n"){$f_xuser=1;}
 if($f_valid_login or $f_valid_tipcont or $f_pass_eq or $f_xuser)
 #BLOCK: POST data is NOK, generate new form with a new transaction type 1/2
 {
-#Action: generate new transaction
+#Action: generate new transaction for the new form
+#for regular transaction, will generate new transaction
+#for trusted token, will just reuse the token
+
+my @pairs; #local
+@pairs=split(/_/,$post_trid); #reusing @pairs variable for spliting results
+ 
+if($pairs[0] =~ m/[0-9a-fA-F]{6}/) #for regular transaction, will generate new transaction 
+ { 
+
 $trid=$tridfile[0];
-chomp $trid;						#eliminate \n
+chomp $trid;				#eliminate \n
 
 $trid=hex($trid);		#convert string to numeric
 
 if($trid == 0xFFFFFF) {$tridfile[0] = sprintf("%+06X\n",0);}
 else { $tridfile[0]=sprintf("%+06X\n",$trid+1);}                #cyclical increment 000000 to 0xFFFFFF
-
 
 #ACTION: generate a new transaction for anonymous
 
@@ -448,6 +456,9 @@ printf transactionFILE "%s",$tridfile[$i]; #we have \n at the end of each elemen
 }
 
 close (transactionFILE) or dienice("ERR02_cl",1,\"err07-2 $! $^E $?");
+}
+else
+{$hexi = $post_trid;} #else it's a trusted token, just copy&reuse without generating new transaction
 
 #ACTION: Generate the form, again
 print qq!Content-type: text/html\n\n!;
