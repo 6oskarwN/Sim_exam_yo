@@ -218,10 +218,10 @@ elsif( $counter == 3)
  { 
      print qq!<form action="#">\n!;
 if ($rasp eq 'a' ) { print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;
-                     $buffertext = "$buffertext @(a)$fline";
+                     #$buffertext = "$buffertext @(a)$fline";
 			}
               else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;
-                     $buffertext = "$buffertext (a)$fline";
+                     #$buffertext = "$buffertext (a)$fline";
 			}
         
     $counter = 4;
@@ -235,10 +235,10 @@ if ($rasp eq 'a' ) { print qq!<dd><input type="checkbox" value="x" name="y" chec
 elsif( $counter == 4) 
 {
 if ($rasp eq 'b' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;
-                     $buffertext = "$buffertext @(b)$fline";
+                     #$buffertext = "$buffertext @(b)$fline";
 			}
               else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;
-                     $buffertext = "$buffertext (b)$fline";
+                     #$buffertext = "$buffertext (b)$fline";
 			}
        $counter = 5;
 }
@@ -246,10 +246,10 @@ if ($rasp eq 'b' ) {print qq!<dd><input type="checkbox" value="x" name="y" check
 elsif( $counter == 5) 
 {
 	if ($rasp eq 'c' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;
-                     $buffertext = "$buffertext @(c)$fline";
+                     #$buffertext = "$buffertext @(c)$fline";
 			}
         else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;
-                     $buffertext = "$buffertext (c)$fline";
+                     #$buffertext = "$buffertext (c)$fline";
 			}
 
        	$counter = 6;
@@ -260,10 +260,10 @@ elsif( $counter == 6)
 {
 
 if ($rasp eq 'd' ) {print qq!<dd><input type="checkbox" value="x" name="y" checked="y" >$fline\n!;
-                     $buffertext = "$buffertext @(d)$fline";
+                     #$buffertext = "$buffertext @(d)$fline";
 			}
               else {print qq!<dd><input type="checkbox" value="x" name="y" disabled="y">$fline\n!;
-                     $buffertext = "$buffertext (d)$fline";
+                     #$buffertext = "$buffertext (d)$fline";
 			}
 print qq!</form>\n<br>\n!;
        $counter = 7;
