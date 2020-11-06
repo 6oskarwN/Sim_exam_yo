@@ -1,584 +1,584 @@
-Intrebari operare clasa IV v.3.32, versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_CEPT_Entry_op</curricula></font>
+Întrebări operare clasa IV v.3.32, versiune actualizată pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_CEPT_Entry_op</curricula></font>
 63
 ##0#
 b
-01A122~&La chemarea ta, iti raspund patru radioamatori: YO3AAC, LZ5JZ, HA5KXX, 3W1SSB. Cui raspunzi prima data, in cazul in care vrei sa lucrezi cu toti?
+01A122~&La chemarea ta, îţi răspund patru radioamatori: YO3AAC, LZ5JZ, HA5KXX, 3W1SSB. Cui răspunzi prima dată, în cazul în care vrei să lucrezi cu toţi?
 null
-statiei 3W, fiind DX(Vietnam)
-Statiei care se aude cel mai slab, fiindca la o modificare de propagare, semnalul ei se poate pierde
-statiei YO, are prioritate
-Statiei care a chemat cel mai insistent
-YO6OWN, Brasov, 2005
+staţiei 3W, fiind DX(Vietnam)
+staţiei care se aude cel mai slab, fiindcă la o modificare de propagare, semnalul ei se poate pierde
+staţiei YO, are prioritate
+staţiei care a chemat cel mai insistent
+YO6OWN, Braşov, 2005
 null
-Un bun operator incearca sa lucreze toate statiile: statia mai slaba prima, fiindca este QRP(putere f. mica la emisie, sub 5W in US) sau foarte indepartata. In cazul unei fluctuatii de propagare, statia slaba se pierde prima.<br>Dupa aceea statia DX e mai apetisanta - asta depinde de operator, daca are sau nu confirmata deja entitatea 3W<br>O statie care cheama foarte, foarte insistent de obicei sfarseste prin a irita operatorul si probabil va fi rejectata.<br>Statia YO - hai sa fim si noi patrioti(tine de ham-spirit), ca si altii sunt! Nu trebuie sa lasam statiile YO sa ne strige si sa nu raspundem.
-YO6OWN, Brasov, 2007
+Un bun operator încearcă să lucreze toate staţiile: staţia mai slabă prima, fiindcă este QRP(putere f. mică la emisie, sub 5W în US) sau foarte îndepărtată. în cazul unei fluctuaţii de propagare, staţia slabă se pierde prima.<br>După aceea staţia DX e mai apetisantă - asta depinde de operator, dacă are sau nu confirmată deja entitatea 3W<br>O staţie care cheamă foarte, foarte insistent de obicei sfârşeşte prin a irita operatorul şi probabil va fi rejectată.<br>staţia YO - hai să fim şi noi patrioţi(ţine de ham-spirit), că şi alţii sunt! Nu trebuie să lăsăm staţiile YO să ne strige şi să nu răspundem.
+YO6OWN, Braşov, 2007
 ##1#
 b
-01A161~&Ce semnifica urmatorul cod Q: QRL?
+01A161~&Ce semnifică următorul cod Q: QRL?
 null
-sunteti interferat?
-sunteti ocupat?
-Sa micsorez puterea?
-cine ma cheama?
-YO6GZI, Sacele, 2004
+sunteţi interferat?
+sunteţi ocupat?
+să micşorez puterea?
+cine mă cheamă?
+YO6GZI, Săcele, 2004
 null
 Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##2#
 d
-02A161~&Ce semnifica urmatorul cod Q: QRZ?
+02A161~&Ce semnifică următorul cod Q: QRZ?
 null
-sunteti interferat?
-sunteti ocupat?
-Sa transmit mai lent?
-cine ma cheama?
-YO6GZI, Sacele, 2004
+sunteţi interferat?
+sunteţi ocupat?
+să transmit mai lent?
+cine mă cheamă?
+YO6GZI, Săcele, 2004
 null
 Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##3#
 c
-03A161~&Ce semnifica urmatorul cod Q: QRS?
+03A161~&Ce semnifică următorul cod Q: QRS?
 null
-sunteti interferat?
-Sa micsorez puterea?
-Sa transmit mai lent?
-Sa incetez transmisia?
-YO6GZI, Sacele, 2004
+sunteţi interferat?
+să micşorez puterea?
+să transmit mai lent?
+să încetez transmisia?
+YO6GZI, Săcele, 2004
 null
-Ca mnemonica: Q R 'Slower' - mai lent<br>Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpage">[link]</a>
+Ca mnemonică: Q R 'Slower' - mai lent<br>Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpage">[link]</a>
 owene, 2007
 ##4#
 b
-04A161~&Ce semnifica urmatorul cod Q: QRT?
+04A161~&Ce semnifică următorul cod Q: QRT?
 null
-sunteti interferat?
-Sa incetez transmisia?
-Sa transmit mai lent?
-cine ma cheama?
-YO6GZI, Sacele, 2004
+sunteţi interferat?
+să încetez transmisia?
+să transmit mai lent?
+cine mă cheamă?
+YO6GZI, Săcele, 2004
 null
 Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##5#
 a
-05A161~&Ce semnifica urmatorul cod Q: QSB?
+05A161~&Ce semnifică următorul cod Q: QSB?
 null
-Taria semnalelor mele variaza?
-Sa incetez transmisia?
-Sa trec pe alta frecventa?
-Confirm receptia
-YO6GZI, Sacele, 2004
+tăria semnalelor mele variază?
+să încetez transmisia?
+să trec pe altă frecvenţă?
+confirm recepţia
+YO6GZI, Săcele, 2004
 null
 Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##6#
 c
-06A161~&Ce semnifica urmatorul cod Q: QSY?
+06A161~&Ce semnifică următorul cod Q: QSY?
 null
-Taria semnalelor mele variaza?
-Sa incetez transmisia?
-Sa trec pe alta frecventa?
-Confirm receptia
-YO6GZI, Sacele, 2004
+tăria semnalelor mele variază?
+să încetez transmisia?
+să trec pe altă frecvenţă?
+confirm recepţia
+YO6GZI, Săcele, 2004
 null
 Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##7#
 d
-07A161~&Ce semnifica urmatorul cod Q: QSL?
+07A161~&Ce semnifică următorul cod Q: QSL?
 null
-Taria semnalelor mele variaza?
-Sa incetez transmisia?
-Sa trec pe alta frecventa?
-Confirm receptia
-YO6GZI, Sacele, 2004
+tăria semnalelor mele variază?
+să încetez transmisia?
+să trec pe altă frecvenţă?
+confirm recepţia
+YO6GZI, Săcele, 2004
 null
 Codul Q: <a href="http://examyo.scienceontheweb.net/x5_3_qcode.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##8#
 b
 01A123~&Ce este codul RST?
 null
-codul de prescurtari
-cod pentru raportarea calitatii receptiei
-cod pentru raportarea intermodulatilor
-cod pentru raportarea puterii de emisie in telegrafie
-YO6GZI, Sacele, 2004
+codul de prescurtări
+cod pentru raportarea calităţii recepţiei
+cod pentru raportarea intermodulaţiilor
+cod pentru raportarea puterii de emisie în telegrafie
+YO6GZI, Săcele, 2004
 null
 Readability - Strength - Tone<br>Vezi mai multe la Codul Q: <a href="http://examyo.scienceontheweb.net/x5_2_rst.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##9#
 c
-02A123~&Cum se interpreteaza urmatorul indicativ: YO6GZI/P?
+02A123~&Cum se interpretează următorul indicativ: YO6GZI/P?
 null
-yo6gzi este in Paraguay
-yo6gzi este in Portugalia
-yo6gzi este in portabil
-yo6gzi este in Panama
-YO6GZI, Sacele, 2004
+yo6gzi este în Paraguay
+yo6gzi este în Portugalia
+yo6gzi este în portabil
+yo6gzi este în Panama
+YO6GZI, Săcele, 2004
 null
 Art.13 din regulament
 Regulamentul
 ##10#
 b
-03A123~&Cum se interpreteaza urmatorul indicativ: YO6GZI/M?
+03A123~&Cum se interpretează următorul indicativ: YO6GZI/M?
 null
-yo6gzi este in Montreal
+yo6gzi este în Montreal
 yo6gzi este mobil
-yo6gzi este in Monaco
-yo6gzi este in Mexic
-YO6GZI, Sacele, 2004
+yo6gzi este în Monaco
+yo6gzi este în Mexic
+YO6GZI, Săcele, 2004
 null
 Art.13 din regulament
 Regulamentul
 ##11#
 d
-04A123~&Cum se interpreteaza urmatorul indicativ: YO6GZI/MM?
+04A123~&Cum se interpretează următorul indicativ: YO6GZI/MM?
 null
-yo6gzi este mobil in Montreal
-yo6gzi este mobil in Monaco
-yo6gzi este mobil in Mexic
+yo6gzi este mobil în Montreal
+yo6gzi este mobil în Monaco
+yo6gzi este mobil în Mexic
 yo6gzi este maritim mobil
-YO6GZI, Sacele, 2004
+YO6GZI, Săcele, 2004
 null
 Art.13 din regulament
 Regulamentul
 ##12#
 b
-05A123~&Cum se interpreteaza urmatorul indicativ: YO6GZI/AM?
+05A123~&Cum se interpretează următorul indicativ: YO6GZI/AM?
 null
-yo6gzi emite cu modulatie de ampitudine (AM)
+yo6gzi emite cu modulaţie de amplitudine (AM)
 yo6gzi emite dintr-un vehicul aerian  Aerian Mobil(AM)
-yo6gzi emite din Mauritius
+yo6gzi emite din Mauriţius
 yo6gzi este primul radioamator din localitate - Alpha-Mike
-YO5OWN, Sacele, 2004
+YO5OWN, Săcele, 2004
 null
 Art.13 din regulament
 Regulamentul
 ##13#
 b
-17A123~&Ce tara reprezinta prefixul F?
+17A123~&Ce ţară reprezintă prefixul F?
 null
 Farity
-Franta
+Franţa
 Finlanda
 Filipine
-YO6GZI, Sacele, 2004
+YO6GZI, Săcele, 2004
 null
-Prefix de o litera au doar tarile 'care au fondat radioamatorismul' adica acolo au activat primii radioamatori - USA(W), Franta(F), Anglia(G) 
-YO6OWN, Brasov, 2007
+Prefix de o literă au doar ţările 'care au fondat radioamatorismul' adică acolo au activat primii radioamatori - USA(W), Franţa(F), Anglia(G) 
+YO6OWN, Braşov, 2007
 ##14#
 c
-18A123~&Ce tara reprezinta prefixul OE?
+18A123~&Ce ţară reprezintă prefixul OE?
 null
 Emiratele Arabe
 Olanda
 Austria
 Italia
-YO6GZI, Sacele, 2004
+YO6GZI, Săcele, 2004
 null
-Mnemonica: Austria in germana este &Ouml;sterreich, si se mai scrie si Oesterreich. OE
-YO6OWN, Brasov, 2007
+mnemonică: Austria în germana este &Ouml;sterreich, şi se mai scrie şi Oesterreich. OE
+YO6OWN, Braşov, 2007
 ##15#
 c
-19A123~&Ce tara reprezinta prefixul G?
+19A123~&Ce ţară reprezintă prefixul G?
 null
 Germania
 Grecia
 Anglia
 Italia
-YO6GZI, Sacele, 2004
+YO6GZI, Săcele, 2004
 null
-Prefix de o litera au doar tarile 'care au fondat radioamatorismul' adica acolo au activat primii radioamatori - USA(W), Franta(F), Anglia(G)<br>Mnemonica: Great Britain - G 
-YO6OWN, Brasov, 2007
+Prefix de o literă au doar ţările 'care au fondat radioamatorismul' adică acolo au activat primii radioamatori - USA(W), Franţa(F), Anglia(G)<br>mnemonică: Great Britain - G 
+YO6OWN, Braşov, 2007
 ##16#
 d
-20A123~&Ce tara reprezinta prefixul HA?
+20A123~&Ce ţară reprezintă prefixul HA?
 null
 Germania
 Grecia
 Anglia
 Ungaria
-YO6GZI, Sacele, 2004
+YO6GZI, Săcele, 2004
 null
-Ai gresit? Inseamna ca nu ai facut nici macar receptie destula, macar codul tarilor vecine trebuie stiut. ER - Moldova, LZ - Bulgaria, HA - Ungaria
-YO6OWN, Brasov, 2007
+Ai greşit? Înseamnă că nu ai făcut nici măcar recepţie destulă, măcar codul ţărilor vecine trebuie ştiut. ER - Moldova, LZ - Bulgaria, HA - Ungaria
+YO6OWN, Braşov, 2007
 ##17#
 b
-21A123~&Ce tara reprezinta prefixul EA?
+21A123~&Ce ţară reprezintă prefixul EA?
 null
 Germania
 Spania
 Anglia
-Elvetia
-YO6GZI, Sacele, 2004
+Elveţia
+YO6GZI, Săcele, 2004
 null
 ESP.
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##18#
 c
-22A123~&Ce tara reprezinta prefixul LZ?
+22A123~&Ce ţară reprezintă prefixul LZ?
 null
 Grecia
 Lagos
 Bulgaria
 Polonia
-YO5OWN, Sacele, 2004
+YO5OWN, Săcele, 2004
 null
-Ai gresit? Inseamna ca nu ai facut nici macar receptie destula, macar codul tarilor vecine trebuie stiut. ER - Moldova, LZ - Bulgaria, HA - Ungaria
-YO6OWN, Brasov, 2007
+Ai greşit? Înseamnă că nu ai făcut nici măcar recepţie destulă, măcar codul ţărilor vecine trebuie ştiut. ER - Moldova, LZ - Bulgaria, HA - Ungaria
+YO6OWN, Braşov, 2007
 ##19#
 a
-08A161~&Ce semnifica codul 73?
+08A161~&Ce semnifică codul 73?
 null
-salutari
-sarutari
-perturbatii atmosferice
+salutări
+sărutări
+perturbaţii atmosferice
 scuze
-YO6GZI, Sacele, 2004
+YO6GZI, Săcele, 2004
 null
-Vezi mai multe la prescurtari uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+Vezi mai multe la prescurtări uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
+YO6OWN, Braşov, 2007
 ##20#
 b
-09A161~&Ce semnifica codul 88?
+09A161~&Ce semnifică codul 88?
 null
-salutari
-sarutari
-perturbatii atmosferice
+salutări
+sărutări
+perturbaţii atmosferice
 scuze
-YO6GZI, Sacele, 2004
+YO6GZI, Săcele, 2004
 null
-Vezi mai multe la prescurtari uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+Vezi mai multe la prescurtări uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
+YO6OWN, Braşov, 2007
 ##21#
 a
-10A161~&Ce semnifica codul yl?
+10A161~&Ce semnifică codul yl?
 null
 young lady - radioamatoare
-sarutari
-perturbatii atmosferice
+sărutări
+perturbaţii atmosferice
 scuze
-YO6GZI, Sacele, 2004
+YO6GZI, Săcele, 2004
 null
-Vezi mai multe la prescurtari uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+Vezi mai multe la prescurtări uzuale: <a href="http://examyo.scienceontheweb.net/x5_7_presc.html" target="kpage">[link]</a>
+YO6OWN, Braşov, 2007
 ##22#
 d
-11A161~&Cum se pronunta in alfabetul fonetic international, litera 'L'?
+11A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'L'?
 null
 London
 Luis
 Longitude
 Lima
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##23#
 a
-12A161~&Cum se pronunta in alfabetul fonetic international, litera 'M'?
+12A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'M'?
 null
 Mike
 Mexico
 Milano
 Marco
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##24#
 b
-13A161~&Cum se pronunta in alfabetul fonetic international, litera 'N'?
+13A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'N'?
 null
 Norway
 November
 Nancy
 Null
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##25#
 d
-14A161~&Cum se pronunta in alfabetul fonetic international, litera 'O'?
+14A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'O'?
 null
 Ontario
 Oregon
 Olanda
 Oscar
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##26#
 d
-15A161~&Cum se pronunta in alfabetul fonetic international, litera 'P'?
+15A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'P'?
 null
 Popeye
 Pakistan
 Pamela
 Papa
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##27#
 a
-16A161~&Cum se pronunta in alfabetul fonetic international, litera 'Q'?
+16A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'Q'?
 null
 Quebeq
 Queen
 Queensland
 QSL
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##28#
 b
-17A161~&Cum se pronunta in alfabetul fonetic international, litera 'R'?
+17A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'R'?
 null
 Radio
 Romeo
 Radius
 Rusia
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##29#
 c
-18A161~&Cum se pronunta in alfabetul fonetic international, litera 'S'?
+18A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'S'?
 null
 Sugar
 Santiago
 Sierra
 Spain
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##30#
 c
-19A161~&Cum se pronunta in alfabetul fonetic international, litera 'T'?
+19A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'T'?
 null
 Toto
 Turkey
 Tango
 Terra
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##31#
 d
-20A161~&Cum se pronunta in alfabetul fonetic international, litera 'U'?
+20A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'U'?
 null
 Utah
 Ubul
 United
 Uniform
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##32#
 a
-21A161~&Cum se pronunta in alfabetul fonetic international, litera 'V'?
+21A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'V'?
 null
 Victor
 Victoria
 Volt
 Varsovia
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##33#
 b
-22A161~&Cum se pronunta in alfabetul fonetic international, litera 'W'?
+22A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'W'?
 null
 double V
 Whiskey
 Washington
 double Victoria
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##34#
 b
-23A161~&Cum se pronunta in alfabetul fonetic international, litera 'X'?
+23A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'X'?
 null
 Xilophone
 X-ray
 Cross
 Xenon
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##35#
 c
-24A161~&Cum se pronunta in alfabetul fonetic international, litera 'Y'?
+24A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'Y'?
 null
 Yoko
 Yokohama
 Yankee
 Yahoo
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##36#
 d
-25A161~&Cum se pronunta in alfabetul fonetic international, litera 'Z'?
+25A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'Z'?
 null
 Zanzibar
 Zero
 Zebra
 Zulu
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##37#
 a
-26A161~&Cum se pronunta in alfabetul fonetic international, litera 'A'?
+26A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'A'?
 null
 Alpha
 America
 Atlantic
 Africa
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##38#
 b
-27A161~&Cum se pronunta in alfabetul fonetic international, litera 'B'?
+27A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'B'?
 null
 Brasil
 Bravo
 Bogota
 Berlin
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##39#
 c
-28A161~&Cum se pronunta in alfabetul fonetic international, litera 'C'?
+28A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'C'?
 null
 Colorado
 Colombo
 Charlie
 Cuba
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##40#
 d
-29A161~&Cum se pronunta in alfabetul fonetic international, litera 'D'?
+29A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'D'?
 null
 Dog
 Darwin
 Delaware
 Delta
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##41#
 a
-30A161~&Cum se pronunta in alfabetul fonetic international, litera 'E'?
+30A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'E'?
 null
 Echo
 Europa
 Ecuator
 Ecuador
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##42#
 b
-31A161~&Cum se pronunta in alfabetul fonetic international, litera 'F'?
+31A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'F'?
 null
 Fox
 Foxtrot
 Florida
 Faraday
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##43#
 b
-32A161~&Cum se pronunta in alfabetul fonetic international, litera 'G'?
+32A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'G'?
 null
 Germany
 Golf
 Guatemala
 Gemini
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##44#
 d
-33A161~&Cum se pronunta in alfabetul fonetic international, litera 'H'?
+33A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'H'?
 null
 Honolulu
 Honduras
 Hungary
 Hotel
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##45#
 a
-34A161~&Cum se pronunta in alfabetul fonetic international, litera 'I'?
+34A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'I'?
 null
 India
 Italy
 Image
 Iridium
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##46#
 b
-35A161~&Cum se pronunta in alfabetul fonetic international, litera 'J'?
+35A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'J'?
 null
 Japan
 Juliett
 John
 Jim
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##47#
 c
-36A161~&Cum se pronunta in alfabetul fonetic international, litera 'K'?
+36A161~&Cum se pronunţă în alfabetul fonetic internaţional, litera 'K'?
 null
 Kenya
 Kilowatt
 Kilo
 Key
-YO6OWN, Sacele, 2005(rev.2007)
+YO6OWN, Săcele, 2005(rev.2007)
 null
 Tabelul, <a href="http://examyo.scienceontheweb.net/x5_1_phonetic.html" target="kpage">[link]</a>
-YO6OWN, Brasov, 2007
+YO6OWN, Braşov, 2007
 ##48#
 b
-01A251~&01B70J/ Analizati figura de mai jos si stabiliti care este 'zona de tacere'. 
+01A251~&01B70J/ Analizaţi figura de mai jos şi stabiliţi care este 'zona de tăcere'. 
 01b70j_353.gif 353
  Zona 1. 		
  Zona 2. 
@@ -586,11 +586,11 @@ b
  Zonele 1+3.
 Subiect public ANCOM, 2007
 null
-Zona de tacere este zona unde nu ajung unde radio de la emitator, este zona in care, daca am avea un receptor nu am putea auzi emitatorul.<br>Zona 1 este acoperita prin unde de suprafata - unde directe.<br>Zona 3 este acoperita prin unde reflectate de ionosfera.<br>Deoarece la o frecventa data, exista un unghi critic sub care undele nu se mai reflecta pe ionosfera ci strapung ionosfera si se pierd in spatiu, avem si o zona, imediat dupa zona acoperita cu unde de suprafata(zona1) neacoperita de unde reflectate. Aceasta este zona 2, a carei marime variaza cu frecventa si cu structura la acel moment al ionosferei. 
-YO6OWN, Brasov, 2007
+Zona de tăcere este zona unde nu ajung unde radio de la emiţător, este zona în care, dacă am avea un receptor nu am putea auzi emiţătorul.<br>Zona 1 este acoperită prin unde de suprafaţă - unde directe.<br>Zona 3 este acoperită prin unde reflectate de ionosferă.<br>Deoarece la o frecvenţă dată, există un unghi critic sub care undele nu se mai reflectă pe ionosferă ci străpung ionosfera şi se pierd în spaţiu, avem şi o zonă, imediat după zona acoperită cu unde de suprafaţă(zona1) neacoperită de unde reflectate. Aceasta este zona 2, a cărei mărime variază cu frecvenţa şi cu structura la acel moment al ionosferei. 
+YO6OWN, Braşov, 2007
 ##49#
 a
-02A251~&02B70J/ Analizati figura de mai jos si stabiliti care este 'zona de unda directa'. 
+02A251~&02B70J/ Analizaţi figura de mai jos şi stabiliţi care este 'zona de undă directă'. 
 01b70j_353.gif 353
  Zona 1. 	
  Zona 2. 
@@ -598,11 +598,11 @@ a
  Zonele 2+3.
 Subiect public ANCOM, 2007
 null
-Zona de unda directa este zona in care undele se propaga fara reflexii pe ionosfera. Undele ajung la receptor prin propagare in linie dreapta daca nu sunt obstacole intre emitator si receptor, si prin difractie, cand undele ocolesc unele obstacole si se propaga si dincolo de orizont. Difractia este diferita in functie de frecventa. Undele ultrascurte si de frecventa foarte inalta(VHF, UHF, SHF) se propaga aproximativ in acelasi fel ca lumina.<br>Zona 1 este zona de unda directa.
-YO6OWN, Brasov, 2007
+Zona de undă directă este zona în care undele se propagă fără reflexii pe ionosferă. Undele ajung la receptor prin propagare în linie dreaptă dacă nu sunt obstacole între emiţător şi receptor, şi prin difracţie, când undele ocolesc unele obstacole şi se propagă şi dincolo de orizont. Difracţia este diferită în funcţie de frecvenţă. Undele ultrascurte şi de frecvenţă foarte înaltă(VHF, UHF, SHF) se propagă aproximativ în acelaşi fel ca lumina.<br>Zona 1 este zona de undă directă.
+YO6OWN, Braşov, 2007
 ##50#
 c
-03A251~&03B70J/ Analizati figura de mai jos si stabiliti care este 'zona de propagare prin salt (skip)'. 
+03A251~&03B70J/ Analizaţi figura de mai jos şi stabiliţi care este 'zona de propagare prin salt (skip)'. 
 01b70j_353.gif 353
  Zonele 1+2. 	
  Zona 2. 
@@ -610,11 +610,11 @@ c
  Zona 1.
 Subiect public ANCOM, 2007
 null
-Zona 3 este acoperita prin unde reflectate de ionosfera.
-YO6OWN, Brasov, 2007
+Zona 3 este acoperită prin unde reflectate de ionosferă.
+YO6OWN, Braşov, 2007
 ##51#
 c
-04A254~&04B70J/ Analizati figura de mai jos si stabiliti care este zona denumita in mod obisnuit 'de noapte' pentru banda de 80m. 
+04A254~&04B70J/ Analizaţi figura de mai jos şi stabiliţi care este zona denumită în mod obişnuit 'de noapte' pentru banda de 80m. 
 01b70j_353.gif 353
  Zona 1. 		
  Zona 2. 
@@ -622,83 +622,83 @@ c
  Zonele 1+2.
 Subiect public ANCOM, 2007
 null
-Noaptea, startul D al ionosferei, raspunzator de propagarea in 3.5-3.7 MHz - banda de 80m, ionizat de soare in timpul zilei, se linisteste, dar ramane ionizat si favorizeaza QSO-uri la distante mari. 
-YO6OWN, Brasov, 2008
+Noaptea, stratul D al ionosferei, răspunzător de propagarea în 3.5-3.7 MHz - banda de 80m, ionizat de soare în timpul zilei, se linişteşte, dar rămâne ionizat şi favorizează QSO-uri la distanţe mari. 
+YO6OWN, Braşov, 2008
 ##52#
 b
-02B253~&08B70K/ In care dintre benzile de amator mentionate mai jos este probabilitatea mai mare de aparitie a propagarii prin 'E sporadic'?
+02B253~&08B70K/ în care dintre benzile de amator menţionate mai jos este probabilitatea mai mare de apariţie a propagării prin 'E sporadic'?
 null
- In banda de 2m. 	
- In banda de 6m.
- In banda de 20m.	
- In banda de 80m.
+ în banda de 2m. 	
+ în banda de 6m.
+ în banda de 20m.	
+ în banda de 80m.
 Subiect public ANCOM, 2007
 null
 
 
 ##53#
 c
-01A253~&17B70M/ Care este cauza cea mai probabila a aparitiei aurorei Boreale?
+01A253~&17B70M/ Care este cauza cea mai probabilă a apariţiei aurorei Boreale?
 null
- Cresterea numarului de pete solare.
- Scaderea numarului de pete solare.
+ Creşterea numărului de pete solare.
+ Scăderea numărului de pete solare.
  Bombardamentul cu particule puternic ionizante emise de soare.
- Norul de micro meteoriti concentrat de forta centrifuga in zona polara.
+ Norul de micro meteoriţi concentrat de forţa centrifugă în zona polară.
 Subiect public ANCOM, 2007
 null
-Aurora apare atunci cand micro-particulele de foarte mare viteza ejectate din Soare in directia Pamantului sunt captate de campurile magnetice foarte intense de la poli, traiectoria lor modificata, si aunci ele intra in atmosfera polara cu o viteza foarte mare, ionizeaza aerul, eliberand energie inclusiv in spectrul vizual(luminile aurorei). 
-YO6OWN, Brasov, 2008
+Aurora apare atunci când micro-particulele de foarte mare viteză ejectate din Soare în direcţia Pământului sunt captate de câmpurile magnetice foarte intense de la poli, traiectoria lor modificată, şi aunci ele intră în atmosfera polară cu o viteză foarte mare, ionizează aerul, eliberând energie inclusiv în spectrul vizual(luminile aurorei). 
+YO6OWN, Braşov, 2008
 ##54#
 b
-02A253~&18B70M/ In ce directie trebuie indreptata o antena directiva situata in emisfera nordica pentru a utiliza optim propagarea pe aurora?
+02A253~&18B70M/ în ce direcţie trebuie îndreptată o antenă directiva situată în emisfera nordică pentru a utiliza optim propagarea pe auroră?
 null
  Spre Sud.		
  Spre Nord
  Spre Est.		
- Spre West.
+ Spre Vest.
 Subiect public ANCOM, 2007
 null
-Antena trebuie indreptata spre aurora. Cum din YO, aurora este spre N, spre Nord trebuie indreptata. Catre S,E,V nu avem nicio aurora. 
+Antena trebuie îndreptată spre auroră. Cum din YO, aurora este spre N, spre Nord trebuie îndreptată. Către S,E,V nu avem nicio auroră. 
 YO6OWN, 2007
 ##55#
 c
-03A253~&19B70M/ Unde anume in ionosfera este situata aurora Boreala?
+03A253~&19B70M/ Unde anume în ionosferă este situată aurora Boreală?
 null
- La inaltimea stratului F1.
- La inaltimea stratului F2.
- La inaltimea stratului E.
- La inaltimea stratului D.
+ La înălţimea stratului F1.
+ La înălţimea stratului F2.
+ La înălţimea stratului E.
+ La înălţimea stratului D.
 Subiect public ANCOM, 2007
 null
 
 
 ##56#
 a
-04A253~&20B70M/ Care dintre modurile de lucru enumerate mai jos sunt cele mai potrivite in conditiile propagarii pe aurora?
+04A253~&20B70M/ Care dintre modurile de lucru enumerate mai jos sunt cele mai potrivite în condiţiile propagării pe auroră?
 null
  CW.		
- SSB si FM.
- FM si PM
- DSB si RTTY
+ SSB şi FM.
+ FM şi PM
+ DSB şi RTTY
 Subiect public ANCOM, 2007
 null
-Aurora este un mediu de propagare ostil, putem sa o comparam cu reflexia luminii pe o oglinda convexa cu suprafata care se valureste continuu. CW - prezenta sau absenta luminii, este cea mai simpla codificare a informatiei, iar varianta QRSSS(CW foarte lent) este cea mai imuna la perturbatii. Modulatiile vocale SSB, DSB, FM nu fac fata, PM e foarte probabil sa fie afectat, iar RTTY, un mod digital, probabil ar merge, la viteza foarte scazuta, si cu multe erori.
-YO6OWN, Brasov, 2008
+Aurora este un mediu de propagare ostil, putem să o comparăm cu reflexia luminii pe o oglindă convexă cu suprafaţă care se vălureşte continuu. CW - prezenţa sau absenţa luminii, este cea mai simplă codificare a informaţiei, iar varianta QRSSS(CW foarte lent) este cea mai imună la perturbaţii. Modulaţiile vocale SSB, DSB, FM nu fac faţă, PM e foarte probabil să fie afectat, iar RTTY, un mod digital, probabil ar merge, la viteză foarte scăzută, şi cu multe erori.
+YO6OWN, Braşov, 2008
 ##57#
 d
-03B251~&21B70N/ Cum se explica faptul ca 'orizontul radio' depaseste orizontul geometric?
+03B251~&21B70N/ Cum se explică faptul că 'orizontul radio' depăşeşte orizontul geometric?
 null
  Prin propagarea pe stratul E.
  Prin propagarea pe stratul F.
- Prin propagarea pe straturile E si F.
+ Prin propagarea pe straturile E şi F.
  Prin curbarea traseului undelor radio.
 Subiect public ANCOM, 2007
 null
-'curbarea traseului undelor radio' si 'efectul de creasta in VHF, UHF' sunt niste efecte mai mult constatate si mai putin explicate.<br>Eu vad 2 cauze pentreu aceste efecte: 1) Efectul de 'near-field propagation', unda electromagnetica se deplaseaza cu precadere in zona din apropiere a unui conductor si ii urmeaza traseul - ex. linii de transmisiune, ghidurile de unda in microunde, conductoare oarecare in zona 13MHz, si solul, in cazul problemei noastre - solul conduce si este si GND. 2) Efectul termic al straturilor de aer, care genereaza interfete cu parametri &epsilon; diferiti si forteaza o curbare a traiectoriei undei. Este mai pregnant in UHF, dar nu se compara nici pe departe cu reflexiile pe ionosfera.<br>Am gasit o dizertatie mai completa despre asta <a href="http://www.eham.net/articles/18577" target="_blank">'Bent Radio'</a> pe www.eham.net . 
-YO6OWN, Brasov, 2008
+'curbarea traseului undelor radio' şi 'efectul de creastă în VHF, UHF' sunt nişte efecte mai mult constatate şi mai puţin explicate.<br>Eu văd 2 cauze pentreu aceste efecte: 1) Efectul de 'near-field propagation', unda electromagnetică se deplasează cu precădere în zona din apropiere a unui conductor şi îi urmează traseul - ex. linii de transmisiune, ghidurile de undă în microunde, conductoare oarecare în zona 13MHz, şi solul, în cazul problemei noastre - solul conduce şi este şi GND. 2) Efectul termic al straturilor de aer, care generează interfeţe cu parametri &epsilon; diferiţi şi forţează o curbare a traiectoriei undei. Este mai pregnant în UHF, dar nu se compară nici pe departe cu reflexiile pe ionosferă.<br>Am găsit o dizertaţie mai completă despre asta <a href="http://www.eham.net/articles/18577" target="_blank">'Bent Radio'</a> pe www.eham.net. 
+YO6OWN, Braşov, 2008
 ##58#
 a
-04B251~&22B70N/ Aproximativ cu ce procent creste orizontul radio fata de orizontul geometric?
+04B251~&22B70N/ Aproximativ cu ce procent creşte orizontul radio faţă de orizontul geometric?
 null
  15%		
  50%
@@ -706,11 +706,11 @@ null
  200%
 Subiect public ANCOM, 2007
 null
-Putin. 15% e cel mai obisnuit caz.
-YO6OWN, Brasov, 2008
+Puţin. 15% e cel mai obişnuit caz.
+YO6OWN, Braşov, 2008
 ##59#
 a
-05B251~&23B70/ Aproximativ la ce distanta este limitata in mod obisnuit propagarea in VHF?
+05B251~&23B70/ Aproximativ la ce distanţă este limitată în mod obişnuit propagarea în VHF?
 null
  1000km		
  2000km
@@ -718,41 +718,41 @@ null
  4000km
 Subiect public ANCOM, 2007
 null
-In mod obisnuit, propagarea VHF este limitata la linia orizontului, la cateva zeci de km. Cateva sute de km sunt accesibile in mod curent radioamatorilor cu echipamente performante, antene in locatii bine amplasate, si cu experienta in DX.<br>QSO-uri transatlantice(4000km+) au existat destule, dar intrebarea accentueaza 'in mod obisnuit' - media aritmetica a numarului de tari confirmate de membrii YO DX Club, la categoria <a href="http://www.radioamator.ro/yodxclub/clasament.php?t=9" target="_blank">'confirmate 144MHz'</a> este aproximativ 35, si daca numaram cele mai apropiate 28 entitati/tari din jurul YO, ne incadram lejer intr-un cerc cu raza de 1000 de km, si observam ca un cerc cu raza de 2000km contine cu mult peste 28 de tari.<br>Eu am calculat interpretand in felul meu termenul 'in mod obisnuit' din enunt, si alte interpretari ar putea fi valabile si argumentabile.
-YO6OWN, Brasov, 2008
+In mod obişnuit, propagarea VHF este limitată la linia orizontului, la câteva zeci de km. Câteva sute de km sunt accesibile în mod curent radioamatorilor cu echipamente performante, antene în locaţii bine amplasate, şi cu experienţă în DX.<br>QSO-uri transatlantice(4000km+) au existat destule, dar întrebarea accentuează 'în mod obişnuit' - media aritmetică a numărului de ţări confirmate de membrii YO DX Club, la categoria <a href="http://www.radioamator.ro/yodxclub/clasament.php?t=9" target="_blank">'confirmate 144MHz'</a> este aproximativ 35, şi dacă numărăm cele mai apropiate 28 entităţi/ţări din jurul YO, ne încadrăm lejer într-un cerc cu raza de 1000 de km, şi observăm că un cerc cu raza de 2000km conţine cu mult peste 28 de ţări.<br>Eu am calculat interpretând în felul meu termenul 'în mod obişnuit' din enunt, şi alte interpretări ar putea fi valabile şi argumentabile.
+YO6OWN, Braşov, 2008
 ##60#
 c
-01B251~&24B70/ Care dintre fenomenele de propagare este cauza cea mai probabila, daca un semnal VHF este receptionat la o distanta mai mare de 1000km?
+01B251~&24B70/ Care dintre fenomenele de propagare este cauza cea mai probabilă, dacă un semnal VHF este recepţionat la o distanţă mai mare de 1000km?
 null
- Absorbtie in stratul D.
- Rotatie Faraday.
- Ghid ('ducting') troposferic.
- Difractie pe creasta.
+ absorbţie în stratul D.
+ rotaţie Faraday.
+ ghid ('ducting') troposferic.
+ difracţie pe creastă.
 Subiect public ANCOM, 2007
 null
-Prin eliminare:<br>MUF(Maximum Usable Frequency) pentru stratul D este 3.5 - 7MHz, VHF trece prin stratul D<br>Difractia de creasta este responsabila de propagarea 'peste deal', nu 1000km.<br>Rotatia Faraday se refera la schimbarea unghiului de polarizare a undei radio prin rotire.<br>Si asa mai ramane ducting tropo, care intr-adevar e un proces responsabil pentru propagarea VHF la mare distanta.
-YO6OWN, Brasov, 2008
+Prin eliminare:<br>MUF(Maximum Usable Frequency) pentru stratul D este 3.5 - 7MHz, VHF trece prin stratul D<br>Difracţia de creastă este responsabilă de propagarea 'peste deal', nu 1000km.<br>Rotaţia Faraday se referă la schimbarea unghiului de polarizare a undei radio prin rotire.<br>Şi aşa mai rămâne ducting tropo, care într-adevar e un proces responsabil pentru propagarea VHF la mare distanţă.
+YO6OWN, Braşov, 2008
 ##61#
 d
-05A253~&Care este numele zonei atmosferice care face posibila comunicatiile radio de mare distanta prin reflexia undelor radio?
+05A253~&Care este numele zonei atmosferice care face posibile comunicaţiile radio de mare distanţă prin reflexia undelor radio?
 null
-troposfera
-stratosfera
-magnetosfera
-ionosfera
-YO6OWN - adaptare dupa eham.net, 2007
+troposferă
+stratosferă
+magnetosferă
+ionosferă
+YO6OWN - adaptare după eham.net, 2007
 null
 
 
 ##62#
 a
-06A253~&Care este relatia dintre numarul petelor solare si gradul de ionizare al ionosferei?
+06A253~&Care este relaţia dintre numărul petelor solare şi gradul de ionizare al ionosferei?
 null
-Gradul de ionizare creste cu cresterea numarului de pete solare.
-Creste numarul de pete solare, scade gradul de ionizare
-Daca nu sunt pete solare, ionizarea este zero.
-Ionizarea nu are legatura cu petele solare.
-YO6OWN, Brasov, 2005
+gradul de ionizare creşte cu creşterea numărului de pete solare.
+creşte numărul de pete solare, scade gradul de ionizare.
+dacă nu sunt pete solare, ionizarea este zero.
+ionizarea nu are legătură cu petele solare.
+YO6OWN, Braşov, 2005
 null
-Petele solare sunt manifestarile pe scoarta solara a fluctuatiilor de camp magnetic solar si a eruptiilor solare. Eruptiile antreneaza in spatiu cantitati enorme de electroni, protoni si alte particule, din care unele produc o ionizare a stratului superior al atmosferei Pamantului - ionosfera.<br>Acest strat ionizat se comporta in anumite circumstante ca o oglinda pentru undele radio
-YO6OWN, Brasov, 2007
+Petele solare sunt manifestările pe scoarţa solară a fluctuaţiilor de câmp magnetic solar şi a erupţiilor solare. Erupţiile antrenează în spaţiu cantităţi enorme de electroni, protoni şi alte particule, din care unele produc o ionizare a stratului superior al atmosferei Pământului - ionosfera.<br>Acest strat ionizat se comportă în anumite circumstanţe ca o oglindă pentru undele radio
+YO6OWN, Braşov, 2007
