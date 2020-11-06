@@ -1,4 +1,4 @@
-Intrebari radiotehnica clasa II versiunea 3.16 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_HAREC_radiotehnica</curricula></font>
+Intrebari radiotehnica clasa II versiunea 3.17 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_HAREC_radiotehnica</curricula></font>
 660
 ##0#
 c
@@ -466,7 +466,7 @@ null
  P2=10 W
 Subiect public ANCOM, 2007
 null
-Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 10W * 10&Omega; / 50 &Omega; = 2 W 
+Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 10W * 10&Omega; / 50 &Omega; = 2 W 
 YO6OWN, Brasov, 2007
 ##39#
 c
@@ -478,7 +478,7 @@ null
  P2=10 W
 Subiect public ANCOM, 2007
 null
-Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 10W * 10&Omega; / 20 &Omega; = 5 W 
+Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 10W * 10&Omega; / 20 &Omega; = 5 W 
 YO6OWN, Brasov, 2007
 ##40#
 d
@@ -490,7 +490,7 @@ null
  P2=10 W
 Subiect public ANCOM, 2007
 null
-Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 100W * 10&Omega; / 100 &Omega; = 10 W 
+Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 100W * 10&Omega; / 100 &Omega; = 10 W 
 YO6OWN, Brasov, 2007
 ##41#
 d
@@ -502,7 +502,7 @@ null
  P2=10 W
 Subiect public ANCOM, 2007
 null
-Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 1W * 500&Omega; / 50 &Omega; = 10 W 
+Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 1W * 500&Omega; / 50 &Omega; = 10 W 
 YO6OWN, Brasov, 2007
 ##42#
 b
@@ -514,7 +514,7 @@ null
  P2=10 W
 Subiect public ANCOM, 2007
 null
-Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 1W * 100&Omega; / 50 &Omega; = 2 W 
+Acesta e un subiect in care sunt date si date suplimentare nerelevante, adica R<sub>i</sub>.<br>Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ; P2 = U * I<sub>2</sub> = U * U / R<sub>2</sub><br>Din cele de mai sus rezulta P2 = P1 * R1 / R2 = 1W * 100&Omega; / 50 &Omega; = 2 W 
 YO6OWN, Brasov, 2007
 ##43#
 c
@@ -586,7 +586,7 @@ null
  I2=0,4A
 Subiect public ANCOM, 2007
 null
-Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ;<br>I<sub>2</sub> = U / R2 = &radic;<span style="text-decoration:overline">(P1 * R1)</span> / R2 = &radic;<span style="text-decoration:overline">(10 * 250)</span> / 500 = 50 / 500 = 0,1A
+Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ;<br>I<sub>2</sub> = U / R2 = &radic;<span style="text-decoration:overline">(P1 * R1)</span> / R2 = &radic;<span style="text-decoration:overline">(10 * 250)</span> / 500 = 50 / 500 = 0,1A
 YO6OWN, Brasov, 2007
 ##49#
 d
@@ -598,7 +598,7 @@ null
  I2=0,4A
 Subiect public ANCOM, 2007
 null
-Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ;<br>I<sub>2</sub> = U / R2 = &radic;<span style="text-decoration:overline">(P1 * R1)</span> / R2 = &radic;<span style="text-decoration:overline">(10 * 250)</span> / 125 = 50 / 125 = 0,4A
+Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ;<br>I<sub>2</sub> = U / R2 = &radic;<span style="text-decoration:overline">(P1 * R1)</span> / R2 = &radic;<span style="text-decoration:overline">(10 * 250)</span> / 125 = 50 / 125 = 0,4A
 YO6OWN, Brasov, 2007
 ##50#
 b
@@ -610,7 +610,7 @@ null
  I2=0,4A
 Subiect public ANCOM, 2007
 null
-Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ;<br>I<sub>2</sub> = U / R2 = &radic;<span style="text-decoration:overline">(P1 * R1)</span> / R2 = &radic;<span style="text-decoration:overline">(1 * 100)</span> / 50 = 10 / 50 = 0,2A
+Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ;<br>I<sub>2</sub> = U / R2 = &radic;<span style="text-decoration:overline">(P1 * R1)</span> / R2 = &radic;<span style="text-decoration:overline">(1 * 100)</span> / 50 = 10 / 50 = 0,2A
 YO6OWN, Brasov, 2007
 ##51#
 b
@@ -622,7 +622,7 @@ null
  I2=0,4A
 Subiect public ANCOM, 2007
 null
-Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U * R1 ;<br>I<sub>2</sub> = U / R2 = &radic;<span style="text-decoration:overline">(P1 * R1)</span> / R2 = &radic;<span style="text-decoration:overline">(16 * 100)</span> / 200 = 40 / 200 = 0,2A
+Rezolvarea incepe de la observatia ca R1 si R2 fiind in paralel, caderea de tensiune pe ele este identica, si o calculam din P = U * I<sub>1</sub> = U * U / R1 ;<br>I<sub>2</sub> = U / R2 = &radic;<span style="text-decoration:overline">(P1 * R1)</span> / R2 = &radic;<span style="text-decoration:overline">(16 * 100)</span> / 200 = 40 / 200 = 0,2A
 YO6OWN, Brasov, 2007
 ##52#
 a
