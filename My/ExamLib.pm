@@ -125,7 +125,7 @@ my %pub_errors= (
               "authERR04" => "Autentificare imposibilă cu credențialele furnizate.<br><br><small>ATENȚIE: Dacă ai avut un cont mai demult și nu te-ai mai logat de peste 14 zile, contul tău s-a șters automat</small>", #CUSTOM nr zile
               "authERR05" => "Autentificare imposibilă cu credențialele furnizate.<br><br><small>ATENȚIE: Dacă ai avut un cont mai demult și nu te-ai mai logat de peste 14 zile, contul tău s-a șters automat</small>",  #CUSTOM nr zile
 
-              "ERR01"  =>  "primire de  date corupte. E important de exemplu sa nu includeti tag-uri html <...> .", #this should remain
+              "ERR01"  =>  "primire de  date nepermise. E important de exemplu sa nu includeti tag-uri html <...> .", #this should remain
 
               "ver0ERR05" => "primire de  date corupte",
               "verERR05" => "primire de  date corupte",
