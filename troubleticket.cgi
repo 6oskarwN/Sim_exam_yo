@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  troubleticket.cgi v 3.1.3
+#  troubleticket.cgi v 3.1.4
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.1.4 solved the '=' bug
 # ch 3.1.3 charset=utf-8 added in generated html
 # ch 3.1.2 filtering inputs for protection against cross-side-scripting
 # ch 3.1.1 implementing Occam's Razor for input parameters
@@ -92,15 +93,6 @@ my $trid; #transaction ID for anonymous, similar like for an exam
 my $newtrid;
 my @dbtt;   #this is the slurp variable
 
-#### mailer patch v.3.0.a #############
-#my $mailprog = '/usr/local/bin/sendmail'; #this is specific to my hoster
-## Change the location above to wherever sendmail is located on your server.
-#my $admin_email="curierul\@examyo.scienceontheweb.net";
-## Change the address above to your e-mail address. Make sure to KEEP the \
-#my $target_email="yo6own\@yahoo.com";
-## Change the address above to your e-mail address. Make sure to KEEP the \
-#### .end of mailer patch v 3.1.3 #####
-
 
 #intermediate variables
 my $get_aucpair;    #$question_auc:$answer_auc
@@ -136,23 +128,17 @@ my $stdin_value;
          }
   else   {dienice("ERR20",0,\"null");} #request method other than GET/POST is discarded in non-descriptive way
 
-#pre-process the POST data
-$buffer=~ tr/+/ /;
-$buffer=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #special characters come like this
-
 @pairs=split(/&/,$buffer ); #split the pairs in input; you don't know the exact order of the parameters
 
 foreach $pair(@pairs) {
  ($stdin_name,$stdin_value) = split(/=/,$pair);
 
-#if(defined $stdin_value) { #if input is malformed, pairs could be incomplete so stdin_value could be inexistent
-# $stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
-#this is needed because POST replaces every special char with its hex
-# $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
-#2 times(once not enough to catch the stored XSS that will be active only after emerging from store)
-# $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
-#                         }
-#else { dienice("ERR20",0,\"null"); } #if undef $stdin_value
+if(defined $stdin_value) { #if input is malformed, pairs could be incomplete so stdin_value could be inexistent
+$stdin_value=~ tr/+/ /; #ideea e de a inlocui la loc + cu space
+##this is needed because POST replaces every special char with its hex
+ $stdin_value=~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg; #transforma %22 in =, %hex to char 
+                         }
+else { dienice("ERR20",0,\"null"); } #if undef $stdin_value
 
 #Occam's razor:
 #we try first to fill all and only the expected parameters - depending on the scenario,
@@ -166,6 +152,7 @@ foreach $pair(@pairs) {
  elsif($stdin_name eq 'transaction'){$get_trid=$stdin_value;}
                       } #end foreach pair
 #end of Occam's razor
+
 
 #any input parameter is not trusted, even if it's not a field of a form, it could be malformed.
 #whitelist regexp  possible for: $get_type,$get_trid,$get_answer, $get_nick;
@@ -264,7 +251,7 @@ if (defined $get_type) #it means we have a first call
   print qq!<head>\n<title>colectare erori și sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.1.3</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.1.4</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se generate form by integrating $newtrid and $question_auc
   print qq!<center>\n<b>sistem de colecție erori</b>\n!;
@@ -402,7 +389,7 @@ close(ttFILE);
   print qq!<head>\n<title>colectare erori și sugestii</title>\n</head>\n!;
   print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
   ins_gpl();
-  print qq!<font size="-1">v 3.1.3</font>\n!; #version print for easy upload check
+  print qq!<font size="-1">v 3.1.4</font>\n!; #version print for easy upload check
   print qq!<br>\n!;
  #se genereaza formularul integrand $newtrid si $question_auc
 print qq!<center>\n<b>sistem de colecție erori</b>\n!;
@@ -803,7 +790,7 @@ my $sub_code;
 my $sub_text;
 ($sub_nick,$sub_code,$sub_text)=@_;
 
-#### patch for mailer implementation from v 3.1.3 ######
+#### patch for mailer implementation from v 3.1.4 ######
 #open (MAIL, "|$mailprog -t") || die "Can't open $mailprog!\n";
 #print MAIL "From: $admin_email\n";
 #print MAIL "To: $target_email\n";
@@ -828,7 +815,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>colectare erori și sugestii</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="blue" alink="blue" vlink="red">\n!;
 ins_gpl();
-print qq!v 3.1.3\n!; #version print for easy upload check
+print qq!v 3.1.4\n!; #version print for easy upload check
 print qq!<br>\n!;
 print qq!<h1 align="center">Adăugare reușită.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
