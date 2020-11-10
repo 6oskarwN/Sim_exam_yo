@@ -1,9 +1,9 @@
-program HAREC - cunostinte de trafic, clasa I, II [v3.07] 
+program HAREC - cunoștințe de trafic, clasa I, II [v3.07] 
 
-PROGRAMA DE EXAMINARE conform cerintelor CEPT, pentru obtinerea certificatului armonizat de radioamator (HAREC)
-PROGRAMA ANALITICA DE EXAMINARE DETALIATA
+PROGRAMA DE EXAMINARE conform cerințelor CEPT, pentru obținerea certificatului armonizat de radioamator (HAREC)
+PROGRAMA ANALITICĂ DE EXAMINARE DETALIATĂ
 
-B. REGULI SI PROCEDURI DE OPERARE INTERNE SI INTERNATIONALE
+B. REGULI ȘI PROCEDURI DE OPERARE INTERNE ȘI INTERNAȚIONALE
 
 
 CAPITOLUL 1
@@ -13,7 +13,7 @@ recomandat pentru traficul radiotelefonic
 
 111&
 <pre>
-Litera	Cuvantul de cod	Pronuntia		
+Litera	Cuvântul de cod	Pronunția		
 A	Alfa		Al-fa		
 B	Bravo		Bra-vo		
 C	Charlie		Ciar-li		
@@ -34,7 +34,7 @@ K	Kilo		Ki-lo
 L	Lima		Li-ma		
 M	Mike		Maik	
 
-Litera	Cuvantul de cod	Pronuntia	
+Litera	Cuvântul de cod	Pronunția	
 N	November	No-vem-ber
 O	Oscar		Oss-kar
 </pre>
@@ -55,7 +55,7 @@ X	X-ray		EX-rei
 Y	Yankee		Yan-ki
 Z	Zulu		Zu-lu
 </pre>
-Nota: Pentru cifre, radioamatorii pot folosi denumirea lor corespunzatoare In limba In care se desfasoara legatura radio sau, pentru o mai buna Intelegere, In oricare alta limba.
+Nota: Pentru cifre, radioamatorii pot folosi denumirea lor corespunzătoare în limba în care se desfășoară legătura radio sau, pentru o mai bună înțelegere, în oricare altă limbă.
 
   
 CAPITOLUL 2
@@ -63,97 +63,97 @@ CAPITOLUL 2
 CODUL Q
 
 
-Codul	Intrebare	Raspuns
+Codul	Întrebare	Răspuns
 
 211&
 QRK	Care este inteligibilitatea semnalelor mele ?	Inteligibilitatea semnalelor d-tale este....
-QRL Sunteti ocupat?
-QRM	Sunteti interferat ?	Sant interferat de....
-QRN	Sunteti deranjat de paraziti atmosferici ?	Sant deranjat de paraziti atmosferici.
+QRL Sunteți ocupat?
+QRM	Sunteți interferat ?	Sunt interferat de....
+QRN	Sunteți deranjat de paraziți atmosferici ?	Sunt deranjat de paraziți atmosferici.
 212&
-QRO	Sa maresc puterea emitatorului?	Mareste puterea emitatorului.
-QRP	Sa micsorez puterea emitatorului ?	Micsorez puterea emitatorului.
-QRS	Sa transmit mai rar ?	Transmiteti mai rar.
-QRT	Sa Incetez transmisia ?	Incetez transmisia.
+QRO	Să măresc puterea emițătorului?	Mărește puterea emițătorului.
+QRP	Să micșorez puterea emițătorului ?	Micșorez puterea emițătorului.
+QRS	Să transmit mai rar?	Transmiteți mai rar.
+QRT	Să încetez transmisia ?	Încetez transmisia.
 213&
-QRZ	De cine sunt chemat ?	Sunteti chemat de....
-QRV	Sunteti gata ?	Sant gata.
+QRZ	De cine sunt chemat ?	Sunteți chemat de....
+QRV	Sunteți gata ?	Sunt gata.
 QSB	Semnalele mele au fading ?	Semnalele dvs. au fading .
-QSL	Puteti confirma receptia ?	Va confirm receptia
+QSL	Puteți confirma recepția ?	Vă confirm recepția
 214&
-QSO	Puteti comunica cu ... direct ?	Pot comunica cu ... direct.
-QSY	Sa schimb transmisia pe o alta frecventa ?	Schimb transmisia pe o alta frecventa.
-QRX	Cand ma veti chema din nou ?	Va voi chema din nou la ora ... pe ... kHz 
+QSO	Puteți comunica cu ... direct ?	Pot comunica cu ... direct.
+QSY	Să schimb transmisia pe o altă frecvență ?	Schimb transmisia pe o altă frecvență.
+QRX	Când mă veți chema din nou ?	Vă voi chema din nou la ora ... pe ... kHz 
 (sau MHz)
-QTH	Care este pozitia dvs. In latitudine si longitudine  (sau dupa orice alta indicatie) ?	Pozitia mea in grade este ... latitudine ... longitudine ... (sau dupa orice alta indicatie).
+QTH	Care este poziția dvs. în latitudine și longitudine  (sau după orice altă indicație) ?	Poziția mea în grade este ... latitudine ... longitudine ... (sau după orice altă indicație).
 
-Nota: In afara acestor coduri, se pot folosi si celelalte din Apendicele 14 din Regulamentul Radiocomunicatiilor.
+Notă: În afara acestor coduri, se pot folosi și celelalte din Apendicele 14 din Regulamentul Radiocomunicațiilor.
 
 CAPITOLUL 3
 
-PRESCURTARILE CELE MAI UZUALE FOLOSITE IN SERVICIUL DE AMATOR
+PRESCURTĂRILE CELE MAI UZUALE FOLOSITE ÎN SERVICIUL DE AMATOR
 
 311&
-AR = Sfarsit de transmisiune 
-ASK = A Intreba
-BK = Semnal folosit la Intreruperea unei transmisiuni In curs 
-CQ = Apel general catre toate statiile 
+AR = Sfârșit de transmisiune 
+ASK = A întreba
+BK = Semnal folosit la întreruperea unei transmisiuni în curs 
+CQ = Apel general către toate stațiile 
 312&
-CUAGN = Pe curand
-CW = Unda continua
-DX = Distanta mare (de obicei de pe alt continent) 
-GA = Buna ziua
+CUAGN = Pe curând 
+CW = Undă continuă 
+DX = Distanță mare  
+GA = Bună ziua 
 313&
 GB = La revedere 
-GM = Buna dimineata 
-HP, HPE = Sper, speranta
-K = Invitatie la transmitere 
+GM = Bună dimineața  
+HP, HPE = Sper, speranță 
+K = Invitație la transmitere 
 314&
-MSG = Mesaj
+MSG = Mesaj 
 OM = Prieten 
-PSE = Va rog
-RST = Raport pentru inteligibilitatea, taria si tonul semnalului 
+PSE = Vă rog 
+RST = Raport pentru inteligibilitatea, tăria și tonul semnalului 
 315&
-R = Receptionat
+R = Recepționat 
 RX = Receptor
-SK = Sfarsitul transmiterii 
-TKS, TNX = Multumesc 
+SK = Sfârșitul transmiterii 
+TKS, TNX = Mulțumesc 
 316&
-UR = Al  dumneavoastra
-VA = SK = Sfarsitul transmiterii
-VY = Foarte
-73 = Salutari 
-88 = Sarutari
-yl = young lady, domnisoara
+UR = Al  dumneavoastră 
+VA = SK = Sfârșitul transmiterii
+VY = Foarte 
+73 = Salutări 
+88 = Sărutări
+yl = young lady, domnișoară
 
-Nota: In traficul radiotelegrafic se pot folosi si prescurtarile cuvintelor din limbile de circulatie internationala.
+Nota: În traficul radiotelegrafic se pot folosi și prescurtările cuvintelor din limbile de circulație internațională.
 
-320& Sistemul RST de raportare al receptiei(extra-curricula, nu e in programa dar se da)
+320& Sistemul RST de raportare al receptiei(extra-curricula, nu e în programă dar se dă)
 
 CAPITOLUL 4
 
-SEMNALE INTERNATIONALE DE PRIMEJDIE, TRAFIC DE URGENTA SI COMUNICATIILE iN CAZUL CALAMITATILOR NATURALE
+SEMNALE INTERNAȚIONALE DE PRIMEJDIE, TRAFIC DE URGENȚĂ ȘI COMUNICAȚIILE ÎN CAZUL CALAMITĂȚILOR NATURALE
 
 411&Semnale de primejdie:
 -	in radiotelegrafie ... - - -  ... (SOS) 
 -	in radiotelefonie "MAYDAY"
--	Se interzice radioamatorilor folosirea expresiilor SOS si MAYDAY rezervate 
-statiilor serviciilor mobil maritim si aeronautic.
+-	Se interzice radioamatorilor folosirea expresiilor SOS și MAYDAY rezervate 
+stațiilor serviciilor mobil maritim și aeronautic.
 
-412&Prevederile Regulamentului de radiocomunicatii pentru serviciul de amator
+412&Prevederile Regulamentului de radiocomunicații pentru serviciul de amator
 
-413&Rezolutia nr. 644 din Regulamentul Radiocomunicatiilor cu privire la resursele de telecomunicatii 
+413&Rezoluția nr. 644 din Regulamentul Radiocomunicațiilor cu privire la resursele de telecomunicații 
 
-414&Folosirea internationala a statiilor de radioamator in cazul dezastrelor nationale
+414&Folosirea internațională a stațiilor de radioamator în cazul dezastrelor naționale
 
 CAPITOLUL 5
 
 INDICATIVE DE APEL
 
-511&-	Identificarea statiilor de radioamator 
+511&-	Identificarea stațiilor de radioamator 
 512&-	Folosirea indicativelor de apel
 513&-	Formarea indicativelor de apel
-514&-	Prefixe nationale
+514&-	Prefixe naționale
 
 CAPITOLUL 6
 
@@ -164,38 +164,38 @@ PLANUL IARU PENTRU BENZILE ALOCATE SERVICIULUI DE AMATOR
 
 CAPITOLUL 7
 
-RESPONSABILITATE SOCIALA SI PROCEDURI DE OPERARE
+RESPONSABILITATE SOCIALĂ ȘI PROCEDURI DE OPERARE
 
-711&7.1. RESPONSABILITATEA SOCIALA A OPERATIUNILOR DE RADIOAMATOR
+711&7.1. RESPONSABILITATEA SOCIALĂ A OPERAȚIUNILOR DE RADIOAMATOR
 
 7.2 PROCEDURI DE OPERARE
 
 B. TRAFICUL RADIOTELEFONIC
 
-801& Similaritati si diferente intre procedurile din fonie si telegrafie
+801& Similarități și diferențe între procedurile din fonie și telegrafie
 
 I. Apelul
 
 811& a) Apel general
-812& 1. cuvantul CQ (repetat de trei ori cel mult)
-813& 2. cuvantul DE(= De la)
-814& 3. Invitatia la transmitere
+812& 1. cuvântul CQ (repetat de trei ori cel mult)
+813& 2. cuvântul DE(= De la)
+814& 3. Invitația la transmitere
 
-815& - Apelul catre statiile DX
-816& - Apelul in cadrul concursurilor
-
-
-817& b) Apel cu adresa pentru o anumita statie.
+815& - Apelul către stațiile DX
+816& - Apelul în cadrul concursurilor
 
 
-821& II. Raspunsul la apel
+817& b) Apel cu adresă pentru o anumită stație.
+
+
+821& II. Răspunsul la apel
 
 831& III. Traficul propriu-zis
 
-832& Cazul lucrului BK (break-in=intrerupere)
-833& Omisiuni permise in cazul schimburilor de mesaje foarte scurte, in ritm alert(concursuri)
+832& Cazul lucrului BK (break-in=întrerupere)
+833& Omisiuni permise în cazul schimburilor de mesaje foarte scurte, în ritm alert(concursuri)
 
-841& IV. Sfirsitul legaturii
+841& IV. Sfârșitul legăturii
 
 
 
