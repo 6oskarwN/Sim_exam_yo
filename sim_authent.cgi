@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  sim_authent.cgi v 3.2.c
+#  sim_authent.cgi v 3.2.d
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.d put account expiry in user panel; Refresh account expiry only if will expire in 14 days. 
 # ch 3.2.c charset=utf-8 added in generated html
 # ch 3.2.b added chapter to support new clustered-chapter
 # ch 3.2.a things done in 3.0.c,d obsoleted by 3.2.9 and deleted
@@ -87,7 +88,7 @@ use warnings;
 
 use lib '.';
 use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice);
-
+use POSIX;
 sub punishment($);      #where user gets kicked for abandoned exams
 #sub ins_gpl;            #inserts a HTML preformatted text with the GPL license text
 my $get_login;          #submitted login
@@ -206,11 +207,11 @@ my $accnt;
 foreach $accnt (@livelist) 
         {@extra=(@extra,$slurp_userfile[$accnt*7],
 		        $slurp_userfile[$accnt*7+1],
-						$slurp_userfile[$accnt*7+2],
-						$slurp_userfile[$accnt*7+3],
-						$slurp_userfile[$accnt*7+4],
-						$slurp_userfile[$accnt*7+5],
-						$slurp_userfile[$accnt*7+6]
+			$slurp_userfile[$accnt*7+2],
+			$slurp_userfile[$accnt*7+3],
+			$slurp_userfile[$accnt*7+4],
+			$slurp_userfile[$accnt*7+5],
+			$slurp_userfile[$accnt*7+6]
 					
                  );
          }
@@ -360,14 +361,26 @@ dienice("authERR06",1,\$faultyUser);
 
 #--------------------------------------------------------------------
 
-#BLOCK:Reset expiry
+#BLOCK: Reset account expiry date&time
 {
-#ACTION: generate account expiry time = +14 days from now
+
+#ACTION: if account expiry time is sooner than now+14days, then expiry time = +14days from now. 
+#else, the account expiry time remains unchanged.
+
+my @linesplit=split(/ /,$slurp_userfile[$rec_pos*7+4]); #extract account expiry time line; 
+
+if((1209600+timestamp_expired($linesplit[0],$linesplit[1],$linesplit[2],$linesplit[3],$linesplit[4],$linesplit[5])) > 0) #check now+14 days
+{
+
 my $epochExpire = $epochTime + 1209600;		#CUSTOM 14 * 24* 60*60  
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 my $entry = "$exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #\n is important
 
+#set the new account expiry date&time
 $slurp_userfile[$rec_pos*7+4]=$entry;
+
+}
+#---------------
 
 #ACTION: reset wrong counter
 
@@ -537,7 +550,7 @@ print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
 print qq!<a name="begin"></a>\n!;
-print qq!v 3.2.c\n!; #version print for easy upload check
+print qq!v 3.2.d\n!; #version print for easy upload check
 print qq!<br>\n!;
 
 print qq!<table width="95%" border="1" align="center" cellpadding="7">\n!;
@@ -597,12 +610,19 @@ print qq!<td align="center">PAGINA ESTE VALABILĂ 15 minute.\n!;
 print qq!</tr>\n!;
 
 print qq!<tr>\n!;
-print qq!<td align="center">login:</td>\n!;
-print qq!<td align="center"><font color="yellow">$slurp_userfile[$rec_pos*7]</font></td>\n!; #trial: <font color="blue"> Contul expira la: $slurp_userfile[$rec_pos*11+4]</font>
+print qq!<td align="center">Contul expira la:</td>\n!;
+#work
+# split the $slurp_userfile[$rec_pos*11+4] - expiry time so a new string is humanly-decoded.
+my @linesplit = split(/ /,$slurp_userfile[$rec_pos*11+4]);
+my $timestring = strftime("%d %b %Y %H:%M:%S", $linesplit[0], $linesplit[1], $linesplit[2], $linesplit[3], $linesplit[4], $linesplit[5], -1, -1, -1);
+$linesplit[5]=$linesplit[5]+1900;
+print qq!<td align="center">$timestring</td>\n!;
+#print qq!<td align="center">$linesplit[5]-$linesplit[4]-$linesplit[3]</td>\n!;
+
 print qq!</tr>\n!;
 
 print qq!<tr>\n!;
-print qq!<td align="center">Tip examen: </td>\n!;
+print qq!<td align="center">Tip activitate: </td>\n!;
 
 print qq!<td align="center">!;
    if($slurp_userfile[$rec_pos*7+5] eq "0\n") {print qq!Cont de antrenament!;} 
