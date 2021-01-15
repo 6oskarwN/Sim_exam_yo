@@ -611,8 +611,8 @@ print qq!</tr>\n!;
 print qq!<tr>\n!;
 print qq!<td align="center">Contul expira la: </td>\n!;
 #work
-# split the $slurp_userfile[$rec_pos*11+4] - expiry time so a new string is humanly-decoded.
-my @linesplit = split(/ /,$slurp_userfile[$rec_pos*11+4]);
+# split the $slurp_userfile[$rec_pos*7+4] - expiry time so a new string is humanly-decoded.
+my @linesplit = split(/ /,$slurp_userfile[$rec_pos*7+4]);
 my $calc_year = $linesplit[5]+1900;
 my $calc_month= $linesplit[4]+1;
 my $timestring = sprintf("%02d\/%02d\/%4d %02d:%02d:%02d",$linesplit[3],$calc_month,$calc_year,$linesplit[2],$linesplit[1],$linesplit[0]); #try this
