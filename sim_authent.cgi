@@ -88,7 +88,6 @@ use warnings;
 
 use lib '.';
 use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice);
-use POSIX;
 sub punishment($);      #where user gets kicked for abandoned exams
 #sub ins_gpl;            #inserts a HTML preformatted text with the GPL license text
 my $get_login;          #submitted login
@@ -610,14 +609,14 @@ print qq!<td align="center">PAGINA ESTE VALABILĂ 15 minute.\n!;
 print qq!</tr>\n!;
 
 print qq!<tr>\n!;
-print qq!<td align="center">Contul expira la:</td>\n!;
+print qq!<td align="center">Contul expira la: </td>\n!;
 #work
 # split the $slurp_userfile[$rec_pos*11+4] - expiry time so a new string is humanly-decoded.
 my @linesplit = split(/ /,$slurp_userfile[$rec_pos*11+4]);
-my $timestring = strftime("%d %b %Y %H:%M:%S", $linesplit[0], $linesplit[1], $linesplit[2], $linesplit[3], $linesplit[4], $linesplit[5], -1, -1, -1);
-$linesplit[5]=$linesplit[5]+1900;
-print qq!<td align="center">$timestring</td>\n!;
-#print qq!<td align="center">$linesplit[5]-$linesplit[4]-$linesplit[3]</td>\n!;
+my $calc_year = $linesplit[5]+1900;
+my $calc_month= $linesplit[4]+1;
+my $timestring = sprintf("%02d\/%02d\/%4d %02d:%02d:%02d",$linesplit[3],$calc_month,$calc_year,$linesplit[2],$linesplit[1],$linesplit[0]); #try this
+print qq!<td align="center">$timestring (UTC)</td>\n!;
 
 print qq!</tr>\n!;
 
