@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  sim_register.cgi v 3.2.c
+#  sim_register.cgi v 3.2.d
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.d red warning for using passwords over http
 # ch 3.2.c implemented trusted user creator
 # ch 3.2.b check done for caller page to be $trid_pagecode=1
 # ch 3.2.a charset=utf-8 added in generated html
@@ -468,7 +469,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.c\n!; #version print for easy upload check
+print qq!v 3.2.d\n!; #version print for easy upload check
 print qq!<h1 align="center"><font color="yellow">Eroare de completare formular</font></h1>\n!;
 print "<br>\n";
 #Action: Error descriptions in table
@@ -482,6 +483,11 @@ print qq!</td></tr></table>!;
 
 print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">\n!;
 print qq!<p><center><b>Formular de înregistrare (valabil 15 minute)</b></center></p>\n!;
+
+print qq!<table width="80%" align="center" border="1" bordercolor="red" cellpadding="4" cellspacing="2">\n!;
+print qq!<tr><td>\n!;
+print qq!Deoarece acest site este pe HTTP care transmite parolele in clar prin internet, va rog sa folositi un login si parola care daca sunt furate, sa nu fie relevante pentru altceva, sa fie folosite doar aici, unde nu stochez date personale. Va rog nu riscati sa va deschideti poarta altor conturi unde sa folositi aceeasi combinatie user+parola\! Securitatea pe net e importanta dar veriga cea mai slaba e utilizatorul. Parolele sunt salvate de programul examyo in mod criptat dar asta e tot ce pot face. La acest provider de hosting gratuit nu se ofera certificat SSL gratuit de la Let's Encrypt, HTTPS este o optiune contra-cost, 57EUR/an(accept sponsori pentru treaba asta)!;
+print qq!</td></tr></table>\n!;
 
 print qq!<table width="80%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
 
@@ -685,7 +691,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.c\n!; #version print for easy upload check
+print qq!v 3.2.d\n!; #version print for easy upload check
 print qq!<h1 align="center">Înregistrare reușită.</h1>\n!;
 print "<br>\n";
 

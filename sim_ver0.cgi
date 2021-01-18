@@ -34,12 +34,13 @@
 
 # (c) YO6OWN Francisc TOTH, 2008 - 2020
 
-#  sim_ver0.cgi v 3.2.a
+#  sim_ver0.cgi v 3.2.b
 #  Status: working
 #  This is a module of the online radioamateur examination program
 #  "SimEx Radio", created for YO6KXP ham-club located in Sacele, ROMANIA
 #  Made in Romania
 
+# ch 3.2.b red warning for using unprotected passwords and http
 # ch 3.2.a check done for caller page to be $trid_pagecode=0
 # ch 3.2.9 charset=utf-8 added
 # ch 3.2.8 whitelisting inputs 
@@ -448,7 +449,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.a\n!; #version print for easy upload check
+print qq!v 3.2.b\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
@@ -459,7 +460,10 @@ print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">
 
 print qq!<p><center><b>Formular de inregistrare (valabil 15 minute)</b></center></p>\n!;
 
-print qq!<center>Folositi combinatii Login + parola pe care nu le mai folositi altundeva. Riscati sa va deschideti poarta altor conturi daca salvarile acestui program sunt compromise.</center>\n!;
+print qq!<table width="80%" align="center" border="1" bordercolor="red" cellpadding="4" cellspacing="2">\n!; 
+print qq!<tr><td>\n!;
+print qq!Deoarece acest site este pe HTTP care transmite parolele in clar prin internet, va rog sa folositi un login si parola care daca sunt furate, sa nu fie relevante pentru altceva, sa fie folosite doar aici, unde nu stochez date personale. Va rog nu riscati sa va deschideti poarta altor conturi unde sa folositi aceeasi combinatie user+parola\! Securitatea pe net e importanta dar veriga cea mai slaba e utilizatorul. Parolele sunt salvate de programul examyo in mod criptat dar asta e tot ce pot face. La acest provider de hosting gratuit nu se ofera certificat SSL gratuit de la Let's Encrypt, HTTPS este o optiune contra-cost, 57EUR/an(accept sponsori pentru treaba asta)!;
+print qq!</td></tr></table>\n!;
 
 print qq!<table width="80%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
 
@@ -566,7 +570,7 @@ print qq!<meta charset=utf-8>\n!;
 print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
 print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
 ins_gpl();
-print qq!v 3.2.a\n!; #version print for easy upload check
+print qq!v 3.2.b\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
 print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;
