@@ -452,17 +452,17 @@ ins_gpl();
 print qq!v 3.2.b\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
-print qq!<h1 align="center">OK, ai dat $correct raspunsuri corecte din 4 intrebari</h1>\n!;
+print qq!<h1 align="center">OK, ai dat $correct răspunsuri corecte din 4 întrebări</h1>\n!;
 
-#tiparire formular
+#printing form
 
 print qq!<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">\n!;
 
-print qq!<p><center><b>Formular de inregistrare (valabil 15 minute)</b></center></p>\n!;
+print qq!<p><center><b>Formular de înregistrare (valabil 15 minute)</b></center></p>\n!;
 
 print qq!<table width="80%" align="center" border="1" bordercolor="red" cellpadding="4" cellspacing="2">\n!; 
 print qq!<tr><td>\n!;
-print qq!Deoarece acest site este pe HTTP care transmite parolele in clar prin internet, va rog sa folositi un login si parola care daca sunt furate, sa nu fie relevante pentru altceva, sa fie folosite doar aici, unde nu stochez date personale. Va rog nu riscati sa va deschideti poarta altor conturi unde sa folositi aceeasi combinatie user+parola\! Securitatea pe net e importanta dar veriga cea mai slaba e utilizatorul. Parolele sunt salvate de programul examyo in mod criptat dar asta e tot ce pot face. La acest provider de hosting gratuit nu se ofera certificat SSL gratuit de la Let's Encrypt, HTTPS este o optiune contra-cost, 57EUR/an(accept sponsori pentru treaba asta)!;
+print qq!Deoarece acest site este pe HTTP care transmite parolele în clar prin internet, vă rog să folosiți un login și parolă care dacă sunt furate, să nu fie relevante pentru altceva, să fie folosite doar aici, unde nu stochez date pers1onale. Vă rog nu riscați să vă deschideți poarta altor conturi unde să folosiți aceeași combinație user+parolă\! Securitatea pe net e importantă dar veriga cea mai slabă e utilizatorul. Parolele sunt salvate de programul examyo în mod criptat dar asta e tot ce pot face. La acest provider de hosting gratuit nu se oferă certificat SSL gratuit de la Let's Encrypt, HTTPS este o opțiune contra-cost, 57EUR/an(accept sponsori pentru treaba asta)!;
 print qq!</td></tr></table>\n!;
 
 print qq!<table width="80%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
@@ -475,7 +475,7 @@ print qq!<td>!;
 print qq!<input type="text" name="login" size="25">!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa aiba intre 4 si 25 caractere din setul (a-z, A-Z, 0-9, _). login-ul trebuie sa fie unic si sa nu fie folosit deja.</font>!; #must match string from sim_register.cgi
+print qq!<font size="-1">Trebuie să aibă între 4 și 25 caractere din setul (a-z, A-Z, 0-9, _). login-ul trebuie să fie unic și să nu fie folosit deja.</font>!; #must match string from sim_register.cgi
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -487,7 +487,7 @@ print qq!<td>!;
 print qq!<input type="password" name="passwd1" size="25">!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Parola trebuie sa aiba intre 8 si 25 caractere din setul(a-z, A-Z, 0-9, \!\@\#\$\*\-\_) </font>!;  #must match string from sim_register.cgi
+print qq!<font size="-1">Parola trebuie să aibă între 8 și 25 caractere din setul(a-z, A-Z, 0-9, \!\@\#\$\*\-\_) </font>!;  #must match string from sim_register.cgi
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -499,7 +499,7 @@ print qq!<td>!;
 print qq!<input type="password" name="passwd2" size="25">!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Trebuie sa fie identica cu parola introdusa mai sus</font>!; 
+print qq!<font size="-1">Trebuie să fie identică cu parola introdusă mai sus</font>!; 
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -514,7 +514,7 @@ print qq!<option value="4">Examen simulat clasa IV</option>\n!;
 print qq!</select>\n!;
 print qq!</td>\n!;
 print qq!<td>!;
-print qq!<font size="-1">Contul de antrenament permite sa dai oricate examene, examenul simulat este unic.</font>!;
+print qq!<font size="-1">Contul de antrenament permite să dai oricâte examene, examenul simulat este unic.</font>!;
 print qq!</td>!;
 print qq!</tr>\n!;
 
@@ -573,7 +573,7 @@ ins_gpl();
 print qq!v 3.2.b\n!; #version print for easy upload check
 #print qq![$debug_buffer]\n!; #debug
 print qq!<br>\n!;
-print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 intrebari.</h1>\n!;
+print qq!<h1 align="center">Insuficient, ai nimerit doar $correct din 4 întrebări.</h1>\n!;
 print qq!<form method="link" action="http://localhost/index.html">\n!;
 print qq!<center><INPUT TYPE="submit" value="OK"></center>\n!;
 print qq!</form>\n!; 
