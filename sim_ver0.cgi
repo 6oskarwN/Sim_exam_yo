@@ -462,7 +462,7 @@ print qq!<p><center><b>Formular de înregistrare (valabil 15 minute)</b></center
 
 print qq!<table width="80%" align="center" border="1" bordercolor="red" cellpadding="4" cellspacing="2">\n!; 
 print qq!<tr><td>\n!;
-print qq!Deoarece acest site este pe HTTP care transmite parolele în clar prin internet, vă rog să folosiți un login și parolă care dacă sunt furate, să nu fie relevante pentru altceva, să fie folosite doar aici, unde nu stochez date pers1onale. Vă rog nu riscați să vă deschideți poarta altor conturi unde să folosiți aceeași combinație user+parolă\! Securitatea pe net e importantă dar veriga cea mai slabă e utilizatorul. Parolele sunt salvate de programul examyo în mod criptat dar asta e tot ce pot face. La acest provider de hosting gratuit nu se oferă certificat SSL gratuit de la Let's Encrypt, HTTPS este o opțiune contra-cost, 57EUR/an(accept sponsori pentru treaba asta)!;
+print qq!Deoarece acest site este pe HTTP care transmite parolele în clar prin internet, vă rog să folosiți un login și parolă care dacă sunt furate, să nu fie relevante pentru altceva, să fie folosite doar aici, unde nu stochez date personale. Vă rog nu riscați să vă deschideți poarta altor conturi unde să folosiți aceeași combinație user+parolă\! Securitatea pe net e importantă dar veriga cea mai slabă e utilizatorul. Parolele sunt salvate de programul examyo în mod criptat dar asta e tot ce pot face. La acest provider de hosting gratuit nu se oferă certificat SSL gratuit de la Let's Encrypt, HTTPS este o opțiune contra-cost, 57EUR/an(accept sponsori pentru treaba asta)!;
 print qq!</td></tr></table>\n!;
 
 print qq!<table width="80%" align="center" border="1" cellpadding="4" cellspacing="2">\n!; 
