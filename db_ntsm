@@ -31,7 +31,7 @@ images_109.jpg 109
 Atenție, aparatul poate emite jet de gaze fierbinți
 Aparatul în cauză prezintă pericol de explozie
 Aparatul în fața căruia ne aflăm emite fascicul laser care ne poate distruge ireversibil ochiul
-Aparat dotat cu supapă de suprapresiune, poate emite jet la intrarea în functiune
+Aparat dotat cu supapă de suprapresiune, poate emite jet la intrarea în funcțiune
 YO6OWN, Brașov, 2008
 null
 Eticheta respectivă ne spune că aparatul emite în cursul funcționării, sau în anumite faze ale funcționării, fascicul laser. De obicei mai există o a doua etichetă care ne indica purtarea ochelarilor de protecție. Exemple de locuri la aparate unde poate apare fascicul laser: port laser în rețele cu fibră optică; Mufa audio laser în plăcile audio mai noi(5+1 și asemănătoare), jocuri de lumini cu laser, pointer laser. Unele stații de radioamator au port pentru fibră optică.<br> Raza laser, chiar și de putere foarte mica, poate afecta ireversibil retina. Există ochelari de protecție special făcuți pentru lucru în mediu cu raze laser. 
@@ -46,7 +46,7 @@ puterea crește cu pătratul distanței
 puterea crește cu rădacina pătrată a distanței
 YO6OWN - adaptare după eham.net, 2007
 null
-O explicație empirică, fără formule ar fi: Din radiatorul izotrop, în mediu omogen, unda se împrăștie în toate direcțiile, așa cum unda e circulara la aruncarea unei pietre în apa - numai că la noi e sfera. Energia măsurata la suprafata unei astfel de sfere este aceeasi în oricare punct al sferei. Suma de putere de pe punctele sferei este egala cu puterea la emisie. Cu cât distanta de la emițător, adica raza sferei creste, cu atât suprafata sferei creste deci densitatea de energie într-un punct(receptorul) scade.  
+O explicație empirică, fără formule ar fi: Din radiatorul izotrop, în mediu omogen, unda se împrăștie în toate direcțiile, așa cum unda e circulara la aruncarea unei pietre în apa - numai că la noi e sfera. Energia măsurata la suprafata unei astfel de sfere este aceeasi în oricare punct al sferei. Suma de putere de pe punctele sferei este egală cu puterea la emisie. Cu cât distanta de la emițător, adica raza sferei creste, cu atât suprafata sferei creste deci densitatea de energie într-un punct(receptorul) scade.  
 YO6OWN
 ##4#
 c
@@ -458,7 +458,7 @@ null
 
 ##38#
 b
-02A175~&Aparatele de recepție nu vor fi lasate în functiune fără supraveghere, deoarece...
+02A175~&Aparatele de recepție nu vor fi lăsate în funcțiune fără supraveghere, deoarece...
 null
 o să pierdem o mulțime de legături
 prezintă pericol de incendiu
@@ -496,13 +496,13 @@ YO6OWN, Brașov, 2007
 a
 02A171~&Folosirea surselor de alimentare cu înaltă tensiune separate de emițător:
 null
-nu se recomanda
+nu se recomandă
 este obligatorie
-nu exista astfel de surse
-se permite doar pana la tensiunea de 120V
+nu există astfel de surse
+se permite doar până la tensiunea de 120V
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Nu se recomanda, deoarece dacă le folosim, trebuie folosite cabluri de alimentare care rezista la înaltă tensiune, care se pot defecta, cablul induce tensiuni mai mari în obiectele metalice apropiate, etc. Cel mai bine înalta tensiune se genereaza în interiorul carcasei ecranate a emițătorului.
+Nu se recomandă, deoarece dacă le folosim, trebuie folosite cabluri de alimentare care rezistă la înaltă tensiune, care se pot defecta, cablul induce tensiuni mai mari în obiectele metalice apropiate, etc. Cel mai bine înalta tensiune se generează în interiorul carcasei ecranate a emițătorului.
 YO6OWN, Brașov, 2007
 ##42#
 b
@@ -514,87 +514,87 @@ prin bobina de inducție
 prin trimer de înaltă frecvență
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Obligatoriu un cuplaj cu separatie galvanica: inductiv sau capacitiv
+Obligatoriu un cuplaj cu separație galvanică: inductiv sau capacitiv
 YO6OWN, Brașov, 2007
 ##43#
 c
-02A173~&La radio-emițătoare capacitorul de cuplaj va avea o tensiune de strapungere egala cu:
+02A173~&La radio-emițătoare capacitorul de cuplaj va avea o tensiune de străpungere egală cu:
 null
-cel puțin tensiunea anodica de alimentare a etajului final
-cel puțin de două ori tensiunea anodica de alimentare a etajului final
-cel puțin de trei ori tensiunea anodica de alimentare a etajului final
-cel puțin de patru ori tensiunea anodica de alimentare a etajului final
+cel puțin tensiunea anodică de alimentare a etajului final
+cel puțin de două ori tensiunea anodică de alimentare a etajului final
+cel puțin de trei ori tensiunea anodică de alimentare a etajului final
+cel puțin de patru ori tensiunea anodică de alimentare a etajului final
 YO6GZI, Săcele, 2005(rev.2007)
 null
-'Cel puțin de...'  - normele impun o valoare minima, de supraproiectare, însă un condensator de cuplaj este cu atât mai bun cu cât are o tensiune de strapungere mai mare.
+'Cel puțin de...'  - normele impun o valoare minimă, de supraproiectare, însă un condensator de cuplaj este cu atât mai bun cu cât are o tensiune de străpungere mai mare.
 YO6OWN, Brașov, 2007
 ##44#
 d
-03A175~&În camera unde este instalat emițătorul se va permite intrarea copiilor și a persoanelor straine de stație:
+03A175~&În camera unde este instalat emițătorul se va permite intrarea copiilor și a persoanelor străine de stație:
 null
-nu se permite în nici un caz
-numai cu un insotitor din partea parintilor
+nu se permite în niciun caz
+numai cu un însoțitor din partea părinților
 numai dacă au permis de intrare valabil
-numai cu un insotitor din partea personalului stației
+numai cu un însoțitor din partea personalului stației
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Cluburile nu emit permise de vizitare a stațiilor de club, 'parintii' nu sunt o autoritate certificata în protecția muncii și probabil nici nu cunosc stația așa cum o cunoaste personalul stației, care are posibilitatea să faca pe ghidul în cunostinta de cauza.
+Cluburile nu emit permise de vizitare a stațiilor de club, 'părinții' nu sunt o autoritate certificată în protecția muncii și probabil nici nu cunosc stația așa cum o cunoaște personalul stației, care are posibilitatea să facă pe ghidul în cunoștință de cauză.
 YO6OWN, Brașov, 2007
 ##45#
 b
-04A175~&Aparatele de emisie nu vor fi lasate în functiune fără supraveghere, deoarece:
+04A175~&Aparatele de emisie nu vor fi lăsate în funcțiune fără supraveghere, deoarece:
 null
-nu auzim dacă suntem chemati
+nu auzim dacă suntem chemați
 prezintă pericol de incendiu
-consuma curent
-este interzis de ANC
-YO6GZI, Săcele, 2005(rev.2007)
+consumă curent
+este interzis de ANCOM
+YO6GZI, Săcele, 2005(rev.2021)
 null
-Oricand o componenta se poate defecta din cauza imbatranirii materialului sau pot veni supratensiuni pe rețea și un eventual scurtcircuit ar putea declansa un incendiu.
+Oricând o componentă se poate defecta din cauza îmbătrânirii materialului sau pot veni supratensiuni pe rețea și un eventual scurtcircuit ar putea declanșa un incendiu.
 YO6OWN, Brașov, 2007
 ##46#
 b
-02A153~&Cine raspunde de activitatea unei stații de club?
+02A153~&Cine răspunde de activitatea unei stații de club?
 null
-seful radioclubului
+șeful radioclubului
 responsabilul stației de club
 operatorul principal al stației de club
 operatorul de moment al stației de club
-ANCOM Iasi, intrebare propusă pentru examenul de radioamator(rev.2007)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2007)
 null
 Conform regulamentului, responsabilul stației de club.
 YO6OWN, Brașov, 2007
 ##47#
 d
-03A153~&La ce folosește cunoasterea normelor de tehnica securitatii muncii la stațiile de radioamator?
+03A153~&La ce folosește cunoașterea normelor de tehnica securității muncii la stațiile de radioamator?
 null
 la minimalizarea undelor reflectate la stațiile de radioamator
 la promovarea cu succes a examenului de radioamator
 la montarea antenelor 
-la inlaturarea/evitarea pericolelor de accidentare în special din cauza electrocutarilor
+la înlăturarea/evitarea pericolelor de accidentare în special din cauza electrocutărilor
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Invatarea NTSM asigura cunostintele minime de securitatea muncii și de prim-ajutor, însă nu este suficient. Din când în cand, cate un exercițiu de NTSM la club ar ajuta foarte mult.<br>Cunoasterea NTSM duce la promovarea unei parti a examenului de radioamator, însă acesta este un mijloc, nu e scopul.
+Învățarea NTSM asigură cunoștințele minime de securitatea muncii și de prim-ajutor, însă nu este suficient. Din când în cand, câte un exercițiu de NTSM la club ar ajuta foarte mult.<br>Cunoașterea NTSM ajută la promovarea unei părți a examenului de radioamator, însă acesta este un mijloc, nu e scopul.
 YO6OWN, Brașov, 2007
 ##48#
 a
-04A153~&Cine raspunde în cazul stațiilor de club de respectarea normelor de tehnica securitatii muncii?
+04A153~&Cine răspunde în cazul stațiilor de club de respectarea normelor de tehnica securității muncii?
 null
 responsabilul stației
 proprietarul stației
 cel care este prezent la momentul respectiv
-seful radioclubului
+șeful radioclubului
 YO6GZI, Săcele, 2005(rev.2007)
 null
 Conform legii, responsabilul stației - în zona stației.
 YO6OWN, Brașov, 2007
 ##49#
 b
-05A153~&Ce indatoriri are responsabilul stației de club referitor la tehnica securitatii muncii?
+05A153~&Ce îndatoriri are responsabilul stației de club referitor la tehnica securității muncii?
 null
-să faca cât mai multe legături astfel testand respectarea normelor
-să aplice măsurile de protecția muncii și tehnica securitatii astfel ca lucrul la stația de club să se desfasoare în condiții lipsite de pericol
-să aplice măsurile de protecția muncii și tehnica securitatii astfel ca lucrul la stațiile membrilor clubului să se desfasoare în condiții lipsite de pericol
+să facă cât mai multe legături astfel testând respectarea normelor
+să aplice măsurile de protecția muncii și tehnica securității astfel ca lucrul la stația de club să se desfășoare în condiții lipsite de pericol
+să aplice măsurile de protecția muncii și tehnica securității astfel ca lucrul la stațiile membrilor clubului să se desfășoare în condiții lipsite de pericol
 să fie constient de propriile responsabilități
 YO6GZI, Săcele, 2005(rev.2007)
 null
@@ -602,15 +602,15 @@ null
 
 ##50#
 c
-02A152~&Operatorii stației de club, referitor la tehnica securitatii, au obligatia:
+02A152~&Operatorii stației de club, referitor la tehnica securității, au obligația:
 null
-să faca cât mai multe legături astfel testand respectarea normelor
-să remedieze orice neconformitate conform legislatiei în vigoare
-să atraga atenția responsabilului stației asupra eventualelor deficiente observate, care ar putea provoca accidente
-in cazul unor neconformități să opereze cu grija și numai spravegheat de responsabilul stației
-YO6GZI, Săcele, 2005(rev.2007)
+să facă cât mai multe legături astfel testând respectarea normelor
+să remedieze orice neconformitate conform legislației în vigoare
+să atragă atenția responsabilului stației asupra eventualelor deficiențe observate, care ar putea provoca accidente
+în cazul unor neconformități să opereze cu grijă și numai supravegheat de responsabilul stației
+YO6GZI, Săcele, 2005(rev.2021)
 null
-Responsabilul stației fiind coordonatorul de siguranță, toti ceilalti operatori trebuie sa-l anunte de orice deficienta sau pericol.
+Responsabilul stației fiind coordonatorul de siguranță, toți ceilalți operatori trebuie să-l anunțe de orice deficiență sau pericol.
 YO6OWN, Brașov, 2007
 ##51#
 d
@@ -642,11 +642,11 @@ c
 null
 direct în circuitul anodic al tubului final amplificator audio 
 în circuitul filamentului tubului amplificator audio
-în circuitul anodic al tubului final amplificator audio printr-un condensator de 0,1...1uF și de tensiune de lucru egala cu dublul tensiunii anodice
+în circuitul anodic al tubului final amplificator audio printr-un condensator de 0,1...1uF și de tensiune de lucru egală cu dublul tensiunii anodice
 în baza tranzistorului final amplificator audio
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Circuitul anodic se afla la tensiune de ordinul sutelor de V, în niciun caz nu e voie conectarea căștilor la aceasta tensiune. Desi NTSM permite conectarea căștilor printr-un condensator de izolatie la tensiune dubla, aceasta metoda nu se mai folosește și nici nu e recomandata din cauza posibilitatii de strapungere a condensatorului.
+Circuitul anodic se afla la tensiune de ordinul sutelor de V, în niciun caz nu e voie conectarea căștilor la aceasta tensiune. Desi NTSM permite conectarea căștilor printr-un condensator de izolatie la tensiune dubla, aceasta metoda nu se mai folosește și nici nu e recomandata din cauza posibilitatii de străpungere a condensatorului.
 YO6OWN
 ##54#
 b
@@ -674,7 +674,7 @@ Undeva unde operatorul nu are acces cât timp opereaza controalele aparatului, a
 YO6OWN, Brașov, 2007
 ##56#
 a
-02A162~&Pentru protejarea auzului se recomanda:
+02A162~&Pentru protejarea auzului se recomandă:
 null
 folosirea limitatoarelor de nivel al perturbatiilor (noise blanker)
 mentinerea distantei standard de 70cm de difuzor
@@ -682,7 +682,7 @@ activarea reglajului automat al amplificarii (RAA)
 activarea controlului automat de frecvență (CAF)
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Sistemul NB Noise Blanker este un sistem electronic de limitare a amplitudinii audio; NB trebuie să fie cuplat permanent. Este util mai ales când nivelul audio este confortabil ca nivel, însă exista pocnete sau alti paraziți de scurta durata dar de volum foarte mare. În acest caz, NB va 'taia' doar volumul paraziților.
+Sistemul NB Noise Blanker este un sistem electronic de limitare a amplitudinii audio; NB trebuie să fie cuplat permanent. Este util mai ales când nivelul audio este confortabil ca nivel, însă există pocnete sau alti paraziți de scurta durata dar de volum foarte mare. În acest caz, NB va 'taia' doar volumul paraziților.
 YO6OWN
 ##57#
 b
@@ -690,11 +690,11 @@ b
 null
 este permisă numai cu acord scris de la ANC
 este interzisa
-nu se recomanda
+nu se recomandă
 este permisă dar trebuie respectate prevederile normelor de securitate a muncii la înălțime
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Liniile peste 1000V sunt posibile fire de tractiune electrică(tramvai, troleu) - și la un contact accidental al antenei neizolate cu aceste linii, exista riscul electrocutarii operatorului stației.
+Liniile peste 1000V sunt posibile fire de tractiune electrică(tramvai, troleu) - și la un contact accidental al antenei neizolate cu aceste linii, există riscul electrocutarii operatorului stației.
 YO6OWN, Brașov, 2007
 ##58#
 c
@@ -754,7 +754,7 @@ nu trebuie să fie considerata pierduta
 se cheama poliția
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Verdictul de deces îl da doar medicul, care are grija să noteze ora decesului și să cheme poliția, pana atunci, dacă suntem în situația de a da prim-ajutor, trebuie să incepem de la premisa că accidentatul poate fi salvat, așa că nu trebuie să intarziem nicio secunda în a-i da ajutor. 
+Verdictul de deces îl da doar medicul, care are grija să noteze ora decesului și să cheme poliția, până atunci, dacă suntem în situația de a da prim-ajutor, trebuie să incepem de la premisa că accidentatul poate fi salvat, așa că nu trebuie să intarziem nicio secunda în a-i da ajutor. 
 YO6OWN, Brașov, 2007
 ##63#
 d
@@ -766,7 +766,7 @@ nu mai are efect nici o metoda de resuscitare
 după 3 minute fără oxigen, creierul se lezeaza ireversibil
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Chiar dacă accidentatul are rani deschise, fracturi - oxigenarea creierului este primordiala. Trebuie inceputa cât mai repede respirația artificiala - nu se pierde vremea nicio secunda cu apeluri după ambulanta și altele asemenea  - decat dacă sunt mai multi salvatori și se coordoneaza bine intre ei. Odata ce accidentatul incepe să respire singur, putem trece la primul ajutor al celorlalte leziuni, în functie de importanta lor.
+Chiar dacă accidentatul are rani deschise, fracturi - oxigenarea creierului este primordiala. Trebuie inceputa cât mai repede respirația artificiala - nu se pierde vremea nicio secunda cu apeluri după ambulanta și altele asemenea  - decat dacă sunt mai multi salvatori și se coordoneaza bine intre ei. Odata ce accidentatul incepe să respire singur, putem trece la primul ajutor al celorlalte leziuni, în funcție de importanta lor.
 YO6OWN, Brașov, 2007
 ##64#
 c
@@ -774,9 +774,9 @@ c
 null
 nu are obligații
 radioamatorii de clasa IV au aceleași drepturi ca și cei de la clasa începători
-asigurarea functionarii stației în stricta conformitate cu prevederile normelor tehnice în vigoare, permitand radioamatorului de clasa IV lucrul la stație numai în prezenta sa
+asigurarea funcționarii stației în stricta conformitate cu prevederile normelor tehnice în vigoare, permitand radioamatorului de clasa IV lucrul la stație numai în prezenta sa
 Sa-i ajute să devina buni radioamatori
-ANCOM Iasi, intrebare propusa pentru examenul de radioamator(rev.2006)
+ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2006)
 null
 Radioamatorul clasa IV este un operator. Responsabilul unei stații are responsabilitatea asigurarii NTSM, iar prezenta lui este obligatorie când la stație lucrează operatori de clasa IV 
 YO6OWN, Brașov, 2007
