@@ -38,19 +38,23 @@ $overall_warnings=0;  #init
 $filename= $ARGV[0];
 $programa= $ARGV[1]; #ramane, doar pentru alegere
 
-if(!defined( $filename)) {print "please enter db_xxx filename"; exit();}
+if(!defined( $filename)) {print "please enter db_xxx filename\n"; exit();}
  else {
 open(INFILE,"<", "$filename") || print "can't open $filename!\n"; #open the question file
 #rewind prompter in infile
 seek(INFILE,0,0); #go to the beginning
 $in_line=<INFILE>; #read first line  
+close (INFILE);
+if (!defined ($programa))
+{
 my @splitter= split(/<curricula>|<\/curricula>/,$in_line);
 $programa=$splitter[1];
-print "detected curricula: $programa \n";
-close (INFILE);
-      }
-if(!defined( $programa)) {print "please enter prog_xxx filename"; exit();}
+if(defined $programa) {print "detected curricula: $programa \n";} 
+}
 
+if (!defined ($programa))
+ {print "please enter prog_xxx filename\n"; exit();}
+     }
 ####open db_xxx hamquest file
 open(INFILE,"<", "$filename") || print "can't open $filename!\n"; #open the question file
 open(OUTFILE,">", "$filename.out") || print "can't open $filename.out\n";
