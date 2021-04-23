@@ -657,8 +657,10 @@ flock(userFILE,2);		#LOCK_EX the file from other CGI instances
 seek(userFILE,0,0);		#go to the beginning
 @slurp_userfile = <userFILE>;		#slurp file into array
 
-#ACTION: generate account expiry time = +14 days from now
-my $epochExpire = $epochTime + 1209600;		#CUSTOM 14 * 24* 60*60  
+#ACTION: generate account expiry time = +14 days from now (for all creation types, self- or inserted-)
+#CUSTOM 14 * 24 * 60*60  = 1209600
+my $epochExpire = $epochTime + 1209600;#CUSTOM
+
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 $new_expiry = "$exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #\n is important
 
@@ -673,7 +675,7 @@ my $passHash=compute_mac($post_passwd1);
 @slurp_userfile = (@slurp_userfile,"0\n"); #add last awarded class - init:0
 
 #ACTION: hard-rewrite userfile
-truncate(userFILE,0);			#
+truncate(userFILE,0);		#
 seek(userFILE,0,0);				#go to beginning of transactionfile
 for(my $i=0;$i <= $#slurp_userfile;$i++)
 {
