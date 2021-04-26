@@ -46,7 +46,7 @@ puterea crește cu pătratul distanței
 puterea crește cu rădăcina pătrată a distanței
 YO6OWN - adaptare după eham.net, 2007
 null
-O explicație empirică, fără formule ar fi: Din radiatorul izotrop, în mediu omogen, unda se împrăștie în toate direcțiile, așa cum unda e circulară la aruncarea unei pietre în apă - numai că unda 3D e sferică. Energia masurată la suprafața unei astfel de sfere este aceeași în oricare punct al suprafeței sferei. Suma energiei de pe punctele sferei este egală cu energia la emisie. Cu cât distanța de la emițător, adică raza sferei crește, cu atât suprafața sferei crește deci energia într-un punct(receptorul) scade.
+O explicație empirică, fără formule ar fi: Din radiatorul izotrop, în mediu omogen, unda se împrăștie în toate direcțiile, așa cum unda e circulară la aruncarea unei pietre în apă - numai că unda 3D e sferică. Energia măsurată la suprafața unei astfel de sfere este aceeași în oricare punct al suprafeței sferei. Suma energiei de pe punctele sferei este egală cu energia la emisie. Cu cât distanța de la emițător, adică raza sferei crește, cu atât suprafața sferei crește deci energia într-un punct(receptorul) scade.
 YO6OWN
 ##4#
 c
@@ -78,7 +78,7 @@ d
 null
 nul - albastru deschis
 fază - negru
-protecție - verde-galben(combinatie)
+protecție - verde-galben(combinație)
 fază - roșu
 YO6OWN, 2014
 null
@@ -90,7 +90,7 @@ d
 null
 nul - albastru deschis
 fază - maro
-protecție - verde-galben(combinatie)
+protecție - verde-galben(combinație)
 fază - roșu
 YO6OWN, 2014
 null
@@ -146,7 +146,7 @@ La puteri mici 1-5W, nu se observă aproape nimic, poate la expunere extrem de �
 YO6OWN
 ##12#
 b
-01A153~&Cine este responsabil în cazul în care un vizitator la stația radioclubului este  electrocutat când atinge o priză montată defectuos?
+01A153~&Cine este responsabil în cazul în care un vizitator la stația radioclubului este electrocutat când atinge o priză montată defectuos?
 null
 accidentatul, fiindcă nu are voie să folosească materiale ale stației.
 responsabilul stației de club
@@ -190,7 +190,7 @@ se înlocuiește cu una de aceeași valoare cu cea care s-a ars, și se caută c
 folosirea unui asemenea aparat este riscantă, se poate folosi doar alimentat de la baterii.
 YO5OWN, Săcele, 2004 - rev. 2006
 null
-Chiar dacă receptorul este 'home-made', siguranța fuzibilă este  interzis a fi 'home-made' - liță, cuie sau altele asemănătoare; Dacă siguranța fuzibilă are o valoare conforma curentului nominal, atunci trebuie cautată cauza care duce la apariția unui curent așa mare. În cazul în care nu e defect, ar putea fi o eroare de proiectare, care duce la această manifestare.
+Chiar dacă receptorul este 'home-made', siguranța fuzibilă este interzis a fi 'home-made' - liță, cuie sau altele asemănătoare; Dacă siguranța fuzibilă are o valoare conformă curentului nominal, atunci trebuie căutată cauza care duce la apariția unui curent așa mare. În cazul în care nu e defect, ar putea fi o eroare de proiectare, care duce la această manifestare.
 YO6OWN, Brașov, 2007
 ##16#
 a
@@ -214,19 +214,19 @@ doar dacă ne atingem de transformator
 da, însă doar dacă nu îl oprim dinainte să-l scoatem din priză
 YO6OWN, 2014
 null
-În special la echipamentele cu tuburi electronice, capacitorii din circuitul anodic sau de grila se încarcă la tensiuni de sute de V. Valoarea capacitorilor nu e foarte mare dar tensiunea este suficient de mare ca să electrocuteze în mod dureros. Impulsul electric poate comanda o contracție puternică a mușchilor, dar să nu uităm că și inima e un mușchi. De dorit să așteptăm autodescărcarea capacitorilor înainte de a atinge piese. E de luat în calcul și descărcarea la împământare printr-o rezistență a părților de circuit pe care tensiunea persistă timp îndelungat.
+În special la echipamentele cu tuburi electronice, capacitorii din circuitul anodic sau de grilă se încarcă la tensiuni de sute de V. Valoarea capacitorilor nu e foarte mare dar tensiunea este suficient de mare ca să electrocuteze în mod dureros. Impulsul electric poate comanda o contracție puternică a mușchilor, dar să nu uităm că și inima e un mușchi. De dorit să așteptăm autodescărcarea capacitorilor înainte de a atinge piese. E de luat în calcul și descărcarea la împământare printr-o rezistență a părților de circuit pe care tensiunea persistă timp îndelungat.
 YO6OWN, 2018
 ##18#
 a
 01A174~&Cum se marchează locurile periculoase ale unei stații de emisie de radioamator?
 null
 Cu inscripția 'NU ATINGEȚI! PERICOL DE MOARTE!'
-Cu inscripția 'NU ATINGEȚI! SURSA RADIO-ACTIVĂ!'
+Cu inscripția 'NU ATINGEȚI! SURSĂ RADIO-ACTIVĂ!'
 Cu inscripția 'LOC PERICULOS!'
 Cu inscripția 'FIR CALD! NU ATINGEȚI!'
 YO5OWN, Săcele, 2004 - rev. 2006
 null
-Inscripția 'NU ATINGEȚI! PERICOL DE MOARTE!' este obligatorie este specificată in Normele de Protecția Muncii
+Inscripția 'NU ATINGEȚI! PERICOL DE MOARTE!' este obligatorie este specificată în Normele de Protecția Muncii
 YO6OWN
 ##19#
 c
@@ -250,7 +250,7 @@ Nu este specificat
 Este interzisă înălțarea de piloni fără ancorare
 YO5OWN, Săcele, 2004 - rev. 2006
 null
-Este interzisă ridicarea de piloni fără ancorare pe clădiri(priviți orice antena GSM cât de ancorată este). Pe acoperiș, sistemul pilon+antenă trebuie să reziste vânturilor; Iarna, depunerile de zăpadă și gheață de pe pilon și antenă pot ajunge să dezechilibreze pilonul.<br> Ancorarea este o metodă care crește foarte mult rezistența transversală a pilonului. 
+Este interzisă ridicarea de piloni fără ancorare pe clădiri(priviți orice antenă GSM cât de ancorată este). Pe acoperiș, sistemul pilon+antenă trebuie să reziste vânturilor; Iarna, depunerile de zăpadă și gheață de pe pilon și antenă pot ajunge să dezechilibreze pilonul.<br> Ancorarea este o metodă care crește foarte mult rezistența transversală a pilonului.
 YO6OWN, Brașov, 2007
 ##21#
 a
@@ -274,14 +274,14 @@ Coș de fum cu armătură metalică
 Trunchiul unui copac cu diametrul peste 50 cm 
 YO5OWN, Săcele, 2004 - rev. 2006
 null
-Punctul de ancorare trebuie să fie foarte solid și să nu genereze un pericol. Felinarul public nu e un punct de ancorare, fiindcă este pe domeniu public; În plus, nu este certificat să suporte stresuri mecanice generate de un pilon în vant.<br> Coșul de fum, cu sau fără armătură nu poate fi punct de ancorare, și de altfel niciun tip de zidărie nu se pretează la așa ceva.<br>Copacii pot fi strangulați de bucla cablului de ancoraj și să se usuce. O furtună care mișcă copacul va afecta și pilonul.
+Punctul de ancorare trebuie să fie foarte solid și să nu genereze un pericol. Felinarul public nu e un punct de ancorare, fiindcă este pe domeniu public; În plus, nu este certificat să suporte stresuri mecanice generate de un pilon în vânt.<br> Coșul de fum, cu sau fără armătură nu poate fi punct de ancorare, și de altfel niciun tip de zidărie nu se pretează la așa ceva.<br>Copacii pot fi strangulați de bucla cablului de ancoraj și să se usuce. O furtună care mișcă copacul va afecta și pilonul.
 YO6OWN, Brașov, 2007
 ##23#
 d
 01A183~&La cabană, curentul vine de la stâlp, orizontal, prin cabluri aeriene izolate. Radioamatorul de la cabană își întinde antena filară de lângă geam, până la baza unui copac. Cineva observă că firul antenei trece pe sub cablurile rețelei de curent la o distanță de 130cm, perpendicular pe acestea. E vreo problemă?
 null
 Nu, firele trec perpendicular, cablurile sunt izolate și distanța este suficient de mare
-Nici una, aerul este un bun izolator(izolează peste 4000V la cei 1.3 metri) iar cablurile rețelei sunt și ele izolate
+Niciuna, aerul este un bun izolator(izolează peste 4000V la cei 1.3 metri) iar cablurile rețelei sunt și ele izolate
 Da, dacă proprietarul nu este de acord.
 Distanța dintre antenă și cabluri este prea mică, distanța minimă trebuie să fie de 4000mm
 YO5OWN, Săcele, 2004 - rev. 2021
@@ -304,7 +304,7 @@ YO6OWN, Brașov, 2007
 c
 01A141~&Ce pericole ar putea apărea la dezvoltarea unui fenomen meteo tip furtună(fenomen orajos)?
 null
-pericolul descărcării electrice a trăsnetelor asupra echipamentelor radioamatorului și asupra vieții celor din zona, pericolul luminii orbitoare a trăsnetului sau fulgerelor, zgomotul puternic,  impulsul electromagnetic indus în echipamente.
+pericolul descărcării electrice a trăsnetelor asupra echipamentelor radioamatorului și asupra vieții celor din zonă, pericolul luminii orbitoare a trăsnetului sau fulgerelor, zgomotul puternic,  impulsul electromagnetic indus în echipamente.
 distrugeri determinate de forța vântului: antene rupte, copaci dărâmați, distrugeri datorate precipitațiilor: scurtcircuite, inundație
 Toate pericolele menționate prin forțele care le generează și prin efecte.
 Pericole închipuite
