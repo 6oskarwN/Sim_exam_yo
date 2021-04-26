@@ -7,66 +7,66 @@ A) PROBLEME CU CONȚINUT TEHNIC
 
 CAPITOLUL 1
 
-NOTIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
+NOȚIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
 
 1.1. Conductibilitatea
 111&-	Conductoare, semiconductoare si izolatoare
-112&-	Curentul, tensiunea si rezistenta
-113&-	Unitatile de masura Amper, Volt, Ohm 
+112&-	Curentul, tensiunea și rezistența
+113&-	Unitățile de măsură Amper, Volt, Ohm 
 114&-	Legea lui Ohm   
-115&-	Legile lui Kirchhoff
-116&-	Puterea electrica    
+115&-	Legile lui Kirchoff
+116&-	Puterea electrică   
 117&-	Wattul
-118&-	Energia electrica    
+118&-	Energia electrică    
 119&-	Capacitatea unei baterii  [ A x h ]
 
 1.2. Surse de electricitate
-121&	Surse de tensiune, surse de tensiune electromotoare, curentul de scurtcircuit, rezistenta interna, tensiunea la borne
-122&	Conectarea serie si paralel a surselor de tensiune
+121&	Surse de tensiune, surse de tensiune electromotoare, curentul de scurtcircuit, rezistența internă, tensiunea la borne
+122&	Conectarea serie și paralel a surselor de tensiune
 
 
-1.3. Campul electric
-131&-	Nivelul campului electric
-132&-	Unitatea de masura volt/metru 
-133&-	Ecranarea campurilor electrice
+1.3. Câmpul electric
+131&-	Nivelul câmpului electric
+132&-	Unitatea de măsură volt/metru 
+133&-	Ecranarea câmpurilor electrice
 
-1.4. Campul magnetic
-141&-	Campul magnetic ce inconjoara un conductor parcurs de curent  electric 
-142&-	Ecranarea campurilor magnetice
+1.4. Câmpul magnetic
+141&-	Câmpul magnetic ce înconjoară un conductor parcurs de curent  electric 
+142&-	Ecranarea câmpurilor magnetice
 
-1.5. Campul electromagnetic
+1.5. Câmpul electromagnetic
 151&-	Undele radio ca unde electromagnetice
-152&-	Viteza de propagare si relatia dintre frecventa si lungimea de unda   
-153&-	Polarizarea campului electromagnetic
+152&-	Viteza de propagare și relația dintre frecvența și lungimea de undă   
+153&-	Polarizarea câmpului electromagnetic
 
 1.6. Semnale sinusoidale
-161&-	Reprezentarea grafica in timp
-162&-	Valori instantanee, amplitudine  [ Emax ], valoarea eficace (RMS)    si valoarea medie
-163&-	Perioada si durata unei perioade 
-164&-	Frecventa
-165&-	Unitatea de masura a frecventei (Hertz)
-166&-	Diferenta de faza dintre doua semnale sinusoidale 
+161&-	Reprezentarea grafică în timp
+162&-	Valori instantanee, amplitudine  [ Emax ], valoarea eficace (RMS) și valoarea medie
+163&-	Perioada și durata unei perioade 
+164&-	Frecvența
+165&-	Unitatea de măsură a frecvenței (Hertz)
+166&-	Diferența de fază dintre două semnale sinusoidale 
 
 1.7. Semnale nesinusoidale, zgomot
 171&-	Semnale audio
-172&-	Semnale dreptunghiulare (extra: triunghiulare, dinte de ferastrau)
-173&-	Reprezentarea grafica in domeniul timp
-174&-	Componenta continua, unda fundamentala si armonicile superioare 
-175&-	Zgomot   (zgomotul termic al receptorului, banda de zgomot, densitatea de zgomot, puterea zgomotului in banda receptorului)
+172&-	Semnale dreptunghiulare (extra: triunghiulare, dinte de ferăstrău)
+173&-	Reprezentarea grafică în domeniul timp
+174&-	Componenta continuă, unda fundamentală și armonicile superioare 
+175&-	Zgomot (zgomotul termic al receptorului, banda de zgomot, densitatea de zgomot, puterea zgomotului în banda receptorului)
 
 l.8. Semnale modulate
-181&-	Modulatia telegrafica (CW)
-182&-	Modulatia de amplitudine (AM)
-186&-	Modulatia de faza , modulatia de frecventa (FM) si modulatia cu banda laterala unica (BLU)
-18e&-	Deviatia de frecventa si indicele de modulatie
-184&-	Purtatoarea, benzile laterale si largimea de banda
-185&-	<strike>Modulatia de amplitudine cu banda laterala unica (SSB)</strike>(s-a scos din programa)
-188&-	<strike>Purtatoare, benzi laterale si largime de banda</strike>(s-a scos din programa)
-189&-	Forme de unda pentru semnale CW, AM, BLU si FM (prezentare grafica)
-18a&-	Spectrul pentru semnale CW, AM si BLU (prezentare grafica)
-18b&-	Modulatii digitale: FSK, 2-PSK, 4-PSK, QAM
-18c&-	Modulatia digitala: debit binar, debit per simbol (debitul Baud) si largime de banda
-18d&-	Corectia CRC si retransmisii (de exemplu packet radio), corectia FEC (de exemplu Amtor FEC)
+181&-	Modulația telegrafică (CW)
+182&-	Modulația de amplitudine (AM)
+186&-	Modulația de fază, modulația de frecvență (FM) și modulația cu bandă laterală unică (BLU)
+18e&-	Deviația de frecvență și indicele de modulație
+184&-	Purtătoarea, benzile laterale și lărgimea de bandă
+185&-	<strike>Modulația de amplitudine cu bandă laterală unică (SSB)</strike>(3 rânduri mai sus, la BLU)
+188&-	<strike>Purtătoare, benzi laterale și lărgime de bandă</strike>(s-a scos din programă)
+189&-	Forme de undă pentru semnale CW, AM, BLU și FM (prezentare grafică)
+18a&-	Spectrul pentru semnale CW, AM si BLU (prezentare grafică)
+18b&-	Modulații digitale: FSK, 2-PSK, 4-PSK, QAM
+18c&-	Modulația digitală: debit binar, debit per simbol (debitul Baud) si largime de bandă
+18d&-	Corecția CRC și retransmisii (de exemplu packet radio), corecția FEC (de exemplu Amtor FEC)
 
 
 1.9. Puterea si energia
