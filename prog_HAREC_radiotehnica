@@ -120,7 +120,7 @@ COMPONENTE
 242&-	Relația dintre raportul numărului de spire N și:
 243&-	Raportul tensiunilor    
 244&-	Raportul curenților   
-245&-	Raportul impedanțelor (numai tratare calitativa) 
+245&-	Raportul impedanțelor (numai tratare calitativă) 
 246&-	Transformatoare
 
 2.5. Diode
@@ -133,7 +133,7 @@ COMPONENTE
 262&-	Factorul de amplificare
 263&-	Tranzistorul cu efect de câmp versus tranzistorul bipolar (controlul în tensiune versus în curent) 
 264&-	<strike>Rezistența dintre poartă și sursă</strike>(s-a scos din programă>
--	Tranzistorul in:
+-	Tranzistorul în:
 266&-	Conexiune cu emitorul comun (sursă comună)
 267&-	Conexiune cu baza (poartă) comună 
 268&-	Conexiune cu colectorul comun (drena comună)
@@ -146,7 +146,7 @@ COMPONENTE
 
 2.7. Diverse
 281&-	Dispozitive simple termoionice (tuburi electronice) 
-282&-	Tensiuni și impedanțe pentru etaje de înaltă tensiune, transformari de impedanța
+282&-	Tensiuni și impedanțe pentru etaje de înaltă tensiune, transformări de impedanță
 283&-	Circuite integrate digitale simple, inclusiv amplificatoare operaționale
 284&-	<strike>Circuite integrate liniare</strike>(s-a comasat cu subiectul anterior)
 
@@ -167,7 +167,7 @@ CIRCUITE
 321&-	Circuite acordate serie și paralel 
 322&-	Impedanța acestor circuite
 323&-	Caracteristica de frecvență
-324&-	Frecvența de rezonanta   
+324&-	Frecvența de rezonanță   
 325&-	Factorul de calitate al unui circuit acordat    
 326&-	Lărgimea de bandă
 327&-	Filtru trece-bandă
@@ -176,7 +176,7 @@ CIRCUITE
 32a&-	Filtru Pi și filtru T 
 32b&-	Cristalul de cuarț 
 32c&-	Efecte datorită caracteristicilor reale (nu ideale) al componentelor
-32d&-	Filtre digitale (vezi sectiunile 1.10 și 3.8)
+32d&-	Filtre digitale (vezi secțiunile 1.10 și 3.8)
 
 
 3.3. Surse de alimentare
@@ -188,14 +188,14 @@ CIRCUITE
 3.4. Amplificatoare
 341&-	Amplificatoare de joasă și de înaltă frecvență 
 342&-	Factorul de amplificare
-343&-	Caracteristica amplitudine/frecvență și lărgimea de bandă (bandă larga vs. etaje acordate)
+343&-	Caracteristica amplitudine/frecvență și lărgimea de bandă (bandă largă vs. etaje acordate)
 344&-	Regimul de funcționare în clasele A, A/B, B, C
 345&-	Armonici (distorsiuni de neliniaritate), distorsiuni de intermodulație, etaje de amplificare supramodulate
 
 
 3.5. Detectoare
 351&-	Detectoare pentru AM
-352&-	Detectorul cu dioda
+352&-	Detectorul cu diodă
 353&-	Detectorul de produs și oscilatoare de "bătăi"
 354&-	Detectoare pentru FM 
 355&-	<strike>Detectorul pe pantă</strike>(s-a scos din programă)
@@ -210,68 +210,68 @@ CIRCUITE
 365&-	Oscilator controlat în tensiune (VCO)
 366&-	Zgomotul de fază
 
-3.7. Bucla blocata în fază (PLL)
+3.7. Bucla blocată în fază (PLL)
 371&-	Bucla de control cu circuit de comparare a fazei.
 372&-	Sinteza de frecvență cu divizoare programabile în bucla de reacție
 
 3.8. Procesoare digitale de semnal (sisteme DSP)
-381&-	Topologii de filtre cu raspuns finit (FIR) și infinit (IIR)
-382&-	Transformata Fourier (discreta, rapida cu prezentare grafică)
-383&-	Sinteza digitală directa
+381&-	Topologii de filtre cu răspuns finit (FIR) și infinit (IIR)
+382&-	Transformata Fourier (discretă, rapidă cu prezentare grafică)
+383&-	Sinteza digitală directă
 
 CAPITOLUL 4
 
 RECEPTOARE
 
 4.1. Tipuri
-411&-	Receptorul superheterodina cu simpla și dubla schimbare de frecvență
-412&-	Receptoare cu conversie directa
+411&-	Receptorul superheterodină cu simplă și dublă schimbare de frecvență
+412&-	Receptoare cu conversie directă
 
 4.2. Scheme bloc
 421&-	Receptorul CW (AlA)
 422&-	Receptorul AM (A3E)
-423&-	Receptorul SSB pentru telefonie cu purtatoare suprimata (J3E) 
+423&-	Receptorul SSB pentru telefonie cu purtătoare suprimată (J3E) 
 424&-	Receptorul FM (F3E)
 
-4.3. Modul de operare și funcționare al urmatoarelor etaje (se trateaza numai schema bloc) 
-431&-	Amplificatorul RF (cu bandă fixa sau acordabila)
+4.3. Modul de operare și funcționare al următoarelor etaje (se tratează numai schema bloc) 
+431&-	Amplificatorul RF (cu bandă fixa sau acordabilă)
 432&-	Oscilatorul (fix și variabil) 
 433&-	Mixerul
-434&-	Amplificatorul de frecvență intermediara
+434&-	Amplificatorul de frecvență intermediară
 435&-	Limitatorul
 436&-	Detectorul, inclusiv detectorul de produs
-437&-	<strike>Oscilatorul de batai</strike>(scos din programa)
-438&-	<strike>Calibratorul cu cristal</strike>(scos din programa)
+437&-	<strike>Oscilatorul de bătăi</strike>(scos din programă)
+438&-	<strike>Calibratorul cu cristal</strike>(scos din programă)
 439&-	Amplificatorul de joasă frecvență (audio)
-43a&-	Controlul automat al amplificarii 
+43a&-	Controlul automat al amplificării 
 43b&-	S-metrul
 43c&-	Squelch-ul
 
-4.4. Caracteristicile receptoarelor (descriere simpla) 
+4.4. Caracteristicile receptoarelor (descriere simplă) 
 441&-	Canalul adiacent
 442&-	Selectivitatea 
 443&-	Sensibilitatea, zgomotul receptorului, factorul de zgomot
 444&-	Stabilitatea
 445&-	Frecvența imagine
 446&-	Desensibilizarea / blocarea
-447&-	Intermodulatia; modulatia incrucisata
-448&-	Mixarea reciproca (zgomotul de fază)
+447&-	Intermodulația; modulația încrucișată
+448&-	Mixarea reciprocă (zgomotul de fază)
 
 
 CAPITOLUL 5
 
-EMITATOARE
+EMIȚĂTOARE
 
 5.1. Tipuri
-511&-	Emitatoare cu și fara translatare de frecvență 
+511&-	Emițătoare cu și fără translatare de frecvență 
 512&-	Multiplicarea de frecvență
 
 5.2. Scheme bloc
-521&-	Emitatorul CW (A1A)
-522&-	Emitatorul SSB pentru telefonie cu purtatoare suprimata (J3E)
-523&-	Emitatorul FM (F3E)
+521&-	Emițătorul CW (A1A)
+522&-	Emițătorul SSB pentru telefonie cu purtătoare suprimată (J3E)
+523&-	Emițătorul FM (F3E)
 
-5.3. Modul de operare și funcționare al urmatoarelor etaje (se trateaza numai schema bloc) 
+5.3. Modul de operare și funcționare al următoarelor etaje (se tratează numai schema bloc) 
 531&-	Mixerul
 532&-	Oscilatorul 
 533&-	Separatorul 
@@ -285,21 +285,21 @@ EMITATOARE
 53b&-	Modulatorul de fază 
 53c&-	Filtrul cu cristale
 
-5.4. Caracteristicile emitatoarelor (descriere simpla) 
+5.4. Caracteristicile emițătoarelor (descriere simplă) 
 541&-	Stabilitatea de frecvență
-542&-	Largimea benzii de RF 
+542&-	Lărgimea benzii de RF 
 543&-	Benzile laterale
 544&-	Gama frecvențelor audio 
 545&-	Neliniaritatea (distorsiuni armonice și de intermodulație)
 546&-	Impedanța de ieșire 
 547&-	Puterea de ieșire
 548&-	Randamentul
-549&-	Deviatia de frecvență 
+549&-	Deviația de frecvență 
 54a&-	Indicele de modulație
 54b&-	Clicsuri de manipulatie și chirp-uri
-54c&-	Supramodulatia în benzile laterale și splatter (frecvențe nedorite în benzile laterale)
-54d&-	Radiatii de înaltă frecvență spurioase
-54e&-	Radiatia cutiei
+54c&-	Supramodulația în benzile laterale și splatter (frecvențe nedorite în benzile laterale)
+54d&-	Radiații de înaltă frecvență spurioase
+54e&-	Radiația cutiei
 54f&-	Zgomotul de fază
 
 CAPITOLUL 6
@@ -307,120 +307,120 @@ CAPITOLUL 6
 ANTENE ȘI LINII DE TRANSMISIUNE
 
 6.1. Tipuri de antene
-611&-	Dipolul în jumatate de unda alimentat la centru 
-612&-	Dipolul în jumatate de unda alimentat la capat 
-613&-	Dipolul indoit
-614&-	Antena verticala în sfert de unda (ground plane) 
+611&-	Dipolul în jumătate de undă alimentat la centru 
+612&-	Dipolul în jumătate de undă alimentat la capăt 
+613&-	Dipolul îndoit
+614&-	Antena verticală în sfert de undă (ground plane) 
 615&-	Antena cu elemente pasive (Yagi)
-616&-	Antena cu apertura (reflector parabolic, horn)
+616&-	Antena cu apertură (reflector parabolic, horn)
 617&-	Dipolul cu trapuri
 
 6.2. Caracteristicile antenei
-621&-	Distributia curentului și tensiunii în antena 
+621&-	Distribuția curentului și tensiunii în antenă 
 622&-	Impedanța la punctul de alimentare
-623&-	Impedanța capacitiva sau inductiva a unei antene nerezonante 
+623&-	Impedanța capacitivă sau inductivă a unei antene nerezonante 
 624&-	Polarizarea
-625&-	Castigul, directivitatea și eficienta antenei
-626&-	Zona de captura
-627&-	Puterea efectiv radiata izotropic (e.i.r.p.) și puterea aparent radiata (e.r.p.)
-628&-	Raportul fata-spate
-629&-	Diagrame de radiatie în plan orizontal și vertical 
+625&-	Câștigul, directivitatea și eficiența antenei
+626&-	Zona de captură
+627&-	Puterea efectiv radiată izotropic (e.i.r.p.) și puterea aparent radiată (e.r.p.)
+628&-	Raportul față-spate
+629&-	Diagrame de radiație în plan orizontal și vertical 
 
 6.3. Linii de transmisiune
 631&-	Linia cu conductori paraleli 
 632&-	Cablul coaxial
-633&-	Ghidul de unda
-634&-	Impedanța caracteristica (Z<sub>0</sub>) 
+633&-	Ghidul de undă
+634&-	Impedanța caracteristică (Z<sub>0</sub>) 
 635&-	Viteza de propagare
-636&-	Raportul de unde stationare 
+636&-	Raportul de unde staționare 
 637&-	Pierderi
 638&-	Simetrizare(balun)
-639&-	<strike>Linia în sfert de unda ca transformator de impedanța  [ Z<sub>02</sub> = Z<sub>in</sub>*Z<sub>out</sub> ]</strike>(scos din programa)
-63a&-	<strike>Linia terminata în gol sau în scurtcircuit ca circuite acordate </strike>(scos din programa)
-63b&-	Unitati de adaptare a antenei (numai configuratii în PI sau T)
+639&-	<strike>Linia în sfert de undă ca transformator de impedanță  [ Z<sub>02</sub> = Z<sub>in</sub>*Z<sub>out</sub> ]</strike>(scos din programă)
+63a&-	<strike>Linia terminată în gol sau în scurtcircuit ca circuite acordate </strike>(scos din programă)
+63b&-	Unități de adaptare a antenei (numai configurații în PI sau T)
 
 CAPITOLUL 7
 
 PROPAGARE
 
-701&-	Atenuarea semnalului, raportul semnal pe zgomot
-702&-	Propagare în vizibilitate directa (propagarea în spatiul liber, legea patrata inversa)
+701&-	Atenuarea semnalului, raportul semnal / zgomot
+702&-	Propagare în vizibilitate directă (propagarea în spațiul liber, legea pătrată inversă)
 703&-	Straturile atmosferei 
-704&-	Frecvența critica
-705&-	Influenta soarelui asupra ionosferei 
-706&-	Frecvența maxima utilizabila (MUF)
-707&-	Unda de sol, unda spatiala, unghiul de radiatie și distanța zonei de tacere (skip)
-708&-	Propagarea ionosferica pe mai multe cai
-709&-	Fading 
-70a&-	Troposfera (conductie, difractie)
-70b&-	Influenta inaltimii antenei asupra distantei ce poate fi acoperita (orizontul radio)
+704&-	Frecvența critică
+705&-	Influența soarelui asupra ionosferei 
+706&-	Frecvența maximă utilizabilă (MUF)
+707&-	Unda de sol, unda spațială, unghiul de radiație și distanța zonei de tăcere (skip)
+708&-	Propagarea ionosferică pe mai multe căi
+709&-	Fading
+70a&-	Troposfera (conducție, difracție)
+70b&-	Influența înălțimii antenei asupra distanței ce poate fi acoperită (orizontul radio)
 70c&-	Temperatura de inversie
 70d&-	Reflexia pe stratul E sporadic 
-70e&-	Reflexia pe aurora
-70f&-	Reflexia meteorica
-70g&-	Reflexia pe luna
-70h&-	Zgomotul atmosferic (furtuni la distanța)
+70e&-	Reflexia pe auroră
+70f&-	Reflexia meteorică
+70g&-	Reflexia pe Lună
+70h&-	Zgomotul atmosferic (furtuni la distanță)
 70i&-	Zgomotul cosmic
 70j&-	Zgomotul de sol (termic)
-70k&-	Bazele predictiei de propagare (bugetul legaturii)
-70l&-	sursa dominanta de zgomot (zgomotul în bandă vs. zgomotul receptorului)
-70m&-	raportul minim semnal - zgomot
-70n&-	puterea minimă a semnalului de receptie
+70k&-	Bazele predicției de propagare (bugetul legăturii)
+70l&-	sursa dominantă de zgomot (zgomotul în bandă vs. zgomotul receptorului)
+70m&-	raportul minim semnal / zgomot
+70n&-	puterea minimă a semnalului de recepție
 70o&-	atenuarea de propagare
-70p&-	castigul antenelor, atenuarile liniilor de transmisie
-70q&-	puterea minimă a emitatorului
+70p&-	câștigul antenelor, atenuările liniilor de transmisie
+70q&-	puterea minimă a emițătorului
 
 CAPITOLUL 8
 
-MASURARI
+MĂSURĂRI
 
 8.1. Efectuarea măsurărilor
-Masurarea:
-811&-	Tensiunilor și curenților în curent continue și alternative 
+Măsurarea:
+811&-	Tensiunilor și curenților în curent continuu și alternativ 
 - Erorilor:
-813&-	influenta frecvenței
-814&-	influenta formei de unda
-815&-	influenta rezistentei interne a instrumentelor
-816&-	Rezistentei
+813&-	influența frecvenței
+814&-	influența formei de undă
+815&-	influența rezistenței interne a instrumentelor
+816&-	Rezistenței
 817&-	Puterii continue și de RF (puterea medie, PEP)
-818&-	Raportului de unde stationare în tensiune
-819&-	Formei de unda a anvelopei unui semnal RF
-81a&-	Frecventei
-81b&-	Frecventei de rezonanta
+818&-	Raportului de unde staționare în tensiune
+819&-	Formei de undă a anvelopei unui semnal RF
+81a&-	Frecvenței
+81b&-	Frecvenței de rezonanță
 
 8.2. Instrumente de măsură
 Efectuarea măsurărilor folosind:
-821&-	<strike>Instrument cu bobina mobila</strike>(scos din programa)
+821&-	<strike>Instrument cu bobina mobilă</strike>(scos din programă)
 822&-	Instrument cu mai multe game (digital sau analogic)
 823&-	Dispozitiv de măsurare a puterii de radiofrecvență
-824&-	Puntea reflectometru (dispozitiv de măsurare a coeficientului de unda stationara)
+824&-	Puntea reflectometru (dispozitiv de măsurare a coeficientului de undă staționară)
 825&-	Generatoare de semnal
-826&-	Frecventmetru numeric
-827&-	<strike>Frecventmetru cu absorbtie</strike>(scos din programa)
-828&-	<strike>Grid-dip metru</strike>(scos din programa)
+826&-	Frecvențmetru numeric
+827&-	<strike>Frecvențmetru cu absorbție</strike>(scos din programă)
+828&-	<strike>Grid-dip metru</strike>(scos din programă)
 829&-	Osciloscop
 82a&-	Analizor de spectru
 
 CAPITOLUL 9
 
-INTERFERENTE ȘI IMUNITATE
+INTERFERENȚE ȘI IMUNITATE
 
-9.1. Interferente în echipamentele electronice
+9.1. Interferențe în echipamentele electronice
 911&	Blocarea
-912&-	Interferente cu semnalul dorit
-913&-	Intermodulatia
-914&-	Detectia în circuitele audio
+912&-	Interferențe cu semnalul dorit
+913&-	Intermodulația
+914&-	Detecția în circuitele audio
 
-9.2. Cauzele interferentelor în echipamentele electronice  
-921&-	Nivelul de camp al emitatorului
-922&-	Radiatiile neesentiale ale emitatorului (radiatii parazite, armonici)
--	Influente nedorite în echipamente care patrund prin:
-924&-	intrarea de antena (tensiuni din antena, selectivitatea intrarii)
+9.2. Cauzele interferențelor în echipamentele electronice  
+921&-	Nivelul de câmp al emițătorului
+922&-	Radiațiile neesențiale ale emițătorului (radiații parazite, armonici)
+-	Influențe nedorite în echipamente care pătrund prin:
+924&-	intrarea de antenă (tensiuni din antenă, selectivitatea intrării)
 925&-	alte linii conectate
-926&-	radiatie directa
+926&-	radiație directă
 
-9.3. Masuri impotriva interferentelor
-Masuri pentru prevenirea și eliminarea efectelor interferentelor:
+9.3. Măsuri împotriva interferențelor
+Măsuri pentru prevenirea și eliminarea efectelor interferențelor:
 931&-	Filtrarea
 932&-	Decuplarea
 933&-	Ecranarea
