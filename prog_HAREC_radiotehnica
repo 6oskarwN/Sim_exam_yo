@@ -7,10 +7,10 @@ A) PROBLEME CU CONȚINUT TEHNIC
 
 CAPITOLUL 1
 
-NOȚIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM SI RADIO
+NOȚIUNI TEORETICE DE ELECTRICITATE, ELECTROMAGNETISM ȘI RADIO
 
 1.1. Conductibilitatea
-111&-	Conductoare, semiconductoare si izolatoare
+111&-	Conductoare, semiconductoare și izolatoare
 112&-	Curentul, tensiunea și rezistența
 113&-	Unitățile de măsură Amper, Volt, Ohm 
 114&-	Legea lui Ohm   
@@ -63,91 +63,91 @@ l.8. Semnale modulate
 185&-	<strike>Modulația de amplitudine cu bandă laterală unică (SSB)</strike>(3 rânduri mai sus, la BLU)
 188&-	<strike>Purtătoare, benzi laterale și lărgime de bandă</strike>(s-a scos din programă)
 189&-	Forme de undă pentru semnale CW, AM, BLU și FM (prezentare grafică)
-18a&-	Spectrul pentru semnale CW, AM si BLU (prezentare grafică)
+18a&-	Spectrul pentru semnale CW, AM și BLU (prezentare grafică)
 18b&-	Modulații digitale: FSK, 2-PSK, 4-PSK, QAM
-18c&-	Modulația digitală: debit binar, debit per simbol (debitul Baud) si largime de bandă
+18c&-	Modulația digitală: debit binar, debit per simbol (debitul Baud) și lărgime de bandă
 18d&-	Corecția CRC și retransmisii (de exemplu packet radio), corecția FEC (de exemplu Amtor FEC)
 
 
-1.9. Puterea si energia
+1.9. Puterea și energia
 191&-	Puterea semnalelor sinusoidale   
-192&-	Rapoarte de puteri corespunzatoare urmatoarelor valori (pozitive si negative): 0 dB, 3 dB, 6 dB, 10 dB si 20 dB
-193&-	Raportul puterilor de intrare/iesire in dB ale unor amplificatoare si/sau atenuatoare conectate in cascada
+192&-	Rapoarte de puteri corespunzătoare următoarelor valori (pozitive și negative): 0 dB, 3 dB, 6 dB, 10 dB și 20 dB
+193&-	Raportul puterilor de intrare/ieșire în dB ale unor amplificatoare și/sau atenuatoare conectate în cascadă
 194&-	Adaptarea (transferul maxim de putere)
-195&-	Relatia dintre puterea de intrare, puterea de iesire si randament   
-196&-	Puterea la varf de modulatie (PEP)
+195&-	Relația dintre puterea de intrare, puterea de ieșire și randament   
+196&-	Puterea la vârf de modulație (PEP)
 
-1.10. Procesarea digitala de semnal (DSP)
-19a&-	Esantionarea si cuantizarea
-19b&-	Rata minima de esantionare (frecventa Nyquist)
-19c&-	Convolutia (in domeniul timp / in domeniul frecventa, reprezentare grafica)
+1.10. Procesarea digitală de semnal (DSP)
+19a&-	Eșantionarea și cuantizarea
+19b&-	Rata minimă de eșantionare (frecvența Nyquist)
+19c&-	Convoluția (în domeniul timp / în domeniul frecvență, reprezentare grafică)
 19d&-	Filtre contra zgomotului de cuantizare, filtre de refacere a semnalului
-19f&-	Conversia digital / analogica, analogic / digitala
+19f&-	Conversia digital / analogică, analogic / digitală
 
 CAPITOLUL 2
 
 COMPONENTE
 
 2.1. Rezistorul 
-212&-	Unitatea de masura (Ohm)
-211&-	Rezistenta
+212&-	Unitatea de măsură (Ohm)
+211&-	Rezistența
 213&-	Caracteristica curent/tensiune 
-214&-	Disipatia de putere
-215&-	<strike>Coeficienti pozitivi si negativi de temperatura (CPT si CNT)</strike>(s-a scos din programa)
+214&-	Disipația de putere
+215&-	<strike>Coeficienți pozitivi și negativi de temperatură (CPT și CNT)</strike>(s-a scos din programă)
 
 2.2. Condensatorul
 221&-	Capacitatea
-222&-	Unitatea de masura a capacitatii (Faradul)
-223&-	Relatia dintre capacitate, dimensiuni si dielectric (numai tratare calitativa)
-224&-	Reactanta   
-225&-	Defazajul dintre tensiune si curent
-226&-	<strike>Caracteristicile condensatoarelor fixe si variabile: cu dielectric aer, mica, plastic, ceramica si a condensatoarelor electrolitice</strike>(s-a scos din programa)
-227&-	<strike>Coeficientul de temperatura </strike>(s-a scos din programa)
-228&-	<strike>Curentul de fuga</strike>(s-a scos din programa)
+222&-	Unitatea de măsură a capacității (Faradul)
+223&-	Relația dintre capacitate, dimensiuni și dielectric (numai tratare calitativă)
+224&-	Reactanța   
+225&-	Defazajul dintre tensiune și curent
+226&-	<strike>Caracteristicile condensatoarelor fixe și variabile: cu dielectric aer, mică, plastic, ceramică și a condensatoarelor electrolitice</strike>(s-a scos din programă)
+227&-	<strike>Coeficientul de temperatură</strike>(s-a scos din programă)
+228&-	<strike>Curentul de fugă</strike>(s-a scos din programă)
 
 2.3. Bobina
-231&-	<strike>Inductia</strike>(s-a scos din programa) Autoinductia
-232&-	Unitatea de masura a inductantei (Henry)
-233&-	Efectul asupra inductantei al numarului de spire, al diametrului, al lungimii si al materialului din care este facut miezul (numai tratare calitativa)
-234&-	Reactanta   
-235&-	Defazajul dintre tensiune si curent 
+231&-	<strike>Inducția</strike>(s-a scos din programă), Autoinducția
+232&-	Unitatea de măsură a inductanței (Henry)
+233&-	Efectul asupra inductanței al numărului de spire, al diametrului, al lungimii și al materialului din care este făcut miezul (numai tratare calitativă)
+234&-	Reactanța   
+235&-	Defazajul dintre tensiune și curent 
 236&-	Factorul Q
-237&-	<strike>Efectul pelicular</strike>(s-a scos din programa)
-238&-	<strike>Pierderi in miezul bobinei</strike>(s-a scos din programa) 
+237&-	<strike>Efectul pelicular</strike>(s-a scos din programă)
+238&-	<strike>Pierderi în miezul bobinei</strike>(s-a scos din programă) 
 
-2.4. Transformatoare - aplicatii si utilizare
+2.4. Transformatoare - aplicații și utilizare
 241&-	Transformatorul ideal   
-242&-	Relatia dintre raportul numarului de spire N si:
+242&-	Relația dintre raportul numărului de spire N și:
 243&-	Raportul tensiunilor    
-244&-	Raportul curentilor   
-245&-	Raportul impedantelor (numai tratare calitativa) 
+244&-	Raportul curenților   
+245&-	Raportul impedanțelor (numai tratare calitativa) 
 246&-	Transformatoare
 
 2.5. Diode
-251&-	Utilizare si aplicatii ale diodelor
+251&-	Utilizare și aplicații ale diodelor
 252&-	Dioda redresoare, dioda Zener, diode luminiscente (LED), dioda varicap
-253&-	Tensiunea inversa, curent si putere 
+253&-	Tensiunea inversă, curent și putere 
 
 2.6. Tranzistorul
-261&-	Tranzistoare PNP si NPN 
+261&-	Tranzistoare PNP și NPN 
 262&-	Factorul de amplificare
-263&-	Tranzistorul cu efect de camp versus tranzistorul bipolar (controlul in tensiune versus in curent) 
-264&-	<strike>Rezistenta dintre poarta si sursa</strike>(s-a scos din programa>
+263&-	Tranzistorul cu efect de câmp versus tranzistorul bipolar (controlul în tensiune versus în curent) 
+264&-	<strike>Rezistența dintre poartă și sursă</strike>(s-a scos din programă>
 -	Tranzistorul in:
-266&-	Conexiune cu emitorul comun (sursa comuna)
-267&-	Conexiune cu baza (poarta) comuna 
-268&-	Conexiune cu colectorul comun (drena comuna)
+266&-	Conexiune cu emitorul comun (sursă comună)
+267&-	Conexiune cu baza (poartă) comună 
+268&-	Conexiune cu colectorul comun (drena comună)
 26b&-	<strike>Conexiune Darlington (extra-curricular)</strike>
-269&-	<strike>Impedantele de intrare si iesire in conexiunilor de mai sus</strike>(s-a scos din programa) 
-26a&-	<strike>Metode de polarizare in conexiunilor de mai sus</strike>(s-a scos din programa)
- 	<strike>Disipatia de caldura</strike> (s-a scos din programa)
-271&- 	<strike>Transfer termic semiconductor-capsula, capsula-radiator, coeficienti termici</strike>(s-a scos din programa)
-272&-	<strike>Materiale speciale: Ceramica cu oxid de Be</strike>(s-a scos din programa)
+269&-	<strike>Impedanțele de intrare și ieșire ale conexiunilor de mai sus</strike>(s-a scos din programă) 
+26a&-	<strike>Metode de polarizare ale conexiunilor de mai sus</strike>(s-a scos din programă)
+ 	<strike>Disipația de căldură</strike> (s-a scos din programă)
+271&- 	<strike>Transfer termic semiconductor-capsulă, capsulă-radiator, coeficienți termici</strike>(s-a scos din programă)
+272&-	<strike>Materiale speciale: Ceramica cu oxid de Be</strike>(s-a scos din programă)
 
 2.7. Diverse
 281&-	Dispozitive simple termoionice (tuburi electronice) 
-282&-	Tensiuni si impedante pentru etaje de inalta tensiune, transformari de impedanta
-283&-	Circuite integrate digitale simple, inclusiv amplificatoare operationale
+282&-	Tensiuni și impedanțe pentru etaje de înaltă tensiune, transformari de impedanța
+283&-	Circuite integrate digitale simple, inclusiv amplificatoare operaționale
 284&-	<strike>Circuite integrate liniare</strike>(s-a comasat cu subiectul anterior)
 
  
@@ -157,74 +157,74 @@ CAPITOLUL 3
 
 CIRCUITE
 
-3.1. Combinatii de componente
-311&-	Circuite serie si paralel cu rezistoare, bobine, condensatoare, transformatoare si diode 
-312&-	Curentii si tensiunile in aceste circuite
-313&-	<strike>Impedanta acestor circuite</strike>(s-a scos din programa) 
-314&-	Comportamentul real (nu ideal) al rezistorului, condensatorului si bobinei la frecvente inalte
+3.1. Combinații de componente
+311&-	Circuite serie și paralel cu rezistoare, bobine, condensatoare, transformatoare și diode 
+312&-	Curenții și tensiunile în aceste circuite
+313&-	<strike>Impedanța acestor circuite</strike>(s-a scos din programă) 
+314&-	Comportamentul real (nu ideal) al rezistorului, condensatorului și bobinei la frecvențe înalte
 
 3.2. Filtre
-321&-	Circuite acordate serie si paralel 
-322&-	Impedanta acestor circuite
-323&-	Caracteristica de frecventa
-324&-	Frecventa de rezonanta   
+321&-	Circuite acordate serie și paralel 
+322&-	Impedanța acestor circuite
+323&-	Caracteristica de frecvență
+324&-	Frecvența de rezonanta   
 325&-	Factorul de calitate al unui circuit acordat    
-326&-	Largimea de banda
-327&-	Filtru trece banda
-328&-	Filtru trece-jos, trece-sus, trece-banda si opreste-banda alcatuite din componente pasive 
-329&-	Caracteristica de frecventa a filtrelor
-32a&-	Filtru Pi si filtru T 
-32b&-	Cristalul de cuart 
-32c&-	Efecte datorita caracteristicilor reale (nu ideale) al componentelor
-32d&-	Filtre digitale (vezi sectiunile 1.10 si 3.8)
+326&-	Lărgimea de bandă
+327&-	Filtru trece-bandă
+328&-	Filtru trece-jos, trece-sus, trece-bandă și oprește-bandă alcătuite din componente pasive 
+329&-	Caracteristica de frecvență a filtrelor
+32a&-	Filtru Pi și filtru T 
+32b&-	Cristalul de cuarț 
+32c&-	Efecte datorită caracteristicilor reale (nu ideale) al componentelor
+32d&-	Filtre digitale (vezi sectiunile 1.10 și 3.8)
 
 
 3.3. Surse de alimentare
-331&-	Circuite redresoare monoalternanta si dubla alternanta si puntea redresoare 
+331&-	Circuite redresoare monoalternanță și dublă alternanță și puntea redresoare 
 332&-	Circuite de netezire
-333&-	Circuite stabilizatoare in surse de alimentare de mica putere
-334&-	Surse de alimentare in comutatie, izolare galvanica si EMC
+333&-	Circuite stabilizatoare în surse de alimentare de mică putere
+334&-	Surse de alimentare în comutație, izolare galvanică și EMC
 
 3.4. Amplificatoare
-341&-	Amplificatoare de joasa si de inalta frecventa 
+341&-	Amplificatoare de joasă și de înaltă frecvență 
 342&-	Factorul de amplificare
-343&-	Caracteristica amplitudine/frecventa si largimea de banda (banda larga vs. etaje acordate)
-344&-	Regimul de functionare in clasele A, A/B, B, C
-345&-	Armonici (distorsiuni de neliniaritate), distorsiuni de intermodulatie, etaje de amplificare supramodulate
+343&-	Caracteristica amplitudine/frecvență și lărgimea de bandă (bandă larga vs. etaje acordate)
+344&-	Regimul de funcționare în clasele A, A/B, B, C
+345&-	Armonici (distorsiuni de neliniaritate), distorsiuni de intermodulație, etaje de amplificare supramodulate
 
 
 3.5. Detectoare
 351&-	Detectoare pentru AM
 352&-	Detectorul cu dioda
-353&-	Detectorul de produs si oscilatoare de "batai"
+353&-	Detectorul de produs și oscilatoare de "bătăi"
 354&-	Detectoare pentru FM 
-355&-	<strike>Detectorul pe panta</strike>(s-a scos din programa)
-356&-	<strike>Discriminatorul Foster-Seeley</strike>(s-a scos din programa)
-357&-	<strike>Detectoare pentru CW/SSB</strike>(s-a scos din programa)
+355&-	<strike>Detectorul pe pantă</strike>(s-a scos din programă)
+356&-	<strike>Discriminatorul Foster-Seeley</strike>(s-a scos din programă)
+357&-	<strike>Detectoare pentru CW/SSB</strike>(s-a scos din programă)
 
 3.6. Oscilatoare
-361&-	Reactie (oscilatii produse intentionat sau nu)
-362&-	Factorii care afecteaza frecventa si stabilitatea oscilatiei 
+361&-	Reacție (oscilații produse intenționat sau nu)
+362&-	Factorii care afectează frecvența și stabilitatea oscilației 
 363&-	Oscilatorul LC
 364&-	Oscilatoare cu cristal, oscilatorul overtone
-365&-	Oscilator controlat in tensiune (VCO)
-366&-	Zgomotul de faza
+365&-	Oscilator controlat în tensiune (VCO)
+366&-	Zgomotul de fază
 
-3.7. Bucla blocata in faza (PLL)
+3.7. Bucla blocata în fază (PLL)
 371&-	Bucla de control cu circuit de comparare a fazei.
-372&-	Sinteza de frecventa cu divizoare programabile in bucal de reactie
+372&-	Sinteza de frecvență cu divizoare programabile în bucla de reacție
 
 3.8. Procesoare digitale de semnal (sisteme DSP)
-381&-	Topologii de filtre cu raspuns finit (FIR) si infinit (IIR)
-382&-	Transformata Fourier (discreta, rapida cu prezentare grafica)
-383&-	Sinteza digitala directa
+381&-	Topologii de filtre cu raspuns finit (FIR) și infinit (IIR)
+382&-	Transformata Fourier (discreta, rapida cu prezentare grafică)
+383&-	Sinteza digitală directa
 
 CAPITOLUL 4
 
 RECEPTOARE
 
 4.1. Tipuri
-411&-	Receptorul superheterodina cu simpla si dubla schimbare de frecventa
+411&-	Receptorul superheterodina cu simpla și dubla schimbare de frecvență
 412&-	Receptoare cu conversie directa
 
 4.2. Scheme bloc
@@ -233,16 +233,16 @@ RECEPTOARE
 423&-	Receptorul SSB pentru telefonie cu purtatoare suprimata (J3E) 
 424&-	Receptorul FM (F3E)
 
-4.3. Modul de operare si functionare al urmatoarelor etaje (se trateaza numai schema bloc) 
-431&-	Amplificatorul RF (cu banda fixa sau acordabila)
-432&-	Oscilatorul (fix si variabil) 
+4.3. Modul de operare și funcționare al urmatoarelor etaje (se trateaza numai schema bloc) 
+431&-	Amplificatorul RF (cu bandă fixa sau acordabila)
+432&-	Oscilatorul (fix și variabil) 
 433&-	Mixerul
-434&-	Amplificatorul de frecventa intermediara
+434&-	Amplificatorul de frecvență intermediara
 435&-	Limitatorul
 436&-	Detectorul, inclusiv detectorul de produs
 437&-	<strike>Oscilatorul de batai</strike>(scos din programa)
 438&-	<strike>Calibratorul cu cristal</strike>(scos din programa)
-439&-	Amplificatorul de joasa frecventa (audio)
+439&-	Amplificatorul de joasă frecvență (audio)
 43a&-	Controlul automat al amplificarii 
 43b&-	S-metrul
 43c&-	Squelch-ul
@@ -252,10 +252,10 @@ RECEPTOARE
 442&-	Selectivitatea 
 443&-	Sensibilitatea, zgomotul receptorului, factorul de zgomot
 444&-	Stabilitatea
-445&-	Frecventa imagine
+445&-	Frecvența imagine
 446&-	Desensibilizarea / blocarea
 447&-	Intermodulatia; modulatia incrucisata
-448&-	Mixarea reciproca (zgomotul de faza)
+448&-	Mixarea reciproca (zgomotul de fază)
 
 
 CAPITOLUL 5
@@ -263,93 +263,93 @@ CAPITOLUL 5
 EMITATOARE
 
 5.1. Tipuri
-511&-	Emitatoare cu si fara translatare de frecventa 
-512&-	Multiplicarea de frecventa
+511&-	Emitatoare cu și fara translatare de frecvență 
+512&-	Multiplicarea de frecvență
 
 5.2. Scheme bloc
 521&-	Emitatorul CW (A1A)
 522&-	Emitatorul SSB pentru telefonie cu purtatoare suprimata (J3E)
 523&-	Emitatorul FM (F3E)
 
-5.3. Modul de operare si functionare al urmatoarelor etaje (se trateaza numai schema bloc) 
+5.3. Modul de operare și funcționare al urmatoarelor etaje (se trateaza numai schema bloc) 
 531&-	Mixerul
 532&-	Oscilatorul 
 533&-	Separatorul 
 534&-	Driver-ul
-535&-	Multiplicatorul de frecventa 
+535&-	Multiplicatorul de frecvență 
 536&-	Amplificatorul de putere
-537&-	Adaptarea la iesire
-538&-	Filtrul de iesire (filtrul pi) 
-539&-	Modulatorul de frecventa 
+537&-	Adaptarea la ieșire
+538&-	Filtrul de ieșire (filtrul pi) 
+539&-	Modulatorul de frecvență 
 53a&-	Modulatorul SSB
-53b&-	Modulatorul de faza 
+53b&-	Modulatorul de fază 
 53c&-	Filtrul cu cristale
 
 5.4. Caracteristicile emitatoarelor (descriere simpla) 
-541&-	Stabilitatea de frecventa
+541&-	Stabilitatea de frecvență
 542&-	Largimea benzii de RF 
 543&-	Benzile laterale
-544&-	Gama frecventelor audio 
-545&-	Neliniaritatea (distorsiuni armonice si de intermodulatie)
-546&-	Impedanta de iesire 
-547&-	Puterea de iesire
+544&-	Gama frecvențelor audio 
+545&-	Neliniaritatea (distorsiuni armonice și de intermodulație)
+546&-	Impedanța de ieșire 
+547&-	Puterea de ieșire
 548&-	Randamentul
-549&-	Deviatia de frecventa 
-54a&-	Indicele de modulatie
-54b&-	Clicsuri de manipulatie si chirp-uri
-54c&-	Supramodulatia in benzile laterale si splatter (frecvente nedorite in benzile laterale)
-54d&-	Radiatii de inalta frecventa spurioase
+549&-	Deviatia de frecvență 
+54a&-	Indicele de modulație
+54b&-	Clicsuri de manipulatie și chirp-uri
+54c&-	Supramodulatia în benzile laterale și splatter (frecvențe nedorite în benzile laterale)
+54d&-	Radiatii de înaltă frecvență spurioase
 54e&-	Radiatia cutiei
-54f&-	Zgomotul de faza
+54f&-	Zgomotul de fază
 
 CAPITOLUL 6
 
-ANTENE SI LINII DE TRANSMISIUNE
+ANTENE ȘI LINII DE TRANSMISIUNE
 
 6.1. Tipuri de antene
-611&-	Dipolul in jumatate de unda alimentat la centru 
-612&-	Dipolul in jumatate de unda alimentat la capat 
+611&-	Dipolul în jumatate de unda alimentat la centru 
+612&-	Dipolul în jumatate de unda alimentat la capat 
 613&-	Dipolul indoit
-614&-	Antena verticala in sfert de unda (ground plane) 
+614&-	Antena verticala în sfert de unda (ground plane) 
 615&-	Antena cu elemente pasive (Yagi)
 616&-	Antena cu apertura (reflector parabolic, horn)
 617&-	Dipolul cu trapuri
 
 6.2. Caracteristicile antenei
-621&-	Distributia curentului si tensiunii in antena 
-622&-	Impedanta la punctul de alimentare
-623&-	Impedanta capacitiva sau inductiva a unei antene nerezonante 
+621&-	Distributia curentului și tensiunii în antena 
+622&-	Impedanța la punctul de alimentare
+623&-	Impedanța capacitiva sau inductiva a unei antene nerezonante 
 624&-	Polarizarea
-625&-	Castigul, directivitatea si eficienta antenei
+625&-	Castigul, directivitatea și eficienta antenei
 626&-	Zona de captura
-627&-	Puterea efectiv radiata izotropic (e.i.r.p.) si puterea aparent radiata (e.r.p.)
+627&-	Puterea efectiv radiata izotropic (e.i.r.p.) și puterea aparent radiata (e.r.p.)
 628&-	Raportul fata-spate
-629&-	Diagrame de radiatie in plan orizontal si vertical 
+629&-	Diagrame de radiatie în plan orizontal și vertical 
 
 6.3. Linii de transmisiune
 631&-	Linia cu conductori paraleli 
 632&-	Cablul coaxial
 633&-	Ghidul de unda
-634&-	Impedanta caracteristica (Z<sub>0</sub>) 
+634&-	Impedanța caracteristica (Z<sub>0</sub>) 
 635&-	Viteza de propagare
 636&-	Raportul de unde stationare 
 637&-	Pierderi
 638&-	Simetrizare(balun)
-639&-	<strike>Linia in sfert de unda ca transformator de impedanta  [ Z<sub>02</sub> = Z<sub>in</sub>*Z<sub>out</sub> ]</strike>(scos din programa)
-63a&-	<strike>Linia terminata in gol sau in scurtcircuit ca circuite acordate </strike>(scos din programa)
-63b&-	Unitati de adaptare a antenei (numai configuratii in PI sau T)
+639&-	<strike>Linia în sfert de unda ca transformator de impedanța  [ Z<sub>02</sub> = Z<sub>in</sub>*Z<sub>out</sub> ]</strike>(scos din programa)
+63a&-	<strike>Linia terminata în gol sau în scurtcircuit ca circuite acordate </strike>(scos din programa)
+63b&-	Unitati de adaptare a antenei (numai configuratii în PI sau T)
 
 CAPITOLUL 7
 
 PROPAGARE
 
 701&-	Atenuarea semnalului, raportul semnal pe zgomot
-702&-	Propagare in vizibilitate directa (propagarea in spatiul liber, legea patrata inversa)
+702&-	Propagare în vizibilitate directa (propagarea în spatiul liber, legea patrata inversa)
 703&-	Straturile atmosferei 
-704&-	Frecventa critica
+704&-	Frecvența critica
 705&-	Influenta soarelui asupra ionosferei 
-706&-	Frecventa maxima utilizabila (MUF)
-707&-	Unda de sol, unda spatiala, unghiul de radiatie si distanta zonei de tacere (skip)
+706&-	Frecvența maxima utilizabila (MUF)
+707&-	Unda de sol, unda spatiala, unghiul de radiatie și distanța zonei de tacere (skip)
 708&-	Propagarea ionosferica pe mai multe cai
 709&-	Fading 
 70a&-	Troposfera (conductie, difractie)
@@ -359,41 +359,41 @@ PROPAGARE
 70e&-	Reflexia pe aurora
 70f&-	Reflexia meteorica
 70g&-	Reflexia pe luna
-70h&-	Zgomotul atmosferic (furtuni la distanta)
+70h&-	Zgomotul atmosferic (furtuni la distanța)
 70i&-	Zgomotul cosmic
 70j&-	Zgomotul de sol (termic)
 70k&-	Bazele predictiei de propagare (bugetul legaturii)
-70l&-	sursa dominanta de zgomot (zgomotul in banda vs. zgomotul receptorului)
+70l&-	sursa dominanta de zgomot (zgomotul în bandă vs. zgomotul receptorului)
 70m&-	raportul minim semnal - zgomot
-70n&-	puterea minima a semnalului de receptie
+70n&-	puterea minimă a semnalului de receptie
 70o&-	atenuarea de propagare
 70p&-	castigul antenelor, atenuarile liniilor de transmisie
-70q&-	puterea minima a emitatorului
+70q&-	puterea minimă a emitatorului
 
 CAPITOLUL 8
 
 MASURARI
 
-8.1. Efectuarea masurarilor
+8.1. Efectuarea măsurărilor
 Masurarea:
-811&-	Tensiunilor si curentilor in curent continue si alternative 
+811&-	Tensiunilor și curenților în curent continue și alternative 
 - Erorilor:
-813&-	influenta frecventei
+813&-	influenta frecvenței
 814&-	influenta formei de unda
 815&-	influenta rezistentei interne a instrumentelor
 816&-	Rezistentei
-817&-	Puterii continue si de RF (puterea medie, PEP)
-818&-	Raportului de unde stationare in tensiune
+817&-	Puterii continue și de RF (puterea medie, PEP)
+818&-	Raportului de unde stationare în tensiune
 819&-	Formei de unda a anvelopei unui semnal RF
 81a&-	Frecventei
 81b&-	Frecventei de rezonanta
 
-8.2. Instrumente de masura
-Efectuarea masurarilor folosind:
+8.2. Instrumente de măsură
+Efectuarea măsurărilor folosind:
 821&-	<strike>Instrument cu bobina mobila</strike>(scos din programa)
 822&-	Instrument cu mai multe game (digital sau analogic)
-823&-	Dispozitiv de masurare a puterii de radiofrecventa
-824&-	Puntea reflectometru (dispozitiv de masurare a coeficientului de unda stationara)
+823&-	Dispozitiv de măsurare a puterii de radiofrecvență
+824&-	Puntea reflectometru (dispozitiv de măsurare a coeficientului de unda stationara)
 825&-	Generatoare de semnal
 826&-	Frecventmetru numeric
 827&-	<strike>Frecventmetru cu absorbtie</strike>(scos din programa)
@@ -403,24 +403,24 @@ Efectuarea masurarilor folosind:
 
 CAPITOLUL 9
 
-INTERFERENTE SI IMUNITATE
+INTERFERENTE ȘI IMUNITATE
 
-9.1. Interferente in echipamentele electronice
+9.1. Interferente în echipamentele electronice
 911&	Blocarea
 912&-	Interferente cu semnalul dorit
 913&-	Intermodulatia
-914&-	Detectia in circuitele audio
+914&-	Detectia în circuitele audio
 
-9.2. Cauzele interferentelor in echipamentele electronice  
+9.2. Cauzele interferentelor în echipamentele electronice  
 921&-	Nivelul de camp al emitatorului
 922&-	Radiatiile neesentiale ale emitatorului (radiatii parazite, armonici)
--	Influente nedorite in echipamente care patrund prin:
+-	Influente nedorite în echipamente care patrund prin:
 924&-	intrarea de antena (tensiuni din antena, selectivitatea intrarii)
 925&-	alte linii conectate
 926&-	radiatie directa
 
 9.3. Masuri impotriva interferentelor
-Masuri pentru prevenirea si eliminarea efectelor interferentelor:
+Masuri pentru prevenirea și eliminarea efectelor interferentelor:
 931&-	Filtrarea
 932&-	Decuplarea
 933&-	Ecranarea

@@ -26,12 +26,12 @@ Acumulatorul Pb-acid este des folosit fiindcă este ieftin și este o tehnologie
 YO6OWN, 2020
 ##2#
 a
-05A275~&De ce există(și dacă nu există, trebuie construita)protecție la supraîncărcare pentru acumulatorii cu Litiu?
+05A275~&De ce există(și dacă nu există, trebuie construită)protecție la supraîncărcare pentru acumulatorii cu Litiu?
 null
 La supraîncărcare, acumulatorul se bombează din cauza gazelor, fiind etanș. Dacă în înveliș apare o fisură, acumulatorul poate lua foc sau exploda.
 La supraîncărcare, acumulatorul fierbe și își pierde electrolitul, se usucă și se poate sulfata.
 Se pierde multă energie electrică.
-La supraîncărcare peste nivel, poate apare scurtcircuitul sau se poate arde aparatul alimentat în serie.
+La supraîncărcare peste nivel, poate apărea scurtcircuitul sau se poate arde aparatul alimentat în serie.
 YO6OWN, 2019
 null
 
@@ -76,8 +76,8 @@ null
 a
 01A275~&La ce trebuie să fim atenți când transportăm, mutăm acumulatori de Pb cu electrolit acid?
 null
-Electrolitul e coroziv, purtam echipament de protecție și suntem atenți la scurgeri de electrolit
-Electrolitul emana gaze la încărcare
+Electrolitul e coroziv, purtăm echipament de protecție și suntem atenți la scurgeri de electrolit
+Electrolitul emană gaze la încărcare
 Trebuie să fim atenți să nu agităm electrolitul, poate să spumeze
 Trebuie să fim atenți ca electrolitul să fie la nivel
 YO6OWN, 2019
@@ -130,7 +130,7 @@ puterea crește cu pătratul distanței
 puterea crește cu rădăcina pătrată a distanței
 YO6OWN - adaptare după eham.net, 2007
 null
-O explicație empirică, fără formule ar fi: Din radiatorul izotrop, în mediu omogen, unda se împrăștie în toate direcțiile, așa cum unda e circulară la aruncarea unei pietre în apă - numai că unda 3D e sferică. Energia masurată la suprafața unei astfel de sfere este aceeași în oricare punct al suprafeței sferei. Suma energiei de pe punctele sferei este egală cu energia la emisie. Cu cât distanța de la emițător, adică raza sferei crește, cu atât suprafața sferei crește deci energia într-un punct(receptorul) scade.
+O explicație empirică, fără formule ar fi: Din radiatorul izotrop, în mediu omogen, unda se împrăștie în toate direcțiile, așa cum unda e circulară la aruncarea unei pietre în apă - numai că unda 3D e sferică. Energia măsurată la suprafața unei astfel de sfere este aceeași în oricare punct al suprafeței sferei. Suma energiei de pe punctele sferei este egală cu energia la emisie. Cu cât distanța de la emițător, adică raza sferei crește, cu atât suprafața sferei crește deci energia într-un punct(receptorul) scade.
 YO6OWN
 ##11#
 c
@@ -150,7 +150,7 @@ c
 null
 trebuie să se afle întotdeauna în apropierea operatorului
 trebuie să fie cât mai departe posibil de operator
-toata lumea trebuie să cunoască amplasamentul lui, pentru caz de accident
+toată lumea trebuie să cunoască amplasamentul lui, pentru caz de accident
 trebuie să se găsească într-o cutie metalică încuiată, pentru ca să nu se poată închide accidental
 YO6OWN - adaptare după eham.net, 2007
 null
@@ -162,7 +162,7 @@ d
 null
 nul - albastru deschis
 fază - negru
-protecție - verde-galben(combinatie)
+protecție - verde-galben(combinație)
 fază - roșu
 YO6OWN, 2014
 null
@@ -174,7 +174,7 @@ d
 null
 nul - albastru deschis
 fază - maro
-protecție - verde-galben(combinatie)
+protecție - verde-galben(combinație)
 fază - roșu
 YO6OWN, 2014
 null
@@ -214,13 +214,13 @@ Ca să reducem calcifierea acumulatorilor NiCd
 Pentru a se elimina autooscilația în amplificatorul de RF(radiofrecvență) din receptor 
 YO6OWN - adaptare după eham.net, 2007
 null
-Antena unei stații portabile este în general omnidirecțională și ineficientă, făcând ca majoritatea energiei RF să fie absorbite de corpul operatorului. Creierul și ochii sunt cele mai vulnerabile organe la folosirea stației în mod obișnuit - la înălțimea feței.
+Antena unei stații portabile este în general omnidirecțională și ineficientă, făcând ca majoritatea energiei RF să fie absorbită de corpul operatorului. Creierul și ochii sunt cele mai vulnerabile organe la folosirea stației în mod obișnuit - la înălțimea feței.
 YO6OWN
 ##18#
 b
 06A273~&Care este unul din efectele radiației de RF(radiofrecvență) neionizante asupra corpului uman?
 null
-Răcirea a țesuturilor
+Răcirea țesuturilor
 Încălzirea țesuturilor
 Dezhidratarea rapidă
 Căderea neașteptată a părului
@@ -230,7 +230,7 @@ La puteri mici 1-5W, nu se observă aproape nimic, poate la expunere extrem de �
 YO6OWN
 ##19#
 b
-04A276~&Cine este responsabil în cazul în care un vizitator la stația radioclubului este  electrocutat când atinge o priză montată defectuos?
+04A276~&Cine este responsabil în cazul în care un vizitator la stația radioclubului este electrocutat când atinge o priză montată defectuos?
 null
 accidentatul, fiindcă nu are voie să folosească materiale ale stației.
 responsabilul stației de club
@@ -274,7 +274,7 @@ se înlocuiește cu una de aceeași valoare cu cea care s-a ars, și se caută c
 folosirea unui asemenea aparat este riscantă, se poate folosi doar alimentat de la baterii.
 YO5OWN, Săcele, 2004 - rev. 2006
 null
-Chiar dacă receptorul este 'home-made', siguranța fuzibilă este  interzis a fi 'home-made' - liță, cuie sau altele asemănătoare; Dacă siguranța fuzibilă are o valoare conforma curentului nominal, atunci trebuie cautată cauza care duce la apariția unui curent așa mare. În cazul în care nu e defect, ar putea fi o eroare de proiectare, care duce la această manifestare.
+Chiar dacă receptorul este 'home-made', siguranța fuzibilă este interzis a fi 'home-made' - liță, cuie sau altele asemănătoare; Dacă siguranța fuzibilă are o valoare conformă curentului nominal, atunci trebuie căutată cauza care duce la apariția unui curent așa mare. În cazul în care nu e defect, ar putea fi o eroare de proiectare, care duce la această manifestare.
 YO6OWN, Brașov, 2007
 ##23#
 a
@@ -298,19 +298,19 @@ doar dacă ne atingem de transformator
 da, însă doar dacă nu îl oprim dinainte să-l scoatem din priză
 YO6OWN, 2014
 null
-În special la echipamentele cu tuburi electronice, capacitorii din circuitul anodic sau de grila se încarcă la tensiuni de sute de V. Valoarea capacitorilor nu e foarte mare dar tensiunea este suficient de mare ca să electrocuteze în mod dureros. Impulsul electric poate comanda o contracție puternică a mușchilor, dar să nu uităm că și inima e un mușchi. De dorit să așteptăm autodescărcarea capacitorilor înainte de a atinge piese. E de luat în calcul și descărcarea la împământare printr-o rezistență a părților de circuit pe care tensiunea persistă timp îndelungat.
+În special la echipamentele cu tuburi electronice, capacitorii din circuitul anodic sau de grilă se încarcă la tensiuni de sute de V. Valoarea capacitorilor nu e foarte mare dar tensiunea este suficient de mare ca să electrocuteze în mod dureros. Impulsul electric poate comanda o contracție puternică a mușchilor, dar să nu uităm că și inima e un mușchi. De dorit să așteptăm autodescărcarea capacitorilor înainte de a atinge piese. E de luat în calcul și descărcarea la împământare printr-o rezistență a părților de circuit pe care tensiunea persistă timp îndelungat.
 YO6OWN, 2018
 ##25#
 a
 07A276~&Cum se marchează locurile periculoase ale unei stații de emisie de radioamator?
 null
 Cu inscripția 'NU ATINGEȚI! PERICOL DE MOARTE!'
-Cu inscripția 'NU ATINGEȚI! SURSA RADIO-ACTIVĂ!'
+Cu inscripția 'NU ATINGEȚI! SURSĂ RADIO-ACTIVĂ!'
 Cu inscripția 'LOC PERICULOS!'
 Cu inscripția 'FIR CALD! NU ATINGEȚI!'
 YO5OWN, Săcele, 2004 - rev. 2006
 null
-Inscripția 'NU ATINGEȚI! PERICOL DE MOARTE!' este obligatorie este specificată in Normele de Protecția Muncii
+Inscripția 'NU ATINGEȚI! PERICOL DE MOARTE!' este obligatorie este specificată în Normele de Protecția Muncii
 YO6OWN
 ##26#
 c
@@ -334,7 +334,7 @@ Nu este specificat
 Este interzisă înălțarea de piloni fără ancorare
 YO5OWN, Săcele, 2004 - rev. 2006
 null
-Este interzisă ridicarea de piloni fără ancorare pe clădiri(priviți orice antena GSM cât de ancorată este). Pe acoperiș, sistemul pilon+antenă trebuie să reziste vânturilor; Iarna, depunerile de zăpadă și gheață de pe pilon și antenă pot ajunge să dezechilibreze pilonul.<br> Ancorarea este o metodă care crește foarte mult rezistența transversală a pilonului. 
+Este interzisă ridicarea de piloni fără ancorare pe clădiri(priviți orice antenă GSM cât de ancorată este). Pe acoperiș, sistemul pilon+antenă trebuie să reziste vânturilor; Iarna, depunerile de zăpadă și gheață de pe pilon și antenă pot ajunge să dezechilibreze pilonul.<br> Ancorarea este o metodă care crește foarte mult rezistența transversală a pilonului.
 YO6OWN, Brașov, 2007
 ##28#
 a
@@ -358,14 +358,14 @@ Coș de fum cu armătură metalică
 Trunchiul unui copac cu diametrul peste 50 cm 
 YO5OWN, Săcele, 2004 - rev. 2006
 null
-Punctul de ancorare trebuie să fie foarte solid și să nu genereze un pericol. Felinarul public nu e un punct de ancorare, fiindcă este pe domeniu public; În plus, nu este certificat să suporte stresuri mecanice generate de un pilon în vant.<br> Coșul de fum, cu sau fără armătură nu poate fi punct de ancorare, și de altfel niciun tip de zidărie nu se pretează la așa ceva.<br>Copacii pot fi strangulați de bucla cablului de ancoraj și să se usuce. O furtună care mișcă copacul va afecta și pilonul.
+Punctul de ancorare trebuie să fie foarte solid și să nu genereze un pericol. Felinarul public nu e un punct de ancorare, fiindcă este pe domeniu public; În plus, nu este certificat să suporte stresuri mecanice generate de un pilon în vânt.<br> Coșul de fum, cu sau fără armătură nu poate fi punct de ancorare, și de altfel niciun tip de zidărie nu se pretează la așa ceva.<br>Copacii pot fi strangulați de bucla cablului de ancoraj și să se usuce. O furtună care mișcă copacul va afecta și pilonul.
 YO6OWN, Brașov, 2007
 ##30#
 d
 05A274~&La cabană, curentul vine de la stâlp, orizontal, prin cabluri aeriene izolate. Radioamatorul de la cabană își întinde antena filară de lângă geam, până la baza unui copac. Cineva observă că firul antenei trece pe sub cablurile rețelei de curent la o distanță de 130cm, perpendicular pe acestea. E vreo problemă?
 null
 Nu, firele trec perpendicular, cablurile sunt izolate și distanța este suficient de mare
-Nici una, aerul este un bun izolator(izolează peste 4000V la cei 1.3 metri) iar cablurile rețelei sunt și ele izolate
+Niciuna, aerul este un bun izolator(izolează peste 4000V la cei 1.3 metri) iar cablurile rețelei sunt și ele izolate
 Da, dacă proprietarul nu este de acord.
 Distanța dintre antenă și cabluri este prea mică, distanța minimă trebuie să fie de 4000mm
 YO5OWN, Săcele, 2004 - rev. 2021
@@ -390,11 +390,11 @@ b
 null
 este o priză care în loc de fază - null are null - null și care se folosește la stabilirea potențialului de 0 la aparate electrice și electronice.
 Este un ansamblu de țevi, platbande de oțel, conductoare îngropate în pământ, într-un perimetru preponderent umed, cu rezistența sub 4 ohmi, care asigură scurgerea în pământ a sarcinilor electrice(în general periculoase) legate la ea.
-este un carlig sau un inel de oțel montat într-o fundatie de beton turnată în pământ, la care se leaga un cablu de oțel de ancorare la pământ a pilonului unei antene.
+este un cârlig sau un inel de oțel montat într-o fundație de beton turnată în pământ, la care se leagă un cablu de oțel de ancorare la pământ a pilonului unei antene.
 este un paratrăsnet
 YO5OWN, Săcele, 2004 - rev.2007
 null
-Priza de pământ este componenta esențială a unui paratrăsnet; De asemenea este necesară o buna priză de pământ pentru a avea un GND eficient. În locațiile de concurs este o idee bună să avem un GND adevarat. Maximul de 4 ohmi este cerut de STAS, însă o zecime de ohm este ceva adecvat.
+Priza de pământ este componenta esențială a unui paratrăsnet; De asemenea este necesară o bună priză de pământ pentru a avea un GND eficient. În locațiile de concurs este o idee bună să avem un GND adevărat. Maximul de 4 ohmi este cerut de STAS, însă o zecime de ohm este ceva adecvat.
 YO6OWN, Brașov, 2007
 ##33#
 b
@@ -556,8 +556,8 @@ YO6OWN, Brașov, 2007
 d
 04A272~&Aparatul de recepție trebuie introdus într-o cutie care:
 null
-este din material izolator, complet închis și conectat la o bornă de împământare cu rezistența sub patru ohmi
-permite accesul la componente pentru a șterge praful dintre armaturile condesatoarelor variabile, evitând modificarea capacității în timp
+este din material izolant, complet închis și conectat la o bornă de împământare cu rezistența sub patru ohmi
+permite accesul la componente pentru a șterge praful dintre armăturile condesatoarelor variabile, evitând modificarea capacității în timp
 nu se introduce în cutie pentru că scade sensibilitatea la recepție
 să nu permită accesul la părțile aflate sub tensiune
 YO6GZI, Săcele, 2005(rev.2007)
@@ -590,7 +590,7 @@ Circuitul anodic se află la tensiune de ordinul sutelor de V, în niciun caz nu
 YO6OWN
 ##49#
 b
-07A271~&Sistemul de schimbare manuală a bobinelor se evita în cazul în care prin bobine circula o componenta de curent continuu mai mare de:
+07A271~&Sistemul de schimbare manuală a bobinelor se evită în cazul în care prin bobine circulă o componentă de curent continuu mai mare de:
 null
 12V
 24V
@@ -598,14 +598,14 @@ null
 120V
 YO6GZI, Săcele, 2005(rev.2007)
 null
-La conectarea sau deconectarea unei bobine, apare tensiunea autoindusă în bobina de variația curentului (de la 0 la max sau de la max la 0), iar această tensiune poate ajunge la valori de kV.
+La conectarea sau deconectarea unei bobine, apare tensiunea autoindusă în bobină de variația curentului (de la 0 la max sau de la max la 0), iar această tensiune poate ajunge la valori de kV.
 YO6OWN, Brașov, 2007
 ##50#
 d
 08A271~&În cazul când se utilizează surse de alimentare separate bornele sau conectoarele de înaltă tensiune vor fi montate pe cât posibil:
 null
 pe panoul frontal al aparatului
-pe o parte laterala a carcasei
+pe o parte laterală a carcasei
 nu se montează astfel de borne
 pe partea din spate a aparatului
 YO6GZI, Săcele, 2005(rev.2007)
@@ -616,7 +616,7 @@ YO6OWN, Brașov, 2007
 a
 16A273~&Pentru protejarea auzului se recomandă:
 null
-folosirea limitatoarelor de nivel al perturbatiilor (noise blanker)
+folosirea limitatoarelor de nivel al perturbațiilor (noise blanker)
 menținerea distanței standard de 70 cm de difuzor
 activarea reglajului automat al amplificării (RAA)
 activarea controlului automat de frecvență (CAF)
@@ -629,7 +629,7 @@ b
 07A274~&Suspendarea antenelor deasupra sau dedesubtul conductoarelor liniilor de tensiune peste 1000 volți:
 null
 este permisă numai cu acord scris de la ANC
-este interzisa
+este interzisă
 nu se recomandă
 este permisă dar trebuie respectate prevederile normelor de securitate a muncii la înălțime
 YO6GZI, Săcele, 2005(rev.2007)
@@ -646,7 +646,7 @@ de tipul artificial, tubulare sau radiale
 tubulare, pentru a avea rezistența sub patru ohmi
 YO6GZI, Săcele, 2005(rev.2007)
 null
-În primul rând, trebuie ca ele să fie împământări reale - nu conductă de apă, țeavă de gaz, calorifere, și altele asemănătoare.<br>Priza de pământ are descriere în manualul NTSM: este un ansamblu de tije și platbande metalice îngropate care formează un sistem artificial eficient de scurgere a curenților la pământ. Rezistența între priză și pământ trebuie să fie mică iar suprafața de contact cu pământul trebuie să fie mare pentru a permite scurgerea unor curenti mari de ex. curentul unui trăsnet în antenă.
+În primul rând, trebuie ca ele să fie împământări reale - nu conductă de apă, țeavă de gaz, calorifere, și altele asemănătoare.<br>Priza de pământ are descriere în manualul NTSM: este un ansamblu de tije și platbande metalice îngropate care formează un sistem artificial eficient de scurgere a curenților la pământ. Rezistența între priză și pământ trebuie să fie mică iar suprafața de contact cu pământul trebuie să fie mare pentru a permite scurgerea unor curenți mari de ex. curentul unui trăsnet în antenă.
 YO6OWN, Brașov, 2007
 ##54#
 d
@@ -658,7 +658,7 @@ cupru sau aluminiu
 cupru sau fier
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Conductoarele trebuie să aibă rezistivitate foarte mică. Cum Al formeaza instantaneu la suprafață o pelicula de oxid rău conductor, nu corespunde.
+Conductoarele trebuie să aibă rezistivitate foarte mică. Cum Al formează instantaneu la suprafață o peliculă de oxid rău conductor, nu corespunde.
 YO6OWN, Brașov, 2007
 ##55#
 a
@@ -682,7 +682,7 @@ se trage cel accidentat de picioare
 se cheamă pompierii
 YO6GZI, Săcele, 2005(rev.2007)
 null
-PRIMA acțiune este scoaterea persoanei de sub tensiune. Acest lucru se face prin deconectarea părții de instalație care intră în contact cu accidentatul. În unele cazuri disperate se poate recurge la provocarea de scurtcircuite care în mod normal duc la declanșarea protecției/siguranței pentru acel sector. Nu se pierde vremea cu chematul 112, aceasta e o acțiune ultrioară, nu prima; tragerea accidentatului aflat sub tensiune de membre poate duce la electrocutarea salvatorului - interzis! 
+PRIMA acțiune este scoaterea persoanei de sub tensiune. Acest lucru se face prin deconectarea părții de instalație care intră în contact cu accidentatul. În unele cazuri disperate se poate recurge la provocarea de scurtcircuite care în mod normal duc la declanșarea protecției/siguranței pentru acel sector. Nu se pierde vremea cu chematul 112, aceasta e o acțiune ulterioară, nu prima; tragerea accidentatului aflat sub tensiune de membre poate duce la electrocutarea salvatorului - interzis! 
 YO6OWN, Brașov, 2007
 ##57#
 c
@@ -706,11 +706,11 @@ nu mai are efect nicio metodă de resuscitare
 după 3 minute fără oxigen, creierul se lezează ireversibil
 YO6GZI, Săcele, 2005(rev.2007)
 null
-Chiar dacă accidentatul are răni deschise, fracturi - oxigenarea creierului este primordială. Trebuie începută cât mai repede respirația artificială - nu se pierde vremea nicio secundă cu apeluri după ambulanță și altele asemenea  - decât dacă sunt mai mulți salvatori și se coordoneaza bine între ei. Odată ce accidentatul începe să respire singur, putem trece sunat la 112, la primul ajutor al celorlalte leziuni, în funcție de importanța lor.
+Chiar dacă accidentatul are răni deschise, fracturi - oxigenarea creierului este primordială. Trebuie începută cât mai repede respirația artificială - nu se pierde vremea nicio secundă cu apeluri după ambulanță și altele asemenea  - decât dacă sunt mai mulți salvatori și se coordoneaza bine între ei. Odată ce accidentatul începe să respire singur, putem trece la sunat 112, la primul ajutor al celorlalte leziuni, în funcție de importanța lor.
 YO6OWN, Brașov, 2007
 ##59#
 c
-17A273~&Ce obligatii de protecția muncii are titularul sau responsabilul unei stații la care lucrează radioamatori de clasa IV?
+17A273~&Ce obligații de protecția muncii are titularul sau responsabilul unei stații la care lucrează radioamatori de clasa IV?
 null
 nu are obligații
 radioamatorii de clasa IV au aceleași drepturi ca și cei de la clasa începători
@@ -718,5 +718,5 @@ asigurarea funcționării stației în strictă conformitate cu prevederile norm
 Să-i ajute să devină buni radioamatori
 ANCOM Iași, întrebare propusă pentru examenul de radioamator(rev.2018)
 null
-Din punct de vedere NTSM, radioamatorul oaspete(ne-titular) este un operator indiferent de clasa. Responsabilul sau titularul unei stații are responsabilitatea asigurarii NTSM, orice operator lucreaza la acea stație cu acordul lui.
+Din punct de vedere NTSM, radioamatorul oaspete(ne-titular) este un operator indiferent de clasă. Responsabilul sau titularul unei stații are responsabilitatea asigurării NTSM, orice operator lucrează la acea stație cu acordul lui.
 YO6OWN, Brașov, 2018
