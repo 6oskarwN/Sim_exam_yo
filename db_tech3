@@ -1,32 +1,32 @@
-Intrebari radiotehnica clasa III versiunea 3.18 versiunea actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_CEPT_Novice_radiotehnica</curricula></font>
+Intrebări radiotehnică clasa III versiunea 3.18 versiunea actualizată pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_CEPT_Novice_radiotehnica</curricula></font>
 460
 ##0#
 c
-01A111~&01A11/ Rigiditatea dielectricilor reprezinta calitatea unui izolator de a rezista la:
+01A111~&01A11/ Rigiditatea dielectricilor reprezintă calitatea unui izolator de a rezista la:
 null
- O sarcina electrica mare. 
+ O sarcină electrică mare.
  Un flux electric mare. 
  Un camp electric mare. 
- O inductie electrica mare. 
+ O inducție electrică mare.
 Subiect public ANCOM, 2007
 null
-Cu cat un dielectric este mai 'rigid dielectric', cu atat trebuie o tensiune mai mare sa il strapungem. Fiindca pentru acelasi material, tensiunea de strapungere creste cu cresterea grosimii materialului, rigiditatea dielectrica se exprima  in camp electric, care se masoara in V/m; Testarea rigiditatii dielectrice a unui izolator se face intr-un dispozitiv care inregistreaza atat grosimea dielectricului cu un fel de talpa-subler, cat si tensiunea maxima care s-a atins inainte ca materialul testat sa fie strapuns de inalta tensiune. Aparatul genereaza inalta tensiune cu tensiune variabila, se comanda de obicei cu un potentiometru si este crescuta pana cand apare strapungerea, iar aceasta tensiune ramane inregistrata.
-YO6OWN, Brasov, 2007
+Cu cât un dielectric este mai 'rigid dielectric', cu atât trebuie o tensiune mai mare să îl străpungem. Fiindcă pentru același material, tensiunea de străpungere crește cu creșterea grosimii materialului, rigiditatea dielectrică se exprimă  în câmp electric, care se măsoară in V/m; Testarea rigiditații dielectrice a unui izolator se face într-un dispozitiv care înregistrează atât grosimea dielectricului cu un fel de talpă-șubler, cât și tensiunea maximă care s-a atins înainte ca materialul testat să fie străpuns de înaltă tensiune. Aparatul generează înaltă tensiune cu tensiune variabilă, se comandă de obicei cu un potențiometru și este crescută până când apare străpungerea, iar această tensiune rămâne înregistrată.
+YO6OWN, Brașov, 2007
 ##1#
 a
 02A111~&03A11/ Ce sunt materialele conductoare?
 null
- Materiale ce contin in structura lor electroni liberi care se pot deplasa in interior.
- Materiale care permit deplasarea electronilor numai in conditii speciale.
- Metale, electroliti si uleiuri minerale.
- Nici unul din raspunsurile celelalte nu este corect.
+ Materiale ce conțin în structura lor electroni liberi care se pot deplasa în interior.
+ Materiale care permit deplasarea electronilor numai în condiții speciale.
+ Metale, electroliți și uleiuri minerale.
+ Nici unul din răspunsurile celelalte nu este corect.
 Subiect public ANCOM, 2007
 null
-De ex. metalele sunt materiale conducatoare, fiindca au electroni carora le este necesara o energie foarte mica pentru a trece in banda de conductie. Mai simplu, electronii se pot deplasa foarte usor in interiorul materialului.<br> Nu doar metalele sunt conductoare, ci si lichide ca electrolitii, in care se gasesc ioni care sunt purtatorii de sarcina.
-YO6OWN, Brasov, 2007
+De ex. metalele sunt materiale conducătoare, fiindcă au electroni cărora le este necesară o energie foarte mică pentru a trece în banda de conducție. Mai simplu, electronii se pot deplasa foarte ușor în interiorul materialului.<br> Nu doar metalele sunt conductoare, ci și lichide ca electroliții, în care se găsesc ioni care sunt purtătorii de sarcină.
+YO6OWN, Brașov, 2007
 ##2#
 c
-01A114~&04B11L/  Ce curent circula printr-o rezistenta de 10 k&Omega; cand la capetele acesteia se aplica o tensiune continua de 15 V:
+01A114~&04B11L/  Ce curent circulă printr-o rezistență de 10 k&Omega; când la capetele acesteia se aplică o tensiune continuă de 15 V:
 null
  150mA. 	
  15mA. 
@@ -34,11 +34,11 @@ null
  0,15mA 
 Subiect public ANCOM, 2007
 null
-Aplicam Legea lui Ohm: I = U / R<br>In cazul nostru, I =  15 V /  10 k&Omega; = 15 V / 10000 &Omega; = 0,0015 A = 1,5mA (atentie la unitatile de masura! V/&Omega; = A; V/k&Omega; = mA; V/M&Omega; = &micro;A)
-YO6OWN, Brasov, 2007
+Aplicăm Legea lui Ohm: I = U / R<br>În cazul nostru, I =  15 V /  10 k&Omega; = 15 V / 10000 &Omega; = 0,0015 A = 1,5mA (atenție la unitățile de măsură! V/&Omega; = A; V/k&Omega; = mA; V/M&Omega; = &micro;A)
+YO6OWN, Brașov, 2007
 ##3#
 b
-02A114~&05B11L/  Ce curent circula printr-o rezistenta de 1 k&Omega; cand la capetele acesteia se aplica o tensiune continua de 15 V:
+02A114~&05B11L/  Ce curent circulă printr-o rezistență de 1 k&Omega; când la capetele acesteia se aplică o tensiune continuă de 15 V:
 null
  150mA. 	
  15mA. 
@@ -46,35 +46,35 @@ null
  0,15mA 
 Subiect public ANCOM, 2007
 null
-Aplicam Legea lui Ohm: I = U / R<br>In cazul nostru, I =  15 V /  1 k&Omega; = 15 V / 1000 &Omega; = 0,015 A = 15 mA (atentie la unitatile de masura! V/&Omega; = A; V/k&Omega; = mA; V/M&Omega; = &micro;A)
-YO6OWN, Brasov, 2007
+Aplicăm Legea lui Ohm: I = U / R<br>În cazul nostru, I =  15 V /  1 k&Omega; = 15 V / 1000 &Omega; = 0,015 A = 15 mA (atenție la unitățile de măsură! V/&Omega; = A; V/k&Omega; = mA; V/M&Omega; = &micro;A)
+YO6OWN, Brașov, 2007
 ##4#
 c
-01A112~&06B11/ Diferenta de potential de la capetele unui conductor prin care circula curent electric se numeste:
+01A112~&06B11/ Diferența de potențial de la capetele unui conductor prin care circulă curent electric se numește:
 null
- Inductie electromagnetica.
+ Inducție electromagnetică.
  Rezistivitate.
- Tensiune electrica.
- tensiune magnetomotoare.
+ Tensiune electrică.
+ Tensiune magnetomotoare.
 Subiect public ANCOM, 2007
 null
-Aceasta este o definitie. Daca ai gresit, poate nu ai indicat niciun rezultat, sau poate nu ai fost atent.
-YO6OWN, Brasov, 2007
+Aceasta este o definiție. Dacă ai greșit, poate nu ai indicat niciun rezultat, sau poate nu ai fost atent.
+YO6OWN, Brașov, 2007
 ##5#
 b
 02A112~&07A11/ Ce este curentul electric?
 null
- Diferenta de potential intre capetele unui conductor.
+ Diferența de potențial între capetele unui conductor.
  Transportul electronilor liberi printr-un conductor.
- Capacitatea unei baterii de a elibera energie electrica.
- Nici unul din raspunsurile celelalte nu este adevarat.
+ Capacitatea unei baterii de a elibera energie electrică.
+ Nici unul din răspunsurile celelalte nu este adevărat.
 Subiect public ANCOM, 2007
 null
-Cu mult umor, un profesor al meu de fizica a spus ca e curent electric atunci cand electronii merg pe cablu asa cum merg sobolanii unul dupa altul intr-o teava. O definitie mai riguroasa a curentului electric ar putea fi 'deplasarea ordonata a purtatorilor de sarcina'.
-YO6OWN, Brasov, 2007
+Cu mult umor, un profesor al meu de fizică a spus ca e curent electric atunci când electronii merg pe cablu așa cum merg șobolanii unul după altul într-o țeavă. O definiție mai riguroasă a curentului electric ar putea fi 'deplasarea ordonată a purtătorilor de sarcină'.
+YO6OWN, Brașov, 2007
 ##6#
 b
-01A113~&08A11/ Cum se numeste unitatea de masura pentru tensiunea electrica?
+01A113~&08A11/ Cum se numește unitatea de măsură pentru tensiunea electrică?
 null
  Amper. 	
  Volt. 
@@ -82,11 +82,11 @@ null
  Farad. 
 Subiect public ANCOM, 2007
 null
-Amper [A] pentru curent, Volt[V] pentru tensiune, Farad [F] pentru capacitate, Henry [H]pentru inductie.
-YO6OWN, Brasov, 2007
+Amper [A] pentru curent, Volt[V] pentru tensiune, Farad [F] pentru capacitate, Henry [H]pentru inducție.
+YO6OWN, Brașov, 2007
 ##7#
 b
-01A116~&09A11/ Care marime electrica se masoara in Watt?
+01A116~&09A11/ Care mărime electrică se măsoară în Watt?
 null
  Energia. 	
  Puterea.
@@ -94,11 +94,11 @@ null
  Lucrul mecanic.
 Subiect public ANCOM, 2007
 null
-James Watt a descoperit motorul cu aburi, adica PUTEREA mecanicii - Unitatea de masura a puterii(nu numai electrice) ii poarta numele. Energia este Puterea consumata in timp.
-YO6OWN, Brasov, 2007
+James Watt a descoperit motorul cu aburi, adică PUTEREA mecanicii - Unitatea de măsură a puterii (nu numai electrice) îi poartă numele. Energia este Puterea consumată în timp.
+YO6OWN, Brașov, 2007
 ##8#
 b
-01A118~&10B11/  Cata energie electrica consuma un receptor cu puterea absorbita de 200 W care functioneaza continuu 5 ore?
+01A118~&10B11/  Câtă energie electrică consumă un receptor cu puterea absorbită de 200 W care funcționează continuu 5 ore?
 null
 1500 Vah. 	
 1 kWh. 
@@ -106,11 +106,11 @@ null
  437 J. 
 Subiect public ANCOM, 2007
 null
-E = P * t; Energia se exprima in W*s, insa in aplicatii 'umane' se pot folosi si multiplii si submultiplii unitatii de masura. In cazul nostru, W*h(watt-ora) ar fi nimerit.<br> E = 200W * 5h = 1000Wh = 1kWh
-YO6OWN, Brasov, 2007
+E = P * t; Energia se exprimă in W*s, însă în aplicații 'umane' se pot folosi și multiplii și submultiplii unității de măsură. În cazul nostru, W*h(watt-oră) ar fi nimerit.<br> E = 200W * 5h = 1000Wh = 1kWh
+YO6OWN, Brașov, 2007
 ##9#
 d
-01A213~&21A11/ Dublarea tensiunii la bornele unei rezistente va produce o putere disipata:
+01A213~&21A11/ Dublarea tensiunii la bornele unei rezistențe va produce o putere disipată:
 null
  De 1,41 ori mai mare. 
  De 2 ori mai mare. 
@@ -118,20 +118,20 @@ null
  De 4 ori mai mare. 
 Subiect public ANCOM, 2007
 null
-P = U*I = U * U/R = U<sup>2</sup>/R; Dublarea U va avea efectul: P=(2U)<sup>2</sup>/R = 4 * U<sup>2</sup>/R ; Puterea disipata va fi deci de 4 ori mai mare
-YO6OWN, Brasov, 2007
+P = U*I = U * U/R = U<sup>2</sup>/R; Dublarea U va avea efectul: P=(2U)<sup>2</sup>/R = 4 * U<sup>2</sup>/R ; Puterea disipată va fi deci de 4 ori mai mare
+YO6OWN, Brașov, 2007
 ##10#
 c
-01A115~&22A11/ Daca tensiunea la bornele unui rezistor se mentine constanta, dar rezistenta sa creste de doua ori, cum se modifica puterea disipata?
+01A115~&22A11/ Dacă tensiunea la bornele unui rezistor se menține constantă, dar rezistența sa crește de două ori, cum se modifică puterea disipată?
 null
- Se dubleaza. 		
- Ramane aceiasi. 
- Se injumatateste. 	
+ Se dublează.
+ Ramane aceiași.
+ Se injumătățește.
  Scade de 1,41 ori. 
 Subiect public ANCOM, 2007
 null
-P = U*I = U * U/R = U<sup>2</sup>/R; Dublarea R va avea efectul: P=U<sup>2</sup>/2R; Puterea disipata va fi deci jumatate din puterea initiala.
-YO6OWN, Brasov, 2007
+P = U*I = U * U/R = U<sup>2</sup>/R; Dublarea R va avea efectul: P=U<sup>2</sup>/2R; Puterea disipată va fi deci jumătate din puterea inițială.
+YO6OWN, Brașov, 2007
 ##11#
 b
 02A115~&23B11K/ Un bec de 100 W pentru tensiunea de 100V este alimentat printr-o rezistenta serie de la o sursa ideala  de 200V. Ce valoare trebuie sa aiba aceasta rezistenta pentru ca becul sa functioneze in regimul sau nominal?
