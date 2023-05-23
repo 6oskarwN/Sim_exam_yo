@@ -207,7 +207,7 @@ print qq!</head>\n!;
 print qq!<body bgcolor="#228b22" text="black" link="white" alink="white" vlink="white">\n!;
 
 print qq!<center>\n!;
-print qq!<font color="white">Troubleticket administration v 3.2.7 for examYO &copy; YO6OWN, 2007-2019</font><br>\n!;
+print qq!<font color="white">Troubleticket administration v 3.2.7 for examYO &copy; YO6OWN, 2007-2023</font><br>\n!;
 print qq!<form action="http://localhost/cgi-bin/tool_admintt.cgi" method="post">\n!;
 
 print qq!<table border="1" width="90%">\n!;
