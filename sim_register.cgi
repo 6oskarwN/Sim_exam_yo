@@ -94,10 +94,10 @@ my $f_xuser;					#flag says if login already exists in database
 
 my @tridfile;					#slurped transaction file
 my $trid;	#the Transaction-ID of the generated page
-my $hexi;	#the trid+timestamp_MD5
+my $hexi;	#the trid+timestamp_ssh
 my $entry;	#it's a bit of TRID
 
-my $epochTime=time();	#Counted since UTC 00000
+my $epochTime=time();	#epoch
 
 my @slurp_userfile;            	#RAM-userfile
 

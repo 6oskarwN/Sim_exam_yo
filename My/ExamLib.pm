@@ -82,7 +82,8 @@ use Digest::HMAC_SHA1 qw(hmac_sha1_hex);
 my $secret='80b3581f9e43242f96a6309e5432ce8b'; #development secret.
 # the name of trusted connection must be string that does not resemble a 6-digit hex code
 my %trusted_connection = (
-                          'testry' => '80b3581f9e43242f96a6309e5432aaaa' #development secret first trusted key
+                          'yo6own' => '80b3581f9e43242f96a6309e5432aaaa', #sha1 secret trusted key for yo6own
+                          'testry' => '80b3581f9e43242f96a6309e5432aaaa' #sha1 secret trusted key for testry
                           );
   my ($message) = @_;
   my @splitter = split(/_/,$message);

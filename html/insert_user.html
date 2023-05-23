@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+
+<title>examen radioamator</title>
+</head>
+<body vlink="white" text="#7fffd4" link="white" bgcolor="#228b22" alink="white">
+<!--
+SimEx Radio Release 3.4; Author: Francisc TOTH YO6OWN
+SimEx Radio was created originally for YO6KXP radio amateur club located in
+Săcele, Brașov, România (YO) then released to the whole radio amateur community.
+
+Prezentul simulator de examen împreună cu formatul bazelor de întrebări, rezolvările problemelor, manual de utilizare,
+instalare, SRS, cod sursă și utilitarele aferente constituie un pachet software gratuit care poate fi distribuit/modificat în 
+termenii licenței libere GNU GPL, așa cum este ea publicată de Free Software Foundation în versiunea 2 sau într-o versiune 
+ulterioară. Programul, întrebările și răspunsurile sunt distribuite gratuit, în speranța că vor fi folositoare, dar fără nicio 
+garanție, sau garanție implicită, vezi textul licenței GNU GPL pentru mai multe detalii. Utilizatorul programului, 
+manualelor, codului sursă și utilitarelor are toate drepturile descrise în licența publica GPL.
+În distribuția de pe https://github.com/6oskarwN/Sim_exam_yo trebuie să găsiți o copie a licenței GNU GPL, de asemenea 
+și versiunea în limba română, iar dacă nu, ea poate fi descărcată gratuit de pe pagina http://www.fsf.org/
+Textul întrebărilor oficiale publicate de ANCOM face excepție de la cele de mai sus, nefăcând obiectul licențierii GNU GPL, 
+copyrightul fiind al statului român, dar fiind folosibil în virtutea legii 544/2001 privind liberul acces la informațiile 
+de interes public precum al legii 109/2007 privind reutilizarea informațiilor din instituțiile publice.
+
+YO6OWN Francisc TOTH
+
+This program together with question database formatting, solutions to problems, manuals, documentation, sourcecode 
+and utilities is a  free software; you can redistribute it and/or modify it under the terms of the GNU General Public License 
+as published by the Free Software Foundation; either version 2 of the License, or any later version. This program is distributed 
+in the hope that it will be useful, but WITHOUT ANY WARRANTY or without any implied warranty. See the GNU General Public 
+License for more details. You should have received a copy of the GNU General Public License along with this software distribution; 
+if not, you can download it for free at http://www.fsf.org/ 
+Questions marked with ANCOM makes an exception of above-written, as ANCOM is a romanian public authority(similar to FCC 
+in USA) so any use of the official questions, other than in Read-Only way, is prohibited. 
+
+YO6OWN Francisc TOTH
+
+Made in Romania
+-->
+v 3.2.c
+<h1 align="center"><font color="yellow">Inregistrare user cu token</font></h1>
+<br>
+
+<table width="80%" align="center" border="1" bordercolor="red" cellpadding="4" cellspacing="2">
+<tr><td>
+Deoarece acest site este pe HTTP care transmite parolele în clar prin internet, vă rog să folosiți un login și parolă care dacă sunt furate, să nu fie relevante pentru altceva, să fie folosite doar aici, unde nu stochez date personale. Vă rog nu riscați să vă deschideți poarta altor conturi unde să folosiți aceeași combinație user+parolă\! Securitatea pe net e importantă dar veriga cea mai slabă e utilizatorul. Parolele sunt salvate de programul examyo în mod criptat dar asta e tot ce pot face. La acest provider de hosting gratuit nu se oferă certificat SSL gratuit de la Let's Encrypt, HTTPS este o opțiune contra-cost, 57EUR/an(accept sponsori pentru treaba asta)
+</td></tr></table>
+
+<form action="http://localhost/cgi-bin/sim_register.cgi" method="post">
+<p></p><center><b>Formular de înregistrare (valabil cat e valabil tokenul)</b></center><p></p>
+<table width="80%" cellspacing="2" cellpadding="4" border="1" align="center">
+<tbody><tr>
+<td width="20%">Login:</td>
+<td><input name="login" size="25" type="text"></td>
+<td><font size="-1">Trebuie să aibă între 4 și 25 caractere din setul (a-z, A-Z, 0-9, _). login-ul trebuie să fie unic și să nu fie folosit deja.</font></td></tr>
+<tr>
+<td><font>Parola:</font></td>
+<td><input name="passwd1" size="25" type="password"></td>
+<td><font size="-1">Parola trebuie să aibă între 8 și 25 caractere din setul (a-z, A-Z, 0-9, !@#$*-_).</font></td></tr>
+<tr>
+<td><font>Parola, din nou:</font></td>
+<td><input name="passwd2" size="25" type="password"></td>
+<td><font size="-1">Trebuie să fie identică cu parola introdusă mai sus</font></td>
+</tr>
+<tr>
+<td>Tipul contului:</td>
+<td><select size="1" name="tipcont">
+<option value="0" selected="selected">Cont de antrenament</option>
+<option value="1">Examen simulat clasa I</option>
+<option value="2">Examen simulat clasa II</option>
+<option value="3">Examen simulat clasa III</option>
+<option value="4">Examen simulat clasa IV</option>
+</select>
+</td>
+<td><font size="-1">Contul de antrenament permite să dai oricâte examene, examenul simulat este unic.</font></td></tr>
+<tr>
+<tr>
+<td><font>Token:</font></td>
+<td><input name="transaction" size="25" value="000083_24_2_20_5_9_120_72b7ae9e86954f181ea3b74eb54251b8677f4fd8" type="text"></td>
+<td><font size="-1">Token</font></td>
+</tr>
+<td><center><input value="Inregistreaza" type="submit"> </center></td>
+<td colspan="2"><center><input value="Reset" type="reset"> </center></td>
+</tr>
+</tbody></table>
+</form><br>
+<form method="link" action="http://localhost/index.html">
+<center><input value="Abandon Inregistrare" type="submit"></center>
+</form>
+
+
+</body></html>
