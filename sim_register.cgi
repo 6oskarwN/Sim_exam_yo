@@ -650,7 +650,7 @@ close (transactionFILE) or dienice("ERR02_cl",1,\"err07-3 $! $^E $?");
 #BLOCK: re/write new user record
 {
 my $new_expiry; #generate for new user
-
+my $epochExpire;
 #ACTION: open user account file
 open(userFILE,"+< sim_users") or dienice("ERR01_op",1,\"err06-3");	#open user file for writing
 flock(userFILE,2);		#LOCK_EX the file from other CGI instances
@@ -659,7 +659,9 @@ seek(userFILE,0,0);		#go to the beginning
 
 #ACTION: generate account expiry time = +14 days from now (for all creation types, self- or inserted-)
 #CUSTOM 14 * 24 * 60*60  = 1209600
-my $epochExpire = $epochTime + 1209600;#CUSTOM
+
+if ($trid_login eq "anonymous") { $epochExpire = $epochTime + 1209600;} #CUSTOM
+ else {$epochExpire = $epochTime + 15552000;} #6 months for the account created by trusted token
 
 my ($exp_sec, $exp_min, $exp_hour, $exp_day,$exp_month,$exp_year) = (gmtime($epochExpire))[0,1,2,3,4,5];
 $new_expiry = "$exp_sec $exp_min $exp_hour $exp_day $exp_month $exp_year\n"; #\n is important
