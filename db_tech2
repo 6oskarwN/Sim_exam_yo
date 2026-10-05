@@ -1,4 +1,4 @@
-Intrebari radiotehnica clasa II versiunea 3.17 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_HAREC_radiotehnica</curricula></font>
+Intrebari radiotehnica clasa II versiunea 3.18 versiune actualizata pe <a href="http://examyo.scienceontheweb.net">http://examyo.scienceontheweb.net</a> <font color="#FAFAFA"><curricula>prog_HAREC_radiotehnica</curricula></font>
 660
 ##0#
 c
@@ -1990,8 +1990,8 @@ null
  G3E
 Subiect public ANCOM, 2007
 null
-In AM. Acest subiect se potriveste ca proba si la legislatie /hi/
-YO6OWN, Brasov, 2007
+In AM. Acest subiect se potriveste ca proba si la legislatie. <br> G3E este de doua ori, exact ca in documentul ANCOM
+YO6OWN, Brasov, 2026
 ##166#
 c
 01A185~&11C18/ Care este avantajul principal al utilizarii semnalului SSB in locul DSB?
@@ -5770,8 +5770,8 @@ null
  Este doar o simpla moda, care face produsul mai vandabil.
 Subiect public ANCOM, 2007
 null
-
-
+Prin receptor și emițător se înțeleg TX și RX care formează transceiver-ul.
+YO6OWN, 2026
 ##481#
 b
 03C511~&03B51J/ Care dintre afirmatiile care urmeaza constituie unul dintre argumentele principale pentru adoptarea unei scheme de emitator cu translare de frecventa?
@@ -5782,8 +5782,8 @@ null
  Continutul de armonice la iesire este mai redus.
 Subiect public ANCOM, 2007
 null
-
-
+Prin receptor și emițător se înțeleg TX și RX care formează transceiver-ul.
+YO6OWN, 2026
 ##482#
 a
 04C511~&04C51J/ Care dintre afirmatiile care urmeaza constituie unul dintre argumentele principale pentru adoptarea unei scheme de emitator cu translare de frecventa?
@@ -5794,8 +5794,8 @@ null
  Este doar o simpla moda, care face produsul mai vandabil.
 Subiect public ANCOM, 2007
 null
-
-
+Prin receptor și emițător se înțeleg TX și RX care formează transceiver-ul.
+YO6OWN, 2026
 ##483#
 a
 01A512~&01B52/ Ce reprezinta schema bloc din figura alaturata?
@@ -7270,7 +7270,7 @@ null
   5000ppm.
 Subiect public ANCOM, 2007
 null
-0.05% = 0.0005 = 0.000500 = 500ppm
+0.05% = 0.0005 = 0.000500 = 500ppm<br>Sau: 1% = 10000 , 0.05% * 10000 = 500
 YO6OWN, Brasov, 2007
 ##606#
 d
