@@ -64,6 +64,9 @@ use strict;
 use warnings;
 use lib '.';
 use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice random_int);
+use CGI;
+
+my $cgi = new CGI; 		# variabila cgi
 
 # for refreshing transaction list
 my @tridfile;
@@ -124,12 +127,8 @@ unless($server_ok) #if server is congested, die with error code;
 { dienice("ERR01_op",1,\"$! $^E $?"); } #check ok for unclosed file before dienice
 
 
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<meta charset=utf-8>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
+print $cgi -> header("text/html; charset=utf-8"); # scriere header folosind utf-8 pentru diacritice
+print $cgi -> start_html("Examen Radioamator"); # initializare html folosind titlu din argument
 ins_gpl();
 print qq!v 3.2.8\n!; #version print for easy upload check
 print qq!<center><font size="+1" color="yellow">Rezolvă 3 din 4 întrebări și poți să te înregistrezi în examen</font></center><br>\n!;

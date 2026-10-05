@@ -65,7 +65,9 @@ use strict;
 use warnings;
 use lib '.';
 use My::ExamLib qw(ins_gpl dienice);
+use CGI;
 
+my $cgi = new CGI; # variabila cgi
 my $get_buffer; #intrarea
 my $get_filename; #hamquest database filename
 my $curricula; #associated curricula file from 1st line of database file
@@ -103,14 +105,8 @@ flock(INFILE,1);		        #LOCK_SH, file can be read
 
 seek(INFILE,0,0);			#goto begin of db file
 
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<head>\n!;
-print qq!<meta charset=utf-8>\n!;
-print qq!<title>Probleme si Rezolvari: $get_filename</title>\n!;
-print qq!</head>\n!;
-print qq!<body bgcolor="#FAFAFA" text="black" link="blue" alink="blue" vlink="blue">\n!;
+print $cgi -> header("text/html; charset=utf-8"); # scriere header folosind utf-8 pentru diacritice
+print $cgi -> start_html("Probleme si Rezolvari: $get_filename"); # initializare html folosind titlu din argument
 ins_gpl();
 print qq!<font color="blue">v 3.3.5</font>\n<br>\n!;
 

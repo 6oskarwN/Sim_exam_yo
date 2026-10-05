@@ -81,8 +81,10 @@ use strict;
 use warnings;
 use lib '.';
 use My::ExamLib qw(ins_gpl timestamp_expired compute_mac dienice random_int);
+use CGI;
 
 
+my $cgi = new CGI; 		# variabila cgi
 my $get_trid;                   #transaction ID from GET data
 my $trid_id;                    #transaction ID extracted from transaction file
 my $trid_login;			#login extracted from transaction file
@@ -482,13 +484,8 @@ my $found;
 my $v3code;	#temporary var so chomp() can be made
 #========================
 
-#ACTION: Generate HTML header of the exam
-print qq!Content-type: text/html\n\n!;
-print qq?<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n?; 
-print qq!<html>\n!;
-print qq!<meta charset=utf-8>\n!;
-print qq!<head>\n<title>examen radioamator</title>\n</head>\n!;
-print qq!<body bgcolor="#228b22" text="#7fffd4" link="white" alink="white" vlink="white">\n!;
+print $cgi -> header("text/html; charset=utf-8"); # scriere header folosind utf-8 pentru diacritice
+print $cgi -> start_html("Examen Radioamator"); # initializare html folosind titlu din argument
 ins_gpl();
 print qq!v 3.3.7\n!; #version print for easy upload check
 
